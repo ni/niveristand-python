@@ -18,6 +18,27 @@ See [GitHub's official documentation](https://help.github.com/articles/using-pul
 # Testing
 
 - TODO: include testing steps here.
+Use the `tox` package for running all tests. To get set up:
+```
+$ pip install tox
+```
+
+That should set up virtualenv and let you run tests on all supported environments.
+To run all tests, run the following command:
+```
+$ tox
+```
+Every time you run that the package will get created and all tests will run.
+
+To run all tests in place with your current python environment setup:
+```
+$ pytest
+```
+
+To only run the tests in one particular folder, run 
+```
+$ pytest tests/myfolder
+```
 
 # Developer Certificate of Origin (DCO)
 
