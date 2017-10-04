@@ -1,23 +1,15 @@
-from setuptools.command.test import test as testcommand
+"""Setup module for NI Veristand."""
+from os.path import dirname
+from os.path import join
 from setuptools import find_packages
 from setuptools import setup
-
-
-class PyTest(testcommand):
-    def finalize_options(self):
-        testcommand.finalize_options(self)
-        self.test_args = []
-        self.test_suite = True
-
-    def run_tests(self):
-        import pytest
-        pytest.main(self.test_args)
 
 
 pypi_name = 'niveristand'
 
 
 def get_version(name):
+    """Calculate a version number."""
     import os
     version = None
     script_dir = os.path.dirname(os.path.realpath(__file__))
@@ -31,7 +23,8 @@ def get_version(name):
 
 
 def read_contents(file_to_read):
-    with open(file_to_read, 'r') as f:
+    """Read a file in this folder."""
+    with open(join(dirname(__file__), file_to_read), 'r') as f:
         return f.read()
 
 
@@ -67,6 +60,5 @@ setup(
         "Programming Language :: Python :: Implementation :: PyPy",
         "Topic :: Software Development :: Testing"
     ],
-    cmdclass={'test': PyTest},
     package_data={pypi_name: ['VERSION']},
 )
