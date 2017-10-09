@@ -1,3 +1,9 @@
+from os import path
+from testutilities import configutilities
+
+__vs_binaries__ = ["NationalInstruments.VeriStand.dll"]
+
+
 def _inc(x):
         return x + 1
 
@@ -5,3 +11,18 @@ def _inc(x):
 def test_pass():
     """Just make sure asserts work."""
     assert _inc(4) == 5
+
+
+def test_pythonnetworks():
+    import clr
+    clr.AddReference("System")
+    from System import String
+    s = String("teststring")
+    assert "teststring" == str(s)
+
+
+def test_binariesfound():
+    folder = configutilities.getbinariesfolder()
+    assert path.isdir(folder)
+    for binary in __vs_binaries__:
+        assert path.isfile(path.join(folder, binary))
