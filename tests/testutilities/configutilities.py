@@ -1,5 +1,5 @@
-import yaml
 import os
+import yaml
 
 
 def getbinariesfolder():

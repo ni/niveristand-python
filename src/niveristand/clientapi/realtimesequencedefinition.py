@@ -1,14 +1,16 @@
-import niveristand.internal
-import niveristand.exceptions as nivsexceptions
-import uuid
-from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import LocalDeclaration
-from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import RealTimeSequence
-from NationalInstruments.VeriStand.Data import DoubleValue
-from NationalInstruments.VeriStand.Data import I32Value
-from System.IO import IOException
 import os
+from niveristand import exceptions as nivsexceptions
+from niveristand import internal
+from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import LocalDeclaration  # noqa: I100
+from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import RealTimeSequence  # noqa: I100
+from NationalInstruments.VeriStand.Data import DoubleValue  # noqa: I100
+from NationalInstruments.VeriStand.Data import I32Value  # noqa: I100
+from System.IO import IOException
 
+
+internal.dummy()
 _lv_cnt = 0
+
 
 def add_local_variable(rt_seq, name, value):
     global _lv_cnt

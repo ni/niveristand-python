@@ -1,12 +1,12 @@
-import yaml
 import os
 import clr
+import yaml
 
 
 def base_assembly_path():
     try:
         return _getdevconfig()['BaseBinariesPath']
-    except:
+    except (IOError, KeyError):
         return ''
 
 
@@ -24,3 +24,14 @@ clr.AddReference(os.path.join(base_assembly_path(),
                               "NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi.dll"))
 clr.AddReference(os.path.join(base_assembly_path(),
                               "NationalInstruments.VeriStand.DataTypes.dll"))
+
+
+def dummy():
+    """
+    Do nothing because you're just a dummy.
+
+    This dummy can be used by any module that imports internal to get rid of PEP8 errors about
+    an import not being used. This internal module takes care of loading C# references, so most
+    times it will only be imported but not actually used.
+    """
+    pass

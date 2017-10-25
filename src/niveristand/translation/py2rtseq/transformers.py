@@ -1,8 +1,8 @@
-from niveristand.exceptions import TranslateError
 import ast
-import niveristand.decorators as decorators
-from niveristand.translation import utils
+from niveristand import decorators
 from niveristand.clientapi import realtimesequencedefinition as rtseqapi
+from niveristand.exceptions import TranslateError
+from niveristand.translation import utils
 
 
 def _has_rtseq_decorator(func_node):

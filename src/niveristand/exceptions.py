@@ -12,5 +12,6 @@ class UnexpectedError(VeristandError):
 
 class VeristandNotImplementedError(VeristandError):
     def __init__(self):
+        """Throw Generic exception for things that are not implemented yet."""
         self.message = "Not Implemented"
         super(VeristandNotImplementedError, self).__init__(self.message)

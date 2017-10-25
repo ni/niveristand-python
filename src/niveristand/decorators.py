@@ -4,11 +4,13 @@ rt_seq_mode_id = '__rtseq_mode__'
 
 
 class Modes:
-    """The different modes an RT Sequence can operate on.
+    """
+    The different modes an RT Sequence can operate on.
 
     Technically this should have been an enum, but enum doesn't exist
     in python 2.7
     """
+
     CHECK = 1
     UNWRAP = 2
 

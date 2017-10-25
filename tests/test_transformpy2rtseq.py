@@ -1,8 +1,5 @@
-import pytest
 import inspect
-
 from niveristand import RealTimeSequence
-from niveristand.exceptions import VeristandError
 import testutilities.testfunctions as testfuncs
 
 

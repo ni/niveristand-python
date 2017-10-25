@@ -1,5 +1,5 @@
+from niveristand.exceptions import VeristandNotImplementedError
 from niveristand.translation import RealTimeSequence
-from niveristand.exceptions import *
 
 
 def run_py_as_rtseq(toplevelfunc, wait_until_complete=True):

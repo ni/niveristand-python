@@ -1,9 +1,9 @@
-import os
-import inspect
 import ast
-from niveristand.translation.py2rtseq import transformers
-from niveristand.decorators import Modes
+import inspect
+import os
 from niveristand.clientapi import realtimesequencedefinition as rtseqapi
+from niveristand.decorators import Modes
+from niveristand.translation.py2rtseq import transformers
 
 
 class RealTimeSequence:
@@ -23,7 +23,7 @@ class RealTimeSequence:
     def _transform(self):
         try:
             real_obj = self._obj(__rtseq_mode__=Modes.UNWRAP)
-        except:
+        except (KeyError, TypeError):
             real_obj = self._obj
         src = inspect.getsource(real_obj)
         top_node = ast.parse(src)
