@@ -41,7 +41,7 @@ setup(
     packages=find_packages('src'),
     package_dir={'': 'src'},
     include_package_data=True,
-    install_requires=['pythonnet'],
+    install_requires=['pythonnet', 'PyYAML'],
     tests_require=['pytest'],
     classifiers=[
         "Development Status :: 2 - Pre-Alpha",

@@ -1,13 +1,13 @@
-import json
+import yaml
 import os
 
 
-def getdevconfig():
-    cfgfile = os.environ["vsdev.json"]
-    with open(cfgfile, "r") as f:
-        cfg = json.load(f)
-    return cfg
-
-
 def getbinariesfolder():
-    return getdevconfig()['BaseBinariesPath']
+    return _getdevconfig()['BaseBinariesPath']
+
+
+def _getdevconfig():
+    cfgfile = os.environ["vsdev.yaml"]
+    with open(cfgfile, "r") as f:
+        cfg = yaml.load(f)
+    return cfg
