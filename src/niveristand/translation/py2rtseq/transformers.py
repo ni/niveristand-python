@@ -2,6 +2,7 @@ import ast
 from niveristand import decorators
 from niveristand.clientapi import realtimesequencedefinition as rtseqapi
 from niveristand.exceptions import TranslateError
+from niveristand.translation import symbols
 from niveristand.translation import utils
 
 
@@ -24,10 +25,6 @@ class DefaultTransformer:
     @staticmethod
     def transform(node, rtseq, block):
         raise TranslateError("Unexpected transform for node type %s" % node.__class__.__name__)
-
-    @staticmethod
-    def get_string_expression(node):
-        raise TranslateError("Unexpected get_string_expression node type %s" % node.__class__.__name__)
 
 
 class ModuleTransformer:
@@ -59,10 +56,36 @@ class PassTransformer:
 class AssignTransformer:
     @staticmethod
     def transform(node, rtseq, block):
+        node_value = generic_transform(node.value, rtseq, block)
         if isinstance(node.targets[0], ast.Name):
             # new local variable
             variable_name = node.targets[0].id
-            utils.create_rtseq_variable(variable_name, node.value, rtseq)
+            utils.create_rtseq_variable(variable_name, node_value, rtseq)
+        utils.add_assignment(block, variable_name, node_value)
+
+
+class AttributeTransformer:
+    @staticmethod
+    def transform(node, rtseq, block):
+        built_exp = generic_transform(node.value, rtseq, block) + '.' + node.attr
+        if built_exp in symbols._symbols:
+            return symbols._symbols[built_exp]
+        return built_exp
+
+
+class NumTransformer:
+    @staticmethod
+    def transform(node, rtseq, block):
+        return node.n
+
+
+class NameTransformer:
+    @staticmethod
+    def transform(node, rtseq, block):
+        if node.id in symbols._symbols:
+            return symbols._symbols[node.id]
+        else:
+            return node.id
 
 
 class TransformerFactory:
@@ -71,3 +94,6 @@ class TransformerFactory:
     _FunctionDefTransformer = FunctionDefTransformer
     _PassTransformer = PassTransformer
     _AssignTransformer = AssignTransformer
+    _NumTransformer = NumTransformer
+    _AttributeTransformer = AttributeTransformer
+    _NameTransformer = NameTransformer

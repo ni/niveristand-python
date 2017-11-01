@@ -19,3 +19,11 @@ def test_transform_simple_local_assignment():
     rtseq = RealTimeSequence(testfunc, "")
     assert (len(rtseq._seqs) is 1)
     assert (rtseq._seqs[testfunc.__name__].Variables.LocalVariables.Variables.Length is 1)
+
+
+def test_transform_pi_assign_to_local():
+    testfunc = testfuncs.simple_assign_pi
+    rtseq = RealTimeSequence(testfunc, "")
+    assert(len(rtseq._seqs) is 1)
+    assert(rtseq._seqs[testfunc.__name__].Variables.LocalVariables.Variables.Length is 2)
+    assert(rtseq._seqs[testfunc.__name__].Code.Main.Body.Statements.Length is 2)

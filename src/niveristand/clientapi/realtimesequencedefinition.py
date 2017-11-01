@@ -1,12 +1,12 @@
 import os
 from niveristand import exceptions as nivsexceptions
 from niveristand import internal
+from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import Expression  # noqa: I100
 from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import LocalDeclaration  # noqa: I100
 from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import RealTimeSequence  # noqa: I100
 from NationalInstruments.VeriStand.Data import DoubleValue  # noqa: I100
 from NationalInstruments.VeriStand.Data import I32Value  # noqa: I100
 from System.IO import IOException
-
 
 internal.dummy()
 _lv_cnt = 0
@@ -22,6 +22,10 @@ def add_local_variable(rt_seq, name, value):
     local_declaration = LocalDeclaration(name, converted_value)
     rt_seq.Variables.LocalVariables.AddLocalVariable(local_declaration)
     return name
+
+
+def add_assignment(block, dest_name, source_name):
+    block.AddStatement(Expression('%s = %s' % (dest_name, source_name)))
 
 
 def create_real_time_sequence():
@@ -40,5 +44,8 @@ def _convert_value_to_datavalue(value):
         return I32Value(value)
     if isinstance(value, float):
         return DoubleValue(value)
+    if isinstance(value, str):
+        # Variable is being initialized with a symbol so let's just assume double for now.
+        return DoubleValue(0)
     raise nivsexceptions.UnexpectedError("Unable to convert value for type %s"
                                          % type(value))

@@ -26,8 +26,8 @@ def test_save_invalid_folder_throws():
 def _save_debug_helper(func):
     """Save a sequence so it can be inspected manually."""
     tempfolder = tempfile.mkdtemp()
-    rtseq.save_py_as_rtseq(func, tempfolder)
     print(tempfolder)
+    rtseq.save_py_as_rtseq(func, tempfolder)
 
 
 if __name__ == '__main__':
