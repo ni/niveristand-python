@@ -35,3 +35,8 @@ def dummy():
     times it will only be imported but not actually used.
     """
     pass
+
+
+LOCAL_VARIABLES = 'local_variables'
+RTSEQ = 'rt_seq'
+BLOCK = 'block'

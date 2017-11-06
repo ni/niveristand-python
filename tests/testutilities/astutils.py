@@ -41,7 +41,7 @@ class AstPrinter(object):
                 self.print_node(value)
                 self.decrement_indent()
             else:
-                raise Exception("Unexpected field type")
+                raise Exception("Unexpected field type %s" % field)
         self.decrement_indent(") # %s" % node.__class__.__name__)
 
     def print_with_indentation(self, msg):
@@ -84,4 +84,4 @@ class AstGUIPrinter(AstPrinter):
 
 
 if __name__ == "__main__":
-    pretty_print_ast(testutilities.testfunctions, graphical=True)
+    pretty_print_ast(testutilities.testfunctions.simple_local_assignment, graphical=True)

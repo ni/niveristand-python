@@ -1,6 +1,9 @@
 import os
 from niveristand import exceptions as nivsexceptions
 from niveristand import internal
+from niveristand.datatypes import DataType
+from niveristand.datatypes import Double
+from niveristand.datatypes import Int32
 from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import Expression  # noqa: I100
 from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import LocalDeclaration  # noqa: I100
 from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import RealTimeSequence  # noqa: I100
@@ -39,13 +42,12 @@ def save_real_time_sequence(rtseq, filepath):
         raise IOError(e.Message)
 
 
-def _convert_value_to_datavalue(value):
-    if isinstance(value, int):
-        return I32Value(value)
-    if isinstance(value, float):
-        return DoubleValue(value)
-    if isinstance(value, str):
-        # Variable is being initialized with a symbol so let's just assume double for now.
-        return DoubleValue(0)
+def _convert_value_to_datavalue(nivsvalue):
+    if isinstance(nivsvalue, Double):
+        return DoubleValue(nivsvalue.value)
+    if isinstance(nivsvalue, Int32):
+        return I32Value(nivsvalue.value)
+    if isinstance(nivsvalue, DataType):
+        raise nivsexceptions.VeristandNotImplementedError()
     raise nivsexceptions.UnexpectedError("Unable to convert value for type %s"
-                                         % type(value))
+                                         % type(nivsvalue))

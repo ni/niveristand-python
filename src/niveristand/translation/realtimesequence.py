@@ -1,30 +1,47 @@
 import ast
 import inspect
 import os
+
+from niveristand import errormessages
 from niveristand.clientapi import realtimesequencedefinition as rtseqapi
 from niveristand.decorators import Modes
+from niveristand.exceptions import TranslateError
+from niveristand.exceptions import VeristandError
+from niveristand.internal import BLOCK
+from niveristand.internal import LOCAL_VARIABLES
+from niveristand.internal import RTSEQ
 from niveristand.translation.py2rtseq import transformers
 
 
 class RealTimeSequence:
-    def __init__(self, obj, top_level_func=None):
-        self._obj = obj
-        self._seqs = dict()
+    def __init__(self, top_level_func):
         self._top_level_func = top_level_func
-        self._transform()
         self._path = ''
+        self._rtseq = None
+        # finally, initialize the transform
+        self._transform()
 
     def save(self, path=None):
+        if self._rtseq is None:
+            raise VeristandError(errormessages.save_without_valid_sequence)
         if path is not None:
             self._path = os.path.abspath(path)
-        for name, seq in self._seqs.items():
-            rtseqapi.save_real_time_sequence(seq, os.path.join(self._path, name) + ".nivsseq")
+        name = self._top_level_func.__name__
+        rtseqapi.save_real_time_sequence(self._rtseq, os.path.join(self._path, name) + ".nivsseq")
 
     def _transform(self):
         try:
-            real_obj = self._obj(__rtseq_mode__=Modes.UNWRAP)
+            real_obj = self._top_level_func(__rtseq_mode__=Modes.UNWRAP)
         except (KeyError, TypeError):
-            real_obj = self._obj
+            raise TranslateError(errormessages.invalid_top_level_func)
         src = inspect.getsource(real_obj)
         top_node = ast.parse(src)
-        transformers.generic_transform(top_node, self._seqs, None)
+        resources = {LOCAL_VARIABLES: {}, RTSEQ: None, BLOCK: None}
+        try:
+            func_node = top_node.body[0]
+        except TypeError:
+            func_node = None
+        if func_node is None or not isinstance(func_node, ast.FunctionDef):
+            raise TranslateError(errormessages.invalid_top_level_func)
+        transformers.generic_transform(func_node, resources)
+        self._rtseq = resources[RTSEQ]
