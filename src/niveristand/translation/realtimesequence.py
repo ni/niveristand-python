@@ -5,12 +5,9 @@ import os
 from niveristand import errormessages
 from niveristand.clientapi import realtimesequencedefinition as rtseqapi
 from niveristand.decorators import Modes
-from niveristand.exceptions import TranslateError
-from niveristand.exceptions import VeristandError
-from niveristand.internal import BLOCK
-from niveristand.internal import LOCAL_VARIABLES
-from niveristand.internal import RTSEQ
-from niveristand.translation.py2rtseq import transformers
+from niveristand.exceptions import TranslateError, VeristandError
+from niveristand.internal import BLOCK, LOCAL_VARIABLES, RTSEQ
+from niveristand.translation.utils import generic_ast_node_transform
 
 
 class RealTimeSequence:
@@ -43,5 +40,5 @@ class RealTimeSequence:
             func_node = None
         if func_node is None or not isinstance(func_node, ast.FunctionDef):
             raise TranslateError(errormessages.invalid_top_level_func)
-        transformers.generic_transform(func_node, resources)
+        generic_ast_node_transform(func_node, resources)
         self._rtseq = resources[RTSEQ]

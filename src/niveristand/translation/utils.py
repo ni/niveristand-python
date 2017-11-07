@@ -1,10 +1,7 @@
-from niveristand.clientapi import realtimesequencedefinition as rtseqapi
+from niveristand.translation.py2rtseq.transformers import TRANSFORMERS
 
 
-def create_rtseq_variable(variable_name, value, rt_seq):
-    variable_name = rtseqapi.add_local_variable(rt_seq, variable_name, value)
-    return variable_name
-
-
-def add_assignment(block, dest_name, source_name):
-    rtseqapi.add_assignment(block, dest_name, source_name)
+def generic_ast_node_transform(node, resources):
+    transformer_name = node.__class__.__name__
+    transformer = TRANSFORMERS.get(transformer_name, TRANSFORMERS['Default'])
+    return transformer(node, resources)
