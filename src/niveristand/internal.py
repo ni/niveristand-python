@@ -40,3 +40,5 @@ def dummy():
 LOCAL_VARIABLES = 'local_variables'
 RTSEQ = 'rt_seq'
 BLOCK = 'block'
+LOCAL_VAR_VALUE = 'node_value'
+RT_SEQ_VAR_NAME = 'rt_seq_var_name'

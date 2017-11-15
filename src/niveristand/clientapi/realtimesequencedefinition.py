@@ -1,26 +1,23 @@
 import os
+
 from niveristand import exceptions as nivsexceptions
 from niveristand import internal
 from niveristand.datatypes import DataType
 from niveristand.datatypes import Double
 from niveristand.datatypes import Int32
-from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import Expression  # noqa: I100
-from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import LocalDeclaration  # noqa: I100
-from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import RealTimeSequence  # noqa: I100
-from NationalInstruments.VeriStand.Data import DoubleValue  # noqa: I100
-from NationalInstruments.VeriStand.Data import I32Value  # noqa: I100
+from NationalInstruments.VeriStand.Data import DoubleValue  # noqa: I100 We need these C# imports to be out of order.
+from NationalInstruments.VeriStand.Data import I32Value
+from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import Expression
+from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import LocalDeclaration
+from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import RealTimeSequence
+from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import ReturnDeclaration
 from System.IO import IOException
 
 internal.dummy()
-_lv_cnt = 0
 
 
 def add_local_variable(rt_seq, name, value):
-    global _lv_cnt
-    if name is None:
-        name = ''
-    name = 'lv_' + name + '_' + str(_lv_cnt)
-    _lv_cnt += 1
+    name = _create_unique_lv_name(name)
     converted_value = _convert_value_to_datavalue(value)
     local_declaration = LocalDeclaration(name, converted_value)
     rt_seq.Variables.LocalVariables.AddLocalVariable(local_declaration)
@@ -33,6 +30,14 @@ def add_assignment(block, dest_name, source_name):
 
 def create_real_time_sequence():
     return RealTimeSequence()
+
+
+def add_return_variable(rtseq, name, default_value):
+    name = _create_unique_lv_name(name)
+    value = _convert_value_to_datavalue(default_value)
+    return_declaration = ReturnDeclaration(name, value)
+    rtseq.Variables.ReturnType = return_declaration
+    return name
 
 
 def save_real_time_sequence(rtseq, filepath):
@@ -51,3 +56,15 @@ def _convert_value_to_datavalue(nivsvalue):
         raise nivsexceptions.VeristandNotImplementedError()
     raise nivsexceptions.UnexpectedError("Unable to convert value for type %s"
                                          % type(nivsvalue))
+
+
+def _create_unique_lv_name(name):
+    try:
+        _create_unique_lv_name.lv_cnt += 1
+    except AttributeError:
+        _create_unique_lv_name.lv_cnt = 0
+    if name is None:
+        name = ''
+    name = 'lv_' + name + '_' + str(_create_unique_lv_name.lv_cnt)
+    _create_unique_lv_name.lv_cnt += 1
+    return name

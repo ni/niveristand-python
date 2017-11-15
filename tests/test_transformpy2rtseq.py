@@ -38,3 +38,44 @@ def test_untyped_declarations_fail():
     testfunc = testfuncs.assign_untyped
     with pytest.raises(exceptions.TranslateError):
         RealTimeSequence(testfunc)
+
+
+def test_return_var():
+    testfunc = testfuncs.return_var
+    rtseq = RealTimeSequence(testfunc)
+    assert(isinstance(rtseq._rtseq.Variables.ReturnType.DefaultValue.Value, float))
+    assert(rtseq._rtseq.Code.Main.Body.Statements.Length is 2)
+
+
+def test_return_var_value():
+    testfunc = testfuncs.return_var_value
+    rtseq = RealTimeSequence(testfunc)
+    assert(isinstance(rtseq._rtseq.Variables.ReturnType.DefaultValue.Value, float))
+    assert(rtseq._rtseq.Code.Main.Body.Statements.Length is 2)
+
+
+def test_return_named_type():
+    testfunc = testfuncs.return_named_type
+    rtseq = RealTimeSequence(testfunc)
+    assert(isinstance(rtseq._rtseq.Variables.ReturnType.DefaultValue.Value, float))
+    assert(rtseq._rtseq.Code.Main.Body.Statements.Length is 1)
+
+
+def test_return_primitive_num():
+    testfunc = testfuncs.return_primitive_num
+    rtseq = RealTimeSequence(testfunc)
+    assert(isinstance(rtseq._rtseq.Variables.ReturnType.DefaultValue.Value, float))
+    assert(rtseq._rtseq.Code.Main.Body.Statements.Length is 1)
+
+
+def test_return_var_pi():
+    testfunc = testfuncs.return_var_pi
+    rtseq = RealTimeSequence(testfunc)
+    assert(isinstance(rtseq._rtseq.Variables.ReturnType.DefaultValue.Value, float))
+    assert(rtseq._rtseq.Code.Main.Body.Statements.Length is 3)
+
+
+def test_return_untyped_symbol():
+    testfunc = testfuncs.return_untyped_symbol
+    with pytest.raises(exceptions.TranslateError):
+        RealTimeSequence(testfunc)
