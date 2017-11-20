@@ -1,10 +1,10 @@
 import ast
 from niveristand import datatypes, errormessages
 from niveristand.exceptions import TranslateError
-from niveristand.translation.py2rtseq.transformers import TRANSFORMERS
 
 
 def generic_ast_node_transform(node, resources):
+    from niveristand.translation.py2rtseq.transformers import TRANSFORMERS
     transformer_name = node.__class__.__name__
     transformer = TRANSFORMERS.get(transformer_name, TRANSFORMERS['Default'])
     return transformer(node, resources)
