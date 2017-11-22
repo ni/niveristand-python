@@ -18,7 +18,7 @@ class Modes:
 def nivs_rt_sequence(func):
     @wraps(func)
     def ret_func(*args, **kwargs):
-        if kwargs[rt_seq_mode_id] is not None:
+        if rt_seq_mode_id in kwargs:
             if kwargs[rt_seq_mode_id] is Modes.UNWRAP:
                 # when using inspect.getsource in combination with @wraps
                 # python 2.7 fails to parse the decorated function.
