@@ -12,8 +12,8 @@ def save_rtseq_as_py(toplevelseq, srcfolder, destfolder):
 
 def save_py_as_rtseq(toplevelobj, destfolder):
     seq = RealTimeSequence(toplevelobj)
-    seq.save(destfolder)
-    return
+    filename = seq.save(destfolder)
+    return filename
 
 
 def validate_py_as_rtseq(toplevelobj):

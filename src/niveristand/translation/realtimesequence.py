@@ -23,8 +23,9 @@ class RealTimeSequence:
             raise VeristandError(errormessages.save_without_valid_sequence)
         if path is not None:
             self._path = os.path.abspath(path)
-        name = self._top_level_func.__name__
-        rtseqapi.save_real_time_sequence(self._rtseq, os.path.join(self._path, name) + ".nivsseq")
+        name = os.path.join(self._path, self._top_level_func.__name__) + ".nivsseq"
+        rtseqapi.save_real_time_sequence(self._rtseq, name)
+        return name
 
     def _transform(self):
         try:
