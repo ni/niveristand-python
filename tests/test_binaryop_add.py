@@ -10,50 +10,60 @@ b = 2
 
 @decorators.nivs_rt_sequence
 def return_constant():
-    return 5
+    a = Double(5)
+    return a
 
 
 @decorators.nivs_rt_sequence
 def add_simple_numbers():
-    return 1 + 2
+    a = Double(0)
+    a.value = 1 + 2
+    return a
 
 
-@pytest.mark.skip(reason="no way of currently testing this")
 def test_add_simple_numbers():
     RealTimeSequence(add_simple_numbers)
 
 
 @decorators.nivs_rt_sequence
 def add_num_nivsdatatype():
-    return 1 + Double(2)
+    a = Double(0)
+    a.value = 1 + Double(2)
+    return a
 
 
-@pytest.mark.skip(reason="no way of currently testing this")
 def test_add_num_nivsdatatype():
     RealTimeSequence(add_num_nivsdatatype)
 
 
 @decorators.nivs_rt_sequence
 def add_nivsdatatype_nivsdatatype():
-    return Double(1) + Double(2)
+    a = Double(0)
+    a.value = Double(1) + Double(2)
+    return a
 
 
 @decorators.nivs_rt_sequence
 def add_nivsdatatype_nivsdatatype1():
-    return Double(1) + Int32(2)
+    a = Double(0)
+    a.value = Double(1) + Int32(2)
+    return a
 
 
 @decorators.nivs_rt_sequence
 def add_nivsdatatype_nivsdatatype2():
-    return Int32(1) + Double(2)
+    a = Double(0)
+    a.value = Int32(1) + Double(2)
+    return a
 
 
 @decorators.nivs_rt_sequence
 def add_nivsdatatype_nivsdatatype3():
-    return Int32(1) + Int32(2)
+    a = Double(0)
+    a.value = Int32(1) + Int32(2)
+    return a
 
 
-@pytest.mark.skip(reason="no way of currently testing this")
 def test_add_nivsdatatype_nivsdatatype():
     RealTimeSequence(add_nivsdatatype_nivsdatatype)
     RealTimeSequence(add_nivsdatatype_nivsdatatype1)
@@ -63,15 +73,18 @@ def test_add_nivsdatatype_nivsdatatype():
 
 @decorators.nivs_rt_sequence
 def add_multiple_types():
-    return 1 + Double(2) + 3.0
+    a = Double(0)
+    a.value = 1 + Double(2) + 3.0
+    return a
 
 
 @decorators.nivs_rt_sequence
 def add_multiple_types1():
-    return 1 + Int32(2) + 3.0
+    a = Int32(0)
+    a.value = 1 + Int32(2) + 3.0 + Double(4)
+    return a
 
 
-@pytest.mark.skip(reason="no way of currently testing this")
 def test_add_multiple_types():
     RealTimeSequence(add_multiple_types)
     RealTimeSequence(add_multiple_types1)
@@ -79,35 +92,46 @@ def test_add_multiple_types():
 
 @decorators.nivs_rt_sequence
 def add_use_rtseq():
-    return 1 + return_constant()
+    a = Double(0)
+    a.value = 1 + return_constant()
+    return a
 
 
 @decorators.nivs_rt_sequence
 def add_use_rtseq1():
-    return return_constant() + 1
+    a = Double(0)
+    a.value = return_constant() + 1
+    return a
 
 
 @decorators.nivs_rt_sequence
 def add_use_rtseq2():
-    return Double(1) + return_constant()
+    a = Double(0)
+    a.value = Double(1) + return_constant()
+    return a
 
 
 @decorators.nivs_rt_sequence
 def add_use_rtseq3():
-    return return_constant() + Double(1)
+    a = Double(0)
+    a.value = return_constant() + Double(1)
+    return a
 
 
 @decorators.nivs_rt_sequence
 def add_use_rtseq4():
-    return Int32(1) + return_constant()
+    a = Double(0)
+    a.value = Int32(1) + return_constant()
+    return a
 
 
 @decorators.nivs_rt_sequence
 def add_use_rtseq5():
-    return return_constant() + Int32(1)
+    a = Double(0)
+    a.value = return_constant() + Int32(1)
+    return a
 
 
-@pytest.mark.skip(reason="no way of currently testing this")
 def test_add_use_rtseq():
     RealTimeSequence(add_use_rtseq)
     RealTimeSequence(add_use_rtseq1)
@@ -119,20 +143,25 @@ def test_add_use_rtseq():
 
 @decorators.nivs_rt_sequence
 def add_with_parantheses():
-    return 1 + (2 + 3)
+    a = Double(0)
+    a.value = 1 + (2 + 3)
+    return a
 
 
 @decorators.nivs_rt_sequence
 def add_with_parantheses1():
-    return 1 + (Double(2) + return_constant())
+    a = Double(0)
+    a.value = 1 + (Double(2) + return_constant())
+    return a
 
 
 @decorators.nivs_rt_sequence
 def add_with_parantheses2():
-    return return_constant() + (Int32(2) + 3.0) + Double(4)
+    a = Double(0)
+    a.value = return_constant() + (Int32(2) + 3.0) + Double(4)
+    return a
 
 
-@pytest.mark.skip(reason="no way of currently testing this")
 def test_add_with_parantheses():
     RealTimeSequence(add_with_parantheses)
     RealTimeSequence(add_with_parantheses1)
@@ -142,16 +171,19 @@ def test_add_with_parantheses():
 @decorators.nivs_rt_sequence
 def add_variables():
     a = Double(5)
-    return 1 + a
+    b = Double(0)
+    b.value = 1 + a
+    return b
 
 
 @decorators.nivs_rt_sequence
 def add_variables1():
     a = Double(5)
-    return 1 + a.value
+    b = Double(0)
+    b.value = 1 + a.value
+    return b
 
 
-@pytest.mark.skip(reason="no way of currently testing this")
 def test_add_variables():
     RealTimeSequence(add_variables)
     RealTimeSequence(add_variables1)
@@ -161,17 +193,20 @@ def test_add_variables():
 def add_variable_variable():
     a = Double(1)
     b = Double(2)
-    return a + b
+    c = Double(0)
+    c = a + b
+    return c
 
 
 @decorators.nivs_rt_sequence
 def add_variable_variable1():
     a = Double(1)
     b = Double(2)
-    return a.value + b.value
+    c = Double(0)
+    c.value = a.value + b.value
+    return c
 
 
-@pytest.mark.skip(reason="no way of currently testing this")
 def test_add_varaiable_variable():
     RealTimeSequence(add_variable_variable)
     RealTimeSequence(add_variable_variable1)
@@ -180,16 +215,19 @@ def test_add_varaiable_variable():
 @decorators.nivs_rt_sequence
 def add_variable_rtseq():
     a = Double(1)
-    return a + return_constant()
+    b = Double(0)
+    b.value = a.value + return_constant()
+    return b
 
 
 @decorators.nivs_rt_sequence
 def add_variable_rtseq1():
     a = Double(1)
-    return return_constant() + a.value
+    b = Double(0)
+    b.value = return_constant() + a.value
+    return b
 
 
-@pytest.mark.skip(reason="no way of currently testing this")
 def test_add_variable_rtseq():
     RealTimeSequence(add_variable_rtseq)
     RealTimeSequence(add_variable_rtseq1)
@@ -197,7 +235,9 @@ def test_add_variable_rtseq():
 
 @decorators.nivs_rt_sequence
 def add_to_channelref():
-    return 1 + Double(TestChannels.HP_COUNT)
+    a = Double(0)
+    a.value = 1 + Double(TestChannels.HP_COUNT)
+    return a
 
 
 @pytest.mark.skip(reason="no way of currently testing this")
@@ -207,7 +247,9 @@ def test_add_to_channelref():
 
 @decorators.nivs_rt_sequence
 def add_binary_unary():
-    return 2 + - 1
+    a = Double(0)
+    a.value = 2 + - 1
+    return a
 
 
 @pytest.mark.skip(reason="no way of currently testing this")
@@ -217,12 +259,16 @@ def test_add_binary_unary():
 
 @decorators.nivs_rt_sequence
 def add_with_multiple_plus():
-    return 1 ++ 2   # noqa: E225 it's ok to test this
+    a = Double(0)
+    a.value = 1 ++ 2   # noqa: E225 it's ok to test this
+    return a
 
 
 @decorators.nivs_rt_sequence
 def add_with_multiple_plus1():
-    return 1 +++ 2   # noqa: E225 it's ok to test this
+    a = Double(0)
+    a.value = 1 +++ 2   # noqa: E225 it's ok to test this
+    return a
 
 
 @pytest.mark.skip(reason="no way of currently testing this")
@@ -233,7 +279,9 @@ def test_add_with_multiple_plus():
 
 @decorators.nivs_rt_sequence
 def add_binary_unary_sequence():
-    return 1+ - + - + - + - + -2    # noqa: E225 it's ok to test this
+    a = Double(0)
+    a.value = 1+ - + - + - + - + -2  # noqa: E225 it's ok to test this
+    return a
 
 
 @pytest.mark.skip(reason="no way of currently testing this")
@@ -256,7 +304,10 @@ def add_invalid_variables1():
 
 @decorators.nivs_rt_sequence
 def add_invalid_variables2():
-    return a.value.value + 2
+    a = Double(0)
+    b = Double(0)
+    b.value = a.value.value + 2
+    return b
 
 
 @pytest.mark.skip(reason="no way of currently testing this")
@@ -269,7 +320,9 @@ def test_invalid_variables():
 
 @decorators.nivs_rt_sequence
 def add_to_None():
-    return None + 1
+    a = Double(0)
+    a.value = None + 1
+    return a
 
 
 @pytest.mark.skip(reason="no way of currently testing this")
@@ -280,7 +333,9 @@ def test_add_to_None():
 
 @decorators.nivs_rt_sequence
 def add_invalid_rtseq_call():
-    return return_constant + 1
+    a = Double(0)
+    a.value = return_constant + 1
+    return a
 
 
 @pytest.mark.skip(reason="no way of currently testing this")
@@ -291,7 +346,9 @@ def test_add_invalid_rtseq_call():
 
 @decorators.nivs_rt_sequence
 def add_complex_expr():
-    return 1 + (2 if 2 < 3 else 4)
+    a = Double(0)
+    a.value = 1 + (2 if 2 < 3 else 4)
+    return a
 
 
 @pytest.mark.skip(reason="no way of currently testing this")

@@ -13,6 +13,17 @@ class DataType:
     def _validate(self, value):
         return True
 
+    def __add__(self, other):
+        if isinstance(other, DataType):
+            return self.value + other.value
+        elif isinstance(other, (int, float)):
+            return self.value + other
+        else:
+            raise nivsexceptions.TranslateError(errormessages.invalid_type_for_operator)
+
+    def __radd__(self, other):
+        return self.__add__(other)
+
     @property
     def value(self):
         return self.__value

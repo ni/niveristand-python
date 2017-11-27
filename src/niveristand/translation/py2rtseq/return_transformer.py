@@ -1,4 +1,5 @@
 import ast
+
 from niveristand import errormessages
 from niveristand.clientapi import realtimesequencedefinition as rtseqapi
 from niveristand.exceptions import TranslateError

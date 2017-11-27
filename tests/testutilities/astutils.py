@@ -2,7 +2,7 @@ import ast
 import inspect
 import tkinter
 from tkinter import ttk
-import testutilities.testfunctions
+import test_binaryop_add
 
 
 def pretty_print_ast(obj, graphical=False):
@@ -84,4 +84,4 @@ class AstGUIPrinter(AstPrinter):
 
 
 if __name__ == "__main__":
-    pretty_print_ast(testutilities.testfunctions.simple_local_assignment, graphical=True)
+    pretty_print_ast(test_binaryop_add.add_simple_numbers, graphical=True)
