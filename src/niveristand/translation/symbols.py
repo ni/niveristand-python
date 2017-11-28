@@ -5,5 +5,7 @@ _symbols = {
     Right-side: rtsequence symbol
     """
     'pi': 'pi',
-    'math.pi': 'pi'
+    'math.pi': 'pi',
+    'True': 'true',
+    'False': 'false'
 }

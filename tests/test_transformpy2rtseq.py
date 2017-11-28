@@ -4,7 +4,7 @@ import pytest
 import testutilities.testfunctions as testfuncs
 
 
-def test_transform_invalid_fucntion_fails():
+def test_transform_invalid_function_fails():
     with pytest.raises(exceptions.TranslateError):
         RealTimeSequence(testfuncs)
 

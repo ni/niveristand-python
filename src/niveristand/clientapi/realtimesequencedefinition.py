@@ -2,15 +2,24 @@ import os
 
 from niveristand import exceptions as nivsexceptions
 from niveristand import internal
+from niveristand.datatypes import Boolean
 from niveristand.datatypes import DataType
 from niveristand.datatypes import Double
 from niveristand.datatypes import Int32
-from NationalInstruments.VeriStand.Data import DoubleValue  # noqa: I100 We need these C# imports to be out of order.
+from niveristand.datatypes import Int64
+from niveristand.datatypes import UInt32
+from niveristand.datatypes import UInt64
+from NationalInstruments.VeriStand.Data import BooleanValue  # noqa: I100 We need these C# imports to be out of order.
+from NationalInstruments.VeriStand.Data import DoubleValue
 from NationalInstruments.VeriStand.Data import I32Value
+from NationalInstruments.VeriStand.Data import I64Value
+from NationalInstruments.VeriStand.Data import U32Value
+from NationalInstruments.VeriStand.Data import U64Value
 from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import Expression
 from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import LocalDeclaration
 from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import RealTimeSequence
 from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import ReturnDeclaration
+import numpy as np
 from System.IO import IOException
 
 internal.dummy()
@@ -48,10 +57,18 @@ def save_real_time_sequence(rtseq, filepath):
 
 
 def _convert_value_to_datavalue(nivsvalue):
+    if isinstance(nivsvalue, Boolean):
+        return BooleanValue(nivsvalue)
     if isinstance(nivsvalue, Double):
-        return DoubleValue(nivsvalue.value)
+        return DoubleValue(float(nivsvalue.value))
     if isinstance(nivsvalue, Int32):
         return I32Value(nivsvalue.value)
+    if isinstance(nivsvalue, Int64):
+        return I64Value(nivsvalue.value)
+    if isinstance(nivsvalue, UInt32):
+        return U32Value(np.uint32(nivsvalue.value))
+    if isinstance(nivsvalue, UInt64):
+        return U64Value(np.uint64(nivsvalue.value))
     if isinstance(nivsvalue, DataType):
         raise nivsexceptions.VeristandNotImplementedError()
     raise nivsexceptions.UnexpectedError("Unable to convert value for type %s"

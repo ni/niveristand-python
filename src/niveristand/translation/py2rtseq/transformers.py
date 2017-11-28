@@ -1,4 +1,5 @@
 import ast
+import sys
 from niveristand.translation.py2rtseq import assign_transformer
 from niveristand.translation.py2rtseq import attribute_transformer
 from niveristand.translation.py2rtseq import binaryoperator_transformer
@@ -7,6 +8,7 @@ from niveristand.translation.py2rtseq import default_transformer
 from niveristand.translation.py2rtseq import functiondef_transformer
 from niveristand.translation.py2rtseq import module_transformer
 from niveristand.translation.py2rtseq import name_transformer
+from niveristand.translation.py2rtseq import nameconstant_transformer
 from niveristand.translation.py2rtseq import num_transformer
 from niveristand.translation.py2rtseq import pass_transformer
 from niveristand.translation.py2rtseq import return_transformer
@@ -25,3 +27,6 @@ TRANSFORMERS = {
     ast.Return.__name__: return_transformer.return_transformer,
     ast.BinOp.__name__: binaryoperator_transformer.binaryoperator_transformer,
 }
+
+if sys.version_info >= (3, 5):
+    TRANSFORMERS[ast.NameConstant.__name__] = nameconstant_transformer.nameconstant_transformer
