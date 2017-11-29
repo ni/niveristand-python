@@ -14,7 +14,7 @@ def test_run_simple():
     filename = realtimesequencetools.save_py_as_rtseq(simple, tempfolder)
     rtseq_result = rtseqrunner.run_rtseq_local(filename, [], [])
     py_result = simple()
-    assert rtseq_result == py_result
+    assert rtseq_result.Value == py_result
 
 
 def test_call_assert_helper():

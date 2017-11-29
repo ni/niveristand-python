@@ -1,9 +1,7 @@
 from niveristand import decorators, RealTimeSequence
 from niveristand.datatypes import Int32
 import pytest
-
-
-pytestmark = pytest.mark.skip(reason='Not implemented yet')
+from testutilities import rtseqrunner
 
 
 @decorators.nivs_rt_sequence
@@ -59,21 +57,21 @@ def test_if_pass():
 @decorators.nivs_rt_sequence
 def if_one_statement():
     ret_var = Int32(0)
-    if 1:
+    if True:
         ret_var.value = 1
     else:
         ret_var.value = 2
-    return ret_var
+    return ret_var.value
 
 
 @decorators.nivs_rt_sequence
 def if_multiple_statements():
     ret_var = Int32(0)
-    if 1:
+    if True:
         ret_var.value = 1
         ret_var.value = 2
         ret_var.value = 3
-    elif 1:
+    elif False:
         ret_var.value = 4
         ret_var.value = 5
     else:
@@ -81,7 +79,7 @@ def if_multiple_statements():
         ret_var.value = 7
         ret_var.value = 8
 
-    return ret_var
+    return ret_var.value
 
 
 def test_if_with_statements():
@@ -89,36 +87,46 @@ def test_if_with_statements():
     RealTimeSequence(if_multiple_statements)
 
 
+def test_run_with_statements():
+    rtseqrunner.assert_run_python_equals_rtseq(if_one_statement)
+    rtseqrunner.assert_run_python_equals_rtseq(if_multiple_statements)
+
+
 @decorators.nivs_rt_sequence
 def if_condition_variable():
     var = Int32(0)
     if var.value:
-        pass
+        var.value = 1
     else:
-        pass
+        var.value = 2
+    return var.value
 
 
 @decorators.nivs_rt_sequence
 def if_condition_equal_operator():
     var = Int32(0)
     if var.value == 1:
-        pass
+        var.value = 1
     else:
-        pass
+        var.value = 2
 
 
 @decorators.nivs_rt_sequence
 def if_condition_identity_operator():
     var = True
+    ret = Int32(0)
     if var is True:
-        pass
+        ret.value = 1
+    return ret.value
 
 
 @decorators.nivs_rt_sequence
 def if_condition_identity_not_operator():
     var = True
+    ret = Int32(0)
     if var is not False:
         pass
+    return ret.value
 
 
 def returns_true():
@@ -127,26 +135,31 @@ def returns_true():
 
 @decorators.nivs_rt_sequence
 def if_condition_function_call():
+    ret = Int32(0)
     if returns_true() is True:
-        pass
+        ret.value = 1
+    return ret.value
 
 
 @decorators.nivs_rt_sequence
 def if_condition_complex_expression():
     a = Int32(0)
     if (True and False) is not a.value * 1 < 10 or returns_true():
-        pass
+        a.value = 1
+    return a.value
 
 
 @decorators.nivs_rt_sequence
 def if_elif_condition_complex_expression():
     a = Int32(0)
     if False:
-        pass
+        a.value = 1
     elif (True and False) is not a.value * 1 < 10 or returns_true():
-        pass
+        a.value = 2
+    return a.value
 
 
+@pytest.mark.skip("Complex expressions not implemented yet")
 def test_if_condition_statements():
     RealTimeSequence(if_condition_variable)
     RealTimeSequence(if_condition_equal_operator)
@@ -155,3 +168,14 @@ def test_if_condition_statements():
     RealTimeSequence(if_condition_function_call)
     RealTimeSequence(if_condition_complex_expression)
     RealTimeSequence(if_elif_condition_complex_expression)
+
+
+@pytest.mark.skip("Complex expressions not implemented yet")
+def test_run_if_condition_statements():
+    rtseqrunner.assert_run_python_equals_rtseq(if_condition_variable)
+    rtseqrunner.assert_run_python_equals_rtseq(if_condition_equal_operator)
+    rtseqrunner.assert_run_python_equals_rtseq(if_condition_identity_operator)
+    rtseqrunner.assert_run_python_equals_rtseq(if_condition_identity_not_operator)
+    rtseqrunner.assert_run_python_equals_rtseq(if_condition_function_call)
+    rtseqrunner.assert_run_python_equals_rtseq(if_condition_complex_expression)
+    rtseqrunner.assert_run_python_equals_rtseq(if_elif_condition_complex_expression)

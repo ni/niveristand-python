@@ -16,6 +16,7 @@ from NationalInstruments.VeriStand.Data import I64Value
 from NationalInstruments.VeriStand.Data import U32Value
 from NationalInstruments.VeriStand.Data import U64Value
 from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import Expression
+from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import IfElse
 from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import LocalDeclaration
 from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import RealTimeSequence
 from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import ReturnDeclaration
@@ -35,6 +36,12 @@ def add_local_variable(rt_seq, name, value):
 
 def add_assignment(block, dest_name, source_name):
     block.AddStatement(Expression('%s = %s' % (dest_name, source_name)))
+
+
+def add_if_else(block, test_condition):
+    if_else = IfElse(Expression(test_condition))
+    block.AddStatement(if_else)
+    return if_else
 
 
 def create_real_time_sequence():
