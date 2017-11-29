@@ -1,17 +1,12 @@
 import tempfile
 from niveristand import decorators
 from niveristand import realtimesequencetools
-import pytest
 from testutilities import rtseqrunner
 
 
 @decorators.nivs_rt_sequence
 def simple():
     return 1.0
-
-
-pytestmark = pytest.mark.skipif(not rtseqrunner.can_run_local(),
-                                reason="Assembly for running locally not found.")
 
 
 def test_run_simple():
