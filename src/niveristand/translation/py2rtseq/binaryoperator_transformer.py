@@ -14,4 +14,5 @@ def binaryoperator_transformer(node, resources):
 def _operator(ast_operator):
     return{
         'Add': "+",
+        'Sub': "-",
     }.get(ast_operator, "unknown")

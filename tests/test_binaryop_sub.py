@@ -21,7 +21,6 @@ def sub_simple_numbers():
     return a
 
 
-@pytest.mark.skip(reason="no way of currently testing this")
 def test_sub_simple_numbers():
     RealTimeSequence(sub_simple_numbers)
 
@@ -33,7 +32,6 @@ def sub_num_nivsdatatype():
     return a
 
 
-@pytest.mark.skip(reason="no way of currently testing this")
 def test_sub_num_nivsdatatype():
     RealTimeSequence(sub_num_nivsdatatype)
 
@@ -66,7 +64,6 @@ def sub_nivsdatatype_nivsdatatype3():
     return a
 
 
-@pytest.mark.skip(reason="no way of currently testing this")
 def test_sub_nivsdatatype_nivsdatatype():
     RealTimeSequence(sub_nivsdatatype_nivsdatatype)
     RealTimeSequence(sub_nivsdatatype_nivsdatatype1)
@@ -88,7 +85,6 @@ def sub_multiple_types1():
     return a
 
 
-@pytest.mark.skip(reason="no way of currently testing this")
 def test_sub_multiple_types():
     RealTimeSequence(sub_multiple_types)
     RealTimeSequence(sub_multiple_types1)
@@ -136,7 +132,6 @@ def sub_use_rtseq5():
     return a
 
 
-@pytest.mark.skip(reason="no way of currently testing this")
 def test_sub_use_rtseq():
     RealTimeSequence(sub_use_rtseq)
     RealTimeSequence(sub_use_rtseq1)
@@ -167,7 +162,6 @@ def sub_with_parantheses2():
     return a
 
 
-@pytest.mark.skip(reason="no way of currently testing this")
 def test_sub_with_parantheses():
     RealTimeSequence(sub_with_parantheses)
     RealTimeSequence(sub_with_parantheses1)
@@ -190,7 +184,6 @@ def sub_variables1():
     return b
 
 
-@pytest.mark.skip(reason="no way of currently testing this")
 def test_sub_variables():
     RealTimeSequence(sub_variables)
     RealTimeSequence(sub_variables1)
@@ -214,7 +207,6 @@ def sub_variable_variable1():
     return c
 
 
-@pytest.mark.skip(reason="no way of currently testing this")
 def test_sub_varaiable_variable():
     RealTimeSequence(sub_variable_variable)
     RealTimeSequence(sub_variable_variable1)
@@ -236,7 +228,6 @@ def sub_variable_rtseq1():
     return b
 
 
-@pytest.mark.skip(reason="no way of currently testing this")
 def test_sub_variable_rtseq():
     RealTimeSequence(sub_variable_rtseq)
     RealTimeSequence(sub_variable_rtseq1)
@@ -267,23 +258,23 @@ def test_sub_binary_unary():
 
 
 @decorators.nivs_rt_sequence
-def sub_with_multiple_plus():
+def sub_with_multiple_minus():
     a = Double(0)
     a.value = 1 - 2   # noqa: E225 it's ok to test this
     return a
 
 
 @decorators.nivs_rt_sequence
-def sub_with_multiple_plus1():
+def sub_with_multiple_minus1():
     a = Double(0)
     a.value = 1 - 2   # noqa: E225 it's ok to test this
     return a
 
 
 @pytest.mark.skip(reason="no way of currently testing this")
-def test_sub_with_multiple_plus():
-    RealTimeSequence(sub_with_multiple_plus)
-    RealTimeSequence(sub_with_multiple_plus1)
+def test_sub_with_multiple_minus():
+    RealTimeSequence(sub_with_multiple_minus)
+    RealTimeSequence(sub_with_multiple_minus1)
 
 
 @decorators.nivs_rt_sequence

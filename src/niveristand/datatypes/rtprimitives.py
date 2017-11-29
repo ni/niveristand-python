@@ -25,6 +25,17 @@ class DataType:
     def __radd__(self, other):
         return self.__add__(other)
 
+    def __sub__(self, other):
+        if isinstance(other, DataType):
+            return self.value - other.value
+        elif isinstance(other, (int, float)):
+            return self.value - other
+        else:
+            raise nivsexceptions.TranslateError(errormessages.invalid_type_for_operator)
+
+    def __rsub__(self, other):
+        return self.__sub__(other)
+
     @property
     def value(self):
         return self.__value
