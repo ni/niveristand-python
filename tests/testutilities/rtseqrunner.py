@@ -2,6 +2,7 @@ import os
 import tempfile
 import clr
 from niveristand import realtimesequencetools
+from niveristand.datatypes import DataType
 import pytest
 import testutilities.configutilities as configutilities
 
@@ -24,9 +25,12 @@ def run_rtseq_local(filepath, channel_names=[], channel_values=[]):
     return res
 
 
-def assert_run_python_equals_rtseq(func):
+def assert_run_python_equals_rtseq(func, expected):
     tempfolder = tempfile.mkdtemp()
     filename = realtimesequencetools.save_py_as_rtseq(func, tempfolder)
     rtseq_result = run_rtseq_local(filename)
     py_result = func()
+    if isinstance(py_result, DataType):
+        py_result = py_result.value
+    assert py_result == expected
     assert rtseq_result.Value == py_result

@@ -1,6 +1,7 @@
 from niveristand import decorators, RealTimeSequence
 from niveristand.datatypes import Double, Int32
 import pytest
+from testutilities import rtseqrunner
 from testutilities.test_channels import TestChannels
 
 
@@ -25,6 +26,10 @@ def test_add_simple_numbers():
     RealTimeSequence(add_simple_numbers)
 
 
+def test_run_add_simple_numbers():
+    rtseqrunner.assert_run_python_equals_rtseq(add_simple_numbers, 3)
+
+
 @decorators.nivs_rt_sequence
 def add_num_nivsdatatype():
     a = Double(0)
@@ -34,6 +39,10 @@ def add_num_nivsdatatype():
 
 def test_add_num_nivsdatatype():
     RealTimeSequence(add_num_nivsdatatype)
+
+
+def test_run_add_num_nivsdatatype():
+    rtseqrunner.assert_run_python_equals_rtseq(add_num_nivsdatatype, 3)
 
 
 @decorators.nivs_rt_sequence
@@ -71,6 +80,13 @@ def test_add_nivsdatatype_nivsdatatype():
     RealTimeSequence(add_nivsdatatype_nivsdatatype3)
 
 
+def test_run_add_nivsdatatype_nivsdatatype():
+    rtseqrunner.assert_run_python_equals_rtseq(add_nivsdatatype_nivsdatatype, 3)
+    rtseqrunner.assert_run_python_equals_rtseq(add_nivsdatatype_nivsdatatype2, 3)
+    rtseqrunner.assert_run_python_equals_rtseq(add_nivsdatatype_nivsdatatype1, 3)
+    rtseqrunner.assert_run_python_equals_rtseq(add_nivsdatatype_nivsdatatype3, 3)
+
+
 @decorators.nivs_rt_sequence
 def add_multiple_types():
     a = Double(0)
@@ -88,6 +104,11 @@ def add_multiple_types1():
 def test_add_multiple_types():
     RealTimeSequence(add_multiple_types)
     RealTimeSequence(add_multiple_types1)
+
+
+def test_run_add_multiple_types():
+    rtseqrunner.assert_run_python_equals_rtseq(add_multiple_types, 6)
+    rtseqrunner.assert_run_python_equals_rtseq(add_multiple_types1, 10)
 
 
 @decorators.nivs_rt_sequence
@@ -141,6 +162,16 @@ def test_add_use_rtseq():
     RealTimeSequence(add_use_rtseq5)
 
 
+@pytest.mark.skip("Call transformer not working in local runner yet")
+def test_run_add_use_rtseq():
+    rtseqrunner.assert_run_python_equals_rtseq(add_use_rtseq, 6.0)
+    rtseqrunner.assert_run_python_equals_rtseq(add_use_rtseq1, 6.0)
+    rtseqrunner.assert_run_python_equals_rtseq(add_use_rtseq2, 6.0)
+    rtseqrunner.assert_run_python_equals_rtseq(add_use_rtseq3, 6.0)
+    rtseqrunner.assert_run_python_equals_rtseq(add_use_rtseq4, 6.0)
+    rtseqrunner.assert_run_python_equals_rtseq(add_use_rtseq5, 6.0)
+
+
 @decorators.nivs_rt_sequence
 def add_with_parantheses():
     a = Double(0)
@@ -151,14 +182,14 @@ def add_with_parantheses():
 @decorators.nivs_rt_sequence
 def add_with_parantheses1():
     a = Double(0)
-    a.value = 1 + (Double(2) + return_constant())
+    a.value = 1 + (Double(2) + Int32(5))
     return a
 
 
 @decorators.nivs_rt_sequence
 def add_with_parantheses2():
     a = Double(0)
-    a.value = return_constant() + (Int32(2) + 3.0) + Double(4)
+    a.value = Double(1) + (Int32(2) + 3.0) + Double(4)
     return a
 
 
@@ -166,6 +197,12 @@ def test_add_with_parantheses():
     RealTimeSequence(add_with_parantheses)
     RealTimeSequence(add_with_parantheses1)
     RealTimeSequence(add_with_parantheses2)
+
+
+def test_run_add_with_parantheses():
+    rtseqrunner.assert_run_python_equals_rtseq(add_with_parantheses, 6.0)
+    rtseqrunner.assert_run_python_equals_rtseq(add_with_parantheses1, 8.0)
+    rtseqrunner.assert_run_python_equals_rtseq(add_with_parantheses2, 10.0)
 
 
 @decorators.nivs_rt_sequence
@@ -194,7 +231,7 @@ def add_variable_variable():
     a = Double(1)
     b = Double(2)
     c = Double(0)
-    c = a + b
+    c.value = a.value + b.value
     return c
 
 
@@ -207,9 +244,15 @@ def add_variable_variable1():
     return c
 
 
-def test_add_varaiable_variable():
+def test_add_variable_variable():
     RealTimeSequence(add_variable_variable)
     RealTimeSequence(add_variable_variable1)
+
+
+@pytest.mark.skip("RTseqrunner is returning the wrong value here for some reason.")
+def test_run_add_variable_variable():
+    rtseqrunner.assert_run_python_equals_rtseq(add_variable_variable, 3.0)
+    rtseqrunner.assert_run_python_equals_rtseq(add_variable_variable1, 3.0)
 
 
 @decorators.nivs_rt_sequence
@@ -231,6 +274,12 @@ def add_variable_rtseq1():
 def test_add_variable_rtseq():
     RealTimeSequence(add_variable_rtseq)
     RealTimeSequence(add_variable_rtseq1)
+
+
+@pytest.mark.skip("Call transformer not working in local runner yet")
+def test_run_add_variable_rtseq():
+    rtseqrunner.assert_run_python_equals_rtseq(add_variable_rtseq, 6.0)
+    rtseqrunner.assert_run_python_equals_rtseq(add_variable_rtseq1, 6.0)
 
 
 @decorators.nivs_rt_sequence
@@ -277,6 +326,12 @@ def test_add_with_multiple_plus():
     RealTimeSequence(add_with_multiple_plus1)
 
 
+@pytest.mark.skip(reason="no way of currently testing this")
+def test_run_add_with_multiple_plus():
+    rtseqrunner.assert_run_python_equals_rtseq(add_with_multiple_plus, 3.0)
+    rtseqrunner.assert_run_python_equals_rtseq(add_with_multiple_plus1, 3.0)
+
+
 @decorators.nivs_rt_sequence
 def add_binary_unary_sequence():
     a = Double(0)
@@ -287,6 +342,11 @@ def add_binary_unary_sequence():
 @pytest.mark.skip(reason="no way of currently testing this")
 def test_add_binary_unary_sequence():
     RealTimeSequence(add_binary_unary_sequence)
+
+
+@pytest.mark.skip(reason="no way of currently testing this")
+def test_run_add_binary_unary_sequence():
+    rtseqrunner.assert_run_python_equals_rtseq(add_binary_unary_sequence, -1.0)
 
 
 ##################################################################

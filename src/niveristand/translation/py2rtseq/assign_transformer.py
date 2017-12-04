@@ -6,7 +6,7 @@ from niveristand.translation import utils
 
 
 def assign_transformer(node, resources):
-    variable_name = utils.generic_ast_node_transform(node.targets[0], resources)
+    variable_name = utils.get_variable_name_from_node(node.targets[0])
     rtseq = resources[RTSEQ]
     block = resources[BLOCK]
     if variable_name not in resources[LOCAL_VARIABLES]:

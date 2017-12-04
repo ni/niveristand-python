@@ -88,8 +88,8 @@ def test_if_with_statements():
 
 
 def test_run_with_statements():
-    rtseqrunner.assert_run_python_equals_rtseq(if_one_statement)
-    rtseqrunner.assert_run_python_equals_rtseq(if_multiple_statements)
+    rtseqrunner.assert_run_python_equals_rtseq(if_one_statement, 1)
+    rtseqrunner.assert_run_python_equals_rtseq(if_multiple_statements, 3)
 
 
 @decorators.nivs_rt_sequence
@@ -172,10 +172,10 @@ def test_if_condition_statements():
 
 @pytest.mark.skip("Complex expressions not implemented yet")
 def test_run_if_condition_statements():
-    rtseqrunner.assert_run_python_equals_rtseq(if_condition_variable)
-    rtseqrunner.assert_run_python_equals_rtseq(if_condition_equal_operator)
-    rtseqrunner.assert_run_python_equals_rtseq(if_condition_identity_operator)
-    rtseqrunner.assert_run_python_equals_rtseq(if_condition_identity_not_operator)
-    rtseqrunner.assert_run_python_equals_rtseq(if_condition_function_call)
-    rtseqrunner.assert_run_python_equals_rtseq(if_condition_complex_expression)
-    rtseqrunner.assert_run_python_equals_rtseq(if_elif_condition_complex_expression)
+    rtseqrunner.assert_run_python_equals_rtseq(if_condition_variable, 2)
+    rtseqrunner.assert_run_python_equals_rtseq(if_condition_equal_operator, 2)
+    rtseqrunner.assert_run_python_equals_rtseq(if_condition_identity_operator, 1)
+    rtseqrunner.assert_run_python_equals_rtseq(if_condition_identity_not_operator, 0)
+    rtseqrunner.assert_run_python_equals_rtseq(if_condition_function_call, 1)
+    rtseqrunner.assert_run_python_equals_rtseq(if_condition_complex_expression, 0)
+    rtseqrunner.assert_run_python_equals_rtseq(if_elif_condition_complex_expression, 0)

@@ -24,3 +24,14 @@ def get_value_from_node(node, resources):
         elif isinstance(node.n, float):
             return datatypes.Double(node.n)
     raise TranslateError(errormessages.init_var_invalid_type)
+
+
+def get_variable_name_from_node(node):
+    full_name = ''
+    cur_node = node
+    while isinstance(cur_node, ast.Attribute):
+        full_name = '.' + full_name + cur_node.attr
+        cur_node = cur_node.value
+    if isinstance(cur_node, ast.Name):
+        full_name = cur_node.id + full_name
+    return full_name

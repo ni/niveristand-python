@@ -18,4 +18,4 @@ def test_run_simple():
 
 
 def test_call_assert_helper():
-    rtseqrunner.assert_run_python_equals_rtseq(simple)
+    rtseqrunner.assert_run_python_equals_rtseq(simple, 1.0)
