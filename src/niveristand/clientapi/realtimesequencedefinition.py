@@ -5,12 +5,14 @@ from niveristand import internal
 from niveristand.datatypes import Boolean
 from niveristand.datatypes import DataType
 from niveristand.datatypes import Double
+from niveristand.datatypes import DoubleArray
 from niveristand.datatypes import Int32
 from niveristand.datatypes import Int64
 from niveristand.datatypes import UInt32
 from niveristand.datatypes import UInt64
 from NationalInstruments.VeriStand.Data import BooleanValue  # noqa: I100 We need these C# imports to be out of order.
 from NationalInstruments.VeriStand.Data import DoubleValue
+from NationalInstruments.VeriStand.Data import DoubleValueArray
 from NationalInstruments.VeriStand.Data import I32Value
 from NationalInstruments.VeriStand.Data import I64Value
 from NationalInstruments.VeriStand.Data import U32Value
@@ -68,6 +70,11 @@ def _convert_value_to_datavalue(nivsvalue):
         return BooleanValue(nivsvalue)
     if isinstance(nivsvalue, Double):
         return DoubleValue(float(nivsvalue.value))
+    if isinstance(nivsvalue, DoubleArray):
+        double_value_list = []
+        for value in nivsvalue.value:
+            double_value_list.append(DoubleValue(value.value))
+        return DoubleValueArray(double_value_list)
     if isinstance(nivsvalue, Int32):
         return I32Value(nivsvalue.value)
     if isinstance(nivsvalue, Int64):

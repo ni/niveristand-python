@@ -3,6 +3,7 @@ from niveristand import exceptions
 from niveristand import RealTimeSequence
 from niveristand.datatypes.rtprimitives import Boolean
 from niveristand.datatypes.rtprimitives import Double
+from niveristand.datatypes.rtprimitives import DoubleArray
 from niveristand.datatypes.rtprimitives import Int32
 from niveristand.datatypes.rtprimitives import Int64
 from niveristand.datatypes.rtprimitives import UInt32
@@ -226,3 +227,31 @@ def test_datatypes_negative():
     RealTimeSequence(int64_type_negative)
     RealTimeSequence(uint32_type_negative)
     RealTimeSequence(uint64_type_negative)
+
+
+@decorators.nivs_rt_sequence
+def double_array_type():
+    a = DoubleArray([0, 1.0, 5.5])  # noqa: F841 it's ok for this variable to never be used
+
+
+def test_double_array_type():
+    RealTimeSequence(double_array_type)
+
+
+@decorators.nivs_rt_sequence
+def double_array_empty():
+    a = DoubleArray([])  # noqa: F841 it's ok for this variable to never be used
+
+
+def test_double_array_empty():
+    RealTimeSequence(double_array_empty)
+
+
+@decorators.nivs_rt_sequence
+def double_array_invalid_type():
+    a = DoubleArray([5.5, 'something'])  # noqa: F841 it's ok for this variable to never be used
+
+
+def test_double_array_invalid_type():
+    with pytest.raises(exceptions.TranslateError):
+        RealTimeSequence(double_array_invalid_type)

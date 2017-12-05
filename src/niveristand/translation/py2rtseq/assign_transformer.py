@@ -6,6 +6,7 @@ from niveristand.translation import utils
 
 
 def assign_transformer(node, resources):
+    node_value = None
     variable_name = utils.get_variable_name_from_node(node.targets[0])
     rtseq = resources[RTSEQ]
     block = resources[BLOCK]
@@ -20,6 +21,11 @@ def assign_transformer(node, resources):
             resources[LOCAL_VARIABLES][variable_name + ".value"] = local_var
         else:
             raise TranslateError(errormessages.init_var_invalid_type)
-    node_value = utils.generic_ast_node_transform(node.value, resources)
+    transformed_node_value = utils.generic_ast_node_transform(node.value, resources)
     rtseq_var_name = resources[LOCAL_VARIABLES][variable_name][RT_SEQ_VAR_NAME]
-    rtseqapi.add_assignment(block, rtseq_var_name, node_value)
+    if isinstance(node_value, datatypes.ArrayType):
+        value_list = transformed_node_value.split(',')
+        for index, val in enumerate(value_list):
+            rtseqapi.add_assignment(block, rtseq_var_name + "[" + str(index) + "]", val)
+    else:
+        rtseqapi.add_assignment(block, rtseq_var_name, transformed_node_value)

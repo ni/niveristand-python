@@ -45,10 +45,30 @@ class DataType:
         self.__value = value
 
 
+class ArrayType(DataType):
+    def _validate(self, value):
+        True
+
+
 class Boolean(DataType):
     def _validate(self, value):
         try:
             return bool(value)
+        except TypeError:
+            raise nivsexceptions.TranslateError(errormessages.init_var_invalid_type)
+
+
+class DoubleArray(ArrayType):
+    def _validate(self, value):
+        try:
+            if not value:
+                original_elements = []
+            else:
+                original_elements = value.split(',')
+            element_list = []
+            for element in original_elements:
+                element_list.append(Double(element))
+            return element_list
         except TypeError:
             raise nivsexceptions.TranslateError(errormessages.init_var_invalid_type)
 
@@ -94,8 +114,10 @@ class UInt64(DataType):
 
 
 VALID_TYPES = {
+    ArrayType.__name__: ArrayType,
     Boolean.__name__: Boolean,
     Double.__name__: Double,
+    DoubleArray.__name__: DoubleArray,
     Int32.__name__: Int32,
     Int64.__name__: Int64,
     UInt32.__name__: UInt32,

@@ -7,6 +7,7 @@ from niveristand.translation.py2rtseq import call_transformer
 from niveristand.translation.py2rtseq import default_transformer
 from niveristand.translation.py2rtseq import functiondef_transformer
 from niveristand.translation.py2rtseq import if_transformer
+from niveristand.translation.py2rtseq import list_transformer
 from niveristand.translation.py2rtseq import module_transformer
 from niveristand.translation.py2rtseq import name_transformer
 from niveristand.translation.py2rtseq import nameconstant_transformer
@@ -22,6 +23,7 @@ TRANSFORMERS = {
     ast.Call.__name__: call_transformer.call_transformer,
     ast.FunctionDef.__name__: functiondef_transformer.functiondef_transformer,
     ast.If.__name__: if_transformer.if_transformer,
+    ast.List.__name__: list_transformer.list_transformer,
     ast.Module.__name__: module_transformer.module_transformer,
     ast.Name.__name__: name_transformer.name_transformer,
     ast.Num.__name__: num_transformer.num_transformer,
