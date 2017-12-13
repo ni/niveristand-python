@@ -2,6 +2,7 @@ import ast
 
 from niveristand import errormessages
 from niveristand.clientapi import realtimesequencedefinition as rtseqapi
+from niveristand.datatypes.rtprimitives import ArrayType
 from niveristand.exceptions import TranslateError
 from niveristand.internal import BLOCK, LOCAL_VAR_VALUE, LOCAL_VARIABLES, RTSEQ
 from niveristand.translation import utils
@@ -20,6 +21,8 @@ def return_transformer(node, resources):
 
     elif isinstance(node.value, (ast.Num, ast.Call)):
         node_value = utils.get_value_from_node(node.value, resources)
+        if isinstance(node_value, ArrayType):
+            raise TranslateError(errormessages.invalid_return_type)
         rt_expression = expression
     else:
         raise TranslateError(errormessages.init_var_invalid_type)

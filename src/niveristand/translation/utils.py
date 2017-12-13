@@ -1,5 +1,6 @@
 import ast
 from niveristand import datatypes, errormessages
+from niveristand.datatypes import rtprimitives
 from niveristand.exceptions import TranslateError
 
 
@@ -14,8 +15,8 @@ def get_value_from_node(node, resources):
     if isinstance(node, ast.Call):
         call = generic_ast_node_transform(node.func, resources)
         node_id = call.split('.')[-1]
-        if node_id in datatypes.VALID_TYPES:
-            datatype = datatypes.VALID_TYPES[node.func.id]
+        if rtprimitives.is_supported_data_type(node_id):
+            datatype = rtprimitives.get_class_by_name(node.func.id)
             datavalue = generic_ast_node_transform(node.args[0], resources)
             return datatype(datavalue)
     elif isinstance(node, ast.Num):
