@@ -35,10 +35,3 @@ def dummy():
     times it will only be imported but not actually used.
     """
     pass
-
-
-LOCAL_VARIABLES = 'local_variables'
-RTSEQ = 'rt_seq'
-BLOCK = 'block'
-LOCAL_VAR_VALUE = 'node_value'
-RT_SEQ_VAR_NAME = 'rt_seq_var_name'
