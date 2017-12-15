@@ -8,7 +8,7 @@ import testutilities.configutilities as configutilities
 
 
 rtseq_dll_path = os.path.join(configutilities.getbinariesfolder(),
-                              "NationalInstruments.VeriStand.RealTimeSequenceRunner.dll")
+                              "NationalInstruments.VeriStand.RealTimeSequenceUtilities.dll")
 
 
 def _check_can_run_local():
@@ -19,7 +19,7 @@ def _check_can_run_local():
 def run_rtseq_local(filepath, channel_names=[], channel_values=[]):
     _check_can_run_local()
     clr.AddReference(rtseq_dll_path)
-    from NationalInstruments.VeriStand.RealTimeSequenceRunner import RealTimeSequenceRunner
+    from NationalInstruments.VeriStand.RealTimeSequenceUtilities import RealTimeSequenceRunner
 
     res = RealTimeSequenceRunner.Run(filepath, channel_names, channel_values)
     return res
