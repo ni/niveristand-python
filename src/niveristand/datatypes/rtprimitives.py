@@ -86,6 +86,70 @@ class DataType:
     def __rmul__(self, other):
         return self.__mul__(other)
 
+    def __divmod__(self, other):
+        if isinstance(other, DataType):
+            return self.value / other.value
+        elif isinstance(other, (int, float)):
+            return self.value / other
+        else:
+            raise nivsexceptions.VeristandError(errormessages.invalid_type_for_operator)
+
+    def __rdivmod__(self, other):
+        if isinstance(other, DataType):
+            return other.value / self.value
+        elif isinstance(other, (int, float)):
+            return other / self.value
+        else:
+            raise nivsexceptions.VeristandError(errormessages.invalid_type_for_operator)
+
+    def __floordiv__(self, other):
+        if isinstance(other, DataType):
+            return self.value // other.value
+        elif isinstance(other, (int, float)):
+            return self.value // other
+        else:
+            raise nivsexceptions.VeristandError(errormessages.invalid_type_for_operator)
+
+    def __rfloordiv__(self, other):
+        if isinstance(other, DataType):
+            return other.value // self.value
+        elif isinstance(other, (int, float)):
+            return other // self.value
+        else:
+            raise nivsexceptions.VeristandError(errormessages.invalid_type_for_operator)
+
+    def __truediv__(self, other):
+        if isinstance(other, DataType):
+            return self.value / other.value
+        elif isinstance(other, (int, float)):
+            return self.value / other
+        else:
+            raise nivsexceptions.VeristandError(errormessages.invalid_type_for_operator)
+
+    def __rtruediv__(self, other):
+        if isinstance(other, DataType):
+            return other.value / self.value
+        elif isinstance(other, (int, float)):
+            return other / self.value
+        else:
+            raise nivsexceptions.VeristandError(errormessages.invalid_type_for_operator)
+
+    def __div__(self, other):
+        if isinstance(other, DataType):
+            return self.value / other.value
+        elif isinstance(other, (int, float)):
+            return self.value / other
+        else:
+            raise nivsexceptions.VeristandError(errormessages.invalid_type_for_operator)
+
+    def __rdiv__(self, other):
+        if isinstance(other, DataType):
+            return other.value / self.value
+        elif isinstance(other, (int, float)):
+            return other / self.value
+        else:
+            raise nivsexceptions.VeristandError(errormessages.invalid_type_for_operator)
+
     @property
     def value(self):
         return self._value

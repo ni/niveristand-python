@@ -16,4 +16,5 @@ def _operator(ast_operator):
         'Add': "+",
         'Sub': "-",
         'Mult': "*",
+        'Div': "/",
     }.get(ast_operator, "unknown")
