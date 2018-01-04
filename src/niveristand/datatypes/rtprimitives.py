@@ -147,6 +147,20 @@ class DataType:
             return other.value / self.value
         elif isinstance(other, (int, float)):
             return other / self.value
+
+    def __pow__(self, power, modulo=None):
+        if isinstance(power, DataType):
+            return self.value ** power.value
+        elif isinstance(power, (int, float)):
+            return self.value ** power
+        else:
+            raise nivsexceptions.VeristandError(errormessages.invalid_type_for_operator)
+
+    def __rpow__(self, other):
+        if isinstance(other, DataType):
+            return other.value ** self.value
+        elif isinstance(other, (int, float)):
+            return other ** self.value
         else:
             raise nivsexceptions.VeristandError(errormessages.invalid_type_for_operator)
 
