@@ -54,6 +54,12 @@ def test_return_var_value():
     assert(rtseq._rtseq.Code.Main.Body.Statements.Length is 2)
 
 
+def test_undeclared_variable_fail():
+    testfunc = testfuncs.return_var_invalid_value
+    with pytest.raises(exceptions.TranslateError):
+        RealTimeSequence(testfunc)
+
+
 def test_return_named_type():
     testfunc = testfuncs.return_named_type
     rtseq = RealTimeSequence(testfunc)

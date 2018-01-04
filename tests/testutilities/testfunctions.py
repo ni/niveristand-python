@@ -49,6 +49,12 @@ def return_var_value():
 
 
 @decorators.nivs_rt_sequence
+def return_var_invalid_value():
+    a = Double(5)
+    return a.value.value
+
+
+@decorators.nivs_rt_sequence
 def return_named_type():
     return Double(5)
 

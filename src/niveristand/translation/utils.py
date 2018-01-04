@@ -31,7 +31,7 @@ def get_variable_name_from_node(node):
     full_name = ''
     cur_node = node
     while isinstance(cur_node, ast.Attribute):
-        full_name = '.' + full_name + cur_node.attr
+        full_name = '.' + cur_node.attr + full_name
         cur_node = cur_node.value
     if isinstance(cur_node, ast.Name):
         full_name = cur_node.id + full_name

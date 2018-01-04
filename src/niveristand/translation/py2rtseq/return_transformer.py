@@ -16,7 +16,7 @@ def return_transformer(node, resources):
             rt_expression = expression
             return_default_value = resources.get_variable_py_value(src_var_name)
         else:
-            raise TranslateError(errormessages.init_var_invalid_type)
+            raise TranslateError(errormessages.invalid_return_value)
 
     elif isinstance(node.value, (ast.Num, ast.Call)):
         return_default_value = utils.get_value_from_node(node.value, resources)
@@ -24,7 +24,7 @@ def return_transformer(node, resources):
             raise TranslateError(errormessages.invalid_return_type)
         rt_expression = expression
     else:
-        raise TranslateError(errormessages.init_var_invalid_type)
+        raise TranslateError(errormessages.invalid_return_value)
     var_name = rtseqapi.add_return_variable(rtseq, '__ret_var__', return_default_value)
     rtseqapi.add_assignment(resources.get_current_block(), var_name, rt_expression)
     return "return " + str(expression)
