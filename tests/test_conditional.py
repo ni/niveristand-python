@@ -1,5 +1,5 @@
-from niveristand import decorators, RealTimeSequence
-from niveristand.datatypes import Int32
+from niveristand import decorators, exceptions, RealTimeSequence
+from niveristand.datatypes import Boolean, Int32
 import pytest
 from testutilities import rtseqrunner
 
@@ -12,17 +12,36 @@ def if_pass():
 
 @decorators.nivs_rt_sequence
 def if_else_pass():
-    if 1:
+    if True:
         pass
     else:
         pass
 
 
 @decorators.nivs_rt_sequence
-def if_elif_pass():
+def if_invalid_boolean():
     if 1:
         pass
-    elif 1:
+
+
+@decorators.nivs_rt_sequence
+def if_invalid_boolean_const():
+    if Int32(0):
+        pass
+
+
+@decorators.nivs_rt_sequence
+def if_invalid_boolean_var():
+    a = Int32(1)
+    if a.value:
+        pass
+
+
+@decorators.nivs_rt_sequence
+def if_elif_pass():
+    if True:
+        pass
+    elif True:
         pass
     else:
         pass
@@ -30,32 +49,21 @@ def if_elif_pass():
 
 @decorators.nivs_rt_sequence
 def if_nested():
-    if 1:
-        if 1:
-            if 1:
+    if True:
+        if True:
+            if True:
                 pass
             else:
-                if 1:
+                if True:
                     pass
                 else:
                     pass
-        elif 1:
+        elif True:
             pass
         else:
             pass
     else:
         pass
-
-
-def test_if_pass():
-    RealTimeSequence(if_pass)
-
-
-@pytest.mark.skip("DE14610")
-def test_if_else_pass():
-    RealTimeSequence(if_else_pass)
-    RealTimeSequence(if_elif_pass)
-    RealTimeSequence(if_nested)
 
 
 @decorators.nivs_rt_sequence
@@ -86,29 +94,19 @@ def if_multiple_statements():
     return ret_var.value
 
 
-def test_if_with_statements():
-    RealTimeSequence(if_one_statement)
-    RealTimeSequence(if_multiple_statements)
-
-
-def test_run_with_statements():
-    rtseqrunner.assert_run_python_equals_rtseq(if_one_statement, 1)
-    rtseqrunner.assert_run_python_equals_rtseq(if_multiple_statements, 3)
-
-
 @decorators.nivs_rt_sequence
 def if_condition_variable():
-    var = Int32(0)
+    var = Boolean(0)
     if var.value:
-        var.value = 1
+        var.value = True
     else:
-        var.value = 2
+        var.value = False
     return var.value
 
 
 @decorators.nivs_rt_sequence
 def if_condition_equal_operator():
-    var = Int32(0)
+    var = Boolean(0)
     if var.value == 1:
         var.value = 1
     else:
@@ -163,23 +161,72 @@ def if_elif_condition_complex_expression():
     return a.value
 
 
-@pytest.mark.skip("Complex expressions not implemented yet")
-def test_if_condition_statements():
-    RealTimeSequence(if_condition_variable)
-    RealTimeSequence(if_condition_equal_operator)
-    RealTimeSequence(if_condition_identity_operator)
-    RealTimeSequence(if_condition_identity_not_operator)
-    RealTimeSequence(if_condition_function_call)
-    RealTimeSequence(if_condition_complex_expression)
-    RealTimeSequence(if_elif_condition_complex_expression)
+run_tests = [
+    (if_one_statement, (), 1),
+    (if_multiple_statements, (), 3),
+    (if_condition_variable, (), False),
+]
 
 
-@pytest.mark.skip("Complex expressions not implemented yet")
-def test_run_if_condition_statements():
-    rtseqrunner.assert_run_python_equals_rtseq(if_condition_variable, 2)
-    rtseqrunner.assert_run_python_equals_rtseq(if_condition_equal_operator, 2)
-    rtseqrunner.assert_run_python_equals_rtseq(if_condition_identity_operator, 1)
-    rtseqrunner.assert_run_python_equals_rtseq(if_condition_identity_not_operator, 0)
-    rtseqrunner.assert_run_python_equals_rtseq(if_condition_function_call, 1)
-    rtseqrunner.assert_run_python_equals_rtseq(if_condition_complex_expression, 0)
-    rtseqrunner.assert_run_python_equals_rtseq(if_elif_condition_complex_expression, 0)
+transform_tests = run_tests + [
+    (if_pass, (), 0),
+    (if_else_pass, (), 0),
+    (if_elif_pass, (), 0),
+    (if_nested, (), 0),
+]
+
+
+fail_transform_tests = [
+    (if_invalid_boolean, (), exceptions.VeristandError),
+    (if_invalid_boolean_const, (), exceptions.VeristandError),
+    (if_invalid_boolean_var, (), exceptions.VeristandError)
+]
+
+
+skip_tests = [
+    (if_condition_equal_operator, (), "Operator not implemented yet"),
+    (if_condition_identity_operator, (), "Operator not implemented yet"),
+    (if_condition_identity_not_operator, (), "Operator not implemented yet"),
+    (if_condition_complex_expression, (), "Operator not implemented yet"),
+    (if_elif_condition_complex_expression, (), "Operator not implemented yet"),
+    (if_condition_function_call, (), "Function calls not implemented yet"),
+]
+
+
+def idfunc(val):
+    return val.__name__
+
+
+@pytest.mark.parametrize("func_name, params, expected_result", transform_tests, ids=idfunc)
+def test_transform(func_name, params, expected_result):
+    RealTimeSequence(func_name)
+
+
+@pytest.mark.parametrize("func_name, params, expected_result", run_tests, ids=idfunc)
+def test_runpy(func_name, params, expected_result):
+    actual = func_name(*params)
+    assert actual == expected_result
+
+
+@pytest.mark.parametrize("func_name, params, expected_result", run_tests, ids=idfunc)
+def test_run_in_VM(func_name, params, expected_result):
+    actual = rtseqrunner.run_rtseq_in_VM(func_name)
+    assert actual == expected_result
+
+
+@pytest.mark.parametrize("func_name, params, expected_result", fail_transform_tests, ids=idfunc)
+def test_failures(func_name, params, expected_result):
+    try:
+        RealTimeSequence(func_name)
+    except expected_result:
+        pass
+    except exceptions.VeristandError as e:
+        pytest.fail('Unexpected exception raised:' +
+                    str(e.__class__) + ' while expected was: ' + expected_result.__name__)
+    except Exception as exception:
+        pytest.fail('ExpectedException not raised: ' + exception)
+
+
+@pytest.mark.parametrize("func_name, params, reason", skip_tests, ids=idfunc)
+def test_skipped(func_name, params, reason):
+    pytest.skip(func_name.__name__ + ": " + reason)
