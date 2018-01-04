@@ -8,6 +8,7 @@ from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import RealTime
 from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import ReturnDeclaration
 from System.IO import IOException
 
+
 internal.dummy()
 
 

@@ -34,3 +34,10 @@ def assert_run_python_equals_rtseq(func, expected):
         py_result = py_result.value
     assert py_result == expected
     assert rtseq_result.Value == py_result
+
+
+def run_rtseq_in_VM(func):
+    tempfolder = tempfile.mkdtemp()
+    filename = realtimesequencetools.save_py_as_rtseq(func, tempfolder)
+    rtseq_result = run_rtseq_local(filename)
+    return rtseq_result.Value

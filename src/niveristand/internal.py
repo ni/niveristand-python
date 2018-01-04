@@ -23,6 +23,8 @@ clr.AddReference("System.IO")
 clr.AddReference(os.path.join(base_assembly_path(),
                               "NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi.dll"))
 clr.AddReference(os.path.join(base_assembly_path(),
+                              "NationalInstruments.VeriStand.RealTimeSequenceDefinitionApiUtilities.dll"))
+clr.AddReference(os.path.join(base_assembly_path(),
                               "NationalInstruments.VeriStand.DataTypes.dll"))
 
 

@@ -4,6 +4,7 @@ import os
 
 from niveristand import errormessages
 from niveristand.clientapi import realtimesequencedefinition as rtseqapi
+from niveristand.clientapi import rtsequencedefinitionutils as rtsequtils
 from niveristand.decorators import Modes
 from niveristand.exceptions import TranslateError, VeristandError
 from niveristand.translation.py2rtseq.utils import Resources
@@ -44,3 +45,4 @@ class RealTimeSequence:
         self._rtseq = rtseqapi.create_real_time_sequence()
         transform_resources = Resources(self._rtseq)
         generic_ast_node_transform(func_node, transform_resources)
+        rtsequtils.compile_rtseq(self._rtseq)

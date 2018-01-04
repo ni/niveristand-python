@@ -49,6 +49,10 @@ def if_nested():
 
 def test_if_pass():
     RealTimeSequence(if_pass)
+
+
+@pytest.mark.skip("DE14610")
+def test_if_else_pass():
     RealTimeSequence(if_else_pass)
     RealTimeSequence(if_elif_pass)
     RealTimeSequence(if_nested)

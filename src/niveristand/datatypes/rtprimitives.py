@@ -54,7 +54,7 @@ class DataType:
         elif isinstance(other, (int, float)):
             return self.value + other
         else:
-            raise nivsexceptions.TranslateError(errormessages.invalid_type_for_operator)
+            raise nivsexceptions.VeristandError(errormessages.invalid_type_for_operator)
 
     def __radd__(self, other):
         return self.__add__(other)
@@ -65,10 +65,26 @@ class DataType:
         elif isinstance(other, (int, float)):
             return self.value - other
         else:
-            raise nivsexceptions.TranslateError(errormessages.invalid_type_for_operator)
+            raise nivsexceptions.VeristandError(errormessages.invalid_type_for_operator)
 
     def __rsub__(self, other):
-        return self.__sub__(other)
+        if isinstance(other, DataType):
+            return other.value - self.value
+        elif isinstance(other, (int, float)):
+            return other - self.value
+        else:
+            raise nivsexceptions.VeristandError(errormessages.invalid_type_for_operator)
+
+    def __mul__(self, other):
+        if isinstance(other, DataType):
+            return self.value * other.value
+        elif isinstance(other, (int, float)):
+            return self.value * other
+        else:
+            raise nivsexceptions.VeristandError(errormessages.invalid_type_for_operator)
+
+    def __rmul__(self, other):
+        return self.__mul__(other)
 
     @property
     def value(self):
