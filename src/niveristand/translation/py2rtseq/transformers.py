@@ -4,6 +4,7 @@ from niveristand.translation.py2rtseq import assign_transformer
 from niveristand.translation.py2rtseq import attribute_transformer
 from niveristand.translation.py2rtseq import binaryoperator_transformer
 from niveristand.translation.py2rtseq import call_transformer
+from niveristand.translation.py2rtseq import compareoperator_transformer
 from niveristand.translation.py2rtseq import default_transformer
 from niveristand.translation.py2rtseq import functiondef_transformer
 from niveristand.translation.py2rtseq import if_transformer
@@ -21,6 +22,7 @@ TRANSFORMERS = {
     ast.Assign.__name__: assign_transformer.assign_transformer,
     ast.Attribute.__name__: attribute_transformer.attribute_transformer,
     ast.Call.__name__: call_transformer.call_transformer,
+    ast.Compare.__name__: compareoperator_transformer.compareoperator_transformer,
     ast.FunctionDef.__name__: functiondef_transformer.functiondef_transformer,
     ast.If.__name__: if_transformer.if_transformer,
     ast.List.__name__: list_transformer.list_transformer,

@@ -180,6 +180,14 @@ class DataType:
         else:
             raise nivsexceptions.VeristandError(errormessages.invalid_type_for_operator)
 
+    def __eq__(self, other):
+        if isinstance(other, DataType):
+            return self.value == other.value
+        elif isinstance(other, (int, float, bool, numpy.bool_)):
+            return self.value == other
+        else:
+            raise nivsexceptions.VeristandError(errormessages.invalid_type_for_operator)
+
     @property
     def value(self):
         return self._value
