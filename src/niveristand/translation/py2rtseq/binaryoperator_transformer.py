@@ -18,4 +18,5 @@ def _operator(ast_operator):
         'Mult': "*",
         'Div': "/",
         'Pow': "**",
+        'Mod': "%",
     }.get(ast_operator, "unknown")

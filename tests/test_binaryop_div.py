@@ -14,7 +14,7 @@ b = 1
 @decorators.nivs_rt_sequence
 def return_constant():
     a = Double(5)
-    return a
+    return a.value
 
 
 @decorators.nivs_rt_sequence

@@ -164,6 +164,22 @@ class DataType:
         else:
             raise nivsexceptions.VeristandError(errormessages.invalid_type_for_operator)
 
+    def __mod__(self, other):
+        if isinstance(other, DataType):
+            return self.value % other.value
+        elif isinstance(other, (int, float, numpy.int32, numpy.int64, numpy.long)):
+            return self.value % other
+        else:
+            raise nivsexceptions.VeristandError(errormessages.invalid_type_for_operator)
+
+    def __rmod__(self, other):
+        if isinstance(other, DataType):
+            return other.value % self.value
+        elif isinstance(other, (int, float, numpy.int32, numpy.int64, numpy.long)):
+            return other % self.value
+        else:
+            raise nivsexceptions.VeristandError(errormessages.invalid_type_for_operator)
+
     @property
     def value(self):
         return self._value
