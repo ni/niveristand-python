@@ -14,7 +14,7 @@ internal.dummy()
 
 def add_local_variable(rt_seq, name, value):
     name = _create_unique_lv_name(name)
-    local_declaration = LocalDeclaration(name, value.data_value)
+    local_declaration = LocalDeclaration(name, value._data_value)
     rt_seq.Variables.LocalVariables.AddLocalVariable(local_declaration)
     return name
 
@@ -35,7 +35,7 @@ def create_real_time_sequence():
 
 def add_return_variable(rtseq, name, default_value):
     name = _create_unique_lv_name(name)
-    return_declaration = ReturnDeclaration(name, default_value.data_value)
+    return_declaration = ReturnDeclaration(name, default_value._data_value)
     rtseq.Variables.ReturnType = return_declaration
     return name
 

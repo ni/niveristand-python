@@ -1,4 +1,3 @@
-from distutils.util import strtobool
 from NationalInstruments.VeriStand.Data import BooleanValue
 from NationalInstruments.VeriStand.Data import BooleanValueArray
 from NationalInstruments.VeriStand.Data import DoubleValue
@@ -30,22 +29,12 @@ def is_supported_return_type(name):
 
 class DataType:
     def __init__(self, value, description="", units=""):
-        self._value = self._validate(value)
-        self._data_value = self._to_data_value()
+        self._data_value = self._to_data_value(value)
 
     def __str__(self):
-        return str(self.value)
+        return str(self._data_value)
 
-    def _validate(self, value):
-        try:
-            return self._translate_value(value)
-        except TypeError:
-            raise nivsexceptions.TranslateError(errormessages.init_var_invalid_type)
-
-    def _translate_value(self, value):
-        return None
-
-    def _to_data_value(self):
+    def _to_data_value(self, value):
         raise nivsexceptions.TranslateError(errormessages.invalid_type_to_convert)
 
     @staticmethod
@@ -205,137 +194,84 @@ class DataType:
 
     @property
     def value(self):
-        return self._value
+        return self._data_value.Value
 
     @value.setter
     def value(self, value):
-        self._value = value
-
-    @property
-    def data_value(self):
-        return self._data_value
-
-    @data_value.setter
-    def data_value(self, value):
-        self._data_value = value
+        self._data_value = self._to_data_value(value)
 
 
 class ArrayType(DataType):
-    def _validate(self, value):
-        try:
-            if not value:
-                original_elements = []
-            else:
-                original_elements = value.split(',')
-            element_list = [self._translate_value(element) for element in original_elements]
-            return element_list
-        except TypeError:
-            raise nivsexceptions.TranslateError(errormessages.init_var_invalid_type)
-
-    def _to_data_value(self):
+    def _to_data_value(self, value):
         raise nivsexceptions.TranslateError(errormessages.invalid_type_to_convert)
 
 
 class Boolean(DataType):
-    def _translate_value(self, value):
-        return bool(value)
-
-    def _to_data_value(self):
-        return BooleanValue(self.value)
+    def _to_data_value(self, value):
+        if type(value) is int or type(value) is float:
+            value = bool(value)
+        return BooleanValue(value)
 
 
 class BooleanArray(ArrayType):
-    def _translate_value(self, value):
-        return Boolean(strtobool(value))
-
-    def _to_data_value(self):
-        value_list = [BooleanValue(element_value.value) for element_value in self.value]
-        return BooleanValueArray(value_list)
+    def _to_data_value(self, value):
+        return BooleanValueArray(value)
 
 
 class Double(DataType):
-    def _translate_value(self, value):
-        return float(value)
-
-    def _to_data_value(self):
-        return DoubleValue(self.value)
+    def _to_data_value(self, value):
+        if type(value) is int:
+            value = numpy.float(value)
+        return DoubleValue(value)
 
 
 class DoubleArray(ArrayType):
-    def _translate_value(self, value):
-        return Double(value)
-
-    def _to_data_value(self):
-        value_list = [DoubleValue(element_value.value) for element_value in self.value]
-        return DoubleValueArray(value_list)
+    def _to_data_value(self, value):
+        return DoubleValueArray(value)
 
 
 class Int32(DataType):
-    def _translate_value(self, value):
-        return numpy.int32(value)
-
-    def _to_data_value(self):
-        return I32Value(self.value)
+    def _to_data_value(self, value):
+        value = numpy.int32(value)
+        return I32Value(value)
 
 
 class Int32Array(ArrayType):
-    def _translate_value(self, value):
-        return Int32(value)
-
-    def _to_data_value(self):
-        value_list = [I32Value(element_value.value) for element_value in self.value]
-        return I32ValueArray(value_list)
+    def _to_data_value(self, value):
+        return I32ValueArray(value)
 
 
 class Int64(DataType):
-    def _translate_value(self, value):
-        return numpy.int64(value)
-
-    def _to_data_value(self):
-        return I64Value(self.value)
+    def _to_data_value(self, value):
+        value = numpy.int64(value)
+        return I64Value(value)
 
 
 class Int64Array(ArrayType):
-    def _translate_value(self, value):
-        return Int64(value)
-
-    def _to_data_value(self):
-        value_list = [I64Value(element_value.value) for element_value in self.value]
-        return I64ValueArray(value_list)
+    def _to_data_value(self, value):
+        return I64ValueArray(value)
 
 
 class UInt32(DataType):
-    def _translate_value(self, value):
-        return numpy.uint32(value)
-
-    def _to_data_value(self):
-        return U32Value(self.value)
+    def _to_data_value(self, value):
+        value = numpy.uint32(value)
+        return U32Value(value)
 
 
 class UInt32Array(ArrayType):
-    def _translate_value(self, value):
-        return UInt32(value)
-
-    def _to_data_value(self):
-        value_list = [U32Value(element_value.value) for element_value in self.value]
-        return U32ValueArray(value_list)
+    def _to_data_value(self, value):
+        return U32ValueArray(value)
 
 
 class UInt64(DataType):
-    def _translate_value(self, value):
-        return numpy.uint64(value)
-
-    def _to_data_value(self):
-        return U64Value(self.value)
+    def _to_data_value(self, value):
+        value = numpy.uint64(value)
+        return U64Value(value)
 
 
 class UInt64Array(ArrayType):
-    def _translate_value(self, value):
-        return UInt64(value)
-
-    def _to_data_value(self):
-        value_list = [U64Value(element_value.value) for element_value in self.value]
-        return U64ValueArray(value_list)
+    def _to_data_value(self, value):
+        return U64ValueArray(value)
 
 
 VALID_TYPES = {
