@@ -48,6 +48,10 @@ class DataType:
     def _to_data_value(self):
         raise nivsexceptions.TranslateError(errormessages.invalid_type_to_convert)
 
+    @staticmethod
+    def _is_compatible_with_datatype(other):
+        return isinstance(other, (int, float, numpy.int32, numpy.int64, numpy.long))
+
     def __add__(self, other):
         if isinstance(other, DataType):
             return self.value + other.value
@@ -187,6 +191,17 @@ class DataType:
             return self.value == other
         else:
             raise nivsexceptions.VeristandError(errormessages.invalid_type_for_operator)
+
+    def __and__(self, other):
+        if isinstance(other, DataType):
+            return self.value and other.value
+        elif self._is_compatible_with_datatype(other):
+            return self.value and other
+        else:
+            raise nivsexceptions.VeristandError(errormessages.invalid_type_for_operator)
+
+    def __rand__(self, other):
+        return self.__and__(other)
 
     @property
     def value(self):

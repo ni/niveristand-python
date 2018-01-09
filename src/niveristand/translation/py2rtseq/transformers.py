@@ -3,6 +3,7 @@ import sys
 from niveristand.translation.py2rtseq import assign_transformer
 from niveristand.translation.py2rtseq import attribute_transformer
 from niveristand.translation.py2rtseq import binaryoperator_transformer
+from niveristand.translation.py2rtseq import booloperator_transformer
 from niveristand.translation.py2rtseq import call_transformer
 from niveristand.translation.py2rtseq import compareoperator_transformer
 from niveristand.translation.py2rtseq import default_transformer
@@ -32,6 +33,7 @@ TRANSFORMERS = {
     ast.Pass.__name__: pass_transformer.pass_transformer,
     ast.Return.__name__: return_transformer.return_transformer,
     ast.BinOp.__name__: binaryoperator_transformer.binaryoperator_transformer,
+    ast.BoolOp.__name__: booloperator_transformer.booloperator_transformer,
 }
 
 if sys.version_info >= (3, 5):
