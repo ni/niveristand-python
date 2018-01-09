@@ -31,21 +31,21 @@ def logical_and_simple_numbers1():
 @decorators.nivs_rt_sequence
 def logical_and_nivsdatatype_double():
     a = Double(0)
-    a.value = Double(3) and Double(1)
+    a = Double(3) and Double(1)
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def logical_and_nivsdatatype_int32():
     a = Int32(0)
-    a.value = Int32(2) and Int32(1)
+    a = Int32(2) and Int32(1)
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def logical_and_nivsdatatype_int64():
     a = Int64(0)
-    a.value = Int64(2) and Int64(1)
+    a = Int64(2) and Int64(1)
     return a.value
 
 
@@ -68,7 +68,7 @@ def logical_and_variables():
     a = Boolean(True)
     b = Boolean(True)
     c = Boolean(False)
-    a.value = b and c
+    a = b and c
     return a.value
 
 
@@ -132,32 +132,40 @@ def logical_and_invalid_rtseq_call():
     a.value = True and return_true
     return a.value
 
+
 # endregion
 
 
 run_tests = [
     (logical_and_simple_numbers, (), 1),
-    (logical_and_nivsdatatype_double, (), 1),
-    (logical_and_nivsdatatype_int32, (), 1),
-    (logical_and_nivsdatatype_int64, (), 1),
     (logical_and_nivsdatatype_bool, (), False),
     (logical_and_multiple_types, (), True),
-    (logical_and_variables, (), False),
     (logical_and_variables1, (), False),
     (logical_and_parantheses, (), False),
 ]
 
 skip_tests = [
+    (logical_and_nivsdatatype_double, (), "And between two constant DataTypes returns a DataType object, we have to"
+                                          "research this how to solve it. A solution is to always use variables in"
+                                          "logical operators, and use var.value."),
+    (logical_and_nivsdatatype_int32, (), "And between two constant DataTypes returns a DataType object, we have to"
+                                         "research this how to solve it. A solution is to always use variables in"
+                                         "logical operators, and use var.value."),
+    (logical_and_nivsdatatype_int64, (), "And between two constant DataTypes returns a DataType object, we have to"
+                                         "research this how to solve it. A solution is to always use variables in"
+                                         "logical operators, and use var.value."),
     (logical_and_simple_numbers1, (), "For 1 && 2 SPE return 1 and Python returns 2. From logical perspective they are"
                                       "equal, but we can't test it only by casting to Boolean. Users should be aware of"
                                       "thi difference when &&-ing numeric types."),
+    (logical_and_variables, (), "And between two constant DataTypes returns a DataType object, we have to"
+                                "research this how to solve it. A solution is to always use variables in"
+                                "logical operators, and use var.value."),
     (logical_and_rtseq, (), "RTSeq call not implemented yet."),
     (logical_and_rtseq1, (), "RTSeq call not implemented yet."),
     (logical_and_unary, (), "Unary operator not implemented yet."),
     (logical_and_None, (), "Name transformer doesn't raise an exception for NoneType with python 2.7."),
     (logical_and_invalid_rtseq_call, (), "RTSeq call not implemented yet."),
 ]
-
 
 fail_transform_tests = [
     (logical_and_invalid_variables, (), TranslateError),

@@ -181,17 +181,6 @@ class DataType:
         else:
             raise nivsexceptions.VeristandError(errormessages.invalid_type_for_operator)
 
-    def __and__(self, other):
-        if isinstance(other, DataType):
-            return self.value and other.value
-        elif self._is_compatible_with_datatype(other):
-            return self.value and other
-        else:
-            raise nivsexceptions.VeristandError(errormessages.invalid_type_for_operator)
-
-    def __rand__(self, other):
-        return self.__and__(other)
-
     def __gt__(self, other):
         if isinstance(other, DataType):
             return self.value > other.value
