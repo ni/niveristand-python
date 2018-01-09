@@ -198,6 +198,15 @@ def equal_variable_variable1():
 
 
 @decorators.nivs_rt_sequence
+def equal_variable_variable2():
+    a = Double(2)
+    b = Double(2)
+    c = Boolean(False)
+    c = a == b
+    return c
+
+
+@decorators.nivs_rt_sequence
 def equal_variable_rtseq():
     a = Boolean(1)
     b = Double(0)
@@ -297,6 +306,7 @@ run_tests = [
     (equal_variables1, (), True),
     (equal_variable_variable, (), False),
     (equal_variable_variable1, (), True),
+    (equal_variable_variable2, (), True),
     (equal_with_multiple_comparators, (), False),
 ]
 

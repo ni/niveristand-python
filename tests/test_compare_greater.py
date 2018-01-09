@@ -154,6 +154,15 @@ def greater_variable_variable():
 
 
 @decorators.nivs_rt_sequence
+def greater_variable_variable1():
+    a = Double(2)
+    b = Double(1)
+    c = Boolean(False)
+    c = a > b
+    return c
+
+
+@decorators.nivs_rt_sequence
 def greater_variable_rtseq():
     a = Double(6.0)
     b = Boolean(False)
@@ -244,6 +253,7 @@ run_tests = [
     (greater_variables, (), True),
     (greater_variables1, (), True),
     (greater_variable_variable, (), True),
+    (greater_variable_variable1, (), True),
 ]
 
 skip_tests = [
