@@ -199,7 +199,7 @@ def sub_to_channelref():
 @decorators.nivs_rt_sequence
 def sub_binary_unary():
     a = Double(0)
-    a.value = 2 - + 1
+    a.value = 2 - -1
     return a.value
 
 
@@ -220,7 +220,7 @@ def sub_with_multiple_minus1():
 @decorators.nivs_rt_sequence
 def sub_binary_unary_sequence():
     a = Double(0)
-    a.value = 1- + + - + - + - - +2  # noqa: E225 it's ok to test this
+    a.value = 1 - -----2  # noqa: E225 it's ok to test this
     return a.value
 
 
@@ -283,6 +283,8 @@ run_tests = [
     (sub_variables1, (), -4),
     (sub_variable_variable, (), -1),
     (sub_variable_variable1, (), -1),
+    (sub_binary_unary, (), 3),
+    (sub_binary_unary_sequence, (), 3),
 ]
 
 skip_tests = [
@@ -295,13 +297,10 @@ skip_tests = [
     (sub_variable_rtseq, (), "RTSeq call not implemented yet."),
     (sub_variable_rtseq1, (), "RTSeq call not implemented yet."),
     (sub_to_channelref, (), "Channel ref transform not yet implemented."),
-    (sub_binary_unary, (), "Unary operator not implemented."),
-    (sub_binary_unary_sequence, (), "Unary operator not implemented."),
     (sub_invalid_variables2, (), "Attribute transformer doesn't catch the a.value.value problem. -DE14612"),
     (sub_from_None, (), "Name transformer doesn't raise an exception for NoneType with python 2.7. - DE14611"),
     (sub_invalid_rtseq_call, (), "RTSeq call not implemented yet."),
     (sub_complex_expr, (), "Not implemented yet."),
-
 ]
 
 fail_transform_tests = [

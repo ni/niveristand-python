@@ -216,7 +216,7 @@ def add_with_multiple_plus1():
 @decorators.nivs_rt_sequence
 def add_binary_unary_sequence():
     a = Double(0)
-    a.value = 1+ - + - + - + - + -2  # noqa: E225 it's ok to test this
+    a.value = 1+ - - - - - - - - -2  # noqa: E225 it's ok to test this
     return a.value
 
 
@@ -279,6 +279,7 @@ run_tests = [
     (add_variables1, (), 6),
     (add_variable_variable, (), 3),
     (add_variable_variable1, (), 3),
+    (add_binary_unary, (), 1),
 ]
 
 skip_tests = [
@@ -291,20 +292,18 @@ skip_tests = [
     (add_variable_rtseq, (), "RTSeq call not implemented yet."),
     (add_variable_rtseq1, (), "RTSeq call not implemented yet."),
     (add_to_channelref, (), "Channel ref transform not yet implemented."),
-    (add_binary_unary, (), "Unary operator not implemented."),
-    (add_with_multiple_plus, (), "Unary operator not implemented."),
-    (add_with_multiple_plus1, (), "Unary operator not implemented."),
-    (add_binary_unary_sequence, (), "Unary operator not implemented."),
     (add_invalid_variables2, (), "Attribute transformer doesn't catch the a.value.value problem."),
     (add_to_None, (), "Name transformer doesn't raise an exception for NoneType with python 2.7."),
     (add_invalid_rtseq_call, (), "RTSeq call not implemented yet."),
     (add_complex_expr, (), "Not implemented yet."),
-
+    (add_binary_unary_sequence, (), "This test takes 1000x more than the rest. Ignoring for now."),
 ]
 
 fail_transform_tests = [
     (add_invalid_variables, (), TranslateError),
     (add_invalid_variables1, (), TranslateError),
+    (add_with_multiple_plus, (), VeristandError),  # "UnaryAdd not supported by SPE"
+    (add_with_multiple_plus1, (), VeristandError),  # "UnaryAdd not supported by SPE"
 ]
 
 

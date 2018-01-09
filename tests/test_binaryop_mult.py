@@ -258,11 +258,11 @@ run_tests = [
     (mult_variables1, (), 5),
     (mult_variable_variable, (), 2),
     (mult_variable_variable1, (), 2),
+    (mult_binary_unary, (), -2),
 ]
 
 skip_tests = [
     (mult_with_channelref, (), "Not implemented yet."),
-    (mult_binary_unary, (), "Not implemented yet."),
     (mult_invalid_rtseq_call, (), "Not implemented yet."),
     (mult_complex_expr, (), "Not implemented yet."),
     (mult_invalid_variables2, (), "Attribute transformer doesn't catch the a.value.value problem."),

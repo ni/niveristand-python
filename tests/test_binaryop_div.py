@@ -259,11 +259,11 @@ run_tests = [
     (div_variables1, (), 0.2),
     (div_variable_variable, (), 0.5),
     (div_variable_variable1, (), 0.5),
+    (div_binary_unary, (), -2),
 ]
 
 skip_tests = [
     (div_with_channelref, (), "Not implemented yet."),
-    (div_binary_unary, (), "Not implemented yet."),
     (div_invalid_rtseq_call, (), "Not implemented yet."),
     (div_complex_expr, (), "Not implemented yet."),
     (div_invalid_variables2, (), "Attribute transformer doesn't catch the a.value.value problem."),

@@ -19,8 +19,8 @@ def get_value_from_node(node, resources):
         node_id = call.split('.')[-1]
         if rtprimitives.is_supported_data_type(node_id):
             datatype = rtprimitives.get_class_by_name(node.func.id)
-            if type(node.args[0]) is ast.Num:
-                datavalue = node.args[0].n
+            if type(node.args[0]) in (ast.Num, ast.UnaryOp):
+                datavalue = get_element_value(node.args[0])
             elif type(node.args[0]) is ast.Name:
                 if node.args[0].id in symbols._symbols:
                     datavalue = symbols._symbols[node.args[0].id]
@@ -49,6 +49,8 @@ def get_value_from_node(node, resources):
 def get_element_value(node):
     if type(node) is ast.Num:
         return node.n
+    elif type(node) is ast.UnaryOp:
+        return eval(generic_ast_node_transform(node, ()))
     elif type(node) is ast.Name:
         if node.id in symbols._symbols:
             return symbols._symbols[node.id]

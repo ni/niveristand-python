@@ -8,7 +8,7 @@ def binaryoperator_transformer(node, resources):
         raise VeristandNotImplementedError()
     left = utils.generic_ast_node_transform(node.left, resources)
     right = utils.generic_ast_node_transform(node.right, resources)
-    return "(" + left + " " + operator + " " + right + ")"
+    return "((" + left + ") " + operator + " (" + right + "))"
 
 
 def _operator(ast_operator):

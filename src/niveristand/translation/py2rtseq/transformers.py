@@ -16,6 +16,7 @@ from niveristand.translation.py2rtseq import nameconstant_transformer
 from niveristand.translation.py2rtseq import num_transformer
 from niveristand.translation.py2rtseq import pass_transformer
 from niveristand.translation.py2rtseq import return_transformer
+from niveristand.translation.py2rtseq import unaryoperator_transformer
 
 
 TRANSFORMERS = {
@@ -33,6 +34,7 @@ TRANSFORMERS = {
     ast.Pass.__name__: pass_transformer.pass_transformer,
     ast.Return.__name__: return_transformer.return_transformer,
     ast.BinOp.__name__: binaryoperator_transformer.binaryoperator_transformer,
+    ast.UnaryOp.__name__: unaryoperator_transformer.unaryoperator_transformer,
     ast.BoolOp.__name__: booloperator_transformer.booloperator_transformer,
 }
 

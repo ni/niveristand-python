@@ -499,6 +499,14 @@ transform_tests = [
     int64_array_one_element,
     uint32_array_one_element,
     uint64_array_one_element,
+    boolean_type_negative,
+    double_type_negative,
+    int32_type_negative,
+    int64_type_negative,
+    uint32_type_negative,
+    uint64_type_negative,
+    uint32_array_negative_values,
+    uint64_array_negative_values,
 ]
 
 run_tests = [
@@ -515,14 +523,6 @@ run_tests = [
 ]
 
 skip_tests = [
-    (boolean_type_negative, "Unary operator not implemented yet"),
-    (double_type_negative, "Unary operator not implemented yet"),
-    (int32_type_negative, "Unary operator not implemented yet"),
-    (int64_type_negative, "Unary operator not implemented yet"),
-    (uint32_type_negative, "Unary operator not implemented yet"),
-    (uint64_type_negative, "Unary operator not implemented yet"),
-    (uint32_array_negative_values, "Unary operator not implemented yet"),
-    (uint64_array_negative_values, "Unary operator not implemented yet"),
     (boolean_array_type_run, "Subscript operator not implemented yet"),
     (double_array_type_run, "Subscript operator not implemented yet"),
     (int32_array_type_run, "Subscript operator not implemented yet"),

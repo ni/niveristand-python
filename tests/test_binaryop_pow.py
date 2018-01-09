@@ -182,7 +182,7 @@ def exp_with_channelref():
 @decorators.nivs_rt_sequence
 def exp_binary_unary():
     a = Double(0)
-    a.value = 2 ** - 1
+    a.value = 2 ** -1
     return a.value
 
 
@@ -239,11 +239,11 @@ run_tests = [
     (exp_variables1, (), 32),
     (exp_variable_variable, (), 8),
     (exp_variable_variable1, (), 8),
+    (exp_binary_unary, (), 0.5),
 ]
 
 skip_tests = [
     (exp_with_channelref, (), "Not implemented yet."),
-    (exp_binary_unary, (), "Not implemented yet."),
     (exp_invalid_rtseq_call, (), "Not implemented yet."),
     (exp_complex_expr, (), "Not implemented yet."),
     (exp_invalid_variables2, (), "Attribute transformer doesn't catch the a.value.value problem."),

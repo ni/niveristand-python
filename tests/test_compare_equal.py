@@ -232,7 +232,7 @@ def equal_to_channelref():
 @decorators.nivs_rt_sequence
 def equal_binary_unary():
     a = Boolean(0)
-    a.value = 2 == - 1
+    a.value = -1 == - 1
     return a.value
 
 
@@ -308,6 +308,7 @@ run_tests = [
     (equal_variable_variable1, (), True),
     (equal_variable_variable2, (), True),
     (equal_with_multiple_comparators, (), False),
+    (equal_binary_unary, (), True),
 ]
 
 skip_tests = [
@@ -320,7 +321,6 @@ skip_tests = [
     (equal_variable_rtseq, (), "RTSeq call not implemented yet."),
     (equal_variable_rtseq1, (), "RTSeq call not implemented yet."),
     (equal_to_channelref, (), "Channel ref transform not yet implemented."),
-    (equal_binary_unary, (), "Unary operator not implemented."),
     (equal_to_None, (), "Name transformer doesn't raise an exception for NoneType with python 2.7."),
     (equal_invalid_rtseq_call, (), "RTSeq call not implemented yet."),
     (equal_complex_expr, (), "Not implemented yet."),

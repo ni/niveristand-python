@@ -303,7 +303,8 @@ run_tests = [
 
 skip_tests = [
     (modulo_with_channelref, (), "Not implemented yet."),
-    (modulo_binary_unary, (), "Not implemented yet."),
+    (modulo_binary_unary, (), "SPE implements remainder. Python implements module. "
+                              "The difference is subtle but the sign of the result is different."),
     (modulo_invalid_rtseq_call, (), "Not implemented yet."),
     (modulo_complex_expr, (), "Not implemented yet."),
     (modulo_invalid_variables2, (), "Attribute transformer doesn't catch the a.value.value problem."),
