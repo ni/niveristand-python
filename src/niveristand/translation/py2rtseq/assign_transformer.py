@@ -22,8 +22,9 @@ def assign_transformer(node, resources):
     transformed_node_value = utils.generic_ast_node_transform(node.value, resources)
     rtseq_var_name = resources.get_variable_rtseq_name(variable_name)
     if isinstance(node_value, datatypes.ArrayType):
-        value_list = transformed_node_value.split(',')
-        for index, val in enumerate(value_list):
-            rtseqapi.add_assignment(block, rtseq_var_name + "[" + str(index) + "]", val)
+        if transformed_node_value.count(',') > 0:
+            value_list = transformed_node_value.split(',')
+            for index, val in enumerate(value_list):
+                rtseqapi.add_assignment(block, rtseq_var_name + "[" + str(index) + "]", val)
     else:
         rtseqapi.add_assignment(block, rtseq_var_name, transformed_node_value)
