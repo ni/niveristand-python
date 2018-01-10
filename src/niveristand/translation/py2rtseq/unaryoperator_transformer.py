@@ -13,4 +13,5 @@ def unaryoperator_transformer(node, resources):
 def _operator(ast_operator):
     return{
         'USub': "-",
+        'Not': "!",
     }.get(ast_operator, "unknown")
