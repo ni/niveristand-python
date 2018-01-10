@@ -18,6 +18,7 @@ def compareoperator_transformer(node, resources):
 def _operator(ast_operator):
     return{
         'Eq': "==",
+        'NotEq': "!=",
         'Gt': ">",
         'GtE': ">=",
         'Lt': "<",

@@ -181,6 +181,14 @@ class DataType:
         else:
             raise nivsexceptions.VeristandError(errormessages.invalid_type_for_operator)
 
+    def __ne__(self, other):
+        if isinstance(other, DataType):
+            return self.value != other.value
+        elif self._is_compatible_with_datatype(other):
+            return self.value != other
+        else:
+            raise nivsexceptions.VeristandError(errormessages.invalid_type_for_operator)
+
     def __gt__(self, other):
         if isinstance(other, DataType):
             return self.value > other.value
