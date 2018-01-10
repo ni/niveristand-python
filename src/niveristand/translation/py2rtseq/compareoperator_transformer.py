@@ -19,5 +19,6 @@ def _operator(ast_operator):
     return{
         'Eq': "==",
         'Gt': ">",
+        'GtE': ">=",
         'Lt': "<",
     }.get(ast_operator, "unknown")
