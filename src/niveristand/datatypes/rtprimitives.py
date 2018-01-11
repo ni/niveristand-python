@@ -224,6 +224,15 @@ class DataType:
         else:
             raise nivsexceptions.VeristandError(errormessages.invalid_type_for_operator)
 
+    def __inv__(self):
+        self.__invert__()
+
+    def __invert__(self):
+        if isinstance(self, (Int32, Int64)):
+            return ~self.value
+        else:
+            raise nivsexceptions.VeristandError(errormessages.invalid_type_for_operator)
+
     @property
     def value(self):
         return self._data_value.Value

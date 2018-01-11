@@ -14,4 +14,5 @@ def _operator(ast_operator):
     return{
         'USub': "-",
         'Not': "!",
+        'Invert': "~",
     }.get(ast_operator, "unknown")
