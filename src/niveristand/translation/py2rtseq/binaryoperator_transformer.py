@@ -20,4 +20,5 @@ def _operator(ast_operator):
         'Pow': "**",
         'Mod': "%",
         'BitAnd': "&",
+        'BitOr': "|",
     }.get(ast_operator, "unknown")

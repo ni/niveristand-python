@@ -184,6 +184,17 @@ class DataType:
     def __rand__(self, other):
         return self.__and__(other)
 
+    def __or__(self, other):
+        if isinstance(other, (Int32, Int64)):
+            return self.value | other.value
+        elif isinstance(other, (int, numpy.long, numpy.int32, numpy.int64)):
+            return self.value | other
+        else:
+            raise nivsexceptions.VeristandError(errormessages.invalid_type_for_operator)
+
+    def __ror__(self, other):
+        return self.__or__(other)
+
     def __eq__(self, other):
         if isinstance(other, DataType):
             return self.value == other.value
