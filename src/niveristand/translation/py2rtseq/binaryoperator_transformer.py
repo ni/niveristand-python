@@ -22,4 +22,5 @@ def _operator(ast_operator):
         'BitAnd': "&",
         'BitOr': "|",
         'LShift': "<<",
+        'RShift': ">>",
     }.get(ast_operator, "unknown")
