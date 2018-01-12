@@ -22,4 +22,5 @@ def _operator(ast_operator):
         'Gt': ">",
         'GtE': ">=",
         'Lt': "<",
+        'LtE': "<=",
     }.get(ast_operator, "unknown")
