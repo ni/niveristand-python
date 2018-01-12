@@ -225,7 +225,7 @@ class DataType:
             return other.value >> self.value
         elif isinstance(other, (int, numpy.long, numpy.int32, numpy.int64)):
             return other >> self.value
-        
+
     def __eq__(self, other):
         if isinstance(other, DataType):
             return self.value == other.value
