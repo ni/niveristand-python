@@ -201,6 +201,60 @@ def div_binary_unary():
     return a.value
 
 
+# region augassign tests
+
+@decorators.nivs_rt_sequence
+def aug_div_simple_numbers():
+    a = Double(1)
+    a.value /= 2
+    return a.value
+
+
+@decorators.nivs_rt_sequence
+def aug_div_num_nivsdatatype():
+    a = Double(1)
+    a.value /= Double(2)
+    return a.value
+
+
+@decorators.nivs_rt_sequence
+def aug_div_use_rtseq():
+    a = Double(1)
+    a.value /= return_constant()
+    return a.value
+
+
+@decorators.nivs_rt_sequence
+def aug_div_with_parantheses():
+    a = Double(1)
+    a.value /= (Int32(2) / 3.0) / Double(4)
+    return a.value
+
+
+@decorators.nivs_rt_sequence
+def aug_div_variables():
+    a = Double(5)
+    b = Double(1)
+    b.value /= a.value
+    return b.value
+
+
+@decorators.nivs_rt_sequence
+def aug_div_to_channelref():
+    a = Double(1)
+    a.value /= Double(TestChannels.HP_COUNT)
+    return a.value
+
+
+@decorators.nivs_rt_sequence
+def aug_div_unary():
+    a = Double(1)
+    a.value /= -1
+    return a.value
+
+
+# end region augassign tests
+
 # region invalid tests
 @decorators.nivs_rt_sequence
 def div_invalid_variables():
@@ -260,6 +314,11 @@ run_tests = [
     (div_variable_variable, (), 0.5),
     (div_variable_variable1, (), 0.5),
     (div_binary_unary, (), -2),
+    (aug_div_simple_numbers, (), 0.5),
+    (aug_div_variables, (), 0.2),
+    (aug_div_num_nivsdatatype, (), 0.5),
+    (aug_div_with_parantheses, (), 6.0),
+    (aug_div_unary, (), -1),
 ]
 
 skip_tests = [
@@ -276,6 +335,8 @@ skip_tests = [
     (div_use_rtseq3, (), "RTseq call not yet implemented."),
     (div_use_rtseq4, (), "RTseq call not yet implemented."),
     (div_use_rtseq5, (), "RTseq call not yet implemented."),
+    (aug_div_use_rtseq, (), "RTSeq call not implemented yet."),
+    (aug_div_to_channelref, (), "Channel ref transform not yet implemented."),
 ]
 
 fail_transform_tests = [

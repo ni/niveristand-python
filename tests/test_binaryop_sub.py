@@ -224,9 +224,60 @@ def sub_binary_unary_sequence():
     return a.value
 
 
-##################################################################
-#                       INVALID TESTS                            #
-##################################################################
+# region augassign tests
+
+@decorators.nivs_rt_sequence
+def aug_sub_simple_numbers():
+    a = Double(1)
+    a.value -= 2
+    return a.value
+
+
+@decorators.nivs_rt_sequence
+def aug_sub_num_nivsdatatype():
+    a = Double(1)
+    a.value -= Double(2)
+    return a.value
+
+
+@decorators.nivs_rt_sequence
+def aug_sub_use_rtseq():
+    a = Double(1)
+    a.value -= return_constant()
+    return a.value
+
+
+@decorators.nivs_rt_sequence
+def aug_sub_with_parantheses():
+    a = Double(1)
+    a.value -= (Int32(2) + 3.0) + Double(4)
+    return a.value
+
+
+@decorators.nivs_rt_sequence
+def aug_sub_variables():
+    a = Double(5)
+    b = Double(1)
+    b.value -= a.value
+    return b.value
+
+
+@decorators.nivs_rt_sequence
+def aug_sub_to_channelref():
+    a = Double(1)
+    a.value -= Double(TestChannels.HP_COUNT)
+    return a.value
+
+
+@decorators.nivs_rt_sequence
+def aug_sub_unary():
+    a = Double(1)
+    a.value -= -1
+    return a.value
+
+
+# end region augassign tests
+# region invalid tests
 @decorators.nivs_rt_sequence
 def sub_invalid_variables():
     return a - b
@@ -264,6 +315,7 @@ def sub_complex_expr():
     a = Double(0)
     a.value = 1 - (2 if 2 < 3 else 4)
     return a.value
+# end region invalid tests
 
 
 run_tests = [
@@ -285,6 +337,11 @@ run_tests = [
     (sub_variable_variable1, (), -1),
     (sub_binary_unary, (), 3),
     (sub_binary_unary_sequence, (), 3),
+    (aug_sub_simple_numbers, (), -1),
+    (aug_sub_num_nivsdatatype, (), -1),
+    (aug_sub_with_parantheses, (), -8),
+    (aug_sub_variables, (), -4),
+    (aug_sub_unary, (), 2),
 ]
 
 skip_tests = [
@@ -301,6 +358,8 @@ skip_tests = [
     (sub_from_None, (), "Name transformer doesn't raise an exception for NoneType with python 2.7. - DE14611"),
     (sub_invalid_rtseq_call, (), "RTSeq call not implemented yet."),
     (sub_complex_expr, (), "Not implemented yet."),
+    (aug_sub_use_rtseq, (), "RTSeq call not implemented yet."),
+    (aug_sub_to_channelref, (), "Channel ref transform not yet implemented."),
 ]
 
 fail_transform_tests = [

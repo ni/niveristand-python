@@ -200,9 +200,60 @@ def mult_binary_unary():
     return a.value
 
 
-##################################################################
-#                       INVALID TESTS                            #
-##################################################################
+# region augassign tests
+
+@decorators.nivs_rt_sequence
+def aug_mult_simple_numbers():
+    a = Double(1)
+    a.value *= 2
+    return a.value
+
+
+@decorators.nivs_rt_sequence
+def aug_mult_num_nivsdatatype():
+    a = Double(1)
+    a.value *= Double(2)
+    return a.value
+
+
+@decorators.nivs_rt_sequence
+def aug_mult_use_rtseq():
+    a = Double(1)
+    a.value *= return_constant()
+    return a.value
+
+
+@decorators.nivs_rt_sequence
+def aug_mult_with_parantheses():
+    a = Double(2)
+    a.value *= (Int32(1) * 3.0) * Double(4)
+    return a.value
+
+
+@decorators.nivs_rt_sequence
+def aug_mult_variables():
+    a = Double(5)
+    b = Double(1)
+    b.value *= a.value
+    return b.value
+
+
+@decorators.nivs_rt_sequence
+def aug_mult_to_channelref():
+    a = Double(1)
+    a.value *= Double(TestChannels.HP_COUNT)
+    return a.value
+
+
+@decorators.nivs_rt_sequence
+def aug_mult_unary():
+    a = Double(1)
+    a.value *= -1
+    return a.value
+
+
+# end region augassign tests
+# region invalid tests
 @decorators.nivs_rt_sequence
 def mult_invalid_variables():
     return a * b
@@ -240,6 +291,7 @@ def mult_complex_expr():
     a = Double(0)
     a.value = 1 * (2 if 2 < 3 else 4)
     return a
+# end region invalid tests
 
 
 run_tests = [
@@ -259,6 +311,11 @@ run_tests = [
     (mult_variable_variable, (), 2),
     (mult_variable_variable1, (), 2),
     (mult_binary_unary, (), -2),
+    (aug_mult_simple_numbers, (), 2),
+    (aug_mult_variables, (), 5),
+    (aug_mult_num_nivsdatatype, (), 2),
+    (aug_mult_with_parantheses, (), 24),
+    (aug_mult_unary, (), -1),
 ]
 
 skip_tests = [
@@ -275,6 +332,8 @@ skip_tests = [
     (mult_use_rtseq3, (), "RTseq call not yet implemented."),
     (mult_use_rtseq4, (), "RTseq call not yet implemented."),
     (mult_use_rtseq5, (), "RTseq call not yet implemented."),
+    (aug_mult_use_rtseq, (), "RTSeq call not implemented yet."),
+    (aug_mult_to_channelref, (), "Channel ref transform not yet implemented."),
 ]
 
 fail_transform_tests = [

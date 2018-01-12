@@ -199,6 +199,59 @@ def bitwise_and_binary_unary():
     return a.value
 
 
+# region augassign tests
+
+@decorators.nivs_rt_sequence
+def aug_bitwise_and_simple_numbers():
+    a = Int32(7)
+    a.value &= 3
+    return a.value
+
+
+@decorators.nivs_rt_sequence
+def aug_bitwise_and_num_nivsdatatype():
+    a = Int32(1)
+    a.value &= Int32(3)
+    return a.value
+
+
+@decorators.nivs_rt_sequence
+def aug_bitwise_and_use_rtseq():
+    a = Int32(1)
+    a.value &= return_constant()
+    return a.value
+
+
+@decorators.nivs_rt_sequence
+def aug_bitwise_and_with_parantheses():
+    a = Int32(7)
+    a.value &= 1 & (5 & 3)
+    return a.value
+
+
+@decorators.nivs_rt_sequence
+def aug_bitwise_and_variables():
+    a = Int32(7)
+    b = Int32(3)
+    b.value &= a.value
+    return b.value
+
+
+@decorators.nivs_rt_sequence
+def aug_bitwise_and_to_channelref():
+    a = Double(1)
+    a.value &= Double(TestChannels.HP_COUNT)
+    return a.value
+
+
+@decorators.nivs_rt_sequence
+def aug_bitwise_and_unary():
+    a = Int32(3)
+    a.value &= -1
+    return a.value
+
+
+# end region augassign tests
 # region invalid tests
 @decorators.nivs_rt_sequence
 def bitwise_and_invalid_variables():
@@ -253,6 +306,11 @@ run_tests = [
     (bitwise_and_variable_variable, (), 1),
     (bitwise_and_variable_variable1, (), 1),
     (bitwise_and_binary_unary, (), 3),
+    (aug_bitwise_and_simple_numbers, (), 3),
+    (aug_bitwise_and_variables, (), 3),
+    (aug_bitwise_and_num_nivsdatatype, (), 1),
+    (aug_bitwise_and_with_parantheses, (), 1),
+    (aug_bitwise_and_unary, (), 3),
 ]
 
 skip_tests = [
@@ -269,6 +327,8 @@ skip_tests = [
     (bitwise_and_to_None, (), "Name transformer doesn't raise an exception for NoneType with python 2.7."),
     (bitwise_and_invalid_rtseq_call, (), "RTSeq call not implemented yet."),
     (bitwise_and_complex_expr, (), "Not implemented yet."),
+    (aug_bitwise_and_use_rtseq, (), "RTSeq call not implemented yet."),
+    (aug_bitwise_and_to_channelref, (), "Channel ref transform not yet implemented."),
 ]
 
 fail_transform_tests = [

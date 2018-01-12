@@ -199,6 +199,60 @@ def bitwise_or_binary_unary():
     return a.value
 
 
+# region augassign tests
+
+@decorators.nivs_rt_sequence
+def aug_bitwise_or_simple_numbers():
+    a = Int32(3)
+    a.value |= 7
+    return a.value
+
+
+@decorators.nivs_rt_sequence
+def aug_bitwise_or_num_nivsdatatype():
+    a = Int32(1)
+    a.value |= Int32(3)
+    return a.value
+
+
+@decorators.nivs_rt_sequence
+def aug_bitwise_or_use_rtseq():
+    a = Int32(1)
+    a.value |= return_constant()
+    return a.value
+
+
+@decorators.nivs_rt_sequence
+def aug_bitwise_or_with_parantheses():
+    a = Int32(1)
+    a.value |= 7 | (5 | 3)
+    return a.value
+
+
+@decorators.nivs_rt_sequence
+def aug_bitwise_or_variables():
+    a = Int32(7)
+    b = Int32(3)
+    b.value |= a.value
+    return b.value
+
+
+@decorators.nivs_rt_sequence
+def aug_bitwise_or_to_channelref():
+    a = Double(1)
+    a.value |= Double(TestChannels.HP_COUNT)
+    return a.value
+
+
+@decorators.nivs_rt_sequence
+def aug_bitwise_or_unary():
+    a = Int32(3)
+    a.value |= -1
+    return a.value
+
+
+# end region augassign tests
+
 # region invalid tests
 @decorators.nivs_rt_sequence
 def bitwise_or_invalid_variables():
@@ -253,6 +307,11 @@ run_tests = [
     (bitwise_or_variable_variable, (), 3),
     (bitwise_or_variable_variable1, (), 3),
     (bitwise_or_binary_unary, (), -1),
+    (aug_bitwise_or_simple_numbers, (), 7),
+    (aug_bitwise_or_variables, (), 7),
+    (aug_bitwise_or_num_nivsdatatype, (), 3),
+    (aug_bitwise_or_with_parantheses, (), 7),
+    (aug_bitwise_or_unary, (), -1),
 ]
 
 skip_tests = [
@@ -269,6 +328,8 @@ skip_tests = [
     (bitwise_or_to_None, (), "Name transformer doesn't raise an exception for NoneType with python 2.7."),
     (bitwise_or_invalid_rtseq_call, (), "RTSeq call not implemented yet."),
     (bitwise_or_complex_expr, (), "Not implemented yet."),
+    (aug_bitwise_or_use_rtseq, (), "RTSeq call not implemented yet."),
+    (aug_bitwise_or_to_channelref, (), "Channel ref transform not yet implemented."),
 ]
 
 fail_transform_tests = [

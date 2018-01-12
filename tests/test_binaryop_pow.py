@@ -186,6 +186,60 @@ def exp_binary_unary():
     return a.value
 
 
+# region augassign tests
+
+@decorators.nivs_rt_sequence
+def aug_exp_simple_numbers():
+    a = Double(2)
+    a.value **= 2
+    return a.value
+
+
+@decorators.nivs_rt_sequence
+def aug_exp_num_nivsdatatype():
+    a = Double(3)
+    a.value **= Double(2)
+    return a.value
+
+
+@decorators.nivs_rt_sequence
+def aug_exp_use_rtseq():
+    a = Double(1)
+    a.value **= return_constant()
+    return a.value
+
+
+@decorators.nivs_rt_sequence
+def aug_exp_with_parantheses():
+    a = Double(2)
+    a.value **= (Int32(2) ** 3.0) ** Double(2)
+    return a.value
+
+
+@decorators.nivs_rt_sequence
+def aug_exp_variables():
+    a = Double(5)
+    b = Double(2)
+    b.value **= a.value
+    return b.value
+
+
+@decorators.nivs_rt_sequence
+def aug_exp_to_channelref():
+    a = Double(1)
+    a.value **= Double(TestChannels.HP_COUNT)
+    return a.value
+
+
+@decorators.nivs_rt_sequence
+def aug_exp_unary():
+    a = Double(2)
+    a.value **= -1
+    return a.value
+
+
+# end region augassign tests
+
 @decorators.nivs_rt_sequence
 def exp_invalid_variables():
     return a ** b
@@ -240,6 +294,11 @@ run_tests = [
     (exp_variable_variable, (), 8),
     (exp_variable_variable1, (), 8),
     (exp_binary_unary, (), 0.5),
+    (aug_exp_simple_numbers, (), 4),
+    (aug_exp_variables, (), 32),
+    (aug_exp_num_nivsdatatype, (), 9),
+    (aug_exp_with_parantheses, (), float(2**64)),
+    (aug_exp_unary, (), 0.5),
 ]
 
 skip_tests = [
@@ -256,6 +315,8 @@ skip_tests = [
     (exp_use_rtseq3, (), "RTseq call not yet implemented."),
     (exp_use_rtseq4, (), "RTseq call not yet implemented."),
     (exp_use_rtseq5, (), "RTseq call not yet implemented."),
+    (aug_exp_use_rtseq, (), "RTSeq call not implemented yet."),
+    (aug_exp_to_channelref, (), "Channel ref transform not yet implemented."),
 ]
 
 fail_transform_tests = [

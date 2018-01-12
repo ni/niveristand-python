@@ -2,6 +2,7 @@ import ast
 import sys
 from niveristand.translation.py2rtseq import assign_transformer
 from niveristand.translation.py2rtseq import attribute_transformer
+from niveristand.translation.py2rtseq import augassign_transformer
 from niveristand.translation.py2rtseq import binaryoperator_transformer
 from niveristand.translation.py2rtseq import booloperator_transformer
 from niveristand.translation.py2rtseq import call_transformer
@@ -36,6 +37,7 @@ TRANSFORMERS = {
     ast.BinOp.__name__: binaryoperator_transformer.binaryoperator_transformer,
     ast.UnaryOp.__name__: unaryoperator_transformer.unaryoperator_transformer,
     ast.BoolOp.__name__: booloperator_transformer.booloperator_transformer,
+    ast.AugAssign.__name__: augassign_transformer.augassign_transformer,
 }
 
 if sys.version_info >= (3, 5):

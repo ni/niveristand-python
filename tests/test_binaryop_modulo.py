@@ -236,6 +236,60 @@ def modulo_binary_unary():
     return a.value
 
 
+# region augassign tests
+
+@decorators.nivs_rt_sequence
+def aug_modulo_simple_numbers():
+    a = Double(1)
+    a.value %= 2
+    return a.value
+
+
+@decorators.nivs_rt_sequence
+def aug_modulo_num_nivsdatatype():
+    a = Double(1)
+    a.value %= Double(2)
+    return a.value
+
+
+@decorators.nivs_rt_sequence
+def aug_modulo_use_rtseq():
+    a = Double(6)
+    a.value %= return_constant()
+    return a.value
+
+
+@decorators.nivs_rt_sequence
+def aug_modulo_with_parantheses():
+    a = Double(5)
+    a.value %= (Int32(2) % 3.0) % Double(4)
+    return a.value
+
+
+@decorators.nivs_rt_sequence
+def aug_modulo_variables():
+    a = Double(5)
+    b = Double(1)
+    b.value %= a.value
+    return b.value
+
+
+@decorators.nivs_rt_sequence
+def aug_modulo_to_channelref():
+    a = Double(1)
+    a.value %= Double(TestChannels.HP_COUNT)
+    return a.value
+
+
+@decorators.nivs_rt_sequence
+def aug_modulo_unary():
+    a = Double(1)
+    a.value %= -1
+    return a.value
+
+
+# end region augassign tests
+
 # region invalid tests
 @decorators.nivs_rt_sequence
 def modulo_invalid_variables():
@@ -299,6 +353,10 @@ run_tests = [
     (modulo_variables1, (), 2),
     (modulo_variable_variable, (), 1),
     (modulo_variable_variable1, (), 1),
+    (aug_modulo_simple_numbers, (), 1),
+    (aug_modulo_variables, (), 1),
+    (aug_modulo_num_nivsdatatype, (), 1),
+    (aug_modulo_with_parantheses, (), 1),
 ]
 
 skip_tests = [
@@ -317,6 +375,9 @@ skip_tests = [
     (modulo_use_rtseq3, (), "RTseq call not yet implemented."),
     (modulo_use_rtseq4, (), "RTseq call not yet implemented."),
     (modulo_use_rtseq5, (), "RTseq call not yet implemented."),
+    (aug_modulo_use_rtseq, (), "RTSeq call not implemented yet."),
+    (aug_modulo_to_channelref, (), "Channel ref transform not yet implemented."),
+    (aug_modulo_unary, (), "SPE and Python treat negative module differently."),
 ]
 
 fail_transform_tests = [
