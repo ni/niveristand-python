@@ -41,8 +41,8 @@ setup(
     packages=find_packages('src'),
     package_dir={'': 'src'},
     include_package_data=True,
-    install_requires=['pythonnet', 'PyYAML', 'numpy'],
-    tests_require=['pytest'],
+    install_requires=['pythonnet', 'PyYAML'],
+    tests_require=['pytest', 'numpy'],
     classifiers=[
         "Development Status :: 2 - Pre-Alpha",
         "Intended Audience :: Developers",

@@ -470,6 +470,54 @@ def invalid_return_type():
     return DoubleArray([5.0, 1])
 
 
+@decorators.nivs_rt_sequence
+def int32_max_value():
+    a = Int32(0x7FFFFFFF)
+    return a.value
+
+
+@decorators.nivs_rt_sequence
+def int32_max_value_overflow():
+    a = Int32(0x80000000)
+    return a.value
+
+
+@decorators.nivs_rt_sequence
+def int64_max_value():
+    a = Int64(0x7FFFFFFFFFFFFFFF)
+    return a.value
+
+
+@decorators.nivs_rt_sequence
+def int64_max_value_overflow():
+    a = Int64(0x8000000000000000)
+    return a.value
+
+
+@decorators.nivs_rt_sequence
+def uint32_max_value():
+    a = UInt32(0x7FFFFFFF)
+    return a.value
+
+
+@decorators.nivs_rt_sequence
+def uint32_max_value_overflow():
+    a = UInt32(0x80000000)
+    return a.value
+
+
+@decorators.nivs_rt_sequence
+def uint64_max_value():
+    a = UInt64(0x7FFFFFFFFFFFFFFF)
+    return a.value
+
+
+@decorators.nivs_rt_sequence
+def uint64_max_value_overflow():
+    a = UInt64(0x8000000000000000)
+    return a.value
+
+
 transform_tests = [
     boolean_type,
     boolean_type1,
@@ -503,8 +551,6 @@ transform_tests = [
     double_type_negative,
     int32_type_negative,
     int64_type_negative,
-    uint32_type_negative,
-    uint64_type_negative,
     uint32_array_negative_values,
     uint64_array_negative_values,
 ]
@@ -520,6 +566,14 @@ run_tests = [
     (int64_type_run, (), 2),
     (uint32_type_run, (), 2),
     (uint64_type_run, (), 2),
+    (boolean_type_negative_run, (), True),
+    (double_type_negative_run, (), -5.0),
+    (int32_type_negative_run, (), -1),
+    (int64_type_negative_run, (), -1),
+    (int32_max_value, (), 0x7FFFFFFF),
+    (int64_max_value, (), 0x7FFFFFFFFFFFFFFF),
+    (uint32_max_value, (), 0x7FFFFFFF),
+    (uint64_max_value, (), 0x7FFFFFFFFFFFFFFF),
 ]
 
 skip_tests = [
@@ -559,6 +613,14 @@ fail_transform_tests = [
     (uint32_array_invalid_type, TranslateError),
     (uint64_array_invalid_type, TranslateError),
     (invalid_return_type, TranslateError),
+    (uint32_type_negative, OverflowError),
+    (uint64_type_negative, OverflowError),
+    (uint32_type_negative_run, OverflowError),
+    (uint64_type_negative_run, OverflowError),
+    (int32_max_value_overflow, OverflowError),
+    (int64_max_value_overflow, OverflowError),
+    (uint32_max_value_overflow, OverflowError),
+    (uint64_max_value_overflow, OverflowError),
 ]
 
 

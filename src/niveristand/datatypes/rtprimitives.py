@@ -1,3 +1,4 @@
+import sys
 from NationalInstruments.VeriStand.Data import BooleanValue
 from NationalInstruments.VeriStand.Data import BooleanValueArray
 from NationalInstruments.VeriStand.Data import DoubleValue
@@ -12,7 +13,10 @@ from NationalInstruments.VeriStand.Data import U64Value
 from NationalInstruments.VeriStand.Data import U64ValueArray
 from niveristand import errormessages
 from niveristand import exceptions as nivsexceptions
-import numpy
+from System import Int32 as SystemInt32
+from System import Int64 as SystemInt64
+from System import UInt32 as SystemUInt32
+from System import UInt64 as SystemUInt64
 
 
 def get_class_by_name(name):
@@ -39,7 +43,11 @@ class DataType:
 
     @staticmethod
     def _is_compatible_with_datatype(other):
-        return isinstance(other, (int, float, numpy.int32, numpy.int64, numpy.long))
+        return isinstance(other, (int, float)) or (sys.version_info < (2, 8) and isinstance(other, long))  # noqa F821
+
+    @staticmethod
+    def _is_integer_type(other):
+        return isinstance(other, int) or (sys.version_info < (2, 8) and isinstance(other, long))  # noqa F821
 
     def __add__(self, other):
         if isinstance(other, DataType):
@@ -160,7 +168,7 @@ class DataType:
     def __mod__(self, other):
         if isinstance(other, DataType):
             return self.value % other.value
-        elif isinstance(other, (int, float, numpy.int32, numpy.int64, numpy.long)):
+        elif self._is_compatible_with_datatype(other):
             return self.value % other
         else:
             raise nivsexceptions.VeristandError(errormessages.invalid_type_for_operator)
@@ -168,7 +176,7 @@ class DataType:
     def __rmod__(self, other):
         if isinstance(other, DataType):
             return other.value % self.value
-        elif isinstance(other, (int, float, numpy.int32, numpy.int64, numpy.long)):
+        elif self._is_compatible_with_datatype(other):
             return other % self.value
         else:
             raise nivsexceptions.VeristandError(errormessages.invalid_type_for_operator)
@@ -176,7 +184,7 @@ class DataType:
     def __and__(self, other):
         if isinstance(other, (Int32, Int64)):
             return self.value & other.value
-        elif isinstance(other, (int, numpy.long, numpy.int32, numpy.int64)):
+        elif self._is_integer_type(other):
             return self.value & other
         else:
             raise nivsexceptions.VeristandError(errormessages.invalid_type_for_operator)
@@ -187,7 +195,7 @@ class DataType:
     def __or__(self, other):
         if isinstance(other, (Int32, Int64)):
             return self.value | other.value
-        elif isinstance(other, (int, numpy.long, numpy.int32, numpy.int64)):
+        elif self._is_integer_type(other):
             return self.value | other
         else:
             raise nivsexceptions.VeristandError(errormessages.invalid_type_for_operator)
@@ -198,7 +206,7 @@ class DataType:
     def __lshift__(self, other):
         if isinstance(other, (Int32, Int64)):
             return self.value << other.value
-        elif isinstance(other, (int, numpy.long, numpy.int32, numpy.int64)):
+        elif self._is_integer_type(other):
             return self.value << other
         else:
             raise nivsexceptions.VeristandError(errormessages.invalid_type_for_operator)
@@ -206,7 +214,7 @@ class DataType:
     def __rlshift__(self, other):
         if isinstance(other, (Int32, Int64)):
             return other.value << self.value
-        elif isinstance(other, (int, numpy.long, numpy.int32, numpy.int64)):
+        elif self._is_integer_type(other):
             return other << self.value
 
         else:
@@ -215,7 +223,7 @@ class DataType:
     def __rshift__(self, other):
         if isinstance(other, (Int32, Int64)):
             return self.value >> other.value
-        elif isinstance(other, (int, numpy.long, numpy.int32, numpy.int64)):
+        elif self._is_integer_type(other):
             return self.value >> other
         else:
             raise nivsexceptions.VeristandError(errormessages.invalid_type_for_operator)
@@ -223,13 +231,13 @@ class DataType:
     def __rrshift__(self, other):
         if isinstance(other, (Int32, Int64)):
             return other.value >> self.value
-        elif isinstance(other, (int, numpy.long, numpy.int32, numpy.int64)):
+        elif self._is_integer_type(other):
             return other >> self.value
 
     def __eq__(self, other):
         if isinstance(other, DataType):
             return self.value == other.value
-        elif isinstance(other, (int, float, bool, numpy.bool_)):
+        elif isinstance(other, (int, float, bool)):
             return self.value == other
         else:
             raise nivsexceptions.VeristandError(errormessages.invalid_type_for_operator)
@@ -312,7 +320,7 @@ class BooleanArray(ArrayType):
 class Double(DataType):
     def _to_data_value(self, value):
         if type(value) is int:
-            value = numpy.float(value)
+            value = float(value)
         return DoubleValue(value)
 
 
@@ -323,7 +331,7 @@ class DoubleArray(ArrayType):
 
 class Int32(DataType):
     def _to_data_value(self, value):
-        value = numpy.int32(value)
+        value = SystemInt32(value)
         return I32Value(value)
 
 
@@ -334,7 +342,7 @@ class Int32Array(ArrayType):
 
 class Int64(DataType):
     def _to_data_value(self, value):
-        value = numpy.int64(value)
+        value = SystemInt64(value)
         return I64Value(value)
 
 
@@ -345,7 +353,7 @@ class Int64Array(ArrayType):
 
 class UInt32(DataType):
     def _to_data_value(self, value):
-        value = numpy.uint32(value)
+        value = SystemUInt32(value)
         return U32Value(value)
 
 
@@ -356,7 +364,7 @@ class UInt32Array(ArrayType):
 
 class UInt64(DataType):
     def _to_data_value(self, value):
-        value = numpy.uint64(value)
+        value = SystemUInt64(value)
         return U64Value(value)
 
 
