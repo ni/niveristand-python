@@ -203,6 +203,17 @@ class DataType:
     def __ror__(self, other):
         return self.__or__(other)
 
+    def __xor__(self, other):
+        if isinstance(other, (Int32, Int64)):
+            return self.value ^ other.value
+        elif self._is_integer_type(other):
+            return self.value ^ other
+        else:
+            raise nivsexceptions.VeristandError(errormessages.invalid_type_for_operator)
+
+    def __rxor__(self, other):
+        return self.__xor__(other)
+
     def __lshift__(self, other):
         if isinstance(other, (Int32, Int64)):
             return self.value << other.value
