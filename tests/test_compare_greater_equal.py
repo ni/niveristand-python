@@ -199,6 +199,13 @@ def greater_eq_with_multiple_comparators():
     return a.value
 
 
+@decorators.nivs_rt_sequence
+def greater_eq_complex_expr():
+    a = Boolean(False)
+    a.value = 2 >= (1 if 2 < 3 else 4)
+    return a.value
+
+
 # region invalid tests
 @decorators.nivs_rt_sequence
 def greater_eq_invalid_variables():
@@ -229,13 +236,6 @@ def greater_eq_to_None():
 def greater_eq_invalid_rtseq_call():
     a = Boolean(False)
     a.value = return_constant >= 1
-    return a.value
-
-
-@decorators.nivs_rt_sequence
-def greater_eq_complex_expr():
-    a = Boolean(False)
-    a.value = 1 >= (2 if 2 < 3 else 4)
     return a.value
 
 
@@ -431,6 +431,13 @@ def gt_equal_with_multiple_comparators():
     return a.value
 
 
+@decorators.nivs_rt_sequence
+def gt_equal_complex_expr():
+    a = Boolean(0)
+    a.value = 1 >= (1 if 2 < 3 else 4)
+    return a.value
+
+
 # region invalid tests
 @decorators.nivs_rt_sequence
 def gt_equal_invalid_variables():
@@ -463,13 +470,6 @@ def gt_equal_invalid_rtseq_call():
     a.value = return_constant >= 1
     return a.value
 
-
-@decorators.nivs_rt_sequence
-def gt_equal_complex_expr():
-    a = Boolean(0)
-    a.value = 1 >= (2 if 2 < 3 else 4)
-    return a.value
-
 # end region
 
 
@@ -486,6 +486,7 @@ run_tests = [
     (greater_eq_variables1, (), True),
     (greater_eq_variable_variable, (), True),
     (greater_eq_variable_variable1, (), True),
+    (greater_eq_complex_expr, (), True),
     (gt_equal_simple_numbers, (), True),
     (gt_equal_num_nivsdatatype, (), False),
     (gt_equal_nivsdatatype_nivsdatatype, (), True),
@@ -499,6 +500,7 @@ run_tests = [
     (gt_equal_variable_variable, (), False),
     (gt_equal_variable_variable1, (), True),
     (gt_equal_variable_variable2, (), True),
+    (gt_equal_complex_expr, (), True),
 ]
 
 skip_tests = [
@@ -515,7 +517,6 @@ skip_tests = [
     (greater_eq_binary_unary, (), "Unary operator not implemented."),
     (greater_eq_to_None, (), "Name transformer doesn't raise an exception for NoneType with python 2.7."),
     (greater_eq_invalid_rtseq_call, (), "RTSeq call not implemented yet."),
-    (greater_eq_complex_expr, (), "Not implemented yet."),
     (greater_eq_multiple_types, (), "Cascading comparators untested in VM"),
     (greater_eq_multiple_types1, (), "Cascading comparators untested in VM"),
     (greater_eq_with_multiple_comparators, (), "Cascading comparators untested in VM"),
@@ -531,7 +532,6 @@ skip_tests = [
     (gt_equal_binary_unary, (), "Unary operator not implemented."),
     (gt_equal_to_None, (), "Name transformer doesn't raise an exception for NoneType with python 2.7."),
     (gt_equal_invalid_rtseq_call, (), "RTSeq call not implemented yet."),
-    (gt_equal_complex_expr, (), "Not implemented yet."),
     (gt_equal_multiple_types, (), "Cascading comparators untested in VM"),
     (gt_equal_multiple_types1, (), "Cascading comparators untested in VM"),
     (gt_equal_with_multiple_comparators, (), "Cascading comparators untested in VM"),

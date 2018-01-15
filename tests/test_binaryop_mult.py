@@ -200,6 +200,13 @@ def mult_binary_unary():
     return a.value
 
 
+@decorators.nivs_rt_sequence
+def mult_complex_expr():
+    a = Double(0)
+    a.value = 1 * (2 if 2 < 3 else 4)
+    return a
+
+
 # region augassign tests
 
 @decorators.nivs_rt_sequence
@@ -285,12 +292,6 @@ def mult_invalid_rtseq_call():
     a.value = return_constant * 1
     return a
 
-
-@decorators.nivs_rt_sequence
-def mult_complex_expr():
-    a = Double(0)
-    a.value = 1 * (2 if 2 < 3 else 4)
-    return a
 # end region invalid tests
 
 
@@ -316,12 +317,12 @@ run_tests = [
     (aug_mult_num_nivsdatatype, (), 2),
     (aug_mult_with_parantheses, (), 24),
     (aug_mult_unary, (), -1),
+    (mult_complex_expr, (), 2),
 ]
 
 skip_tests = [
     (mult_with_channelref, (), "Not implemented yet."),
     (mult_invalid_rtseq_call, (), "Not implemented yet."),
-    (mult_complex_expr, (), "Not implemented yet."),
     (mult_invalid_variables2, (), "Attribute transformer doesn't catch the a.value.value problem."),
     (mult_with_None, (), "Name transformer doesn't raise an exception for NoneType with python 2.7."),
     (mult_variable_rtseq, (), "RTseq call not yet implemented."),

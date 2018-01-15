@@ -186,6 +186,13 @@ def exp_binary_unary():
     return a.value
 
 
+@decorators.nivs_rt_sequence
+def exp_complex_expr():
+    a = Double(0)
+    a.value = 3 ** (2 if 2 < 3 else 4)
+    return a
+
+
 # region augassign tests
 
 @decorators.nivs_rt_sequence
@@ -272,13 +279,6 @@ def exp_invalid_rtseq_call():
     return a
 
 
-@decorators.nivs_rt_sequence
-def exp_complex_expr():
-    a = Double(0)
-    a.value = 1 ** (2 if 2 < 3 else 4)
-    return a
-
-
 run_tests = [
     (exp_simple_numbers, (), 4),
     (exp_num_nivsdatatype, (), 4),
@@ -299,12 +299,12 @@ run_tests = [
     (aug_exp_num_nivsdatatype, (), 9),
     (aug_exp_with_parantheses, (), float(2**64)),
     (aug_exp_unary, (), 0.5),
+    (exp_complex_expr, (), 9),
 ]
 
 skip_tests = [
     (exp_with_channelref, (), "Not implemented yet."),
     (exp_invalid_rtseq_call, (), "Not implemented yet."),
-    (exp_complex_expr, (), "Not implemented yet."),
     (exp_invalid_variables2, (), "Attribute transformer doesn't catch the a.value.value problem."),
     (exp_with_None, (), "Name transformer doesn't raise an exception for NoneType with python 2.7."),
     (exp_variable_rtseq, (), "RTseq call not yet implemented."),

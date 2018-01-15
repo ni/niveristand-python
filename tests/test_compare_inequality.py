@@ -243,6 +243,13 @@ def notequal_with_multiple_comparators():
     return a.value
 
 
+@decorators.nivs_rt_sequence
+def notequal_complex_expr():
+    a = Boolean(False)
+    a.value = 1 != (2 if 2 < 3 else 1)
+    return a.value
+
+
 # region invalid tests
 @decorators.nivs_rt_sequence
 def notequal_invalid_variables():
@@ -275,13 +282,6 @@ def notequal_invalid_rtseq_call():
     a.value = return_constant != 1
     return a.value
 
-
-@decorators.nivs_rt_sequence
-def notequal_complex_expr():
-    a = Boolean(False)
-    a.value = 1 != (2 if 2 < 3 else 4)
-    return a.value
-
 # end region
 
 
@@ -307,6 +307,7 @@ run_tests = [
     (notequal_variable_variable2, (), False),
     (notequal_with_multiple_comparators, (), True),
     (notequal_binary_unary, (), False),
+    (notequal_complex_expr, (), True),
 ]
 
 skip_tests = [
@@ -323,7 +324,6 @@ skip_tests = [
     (notequal_invalid_rtseq_call, (), "RTSeq call not implemented yet."),
     (notequal_multiple_types, (), "SPE and Python treat 1 != 1.0 differently."),
     (notequal_multiple_types1, (), "SPE and Python treat 1 != 1.0 differently."),
-    (notequal_complex_expr, (), "IfExp not implemented yet."),
 ]
 
 fail_transform_tests = [

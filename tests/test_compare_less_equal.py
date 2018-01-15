@@ -199,6 +199,13 @@ def less_eq_with_multiple_comparators():
     return a.value
 
 
+@decorators.nivs_rt_sequence
+def less_eq_complex_expr():
+    a = Boolean(False)
+    a.value = 1 <= (2 if 2 < 3 else 1)
+    return a.value
+
+
 # region invalid tests
 @decorators.nivs_rt_sequence
 def less_eq_invalid_variables():
@@ -229,13 +236,6 @@ def less_eq_to_None():
 def less_eq_invalid_rtseq_call():
     a = Boolean(True)
     a.value = return_constant <= 1
-    return a.value
-
-
-@decorators.nivs_rt_sequence
-def less_eq_complex_expr():
-    a = Boolean(True)
-    a.value = 1 <= (2 if 2 < 3 else 4)
     return a.value
 
 
@@ -431,6 +431,13 @@ def lt_equal_with_multiple_comparators():
     return a.value
 
 
+@decorators.nivs_rt_sequence
+def lt_equal_complex_expr():
+    a = Boolean(False)
+    a.value = 1 <= (1 if 2 < 3 else 0)
+    return a.value
+
+
 # region invalid tests
 @decorators.nivs_rt_sequence
 def lt_equal_invalid_variables():
@@ -463,13 +470,6 @@ def lt_equal_invalid_rtseq_call():
     a.value = return_constant <= 1
     return a.value
 
-
-@decorators.nivs_rt_sequence
-def lt_equal_complex_expr():
-    a = Boolean(True)
-    a.value = 1 <= (2 if 2 < 3 else 4)
-    return a.value
-
 # end region
 
 
@@ -487,6 +487,7 @@ run_tests = [
     (less_eq_variable_variable, (), False),
     (less_eq_variable_variable1, (), False),
     (less_eq_binary_unary, (), False),
+    (less_eq_complex_expr, (), True),
     (lt_equal_simple_numbers, (), True),
     (lt_equal_num_nivsdatatype, (), True),
     (lt_equal_nivsdatatype_nivsdatatype, (), True),
@@ -501,6 +502,7 @@ run_tests = [
     (lt_equal_variable_variable1, (), True),
     (lt_equal_variable_variable2, (), True),
     (lt_equal_binary_unary, (), True),
+    (lt_equal_complex_expr, (), True),
 ]
 
 skip_tests = [
@@ -516,7 +518,6 @@ skip_tests = [
     (less_eq_to_channelref, (), "Channel ref transform not yet implemented."),
     (less_eq_to_None, (), "Name transformer doesn't raise an exception for NoneType with python 2.7."),
     (less_eq_invalid_rtseq_call, (), "RTSeq call not implemented yet."),
-    (less_eq_complex_expr, (), "Not implemented yet."),
     (less_eq_multiple_types, (), "Cascading comparators untested in VM"),
     (less_eq_multiple_types1, (), "Cascading comparators untested in VM"),
     (less_eq_with_multiple_comparators, (), "Cascading comparators untested in VM"),
@@ -531,7 +532,6 @@ skip_tests = [
     (lt_equal_to_channelref, (), "Channel ref transform not yet implemented."),
     (lt_equal_to_None, (), "Name transformer doesn't raise an exception for NoneType with python 2.7."),
     (lt_equal_invalid_rtseq_call, (), "RTSeq call not implemented yet."),
-    (lt_equal_complex_expr, (), "Not implemented yet."),
     (lt_equal_multiple_types, (), "Cascading comparators untested in VM"),
     (lt_equal_multiple_types1, (), "Cascading comparators untested in VM"),
     (lt_equal_with_multiple_comparators, (), "Cascading comparators untested in VM"),

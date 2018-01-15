@@ -243,6 +243,13 @@ def equal_with_multiple_comparators():
     return a.value
 
 
+@decorators.nivs_rt_sequence
+def equal_complex_expr():
+    a = Boolean(0)
+    a.value = 1 == (1 if 2 < 3 else 4)
+    return a.value
+
+
 # region invalid tests
 @decorators.nivs_rt_sequence
 def equal_invalid_variables():
@@ -275,13 +282,6 @@ def equal_invalid_rtseq_call():
     a.value = return_constant == 1
     return a.value
 
-
-@decorators.nivs_rt_sequence
-def equal_complex_expr():
-    a = Boolean(0)
-    a.value = 1 == (2 if 2 < 3 else 4)
-    return a.value
-
 # end region
 
 
@@ -309,6 +309,7 @@ run_tests = [
     (equal_variable_variable2, (), True),
     (equal_with_multiple_comparators, (), False),
     (equal_binary_unary, (), True),
+    (equal_complex_expr, (), True),
 ]
 
 skip_tests = [
@@ -323,7 +324,6 @@ skip_tests = [
     (equal_to_channelref, (), "Channel ref transform not yet implemented."),
     (equal_to_None, (), "Name transformer doesn't raise an exception for NoneType with python 2.7."),
     (equal_invalid_rtseq_call, (), "RTSeq call not implemented yet."),
-    (equal_complex_expr, (), "Not implemented yet."),
 
 ]
 

@@ -236,6 +236,13 @@ def modulo_binary_unary():
     return a.value
 
 
+@decorators.nivs_rt_sequence
+def modulo_complex_expr():
+    a = Double(0)
+    a.value = 1 % (2 if 2 < 3 else 4)
+    return a
+
+
 # region augassign tests
 
 @decorators.nivs_rt_sequence
@@ -322,13 +329,6 @@ def modulo_invalid_rtseq_call():
     a.value = return_constant % 1
     return a
 
-
-@decorators.nivs_rt_sequence
-def modulo_complex_expr():
-    a = Double(0)
-    a.value = 1 % (2 if 2 < 3 else 4)
-    return a
-
 # endregion
 
 
@@ -357,6 +357,7 @@ run_tests = [
     (aug_modulo_variables, (), 1),
     (aug_modulo_num_nivsdatatype, (), 1),
     (aug_modulo_with_parantheses, (), 1),
+    (modulo_complex_expr, (), 1),
 ]
 
 skip_tests = [
@@ -364,7 +365,6 @@ skip_tests = [
     (modulo_binary_unary, (), "SPE implements remainder. Python implements module. "
                               "The difference is subtle but the sign of the result is different."),
     (modulo_invalid_rtseq_call, (), "Not implemented yet."),
-    (modulo_complex_expr, (), "Not implemented yet."),
     (modulo_invalid_variables2, (), "Attribute transformer doesn't catch the a.value.value problem."),
     (modulo_with_None, (), "Name transformer doesn't raise an exception for NoneType with python 2.7."),
     (modulo_variable_rtseq, (), "RTseq call not yet implemented."),

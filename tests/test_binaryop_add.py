@@ -220,6 +220,13 @@ def add_binary_unary_sequence():
     return a.value
 
 
+@decorators.nivs_rt_sequence
+def add_complex_expr():
+    a = Double(0)
+    a.value = 1 + (2 if 2 < 3 else 4)
+    return a.value
+
+
 # region augassign tests
 
 @decorators.nivs_rt_sequence
@@ -306,13 +313,6 @@ def add_invalid_rtseq_call():
     a.value = return_constant + 1
     return a.value
 
-
-@decorators.nivs_rt_sequence
-def add_complex_expr():
-    a = Double(0)
-    a.value = 1 + (2 if 2 < 3 else 4)
-    return a.value
-
 # end region
 
 
@@ -339,6 +339,7 @@ run_tests = [
     (aug_add_num_nivsdatatype, (), 3),
     (aug_add_with_parantheses, (), 10),
     (aug_add_unary, (), 0),
+    (add_complex_expr, (), 3),
 ]
 
 skip_tests = [
@@ -354,7 +355,6 @@ skip_tests = [
     (add_invalid_variables2, (), "Attribute transformer doesn't catch the a.value.value problem."),
     (add_to_None, (), "Name transformer doesn't raise an exception for NoneType with python 2.7."),
     (add_invalid_rtseq_call, (), "RTSeq call not implemented yet."),
-    (add_complex_expr, (), "Not implemented yet."),
     (add_binary_unary_sequence, (), "This test takes 1000x more than the rest. Ignoring for now."),
     (aug_add_use_rtseq, (), "RTSeq call not implemented yet."),
     (aug_add_to_channelref, (), "Channel ref transform not yet implemented."),

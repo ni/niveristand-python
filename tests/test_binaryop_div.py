@@ -201,6 +201,13 @@ def div_binary_unary():
     return a.value
 
 
+@decorators.nivs_rt_sequence
+def div_complex_expr():
+    a = Double(0)
+    a.value = 1.0 / (2.0 if 2 < 3 else 4.0)
+    return a
+
+
 # region augassign tests
 
 @decorators.nivs_rt_sequence
@@ -287,13 +294,6 @@ def div_invalid_rtseq_call():
     a.value = return_constant / 1
     return a
 
-
-@decorators.nivs_rt_sequence
-def div_complex_expr():
-    a = Double(0)
-    a.value = 1 / (2 if 2 < 3 else 4)
-    return a
-
 # endregion
 
 
@@ -319,12 +319,12 @@ run_tests = [
     (aug_div_num_nivsdatatype, (), 0.5),
     (aug_div_with_parantheses, (), 6.0),
     (aug_div_unary, (), -1),
+    (div_complex_expr, (), 0.5),
 ]
 
 skip_tests = [
     (div_with_channelref, (), "Not implemented yet."),
     (div_invalid_rtseq_call, (), "Not implemented yet."),
-    (div_complex_expr, (), "Not implemented yet."),
     (div_invalid_variables2, (), "Attribute transformer doesn't catch the a.value.value problem."),
     (div_with_None, (), "Name transformer doesn't raise an exception for NoneType with python 2.7."),
     (div_variable_rtseq, (), "RTseq call not yet implemented."),

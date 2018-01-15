@@ -199,6 +199,13 @@ def greater_with_multiple_comparators():
     return a.value
 
 
+@decorators.nivs_rt_sequence
+def greater_complex_expr():
+    a = Boolean(False)
+    a.value = 2 > (1 if 2 < 3 else 4)
+    return a.value
+
+
 # region invalid tests
 @decorators.nivs_rt_sequence
 def greater_invalid_variables():
@@ -231,13 +238,6 @@ def greater_invalid_rtseq_call():
     a.value = return_constant > 1
     return a.value
 
-
-@decorators.nivs_rt_sequence
-def greater_complex_expr():
-    a = Boolean(False)
-    a.value = 1 > (2 if 2 < 3 else 4)
-    return a.value
-
 # end region
 
 
@@ -254,6 +254,7 @@ run_tests = [
     (greater_variables1, (), True),
     (greater_variable_variable, (), True),
     (greater_variable_variable1, (), True),
+    (greater_complex_expr, (), True),
 ]
 
 skip_tests = [
@@ -270,7 +271,6 @@ skip_tests = [
     (greater_binary_unary, (), "Unary operator not implemented."),
     (greater_to_None, (), "Name transformer doesn't raise an exception for NoneType with python 2.7."),
     (greater_invalid_rtseq_call, (), "RTSeq call not implemented yet."),
-    (greater_complex_expr, (), "Not implemented yet."),
     (greater_multiple_types, (), "Cascading comparators untested in VM"),
     (greater_multiple_types1, (), "Cascading comparators untested in VM"),
     (greater_with_multiple_comparators, (), "Cascading comparators untested in VM"),

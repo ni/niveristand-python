@@ -199,6 +199,13 @@ def less_with_multiple_comparators():
     return a.value
 
 
+@decorators.nivs_rt_sequence
+def less_complex_expr():
+    a = Boolean(False)
+    a.value = 1 < (2 if 2 < 3 else 1)
+    return a.value
+
+
 # region invalid tests
 @decorators.nivs_rt_sequence
 def less_invalid_variables():
@@ -231,13 +238,6 @@ def less_invalid_rtseq_call():
     a.value = return_constant < 1
     return a.value
 
-
-@decorators.nivs_rt_sequence
-def less_complex_expr():
-    a = Boolean(True)
-    a.value = 1 < (2 if 2 < 3 else 4)
-    return a.value
-
 # end region
 
 
@@ -254,6 +254,7 @@ run_tests = [
     (less_variables1, (), False),
     (less_variable_variable, (), False),
     (less_variable_variable1, (), False),
+    (less_complex_expr, (), True),
 ]
 
 skip_tests = [
@@ -270,7 +271,6 @@ skip_tests = [
     (less_binary_unary, (), "Unary operator not implemented."),
     (less_to_None, (), "Name transformer doesn't raise an exception for NoneType with python 2.7."),
     (less_invalid_rtseq_call, (), "RTSeq call not implemented yet."),
-    (less_complex_expr, (), "Not implemented yet."),
     (less_multiple_types, (), "Cascading comparators untested in VM"),
     (less_multiple_types1, (), "Cascading comparators untested in VM"),
     (less_with_multiple_comparators, (), "Cascading comparators untested in VM"),

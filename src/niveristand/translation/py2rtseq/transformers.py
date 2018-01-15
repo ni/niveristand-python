@@ -10,6 +10,7 @@ from niveristand.translation.py2rtseq import compareoperator_transformer
 from niveristand.translation.py2rtseq import default_transformer
 from niveristand.translation.py2rtseq import functiondef_transformer
 from niveristand.translation.py2rtseq import if_transformer
+from niveristand.translation.py2rtseq import ifexp_transformer
 from niveristand.translation.py2rtseq import list_transformer
 from niveristand.translation.py2rtseq import module_transformer
 from niveristand.translation.py2rtseq import name_transformer
@@ -28,6 +29,7 @@ TRANSFORMERS = {
     ast.Compare.__name__: compareoperator_transformer.compareoperator_transformer,
     ast.FunctionDef.__name__: functiondef_transformer.functiondef_transformer,
     ast.If.__name__: if_transformer.if_transformer,
+    ast.IfExp.__name__: ifexp_transformer.ifexp_transformer,
     ast.List.__name__: list_transformer.list_transformer,
     ast.Module.__name__: module_transformer.module_transformer,
     ast.Name.__name__: name_transformer.name_transformer,

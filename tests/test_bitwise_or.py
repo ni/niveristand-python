@@ -199,6 +199,13 @@ def bitwise_or_binary_unary():
     return a.value
 
 
+@decorators.nivs_rt_sequence
+def bitwise_or_complex_expr():
+    a = Double(0)
+    a.value = 1 | (2 if 2 < 3 else 4)
+    return a.value
+
+
 # region augassign tests
 
 @decorators.nivs_rt_sequence
@@ -285,13 +292,6 @@ def bitwise_or_invalid_rtseq_call():
     a.value = return_constant | 1
     return a.value
 
-
-@decorators.nivs_rt_sequence
-def bitwise_or_complex_expr():
-    a = Double(0)
-    a.value = 1 | (2 if 2 < 3 else 4)
-    return a.value
-
 # end region
 
 
@@ -312,6 +312,7 @@ run_tests = [
     (aug_bitwise_or_num_nivsdatatype, (), 3),
     (aug_bitwise_or_with_parantheses, (), 7),
     (aug_bitwise_or_unary, (), -1),
+    (bitwise_or_complex_expr, (), 3),
 ]
 
 skip_tests = [
@@ -327,7 +328,6 @@ skip_tests = [
     (bitwise_or_invalid_variables2, (), "Attribute transformer doesn't catch the a.value.value problem."),
     (bitwise_or_to_None, (), "Name transformer doesn't raise an exception for NoneType with python 2.7."),
     (bitwise_or_invalid_rtseq_call, (), "RTSeq call not implemented yet."),
-    (bitwise_or_complex_expr, (), "Not implemented yet."),
     (aug_bitwise_or_use_rtseq, (), "RTSeq call not implemented yet."),
     (aug_bitwise_or_to_channelref, (), "Channel ref transform not yet implemented."),
 ]
