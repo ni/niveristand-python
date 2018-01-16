@@ -4,7 +4,7 @@ from niveristand import decorators, RealTimeSequence
 from niveristand.datatypes import Double, Int32
 from niveristand.exceptions import TranslateError, VeristandError
 import pytest
-from testutilities import rtseqrunner
+from testutilities import rtseqrunner, validation
 from testutilities.test_channels import TestChannels
 
 a = 0
@@ -296,6 +296,7 @@ def mult_invalid_rtseq_call():
 
 
 run_tests = [
+    (return_constant, (), 5),
     (mult_simple_numbers, (), 2),
     (mult_num_nivsdatatype, (), 2),
     (mult_nivsdatatype_nivsdatatype, (), 2),
@@ -380,3 +381,7 @@ def test_failures(func_name, params, expected_result):
 @pytest.mark.parametrize("func_name, params, reason", skip_tests, ids=idfunc)
 def test_skipped(func_name, params, reason):
     pytest.skip(func_name.__name__ + ": " + reason)
+
+
+def test_check_all_tested():
+    validation.test_validate(sys.modules[__name__])

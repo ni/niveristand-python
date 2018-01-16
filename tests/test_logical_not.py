@@ -1,8 +1,10 @@
+import sys
+
 from niveristand import decorators, RealTimeSequence
 from niveristand.datatypes import Boolean, Double, Int32, Int64
 from niveristand.exceptions import TranslateError, VeristandError
 import pytest
-from testutilities import rtseqrunner
+from testutilities import rtseqrunner, validation
 
 a = 1
 b = 2
@@ -129,6 +131,7 @@ def logical_not_invalid_rtseq_call():
 
 
 run_tests = [
+    (return_true, (), True),
     (logical_not_simple_numbers, (), False),
     (logical_not_simple_numbers1, (), True),
     (logical_not_bool, (), False),
@@ -200,3 +203,7 @@ def test_failures(func_name, params, expected_result):
 @pytest.mark.parametrize("func_name, params, reason", skip_tests, ids=idfunc)
 def test_skipped(func_name, params, reason):
     pytest.skip(func_name.__name__ + ": " + reason)
+
+
+def test_check_all_tested():
+    validation.test_validate(sys.modules[__name__])

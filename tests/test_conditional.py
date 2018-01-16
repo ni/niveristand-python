@@ -1,7 +1,9 @@
+import sys
+
 from niveristand import decorators, exceptions, RealTimeSequence
 from niveristand.datatypes import Boolean, Int32
 import pytest
-from testutilities import rtseqrunner
+from testutilities import rtseqrunner, validation
 
 
 @decorators.nivs_rt_sequence
@@ -131,6 +133,7 @@ def if_condition_identity_not_operator():
     return ret.value
 
 
+@decorators.nivs_rt_sequence
 def returns_true():
     return True
 
@@ -184,6 +187,7 @@ fail_transform_tests = [
 
 
 skip_tests = [
+    (returns_true, (), "Return transformer cannot handle returning True/False"),
     (if_condition_equal_operator, (), "Operator not implemented yet"),
     (if_condition_identity_operator, (), "Operator not implemented yet"),
     (if_condition_identity_not_operator, (), "Operator not implemented yet"),
@@ -230,3 +234,7 @@ def test_failures(func_name, params, expected_result):
 @pytest.mark.parametrize("func_name, params, reason", skip_tests, ids=idfunc)
 def test_skipped(func_name, params, reason):
     pytest.skip(func_name.__name__ + ": " + reason)
+
+
+def test_check_all_tested():
+    validation.test_validate(sys.modules[__name__])

@@ -1,3 +1,5 @@
+import sys
+
 from niveristand import decorators
 from niveristand import RealTimeSequence
 from niveristand.datatypes.rtprimitives import Boolean
@@ -14,7 +16,7 @@ from niveristand.datatypes.rtprimitives import UInt64
 from niveristand.datatypes.rtprimitives import UInt64Array
 from niveristand.exceptions import TranslateError, VeristandError
 import pytest
-from testutilities import rtseqrunner
+from testutilities import rtseqrunner, validation
 
 
 @decorators.nivs_rt_sequence
@@ -543,40 +545,40 @@ def uint64_array_overflow():
 
 
 transform_tests = [
-    boolean_type,
-    boolean_type1,
-    boolean_type2,
-    boolean_type3,
-    double_type,
-    double_type1,
-    int32_type,
-    int64_type,
-    uint32_type,
-    uint64_type,
-    boolean_array_type,
-    double_array_type,
-    int32_array_type,
-    int64_array_type,
-    uint32_array_type,
-    uint64_array_type,
-    boolean_array_empty,
-    double_array_empty,
-    int32_array_empty,
-    int64_array_empty,
-    uint32_array_empty,
-    uint64_array_empty,
-    boolean_array_one_element,
-    double_array_one_element,
-    int32_array_one_element,
-    int64_array_one_element,
-    uint32_array_one_element,
-    uint64_array_one_element,
-    boolean_type_negative,
-    double_type_negative,
-    int32_type_negative,
-    int64_type_negative,
-    uint32_array_negative_values,
-    uint64_array_negative_values,
+    (boolean_type, ()),
+    (boolean_type1, ()),
+    (boolean_type2, ()),
+    (boolean_type3, ()),
+    (double_type, ()),
+    (double_type1, ()),
+    (int32_type, ()),
+    (int64_type, ()),
+    (uint32_type, ()),
+    (uint64_type, ()),
+    (boolean_array_type, ()),
+    (double_array_type, ()),
+    (int32_array_type, ()),
+    (int64_array_type, ()),
+    (uint32_array_type, ()),
+    (uint64_array_type, ()),
+    (boolean_array_empty, ()),
+    (double_array_empty, ()),
+    (int32_array_empty, ()),
+    (int64_array_empty, ()),
+    (uint32_array_empty, ()),
+    (uint64_array_empty, ()),
+    (boolean_array_one_element, ()),
+    (double_array_one_element, ()),
+    (int32_array_one_element, ()),
+    (int64_array_one_element, ()),
+    (uint32_array_one_element, ()),
+    (uint64_array_one_element, ()),
+    (boolean_type_negative, ()),
+    (double_type_negative, ()),
+    (int32_type_negative, ()),
+    (int64_type_negative, ()),
+    (uint32_array_negative_values, ()),
+    (uint64_array_negative_values, ()),
 ]
 
 run_tests = [
@@ -656,8 +658,8 @@ def idfunc(val):
     return val.__name__
 
 
-@pytest.mark.parametrize("func_name", transform_tests, ids=idfunc)
-def test_transform(func_name):
+@pytest.mark.parametrize("func_name, params", transform_tests, ids=idfunc)
+def test_transform(func_name, params):
     RealTimeSequence(func_name)
 
 
@@ -689,3 +691,7 @@ def test_failures(func_name, expected_result):
 @pytest.mark.parametrize("func_name, reason", skip_tests, ids=idfunc)
 def test_skipped(func_name, reason):
     pytest.skip(func_name.__name__ + ": " + reason)
+
+
+def test_check_all_tested():
+    validation.test_validate(sys.modules[__name__])

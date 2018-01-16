@@ -1,8 +1,10 @@
+import sys
+
 from niveristand import decorators, RealTimeSequence
 from niveristand.datatypes import Double, Int32
 from niveristand.exceptions import TranslateError, VeristandError
 import pytest
-from testutilities import rtseqrunner
+from testutilities import rtseqrunner, validation
 from testutilities.test_channels import TestChannels
 
 
@@ -204,20 +206,6 @@ def sub_binary_unary():
 
 
 @decorators.nivs_rt_sequence
-def sub_with_multiple_minus():
-    a = Double(0)
-    a.value = 1 - 2   # noqa: E225 it's ok to test this
-    return a.value
-
-
-@decorators.nivs_rt_sequence
-def sub_with_multiple_minus1():
-    a = Double(0)
-    a.value = 1 - 2   # noqa: E225 it's ok to test this
-    return a.value
-
-
-@decorators.nivs_rt_sequence
 def sub_binary_unary_sequence():
     a = Double(0)
     a.value = 1 - -----2  # noqa: E225 it's ok to test this
@@ -406,3 +394,7 @@ def test_failures(func_name, params, expected_result):
 @pytest.mark.parametrize("func_name, params, reason", skip_tests, ids=idfunc)
 def test_skipped(func_name, params, reason):
     pytest.skip(func_name.__name__ + ": " + reason)
+
+
+def test_check_all_tested():
+    validation.test_validate(sys.modules[__name__])

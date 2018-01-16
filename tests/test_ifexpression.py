@@ -1,7 +1,9 @@
+import sys
+
 from niveristand import decorators, exceptions, RealTimeSequence
 from niveristand.datatypes import Boolean, Int32
 import pytest
-from testutilities import rtseqrunner
+from testutilities import rtseqrunner, validation
 
 
 @decorators.nivs_rt_sequence
@@ -167,6 +169,7 @@ skip_tests = [
                                               "fine python uses the objref as the test, not the value."),
     (ifexp_nivsbool_test_nivstype_assign1, (), "We can't override ifexp so even though it translates"
                                                "fine python uses the objref as the test, not the value."),
+    (returns_true, (), "niveristand.exceptions.TranslateError: TODOMSG: return statement uses undeclared value"),
 ]
 
 
@@ -207,3 +210,7 @@ def test_failures(func_name, params, expected_result):
 @pytest.mark.parametrize("func_name, params, reason", skip_tests, ids=idfunc)
 def test_skipped(func_name, params, reason):
     pytest.skip(func_name.__name__ + ": " + reason)
+
+
+def test_check_all_tested():
+    validation.test_validate(sys.modules[__name__])

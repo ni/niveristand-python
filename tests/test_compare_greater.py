@@ -1,8 +1,10 @@
+import sys
+
 from niveristand import decorators, RealTimeSequence
 from niveristand.datatypes import Boolean, Double, Int32
 from niveristand.exceptions import TranslateError, VeristandError
 import pytest
-from testutilities import rtseqrunner
+from testutilities import rtseqrunner, validation
 from testutilities.test_channels import TestChannels
 
 
@@ -320,3 +322,7 @@ def test_failures(func_name, params, expected_result):
 @pytest.mark.parametrize("func_name, params, reason", skip_tests, ids=idfunc)
 def test_skipped(func_name, params, reason):
     pytest.skip(func_name.__name__ + ": " + reason)
+
+
+def test_check_all_tested():
+    validation.test_validate(sys.modules[__name__])

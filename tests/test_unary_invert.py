@@ -1,9 +1,11 @@
+import sys
+
 from niveristand import decorators, RealTimeSequence
 from niveristand.datatypes import Boolean, Double, Int32, Int64
 from niveristand.exceptions import TranslateError, VeristandError
 import numpy
 import pytest
-from testutilities import rtseqrunner
+from testutilities import rtseqrunner, validation
 
 a = 1
 b = 2
@@ -259,6 +261,7 @@ def invert_invalid_rtseq_call():
 
 
 run_tests = [
+    (returns_zero, (), 0),
     (invert_int32, (), -1),
     (invert_int32_1, (), 0),
     (invert_int32_2, (), numpy.int32(-0x80000000)),
@@ -286,6 +289,8 @@ skip_tests = [
     (invert_bool, (), "SPE returns 0 for any bitwise negate of a boolean."),
     (invert_int32_3, (), "SPE doesn't support initializing with the full int32 range."),
     (invert_int64_3, (), "SPE doesn't support initializing with the full int64 range."),
+    (invert_int32_var_3, (), "SPE doesn't support initializing with the full int64 range."),
+    (invert_int64_var_3, (), "SPE doesn't support initializing with the full int64 range."),
     (invert_double, (), "Bitwise operations not supported for floating point types."),
     (invert_rtseq, (), "Function calls not yet implemented."),
     (invert_invalid_rtseq_call, (), "Not implemented yet."),
@@ -338,3 +343,7 @@ def test_failures(func_name, params, expected_result):
 @pytest.mark.parametrize("func_name, params, reason", skip_tests, ids=idfunc)
 def test_skipped(func_name, params, reason):
     pytest.skip(func_name.__name__ + ": " + reason)
+
+
+def test_check_all_tested():
+    validation.test_validate(sys.modules[__name__])
