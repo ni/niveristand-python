@@ -518,6 +518,30 @@ def uint64_max_value_overflow():
     return a.value
 
 
+@decorators.nivs_rt_sequence
+def int32_array_overflow():
+    a = Int32Array([0x80000000, 0x80000000])
+    return a.value
+
+
+@decorators.nivs_rt_sequence
+def int64_array_overflow():
+    a = Int64Array([0x8000000000000000, 0x8000000000000000])
+    return a.value
+
+
+@decorators.nivs_rt_sequence
+def uint32_array_overflow():
+    a = UInt32Array([0x80000000, 0x80000000])
+    return a.value
+
+
+@decorators.nivs_rt_sequence
+def uint64_array_overflow():
+    a = UInt64Array([0x8000000000000000, 0x8000000000000000])
+    return a.value
+
+
 transform_tests = [
     boolean_type,
     boolean_type1,
@@ -621,6 +645,10 @@ fail_transform_tests = [
     (int64_max_value_overflow, OverflowError),
     (uint32_max_value_overflow, OverflowError),
     (uint64_max_value_overflow, OverflowError),
+    (int32_array_overflow, OverflowError),
+    (int64_array_overflow, OverflowError),
+    (uint32_array_overflow, OverflowError),
+    (uint64_array_overflow, OverflowError),
 ]
 
 
