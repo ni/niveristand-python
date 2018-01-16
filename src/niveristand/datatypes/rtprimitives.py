@@ -1,4 +1,5 @@
 import sys
+
 from NationalInstruments.VeriStand.Data import BooleanValue
 from NationalInstruments.VeriStand.Data import BooleanValueArray
 from NationalInstruments.VeriStand.Data import DoubleValue
@@ -320,6 +321,10 @@ class Boolean(DataType):
     def _to_data_value(self, value):
         if type(value) is int or type(value) is float:
             value = bool(value)
+        elif type(value) is str and value == 'true':
+            value = True
+        elif type(value) is str and value == 'false':
+            value = False
         return BooleanValue(value)
 
 
