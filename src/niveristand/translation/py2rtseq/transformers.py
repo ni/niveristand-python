@@ -8,6 +8,7 @@ from niveristand.translation.py2rtseq import booloperator_transformer
 from niveristand.translation.py2rtseq import call_transformer
 from niveristand.translation.py2rtseq import compareoperator_transformer
 from niveristand.translation.py2rtseq import default_transformer
+from niveristand.translation.py2rtseq import exp_transformer
 from niveristand.translation.py2rtseq import functiondef_transformer
 from niveristand.translation.py2rtseq import if_transformer
 from niveristand.translation.py2rtseq import ifexp_transformer
@@ -40,6 +41,7 @@ TRANSFORMERS = {
     ast.UnaryOp.__name__: unaryoperator_transformer.unaryoperator_transformer,
     ast.BoolOp.__name__: booloperator_transformer.booloperator_transformer,
     ast.AugAssign.__name__: augassign_transformer.augassign_transformer,
+    ast.Expr.__name__: exp_transformer.exp_transformer,
 }
 
 if sys.version_info >= (3, 5):

@@ -7,7 +7,9 @@ def call_transformer(node, resources):
         # In case of a type declaration, return only the value because this is not
         # an actual sub-sequence call.
         return str(utils.generic_ast_node_transform(node.args[0], resources))
-    node_str = str(utils.generic_ast_node_transform(node.func, resources)) + "("
+    func_name = str(utils.generic_ast_node_transform(node.func, resources))
+    resources.get_dependency_pkg().add_referenced_sequence(func_name)
+    node_str = func_name + "("
     for arg in node.args:
         node_str += str(utils.generic_ast_node_transform(arg, resources))
     return node_str + ")"

@@ -1,6 +1,7 @@
 import ast
 import inspect
 import os
+import tempfile
 
 from niveristand import errormessages
 from niveristand.clientapi import realtimesequencedefinition as rtseqapi
@@ -9,13 +10,16 @@ from niveristand.decorators import Modes
 from niveristand.exceptions import TranslateError, VeristandError
 from niveristand.translation.py2rtseq.utils import Resources
 from niveristand.translation.utils import generic_ast_node_transform
+from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import Reference  # noqa: I100 C# imports are exempt
 
 
 class RealTimeSequence:
-    def __init__(self, top_level_func):
+    def __init__(self, top_level_func, rtseq_pkg=None):
         self._top_level_func = top_level_func
         self._path = ''
         self._rtseq = None
+        self._rtseqpkg = rtseq_pkg
+        self._ref = None
         # finally, initialize the transform
         self._transform()
 
@@ -24,8 +28,12 @@ class RealTimeSequence:
             raise VeristandError(errormessages.save_without_valid_sequence)
         if path is not None:
             self._path = os.path.abspath(path)
-        name = os.path.join(self._path, self._top_level_func.__name__) + ".nivsseq"
+        elif not os.path.isdir(self._path):
+            self._path = tempfile.mkdtemp()
+
+        name = self._build_file_name()
         rtseqapi.save_real_time_sequence(self._rtseq, name)
+        self._rtseqpkg.save_referenced(self._path)
         return name
 
     def _transform(self):
@@ -44,5 +52,23 @@ class RealTimeSequence:
 
         self._rtseq = rtseqapi.create_real_time_sequence()
         transform_resources = Resources(self._rtseq)
+        if self._rtseqpkg is not None:
+            transform_resources.set_dependency_pkg(self._rtseqpkg)
         generic_ast_node_transform(func_node, transform_resources)
+        self._rtseqpkg = transform_resources.get_dependency_pkg()
+        self._rtseqpkg.append(inspect.getmodule(real_obj))
+        for referenced in self._rtseqpkg.get_referenced():
+            self._rtseq.References.AddReference(referenced.get_reference())
         rtsequtils.compile_rtseq(self._rtseq)
+
+    def _build_file_name(self):
+        return os.path.join(self._path, str(self) + ".nivsseq")
+
+    def get_reference(self):
+        if self._ref is None:
+            self.save()
+            self._ref = Reference(str(self), self._build_file_name())
+        return self._ref
+
+    def __str__(self):
+        return self._top_level_func.__name__

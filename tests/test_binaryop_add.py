@@ -342,23 +342,23 @@ run_tests = [
     (aug_add_with_parantheses, (), 10),
     (aug_add_unary, (), 0),
     (add_complex_expr, (), 3),
+    (add_use_rtseq, (), 6),
+    (add_use_rtseq1, (), 6),
+    (add_use_rtseq2, (), 6),
+    (add_use_rtseq3, (), 6),
+    (add_use_rtseq4, (), 6),
+    (add_use_rtseq5, (), 6),
+    (add_variable_rtseq, (), 6),
+    (add_variable_rtseq1, (), 6),
+    (aug_add_use_rtseq, (), 6),
 ]
 
 skip_tests = [
-    (add_use_rtseq, (), "RTSeq call not implemented yet."),
-    (add_use_rtseq1, (), "RTSeq call not implemented yet."),
-    (add_use_rtseq2, (), "RTSeq call not implemented yet."),
-    (add_use_rtseq3, (), "RTSeq call not implemented yet."),
-    (add_use_rtseq4, (), "RTSeq call not implemented yet."),
-    (add_use_rtseq5, (), "RTSeq call not implemented yet."),
-    (add_variable_rtseq, (), "RTSeq call not implemented yet."),
-    (add_variable_rtseq1, (), "RTSeq call not implemented yet."),
     (add_to_channelref, (), "Channel ref transform not yet implemented."),
     (add_invalid_variables2, (), "Attribute transformer doesn't catch the a.value.value problem."),
     (add_to_None, (), "Name transformer doesn't raise an exception for NoneType with python 2.7."),
     (add_invalid_rtseq_call, (), "RTSeq call not implemented yet."),
     (add_binary_unary_sequence, (), "This test takes 1000x more than the rest. Ignoring for now."),
-    (aug_add_use_rtseq, (), "RTSeq call not implemented yet."),
     (aug_add_to_channelref, (), "Channel ref transform not yet implemented."),
 ]
 
