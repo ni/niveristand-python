@@ -1,4 +1,4 @@
-from niveristand.datatypes import rtprimitives
+from niveristand.clientapi.datatypes import rtprimitives
 from niveristand.translation import utils
 
 

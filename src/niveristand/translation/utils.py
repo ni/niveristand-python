@@ -1,7 +1,9 @@
 import ast
 import sys
-from niveristand import datatypes, errormessages
-from niveristand.datatypes import rtprimitives
+
+from niveristand import errormessages
+from niveristand.clientapi import datatypes
+from niveristand.clientapi.datatypes import rtprimitives
 from niveristand.exceptions import TranslateError
 from niveristand.translation import symbols
 
@@ -40,9 +42,9 @@ def get_value_from_node(node, resources):
             return datatype(datavalue)
     elif isinstance(node, ast.Num):
         if isinstance(node.n, int):
-            return datatypes.Int32(node.n)
+            return datatypes.I32Value(node.n)
         elif isinstance(node.n, float):
-            return datatypes.Double(node.n)
+            return datatypes.DoubleValue(node.n)
     raise TranslateError(errormessages.init_var_invalid_type)
 
 

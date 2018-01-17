@@ -2,7 +2,7 @@ import os
 import tempfile
 import clr
 from niveristand import realtimesequencetools
-from niveristand.datatypes import DataType
+from niveristand.clientapi.datatypes import DataType
 import pytest
 import testutilities.configutilities as configutilities
 

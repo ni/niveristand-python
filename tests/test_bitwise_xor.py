@@ -1,12 +1,11 @@
 import sys
 
 from niveristand import decorators, RealTimeSequence
-from niveristand.datatypes import Boolean, Double, Int32, Int64
+from niveristand.clientapi.datatypes import BooleanValue, DoubleValue, I32Value, I64Value
 from niveristand.exceptions import TranslateError, VeristandError
 import pytest
 from testutilities import rtseqrunner, validation
 from testutilities.test_channels import TestChannels
-
 
 a = 1
 b = 2
@@ -14,196 +13,196 @@ b = 2
 
 @decorators.nivs_rt_sequence
 def return_constant():
-    a = Double(5)
+    a = DoubleValue(5)
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def bitwise_xor_simple_numbers():
-    a = Double(0)
+    a = DoubleValue(0)
     a.value = 1 ^ 3
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def bitwise_xor_num_nivsdatatype():
-    a = Double(0)
-    a.value = 1 ^ Double(3)
+    a = DoubleValue(0)
+    a.value = 1 ^ DoubleValue(3)
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def bitwise_xor_nivsdatatype_nivsdatatype():
-    a = Double(0)
-    a.value = Double(1) ^ Double(3)
+    a = DoubleValue(0)
+    a.value = DoubleValue(1) ^ DoubleValue(3)
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def bitwise_xor_nivsdatatype_nivsdatatype1():
-    a = Double(0)
-    a.value = Double(1) ^ Int32(3)
+    a = DoubleValue(0)
+    a.value = DoubleValue(1) ^ I32Value(3)
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def bitwise_xor_nivsdatatype_nivsdatatype2():
-    a = Boolean(0)
-    a.value = Boolean(1) ^ Boolean(3)
+    a = BooleanValue(0)
+    a.value = BooleanValue(1) ^ BooleanValue(3)
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def bitwise_xor_nivsdatatype_nivsdatatype3():
-    a = Double(0)
-    a.value = Int32(1) ^ Int32(3)
+    a = DoubleValue(0)
+    a.value = I32Value(1) ^ I32Value(3)
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def bitwise_xor_multiple_types():
-    a = Int32(0)
-    a.value = 1 ^ Int32(3) ^ 5
+    a = I32Value(0)
+    a.value = 1 ^ I32Value(3) ^ 5
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def bitwise_xor_multiple_types1():
-    a = Int64(1)
-    a.value = 1 ^ Int64(5) ^ 3 ^ Int32(7)
+    a = I64Value(1)
+    a.value = 1 ^ I64Value(5) ^ 3 ^ I32Value(7)
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def bitwise_xor_use_rtseq():
-    a = Double(0)
+    a = DoubleValue(0)
     a.value = 1 ^ return_constant()
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def bitwise_xor_use_rtseq1():
-    a = Double(0)
+    a = DoubleValue(0)
     a.value = return_constant() ^ 1
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def bitwise_xor_use_rtseq2():
-    a = Double(0)
-    a.value = Double(1) ^ return_constant()
+    a = DoubleValue(0)
+    a.value = DoubleValue(1) ^ return_constant()
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def bitwise_xor_use_rtseq3():
-    a = Double(0)
-    a.value = return_constant() ^ Double(1)
+    a = DoubleValue(0)
+    a.value = return_constant() ^ DoubleValue(1)
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def bitwise_xor_use_rtseq4():
-    a = Double(0)
-    a.value = Int32(1) ^ return_constant()
+    a = DoubleValue(0)
+    a.value = I32Value(1) ^ return_constant()
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def bitwise_xor_use_rtseq5():
-    a = Double(0)
-    a.value = return_constant() ^ Int32(1)
+    a = DoubleValue(0)
+    a.value = return_constant() ^ I32Value(1)
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def bitwise_xor_with_parantheses():
-    a = Int32(0)
+    a = I32Value(0)
     a.value = 1 ^ (5 ^ 3)
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def bitwise_xor_with_parantheses1():
-    a = Double(0)
-    a.value = 1 ^ (Double(3) ^ Int32(5))
+    a = DoubleValue(0)
+    a.value = 1 ^ (DoubleValue(3) ^ I32Value(5))
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def bitwise_xor_with_parantheses2():
-    a = Double(0)
-    a.value = Double(1) ^ (Int32(2) ^ 3.0) ^ Double(4)
+    a = DoubleValue(0)
+    a.value = DoubleValue(1) ^ (I32Value(2) ^ 3.0) ^ DoubleValue(4)
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def bitwise_xor_variables():
-    a = Int32(5)
-    b = Int32(0)
+    a = I32Value(5)
+    b = I32Value(0)
     b.value = 1 ^ a
     return b.value
 
 
 @decorators.nivs_rt_sequence
 def bitwise_xor_variables1():
-    a = Int64(5)
-    b = Int64(0)
+    a = I64Value(5)
+    b = I64Value(0)
     b.value = 1 ^ a.value
     return b.value
 
 
 @decorators.nivs_rt_sequence
 def bitwise_xor_variable_variable():
-    a = Int32(1)
-    b = Int64(3)
-    c = Int32(0)
+    a = I32Value(1)
+    b = I64Value(3)
+    c = I32Value(0)
     c.value = a.value ^ b.value
     return c.value
 
 
 @decorators.nivs_rt_sequence
 def bitwise_xor_variable_variable1():
-    a = Int32(1)
-    b = Int64(3)
-    c = Double(0)
+    a = I32Value(1)
+    b = I64Value(3)
+    c = DoubleValue(0)
     c.value = a.value ^ b.value
     return c.value
 
 
 @decorators.nivs_rt_sequence
 def bitwise_xor_variable_rtseq():
-    a = Double(1)
-    b = Double(0)
+    a = DoubleValue(1)
+    b = DoubleValue(0)
     b.value = a.value ^ return_constant()
     return b.value
 
 
 @decorators.nivs_rt_sequence
 def bitwise_xor_variable_rtseq1():
-    a = Double(1)
-    b = Double(0)
+    a = DoubleValue(1)
+    b = DoubleValue(0)
     b.value = return_constant() ^ a.value
     return b.value
 
 
 @decorators.nivs_rt_sequence
 def bitwise_xor_to_channelref():
-    a = Double(0)
-    a.value = 1 ^ Double(TestChannels.HP_COUNT)
+    a = DoubleValue(0)
+    a.value = 1 ^ DoubleValue(TestChannels.HP_COUNT)
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def bitwise_xor_binary_unary():
-    a = Int32(0)
+    a = I32Value(0)
     a.value = 3 ^ - 1
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def bitwise_xor_complex_expr():
-    a = Double(0)
+    a = DoubleValue(0)
     a.value = 1 ^ (2 if 2 < 3 else 4)
     return a.value
 
@@ -212,50 +211,50 @@ def bitwise_xor_complex_expr():
 
 @decorators.nivs_rt_sequence
 def aug_bitwise_xor_simple_numbers():
-    a = Int32(3)
+    a = I32Value(3)
     a.value ^= 7
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def aug_bitwise_xor_num_nivsdatatype():
-    a = Int32(1)
-    a.value ^= Int32(3)
+    a = I32Value(1)
+    a.value ^= I32Value(3)
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def aug_bitwise_xor_use_rtseq():
-    a = Int32(1)
+    a = I32Value(1)
     a.value ^= return_constant()
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def aug_bitwise_xor_with_parantheses():
-    a = Int32(1)
+    a = I32Value(1)
     a.value ^= 7 ^ (5 ^ 3)
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def aug_bitwise_xor_variables():
-    a = Int32(7)
-    b = Int32(3)
+    a = I32Value(7)
+    b = I32Value(3)
     b.value ^= a.value
     return b.value
 
 
 @decorators.nivs_rt_sequence
 def aug_bitwise_xor_to_channelref():
-    a = Double(1)
-    a.value ^= Double(TestChannels.HP_COUNT)
+    a = DoubleValue(1)
+    a.value ^= DoubleValue(TestChannels.HP_COUNT)
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def aug_bitwise_xor_unary():
-    a = Int32(3)
+    a = I32Value(3)
     a.value ^= -1
     return a.value
 
@@ -275,22 +274,22 @@ def bitwise_xor_invalid_variables1():
 
 @decorators.nivs_rt_sequence
 def bitwise_xor_invalid_variables2():
-    a = Double(0)
-    b = Double(0)
+    a = DoubleValue(0)
+    b = DoubleValue(0)
     b.value = a.value ^ 2
     return b
 
 
 @decorators.nivs_rt_sequence
 def bitwise_xor_to_None():
-    a = Double(0)
+    a = DoubleValue(0)
     a.value = None ^ 1
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def bitwise_xor_invalid_rtseq_call():
-    a = Double(0)
+    a = DoubleValue(0)
     a.value = return_constant ^ 1
     return a.value
 

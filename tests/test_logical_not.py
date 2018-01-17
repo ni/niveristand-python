@@ -1,7 +1,7 @@
 import sys
 
 from niveristand import decorators, RealTimeSequence
-from niveristand.datatypes import Boolean, Double, Int32, Int64
+from niveristand.clientapi.datatypes import BooleanValue, DoubleValue, I32Value, I64Value
 from niveristand.exceptions import TranslateError, VeristandError
 import pytest
 from testutilities import rtseqrunner, validation
@@ -12,98 +12,98 @@ b = 2
 
 @decorators.nivs_rt_sequence
 def return_true():
-    a = Boolean(True)
+    a = BooleanValue(True)
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def logical_not_simple_numbers():
-    a = Boolean(0)
+    a = BooleanValue(0)
     a.value = not 2
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def logical_not_simple_numbers1():
-    a = Boolean(0)
+    a = BooleanValue(0)
     a.value = not 0
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def logical_not_nivsdatatype_double():
-    a = Boolean(0)
-    a.value = not Double(3)
+    a = BooleanValue(0)
+    a.value = not DoubleValue(3)
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def logical_not_nivsdatatype_double1():
-    a = Boolean(0)
-    a.value = not Double(0)
+    a = BooleanValue(0)
+    a.value = not DoubleValue(0)
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def logical_not_nivsdatatype_int32():
-    a = Boolean(0)
-    a.value = not Int32(0)
+    a = BooleanValue(0)
+    a.value = not I32Value(0)
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def logical_not_nivsdatatype_int64():
-    a = Boolean(0)
-    a.value = not Int64(0)
+    a = BooleanValue(0)
+    a.value = not I64Value(0)
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def logical_not_bool():
-    a = Boolean(True)
+    a = BooleanValue(True)
     a.value = not True
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def logical_not_bool1():
-    a = Boolean(False)
+    a = BooleanValue(False)
     a.value = not False
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def logical_not_variables():
-    a = Boolean(False)
-    b = Boolean(False)
+    a = BooleanValue(False)
+    b = BooleanValue(False)
     a.value = not b.value
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def logical_not_rtseq():
-    a = Boolean(True)
+    a = BooleanValue(True)
     a.value = not return_true()
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def logical_not_parantheses():
-    a = Boolean(True)
-    a.value = not (True and (Double(2) and Int32(3)) and False)
+    a = BooleanValue(True)
+    a.value = not (True and (DoubleValue(2) and I32Value(3)) and False)
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def logical_not_unary():
-    a = Boolean(True)
+    a = BooleanValue(True)
     a.value = not -1
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def logical_not_sequence():
-    a = Boolean(False)
+    a = BooleanValue(False)
     a.value = not not not False
     return a.value
 
@@ -116,14 +116,14 @@ def logical_not_invalid_variables():
 
 @decorators.nivs_rt_sequence
 def logical_not_None():
-    a = Boolean(False)
+    a = BooleanValue(False)
     a.value = not None
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def logical_not_invalid_rtseq_call():
-    a = Boolean(False)
+    a = BooleanValue(False)
     a.value = not return_true
     return a.value
 

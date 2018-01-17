@@ -2,7 +2,7 @@ import ast
 
 from niveristand import errormessages
 from niveristand.clientapi import realtimesequencedefinition as rtseqapi
-from niveristand.datatypes.rtprimitives import ArrayType
+from niveristand.clientapi.datatypes import ArrayType
 from niveristand.exceptions import TranslateError
 from niveristand.translation import utils
 

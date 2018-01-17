@@ -1,17 +1,16 @@
 import sys
-
-from NationalInstruments.VeriStand.Data import BooleanValue
-from NationalInstruments.VeriStand.Data import BooleanValueArray
-from NationalInstruments.VeriStand.Data import DoubleValue
-from NationalInstruments.VeriStand.Data import DoubleValueArray
-from NationalInstruments.VeriStand.Data import I32Value
-from NationalInstruments.VeriStand.Data import I32ValueArray
-from NationalInstruments.VeriStand.Data import I64Value
-from NationalInstruments.VeriStand.Data import I64ValueArray
-from NationalInstruments.VeriStand.Data import U32Value
-from NationalInstruments.VeriStand.Data import U32ValueArray
-from NationalInstruments.VeriStand.Data import U64Value
-from NationalInstruments.VeriStand.Data import U64ValueArray
+from NationalInstruments.VeriStand.Data import BooleanValue as ClientApiBooleanValue
+from NationalInstruments.VeriStand.Data import BooleanValueArray as ClientApiBooleanValueArray
+from NationalInstruments.VeriStand.Data import DoubleValue as ClientApiDoubleValue
+from NationalInstruments.VeriStand.Data import DoubleValueArray as ClientApiDoubleValueArray
+from NationalInstruments.VeriStand.Data import I32Value as ClientApiI32Value
+from NationalInstruments.VeriStand.Data import I32ValueArray as ClientApiI32ValueArray
+from NationalInstruments.VeriStand.Data import I64Value as ClientApiI64Value
+from NationalInstruments.VeriStand.Data import I64ValueArray as ClientApiI64ValueArray
+from NationalInstruments.VeriStand.Data import U32Value as ClientApiU32Value
+from NationalInstruments.VeriStand.Data import U32ValueArray as ClientApiU32ValueArray
+from NationalInstruments.VeriStand.Data import U64Value as ClientApiU64Value
+from NationalInstruments.VeriStand.Data import U64ValueArray as ClientApiU64ValueArray
 from niveristand import errormessages
 from niveristand import exceptions as nivsexceptions
 from System import Int32 as SystemInt32
@@ -183,7 +182,7 @@ class DataType:
             raise nivsexceptions.VeristandError(errormessages.invalid_type_for_operator)
 
     def __and__(self, other):
-        if isinstance(other, (Int32, Int64)):
+        if isinstance(other, (I32Value, I64Value)):
             return self.value & other.value
         elif self._is_integer_type(other):
             return self.value & other
@@ -194,7 +193,7 @@ class DataType:
         return self.__and__(other)
 
     def __or__(self, other):
-        if isinstance(other, (Int32, Int64)):
+        if isinstance(other, (I32Value, I64Value)):
             return self.value | other.value
         elif self._is_integer_type(other):
             return self.value | other
@@ -205,7 +204,7 @@ class DataType:
         return self.__or__(other)
 
     def __xor__(self, other):
-        if isinstance(other, (Int32, Int64)):
+        if isinstance(other, (I32Value, I64Value)):
             return self.value ^ other.value
         elif self._is_integer_type(other):
             return self.value ^ other
@@ -216,7 +215,7 @@ class DataType:
         return self.__xor__(other)
 
     def __lshift__(self, other):
-        if isinstance(other, (Int32, Int64)):
+        if isinstance(other, (I32Value, I64Value)):
             return self.value << other.value
         elif self._is_integer_type(other):
             return self.value << other
@@ -224,7 +223,7 @@ class DataType:
             raise nivsexceptions.VeristandError(errormessages.invalid_type_for_operator)
 
     def __rlshift__(self, other):
-        if isinstance(other, (Int32, Int64)):
+        if isinstance(other, (I32Value, I64Value)):
             return other.value << self.value
         elif self._is_integer_type(other):
             return other << self.value
@@ -233,7 +232,7 @@ class DataType:
             raise nivsexceptions.VeristandError(errormessages.invalid_type_for_operator)
 
     def __rshift__(self, other):
-        if isinstance(other, (Int32, Int64)):
+        if isinstance(other, (I32Value, I64Value)):
             return self.value >> other.value
         elif self._is_integer_type(other):
             return self.value >> other
@@ -241,7 +240,7 @@ class DataType:
             raise nivsexceptions.VeristandError(errormessages.invalid_type_for_operator)
 
     def __rrshift__(self, other):
-        if isinstance(other, (Int32, Int64)):
+        if isinstance(other, (I32Value, I64Value)):
             return other.value >> self.value
         elif self._is_integer_type(other):
             return other >> self.value
@@ -290,7 +289,7 @@ class DataType:
         self.__invert__()
 
     def __invert__(self):
-        if isinstance(self, (Int32, Int64)):
+        if isinstance(self, (I32Value, I64Value)):
             return ~self.value
         else:
             raise nivsexceptions.VeristandError(errormessages.invalid_type_for_operator)
@@ -317,7 +316,7 @@ class ArrayType(DataType):
         raise nivsexceptions.TranslateError(errormessages.invalid_type_to_convert)
 
 
-class Boolean(DataType):
+class BooleanValue(DataType):
     def _to_data_value(self, value):
         if type(value) is int or type(value) is float:
             value = bool(value)
@@ -325,91 +324,91 @@ class Boolean(DataType):
             value = True
         elif type(value) is str and value == 'false':
             value = False
-        return BooleanValue(value)
+        return ClientApiBooleanValue(value)
 
 
-class BooleanArray(ArrayType):
+class BooleanValueArray(ArrayType):
     def _to_data_value(self, value):
-        return BooleanValueArray(value)
+        return ClientApiBooleanValueArray(value)
 
 
-class Double(DataType):
+class DoubleValue(DataType):
     def _to_data_value(self, value):
         if type(value) is int:
             value = float(value)
-        return DoubleValue(value)
+        return ClientApiDoubleValue(value)
 
 
-class DoubleArray(ArrayType):
+class DoubleValueArray(ArrayType):
     def _to_data_value(self, value):
-        return DoubleValueArray(value)
+        return ClientApiDoubleValueArray(value)
 
 
-class Int32(DataType):
+class I32Value(DataType):
     def _to_data_value(self, value):
         value = SystemInt32(value)
-        return I32Value(value)
+        return ClientApiI32Value(value)
 
 
-class Int32Array(ArrayType):
+class I32ValueArray(ArrayType):
     def _to_data_value(self, value):
-        return I32ValueArray(value)
+        return ClientApiI32ValueArray(value)
 
 
-class Int64(DataType):
+class I64Value(DataType):
     def _to_data_value(self, value):
         value = SystemInt64(value)
-        return I64Value(value)
+        return ClientApiI64Value(value)
 
 
-class Int64Array(ArrayType):
+class I64ValueArray(ArrayType):
     def _to_data_value(self, value):
-        return I64ValueArray(value)
+        return ClientApiI64ValueArray(value)
 
 
-class UInt32(DataType):
+class U32Value(DataType):
     def _to_data_value(self, value):
         value = SystemUInt32(value)
-        return U32Value(value)
+        return ClientApiU32Value(value)
 
 
-class UInt32Array(ArrayType):
+class U32ValueArray(ArrayType):
     def _to_data_value(self, value):
-        return U32ValueArray(value)
+        return ClientApiU32ValueArray(value)
 
 
-class UInt64(DataType):
+class U64Value(DataType):
     def _to_data_value(self, value):
         value = SystemUInt64(value)
-        return U64Value(value)
+        return ClientApiU64Value(value)
 
 
-class UInt64Array(ArrayType):
+class U64ValueArray(ArrayType):
     def _to_data_value(self, value):
-        return U64ValueArray(value)
+        return ClientApiU64ValueArray(value)
 
 
 VALID_TYPES = {
     ArrayType.__name__: ArrayType,
-    Boolean.__name__: Boolean,
-    BooleanArray.__name__: BooleanArray,
-    Double.__name__: Double,
-    DoubleArray.__name__: DoubleArray,
-    Int32.__name__: Int32,
-    Int32Array.__name__: Int32Array,
-    Int64.__name__: Int64,
-    Int64Array.__name__: Int64Array,
-    UInt32.__name__: UInt32,
-    UInt32Array.__name__: UInt32Array,
-    UInt64.__name__: UInt64,
-    UInt64Array.__name__: UInt64Array
+    BooleanValue.__name__: BooleanValue,
+    BooleanValueArray.__name__: BooleanValueArray,
+    DoubleValue.__name__: DoubleValue,
+    DoubleValueArray.__name__: DoubleValueArray,
+    I32Value.__name__: I32Value,
+    I32ValueArray.__name__: I32ValueArray,
+    I64Value.__name__: I64Value,
+    I64ValueArray.__name__: I64ValueArray,
+    U32Value.__name__: U32Value,
+    U32ValueArray.__name__: U32ValueArray,
+    U64Value.__name__: U64Value,
+    U64ValueArray.__name__: U64ValueArray
 }
 
 VALID_RETURN_TYPES = {
-    Boolean.__name__: Boolean,
-    Double.__name__: Double,
-    Int32.__name__: Int32,
-    Int64.__name__: Int64,
-    UInt32.__name__: UInt32,
-    UInt64.__name__: UInt64
+    BooleanValue.__name__: BooleanValue,
+    DoubleValue.__name__: DoubleValue,
+    I32Value.__name__: I32Value,
+    I64Value.__name__: I64Value,
+    U32Value.__name__: U32Value,
+    U64Value.__name__: U64Value
 }

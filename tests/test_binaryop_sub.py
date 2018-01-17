@@ -1,12 +1,11 @@
 import sys
 
 from niveristand import decorators, RealTimeSequence
-from niveristand.datatypes import Double, Int32
+from niveristand.clientapi.datatypes import DoubleValue, I32Value
 from niveristand.exceptions import TranslateError, VeristandError
 import pytest
 from testutilities import rtseqrunner, validation
 from testutilities.test_channels import TestChannels
-
 
 a = 1
 b = 2
@@ -14,13 +13,13 @@ b = 2
 
 @decorators.nivs_rt_sequence
 def return_constant():
-    a = Double(5)
+    a = DoubleValue(5)
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def sub_simple_numbers():
-    a = Double(0)
+    a = DoubleValue(0)
     a.value = 1 - 2
     return a.value
 
@@ -31,190 +30,190 @@ def test_sub_simple_numbers():
 
 @decorators.nivs_rt_sequence
 def sub_num_nivsdatatype():
-    a = Double(0)
-    a.value = 1 - Double(2)
+    a = DoubleValue(0)
+    a.value = 1 - DoubleValue(2)
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def sub_nivsdatatype_nivsdatatype():
-    a = Double(0)
-    a.value = Double(1) - Double(2)
+    a = DoubleValue(0)
+    a.value = DoubleValue(1) - DoubleValue(2)
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def sub_nivsdatatype_nivsdatatype1():
-    a = Double(0)
-    a.value = Double(1) - Int32(2)
+    a = DoubleValue(0)
+    a.value = DoubleValue(1) - I32Value(2)
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def sub_nivsdatatype_nivsdatatype2():
-    a = Double(0)
-    a.value = Int32(1) - Double(2)
+    a = DoubleValue(0)
+    a.value = I32Value(1) - DoubleValue(2)
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def sub_nivsdatatype_nivsdatatype3():
-    a = Double(0)
-    a.value = Int32(1) - Int32(2)
+    a = DoubleValue(0)
+    a.value = I32Value(1) - I32Value(2)
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def sub_multiple_types():
-    a = Double(0)
-    a.value = 1 - Double(2) - 3.0
+    a = DoubleValue(0)
+    a.value = 1 - DoubleValue(2) - 3.0
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def sub_multiple_types1():
-    a = Int32(0)
-    a.value = 1 - Int32(2) - 3.0 - Double(4)
+    a = I32Value(0)
+    a.value = 1 - I32Value(2) - 3.0 - DoubleValue(4)
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def sub_use_rtseq():
-    a = Double(0)
+    a = DoubleValue(0)
     a.value = 1 - return_constant()
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def sub_use_rtseq1():
-    a = Double(0)
+    a = DoubleValue(0)
     a.value = return_constant() - 1
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def sub_use_rtseq2():
-    a = Double(0)
-    a.value = Double(1) - return_constant()
+    a = DoubleValue(0)
+    a.value = DoubleValue(1) - return_constant()
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def sub_use_rtseq3():
-    a = Double(0)
-    a.value = return_constant() - Double(1)
+    a = DoubleValue(0)
+    a.value = return_constant() - DoubleValue(1)
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def sub_use_rtseq4():
-    a = Double(0)
-    a.value = Int32(1) - return_constant()
+    a = DoubleValue(0)
+    a.value = I32Value(1) - return_constant()
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def sub_use_rtseq5():
-    a = Double(0)
-    a.value = return_constant() - Int32(1)
+    a = DoubleValue(0)
+    a.value = return_constant() - I32Value(1)
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def sub_with_parantheses():
-    a = Double(0)
+    a = DoubleValue(0)
     a.value = 1 - (2 - 3)
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def sub_with_parantheses1():
-    a = Double(0)
-    a.value = 1 - (Double(2) - Int32(5))
+    a = DoubleValue(0)
+    a.value = 1 - (DoubleValue(2) - I32Value(5))
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def sub_with_parantheses2():
-    a = Double(0)
-    a.value = Double(5) - (Int32(2) - 3.0) - Double(4)
+    a = DoubleValue(0)
+    a.value = DoubleValue(5) - (I32Value(2) - 3.0) - DoubleValue(4)
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def sub_variables():
-    a = Double(5)
-    b = Double(0)
+    a = DoubleValue(5)
+    b = DoubleValue(0)
     b.value = 1 - a
     return b.value
 
 
 @decorators.nivs_rt_sequence
 def sub_variables1():
-    a = Double(5)
-    b = Double(0)
+    a = DoubleValue(5)
+    b = DoubleValue(0)
     b.value = 1 - a.value
     return b.value
 
 
 @decorators.nivs_rt_sequence
 def sub_variable_variable():
-    a = Double(1)
-    b = Double(2)
-    c = Double(0)
+    a = DoubleValue(1)
+    b = DoubleValue(2)
+    c = DoubleValue(0)
     c.value = a.value - b.value
     return c.value
 
 
 @decorators.nivs_rt_sequence
 def sub_variable_variable1():
-    a = Double(1)
-    b = Double(2)
-    c = Double(0)
+    a = DoubleValue(1)
+    b = DoubleValue(2)
+    c = DoubleValue(0)
     c.value = a.value - b.value
     return c.value
 
 
 @decorators.nivs_rt_sequence
 def sub_variable_rtseq():
-    a = Double(1)
-    b = Double(0)
+    a = DoubleValue(1)
+    b = DoubleValue(0)
     b.value = a.value - return_constant()
     return b.value
 
 
 @decorators.nivs_rt_sequence
 def sub_variable_rtseq1():
-    a = Double(1)
-    b = Double(0)
+    a = DoubleValue(1)
+    b = DoubleValue(0)
     b.value = return_constant() - a.value
     return b.value
 
 
 @decorators.nivs_rt_sequence
 def sub_to_channelref():
-    a = Double(0)
-    a.value = 1 - Double(TestChannels.HP_COUNT)
+    a = DoubleValue(0)
+    a.value = 1 - DoubleValue(TestChannels.HP_COUNT)
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def sub_binary_unary():
-    a = Double(0)
+    a = DoubleValue(0)
     a.value = 2 - -1
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def sub_binary_unary_sequence():
-    a = Double(0)
+    a = DoubleValue(0)
     a.value = 1 - -----2  # noqa: E225 it's ok to test this
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def sub_complex_expr():
-    a = Double(0)
+    a = DoubleValue(0)
     a.value = 1 - (2 if 2 < 3 else 4)
     return a.value
 
@@ -223,50 +222,50 @@ def sub_complex_expr():
 
 @decorators.nivs_rt_sequence
 def aug_sub_simple_numbers():
-    a = Double(1)
+    a = DoubleValue(1)
     a.value -= 2
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def aug_sub_num_nivsdatatype():
-    a = Double(1)
-    a.value -= Double(2)
+    a = DoubleValue(1)
+    a.value -= DoubleValue(2)
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def aug_sub_use_rtseq():
-    a = Double(1)
+    a = DoubleValue(1)
     a.value -= return_constant()
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def aug_sub_with_parantheses():
-    a = Double(1)
-    a.value -= (Int32(2) + 3.0) + Double(4)
+    a = DoubleValue(1)
+    a.value -= (I32Value(2) + 3.0) + DoubleValue(4)
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def aug_sub_variables():
-    a = Double(5)
-    b = Double(1)
+    a = DoubleValue(5)
+    b = DoubleValue(1)
     b.value -= a.value
     return b.value
 
 
 @decorators.nivs_rt_sequence
 def aug_sub_to_channelref():
-    a = Double(1)
-    a.value -= Double(TestChannels.HP_COUNT)
+    a = DoubleValue(1)
+    a.value -= DoubleValue(TestChannels.HP_COUNT)
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def aug_sub_unary():
-    a = Double(1)
+    a = DoubleValue(1)
     a.value -= -1
     return a.value
 
@@ -285,22 +284,22 @@ def sub_invalid_variables1():
 
 @decorators.nivs_rt_sequence
 def sub_invalid_variables2():
-    a = Double(0)
-    b = Double(0)
+    a = DoubleValue(0)
+    b = DoubleValue(0)
     b.value = a.value - 2
     return b.value
 
 
 @decorators.nivs_rt_sequence
 def sub_from_None():
-    a = Double(0)
+    a = DoubleValue(0)
     a.value = None - 1
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def sub_invalid_rtseq_call():
-    a = Double(0)
+    a = DoubleValue(0)
     a.value = return_constant - 1
     return a.value
 

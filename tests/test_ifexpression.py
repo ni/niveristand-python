@@ -1,7 +1,7 @@
 import sys
 
 from niveristand import decorators, exceptions, RealTimeSequence
-from niveristand.datatypes import Boolean, Int32
+from niveristand.clientapi.datatypes import BooleanValue, I32Value
 import pytest
 from testutilities import rtseqrunner, validation
 
@@ -13,121 +13,121 @@ def returns_true():
 
 @decorators.nivs_rt_sequence
 def ifexp_bool_test_bool_assign():
-    a = Boolean(False)
+    a = BooleanValue(False)
     a.value = True if True else False
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def ifexp_bool_test_int_assign():
-    a = Int32(0)
+    a = I32Value(0)
     a.value = 1 if True else 0
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def ifexp_bool_test_int_assign1():
-    a = Int32(0)
+    a = I32Value(0)
     a.value = 0 if not True else 1
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def ifexp_bool_test_nivstype_assign():
-    a = Int32(0)
-    a = Int32(1) if True else Int32(0)
+    a = I32Value(0)
+    a = I32Value(1) if True else I32Value(0)
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def ifexp_nivsbool_test_nivstype_assign():
-    a = Int32(0)
-    a = Int32(1) if Boolean(True) else Int32(0)
+    a = I32Value(0)
+    a = I32Value(1) if BooleanValue(True) else I32Value(0)
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def ifexp_nivsbool_test_nivstype_assign1():
-    a = Int32(0)
-    a = Int32(1) if not Boolean(False) else Int32(0)
+    a = I32Value(0)
+    a = I32Value(1) if not BooleanValue(False) else I32Value(0)
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def ifexp_nivsboolvar_test_int_assign():
-    a = Int32(0)
-    b = Boolean(True)
-    a = Int32(1) if b.value else Int32(0)
+    a = I32Value(0)
+    b = BooleanValue(True)
+    a = I32Value(1) if b.value else I32Value(0)
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def ifexp_nivsboolvar_test_int_assign1():
-    a = Int32(0)
-    b = Boolean(False)
-    a = Int32(1) if not b.value else Int32(0)
+    a = I32Value(0)
+    b = BooleanValue(False)
+    a = I32Value(1) if not b.value else I32Value(0)
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def ifexp_expression_test_int_assign():
-    a = Int32(5)
+    a = I32Value(5)
     a.value = 1 if a <= 5 else 0
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def ifexp_expression_test_int_assign1():
-    a = Int32(5)
+    a = I32Value(5)
     a.value = 1 if (a < 5) or True else 0
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def ifexp_nested_ifexp():
-    a = Int32(5)
+    a = I32Value(5)
     a.value = 2 if (a < 5) else 1 if a <= 5 else 0
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def ifexp_rtseq_test():
-    a = Int32(0)
+    a = I32Value(0)
     a.value = 1 if returns_true() else 0
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def ifexp_rtseq_test_rtseq_assign():
-    a = Boolean(False)
+    a = BooleanValue(False)
     a.value = returns_true() if returns_true() else False
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def ifexp_rtseq_test_rtseq_assign1():
-    a = Boolean(False)
+    a = BooleanValue(False)
     a.value = returns_true() if not returns_true() else returns_true()
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def ifexp_bool_test_expression_assign():
-    a = Int32(0)
+    a = I32Value(0)
     a.value = (1 * 2) - 1 & 7 | a if True else 0
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def ifexp_bool_test_expression_assign1():
-    a = Int32(0)
+    a = I32Value(0)
     a.value = 0 if not True else (1 * 2) - 1 & 7 | a
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def aug_ifexp_bool_test_expression_assign():
-    a = Int32(0)
+    a = I32Value(0)
     a.value += 0 if not True else (1 * 2) - 1 & 7 | a
     return a.value
 
@@ -135,8 +135,8 @@ def aug_ifexp_bool_test_expression_assign():
 # region invalid tests
 @decorators.nivs_rt_sequence
 def ifexp_invalid_int_test():
-    a = Int32(0)
-    a = Int32(1) if 1 else Int32(0)
+    a = I32Value(0)
+    a = I32Value(1) if 1 else I32Value(0)
     return a.value
 
 

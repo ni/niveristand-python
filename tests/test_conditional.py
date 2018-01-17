@@ -1,7 +1,7 @@
 import sys
 
 from niveristand import decorators, exceptions, RealTimeSequence
-from niveristand.datatypes import Boolean, Int32
+from niveristand.clientapi.datatypes import BooleanValue, I32Value
 import pytest
 from testutilities import rtseqrunner, validation
 
@@ -28,13 +28,13 @@ def if_invalid_boolean():
 
 @decorators.nivs_rt_sequence
 def if_invalid_boolean_const():
-    if Int32(0):
+    if I32Value(0):
         pass
 
 
 @decorators.nivs_rt_sequence
 def if_invalid_boolean_var():
-    a = Int32(1)
+    a = I32Value(1)
     if a.value:
         pass
 
@@ -70,7 +70,7 @@ def if_nested():
 
 @decorators.nivs_rt_sequence
 def if_one_statement():
-    ret_var = Int32(0)
+    ret_var = I32Value(0)
     if True:
         ret_var.value = 1
     else:
@@ -80,7 +80,7 @@ def if_one_statement():
 
 @decorators.nivs_rt_sequence
 def if_multiple_statements():
-    ret_var = Int32(0)
+    ret_var = I32Value(0)
     if True:
         ret_var.value = 1
         ret_var.value = 2
@@ -98,7 +98,7 @@ def if_multiple_statements():
 
 @decorators.nivs_rt_sequence
 def if_condition_variable():
-    var = Boolean(0)
+    var = BooleanValue(0)
     if var.value:
         var.value = True
     else:
@@ -108,7 +108,7 @@ def if_condition_variable():
 
 @decorators.nivs_rt_sequence
 def if_condition_equal_operator():
-    var = Boolean(0)
+    var = BooleanValue(0)
     if var.value == 1:
         var.value = 1
     else:
@@ -118,7 +118,7 @@ def if_condition_equal_operator():
 @decorators.nivs_rt_sequence
 def if_condition_identity_operator():
     var = True
-    ret = Int32(0)
+    ret = I32Value(0)
     if var is True:
         ret.value = 1
     return ret.value
@@ -127,7 +127,7 @@ def if_condition_identity_operator():
 @decorators.nivs_rt_sequence
 def if_condition_identity_not_operator():
     var = True
-    ret = Int32(0)
+    ret = I32Value(0)
     if var is not False:
         pass
     return ret.value
@@ -140,7 +140,7 @@ def returns_true():
 
 @decorators.nivs_rt_sequence
 def if_condition_function_call():
-    ret = Int32(0)
+    ret = I32Value(0)
     if returns_true() is True:
         ret.value = 1
     return ret.value
@@ -148,7 +148,7 @@ def if_condition_function_call():
 
 @decorators.nivs_rt_sequence
 def if_condition_complex_expression():
-    a = Int32(0)
+    a = I32Value(0)
     if (True and False) is not a.value * 1 < 10 or returns_true():
         a.value = 1
     return a.value
@@ -156,7 +156,7 @@ def if_condition_complex_expression():
 
 @decorators.nivs_rt_sequence
 def if_elif_condition_complex_expression():
-    a = Int32(0)
+    a = I32Value(0)
     if False:
         a.value = 1
     elif (True and False) is not a.value * 1 < 10 or returns_true():

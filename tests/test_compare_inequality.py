@@ -1,12 +1,11 @@
 import sys
 
 from niveristand import decorators, RealTimeSequence
-from niveristand.datatypes import Boolean, Double, Int32
+from niveristand.clientapi.datatypes import BooleanValue, DoubleValue, I32Value
 from niveristand.exceptions import TranslateError, VeristandError
 import pytest
 from testutilities import rtseqrunner, validation
 from testutilities.test_channels import TestChannels
-
 
 a = 1
 b = 2
@@ -14,240 +13,240 @@ b = 2
 
 @decorators.nivs_rt_sequence
 def return_constant():
-    a = Double(5)
+    a = DoubleValue(5)
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def notequal_bool_builtins():
-    a = Boolean(True)
+    a = BooleanValue(True)
     a.value = True != True  # noqa: E712 the identity operator "is" is not being tested here.
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def notequal_bool_builtins1():
-    a = Boolean(True)
+    a = BooleanValue(True)
     a.value = False != False  # noqa: E712 the identity operator "is" is not being tested here.
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def notequal_bool_builtins2():
-    a = Boolean(False)
+    a = BooleanValue(False)
     a.value = False != a.value  # noqa: E712 the identity operator "is" is not being tested here.
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def notequal_bool_builtins3():
-    a = Boolean(False)
+    a = BooleanValue(False)
     a.value = True != a.value  # noqa: E712 the identity operator "is" is not being tested here.
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def notequal_simple_numbers():
-    a = Boolean(True)
+    a = BooleanValue(True)
     a.value = 1 != 1
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def notequal_num_nivsdatatype():
-    a = Boolean(False)
-    a.value = 1 != Double(2)
+    a = BooleanValue(False)
+    a.value = 1 != DoubleValue(2)
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def notequal_nivsdatatype_nivsdatatype():
-    a = Boolean(True)
-    a.value = Double(1) != Double(1)
+    a = BooleanValue(True)
+    a.value = DoubleValue(1) != DoubleValue(1)
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def notequal_nivsdatatype_nivsdatatype1():
-    a = Boolean(True)
-    a.value = Double(1) != Int32(1)
+    a = BooleanValue(True)
+    a.value = DoubleValue(1) != I32Value(1)
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def notequal_nivsdatatype_nivsdatatype2():
-    a = Boolean(True)
-    a.value = Int32(1) != Double(1)
+    a = BooleanValue(True)
+    a.value = I32Value(1) != DoubleValue(1)
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def notequal_nivsdatatype_nivsdatatype3():
-    a = Boolean(False)
-    a.value = Int32(1) != Int32(2)
+    a = BooleanValue(False)
+    a.value = I32Value(1) != I32Value(2)
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def notequal_multiple_types():
-    a = Boolean(True)
-    a.value = 1 != Double(1) != 1.0
+    a = BooleanValue(True)
+    a.value = 1 != DoubleValue(1) != 1.0
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def notequal_multiple_types1():
-    a = Boolean(False)
-    a.value = 1 != Int32(2) != 3.0 != Double(4)
+    a = BooleanValue(False)
+    a.value = 1 != I32Value(2) != 3.0 != DoubleValue(4)
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def notequal_use_rtseq():
-    a = Boolean(True)
+    a = BooleanValue(True)
     a.value = 5 != return_constant()
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def notequal_use_rtseq1():
-    a = Boolean(True)
+    a = BooleanValue(True)
     a.value = return_constant() != 5
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def notequal_use_rtseq2():
-    a = Boolean(True)
-    a.value = Double(5) != return_constant()
+    a = BooleanValue(True)
+    a.value = DoubleValue(5) != return_constant()
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def notequal_use_rtseq3():
-    a = Boolean(True)
-    a.value = return_constant() != Double(5)
+    a = BooleanValue(True)
+    a.value = return_constant() != DoubleValue(5)
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def notequal_use_rtseq4():
-    a = Boolean(False)
-    a.value = Int32(1) != return_constant()
+    a = BooleanValue(False)
+    a.value = I32Value(1) != return_constant()
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def notequal_use_rtseq5():
-    a = Boolean(False)
-    a.value = return_constant() != Int32(1)
+    a = BooleanValue(False)
+    a.value = return_constant() != I32Value(1)
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def notequal_with_parantheses():
-    a = Boolean(False)
+    a = BooleanValue(False)
     a.value = 0 != (2 != 3)
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def notequal_with_parantheses1():
-    a = Boolean(False)
-    a.value = 0 != (Double(2) != Int32(5))
+    a = BooleanValue(False)
+    a.value = 0 != (DoubleValue(2) != I32Value(5))
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def notequal_with_parantheses2():
-    a = Boolean(False)
-    a.value = Double(0) != (Int32(2) != 3.0) != Double(4)
+    a = BooleanValue(False)
+    a.value = DoubleValue(0) != (I32Value(2) != 3.0) != DoubleValue(4)
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def notequal_variables():
-    a = Double(1)
-    b = Boolean(True)
+    a = DoubleValue(1)
+    b = BooleanValue(True)
     b.value = 1 != a
     return b.value
 
 
 @decorators.nivs_rt_sequence
 def notequal_variables1():
-    a = Double(1)
-    b = Boolean(True)
+    a = DoubleValue(1)
+    b = BooleanValue(True)
     b.value = 1 != a.value
     return b.value
 
 
 @decorators.nivs_rt_sequence
 def notequal_variable_variable():
-    a = Double(1)
-    b = Double(2)
-    c = Boolean(False)
+    a = DoubleValue(1)
+    b = DoubleValue(2)
+    c = BooleanValue(False)
     c.value = a.value != b.value
     return c.value
 
 
 @decorators.nivs_rt_sequence
 def notequal_variable_variable1():
-    a = Double(2)
-    b = Double(2)
-    c = Boolean(True)
+    a = DoubleValue(2)
+    b = DoubleValue(2)
+    c = BooleanValue(True)
     c.value = a.value != b.value
     return c.value
 
 
 @decorators.nivs_rt_sequence
 def notequal_variable_variable2():
-    a = Double(2)
-    b = Double(2)
-    c = Boolean(True)
+    a = DoubleValue(2)
+    b = DoubleValue(2)
+    c = BooleanValue(True)
     c = a != b
     return c
 
 
 @decorators.nivs_rt_sequence
 def notequal_variable_rtseq():
-    a = Boolean(False)
-    b = Double(0)
+    a = BooleanValue(False)
+    b = DoubleValue(0)
     a.value = b.value != return_constant()
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def notequal_variable_rtseq1():
-    a = Boolean(False)
-    b = Double(0)
+    a = BooleanValue(False)
+    b = DoubleValue(0)
     a.value = return_constant() != b.value
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def notequal_to_channelref():
-    a = Boolean(False)
-    a.value = 1 != Double(TestChannels.HP_COUNT)
+    a = BooleanValue(False)
+    a.value = 1 != DoubleValue(TestChannels.HP_COUNT)
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def notequal_binary_unary():
-    a = Boolean(True)
+    a = BooleanValue(True)
     a.value = -1 != - 1
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def notequal_with_multiple_comparators():
-    a = Boolean(False)
+    a = BooleanValue(False)
     a.value = 1 != 2 != 3 != 4
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def notequal_complex_expr():
-    a = Boolean(False)
+    a = BooleanValue(False)
     a.value = 1 != (2 if 2 < 3 else 1)
     return a.value
 
@@ -265,22 +264,22 @@ def notequal_invalid_variables1():
 
 @decorators.nivs_rt_sequence
 def notequal_invalid_variables2():
-    a = Boolean(0)
-    b = Double(0)
+    a = BooleanValue(0)
+    b = DoubleValue(0)
     b.value = a.value != 2
     return b
 
 
 @decorators.nivs_rt_sequence
 def notequal_to_None():
-    a = Boolean(0)
+    a = BooleanValue(0)
     a.value = None != 1  # noqa: E711 the identity operator "is" is not being tested here.
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def notequal_invalid_rtseq_call():
-    a = Boolean(0)
+    a = BooleanValue(0)
     a.value = return_constant != 1
     return a.value
 

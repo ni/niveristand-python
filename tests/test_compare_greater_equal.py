@@ -1,12 +1,11 @@
 import sys
 
 from niveristand import decorators, RealTimeSequence
-from niveristand.datatypes import Boolean, Double, Int32
+from niveristand.clientapi.datatypes import BooleanValue, DoubleValue, I32Value
 from niveristand.exceptions import TranslateError, VeristandError
 import pytest
 from testutilities import rtseqrunner, validation
 from testutilities.test_channels import TestChannels
-
 
 a = 1
 b = 2
@@ -14,196 +13,196 @@ b = 2
 
 @decorators.nivs_rt_sequence
 def return_constant():
-    a = Double(5)
+    a = DoubleValue(5)
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def greater_eq_simple_numbers():
-    a = Boolean(False)
+    a = BooleanValue(False)
     a.value = 5 >= 1
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def greater_eq_nivsdatatype_num():
-    a = Boolean(False)
-    a.value = Double(5) >= 2
+    a = BooleanValue(False)
+    a.value = DoubleValue(5) >= 2
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def greater_eq_num_nivsdatatype():
-    a = Boolean(False)
-    a.value = 5 >= Double(2)
+    a = BooleanValue(False)
+    a.value = 5 >= DoubleValue(2)
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def greater_eq_nivsdatatype_nivsdatatype():
-    a = Boolean(False)
-    a.value = Double(5) >= Double(1)
+    a = BooleanValue(False)
+    a.value = DoubleValue(5) >= DoubleValue(1)
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def greater_eq_nivsdatatype_nivsdatatype1():
-    a = Boolean(False)
-    a.value = Double(5) >= Int32(1)
+    a = BooleanValue(False)
+    a.value = DoubleValue(5) >= I32Value(1)
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def greater_eq_nivsdatatype_nivsdatatype2():
-    a = Boolean(False)
-    a.value = Int32(5) >= Double(1)
+    a = BooleanValue(False)
+    a.value = I32Value(5) >= DoubleValue(1)
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def greater_eq_nivsdatatype_nivsdatatype3():
-    a = Boolean(False)
-    a.value = Int32(5) >= Int32(2)
+    a = BooleanValue(False)
+    a.value = I32Value(5) >= I32Value(2)
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def greater_eq_multiple_types():
-    a = Boolean(False)
-    a.value = Double(5) >= 2 >= 1.0
+    a = BooleanValue(False)
+    a.value = DoubleValue(5) >= 2 >= 1.0
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def greater_eq_multiple_types1():
-    a = Boolean(False)
-    a.value = Int32(5) >= Double(4) >= 3 >= 2.0
+    a = BooleanValue(False)
+    a.value = I32Value(5) >= DoubleValue(4) >= 3 >= 2.0
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def greater_eq_use_rtseq():
-    a = Boolean(False)
+    a = BooleanValue(False)
     a.value = 5 >= return_constant()
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def greater_eq_use_rtseq1():
-    a = Boolean(False)
+    a = BooleanValue(False)
     a.value = return_constant() >= 4
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def greater_eq_use_rtseq2():
-    a = Boolean(False)
-    a.value = Double(6) >= return_constant()
+    a = BooleanValue(False)
+    a.value = DoubleValue(6) >= return_constant()
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def greater_eq_use_rtseq3():
-    a = Boolean(False)
-    a.value = return_constant() >= Double(4)
+    a = BooleanValue(False)
+    a.value = return_constant() >= DoubleValue(4)
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def greater_eq_use_rtseq4():
-    a = Boolean(False)
-    a.value = Int32(6) >= return_constant()
+    a = BooleanValue(False)
+    a.value = I32Value(6) >= return_constant()
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def greater_eq_use_rtseq5():
-    a = Boolean(False)
-    a.value = return_constant() >= Int32(1)
+    a = BooleanValue(False)
+    a.value = return_constant() >= I32Value(1)
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def greater_eq_with_parantheses():
-    a = Boolean(False)
+    a = BooleanValue(False)
     a.value = 5 >= (3 >= 2)
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def greater_eq_variables():
-    a = Double(5)
-    b = Boolean(False)
+    a = DoubleValue(5)
+    b = BooleanValue(False)
     b.value = a >= 1
     return b.value
 
 
 @decorators.nivs_rt_sequence
 def greater_eq_variables1():
-    a = Double(1)
-    b = Boolean(False)
+    a = DoubleValue(1)
+    b = BooleanValue(False)
     b.value = 5 >= a.value
     return b.value
 
 
 @decorators.nivs_rt_sequence
 def greater_eq_variable_variable():
-    a = Double(2)
-    b = Double(1)
-    c = Boolean(False)
+    a = DoubleValue(2)
+    b = DoubleValue(1)
+    c = BooleanValue(False)
     c.value = a.value >= b.value
     return c.value
 
 
 @decorators.nivs_rt_sequence
 def greater_eq_variable_variable1():
-    a = Double(2)
-    b = Double(1)
-    c = Boolean(False)
+    a = DoubleValue(2)
+    b = DoubleValue(1)
+    c = BooleanValue(False)
     c = a >= b
     return c
 
 
 @decorators.nivs_rt_sequence
 def greater_eq_variable_rtseq():
-    a = Double(6.0)
-    b = Boolean(False)
+    a = DoubleValue(6.0)
+    b = BooleanValue(False)
     b.value = a.value >= return_constant()
     return b.value
 
 
 @decorators.nivs_rt_sequence
 def greater_eq_variable_rtseq1():
-    a = Double(1)
-    b = Boolean(False)
+    a = DoubleValue(1)
+    b = BooleanValue(False)
     b.value = return_constant() >= a.value
     return b.value
 
 
 @decorators.nivs_rt_sequence
 def greater_eq_to_channelref():
-    a = Boolean(False)
-    a.value = 5 >= Double(TestChannels.HP_COUNT)
+    a = BooleanValue(False)
+    a.value = 5 >= DoubleValue(TestChannels.HP_COUNT)
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def greater_eq_binary_unary():
-    a = Boolean(False)
+    a = BooleanValue(False)
     a.value = 2 >= - 1
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def greater_eq_with_multiple_comparators():
-    a = Boolean(False)
+    a = BooleanValue(False)
     a.value = 5 >= 4 >= 3 >= 2
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def greater_eq_complex_expr():
-    a = Boolean(False)
+    a = BooleanValue(False)
     a.value = 2 >= (1 if 2 < 3 else 4)
     return a.value
 
@@ -221,221 +220,221 @@ def greater_eq_invalid_variables1():
 
 @decorators.nivs_rt_sequence
 def greater_eq_invalid_variables2():
-    a = Boolean(0)
-    b = Double(0)
+    a = BooleanValue(0)
+    b = DoubleValue(0)
     b.value = a.value >= 2
     return b
 
 
 @decorators.nivs_rt_sequence
 def greater_eq_to_None():
-    a = Boolean(False)
+    a = BooleanValue(False)
     a.value = None >= 1
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def greater_eq_invalid_rtseq_call():
-    a = Boolean(False)
+    a = BooleanValue(False)
     a.value = return_constant >= 1
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def gt_equal_simple_numbers():
-    a = Boolean(False)
+    a = BooleanValue(False)
     a.value = 1 >= 1
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def gt_equal_num_nivsdatatype():
-    a = Boolean(True)
-    a.value = Double(1) >= 2
+    a = BooleanValue(True)
+    a.value = DoubleValue(1) >= 2
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def gt_equal_nivsdatatype_nivsdatatype():
-    a = Boolean(False)
-    a.value = Double(1) >= Double(1)
+    a = BooleanValue(False)
+    a.value = DoubleValue(1) >= DoubleValue(1)
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def gt_equal_nivsdatatype_nivsdatatype1():
-    a = Boolean(0)
-    a.value = Double(1) >= Int32(1)
+    a = BooleanValue(0)
+    a.value = DoubleValue(1) >= I32Value(1)
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def gt_equal_nivsdatatype_nivsdatatype2():
-    a = Boolean(0)
-    a.value = Int32(1) >= Double(1)
+    a = BooleanValue(0)
+    a.value = I32Value(1) >= DoubleValue(1)
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def gt_equal_nivsdatatype_nivsdatatype3():
-    a = Boolean(0)
-    a.value = Int32(1) >= Int32(2)
+    a = BooleanValue(0)
+    a.value = I32Value(1) >= I32Value(2)
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def gt_equal_multiple_types():
-    a = Boolean(0)
-    a.value = Double(1) >= 1 >= 1.0
+    a = BooleanValue(0)
+    a.value = DoubleValue(1) >= 1 >= 1.0
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def gt_equal_multiple_types1():
-    a = Boolean(0)
-    a.value = Int32(1) >= Double(2) >= 3.0 >= 4
+    a = BooleanValue(0)
+    a.value = I32Value(1) >= DoubleValue(2) >= 3.0 >= 4
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def gt_equal_use_rtseq():
-    a = Boolean(0)
+    a = BooleanValue(0)
     a.value = 5 >= return_constant()
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def gt_equal_use_rtseq1():
-    a = Boolean(0)
+    a = BooleanValue(0)
     a.value = return_constant() >= 5
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def gt_equal_use_rtseq2():
-    a = Boolean(0)
-    a.value = Double(5) >= return_constant()
+    a = BooleanValue(0)
+    a.value = DoubleValue(5) >= return_constant()
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def gt_equal_use_rtseq3():
-    a = Boolean(0)
-    a.value = return_constant() >= Double(5)
+    a = BooleanValue(0)
+    a.value = return_constant() >= DoubleValue(5)
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def gt_equal_use_rtseq4():
-    a = Boolean(0)
-    a.value = Int32(1) >= return_constant()
+    a = BooleanValue(0)
+    a.value = I32Value(1) >= return_constant()
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def gt_equal_use_rtseq5():
-    a = Boolean(0)
-    a.value = return_constant() >= Int32(1)
+    a = BooleanValue(0)
+    a.value = return_constant() >= I32Value(1)
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def gt_equal_with_parantheses():
-    a = Boolean(True)
+    a = BooleanValue(True)
     a.value = 1 >= (2 >= 3)
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def gt_equal_with_parantheses1():
-    a = Boolean(True)
-    a.value = 0 >= (Double(2) >= Int32(2))
+    a = BooleanValue(True)
+    a.value = 0 >= (DoubleValue(2) >= I32Value(2))
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def gt_equal_variables():
-    a = Double(1)
-    b = Boolean(0)
+    a = DoubleValue(1)
+    b = BooleanValue(0)
     b.value = a >= 1
     return b.value
 
 
 @decorators.nivs_rt_sequence
 def gt_equal_variables1():
-    a = Double(1)
-    b = Boolean(0)
+    a = DoubleValue(1)
+    b = BooleanValue(0)
     b.value = a.value >= 1
     return b.value
 
 
 @decorators.nivs_rt_sequence
 def gt_equal_variable_variable():
-    a = Double(1)
-    b = Double(2)
-    c = Boolean(True)
+    a = DoubleValue(1)
+    b = DoubleValue(2)
+    c = BooleanValue(True)
     c.value = a.value >= b.value
     return c.value
 
 
 @decorators.nivs_rt_sequence
 def gt_equal_variable_variable1():
-    a = Double(2)
-    b = Double(2)
-    c = Boolean(False)
+    a = DoubleValue(2)
+    b = DoubleValue(2)
+    c = BooleanValue(False)
     c.value = a.value >= b.value
     return c.value
 
 
 @decorators.nivs_rt_sequence
 def gt_equal_variable_variable2():
-    a = Double(2)
-    b = Double(2)
-    c = Boolean(False)
+    a = DoubleValue(2)
+    b = DoubleValue(2)
+    c = BooleanValue(False)
     c = a >= b
     return c
 
 
 @decorators.nivs_rt_sequence
 def gt_equal_variable_rtseq():
-    a = Boolean(1)
-    b = Double(0)
+    a = BooleanValue(1)
+    b = DoubleValue(0)
     b.value = a.value >= return_constant()
     return b.value
 
 
 @decorators.nivs_rt_sequence
 def gt_equal_variable_rtseq1():
-    a = Boolean(1)
-    b = Double(0)
+    a = BooleanValue(1)
+    b = DoubleValue(0)
     b.value = return_constant() >= a.value
     return b.value
 
 
 @decorators.nivs_rt_sequence
 def gt_equal_to_channelref():
-    a = Boolean(0)
-    a.value = 1 >= Double(TestChannels.HP_COUNT)
+    a = BooleanValue(0)
+    a.value = 1 >= DoubleValue(TestChannels.HP_COUNT)
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def gt_equal_binary_unary():
-    a = Boolean(0)
+    a = BooleanValue(0)
     a.value = 2 >= - 1
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def gt_equal_with_multiple_comparators():
-    a = Boolean(True)
+    a = BooleanValue(True)
     a.value = 1 >= 2 >= 3 >= 4
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def gt_equal_complex_expr():
-    a = Boolean(0)
+    a = BooleanValue(0)
     a.value = 1 >= (1 if 2 < 3 else 4)
     return a.value
 
@@ -453,22 +452,22 @@ def gt_equal_invalid_variables1():
 
 @decorators.nivs_rt_sequence
 def gt_equal_invalid_variables2():
-    a = Boolean(0)
-    b = Double(0)
+    a = BooleanValue(0)
+    b = DoubleValue(0)
     b.value = a.value >= 2
     return b
 
 
 @decorators.nivs_rt_sequence
 def gt_equal_to_None():
-    a = Boolean(0)
+    a = BooleanValue(0)
     a.value = None >= 1  # noqa: E711 the identity operator "is" is not being tested here.
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def gt_equal_invalid_rtseq_call():
-    a = Boolean(0)
+    a = BooleanValue(0)
     a.value = return_constant >= 1
     return a.value
 

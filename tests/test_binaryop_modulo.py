@@ -1,7 +1,7 @@
 import sys
 
 from niveristand import decorators, RealTimeSequence
-from niveristand.datatypes import Double, Int32, Int64
+from niveristand.clientapi.datatypes import DoubleValue, I32Value, I64Value
 from niveristand.exceptions import TranslateError, VeristandError
 import pytest
 from testutilities import rtseqrunner, validation
@@ -13,232 +13,232 @@ b = 1
 
 @decorators.nivs_rt_sequence
 def return_constant():
-    a = Double(5)
+    a = DoubleValue(5)
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def modulo_simple_numbers():
-    a = Double(0)
+    a = DoubleValue(0)
     a.value = 3 % 2
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def modulo_num_nivsdatatype():
-    a = Double(0)
-    b = Double(2)
+    a = DoubleValue(0)
+    b = DoubleValue(2)
     a.value = 3 % b.value
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def modulo_nivsdatatype_nivsdatatype():
-    a = Double(0)
-    a.value = Double(5) % Double(2)
+    a = DoubleValue(0)
+    a.value = DoubleValue(5) % DoubleValue(2)
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def modulo_nivsdatatype_nivsdatatype1():
-    a = Double(0)
-    a.value = Double(5) % Int32(2)
+    a = DoubleValue(0)
+    a.value = DoubleValue(5) % I32Value(2)
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def modulo_nivsdatatype_nivsdatatype2():
-    a = Double(0)
-    a.value = Int32(7) % Double(2)
+    a = DoubleValue(0)
+    a.value = I32Value(7) % DoubleValue(2)
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def modulo_nivsdatatype_nivsdatatype3():
-    a = Int32(0)
-    a.value = Int32(7) % Int32(2)
+    a = I32Value(0)
+    a.value = I32Value(7) % I32Value(2)
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def modulo_multiple_types():
-    a = Double(0)
-    a.value = 7 % Double(4) % 2
+    a = DoubleValue(0)
+    a.value = 7 % DoubleValue(4) % 2
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def modulo_multiple_types1():
-    a = Int32(0)
-    a.value = 12 % Int32(7) % 3
+    a = I32Value(0)
+    a.value = 12 % I32Value(7) % 3
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def modulo_use_rtseq():
-    a = Double(0)
+    a = DoubleValue(0)
     a.value = 6 % return_constant()
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def modulo_use_rtseq1():
-    a = Double(0)
+    a = DoubleValue(0)
     a.value = return_constant() % 2
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def modulo_use_rtseq2():
-    a = Double(0)
-    a.value = Double(7) % return_constant()
+    a = DoubleValue(0)
+    a.value = DoubleValue(7) % return_constant()
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def modulo_use_rtseq3():
-    a = Double(0)
-    a.value = return_constant() % Double(2)
+    a = DoubleValue(0)
+    a.value = return_constant() % DoubleValue(2)
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def modulo_use_rtseq4():
-    a = Double(0)
-    a.value = Int32(7) % return_constant()
+    a = DoubleValue(0)
+    a.value = I32Value(7) % return_constant()
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def modulo_use_rtseq5():
-    a = Double(0)
-    a.value = return_constant() % Int32(2)
+    a = DoubleValue(0)
+    a.value = return_constant() % I32Value(2)
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def modulo_with_parantheses():
-    a = Double(0)
+    a = DoubleValue(0)
     a.value = 5 % (5 % 3)
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def modulo_with_parantheses1():
-    a = Double(1)
-    a.value = 5 % (Double(5) % Int32(3))
+    a = DoubleValue(1)
+    a.value = 5 % (DoubleValue(5) % I32Value(3))
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def modulo_with_parantheses2():
-    a = Double(0)
-    a.value = Int32(11) % (Int64(11) % Int64(7)) % Double(2)
+    a = DoubleValue(0)
+    a.value = I32Value(11) % (I64Value(11) % I64Value(7)) % DoubleValue(2)
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def modulo_with_parantheses3():
-    a = Double(0)
-    a.value = Int64(11) % (Int32(11) % Int32(7)) % Double(2)
+    a = DoubleValue(0)
+    a.value = I64Value(11) % (I32Value(11) % I32Value(7)) % DoubleValue(2)
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def modulo_with_parantheses4():
-    a = Double(0)
-    a.value = Int32(11) % (Int64(11) % Int32(7)) % Double(2)
+    a = DoubleValue(0)
+    a.value = I32Value(11) % (I64Value(11) % I32Value(7)) % DoubleValue(2)
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def modulo_with_parantheses5():
-    a = Double(0)
-    a.value = Int64(11) % (Int32(11) % Int64(7)) % Double(2)
+    a = DoubleValue(0)
+    a.value = I64Value(11) % (I32Value(11) % I64Value(7)) % DoubleValue(2)
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def modulo_with_parantheses6():
-    a = Double(0)
-    a.value = Int64(11) % (Int32(11) % Double(7)) % Double(2)
+    a = DoubleValue(0)
+    a.value = I64Value(11) % (I32Value(11) % DoubleValue(7)) % DoubleValue(2)
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def modulo_with_parantheses7():
-    a = Double(0)
-    a.value = Int32(11) % (Int64(11) % Double(7)) % Double(2)
+    a = DoubleValue(0)
+    a.value = I32Value(11) % (I64Value(11) % DoubleValue(7)) % DoubleValue(2)
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def modulo_variables():
-    a = Double(5)
-    b = Double(0)
+    a = DoubleValue(5)
+    b = DoubleValue(0)
     b.value = 7 % a
     return b.value
 
 
 @decorators.nivs_rt_sequence
 def modulo_variables1():
-    a = Double(5)
-    b = Double(0)
+    a = DoubleValue(5)
+    b = DoubleValue(0)
     b.value = 7 % a.value
     return b.value
 
 
 @decorators.nivs_rt_sequence
 def modulo_variable_variable():
-    a = Double(5)
-    b = Double(2)
-    c = Double(0)
+    a = DoubleValue(5)
+    b = DoubleValue(2)
+    c = DoubleValue(0)
     c.value = a.value % b.value
     return c.value
 
 
 @decorators.nivs_rt_sequence
 def modulo_variable_variable1():
-    a = Double(5)
-    b = Int32(2)
-    c = Double(0)
+    a = DoubleValue(5)
+    b = I32Value(2)
+    c = DoubleValue(0)
     c.value = a.value % b.value
     return c.value
 
 
 @decorators.nivs_rt_sequence
 def modulo_variable_rtseq():
-    a = Double(6)
-    b = Double(0)
+    a = DoubleValue(6)
+    b = DoubleValue(0)
     b.value = a.value % return_constant()
     return b.value
 
 
 @decorators.nivs_rt_sequence
 def modulo_variable_rtseq1():
-    a = Double(1)
-    b = Double(0)
+    a = DoubleValue(1)
+    b = DoubleValue(0)
     b.value = return_constant() % a.value
     return b.value
 
 
 @decorators.nivs_rt_sequence
 def modulo_with_channelref():
-    a = Double(0)
-    a.value = 1 % Double(TestChannels.HP_COUNT)
+    a = DoubleValue(0)
+    a.value = 1 % DoubleValue(TestChannels.HP_COUNT)
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def modulo_binary_unary():
-    a = Double(0)
+    a = DoubleValue(0)
     a.value = -5 % 2
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def modulo_complex_expr():
-    a = Double(0)
+    a = DoubleValue(0)
     a.value = 1 % (2 if 2 < 3 else 4)
     return a
 
@@ -247,50 +247,50 @@ def modulo_complex_expr():
 
 @decorators.nivs_rt_sequence
 def aug_modulo_simple_numbers():
-    a = Double(1)
+    a = DoubleValue(1)
     a.value %= 2
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def aug_modulo_num_nivsdatatype():
-    a = Double(1)
-    a.value %= Double(2)
+    a = DoubleValue(1)
+    a.value %= DoubleValue(2)
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def aug_modulo_use_rtseq():
-    a = Double(6)
+    a = DoubleValue(6)
     a.value %= return_constant()
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def aug_modulo_with_parantheses():
-    a = Double(5)
-    a.value %= (Int32(2) % 3.0) % Double(4)
+    a = DoubleValue(5)
+    a.value %= (I32Value(2) % 3.0) % DoubleValue(4)
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def aug_modulo_variables():
-    a = Double(5)
-    b = Double(1)
+    a = DoubleValue(5)
+    b = DoubleValue(1)
     b.value %= a.value
     return b.value
 
 
 @decorators.nivs_rt_sequence
 def aug_modulo_to_channelref():
-    a = Double(1)
-    a.value %= Double(TestChannels.HP_COUNT)
+    a = DoubleValue(1)
+    a.value %= DoubleValue(TestChannels.HP_COUNT)
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def aug_modulo_unary():
-    a = Double(1)
+    a = DoubleValue(1)
     a.value %= -1
     return a.value
 
@@ -310,22 +310,22 @@ def modulo_invalid_variables1():
 
 @decorators.nivs_rt_sequence
 def modulo_invalid_variables2():
-    a = Double(0)
-    b = Double(0)
+    a = DoubleValue(0)
+    b = DoubleValue(0)
     b.value = a.value.value % 2
     return b
 
 
 @decorators.nivs_rt_sequence
 def modulo_with_None():
-    a = Double(0)
+    a = DoubleValue(0)
     a.value = None % 1
     return a
 
 
 @decorators.nivs_rt_sequence
 def modulo_invalid_rtseq_call():
-    a = Double(0)
+    a = DoubleValue(0)
     a.value = return_constant % 1
     return a
 

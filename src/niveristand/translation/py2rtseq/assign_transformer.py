@@ -1,5 +1,5 @@
-from niveristand import datatypes, errormessages
-from niveristand.clientapi import realtimesequencedefinition as rtseqapi
+from niveristand import errormessages
+from niveristand.clientapi import datatypes, realtimesequencedefinition as rtseqapi
 from niveristand.exceptions import TranslateError
 from niveristand.translation import utils
 

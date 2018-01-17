@@ -2,8 +2,8 @@ import os
 import sys
 import tempfile
 from niveristand import RealTimeSequence
+from niveristand.clientapi.datatypes import I32Value
 from niveristand.clientapi.realtimesequencepkg import RealTimeSequencePkg
-from niveristand.datatypes import Int32
 from niveristand.decorators import nivs_rt_sequence
 
 __num_of_valid_rtseqs__ = 4
@@ -21,14 +21,14 @@ def returns_one():
 
 @nivs_rt_sequence
 def calls_another():
-    a = Int32(0)
+    a = I32Value(0)
     a.value = returns_one()
     return a.value
 
 
 @nivs_rt_sequence
 def two_levels_deep():
-    a = Int32(0)
+    a = I32Value(0)
     a.value = calls_another()
     a.value += returns_one()
     empty_func()

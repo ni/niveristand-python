@@ -1,8 +1,8 @@
 import math
 from math import pi
 from niveristand import decorators
-from niveristand.datatypes import Boolean, Double
-from niveristand.datatypes import Int32
+from niveristand.clientapi.datatypes import BooleanValue, DoubleValue
+from niveristand.clientapi.datatypes import I32Value
 
 
 def func_without_decorator():
@@ -16,17 +16,17 @@ def empty_func():
 
 @decorators.nivs_rt_sequence
 def simple_local_assignment():
-    a = Int32(5)  # noqa: F841 it's ok for this variable to never be used
+    a = I32Value(5)  # noqa: F841 it's ok for this variable to never be used
 
 
 @decorators.nivs_rt_sequence
 def simple_float_local_assignment():
-    a = Double(5.0)  # noqa: F841 it's ok for this variable to never be used
+    a = DoubleValue(5.0)  # noqa: F841 it's ok for this variable to never be used
 
 
 @decorators.nivs_rt_sequence
 def simple_assign_pi():
-    a = Double(0.0)  # noqa: F841 it's ok for this variable to never be used
+    a = DoubleValue(0.0)  # noqa: F841 it's ok for this variable to never be used
     a.value = math.pi
     a.value = pi
 
@@ -38,25 +38,25 @@ def assign_untyped():
 
 @decorators.nivs_rt_sequence
 def return_var():
-    a = Double(5)
+    a = DoubleValue(5)
     return a
 
 
 @decorators.nivs_rt_sequence
 def return_var_value():
-    a = Double(5)
+    a = DoubleValue(5)
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def return_var_invalid_value():
-    a = Double(5)
+    a = DoubleValue(5)
     return a.value.value
 
 
 @decorators.nivs_rt_sequence
 def return_named_type():
-    return Double(5)
+    return DoubleValue(5)
 
 
 @decorators.nivs_rt_sequence
@@ -66,7 +66,7 @@ def return_primitive_num():
 
 @decorators.nivs_rt_sequence
 def return_var_pi():
-    a = Double(5)
+    a = DoubleValue(5)
     a.value = math.pi
     return a
 
@@ -78,11 +78,11 @@ def return_untyped_symbol():
 
 @decorators.nivs_rt_sequence
 def return_true():
-    a = Boolean(True)
+    a = BooleanValue(True)
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def return_false():
-    a = Boolean(False)
+    a = BooleanValue(False)
     return a.value

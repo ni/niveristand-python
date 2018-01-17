@@ -1,7 +1,7 @@
 import sys
 
 from niveristand import decorators, RealTimeSequence
-from niveristand.datatypes import Boolean, Double, Int32, Int64
+from niveristand.clientapi.datatypes import BooleanValue, DoubleValue, I32Value, I64Value
 from niveristand.exceptions import TranslateError, VeristandError
 import numpy
 import pytest
@@ -18,210 +18,210 @@ def returns_zero():
 
 @decorators.nivs_rt_sequence
 def invert_bool():
-    a = Int32(0)
+    a = I32Value(0)
     a.value = ~False
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def invert_bool_var():
-    a = Boolean(False)
+    a = BooleanValue(False)
     a.value = ~a
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def invert_int32():
-    a = Int32(0)
+    a = I32Value(0)
     a.value = ~0
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def invert_int32_1():
-    a = Int32(-1)
+    a = I32Value(-1)
     a.value = ~-1
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def invert_int32_2():
-    a = Int32(0x7FFFFFFF)
+    a = I32Value(0x7FFFFFFF)
     a.value = ~0x7FFFFFFF
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def invert_int32_3():
-    a = Int32(-0x80000000)
+    a = I32Value(-0x80000000)
     a.value = ~-0x80000000
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def invert_int32_4():
-    a = Int32(-0x7FFFFFFF)
+    a = I32Value(-0x7FFFFFFF)
     a.value = ~-0x7FFFFFFF
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def invert_int32_var():
-    a = Int32(0)
+    a = I32Value(0)
     a.value = ~a
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def invert_int32_var_1():
-    a = Int32(-1)
+    a = I32Value(-1)
     a.value = ~a
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def invert_int32_var_2():
-    a = Int32(0x7FFFFFFF)
+    a = I32Value(0x7FFFFFFF)
     a.value = ~a
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def invert_int32_var_3():
-    a = Int32(-0x80000000)
+    a = I32Value(-0x80000000)
     a.value = ~a
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def invert_int32_var_4():
-    a = Int32(-0x7FFFFFFF)
+    a = I32Value(-0x7FFFFFFF)
     a.value = ~a
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def invert_int64():
-    a = Int64(0)
+    a = I64Value(0)
     a.value = ~0
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def invert_int64_1():
-    a = Int64(-1)
+    a = I64Value(-1)
     a.value = ~-1
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def invert_int64_2():
-    a = Int64(0x7FFFFFFFFFFFFFFF)
+    a = I64Value(0x7FFFFFFFFFFFFFFF)
     a.value = ~0x7FFFFFFFFFFFFFFF
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def invert_int64_3():
-    a = Int64(-0x8000000000000000)
+    a = I64Value(-0x8000000000000000)
     a.value = ~-0x8000000000000000
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def invert_int64_4():
-    a = Int64(-0x7FFFFFFFFFFFFFFF)
+    a = I64Value(-0x7FFFFFFFFFFFFFFF)
     a.value = ~-0x7FFFFFFFFFFFFFFF
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def invert_int64_var():
-    a = Int64(0)
+    a = I64Value(0)
     a.value = ~a
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def invert_int64_var_1():
-    a = Int64(-1)
+    a = I64Value(-1)
     a.value = ~a
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def invert_int64_var_2():
-    a = Int64(0x7FFFFFFFFFFFFFFF)
+    a = I64Value(0x7FFFFFFFFFFFFFFF)
     a.value = ~a
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def invert_int64_var_3():
-    a = Int64(-0x8000000000000000)
+    a = I64Value(-0x8000000000000000)
     a.value = ~a
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def invert_int64_var_4():
-    a = Int64(-0x7FFFFFFFFFFFFFFF)
+    a = I64Value(-0x7FFFFFFFFFFFFFFF)
     a.value = ~a
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def invert_int64_multiple():
-    a = Int64(-1)
+    a = I64Value(-1)
     a.value = ~~a
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def invert_int64_multiple1():
-    a = Int64(-1)
+    a = I64Value(-1)
     a.value = ~~~a
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def invert_int32_multiple():
-    a = Int32(-1)
+    a = I32Value(-1)
     a.value = ~~a
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def invert_int32_multiple1():
-    a = Int32(-1)
+    a = I32Value(-1)
     a.value = ~~~a
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def invert_parentheses():
-    a = Int32(0)
+    a = I32Value(0)
     a.value = ~(a)
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def invert_rtseq():
-    a = Int32(0)
+    a = I32Value(0)
     a.value = ~returns_zero()
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def invert_double():
-    a = Double(0)
+    a = DoubleValue(0)
     a.value = ~1.2
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def invert_double_var():
-    a = Double(0)
+    a = DoubleValue(0)
     a.value = ~a
     return a.value
 
@@ -239,22 +239,22 @@ def invert_invalid_variables1():
 
 @decorators.nivs_rt_sequence
 def invert_invalid_variables2():
-    a = Int32(0)
-    b = Int32(0)
+    a = I32Value(0)
+    b = I32Value(0)
     b.value = ~a.value.value
     return b.value
 
 
 @decorators.nivs_rt_sequence
 def invert_with_None():
-    a = Int32(0)
+    a = I32Value(0)
     a.value = ~None
     return a
 
 
 @decorators.nivs_rt_sequence
 def invert_invalid_rtseq_call():
-    a = Int32(0)
+    a = I32Value(0)
     a.value = ~returns_zero
     return a
 # end region
