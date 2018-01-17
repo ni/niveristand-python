@@ -85,3 +85,15 @@ def test_return_untyped_symbol():
     testfunc = testfuncs.return_untyped_symbol
     with pytest.raises(exceptions.TranslateError):
         RealTimeSequence(testfunc)
+
+
+def test_default_value_bool_true():
+    testfunc = testfuncs.return_true
+    rtseq = RealTimeSequence(testfunc)
+    assert rtseq._rtseq.Variables.LocalVariables.Variables[0].DefaultValue.Value is True
+
+
+def test_default_value_bool_false():
+    testfunc = testfuncs.return_false
+    rtseq = RealTimeSequence(testfunc)
+    assert rtseq._rtseq.Variables.LocalVariables.Variables[0].DefaultValue.Value is False

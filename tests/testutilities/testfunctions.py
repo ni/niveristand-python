@@ -1,7 +1,7 @@
 import math
 from math import pi
 from niveristand import decorators
-from niveristand.datatypes import Double
+from niveristand.datatypes import Boolean, Double
 from niveristand.datatypes import Int32
 
 
@@ -74,3 +74,15 @@ def return_var_pi():
 @decorators.nivs_rt_sequence
 def return_untyped_symbol():
     return math.pi
+
+
+@decorators.nivs_rt_sequence
+def return_true():
+    a = Boolean(True)
+    return a.value
+
+
+@decorators.nivs_rt_sequence
+def return_false():
+    a = Boolean(False)
+    return a.value
