@@ -63,8 +63,8 @@ def test_rtseqpkg_can_iterate():
     pkg = RealTimeSequencePkg()
     pkg.append(empty_func)
     pkg.append(returns_one)
-    for seq in pkg:
-        assert isinstance(pkg[seq], RealTimeSequence)
+    assert isinstance(pkg[empty_func], RealTimeSequence)
+    assert isinstance(pkg[returns_one], RealTimeSequence)
 
 
 def test_rtseqpkg_append_dup_doesnt_append():
@@ -93,26 +93,33 @@ def test_save_all_module():
     assert len(files) == len(pkg)
 
 
-def test_save_referenced_module():
-    pkg = RealTimeSequencePkg()
+def test_rtseq_with_deps():
+    seq = RealTimeSequence(calls_another)
     folder = tempfile.mkdtemp()
-    pkg.append(sys.modules[__name__])
-    pkg.save_referenced(folder)
+    seq.save(folder)
     _, _, files = next(os.walk(folder))
-    assert len(pkg) == __num_of_valid_rtseqs__
-    assert len(files) == 0
-    a = pkg[empty_func]
-    b = pkg[returns_one]
-    pkg.save_referenced(folder)
-    _, _, files = next(os.walk(folder))
-    assert isinstance(a, RealTimeSequence)
-    assert isinstance(b, RealTimeSequence)
-    assert len(pkg) == __num_of_valid_rtseqs__
     assert len(files) == 2
 
 
-def test_rtseq_with_deps():
+def test_rtseq_with_deps_multiple_times():
     seq = RealTimeSequence(calls_another)
+    folder = tempfile.mkdtemp()
+    seq.save(folder)
+    root, _, files = next(os.walk(folder))
+    assert len(files) == 2
+    for file in files:
+        os.remove(os.path.join(root, file))
+    seq.save(folder)
+    _, _, files = next(os.walk(folder))
+    assert len(files) == 2
+
+
+def test_rtseq_with_deps_multiple_times_diff_folder():
+    seq = RealTimeSequence(calls_another)
+    folder = tempfile.mkdtemp()
+    seq.save(folder)
+    _, _, files = next(os.walk(folder))
+    assert len(files) == 2
     folder = tempfile.mkdtemp()
     seq.save(folder)
     _, _, files = next(os.walk(folder))

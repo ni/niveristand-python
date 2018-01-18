@@ -11,6 +11,7 @@ from niveristand.exceptions import TranslateError, VeristandError
 from niveristand.translation.py2rtseq.utils import Resources
 from niveristand.translation.utils import generic_ast_node_transform
 from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import Reference  # noqa: I100 C# imports are exempt
+from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import References  # noqa: I100 C# imports are exempt
 
 
 class RealTimeSequence:
@@ -33,7 +34,8 @@ class RealTimeSequence:
 
         name = self._build_file_name()
         rtseqapi.save_real_time_sequence(self._rtseq, name)
-        self._rtseqpkg.save_referenced(self._path)
+        self._rtseqpkg.save_referenced(self._path, self)
+        self._update_references()
         return name
 
     def _transform(self):
@@ -51,23 +53,25 @@ class RealTimeSequence:
             raise TranslateError(errormessages.invalid_top_level_func)
 
         self._rtseq = rtseqapi.create_real_time_sequence()
-        transform_resources = Resources(self._rtseq)
+        transform_resources = Resources(self._rtseq, str(self))
         if self._rtseqpkg is not None:
             transform_resources.set_dependency_pkg(self._rtseqpkg)
         generic_ast_node_transform(func_node, transform_resources)
         self._rtseqpkg = transform_resources.get_dependency_pkg()
         self._rtseqpkg.append(inspect.getmodule(real_obj))
-        for referenced in self._rtseqpkg.get_referenced():
-            self._rtseq.References.AddReference(referenced.get_reference())
+        self.save()
         rtsequtils.compile_rtseq(self._rtseq)
+
+    def _update_references(self):
+        self._ref = Reference(str(self), self._build_file_name())
+        self._rtseq.References = References()
+        for referenced in self._rtseqpkg.get_referenced(self):
+            self._rtseq.References.AddReference(referenced.get_reference())
 
     def _build_file_name(self):
         return os.path.join(self._path, str(self) + ".nivsseq")
 
     def get_reference(self):
-        if self._ref is None:
-            self.save()
-            self._ref = Reference(str(self), self._build_file_name())
         return self._ref
 
     def __str__(self):

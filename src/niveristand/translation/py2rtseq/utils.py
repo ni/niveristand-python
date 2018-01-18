@@ -1,7 +1,8 @@
 class Resources:
-    def __init__(self, rtseq):
+    def __init__(self, rtseq, alias):
         from niveristand.clientapi.realtimesequencepkg import RealTimeSequencePkg
         self._rtseq = rtseq
+        self._seq_alias = alias
         self._block = None
         self._local_variables = {}
         self._deps = RealTimeSequencePkg()
@@ -27,6 +28,9 @@ class Resources:
 
     def get_variable_py_value(self, variable_name):
         return self._local_variables[variable_name].py_value
+
+    def add_referenced_sequence(self, referenced):
+        self._deps.add_referenced_sequence(self._seq_alias, referenced)
 
     def get_dependency_pkg(self):
         return self._deps

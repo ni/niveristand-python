@@ -1,48 +1,57 @@
 import collections
 import inspect
-from niveristand import RealTimeSequence
+from niveristand import errormessages, RealTimeSequence
 from niveristand.decorators import Modes
-from niveristand.exceptions import VeristandError
+from niveristand.exceptions import TranslateError, VeristandError
 
 
 class RealTimeSequencePkg(collections.MutableMapping):
     def __init__(self):
         self._rtseqs = dict()
-        self._unresolved = list()
+        self._dep_graph = dict()
 
     def save_all(self, path):
         for seq in self:
             self[seq].save(path)
 
-    def save_referenced(self, path):
-        for seq in [s for s in self._rtseqs if isinstance(self._rtseqs[s], RealTimeSequence)]:
-            self._rtseqs[seq].save(path)
+    def save_referenced(self, path, referencer):
+        for seq in self.get_referenced(referencer):
+            if seq is None:
+                raise TranslateError(errormessages.dependency_not_found)
+            seq.save(path)
 
-    def add_referenced_sequence(self, referenced_sequence):
-        referenced_sequence = str(referenced_sequence)
-        if referenced_sequence not in self:
-            self._unresolved.append(referenced_sequence)
-        else:
-            self._resolve(referenced_sequence)
+    def add_referenced_sequence(self, referencer, referenced_sequence):
+        referencer_name = self._obj_to_key(referencer)
+        referenced_sequence = self._obj_to_key(referenced_sequence)
+        if referencer_name not in self._dep_graph:
+            self._dep_graph[referencer_name] = list()
+        if referenced_sequence not in self._dep_graph[referencer_name]:
+            self._dep_graph[referencer_name].append(referenced_sequence)
 
-    def get_referenced(self):
-        return [self[r] for r in self._rtseqs if isinstance(self._rtseqs[r], RealTimeSequence)]
+    def get_referenced(self, referencer):
+        referencer = self._obj_to_key(referencer)
+        return [self._try_resolve(dep_name) for dep_name in self._dep_graph[referencer]]
 
     def __len__(self):
         return len(self._rtseqs)
 
     def __getitem__(self, item):
         item = self._obj_to_key(item)
-        self._resolve(item)
+        seq = self._try_resolve(item)
+        if seq is None:
+            raise TranslateError(errormessages.dependency_not_found)
         return self._rtseqs.get(item)
 
     def _obj_to_key(self, item):
         return str(item) if not inspect.isfunction(item) else item.__name__
 
-    def _resolve(self, item):
+    def _try_resolve(self, item):
         seq = self._rtseqs.get(item)
         if inspect.isfunction(seq):
-            seq = RealTimeSequence(seq)
+            for dep in self._dep_graph[item]:
+                if not isinstance(self._rtseqs[dep], RealTimeSequence):
+                    self._try_resolve(item)
+            seq = RealTimeSequence(seq, self)
             self._rtseqs[item] = seq
         return seq
 
@@ -67,9 +76,8 @@ class RealTimeSequencePkg(collections.MutableMapping):
         for func in [f for f in funcs_to_add if self._obj_to_key(f) not in self._rtseqs]:
             name = func.__name__
             self._rtseqs[name] = func
-            if name in self._unresolved:
-                self._resolve(name)
-                self._unresolved.remove(name)
+            if name not in self._dep_graph:
+                self._dep_graph[name] = list()
 
     def count(self):
         len(self._rtseqs)
