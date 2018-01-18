@@ -13,7 +13,7 @@ b = 2
 
 @decorators.nivs_rt_sequence
 def return_constant():
-    a = DoubleValue(5)
+    a = I32Value(5)
     return a.value
 
 
@@ -90,14 +90,14 @@ def arithmetic_shift_left_use_rtseq1():
 @decorators.nivs_rt_sequence
 def arithmetic_shift_left_use_rtseq2():
     a = DoubleValue(0)
-    a.value = DoubleValue(1) << return_constant()
+    a.value = I32Value(1) << return_constant()
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def arithmetic_shift_left_use_rtseq3():
     a = DoubleValue(0)
-    a.value = return_constant() << DoubleValue(1)
+    a.value = return_constant() << I32Value(1)
     return a.value
 
 
@@ -172,7 +172,7 @@ def arithmetic_shift_left_variable_variable1():
 
 @decorators.nivs_rt_sequence
 def arithmetic_shift_left_variable_rtseq():
-    a = DoubleValue(1)
+    a = I32Value(1)
     b = DoubleValue(0)
     b.value = a.value << return_constant()
     return b.value
@@ -180,7 +180,7 @@ def arithmetic_shift_left_variable_rtseq():
 
 @decorators.nivs_rt_sequence
 def arithmetic_shift_left_variable_rtseq1():
-    a = DoubleValue(1)
+    a = I32Value(1)
     b = DoubleValue(0)
     b.value = return_constant() << a.value
     return b.value
@@ -366,24 +366,24 @@ run_tests = [
     (arithmetic_shift_left_augassign_variable2, (), 4),
     (arithmetic_shift_left_augassign_variable3, (), 4),
     (arithemtic_shift_left_augassign_paranthesis, (), 16),
+    (arithmetic_shift_left_use_rtseq, (), 32),
+    (arithmetic_shift_left_use_rtseq1, (), 10),
+    (arithmetic_shift_left_use_rtseq2, (), 32),
+    (arithmetic_shift_left_use_rtseq3, (), 10),
+    (arithmetic_shift_left_use_rtseq4, (), 32),
+    (arithmetic_shift_left_use_rtseq5, (), 10),
+    (arithmetic_shift_left_variable_rtseq, (), 32),
+    (arithmetic_shift_left_variable_rtseq1, (), 10),
+    (arithmetic_shift_left_complex_expr, (), 4),
+    (arithmetic_shift_left_augassign_rtseq, (), 32),
 ]
 
 skip_tests = [
-    (arithmetic_shift_left_use_rtseq, (), "RTSeq call not implemented yet."),
-    (arithmetic_shift_left_use_rtseq1, (), "RTSeq call not implemented yet."),
-    (arithmetic_shift_left_use_rtseq2, (), "RTSeq call not implemented yet."),
-    (arithmetic_shift_left_use_rtseq3, (), "RTSeq call not implemented yet."),
-    (arithmetic_shift_left_use_rtseq4, (), "RTSeq call not implemented yet."),
-    (arithmetic_shift_left_use_rtseq5, (), "RTSeq call not implemented yet."),
-    (arithmetic_shift_left_variable_rtseq, (), "RTSeq call not implemented yet."),
-    (arithmetic_shift_left_variable_rtseq1, (), "RTSeq call not implemented yet."),
     (arithmetic_shift_left_to_channelref, (), "Channel ref transform not yet implemented."),
     (arithmetic_shift_left_invalid_variables2, (), "Attribute transformer doesn't catch the a.value.value problem."),
     (arithmetic_shift_left_to_None, (), "Name transformer doesn't raise an exception for NoneType with python 2.7."),
     (arithmetic_shift_left_invalid_rtseq_call, (), "RTSeq call not implemented yet."),
-    (arithmetic_shift_left_complex_expr, (), "Not implemented yet."),
     (arithmetic_shift_left_binary_unary, (), "Different behaviour between python and SPE."),
-    (arithmetic_shift_left_augassign_rtseq, (), "RTSeq call not implemented yet."),
     (arithmetic_shift_left_augassign_channelref, (), "Channel ref transform not yet implemented."),
 ]
 

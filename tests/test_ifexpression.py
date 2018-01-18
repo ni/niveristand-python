@@ -8,7 +8,8 @@ from testutilities import rtseqrunner, validation
 
 @decorators.nivs_rt_sequence
 def returns_true():
-    return True
+    a = BooleanValue(True)
+    return a.value
 
 
 @decorators.nivs_rt_sequence
@@ -143,6 +144,7 @@ def ifexp_invalid_int_test():
 # end region invalid tests
 
 run_tests = [
+    (returns_true, (), True),
     (ifexp_bool_test_bool_assign, (), True),
     (ifexp_bool_test_int_assign, (), 1),
     (ifexp_bool_test_int_assign1, (), 1),
@@ -155,6 +157,9 @@ run_tests = [
     (ifexp_bool_test_expression_assign, (), 1),
     (ifexp_bool_test_expression_assign1, (), 1),
     (aug_ifexp_bool_test_expression_assign, (), 1),
+    (ifexp_rtseq_test, (), 1),
+    (ifexp_rtseq_test_rtseq_assign, (), True),
+    (ifexp_rtseq_test_rtseq_assign1, (), True),
 ]
 
 fail_transform_tests = [
@@ -162,14 +167,10 @@ fail_transform_tests = [
 ]
 
 skip_tests = [
-    (ifexp_rtseq_test, (), "RTSeq Call not implemented yet."),
-    (ifexp_rtseq_test_rtseq_assign, (), "RTSeq Call not implemented yet."),
-    (ifexp_rtseq_test_rtseq_assign1, (), "RTSeq Call not implemented yet."),
     (ifexp_nivsbool_test_nivstype_assign, (), "We can't override ifexp so even though it translates"
                                               "fine python uses the objref as the test, not the value."),
     (ifexp_nivsbool_test_nivstype_assign1, (), "We can't override ifexp so even though it translates"
                                                "fine python uses the objref as the test, not the value."),
-    (returns_true, (), "niveristand.exceptions.TranslateError: TODOMSG: return statement uses undeclared value"),
 ]
 
 

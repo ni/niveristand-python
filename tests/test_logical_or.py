@@ -94,6 +94,7 @@ def logical_or_rtseq():
 def logical_or_rtseq1():
     a = BooleanValue(False)
     a.value = True or return_true()
+    return a.value
 
 
 @decorators.nivs_rt_sequence
@@ -146,6 +147,8 @@ run_tests = [
     (logical_or_variables1, (), True),
     (logical_or_unary, (), True),
     (logical_or_parantheses, (), True),
+    (logical_or_rtseq, (), True),
+    (logical_or_rtseq1, (), True),
 ]
 
 skip_tests = [
@@ -164,8 +167,6 @@ skip_tests = [
     (logical_or_variables, (), "Or between two constant DataTypes returns a DataType object, we have to"
                                "research this how to solve it. A solution is to always use variables in"
                                "logical operators, and use var.value."),
-    (logical_or_rtseq, (), "RTSeq call not implemented yet."),
-    (logical_or_rtseq1, (), "RTSeq call not implemented yet."),
     (logical_or_None, (), "Name transformer doesn't raise an exception for NoneType with python 2.7."),
     (logical_or_invalid_rtseq_call, (), "RTSeq call not implemented yet."),
 ]

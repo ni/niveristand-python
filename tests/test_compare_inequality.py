@@ -132,7 +132,7 @@ def notequal_use_rtseq3():
 @decorators.nivs_rt_sequence
 def notequal_use_rtseq4():
     a = BooleanValue(False)
-    a.value = I32Value(1) != return_constant()
+    a.value = I32Value(5) != return_constant()
     return a.value
 
 
@@ -309,17 +309,17 @@ run_tests = [
     (notequal_with_multiple_comparators, (), True),
     (notequal_binary_unary, (), False),
     (notequal_complex_expr, (), True),
+    (notequal_use_rtseq, (), False),
+    (notequal_use_rtseq1, (), False),
+    (notequal_use_rtseq2, (), False),
+    (notequal_use_rtseq3, (), False),
+    (notequal_use_rtseq4, (), False),
+    (notequal_use_rtseq5, (), True),
+    (notequal_variable_rtseq, (), True),
+    (notequal_variable_rtseq1, (), True),
 ]
 
 skip_tests = [
-    (notequal_use_rtseq, (), "RTSeq call not implemented yet."),
-    (notequal_use_rtseq1, (), "RTSeq call not implemented yet."),
-    (notequal_use_rtseq2, (), "RTSeq call not implemented yet."),
-    (notequal_use_rtseq3, (), "RTSeq call not implemented yet."),
-    (notequal_use_rtseq4, (), "RTSeq call not implemented yet."),
-    (notequal_use_rtseq5, (), "RTSeq call not implemented yet."),
-    (notequal_variable_rtseq, (), "RTSeq call not implemented yet."),
-    (notequal_variable_rtseq1, (), "RTSeq call not implemented yet."),
     (notequal_to_channelref, (), "Channel ref transform not yet implemented."),
     (notequal_to_None, (), "Name transformer doesn't raise an exception for NoneType with python 2.7."),
     (notequal_invalid_rtseq_call, (), "RTSeq call not implemented yet."),

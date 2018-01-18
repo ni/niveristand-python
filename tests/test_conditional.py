@@ -108,40 +108,42 @@ def if_condition_variable():
 
 @decorators.nivs_rt_sequence
 def if_condition_equal_operator():
-    var = BooleanValue(0)
+    var = I32Value(1)
     if var.value == 1:
-        var.value = 1
-    else:
         var.value = 2
+    else:
+        var.value = 3
+    return var.value
 
 
 @decorators.nivs_rt_sequence
 def if_condition_identity_operator():
-    var = True
+    var = BooleanValue(True)
     ret = I32Value(0)
-    if var is True:
+    if var.value is True:
         ret.value = 1
     return ret.value
 
 
 @decorators.nivs_rt_sequence
 def if_condition_identity_not_operator():
-    var = True
+    var = BooleanValue(True)
     ret = I32Value(0)
     if var is not False:
-        pass
+        ret.value = 1
     return ret.value
 
 
 @decorators.nivs_rt_sequence
 def returns_true():
-    return True
+    a = BooleanValue(True)
+    return a.value
 
 
 @decorators.nivs_rt_sequence
 def if_condition_function_call():
     ret = I32Value(0)
-    if returns_true() is True:
+    if returns_true():
         ret.value = 1
     return ret.value
 
@@ -165,9 +167,12 @@ def if_elif_condition_complex_expression():
 
 
 run_tests = [
+    (returns_true, (), True),
     (if_one_statement, (), 1),
     (if_multiple_statements, (), 3),
     (if_condition_variable, (), False),
+    (if_condition_equal_operator, (), 2),
+    (if_condition_function_call, (), 1),
 ]
 
 
@@ -187,13 +192,10 @@ fail_transform_tests = [
 
 
 skip_tests = [
-    (returns_true, (), "Return transformer cannot handle returning True/False"),
-    (if_condition_equal_operator, (), "Operator not implemented yet"),
-    (if_condition_identity_operator, (), "Operator not implemented yet"),
-    (if_condition_identity_not_operator, (), "Operator not implemented yet"),
-    (if_condition_complex_expression, (), "Operator not implemented yet"),
-    (if_elif_condition_complex_expression, (), "Operator not implemented yet"),
-    (if_condition_function_call, (), "Function calls not implemented yet"),
+    (if_condition_identity_operator, (), "Identity operator missing. Exp:1"),
+    (if_condition_identity_not_operator, (), "Identity operator missing. Exp:1"),
+    (if_condition_complex_expression, (), "Identity operator missing. Exp:1"),
+    (if_elif_condition_complex_expression, (), "Identity operator missing. Exp:2"),
 ]
 
 

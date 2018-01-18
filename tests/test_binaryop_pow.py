@@ -211,7 +211,7 @@ def aug_exp_num_nivsdatatype():
 
 @decorators.nivs_rt_sequence
 def aug_exp_use_rtseq():
-    a = DoubleValue(1)
+    a = DoubleValue(2)
     a.value **= return_constant()
     return a.value
 
@@ -301,6 +301,15 @@ run_tests = [
     (aug_exp_with_parantheses, (), float(2**64)),
     (aug_exp_unary, (), 0.5),
     (exp_complex_expr, (), 9),
+    (exp_variable_rtseq, (), 32),
+    (exp_variable_rtseq1, (), 25),
+    (exp_use_rtseq, (), 32),
+    (exp_use_rtseq1, (), 25),
+    (exp_use_rtseq2, (), 32),
+    (exp_use_rtseq3, (), 25),
+    (exp_use_rtseq4, (), 32),
+    (exp_use_rtseq5, (), 125),
+    (aug_exp_use_rtseq, (), 32),
 ]
 
 skip_tests = [
@@ -308,15 +317,6 @@ skip_tests = [
     (exp_invalid_rtseq_call, (), "Not implemented yet."),
     (exp_invalid_variables2, (), "Attribute transformer doesn't catch the a.value.value problem."),
     (exp_with_None, (), "Name transformer doesn't raise an exception for NoneType with python 2.7."),
-    (exp_variable_rtseq, (), "RTseq call not yet implemented."),
-    (exp_variable_rtseq1, (), "RTseq call not yet implemented"),
-    (exp_use_rtseq, (), "RTseq call not yet implemented."),
-    (exp_use_rtseq1, (), "RTseq call not yet implemented."),
-    (exp_use_rtseq2, (), "RTseq call not yet implemented."),
-    (exp_use_rtseq3, (), "RTseq call not yet implemented."),
-    (exp_use_rtseq4, (), "RTseq call not yet implemented."),
-    (exp_use_rtseq5, (), "RTseq call not yet implemented."),
-    (aug_exp_use_rtseq, (), "RTSeq call not implemented yet."),
     (aug_exp_to_channelref, (), "Channel ref transform not yet implemented."),
 ]
 

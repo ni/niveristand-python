@@ -83,7 +83,7 @@ def less_eq_multiple_types1():
 @decorators.nivs_rt_sequence
 def less_eq_use_rtseq():
     a = BooleanValue(True)
-    a.value = 5 <= return_constant()
+    a.value = 6 <= return_constant()
     return a.value
 
 
@@ -298,36 +298,36 @@ def lt_equal_multiple_types1():
 
 @decorators.nivs_rt_sequence
 def lt_equal_use_rtseq():
-    a = BooleanValue(True)
+    a = BooleanValue(False)
     a.value = 5 <= return_constant()
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def lt_equal_use_rtseq1():
-    a = BooleanValue(True)
+    a = BooleanValue(False)
     a.value = return_constant() <= 5
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def lt_equal_use_rtseq2():
-    a = BooleanValue(True)
+    a = BooleanValue(False)
     a.value = DoubleValue(5) <= return_constant()
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def lt_equal_use_rtseq3():
-    a = BooleanValue(True)
+    a = BooleanValue(False)
     a.value = return_constant() <= DoubleValue(5)
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def lt_equal_use_rtseq4():
-    a = BooleanValue(True)
-    a.value = I32Value(1) <= return_constant()
+    a = BooleanValue(False)
+    a.value = I32Value(5) <= return_constant()
     return a.value
 
 
@@ -397,16 +397,16 @@ def lt_equal_variable_variable2():
 
 @decorators.nivs_rt_sequence
 def lt_equal_variable_rtseq():
-    a = BooleanValue(1)
-    b = DoubleValue(0)
+    a = DoubleValue(5)
+    b = BooleanValue(False)
     b.value = a.value <= return_constant()
     return b.value
 
 
 @decorators.nivs_rt_sequence
 def lt_equal_variable_rtseq1():
-    a = BooleanValue(1)
-    b = DoubleValue(0)
+    a = DoubleValue(5)
+    b = BooleanValue(False)
     b.value = return_constant() <= a.value
     return b.value
 
@@ -504,32 +504,32 @@ run_tests = [
     (lt_equal_variable_variable2, (), True),
     (lt_equal_binary_unary, (), True),
     (lt_equal_complex_expr, (), True),
+    (less_eq_use_rtseq, (), False),
+    (less_eq_use_rtseq1, (), False),
+    (less_eq_use_rtseq2, (), False),
+    (less_eq_use_rtseq3, (), False),
+    (less_eq_use_rtseq4, (), False),
+    (less_eq_use_rtseq5, (), False),
+    (less_eq_variable_rtseq, (), False),
+    (less_eq_variable_rtseq1, (), False),
+    (lt_equal_use_rtseq, (), True),
+    (lt_equal_use_rtseq1, (), True),
+    (lt_equal_use_rtseq2, (), True),
+    (lt_equal_use_rtseq3, (), True),
+    (lt_equal_use_rtseq4, (), True),
+    (lt_equal_use_rtseq5, (), False),
+    (lt_equal_variable_rtseq, (), True),
+    (lt_equal_variable_rtseq1, (), True),
 ]
 
 skip_tests = [
     (less_eq_num_nivsdatatype, (), "Builtins as the left comparer can't be overriden"),
-    (less_eq_use_rtseq, (), "RTSeq call not implemented yet."),
-    (less_eq_use_rtseq1, (), "RTSeq call not implemented yet."),
-    (less_eq_use_rtseq2, (), "RTSeq call not implemented yet."),
-    (less_eq_use_rtseq3, (), "RTSeq call not implemented yet."),
-    (less_eq_use_rtseq4, (), "RTSeq call not implemented yet."),
-    (less_eq_use_rtseq5, (), "RTSeq call not implemented yet."),
-    (less_eq_variable_rtseq, (), "RTSeq call not implemented yet."),
-    (less_eq_variable_rtseq1, (), "RTSeq call not implemented yet."),
     (less_eq_to_channelref, (), "Channel ref transform not yet implemented."),
     (less_eq_to_None, (), "Name transformer doesn't raise an exception for NoneType with python 2.7."),
     (less_eq_invalid_rtseq_call, (), "RTSeq call not implemented yet."),
     (less_eq_multiple_types, (), "Cascading comparators untested in VM"),
     (less_eq_multiple_types1, (), "Cascading comparators untested in VM"),
     (less_eq_with_multiple_comparators, (), "Cascading comparators untested in VM"),
-    (lt_equal_use_rtseq, (), "RTSeq call not implemented yet."),
-    (lt_equal_use_rtseq1, (), "RTSeq call not implemented yet."),
-    (lt_equal_use_rtseq2, (), "RTSeq call not implemented yet."),
-    (lt_equal_use_rtseq3, (), "RTSeq call not implemented yet."),
-    (lt_equal_use_rtseq4, (), "RTSeq call not implemented yet."),
-    (lt_equal_use_rtseq5, (), "RTSeq call not implemented yet."),
-    (lt_equal_variable_rtseq, (), "RTSeq call not implemented yet."),
-    (lt_equal_variable_rtseq1, (), "RTSeq call not implemented yet."),
     (lt_equal_to_channelref, (), "Channel ref transform not yet implemented."),
     (lt_equal_to_None, (), "Name transformer doesn't raise an exception for NoneType with python 2.7."),
     (lt_equal_invalid_rtseq_call, (), "RTSeq call not implemented yet."),

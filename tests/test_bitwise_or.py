@@ -13,7 +13,7 @@ b = 2
 
 @decorators.nivs_rt_sequence
 def return_constant():
-    a = DoubleValue(5)
+    a = I32Value(5)
     return a.value
 
 
@@ -76,42 +76,28 @@ def bitwise_or_multiple_types1():
 @decorators.nivs_rt_sequence
 def bitwise_or_use_rtseq():
     a = DoubleValue(0)
-    a.value = 1 | return_constant()
+    a.value = 2 | return_constant()
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def bitwise_or_use_rtseq1():
     a = DoubleValue(0)
-    a.value = return_constant() | 1
+    a.value = return_constant() | 2
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def bitwise_or_use_rtseq2():
     a = DoubleValue(0)
-    a.value = DoubleValue(1) | return_constant()
+    a.value = I32Value(2) | return_constant()
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def bitwise_or_use_rtseq3():
     a = DoubleValue(0)
-    a.value = return_constant() | DoubleValue(1)
-    return a.value
-
-
-@decorators.nivs_rt_sequence
-def bitwise_or_use_rtseq4():
-    a = DoubleValue(0)
-    a.value = I32Value(1) | return_constant()
-    return a.value
-
-
-@decorators.nivs_rt_sequence
-def bitwise_or_use_rtseq5():
-    a = DoubleValue(0)
-    a.value = return_constant() | I32Value(1)
+    a.value = return_constant() | I32Value(2)
     return a.value
 
 
@@ -172,7 +158,7 @@ def bitwise_or_variable_variable1():
 
 @decorators.nivs_rt_sequence
 def bitwise_or_variable_rtseq():
-    a = DoubleValue(1)
+    a = I32Value(2)
     b = DoubleValue(0)
     b.value = a.value | return_constant()
     return b.value
@@ -180,7 +166,7 @@ def bitwise_or_variable_rtseq():
 
 @decorators.nivs_rt_sequence
 def bitwise_or_variable_rtseq1():
-    a = DoubleValue(1)
+    a = I32Value(2)
     b = DoubleValue(0)
     b.value = return_constant() | a.value
     return b.value
@@ -225,7 +211,7 @@ def aug_bitwise_or_num_nivsdatatype():
 
 @decorators.nivs_rt_sequence
 def aug_bitwise_or_use_rtseq():
-    a = I32Value(1)
+    a = I32Value(2)
     a.value |= return_constant()
     return a.value
 
@@ -314,22 +300,20 @@ run_tests = [
     (aug_bitwise_or_with_parantheses, (), 7),
     (aug_bitwise_or_unary, (), -1),
     (bitwise_or_complex_expr, (), 3),
+    (bitwise_or_use_rtseq, (), 7),
+    (bitwise_or_use_rtseq1, (), 7),
+    (bitwise_or_use_rtseq2, (), 7),
+    (bitwise_or_use_rtseq3, (), 7),
+    (bitwise_or_variable_rtseq, (), 7),
+    (bitwise_or_variable_rtseq1, (), 7),
+    (aug_bitwise_or_use_rtseq, (), 7),
 ]
 
 skip_tests = [
-    (bitwise_or_use_rtseq, (), "RTSeq call not implemented yet."),
-    (bitwise_or_use_rtseq1, (), "RTSeq call not implemented yet."),
-    (bitwise_or_use_rtseq2, (), "RTSeq call not implemented yet."),
-    (bitwise_or_use_rtseq3, (), "RTSeq call not implemented yet."),
-    (bitwise_or_use_rtseq4, (), "RTSeq call not implemented yet."),
-    (bitwise_or_use_rtseq5, (), "RTSeq call not implemented yet."),
-    (bitwise_or_variable_rtseq, (), "RTSeq call not implemented yet."),
-    (bitwise_or_variable_rtseq1, (), "RTSeq call not implemented yet."),
     (bitwise_or_to_channelref, (), "Channel ref transform not yet implemented."),
     (bitwise_or_invalid_variables2, (), "Attribute transformer doesn't catch the a.value.value problem."),
     (bitwise_or_to_None, (), "Name transformer doesn't raise an exception for NoneType with python 2.7."),
     (bitwise_or_invalid_rtseq_call, (), "RTSeq call not implemented yet."),
-    (aug_bitwise_or_use_rtseq, (), "RTSeq call not implemented yet."),
     (aug_bitwise_or_to_channelref, (), "Channel ref transform not yet implemented."),
 ]
 

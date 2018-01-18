@@ -13,7 +13,8 @@ b = 2
 
 @decorators.nivs_rt_sequence
 def returns_zero():
-    return 0
+    a = I32Value(0)
+    return a.value
 
 
 @decorators.nivs_rt_sequence
@@ -283,6 +284,7 @@ run_tests = [
     (invert_int64_multiple, (), -1),
     (invert_int64_multiple1, (), 0),
     (invert_parentheses, (), -1),
+    (invert_rtseq, (), numpy.int32(-1)),
 ]
 
 skip_tests = [
@@ -292,7 +294,6 @@ skip_tests = [
     (invert_int32_var_3, (), "SPE doesn't support initializing with the full int64 range."),
     (invert_int64_var_3, (), "SPE doesn't support initializing with the full int64 range."),
     (invert_double, (), "Bitwise operations not supported for floating point types."),
-    (invert_rtseq, (), "Function calls not yet implemented."),
     (invert_invalid_rtseq_call, (), "Not implemented yet."),
     (invert_invalid_variables2, (), "Attribute transformer doesn't catch the a.value.value problem."),
     (invert_with_None, (), "Name transformer doesn't raise an exception for NoneType with python 2.7."),

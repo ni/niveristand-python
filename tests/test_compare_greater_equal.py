@@ -83,7 +83,7 @@ def greater_eq_multiple_types1():
 @decorators.nivs_rt_sequence
 def greater_eq_use_rtseq():
     a = BooleanValue(False)
-    a.value = 5 >= return_constant()
+    a.value = 6 >= return_constant()
     return a.value
 
 
@@ -327,14 +327,14 @@ def gt_equal_use_rtseq3():
 @decorators.nivs_rt_sequence
 def gt_equal_use_rtseq4():
     a = BooleanValue(0)
-    a.value = I32Value(1) >= return_constant()
+    a.value = I32Value(5) >= return_constant()
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def gt_equal_use_rtseq5():
     a = BooleanValue(0)
-    a.value = return_constant() >= I32Value(1)
+    a.value = return_constant() >= I32Value(5)
     return a.value
 
 
@@ -397,16 +397,16 @@ def gt_equal_variable_variable2():
 
 @decorators.nivs_rt_sequence
 def gt_equal_variable_rtseq():
-    a = BooleanValue(1)
-    b = DoubleValue(0)
+    a = DoubleValue(5)
+    b = BooleanValue(False)
     b.value = a.value >= return_constant()
     return b.value
 
 
 @decorators.nivs_rt_sequence
 def gt_equal_variable_rtseq1():
-    a = BooleanValue(1)
-    b = DoubleValue(0)
+    a = DoubleValue(5)
+    b = BooleanValue(False)
     b.value = return_constant() >= a.value
     return b.value
 
@@ -421,7 +421,7 @@ def gt_equal_to_channelref():
 @decorators.nivs_rt_sequence
 def gt_equal_binary_unary():
     a = BooleanValue(0)
-    a.value = 2 >= - 1
+    a.value = -1 >= - 1
     return a.value
 
 
@@ -488,6 +488,7 @@ run_tests = [
     (greater_eq_variable_variable, (), True),
     (greater_eq_variable_variable1, (), True),
     (greater_eq_complex_expr, (), True),
+    (greater_eq_binary_unary, (), True),
     (gt_equal_simple_numbers, (), True),
     (gt_equal_num_nivsdatatype, (), False),
     (gt_equal_nivsdatatype_nivsdatatype, (), True),
@@ -502,35 +503,34 @@ run_tests = [
     (gt_equal_variable_variable1, (), True),
     (gt_equal_variable_variable2, (), True),
     (gt_equal_complex_expr, (), True),
+    (gt_equal_binary_unary, (), True),
+    (greater_eq_use_rtseq, (), True),
+    (greater_eq_use_rtseq1, (), True),
+    (greater_eq_use_rtseq2, (), True),
+    (greater_eq_use_rtseq3, (), True),
+    (greater_eq_use_rtseq4, (), True),
+    (greater_eq_use_rtseq5, (), True),
+    (greater_eq_variable_rtseq, (), True),
+    (greater_eq_variable_rtseq1, (), True),
+    (gt_equal_use_rtseq, (), True),
+    (gt_equal_use_rtseq1, (), True),
+    (gt_equal_use_rtseq2, (), True),
+    (gt_equal_use_rtseq3, (), True),
+    (gt_equal_use_rtseq4, (), True),
+    (gt_equal_use_rtseq5, (), True),
+    (gt_equal_variable_rtseq, (), True),
+    (gt_equal_variable_rtseq1, (), True),
 ]
 
 skip_tests = [
     (greater_eq_num_nivsdatatype, (), "Builtins as the left comparer can't be overriden"),
-    (greater_eq_use_rtseq, (), "RTSeq call not implemented yet."),
-    (greater_eq_use_rtseq1, (), "RTSeq call not implemented yet."),
-    (greater_eq_use_rtseq2, (), "RTSeq call not implemented yet."),
-    (greater_eq_use_rtseq3, (), "RTSeq call not implemented yet."),
-    (greater_eq_use_rtseq4, (), "RTSeq call not implemented yet."),
-    (greater_eq_use_rtseq5, (), "RTSeq call not implemented yet."),
-    (greater_eq_variable_rtseq, (), "RTSeq call not implemented yet."),
-    (greater_eq_variable_rtseq1, (), "RTSeq call not implemented yet."),
     (greater_eq_to_channelref, (), "Channel ref transform not yet implemented."),
-    (greater_eq_binary_unary, (), "Unary operator not implemented."),
     (greater_eq_to_None, (), "Name transformer doesn't raise an exception for NoneType with python 2.7."),
     (greater_eq_invalid_rtseq_call, (), "RTSeq call not implemented yet."),
     (greater_eq_multiple_types, (), "Cascading comparators untested in VM"),
     (greater_eq_multiple_types1, (), "Cascading comparators untested in VM"),
     (greater_eq_with_multiple_comparators, (), "Cascading comparators untested in VM"),
-    (gt_equal_use_rtseq, (), "RTSeq call not implemented yet."),
-    (gt_equal_use_rtseq1, (), "RTSeq call not implemented yet."),
-    (gt_equal_use_rtseq2, (), "RTSeq call not implemented yet."),
-    (gt_equal_use_rtseq3, (), "RTSeq call not implemented yet."),
-    (gt_equal_use_rtseq4, (), "RTSeq call not implemented yet."),
-    (gt_equal_use_rtseq5, (), "RTSeq call not implemented yet."),
-    (gt_equal_variable_rtseq, (), "RTSeq call not implemented yet."),
-    (gt_equal_variable_rtseq1, (), "RTSeq call not implemented yet."),
     (gt_equal_to_channelref, (), "Channel ref transform not yet implemented."),
-    (gt_equal_binary_unary, (), "Unary operator not implemented."),
     (gt_equal_to_None, (), "Name transformer doesn't raise an exception for NoneType with python 2.7."),
     (gt_equal_invalid_rtseq_call, (), "RTSeq call not implemented yet."),
     (gt_equal_multiple_types, (), "Cascading comparators untested in VM"),

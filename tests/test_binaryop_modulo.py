@@ -216,7 +216,7 @@ def modulo_variable_rtseq():
 
 @decorators.nivs_rt_sequence
 def modulo_variable_rtseq1():
-    a = DoubleValue(1)
+    a = DoubleValue(2)
     b = DoubleValue(0)
     b.value = return_constant() % a.value
     return b.value
@@ -359,26 +359,26 @@ run_tests = [
     (aug_modulo_num_nivsdatatype, (), 1),
     (aug_modulo_with_parantheses, (), 1),
     (modulo_complex_expr, (), 1),
+    (modulo_variable_rtseq, (), 1),
+    (modulo_variable_rtseq1, (), 1),
+    (modulo_use_rtseq, (), 1),
+    (modulo_use_rtseq1, (), 1),
+    (modulo_use_rtseq2, (), 2),
+    (modulo_use_rtseq3, (), 1),
+    (modulo_use_rtseq4, (), 2),
+    (modulo_use_rtseq5, (), 1),
+    (aug_modulo_use_rtseq, (), 1),
 ]
 
 skip_tests = [
-    (modulo_with_channelref, (), "Not implemented yet."),
     (modulo_binary_unary, (), "SPE implements remainder. Python implements module. "
                               "The difference is subtle but the sign of the result is different."),
+    (aug_modulo_unary, (), "SPE and Python treat negative module differently."),
+    (modulo_with_channelref, (), "Not implemented yet."),
     (modulo_invalid_rtseq_call, (), "Not implemented yet."),
     (modulo_invalid_variables2, (), "Attribute transformer doesn't catch the a.value.value problem."),
     (modulo_with_None, (), "Name transformer doesn't raise an exception for NoneType with python 2.7."),
-    (modulo_variable_rtseq, (), "RTseq call not yet implemented."),
-    (modulo_variable_rtseq1, (), "RTseq call not yet implemented"),
-    (modulo_use_rtseq, (), "RTseq call not yet implemented."),
-    (modulo_use_rtseq1, (), "RTseq call not yet implemented."),
-    (modulo_use_rtseq2, (), "RTseq call not yet implemented."),
-    (modulo_use_rtseq3, (), "RTseq call not yet implemented."),
-    (modulo_use_rtseq4, (), "RTseq call not yet implemented."),
-    (modulo_use_rtseq5, (), "RTseq call not yet implemented."),
-    (aug_modulo_use_rtseq, (), "RTSeq call not implemented yet."),
     (aug_modulo_to_channelref, (), "Channel ref transform not yet implemented."),
-    (aug_modulo_unary, (), "SPE and Python treat negative module differently."),
 ]
 
 fail_transform_tests = [

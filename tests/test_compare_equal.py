@@ -133,14 +133,14 @@ def equal_use_rtseq3():
 @decorators.nivs_rt_sequence
 def equal_use_rtseq4():
     a = BooleanValue(0)
-    a.value = I32Value(1) == return_constant()
+    a.value = I32Value(5) == return_constant()
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def equal_use_rtseq5():
     a = BooleanValue(0)
-    a.value = return_constant() == I32Value(1)
+    a.value = return_constant() == I32Value(5)
     return a.value
 
 
@@ -210,16 +210,16 @@ def equal_variable_variable2():
 
 @decorators.nivs_rt_sequence
 def equal_variable_rtseq():
-    a = BooleanValue(1)
-    b = DoubleValue(0)
+    a = DoubleValue(5)
+    b = BooleanValue(0)
     b.value = a.value == return_constant()
     return b.value
 
 
 @decorators.nivs_rt_sequence
 def equal_variable_rtseq1():
-    a = BooleanValue(1)
-    b = DoubleValue(0)
+    a = DoubleValue(5)
+    b = BooleanValue(0)
     b.value = return_constant() == a.value
     return b.value
 
@@ -312,21 +312,20 @@ run_tests = [
     (equal_with_multiple_comparators, (), False),
     (equal_binary_unary, (), True),
     (equal_complex_expr, (), True),
+    (equal_use_rtseq, (), True),
+    (equal_use_rtseq1, (), True),
+    (equal_use_rtseq2, (), True),
+    (equal_use_rtseq3, (), True),
+    (equal_use_rtseq4, (), True),
+    (equal_use_rtseq5, (), True),
+    (equal_variable_rtseq, (), True),
+    (equal_variable_rtseq1, (), True),
 ]
 
 skip_tests = [
-    (equal_use_rtseq, (), "RTSeq call not implemented yet."),
-    (equal_use_rtseq1, (), "RTSeq call not implemented yet."),
-    (equal_use_rtseq2, (), "RTSeq call not implemented yet."),
-    (equal_use_rtseq3, (), "RTSeq call not implemented yet."),
-    (equal_use_rtseq4, (), "RTSeq call not implemented yet."),
-    (equal_use_rtseq5, (), "RTSeq call not implemented yet."),
-    (equal_variable_rtseq, (), "RTSeq call not implemented yet."),
-    (equal_variable_rtseq1, (), "RTSeq call not implemented yet."),
     (equal_to_channelref, (), "Channel ref transform not yet implemented."),
     (equal_to_None, (), "Name transformer doesn't raise an exception for NoneType with python 2.7."),
     (equal_invalid_rtseq_call, (), "RTSeq call not implemented yet."),
-
 ]
 
 fail_transform_tests = [

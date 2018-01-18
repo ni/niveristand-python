@@ -321,6 +321,15 @@ run_tests = [
     (aug_div_with_parantheses, (), 6.0),
     (aug_div_unary, (), -1),
     (div_complex_expr, (), 0.5),
+    (div_use_rtseq, (), 0.2),
+    (div_use_rtseq1, (), 5),
+    (div_use_rtseq2, (), 0.2),
+    (div_use_rtseq3, (), 5),
+    (div_use_rtseq4, (), 0.2),
+    (div_use_rtseq5, (), 5),
+    (div_variable_rtseq, (), 0.2),
+    (div_variable_rtseq1, (), 5),
+    (aug_div_use_rtseq, (), 0.2),
 ]
 
 skip_tests = [
@@ -328,15 +337,6 @@ skip_tests = [
     (div_invalid_rtseq_call, (), "Not implemented yet."),
     (div_invalid_variables2, (), "Attribute transformer doesn't catch the a.value.value problem."),
     (div_with_None, (), "Name transformer doesn't raise an exception for NoneType with python 2.7."),
-    (div_variable_rtseq, (), "RTseq call not yet implemented."),
-    (div_variable_rtseq1, (), "RTseq call not yet implemented"),
-    (div_use_rtseq, (), "RTseq call not yet implemented."),
-    (div_use_rtseq1, (), "RTseq call not yet implemented."),
-    (div_use_rtseq2, (), "RTseq call not yet implemented."),
-    (div_use_rtseq3, (), "RTseq call not yet implemented."),
-    (div_use_rtseq4, (), "RTseq call not yet implemented."),
-    (div_use_rtseq5, (), "RTseq call not yet implemented."),
-    (aug_div_use_rtseq, (), "RTSeq call not implemented yet."),
     (aug_div_to_channelref, (), "Channel ref transform not yet implemented."),
 ]
 

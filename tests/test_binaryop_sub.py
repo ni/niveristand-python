@@ -331,22 +331,22 @@ run_tests = [
     (aug_sub_variables, (), -4),
     (aug_sub_unary, (), 2),
     (sub_complex_expr, (), -1),
+    (sub_use_rtseq, (), -4),
+    (sub_use_rtseq1, (), 4),
+    (sub_use_rtseq2, (), -4),
+    (sub_use_rtseq3, (), 4),
+    (sub_use_rtseq4, (), -4),
+    (sub_use_rtseq5, (), 4),
+    (sub_variable_rtseq, (), -4),
+    (sub_variable_rtseq1, (), 4),
+    (aug_sub_use_rtseq, (), -4),
 ]
 
 skip_tests = [
-    (sub_use_rtseq, (), "RTSeq call not implemented yet."),
-    (sub_use_rtseq1, (), "RTSeq call not implemented yet."),
-    (sub_use_rtseq2, (), "RTSeq call not implemented yet."),
-    (sub_use_rtseq3, (), "RTSeq call not implemented yet."),
-    (sub_use_rtseq4, (), "RTSeq call not implemented yet."),
-    (sub_use_rtseq5, (), "RTSeq call not implemented yet."),
-    (sub_variable_rtseq, (), "RTSeq call not implemented yet."),
-    (sub_variable_rtseq1, (), "RTSeq call not implemented yet."),
     (sub_to_channelref, (), "Channel ref transform not yet implemented."),
     (sub_invalid_variables2, (), "Attribute transformer doesn't catch the a.value.value problem. -DE14612"),
     (sub_from_None, (), "Name transformer doesn't raise an exception for NoneType with python 2.7. - DE14611"),
     (sub_invalid_rtseq_call, (), "RTSeq call not implemented yet."),
-    (aug_sub_use_rtseq, (), "RTSeq call not implemented yet."),
     (aug_sub_to_channelref, (), "Channel ref transform not yet implemented."),
 ]
 

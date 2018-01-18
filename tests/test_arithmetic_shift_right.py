@@ -13,7 +13,7 @@ b = 2
 
 @decorators.nivs_rt_sequence
 def return_constant():
-    a = DoubleValue(5)
+    a = I32Value(5)
     return a.value
 
 
@@ -76,7 +76,7 @@ def arithmetic_shift_right_multiple_types1():
 @decorators.nivs_rt_sequence
 def arithmetic_shift_right_use_rtseq():
     a = DoubleValue(1)
-    a.value = 1 >> return_constant()
+    a.value = 64 >> return_constant()
     return a.value
 
 
@@ -90,21 +90,21 @@ def arithmetic_shift_right_use_rtseq1():
 @decorators.nivs_rt_sequence
 def arithmetic_shift_right_use_rtseq2():
     a = DoubleValue(0)
-    a.value = DoubleValue(1) >> return_constant()
+    a.value = I32Value(64) >> return_constant()
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def arithmetic_shift_right_use_rtseq3():
     a = DoubleValue(0)
-    a.value = return_constant() >> DoubleValue(1)
+    a.value = return_constant() >> I32Value(1)
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def arithmetic_shift_right_use_rtseq4():
     a = DoubleValue(0)
-    a.value = I32Value(1) >> return_constant()
+    a.value = I32Value(64) >> return_constant()
     return a.value
 
 
@@ -172,7 +172,7 @@ def arithmetic_shift_right_variable_variable1():
 
 @decorators.nivs_rt_sequence
 def arithmetic_shift_right_variable_rtseq():
-    a = DoubleValue(1)
+    a = I32Value(64)
     b = DoubleValue(0)
     b.value = a.value >> return_constant()
     return b.value
@@ -180,7 +180,7 @@ def arithmetic_shift_right_variable_rtseq():
 
 @decorators.nivs_rt_sequence
 def arithmetic_shift_right_variable_rtseq1():
-    a = DoubleValue(1)
+    a = I32Value(1)
     b = DoubleValue(0)
     b.value = return_constant() >> a.value
     return b.value
@@ -339,7 +339,7 @@ def arithmetic_shift_right_invalid_rtseq_call():
 @decorators.nivs_rt_sequence
 def arithmetic_shift_right_complex_expr():
     a = DoubleValue(0)
-    a.value = 1 >> (2 if 2 < 3 else 4)
+    a.value = 15 >> (2 if 2 < 3 else 4)
     return a.value
 
 # end region
@@ -366,24 +366,24 @@ run_tests = [
     (arithmetic_shift_right_augassign_variable2, (), 1),
     (arithmetic_shift_right_augassign_variable3, (), 1),
     (arithemtic_shift_left_augassign_paranthesis, (), 64),
+    (arithmetic_shift_right_use_rtseq, (), 2),
+    (arithmetic_shift_right_use_rtseq1, (), 2),
+    (arithmetic_shift_right_use_rtseq2, (), 2),
+    (arithmetic_shift_right_use_rtseq3, (), 2),
+    (arithmetic_shift_right_use_rtseq4, (), 2),
+    (arithmetic_shift_right_use_rtseq5, (), 2),
+    (arithmetic_shift_right_variable_rtseq, (), 2),
+    (arithmetic_shift_right_variable_rtseq1, (), 2),
+    (arithmetic_shift_right_complex_expr, (), 3),
+    (arithmetic_shift_right_augassign_rtseq, (), 1030),
 ]
 
 skip_tests = [
-    (arithmetic_shift_right_use_rtseq, (), "RTSeq call not implemented yet."),
-    (arithmetic_shift_right_use_rtseq1, (), "RTSeq call not implemented yet."),
-    (arithmetic_shift_right_use_rtseq2, (), "RTSeq call not implemented yet."),
-    (arithmetic_shift_right_use_rtseq3, (), "RTSeq call not implemented yet."),
-    (arithmetic_shift_right_use_rtseq4, (), "RTSeq call not implemented yet."),
-    (arithmetic_shift_right_use_rtseq5, (), "RTSeq call not implemented yet."),
-    (arithmetic_shift_right_variable_rtseq, (), "RTSeq call not implemented yet."),
-    (arithmetic_shift_right_variable_rtseq1, (), "RTSeq call not implemented yet."),
     (arithmetic_shift_right_to_channelref, (), "Channel ref transform not yet implemented."),
     (arithmetic_shift_right_invalid_variables2, (), "Attribute transformer doesn't catch the a.value.value problem."),
     (arithmetic_shift_right_to_None, (), "Name transformer doesn't raise an exception for NoneType with python 2.7."),
     (arithmetic_shift_right_invalid_rtseq_call, (), "RTSeq call not implemented yet."),
-    (arithmetic_shift_right_complex_expr, (), "Not implemented yet."),
     (arithmetic_shift_right_binary_unary, (), "Different behaviour between python and SPE."),
-    (arithmetic_shift_right_augassign_rtseq, (), "RTSeq call not implemented yet."),
     (arithmetic_shift_right_augassign_channelref, (), "Channel ref transform not yet implemented."),
 ]
 

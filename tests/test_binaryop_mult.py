@@ -76,42 +76,42 @@ def mult_multiple_types1():
 @decorators.nivs_rt_sequence
 def mult_use_rtseq():
     a = DoubleValue(0)
-    a.value = 1 * return_constant()
+    a.value = 2 * return_constant()
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def mult_use_rtseq1():
     a = DoubleValue(0)
-    a.value = return_constant() * 1
+    a.value = return_constant() * 2
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def mult_use_rtseq2():
     a = DoubleValue(0)
-    a.value = DoubleValue(1) * return_constant()
+    a.value = DoubleValue(2) * return_constant()
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def mult_use_rtseq3():
     a = DoubleValue(0)
-    a.value = return_constant() * DoubleValue(1)
+    a.value = return_constant() * DoubleValue(2)
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def mult_use_rtseq4():
     a = DoubleValue(0)
-    a.value = I32Value(1) * return_constant()
+    a.value = I32Value(2) * return_constant()
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def mult_use_rtseq5():
     a = DoubleValue(0)
-    a.value = return_constant() * I32Value(1)
+    a.value = return_constant() * I32Value(2)
     return a.value
 
 
@@ -172,7 +172,7 @@ def mult_variable_variable1():
 
 @decorators.nivs_rt_sequence
 def mult_variable_rtseq():
-    a = DoubleValue(1)
+    a = DoubleValue(2)
     b = DoubleValue(0)
     b.value = a.value * return_constant()
     return b.value
@@ -180,7 +180,7 @@ def mult_variable_rtseq():
 
 @decorators.nivs_rt_sequence
 def mult_variable_rtseq1():
-    a = DoubleValue(1)
+    a = DoubleValue(2)
     b = DoubleValue(0)
     b.value = return_constant() * a.value
     return b.value
@@ -225,7 +225,7 @@ def aug_mult_num_nivsdatatype():
 
 @decorators.nivs_rt_sequence
 def aug_mult_use_rtseq():
-    a = DoubleValue(1)
+    a = DoubleValue(2)
     a.value *= return_constant()
     return a.value
 
@@ -319,6 +319,15 @@ run_tests = [
     (aug_mult_with_parantheses, (), 24),
     (aug_mult_unary, (), -1),
     (mult_complex_expr, (), 2),
+    (mult_variable_rtseq, (), 10),
+    (mult_variable_rtseq1, (), 10),
+    (mult_use_rtseq, (), 10),
+    (mult_use_rtseq1, (), 10),
+    (mult_use_rtseq2, (), 10),
+    (mult_use_rtseq3, (), 10),
+    (mult_use_rtseq4, (), 10),
+    (mult_use_rtseq5, (), 10),
+    (aug_mult_use_rtseq, (), 10),
 ]
 
 skip_tests = [
@@ -326,15 +335,6 @@ skip_tests = [
     (mult_invalid_rtseq_call, (), "Not implemented yet."),
     (mult_invalid_variables2, (), "Attribute transformer doesn't catch the a.value.value problem."),
     (mult_with_None, (), "Name transformer doesn't raise an exception for NoneType with python 2.7."),
-    (mult_variable_rtseq, (), "RTseq call not yet implemented."),
-    (mult_variable_rtseq1, (), "RTseq call not yet implemented"),
-    (mult_use_rtseq, (), "RTseq call not yet implemented."),
-    (mult_use_rtseq1, (), "RTseq call not yet implemented."),
-    (mult_use_rtseq2, (), "RTseq call not yet implemented."),
-    (mult_use_rtseq3, (), "RTseq call not yet implemented."),
-    (mult_use_rtseq4, (), "RTseq call not yet implemented."),
-    (mult_use_rtseq5, (), "RTseq call not yet implemented."),
-    (aug_mult_use_rtseq, (), "RTSeq call not implemented yet."),
     (aug_mult_to_channelref, (), "Channel ref transform not yet implemented."),
 ]
 

@@ -83,7 +83,7 @@ def greater_multiple_types1():
 @decorators.nivs_rt_sequence
 def greater_use_rtseq():
     a = BooleanValue(False)
-    a.value = 5 > return_constant()
+    a.value = 6 > return_constant()
     return a.value
 
 
@@ -256,20 +256,20 @@ run_tests = [
     (greater_variable_variable, (), True),
     (greater_variable_variable1, (), True),
     (greater_complex_expr, (), True),
+    (greater_use_rtseq, (), True),
+    (greater_use_rtseq1, (), True),
+    (greater_use_rtseq2, (), True),
+    (greater_use_rtseq3, (), True),
+    (greater_use_rtseq4, (), True),
+    (greater_use_rtseq5, (), True),
+    (greater_variable_rtseq, (), True),
+    (greater_variable_rtseq1, (), True),
+    (greater_binary_unary, (), True),
 ]
 
 skip_tests = [
     (greater_num_nivsdatatype, (), "Builtins as the left comparer can't be overriden"),
-    (greater_use_rtseq, (), "RTSeq call not implemented yet."),
-    (greater_use_rtseq1, (), "RTSeq call not implemented yet."),
-    (greater_use_rtseq2, (), "RTSeq call not implemented yet."),
-    (greater_use_rtseq3, (), "RTSeq call not implemented yet."),
-    (greater_use_rtseq4, (), "RTSeq call not implemented yet."),
-    (greater_use_rtseq5, (), "RTSeq call not implemented yet."),
-    (greater_variable_rtseq, (), "RTSeq call not implemented yet."),
-    (greater_variable_rtseq1, (), "RTSeq call not implemented yet."),
     (greater_to_channelref, (), "Channel ref transform not yet implemented."),
-    (greater_binary_unary, (), "Unary operator not implemented."),
     (greater_to_None, (), "Name transformer doesn't raise an exception for NoneType with python 2.7."),
     (greater_invalid_rtseq_call, (), "RTSeq call not implemented yet."),
     (greater_multiple_types, (), "Cascading comparators untested in VM"),

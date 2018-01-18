@@ -118,7 +118,7 @@ def less_use_rtseq4():
 @decorators.nivs_rt_sequence
 def less_use_rtseq5():
     a = BooleanValue(True)
-    a.value = return_constant() < I32Value(1)
+    a.value = return_constant() < I32Value(6)
     return a.value
 
 
@@ -256,20 +256,20 @@ run_tests = [
     (less_variable_variable, (), False),
     (less_variable_variable1, (), False),
     (less_complex_expr, (), True),
+    (less_binary_unary, (), False),
+    (less_use_rtseq, (), False),
+    (less_use_rtseq1, (), False),
+    (less_use_rtseq2, (), False),
+    (less_use_rtseq3, (), False),
+    (less_use_rtseq4, (), False),
+    (less_use_rtseq5, (), True),
+    (less_variable_rtseq, (), False),
+    (less_variable_rtseq1, (), False),
 ]
 
 skip_tests = [
     (less_num_nivsdatatype, (), "Builtins as the left comparer can't be overriden"),
-    (less_use_rtseq, (), "RTSeq call not implemented yet."),
-    (less_use_rtseq1, (), "RTSeq call not implemented yet."),
-    (less_use_rtseq2, (), "RTSeq call not implemented yet."),
-    (less_use_rtseq3, (), "RTSeq call not implemented yet."),
-    (less_use_rtseq4, (), "RTSeq call not implemented yet."),
-    (less_use_rtseq5, (), "RTSeq call not implemented yet."),
-    (less_variable_rtseq, (), "RTSeq call not implemented yet."),
-    (less_variable_rtseq1, (), "RTSeq call not implemented yet."),
     (less_to_channelref, (), "Channel ref transform not yet implemented."),
-    (less_binary_unary, (), "Unary operator not implemented."),
     (less_to_None, (), "Name transformer doesn't raise an exception for NoneType with python 2.7."),
     (less_invalid_rtseq_call, (), "RTSeq call not implemented yet."),
     (less_multiple_types, (), "Cascading comparators untested in VM"),

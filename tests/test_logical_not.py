@@ -141,10 +141,10 @@ run_tests = [
     (logical_not_sequence, (), True),
     (logical_not_unary, (), False),
     (logical_not_sequence, (), True),
+    (logical_not_rtseq, (), False),
 ]
 
 skip_tests = [
-    (logical_not_rtseq, (), "RTSeq call not implemented yet."),
     (logical_not_None, (), "Name transformer doesn't raise an exception for NoneType with python 2.7."),
     (logical_not_invalid_rtseq_call, (), "RTSeq call not implemented yet."),
     (logical_not_nivsdatatype_double, (), "Not of a constant DataType returns a DataType object, we have to"
