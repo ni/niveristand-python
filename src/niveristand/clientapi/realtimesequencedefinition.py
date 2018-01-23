@@ -20,7 +20,11 @@ def add_local_variable(rt_seq, name, value):
 
 
 def add_assignment(block, dest_name, source_name):
-    block.AddStatement(Expression('%s = %s' % (dest_name, source_name)))
+    add_expression(block, '%s = %s' % (dest_name, source_name))
+
+
+def add_expression(block, expression):
+    block.AddStatement(Expression('%s' % expression))
 
 
 def add_if_else(block, test_condition):

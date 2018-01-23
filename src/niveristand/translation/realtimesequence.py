@@ -10,8 +10,10 @@ from niveristand.decorators import Modes
 from niveristand.exceptions import TranslateError, VeristandError
 from niveristand.translation.py2rtseq.utils import Resources
 from niveristand.translation.utils import generic_ast_node_transform
-from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import Reference  # noqa: I100 C# imports are exempt
-from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import References  # noqa: I100 C# imports are exempt
+from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import EvaluationMethod  # noqa: I100 C# imports exempt
+from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import ParameterDeclaration
+from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import Reference
+from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import References
 
 
 class RealTimeSequence:
@@ -59,6 +61,7 @@ class RealTimeSequence:
         generic_ast_node_transform(func_node, transform_resources)
         self._rtseqpkg = transform_resources.get_dependency_pkg()
         self._rtseqpkg.append(inspect.getmodule(real_obj))
+        self._update_parameters(transform_resources.get_parameters())
         self.save()
         rtsequtils.compile_rtseq(self._rtseq)
 
@@ -67,6 +70,14 @@ class RealTimeSequence:
         self._rtseq.References = References()
         for referenced in self._rtseqpkg.get_referenced(self):
             self._rtseq.References.AddReference(referenced.get_reference())
+
+    def _update_parameters(self, param_list):
+        self._rtseq.Variables.Parameters.ClearParameters()
+        for param in param_list:
+            real_default = param.default_value._data_value
+            real_eval_method = EvaluationMethod.ByValue if param.by_value else EvaluationMethod.ByReference
+            real_param = ParameterDeclaration(param.rtseq_name, real_default, real_eval_method)
+            self._rtseq.Variables.Parameters.AddParameter(real_param)
 
     def _build_file_name(self):
         return os.path.join(self._path, str(self) + ".nivsseq")

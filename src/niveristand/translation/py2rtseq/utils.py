@@ -5,6 +5,7 @@ class Resources:
         self._seq_alias = alias
         self._block = None
         self._local_variables = {}
+        self._parameters = list()
         self._deps = RealTimeSequencePkg()
 
     def get_rtseq(self):
@@ -38,8 +39,23 @@ class Resources:
     def set_dependency_pkg(self, pkg):
         self._deps = pkg
 
+    def add_parameter(self, param_name, default_value, by_value):
+        self._parameters.append(_Parameter(param_name, default_value, by_value))
+        self.add_variable(param_name, default_value, param_name)
+        self.add_variable(param_name + ".value", default_value, param_name)
+
+    def get_parameters(self):
+        return self._parameters
+
 
 class _Variable:
     def __init__(self, py_value, rtseq_name):
         self.py_value = py_value
         self.rtseq_name = rtseq_name
+
+
+class _Parameter:
+    def __init__(self, rtseq_name, default_value, by_value):
+        self.rtseq_name = rtseq_name
+        self.default_value = default_value
+        self.by_value = by_value

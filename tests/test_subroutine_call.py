@@ -1,7 +1,7 @@
 import sys
 
 from niveristand import decorators, RealTimeSequence
-from niveristand.clientapi.datatypes import BooleanValue, DoubleValue
+from niveristand.clientapi.datatypes import BooleanValue, DoubleValue, DoubleValueArray
 from niveristand.exceptions import TranslateError, VeristandError
 import pytest
 from testutilities import rtseqrunner, validation
@@ -38,9 +38,23 @@ def circular_call_b():
 
 @decorators.nivs_rt_sequence
 def return_parameter(param):
-    a = DoubleValue(0)
-    a.value = param
-    return a.value
+    return param
+
+
+@decorators.nivs_rt_sequence
+def return_arr_element(param):
+    return param[0]
+
+
+@decorators.nivs_rt_sequence
+def return_arr_element_plus1_by_ref(param):
+    param[0] += 1
+
+
+@decorators.nivs_rt_sequence
+def return_parameter_plus1_byref(param):
+    param.value += 1
+    return param.value
 
 
 @decorators.nivs_rt_sequence
@@ -66,6 +80,34 @@ def call_return_parameter():
 
 
 @decorators.nivs_rt_sequence
+def call_parameter_nivsdatatype():
+    a = DoubleValue(5)
+    return_parameter_plus1_byref(a)
+    return a.value
+
+
+@decorators.nivs_rt_sequence
+def call_parameter_builtin_math():
+    a = DoubleValue(-5)
+    a.value = return_parameter(abs(5))
+    return a.value
+
+
+@decorators.nivs_rt_sequence
+def call_parameter_array_elem():
+    a = DoubleValueArray([1, 2, 3])
+    b = DoubleValue(0)
+    b.value = return_arr_element(a)
+    return b.value
+
+
+@decorators.nivs_rt_sequence
+def call_parameter_array_elem_byref():
+    a = DoubleValueArray([1, 2, 3])
+    return a[1]
+
+
+@decorators.nivs_rt_sequence
 def recursive_call():
     recursive_call()
 
@@ -79,18 +121,25 @@ run_tests = [
     (return_constant, (), 5),
     (call_return_constant_as_assignment, (), return_constant()),
     (call_return_constant_as_expr, (), True),
+    (call_return_parameter, (), 5),
+    (call_parameter_nivsdatatype, (), 6),
+    (call_parameter_builtin_math, (), 5),
 ]
 
 skip_tests = [
-    (return_parameter, 5, "Parameters not supported yet. Expected:5"),
-    (call_return_parameter, (), "Parameters not supported yet. Expected:5"),
+    (return_parameter_plus1_byref, (), "This call receives a parameter and it can't be faked without a caller."),
+    (return_parameter, (), "This call receives a parameter and it can't be faked without a caller."),
+    (return_arr_element, (), "This call receives a parameter and it can't be faked without a caller."),
+    (return_arr_element_plus1_by_ref, (), "This call receives a parameter and it can't be faked without a caller."),
+    (call_parameter_array_elem, (), "Subscript not implemented. Expected: 1"),
+    (call_parameter_array_elem_byref, (), "Subscript not implemented. Expected: 2"),
 ]
 
 fail_transform_tests = [
     (recursive_call, (), RuntimeError),
     (circular_call_a, (), RuntimeError),
     (circular_call_b, (), RuntimeError),
-    (finite_recursion, 5, RuntimeError),
+    (finite_recursion, (), RuntimeError),
     (invalid_call, (), TranslateError),
 ]
 
