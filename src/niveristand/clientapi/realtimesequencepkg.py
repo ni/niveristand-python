@@ -1,7 +1,7 @@
 import collections
 import inspect
 from niveristand import errormessages, RealTimeSequence
-from niveristand.decorators import Modes
+from niveristand.decorators import rt_seq_mode_id
 from niveristand.exceptions import TranslateError, VeristandError
 
 
@@ -66,11 +66,8 @@ class RealTimeSequencePkg(collections.MutableMapping):
             funcs_to_add.append(new)
         elif inspect.ismodule(new):
             for func_name, func in inspect.getmembers(new, inspect.isfunction):
-                try:
-                    if func(__rtseq_mode__=Modes.CHECK):
-                        funcs_to_add.append(func)
-                except TypeError:
-                    pass
+                if getattr(func, rt_seq_mode_id, None) is not None:
+                    funcs_to_add.append(func)
         else:
             raise VeristandError()
         for func in [f for f in funcs_to_add if self._obj_to_key(f) not in self._rtseqs]:

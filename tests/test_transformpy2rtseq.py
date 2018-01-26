@@ -21,6 +21,13 @@ def test_transform_empty():
     assert rtseq._rtseq.Variables.LocalVariables.Variables.Length is 0
 
 
+def test_transform_empty_with_two_decorators():
+    rtseq = RealTimeSequence(testfuncs.empty_func_with_double_decorator)
+    assert rtseq._rtseq is not None
+    assert rtseq._rtseq.Code.Main.Body.Statements.Length is 0
+    assert rtseq._rtseq.Variables.LocalVariables.Variables.Length is 0
+
+
 def test_transform_simple_local_assignment():
     testfunc = testfuncs.simple_local_assignment
     rtseq = RealTimeSequence(testfunc)

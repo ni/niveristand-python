@@ -6,7 +6,7 @@ import tempfile
 from niveristand import errormessages
 from niveristand.clientapi import realtimesequencedefinition as rtseqapi
 from niveristand.clientapi import rtsequencedefinitionutils as rtsequtils
-from niveristand.decorators import Modes
+from niveristand.decorators import rt_seq_mode_id
 from niveristand.exceptions import TranslateError, VeristandError
 from niveristand.translation.py2rtseq.utils import Resources
 from niveristand.translation.utils import generic_ast_node_transform
@@ -41,9 +41,8 @@ class RealTimeSequence:
         return name
 
     def _transform(self):
-        try:
-            real_obj = self._top_level_func(__rtseq_mode__=Modes.UNWRAP)
-        except (KeyError, TypeError):
+        real_obj = getattr(self._top_level_func, rt_seq_mode_id, None)
+        if real_obj is None:
             raise TranslateError(errormessages.invalid_top_level_func)
         src = inspect.getsource(real_obj)
         top_node = ast.parse(src)

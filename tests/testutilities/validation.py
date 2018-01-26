@@ -1,9 +1,10 @@
 import inspect
+from niveristand.decorators import rt_seq_mode_id
 
 
 def test_validate(testmodule):
     funcs = [n for n, f in inspect.getmembers(testmodule, inspect.isfunction) if
-             not (n.startswith('test') or n.startswith('idfunc') or n.startswith('_'))]
+             getattr(f, rt_seq_mode_id, None) is not None]
     lists = [testmodule.__dict__.get(a) for a in dir(testmodule)
              if a.startswith('run_tests') or a.startswith('skip_tests') or
              a.startswith('transform_tests') or a.startswith('fail_transform_tests')]
