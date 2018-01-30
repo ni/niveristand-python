@@ -8,9 +8,11 @@ from niveristand.clientapi import realtimesequencedefinition as rtseqapi
 from niveristand.clientapi import rtsequencedefinitionutils as rtsequtils
 from niveristand.decorators import rt_seq_mode_id
 from niveristand.exceptions import TranslateError, VeristandError
+from niveristand.translation import utils
 from niveristand.translation.py2rtseq.utils import Resources
-from niveristand.translation.utils import generic_ast_node_transform
-from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import EvaluationMethod  # noqa: I100 C# imports exempt
+from NationalInstruments.VeriStand.Data import SystemDefinitionChannelResource  # noqa: E501, I100 We need these C# imports to be out of order.
+from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import ChannelReferenceDeclaration
+from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import EvaluationMethod
 from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import ParameterDeclaration
 from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import Reference
 from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import References
@@ -57,10 +59,11 @@ class RealTimeSequence:
         transform_resources = Resources(self._rtseq, str(self))
         if self._rtseqpkg is not None:
             transform_resources.set_dependency_pkg(self._rtseqpkg)
-        generic_ast_node_transform(func_node, transform_resources)
+        utils.generic_ast_node_transform(func_node, transform_resources)
         self._rtseqpkg = transform_resources.get_dependency_pkg()
         self._rtseqpkg.append(inspect.getmodule(real_obj))
         self._update_parameters(transform_resources.get_parameters())
+        self._update_channel_refs(transform_resources.get_all_channel_refs())
         self.save()
         rtsequtils.compile_rtseq(self._rtseq)
 
@@ -77,6 +80,14 @@ class RealTimeSequence:
             real_eval_method = EvaluationMethod.ByValue if param.by_value else EvaluationMethod.ByReference
             real_param = ParameterDeclaration(param.rtseq_name, real_default, real_eval_method)
             self._rtseq.Variables.Parameters.AddParameter(real_param)
+
+    def _update_channel_refs(self, channel_ref_list):
+        self._rtseq.Variables.ChannelReferences.ClearChannelReferences()
+        for channel_ref_obj in channel_ref_list:
+            system_definition_channel_resource = SystemDefinitionChannelResource(channel_ref_obj.channel_name)
+            channel_reference_declaration = ChannelReferenceDeclaration(channel_ref_obj.rtseq_name,
+                                                                        system_definition_channel_resource)
+            self._rtseq.Variables.ChannelReferences.AddChannelReference(channel_reference_declaration)
 
     def _build_file_name(self):
         return os.path.join(self._path, str(self) + ".nivsseq")

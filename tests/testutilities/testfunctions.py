@@ -1,8 +1,7 @@
 import math
 from math import pi
 from niveristand import decorators
-from niveristand.clientapi.datatypes import BooleanValue, DoubleValue
-from niveristand.clientapi.datatypes import I32Value
+from niveristand.clientapi.datatypes import BooleanValue, ChannelReference, DoubleValue, I32Value
 
 
 def func_without_decorator():
@@ -92,3 +91,30 @@ def return_true():
 def return_false():
     a = BooleanValue(False)
     return a.value
+
+
+@decorators.nivs_rt_sequence
+def channel_ref_type_string():
+    a = ChannelReference("Targets/Controller/System_Channels/HP_Count")  # noqa: F841 it's ok not to be used
+
+
+@decorators.nivs_rt_sequence
+def channel_ref_setter():
+    a = ChannelReference("Targets/Controller/System_Channels/HP_Count")
+    a.value = 5
+
+
+@decorators.nivs_rt_sequence
+def channel_ref_return():
+    a = ChannelReference("Targets/Controller/System_Channels/HP_Count")
+    a.value = 5.0
+    return a.value
+
+
+@decorators.nivs_rt_sequence
+def channel_ref_validate_getter():
+    a = ChannelReference("Targets/Controller/System_Channels/HP_Count")
+    a.value = 5.0
+    b = DoubleValue(0)
+    b.value = a.value
+    return b.value

@@ -1,3 +1,6 @@
+from niveristand.clientapi.datatypes.rtprimitives import DoubleValue
+
+
 class Resources:
     def __init__(self, rtseq, alias):
         from niveristand.clientapi.realtimesequencepkg import RealTimeSequencePkg
@@ -7,6 +10,7 @@ class Resources:
         self._local_variables = {}
         self._parameters = list()
         self._deps = RealTimeSequencePkg()
+        self._channel_references = list()
 
     def get_rtseq(self):
         return self._rtseq
@@ -39,6 +43,25 @@ class Resources:
     def set_dependency_pkg(self, pkg):
         self._deps = pkg
 
+    def add_channel_ref(self, variable_name, channel_name, rtseq_var_name):
+        self._channel_references.append(_ChannelReference(channel_name, rtseq_var_name))
+        self.add_variable(variable_name, DoubleValue(0), rtseq_var_name)
+        self.add_variable(variable_name + ".value", DoubleValue(0), rtseq_var_name)
+
+    def has_channel_ref(self, rtseq_name):
+        for channel_ref_obj in self._channel_references:
+            if channel_ref_obj.rtseq_name == rtseq_name:
+                return True
+        return False
+
+    def get_channel_ref_rtseq_name_from_channel_name(self, channel_name):
+        for channel_ref_obj in self._channel_references:
+            if channel_ref_obj.channel_name == channel_name:
+                return channel_ref_obj.rtseq_name
+
+    def get_all_channel_refs(self):
+        return self._channel_references
+
     def add_parameter(self, param_name, default_value, by_value):
         self._parameters.append(_Parameter(param_name, default_value, by_value))
         self.add_variable(param_name, default_value, param_name)
@@ -59,3 +82,9 @@ class _Parameter:
         self.rtseq_name = rtseq_name
         self.default_value = default_value
         self.by_value = by_value
+
+
+class _ChannelReference:
+    def __init__(self, channel_name, rtseq_name):
+        self.channel_name = channel_name
+        self.rtseq_name = rtseq_name

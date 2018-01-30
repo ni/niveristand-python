@@ -61,3 +61,7 @@ def _create_unique_lv_name(name):
     name = 'lv_' + name + '_' + str(_create_unique_lv_name.lv_cnt)
     _create_unique_lv_name.lv_cnt += 1
     return name
+
+
+def to_channel_ref_name(name):
+    return "ch_" + name

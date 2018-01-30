@@ -31,6 +31,10 @@ def is_supported_return_type(name):
     return name in VALID_RETURN_TYPES
 
 
+def is_channel_ref_type(name):
+    return name in CHANNEL_REF_TYPES
+
+
 class DataType:
     def __init__(self, value, description="", units=""):
         self._data_value = self._to_data_value(value)
@@ -316,6 +320,16 @@ class ArrayType(DataType):
         raise nivsexceptions.TranslateError(errormessages.invalid_type_to_convert)
 
 
+class ChannelReference(DataType):
+    def _to_data_value(self, value):
+        return ClientApiDoubleValue(value)
+
+
+class ChannelReferenceArray(ArrayType):
+    def _to_data_value(self, value):
+        return None
+
+
 class BooleanValue(DataType):
     def _to_data_value(self, value):
         if type(value) is int or type(value) is float:
@@ -392,6 +406,7 @@ VALID_TYPES = {
     ArrayType.__name__: ArrayType,
     BooleanValue.__name__: BooleanValue,
     BooleanValueArray.__name__: BooleanValueArray,
+    ChannelReference.__name__: ChannelReference,
     DoubleValue.__name__: DoubleValue,
     DoubleValueArray.__name__: DoubleValueArray,
     I32Value.__name__: I32Value,
@@ -411,4 +426,9 @@ VALID_RETURN_TYPES = {
     I64Value.__name__: I64Value,
     U32Value.__name__: U32Value,
     U64Value.__name__: U64Value
+}
+
+CHANNEL_REF_TYPES = {
+    ChannelReference.__name__: ChannelReference,
+    ChannelReferenceArray.__name__: ChannelReferenceArray
 }

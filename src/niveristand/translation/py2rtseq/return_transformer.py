@@ -12,12 +12,11 @@ def return_transformer(node, resources):
     expression = utils.generic_ast_node_transform(node.value, resources)
     if isinstance(node.value, (ast.Name, ast.Attribute)):
         src_var_name = utils.get_variable_name_from_node(node.value)
-        if resources.has_variable(str(src_var_name)):
+        if resources.has_variable(str(src_var_name)) and not resources.has_channel_ref(expression):
             rt_expression = expression
             return_default_value = resources.get_variable_py_value(src_var_name)
         else:
             raise TranslateError(errormessages.invalid_return_value)
-
     elif isinstance(node.value, (ast.Num, ast.Call)):
         return_default_value = utils.get_value_from_node(node.value, resources)
         if isinstance(return_default_value, ArrayType):

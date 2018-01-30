@@ -2,6 +2,7 @@ import ast
 import sys
 
 from niveristand import errormessages
+from niveristand import exceptions
 from niveristand.clientapi import datatypes
 from niveristand.clientapi.datatypes import rtprimitives
 from niveristand.exceptions import TranslateError
@@ -21,7 +22,9 @@ def get_value_from_node(node, resources):
         node_id = call.split('.')[-1]
         if rtprimitives.is_supported_data_type(node_id):
             datatype = rtprimitives.get_class_by_name(node.func.id)
-            if type(node.args[0]) in (ast.Num, ast.UnaryOp):
+            if rtprimitives.is_channel_ref_type(datatype.__name__):
+                datavalue = 0
+            elif type(node.args[0]) in (ast.Num, ast.UnaryOp):
                 datavalue = get_element_value(node.args[0])
             elif type(node.args[0]) is ast.Name:
                 if node.args[0].id in symbols._symbols:
@@ -75,3 +78,11 @@ def get_variable_name_from_node(node):
     if isinstance(cur_node, ast.Name):
         full_name = cur_node.id + full_name
     return full_name
+
+
+def get_channel_name(node):
+    if type(node) is ast.Str:
+        channel_name = node.s
+    else:
+        raise exceptions.TranslateError(errormessages.invalid_type_for_channel_ref)
+    return channel_name

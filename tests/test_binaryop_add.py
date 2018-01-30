@@ -1,7 +1,7 @@
 import sys
 
 from niveristand import decorators, RealTimeSequence
-from niveristand.clientapi.datatypes import DoubleValue, I32Value
+from niveristand.clientapi.datatypes import ChannelReference, DoubleValue, I32Value
 from niveristand.exceptions import TranslateError, VeristandError
 import pytest
 from testutilities import rtseqrunner, validation
@@ -189,7 +189,7 @@ def add_variable_rtseq1():
 @decorators.nivs_rt_sequence
 def add_to_channelref():
     a = DoubleValue(0)
-    a.value = 1 + DoubleValue(TestChannels.HP_COUNT)
+    a.value = 1 + ChannelReference("Targets/Controller/System_Channels/HP_Count")
     return a.value
 
 
