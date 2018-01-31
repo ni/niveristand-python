@@ -37,7 +37,6 @@ def assert_run_python_equals_rtseq(func, expected):
 
 
 def run_rtseq_in_VM(func):
-    tempfolder = tempfile.mkdtemp()
-    filename = realtimesequencetools.save_py_as_rtseq(func, tempfolder)
+    filename = realtimesequencetools.save_py_as_rtseq(func, None)
     rtseq_result = run_rtseq_local(filename)
     return rtseq_result.Value

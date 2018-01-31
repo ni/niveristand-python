@@ -1,4 +1,5 @@
 import os
+import tempfile
 import clr
 import yaml
 
@@ -37,3 +38,9 @@ def dummy():
     times it will only be imported but not actually used.
     """
     pass
+
+
+# set the temporary folder to C:\Users\$USER\AppData\Local\Temp\python_rt_sequences
+tempfile.tempdir = os.path.join(tempfile.gettempdir(), 'python_rt_sequences')
+if not os.path.exists(tempfile.tempdir):
+    os.makedirs(tempfile.tempdir)
