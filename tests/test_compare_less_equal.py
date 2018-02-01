@@ -1,11 +1,10 @@
 import sys
 
 from niveristand import decorators, RealTimeSequence
-from niveristand.clientapi.datatypes import BooleanValue, DoubleValue, I32Value
+from niveristand.clientapi.datatypes import BooleanValue, ChannelReference, DoubleValue, I32Value
 from niveristand.exceptions import TranslateError, VeristandError
 import pytest
 from testutilities import rtseqrunner, validation
-from testutilities.test_channels import TestChannels
 
 a = 1
 b = 2
@@ -181,8 +180,10 @@ def less_eq_variable_rtseq1():
 
 @decorators.nivs_rt_sequence
 def less_eq_to_channelref():
-    a = BooleanValue(True)
-    a.value = 5 <= DoubleValue(TestChannels.HP_COUNT)
+    a = BooleanValue(False)
+    b = ChannelReference("Aliases/DesiredRPM")
+    b.value = 5.0
+    a.value = 1 <= b.value
     return a.value
 
 
@@ -413,8 +414,10 @@ def lt_equal_variable_rtseq1():
 
 @decorators.nivs_rt_sequence
 def lt_equal_to_channelref():
-    a = BooleanValue(True)
-    a.value = 1 <= DoubleValue(TestChannels.HP_COUNT)
+    a = BooleanValue(False)
+    b = ChannelReference("Aliases/DesiredRPM")
+    b.value = 1.0
+    a.value = 1 <= b.value
     return a.value
 
 
@@ -520,17 +523,17 @@ run_tests = [
     (lt_equal_use_rtseq5, (), False),
     (lt_equal_variable_rtseq, (), True),
     (lt_equal_variable_rtseq1, (), True),
+    (less_eq_to_channelref, (), True),
+    (lt_equal_to_channelref, (), True),
 ]
 
 skip_tests = [
     (less_eq_num_nivsdatatype, (), "Builtins as the left comparer can't be overriden"),
-    (less_eq_to_channelref, (), "Channel ref transform not yet implemented."),
     (less_eq_to_None, (), "Name transformer doesn't raise an exception for NoneType with python 2.7."),
     (less_eq_invalid_rtseq_call, (), "RTSeq call not implemented yet."),
     (less_eq_multiple_types, (), "Cascading comparators untested in VM"),
     (less_eq_multiple_types1, (), "Cascading comparators untested in VM"),
     (less_eq_with_multiple_comparators, (), "Cascading comparators untested in VM"),
-    (lt_equal_to_channelref, (), "Channel ref transform not yet implemented."),
     (lt_equal_to_None, (), "Name transformer doesn't raise an exception for NoneType with python 2.7."),
     (lt_equal_invalid_rtseq_call, (), "RTSeq call not implemented yet."),
     (lt_equal_multiple_types, (), "Cascading comparators untested in VM"),

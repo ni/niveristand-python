@@ -1,11 +1,10 @@
 import sys
 
 from niveristand import decorators, RealTimeSequence
-from niveristand.clientapi.datatypes import DoubleValue, I32Value
+from niveristand.clientapi.datatypes import ChannelReference, DoubleValue, I32Value
 from niveristand.exceptions import TranslateError, VeristandError
 import pytest
 from testutilities import rtseqrunner, validation
-from testutilities.test_channels import TestChannels
 
 a = 1
 b = 2
@@ -193,7 +192,9 @@ def sub_variable_rtseq1():
 @decorators.nivs_rt_sequence
 def sub_to_channelref():
     a = DoubleValue(0)
-    a.value = 1 - DoubleValue(TestChannels.HP_COUNT)
+    b = ChannelReference("Aliases/DesiredRPM")
+    b.value = 5.0
+    a.value = 1 - b.value
     return a.value
 
 
@@ -259,7 +260,9 @@ def aug_sub_variables():
 @decorators.nivs_rt_sequence
 def aug_sub_to_channelref():
     a = DoubleValue(1)
-    a.value -= DoubleValue(TestChannels.HP_COUNT)
+    b = ChannelReference("Aliases/DesiredRPM")
+    b.value = 5.0
+    a.value -= b.value
     return a.value
 
 
@@ -340,14 +343,14 @@ run_tests = [
     (sub_variable_rtseq, (), -4),
     (sub_variable_rtseq1, (), 4),
     (aug_sub_use_rtseq, (), -4),
+    (sub_to_channelref, (), -4.0),
+    (aug_sub_to_channelref, (), -4.0),
 ]
 
 skip_tests = [
-    (sub_to_channelref, (), "Channel ref transform not yet implemented."),
     (sub_invalid_variables2, (), "Attribute transformer doesn't catch the a.value.value problem. -DE14612"),
     (sub_from_None, (), "Name transformer doesn't raise an exception for NoneType with python 2.7. - DE14611"),
     (sub_invalid_rtseq_call, (), "RTSeq call not implemented yet."),
-    (aug_sub_to_channelref, (), "Channel ref transform not yet implemented."),
 ]
 
 fail_transform_tests = [

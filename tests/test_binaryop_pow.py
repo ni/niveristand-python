@@ -1,11 +1,10 @@
 import sys
 
 from niveristand import decorators, RealTimeSequence
-from niveristand.clientapi.datatypes import DoubleValue, I32Value
+from niveristand.clientapi.datatypes import ChannelReference, DoubleValue, I32Value
 from niveristand.exceptions import TranslateError, VeristandError
 import pytest
 from testutilities import rtseqrunner, validation
-from testutilities.test_channels import TestChannels
 
 a = 0
 b = 1
@@ -175,7 +174,9 @@ def exp_variable_rtseq1():
 @decorators.nivs_rt_sequence
 def exp_with_channelref():
     a = DoubleValue(0)
-    a.value = 2 ** DoubleValue(TestChannels.HP_COUNT)
+    b = ChannelReference("Aliases/DesiredRPM")
+    b.value = 5.0
+    a.value = 2 ** b.value
     return a.value
 
 
@@ -233,8 +234,10 @@ def aug_exp_variables():
 
 @decorators.nivs_rt_sequence
 def aug_exp_to_channelref():
-    a = DoubleValue(1)
-    a.value **= DoubleValue(TestChannels.HP_COUNT)
+    a = DoubleValue(2)
+    b = ChannelReference("Aliases/DesiredRPM")
+    b.value = 5.0
+    a.value **= b.value
     return a.value
 
 
@@ -310,14 +313,14 @@ run_tests = [
     (exp_use_rtseq4, (), 32),
     (exp_use_rtseq5, (), 125),
     (aug_exp_use_rtseq, (), 32),
+    (exp_with_channelref, (), 32),
+    (aug_exp_to_channelref, (), 32),
 ]
 
 skip_tests = [
-    (exp_with_channelref, (), "Not implemented yet."),
     (exp_invalid_rtseq_call, (), "Not implemented yet."),
     (exp_invalid_variables2, (), "Attribute transformer doesn't catch the a.value.value problem."),
     (exp_with_None, (), "Name transformer doesn't raise an exception for NoneType with python 2.7."),
-    (aug_exp_to_channelref, (), "Channel ref transform not yet implemented."),
 ]
 
 fail_transform_tests = [

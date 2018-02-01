@@ -1,11 +1,10 @@
 import sys
 
 from niveristand import decorators, RealTimeSequence
-from niveristand.clientapi.datatypes import BooleanValue, DoubleValue, I32Value, I64Value
+from niveristand.clientapi.datatypes import BooleanValue, ChannelReference, DoubleValue, I32Value, I64Value
 from niveristand.exceptions import TranslateError, VeristandError
 import pytest
 from testutilities import rtseqrunner, validation
-from testutilities.test_channels import TestChannels
 
 a = 1
 b = 2
@@ -189,7 +188,9 @@ def arithmetic_shift_left_variable_rtseq1():
 @decorators.nivs_rt_sequence
 def arithmetic_shift_left_to_channelref():
     a = DoubleValue(0)
-    a.value = 1 << DoubleValue(TestChannels.HP_COUNT)
+    b = ChannelReference("Aliases/DesiredRPM")
+    b.value = 5.0
+    a.value = 1 << b.value
     return a.value
 
 
@@ -298,8 +299,10 @@ def arithemtic_shift_left_augassign_paranthesis():
 
 @decorators.nivs_rt_sequence
 def arithmetic_shift_left_augassign_channelref():
-    a = I32Value(1)
-    a.value <<= I32Value(DoubleValue(TestChannels.HP_COUNT))
+    a = DoubleValue(1)
+    b = ChannelReference("Aliases/DesiredRPM")
+    b.value = 5.0
+    a.value <<= b.value
     return a.value
 
 
@@ -379,18 +382,16 @@ run_tests = [
 ]
 
 skip_tests = [
-    (arithmetic_shift_left_to_channelref, (), "Channel ref transform not yet implemented."),
     (arithmetic_shift_left_invalid_variables2, (), "Attribute transformer doesn't catch the a.value.value problem."),
     (arithmetic_shift_left_to_None, (), "Name transformer doesn't raise an exception for NoneType with python 2.7."),
     (arithmetic_shift_left_invalid_rtseq_call, (), "RTSeq call not implemented yet."),
     (arithmetic_shift_left_binary_unary, (), "Different behaviour between python and SPE."),
-    (arithmetic_shift_left_augassign_channelref, (), "Channel ref transform not yet implemented."),
 ]
 
 fail_transform_tests = [
     (arithmetic_shift_left_invalid_variables, (), TranslateError),
     (arithmetic_shift_left_invalid_variables1, (), TranslateError),
-    (arithmetic_shift_left_num_nivsdatatype, (), VeristandError),
+    (arithmetic_shift_left_num_nivsdatatype, (), VeristandError),  # cannot do shift left on Double
     (arithmetic_shift_left_nivsdatatype_nivsdatatype, (), VeristandError),  # cannot do shift left on Double
     (arithmetic_shift_left_nivsdatatype_nivsdatatype1, (), VeristandError),  # cannot do shift left on Double
     (arithmetic_shift_left_nivsdatatype_nivsdatatype2, (), VeristandError),  # cannot do shift left on Boolean
@@ -398,6 +399,8 @@ fail_transform_tests = [
     (arithmetic_shift_left_with_parantheses2, (), VeristandError),  # cannot do shift left on Double
     (arithmetic_shift_left_augassign_nivsdatatype4, (), VeristandError),  # cannot do shift left on Double
     (arithmetic_shift_left_augassign_variable4, (), VeristandError),  # cannot do shift left on Double
+    (arithmetic_shift_left_to_channelref, (), VeristandError),  # cannot do shift left on Double
+    (arithmetic_shift_left_augassign_channelref, (), VeristandError),  # cannot do shift left on Double
 ]
 
 

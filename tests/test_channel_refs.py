@@ -10,7 +10,7 @@ def test_channel_ref_type_string():
     assert rtseq._rtseq.Variables.LocalVariables.Variables.Length is 0
     assert rtseq._rtseq.Variables.ChannelReferences.Channels.Length is 1
     assert rtseq._rtseq.Variables.ChannelReferences.Channels[0].Channel.Channel \
-        == "Targets/Controller/System_Channels/HP_Count"
+        == "Aliases/DesiredRPM"
 
 
 def test_channel_ref_setter():

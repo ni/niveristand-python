@@ -24,13 +24,6 @@ def logical_or_simple_numbers():
 
 
 @decorators.nivs_rt_sequence
-def logical_or_simple_numbers1():
-    a = DoubleValue(0)
-    a.value = 1 or 2
-    return a.value
-
-
-@decorators.nivs_rt_sequence
 def logical_or_nivsdatatype_double():
     a = DoubleValue(0)
     a = DoubleValue(3) or DoubleValue(1)
@@ -161,9 +154,6 @@ skip_tests = [
     (logical_or_nivsdatatype_int64, (), "Or between two constant DataTypes returns a DataType object, we have to"
                                         "research this how to solve it. A solution is to always use variables in"
                                         "logical operators, and use var.value."),
-    (logical_or_simple_numbers1, (), "For 1 && 2 SPE return 1 and Python returns 2. From logical perspective they are"
-                                     "equal, but we can't test it only by casting to Boolean. Users should be aware of"
-                                     "thi difference when &&-ing numeric types."),
     (logical_or_variables, (), "Or between two constant DataTypes returns a DataType object, we have to"
                                "research this how to solve it. A solution is to always use variables in"
                                "logical operators, and use var.value."),

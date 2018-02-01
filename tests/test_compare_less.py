@@ -1,11 +1,10 @@
 import sys
 
 from niveristand import decorators, RealTimeSequence
-from niveristand.clientapi.datatypes import BooleanValue, DoubleValue, I32Value
+from niveristand.clientapi.datatypes import BooleanValue, ChannelReference, DoubleValue, I32Value
 from niveristand.exceptions import TranslateError, VeristandError
 import pytest
 from testutilities import rtseqrunner, validation
-from testutilities.test_channels import TestChannels
 
 a = 1
 b = 2
@@ -181,8 +180,10 @@ def less_variable_rtseq1():
 
 @decorators.nivs_rt_sequence
 def less_to_channelref():
-    a = BooleanValue(True)
-    a.value = 5 < DoubleValue(TestChannels.HP_COUNT)
+    a = BooleanValue(False)
+    b = ChannelReference("Aliases/DesiredRPM")
+    b.value = 5.0
+    a.value = 1 < b.value
     return a.value
 
 
@@ -265,11 +266,11 @@ run_tests = [
     (less_use_rtseq5, (), True),
     (less_variable_rtseq, (), False),
     (less_variable_rtseq1, (), False),
+    (less_to_channelref, (), True),
 ]
 
 skip_tests = [
     (less_num_nivsdatatype, (), "Builtins as the left comparer can't be overriden"),
-    (less_to_channelref, (), "Channel ref transform not yet implemented."),
     (less_to_None, (), "Name transformer doesn't raise an exception for NoneType with python 2.7."),
     (less_invalid_rtseq_call, (), "RTSeq call not implemented yet."),
     (less_multiple_types, (), "Cascading comparators untested in VM"),

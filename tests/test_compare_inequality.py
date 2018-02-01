@@ -1,11 +1,10 @@
 import sys
 
 from niveristand import decorators, RealTimeSequence
-from niveristand.clientapi.datatypes import BooleanValue, DoubleValue, I32Value
+from niveristand.clientapi.datatypes import BooleanValue, ChannelReference, DoubleValue, I32Value
 from niveristand.exceptions import TranslateError, VeristandError
 import pytest
 from testutilities import rtseqrunner, validation
-from testutilities.test_channels import TestChannels
 
 a = 1
 b = 2
@@ -226,7 +225,9 @@ def notequal_variable_rtseq1():
 @decorators.nivs_rt_sequence
 def notequal_to_channelref():
     a = BooleanValue(False)
-    a.value = 1 != DoubleValue(TestChannels.HP_COUNT)
+    b = ChannelReference("Aliases/DesiredRPM")
+    b.value = 5.0
+    a.value = 1 != b.value
     return a.value
 
 
@@ -317,10 +318,10 @@ run_tests = [
     (notequal_use_rtseq5, (), True),
     (notequal_variable_rtseq, (), True),
     (notequal_variable_rtseq1, (), True),
+    (notequal_to_channelref, (), True),
 ]
 
 skip_tests = [
-    (notequal_to_channelref, (), "Channel ref transform not yet implemented."),
     (notequal_to_None, (), "Name transformer doesn't raise an exception for NoneType with python 2.7."),
     (notequal_invalid_rtseq_call, (), "RTSeq call not implemented yet."),
     (notequal_multiple_types, (), "SPE and Python treat 1 != 1.0 differently."),

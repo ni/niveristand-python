@@ -1,11 +1,10 @@
 import sys
 
 from niveristand import decorators, RealTimeSequence
-from niveristand.clientapi.datatypes import BooleanValue, DoubleValue, I32Value
+from niveristand.clientapi.datatypes import BooleanValue, ChannelReference, DoubleValue, I32Value
 from niveristand.exceptions import TranslateError, VeristandError
 import pytest
 from testutilities import rtseqrunner, validation
-from testutilities.test_channels import TestChannels
 
 a = 1
 b = 2
@@ -181,8 +180,10 @@ def greater_variable_rtseq1():
 
 @decorators.nivs_rt_sequence
 def greater_to_channelref():
-    a = BooleanValue(False)
-    a.value = 5 > DoubleValue(TestChannels.HP_COUNT)
+    a = BooleanValue(True)
+    b = ChannelReference("Aliases/DesiredRPM")
+    b.value = 5.0
+    a.value = 1 > b.value
     return a.value
 
 
@@ -265,11 +266,11 @@ run_tests = [
     (greater_variable_rtseq, (), True),
     (greater_variable_rtseq1, (), True),
     (greater_binary_unary, (), True),
+    (greater_to_channelref, (), False)
 ]
 
 skip_tests = [
     (greater_num_nivsdatatype, (), "Builtins as the left comparer can't be overriden"),
-    (greater_to_channelref, (), "Channel ref transform not yet implemented."),
     (greater_to_None, (), "Name transformer doesn't raise an exception for NoneType with python 2.7."),
     (greater_invalid_rtseq_call, (), "RTSeq call not implemented yet."),
     (greater_multiple_types, (), "Cascading comparators untested in VM"),

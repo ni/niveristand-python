@@ -1,11 +1,10 @@
 import sys
 
 from niveristand import decorators, RealTimeSequence
-from niveristand.clientapi.datatypes import BooleanValue, DoubleValue, I32Value, I64Value
+from niveristand.clientapi.datatypes import BooleanValue, ChannelReference, DoubleValue, I32Value, I64Value
 from niveristand.exceptions import TranslateError, VeristandError
 import pytest
 from testutilities import rtseqrunner, validation
-from testutilities.test_channels import TestChannels
 
 a = 1
 b = 2
@@ -175,7 +174,9 @@ def bitwise_and_variable_rtseq1():
 @decorators.nivs_rt_sequence
 def bitwise_and_to_channelref():
     a = DoubleValue(0)
-    a.value = 1 & DoubleValue(TestChannels.HP_COUNT)
+    b = ChannelReference("Aliases/DesiredRPM")
+    b.value = 5.0
+    a.value = 1 & b.value
     return a.value
 
 
@@ -234,7 +235,9 @@ def aug_bitwise_and_variables():
 @decorators.nivs_rt_sequence
 def aug_bitwise_and_to_channelref():
     a = DoubleValue(1)
-    a.value &= DoubleValue(TestChannels.HP_COUNT)
+    b = ChannelReference("Aliases/DesiredRPM")
+    b.value = 5.0
+    a.value &= b.value
     return a.value
 
 
@@ -309,22 +312,22 @@ run_tests = [
 ]
 
 skip_tests = [
-    (bitwise_and_to_channelref, (), "Channel ref transform not yet implemented."),
     (bitwise_and_invalid_variables2, (), "Attribute transformer doesn't catch the a.value.value problem."),
     (bitwise_and_to_None, (), "Name transformer doesn't raise an exception for NoneType with python 2.7."),
     (bitwise_and_invalid_rtseq_call, (), "RTSeq call not implemented yet."),
-    (aug_bitwise_and_to_channelref, (), "Channel ref transform not yet implemented."),
 ]
 
 fail_transform_tests = [
     (bitwise_and_invalid_variables, (), TranslateError),
     (bitwise_and_invalid_variables1, (), TranslateError),
-    (bitwise_and_num_nivsdatatype, (), VeristandError),
+    (bitwise_and_num_nivsdatatype, (), VeristandError),  # cannot do bitwise and on Double
     (bitwise_and_nivsdatatype_nivsdatatype, (), VeristandError),  # cannot do bitwise and on Double
     (bitwise_and_nivsdatatype_nivsdatatype1, (), VeristandError),  # cannot do bitwise and on Double
     (bitwise_and_nivsdatatype_nivsdatatype2, (), VeristandError),  # cannot do bitwise and on Boolean
     (bitwise_and_with_parantheses1, (), VeristandError),  # cannot do bitwise and on Double
     (bitwise_and_with_parantheses2, (), VeristandError),  # cannot do bitwise and on Double
+    (bitwise_and_to_channelref, (), VeristandError),  # cannot do bitwise and on Double
+    (aug_bitwise_and_to_channelref, (), VeristandError),  # cannot do bitwise and on Double
 ]
 
 

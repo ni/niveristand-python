@@ -5,7 +5,6 @@ from niveristand.clientapi.datatypes import ChannelReference, DoubleValue, I32Va
 from niveristand.exceptions import TranslateError, VeristandError
 import pytest
 from testutilities import rtseqrunner, validation
-from testutilities.test_channels import TestChannels
 
 a = 1
 b = 2
@@ -189,7 +188,9 @@ def add_variable_rtseq1():
 @decorators.nivs_rt_sequence
 def add_to_channelref():
     a = DoubleValue(0)
-    a.value = 1 + ChannelReference("Targets/Controller/System_Channels/HP_Count")
+    b = ChannelReference("Aliases/DesiredRPM")
+    b.value = 5.0
+    a.value = 1 + b.value
     return a.value
 
 
@@ -269,7 +270,9 @@ def aug_add_variables():
 @decorators.nivs_rt_sequence
 def aug_add_to_channelref():
     a = DoubleValue(1)
-    a.value += DoubleValue(TestChannels.HP_COUNT)
+    b = ChannelReference("Aliases/DesiredRPM")
+    b.value = 5.0
+    a.value += b.value
     return a.value
 
 
@@ -350,15 +353,15 @@ run_tests = [
     (add_variable_rtseq, (), 6),
     (add_variable_rtseq1, (), 6),
     (aug_add_use_rtseq, (), 6),
+    (add_to_channelref, (), 6),
+    (aug_add_to_channelref, (), 6),
 ]
 
 skip_tests = [
-    (add_to_channelref, (), "Channel ref transform not yet implemented."),
     (add_invalid_variables2, (), "Attribute transformer doesn't catch the a.value.value problem."),
     (add_to_None, (), "Name transformer doesn't raise an exception for NoneType with python 2.7."),
     (add_invalid_rtseq_call, (), "RTSeq call not implemented yet."),
     (add_binary_unary_sequence, (), "This test takes 1000x more than the rest. Ignoring for now."),
-    (aug_add_to_channelref, (), "Channel ref transform not yet implemented."),
 ]
 
 fail_transform_tests = [

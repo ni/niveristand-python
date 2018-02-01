@@ -2,11 +2,11 @@ from math import acos, acosh, asin, asinh, atan, atan2, atanh, ceil, cos, cosh, 
     log, log10, log1p, pi, sin, sinh, sqrt, tan, tanh
 import sys
 from niveristand import decorators, exceptions, RealTimeSequence
-from niveristand.clientapi.datatypes import BooleanValue, DoubleValue, I32Value, I64Value, U32Value, U64Value
+from niveristand.clientapi.datatypes import BooleanValue, ChannelReference, DoubleValue, I32Value, I64Value, U32Value, \
+    U64Value
 import numpy
 import pytest
 from testutilities import rtseqrunner, validation
-from testutilities.test_channels import TestChannels
 
 if sys.version_info > (3, 2):
     from math import log2
@@ -122,7 +122,9 @@ def abs_variable_boolean():
 @decorators.nivs_rt_sequence
 def abs_channelref():
     a = DoubleValue(0)
-    a.value = abs(DoubleValue(TestChannels.HP_COUNT))
+    b = ChannelReference("Aliases/DesiredRPM")
+    b.value = -5.0
+    a.value = abs(b.value)
     return a.value
 
 
@@ -466,6 +468,7 @@ run_tests = [
     (sqrt_double, (), 5),
     (tan_double, (), tan(pi / 2)),
     (tanh_double, (), tanh(pi)),
+    (abs_channelref, (), 5.0)
 ]
 
 
@@ -480,7 +483,6 @@ transform_tests = run_tests + [
 
 skip_tests = [
     (abs_variable_boolean, (), "SPE and python treat differently BooleanValue(-5)"),
-    (abs_channelref, (), "Channel ref not implemented yet"),
     (ln_double, (), "Ln is a special case. Both log and ln in SPE map to log(x) or log(x,y)."),
     (fix_double, (), "What do we do with these guys?"),
     (quotient_double, (), "What do we do with these guys?"),

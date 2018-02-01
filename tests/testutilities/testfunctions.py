@@ -95,25 +95,25 @@ def return_false():
 
 @decorators.nivs_rt_sequence
 def channel_ref_type_string():
-    a = ChannelReference("Targets/Controller/System_Channels/HP_Count")  # noqa: F841 it's ok not to be used
+    a = ChannelReference("Aliases/DesiredRPM")  # noqa: F841 it's ok not to be used
 
 
 @decorators.nivs_rt_sequence
 def channel_ref_setter():
-    a = ChannelReference("Targets/Controller/System_Channels/HP_Count")
+    a = ChannelReference("Aliases/DesiredRPM")
     a.value = 5
 
 
 @decorators.nivs_rt_sequence
 def channel_ref_return():
-    a = ChannelReference("Targets/Controller/System_Channels/HP_Count")
+    a = ChannelReference("Aliases/DesiredRPM")
     a.value = 5.0
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def channel_ref_validate_getter():
-    a = ChannelReference("Targets/Controller/System_Channels/HP_Count")
+    a = ChannelReference("Aliases/DesiredRPM")
     a.value = 5.0
     b = DoubleValue(0)
     b.value = a.value

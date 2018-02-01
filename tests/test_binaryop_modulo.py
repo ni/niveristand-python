@@ -1,11 +1,10 @@
 import sys
 
 from niveristand import decorators, RealTimeSequence
-from niveristand.clientapi.datatypes import DoubleValue, I32Value, I64Value
+from niveristand.clientapi.datatypes import ChannelReference, DoubleValue, I32Value, I64Value
 from niveristand.exceptions import TranslateError, VeristandError
 import pytest
 from testutilities import rtseqrunner, validation
-from testutilities.test_channels import TestChannels
 
 a = 0
 b = 1
@@ -225,7 +224,9 @@ def modulo_variable_rtseq1():
 @decorators.nivs_rt_sequence
 def modulo_with_channelref():
     a = DoubleValue(0)
-    a.value = 1 % DoubleValue(TestChannels.HP_COUNT)
+    b = ChannelReference("Aliases/DesiredRPM")
+    b.value = 2.0
+    a.value = 3 % b.value
     return a.value
 
 
@@ -283,8 +284,10 @@ def aug_modulo_variables():
 
 @decorators.nivs_rt_sequence
 def aug_modulo_to_channelref():
-    a = DoubleValue(1)
-    a.value %= DoubleValue(TestChannels.HP_COUNT)
+    a = DoubleValue(3)
+    b = ChannelReference("Aliases/DesiredRPM")
+    b.value = 2.0
+    a.value %= b.value
     return a.value
 
 
@@ -368,17 +371,17 @@ run_tests = [
     (modulo_use_rtseq4, (), 2),
     (modulo_use_rtseq5, (), 1),
     (aug_modulo_use_rtseq, (), 1),
+    (modulo_with_channelref, (), 1),
+    (aug_modulo_to_channelref, (), 1),
 ]
 
 skip_tests = [
     (modulo_binary_unary, (), "SPE implements remainder. Python implements module. "
                               "The difference is subtle but the sign of the result is different."),
     (aug_modulo_unary, (), "SPE and Python treat negative module differently."),
-    (modulo_with_channelref, (), "Not implemented yet."),
     (modulo_invalid_rtseq_call, (), "Not implemented yet."),
     (modulo_invalid_variables2, (), "Attribute transformer doesn't catch the a.value.value problem."),
     (modulo_with_None, (), "Name transformer doesn't raise an exception for NoneType with python 2.7."),
-    (aug_modulo_to_channelref, (), "Channel ref transform not yet implemented."),
 ]
 
 fail_transform_tests = [
