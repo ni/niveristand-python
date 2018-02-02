@@ -6,6 +6,7 @@ from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import IfElse
 from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import LocalDeclaration
 from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import RealTimeSequence
 from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import ReturnDeclaration
+from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import WhileLoop
 from System.IO import IOException
 
 
@@ -31,6 +32,12 @@ def add_if_else(block, test_condition):
     if_else = IfElse(Expression(test_condition))
     block.AddStatement(if_else)
     return if_else
+
+
+def add_while(block, test_condition):
+    while_block = WhileLoop(Expression(test_condition), False)
+    block.AddStatement(while_block)
+    return while_block
 
 
 def create_real_time_sequence():

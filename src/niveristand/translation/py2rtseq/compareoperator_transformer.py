@@ -23,4 +23,6 @@ def _operator(ast_operator):
         'GtE': ">=",
         'Lt': "<",
         'LtE': "<=",
+        'Is': "==",
+        'IsNot': "!=",
     }.get(ast_operator, "unknown")

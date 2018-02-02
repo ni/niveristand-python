@@ -5,6 +5,7 @@ from niveristand.translation.py2rtseq import attribute_transformer
 from niveristand.translation.py2rtseq import augassign_transformer
 from niveristand.translation.py2rtseq import binaryoperator_transformer
 from niveristand.translation.py2rtseq import booloperator_transformer
+from niveristand.translation.py2rtseq import break_transformer
 from niveristand.translation.py2rtseq import call_transformer
 from niveristand.translation.py2rtseq import compareoperator_transformer
 from niveristand.translation.py2rtseq import default_transformer
@@ -20,14 +21,20 @@ from niveristand.translation.py2rtseq import num_transformer
 from niveristand.translation.py2rtseq import pass_transformer
 from niveristand.translation.py2rtseq import return_transformer
 from niveristand.translation.py2rtseq import unaryoperator_transformer
+from niveristand.translation.py2rtseq import while_transformer
 
 
 TRANSFORMERS = {
     'Default': default_transformer.default_transformer,
     ast.Assign.__name__: assign_transformer.assign_transformer,
     ast.Attribute.__name__: attribute_transformer.attribute_transformer,
+    ast.AugAssign.__name__: augassign_transformer.augassign_transformer,
+    ast.BinOp.__name__: binaryoperator_transformer.binaryoperator_transformer,
+    ast.BoolOp.__name__: booloperator_transformer.booloperator_transformer,
+    ast.Break.__name__: break_transformer.break_transformer,
     ast.Call.__name__: call_transformer.call_transformer,
     ast.Compare.__name__: compareoperator_transformer.compareoperator_transformer,
+    ast.Expr.__name__: exp_transformer.exp_transformer,
     ast.FunctionDef.__name__: functiondef_transformer.functiondef_transformer,
     ast.If.__name__: if_transformer.if_transformer,
     ast.IfExp.__name__: ifexp_transformer.ifexp_transformer,
@@ -37,11 +44,8 @@ TRANSFORMERS = {
     ast.Num.__name__: num_transformer.num_transformer,
     ast.Pass.__name__: pass_transformer.pass_transformer,
     ast.Return.__name__: return_transformer.return_transformer,
-    ast.BinOp.__name__: binaryoperator_transformer.binaryoperator_transformer,
     ast.UnaryOp.__name__: unaryoperator_transformer.unaryoperator_transformer,
-    ast.BoolOp.__name__: booloperator_transformer.booloperator_transformer,
-    ast.AugAssign.__name__: augassign_transformer.augassign_transformer,
-    ast.Expr.__name__: exp_transformer.exp_transformer,
+    ast.While.__name__: while_transformer.while_transformer,
 }
 
 if sys.version_info >= (3, 5):
