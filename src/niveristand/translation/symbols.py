@@ -4,6 +4,7 @@ _symbols = {
     Left-side: python symbol
     Right-side: rtsequence symbol
     """
+    # built-in math
     'pi': 'pi',
     'math.pi': 'pi',
     'True': 'true',
@@ -38,4 +39,22 @@ _symbols = {
     'sqrt': 'sqrt',
     'tan': 'tan',
     'tanh': 'tanh',
+    # vs-specific functions
+    'abstime': 'abstime',
+    'arraysize': 'arraysize',
+    'clearfault': 'clearfault',
+    'clearlasterror': 'clearlasterror',
+    'deltat': 'deltat',
+    'deltatus': 'deltatus',
+    'fault': 'fault',
+    'fix': 'fix',
+    'getlasterror': 'getlasterror',
+    'iteration': 'iteration',
+    'quotient': 'quotient',
+    'recip': 'recip',
+    'rem': 'rem',
+    'seqtime': 'seqtime',
+    'seqtimeus': 'seqtimeus',
+    'tickcountms': 'tickcountms',
+    'tickcountus': 'tickcountus',
 }
