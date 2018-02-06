@@ -1,3 +1,4 @@
+import ast
 from niveristand import errormessages
 from niveristand.clientapi import datatypes, realtimesequencedefinition as rtseqapi
 from niveristand.exceptions import TranslateError
@@ -7,7 +8,18 @@ from niveristand.translation import utils
 def assign_transformer(node, resources):
     node_value = None
     initial_channel_ref_declaration = False
-    variable_name = utils.get_variable_name_from_node(node.targets[0])
+    lhs = node.targets[0]
+    rtseq_var_name = utils.generic_ast_node_transform(lhs, resources)
+    # the left hand side can only be a variable name or a name with an attribute (var.value)
+    if isinstance(lhs, ast.Name):
+        variable_name = utils.get_variable_name_from_node(lhs)
+    elif isinstance(lhs, ast.Attribute):
+        # in case of var[0].value get rid of the [0] part and search in the dictionary for var
+        stripped_rtseq_var_name = rtseq_var_name[:rtseq_var_name.find("[")] if rtseq_var_name.find("[") != -1 \
+            else rtseq_var_name
+        variable_name = resources.get_variable_py_name(stripped_rtseq_var_name)
+    else:
+        raise TranslateError(errormessages.variable_reassignment)
     rtseq = resources.get_rtseq()
     block = resources.get_current_block()
     if not resources.has_variable(variable_name):
@@ -26,7 +38,7 @@ def assign_transformer(node, resources):
         else:
             raise TranslateError(errormessages.init_var_invalid_type)
     transformed_node_value = utils.generic_ast_node_transform(node.value, resources)
-    rtseq_var_name = resources.get_variable_rtseq_name(variable_name)
+    rtseq_var_name = resources.get_variable_rtseq_name(variable_name) if not rtseq_var_name else rtseq_var_name
     if not initial_channel_ref_declaration:
         if isinstance(node_value, datatypes.ArrayType):
             if transformed_node_value.count(',') > 0:

@@ -11,3 +11,6 @@ invalid_type_for_channel_ref = "TODOMSG: channel references do not support the g
 unsupported_orelse_while = "TODOMSG: else block not supported in while loops"
 return_unsupported_unless_last = "TODOMSG: return statement only supported as last statement in function."
 break_unsupported = "TODOMSG: break statements not supported."
+variable_reassignment = "TODOMSG: you cannot reassign an already created variable"
+cannot_change_array_elements = "TODOMSG: you cannot change individual elements in an array. " \
+                               "Change only the value of the element"

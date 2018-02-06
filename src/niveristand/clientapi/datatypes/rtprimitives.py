@@ -1,6 +1,7 @@
 import sys
 from NationalInstruments.VeriStand.Data import BooleanValue as ClientApiBooleanValue
 from NationalInstruments.VeriStand.Data import BooleanValueArray as ClientApiBooleanValueArray
+from NationalInstruments.VeriStand.Data import DataValue
 from NationalInstruments.VeriStand.Data import DoubleValue as ClientApiDoubleValue
 from NationalInstruments.VeriStand.Data import DoubleValueArray as ClientApiDoubleValueArray
 from NationalInstruments.VeriStand.Data import I32Value as ClientApiI32Value
@@ -35,9 +36,12 @@ def is_channel_ref_type(name):
     return name in CHANNEL_REF_TYPES
 
 
-class DataType:
+class DataType(object):
     def __init__(self, value, description="", units=""):
-        self._data_value = self._to_data_value(value)
+        if isinstance(value, DataValue):
+            self._data_value = value
+        else:
+            self._data_value = self._to_data_value(value)
 
     def __str__(self):
         return str(self._data_value)
@@ -311,13 +315,19 @@ class DataType:
         return self._data_value.Value
 
     @value.setter
-    def value(self, value):
-        self._data_value = self._to_data_value(value)
+    def value(self, newvalue):
+        self._data_value.Value = self._to_data_value(newvalue).Value
 
 
 class ArrayType(DataType):
     def _to_data_value(self, value):
         raise nivsexceptions.TranslateError(errormessages.invalid_type_to_convert)
+
+    def __getitem__(self, key):
+        return self.value[key]
+
+    def __setitem__(self, key, value):
+        return nivsexceptions.VeristandError(errormessages.cannot_change_array_elements)
 
 
 class ChannelReference(DataType):
@@ -342,18 +352,28 @@ class BooleanValue(DataType):
 
 
 class BooleanValueArray(ArrayType):
+
+    @property
+    def value(self):
+        return [BooleanValue(item) for item in self._data_value.Value]
+
     def _to_data_value(self, value):
         return ClientApiBooleanValueArray(value)
 
 
 class DoubleValue(DataType):
     def _to_data_value(self, value):
-        if type(value) is int:
+        if type(value) is int or (sys.version_info < (2, 8) and isinstance(value, long)):
             value = float(value)
         return ClientApiDoubleValue(value)
 
 
 class DoubleValueArray(ArrayType):
+
+    @property
+    def value(self):
+        return [DoubleValue(item) for item in self._data_value.Value]
+
     def _to_data_value(self, value):
         return ClientApiDoubleValueArray(value)
 
@@ -365,6 +385,11 @@ class I32Value(DataType):
 
 
 class I32ValueArray(ArrayType):
+
+    @property
+    def value(self):
+        return [I32Value(item) for item in self._data_value.Value]
+
     def _to_data_value(self, value):
         return ClientApiI32ValueArray(value)
 
@@ -376,6 +401,11 @@ class I64Value(DataType):
 
 
 class I64ValueArray(ArrayType):
+
+    @property
+    def value(self):
+        return [I64Value(item) for item in self._data_value.Value]
+
     def _to_data_value(self, value):
         return ClientApiI64ValueArray(value)
 
@@ -387,6 +417,11 @@ class U32Value(DataType):
 
 
 class U32ValueArray(ArrayType):
+
+    @property
+    def value(self):
+        return [U32Value(item) for item in self._data_value.Value]
+
     def _to_data_value(self, value):
         return ClientApiU32ValueArray(value)
 
@@ -398,6 +433,11 @@ class U64Value(DataType):
 
 
 class U64ValueArray(ArrayType):
+
+    @property
+    def value(self):
+        return [U64Value(item) for item in self._data_value.Value]
+
     def _to_data_value(self, value):
         return ClientApiU64ValueArray(value)
 

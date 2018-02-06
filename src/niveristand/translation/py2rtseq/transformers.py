@@ -13,6 +13,7 @@ from niveristand.translation.py2rtseq import exp_transformer
 from niveristand.translation.py2rtseq import functiondef_transformer
 from niveristand.translation.py2rtseq import if_transformer
 from niveristand.translation.py2rtseq import ifexp_transformer
+from niveristand.translation.py2rtseq import index_transformer
 from niveristand.translation.py2rtseq import list_transformer
 from niveristand.translation.py2rtseq import module_transformer
 from niveristand.translation.py2rtseq import name_transformer
@@ -20,6 +21,7 @@ from niveristand.translation.py2rtseq import nameconstant_transformer
 from niveristand.translation.py2rtseq import num_transformer
 from niveristand.translation.py2rtseq import pass_transformer
 from niveristand.translation.py2rtseq import return_transformer
+from niveristand.translation.py2rtseq import subscript_transformer
 from niveristand.translation.py2rtseq import unaryoperator_transformer
 from niveristand.translation.py2rtseq import while_transformer
 
@@ -38,12 +40,14 @@ TRANSFORMERS = {
     ast.FunctionDef.__name__: functiondef_transformer.functiondef_transformer,
     ast.If.__name__: if_transformer.if_transformer,
     ast.IfExp.__name__: ifexp_transformer.ifexp_transformer,
+    ast.Index.__name__: index_transformer.index_transformer,
     ast.List.__name__: list_transformer.list_transformer,
     ast.Module.__name__: module_transformer.module_transformer,
     ast.Name.__name__: name_transformer.name_transformer,
     ast.Num.__name__: num_transformer.num_transformer,
     ast.Pass.__name__: pass_transformer.pass_transformer,
     ast.Return.__name__: return_transformer.return_transformer,
+    ast.Subscript.__name__: subscript_transformer.subscript_transformer,
     ast.UnaryOp.__name__: unaryoperator_transformer.unaryoperator_transformer,
     ast.While.__name__: while_transformer.while_transformer,
 }

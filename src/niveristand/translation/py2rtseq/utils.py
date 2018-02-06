@@ -31,6 +31,13 @@ class Resources:
     def get_variable_rtseq_name(self, variable_name):
         return self._local_variables[variable_name].rtseq_name
 
+    def get_variable_py_name(self, rtseq_var_name):
+        result = ''
+        for key in self._local_variables.keys():
+            if self._local_variables[key].rtseq_name == rtseq_var_name:
+                result = key
+        return result
+
     def get_variable_py_value(self, variable_name):
         return self._local_variables[variable_name].py_value
 

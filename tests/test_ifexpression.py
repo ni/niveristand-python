@@ -36,21 +36,27 @@ def ifexp_bool_test_int_assign1():
 @decorators.nivs_rt_sequence
 def ifexp_bool_test_nivstype_assign():
     a = I32Value(0)
-    a = I32Value(1) if True else I32Value(0)
+    b = I32Value(1)
+    c = I32Value(0)
+    a.value = b.value if True else c.value
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def ifexp_nivsbool_test_nivstype_assign():
     a = I32Value(0)
-    a = I32Value(1) if BooleanValue(True) else I32Value(0)
+    b = I32Value(1)
+    c = I32Value(0)
+    a.value = b.value if BooleanValue(True) else c.value
     return a.value
 
 
 @decorators.nivs_rt_sequence
 def ifexp_nivsbool_test_nivstype_assign1():
     a = I32Value(0)
-    a = I32Value(1) if not BooleanValue(False) else I32Value(0)
+    b = I32Value(1)
+    c = I32Value(0)
+    a.value = b.value if not BooleanValue(False) else c.value
     return a.value
 
 
@@ -58,7 +64,9 @@ def ifexp_nivsbool_test_nivstype_assign1():
 def ifexp_nivsboolvar_test_int_assign():
     a = I32Value(0)
     b = BooleanValue(True)
-    a = I32Value(1) if b.value else I32Value(0)
+    c = I32Value(1)
+    d = I32Value(0)
+    a.value = c.value if b.value else d.value
     return a.value
 
 
@@ -66,7 +74,9 @@ def ifexp_nivsboolvar_test_int_assign():
 def ifexp_nivsboolvar_test_int_assign1():
     a = I32Value(0)
     b = BooleanValue(False)
-    a = I32Value(1) if not b.value else I32Value(0)
+    c = I32Value(1)
+    d = I32Value(0)
+    a.value = c.value if not b.value else d.value
     return a.value
 
 

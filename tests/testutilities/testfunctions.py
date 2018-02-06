@@ -2,6 +2,7 @@ import math
 from math import pi
 from niveristand import decorators
 from niveristand.clientapi.datatypes import BooleanValue, ChannelReference, DoubleValue, I32Value
+from niveristand.clientapi.datatypes import BooleanValueArray, DoubleValueArray
 
 
 def func_without_decorator():
@@ -91,6 +92,18 @@ def return_true():
 def return_false():
     a = BooleanValue(False)
     return a.value
+
+
+@decorators.nivs_rt_sequence
+def return_boolean_array():
+    a = BooleanValueArray([True, False])
+    return a
+
+
+@decorators.nivs_rt_sequence
+def return_double_array():
+    a = DoubleValueArray([0, 1, 2, 3])
+    return a
 
 
 @decorators.nivs_rt_sequence

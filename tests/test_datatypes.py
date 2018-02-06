@@ -283,13 +283,13 @@ def boolean_array_empty():
 @decorators.nivs_rt_sequence
 def boolean_array_one_element_run():
     a = BooleanValueArray([1])
-    return a[0]
+    return a[0].value
 
 
 @decorators.nivs_rt_sequence
 def boolean_array_type_run():
     a = BooleanValueArray([True, False, 1, 0])
-    return a[3]
+    return a[3].value
 
 
 @decorators.nivs_rt_sequence
@@ -315,13 +315,13 @@ def double_array_empty():
 @decorators.nivs_rt_sequence
 def double_array_one_element_run():
     a = DoubleValueArray([1])
-    return a[0]
+    return a[0].value
 
 
 @decorators.nivs_rt_sequence
 def double_array_type_run():
     a = DoubleValueArray([0, 1.0, 5.5])
-    return a[2]
+    return a[2].value
 
 
 @decorators.nivs_rt_sequence
@@ -347,13 +347,13 @@ def int32_array_empty():
 @decorators.nivs_rt_sequence
 def int32_array_one_element_run():
     a = I32ValueArray([1])
-    return a[0]
+    return a[0].value
 
 
 @decorators.nivs_rt_sequence
 def int32_array_type_run():
     a = I32ValueArray([0, 1, 5])
-    return a[2]
+    return a[2].value
 
 
 @decorators.nivs_rt_sequence
@@ -379,13 +379,13 @@ def int64_array_empty():
 @decorators.nivs_rt_sequence
 def int64_array_one_element_run():
     a = I64ValueArray([1])
-    return a[0]
+    return a[0].value
 
 
 @decorators.nivs_rt_sequence
 def int64_array_type_run():
     a = I64ValueArray([0, 1, 5])
-    return a[2]
+    return a[2].value
 
 
 @decorators.nivs_rt_sequence
@@ -411,13 +411,13 @@ def uint32_array_empty():
 @decorators.nivs_rt_sequence
 def uint32_array_one_element_run():
     a = U32ValueArray([1])
-    return a[0]
+    return a[0].value
 
 
 @decorators.nivs_rt_sequence
 def uint32_array_type_run():
     a = U32ValueArray([0, 1, 5])
-    return a[2]
+    return a[2].value
 
 
 @decorators.nivs_rt_sequence
@@ -443,13 +443,13 @@ def uint64_array_type():
 @decorators.nivs_rt_sequence
 def uint64_array_one_element_run():
     a = U64ValueArray([1])
-    return a[0]
+    return a[0].value
 
 
 @decorators.nivs_rt_sequence
 def uint64_array_type_run():
     a = U64ValueArray([0, 1, 5])
-    return a[2]
+    return a[2].value
 
 
 @decorators.nivs_rt_sequence
@@ -600,21 +600,22 @@ run_tests = [
     (int64_max_value, (), 0x7FFFFFFFFFFFFFFF),
     (uint32_max_value, (), 0x7FFFFFFF),
     (uint64_max_value, (), 0x7FFFFFFFFFFFFFFF),
+    (boolean_array_type_run, (), False),
+    (double_array_type_run, (), 5.5),
+    (int32_array_type_run, (), 5),
+    (int64_array_type_run, (), 5),
+    (uint32_array_type_run, (), 5),
+    (uint64_array_type_run, (), 5),
+    (boolean_array_one_element_run, (), 1),
+    (double_array_one_element_run, (), 1),
+    (int32_array_one_element_run, (), 1),
+    (int64_array_one_element_run, (), 1),
+    (uint32_array_one_element_run, (), 1),
+    (uint64_array_one_element_run, (), 1),
 ]
 
 skip_tests = [
-    (boolean_array_type_run, "Subscript operator not implemented yet"),
-    (double_array_type_run, "Subscript operator not implemented yet"),
-    (int32_array_type_run, "Subscript operator not implemented yet"),
-    (int64_array_type_run, "Subscript operator not implemented yet"),
-    (uint32_array_type_run, "Subscript operator not implemented yet"),
-    (uint64_array_type_run, "Subscript operator not implemented yet"),
-    (boolean_array_one_element_run, "Subscript operator not implemented yet"),
-    (double_array_one_element_run, "Subscript operator not implemented yet"),
-    (int32_array_one_element_run, "Subscript operator not implemented yet"),
-    (int64_array_one_element_run, "Subscript operator not implemented yet"),
-    (uint32_array_one_element_run, "Subscript operator not implemented yet"),
-    (uint64_array_one_element_run, "Subscript operator not implemented yet"),
+
 ]
 
 fail_transform_tests = [

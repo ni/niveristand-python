@@ -77,6 +77,8 @@ def get_variable_name_from_node(node):
         cur_node = cur_node.value
     if isinstance(cur_node, ast.Name):
         full_name = cur_node.id + full_name
+    if isinstance(cur_node, ast.Subscript):
+        full_name = get_variable_name_from_node(cur_node.value) + full_name
     return full_name
 
 

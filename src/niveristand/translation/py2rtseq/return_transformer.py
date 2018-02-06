@@ -10,11 +10,18 @@ from niveristand.translation import utils
 def return_transformer(node, resources):
     rtseq = resources.get_rtseq()
     expression = utils.generic_ast_node_transform(node.value, resources)
-    if isinstance(node.value, (ast.Name, ast.Attribute)):
+    if isinstance(node.value, (ast.Name, ast.Attribute, ast.Subscript)):
         src_var_name = utils.get_variable_name_from_node(node.value)
         if resources.has_variable(str(src_var_name)) and not resources.has_channel_ref(expression):
             rt_expression = expression
             return_default_value = resources.get_variable_py_value(src_var_name)
+            # In case of "return var[0]" the default value is saved as a list, so make sure to not return list type
+            # because those cannot be return variables.
+            # The len check is there to not get index error in case of empty lists -> for that I don't know yet
+            # what the solution is, so I will leave it like this (Arnold)
+            if isinstance(return_default_value, ArrayType):
+                if len(return_default_value.value):
+                    return_default_value = return_default_value[0]
         else:
             raise TranslateError(errormessages.invalid_return_value)
     elif isinstance(node.value, (ast.Num, ast.Call)):
