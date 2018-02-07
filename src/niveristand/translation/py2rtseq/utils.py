@@ -1,3 +1,6 @@
+from collections import OrderedDict
+from niveristand import errormessages
+from niveristand import exceptions
 from niveristand.clientapi.datatypes.rtprimitives import DoubleValue
 
 
@@ -8,7 +11,7 @@ class Resources:
         self._seq_alias = alias
         self._block = None
         self._local_variables = {}
-        self._parameters = list()
+        self._parameters = OrderedDict()
         self._deps = RealTimeSequencePkg()
         self._channel_references = list()
 
@@ -70,12 +73,19 @@ class Resources:
         return self._channel_references
 
     def add_parameter(self, param_name, default_value, by_value):
-        self._parameters.append(_Parameter(param_name, default_value, by_value))
+        if param_name in self._parameters:
+            raise exceptions.UnexpectedError(errormessages.unexpected_argument_redefine)
+        self._parameters[param_name] = _Parameter(param_name, default_value, by_value)
         self.add_variable(param_name, default_value, param_name)
         self.add_variable(param_name + ".value", default_value, param_name)
 
     def get_parameters(self):
-        return self._parameters
+        return self._parameters.values()
+
+    def update_parameter(self, param_name, default_value, by_value):
+        if param_name not in self._parameters:
+            raise exceptions.TranslateError(errormessages.param_description_no_param)
+        self._parameters[param_name] = _Parameter(param_name, default_value, by_value)
 
 
 class _Variable:

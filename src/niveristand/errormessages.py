@@ -14,3 +14,7 @@ break_unsupported = "TODOMSG: break statements not supported."
 variable_reassignment = "TODOMSG: you cannot reassign an already created variable"
 cannot_change_array_elements = "TODOMSG: you cannot change individual elements in an array. " \
                                "Change only the value of the element"
+param_description_no_param = "TODOMSG: parameter definition for undeclared parameter"
+invalid_function_definition = "TODOMSG: unsupported element found in function definition"
+invalid_param_decorator = "TODOMSG: parameter description decorator doesn't follow rules"
+unexpected_argument_redefine = "TODOMSG: unexpected argument added to list"
