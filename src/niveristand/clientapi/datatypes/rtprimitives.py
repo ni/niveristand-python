@@ -363,7 +363,7 @@ class BooleanValueArray(ArrayType):
 
 class DoubleValue(DataType):
     def _to_data_value(self, value):
-        if type(value) is int or (sys.version_info < (2, 8) and isinstance(value, long)):
+        if type(value) is int or (sys.version_info < (2, 8) and isinstance(value, long)):  # noqa F821
             value = float(value)
         return ClientApiDoubleValue(value)
 
