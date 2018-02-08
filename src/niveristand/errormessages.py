@@ -19,3 +19,9 @@ invalid_function_definition = "TODOMSG: unsupported element found in function de
 invalid_param_decorator = "TODOMSG: parameter description decorator doesn't follow rules"
 unexpected_argument_redefine = "TODOMSG: unexpected argument added to list"
 invalid_nivs_yield = "TODOMSG: nivs_yield can only be used as a stand-alone statement"
+for_else_not_supported = "TODOMSG: else structure in for not supported"
+invalid_iterable_collection = "TODOMSG: the iterable collection can only be a variable or a range(end)"
+invalid_for_loop_iterator = "TODOMSG: you specified an invalid iterator variable"
+invalid_range_call = "TODOMSG: range can only be called with the end value"
+scalar_iterable_collection = "TODOMSG: a for loop can only iterate on ArrayType, you specified a scalar variable"
+

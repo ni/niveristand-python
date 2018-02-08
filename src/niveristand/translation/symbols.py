@@ -39,6 +39,7 @@ _symbols = {
     'sqrt': 'sqrt',
     'tan': 'tan',
     'tanh': 'tanh',
+
     # vs-specific functions
     'abstime': 'abstime',
     'arraysize': 'arraysize',
@@ -57,4 +58,7 @@ _symbols = {
     'seqtimeus': 'seqtimeus',
     'tickcountms': 'tickcountms',
     'tickcountus': 'tickcountus',
+
+    # misc
+    'range': 'range',
 }

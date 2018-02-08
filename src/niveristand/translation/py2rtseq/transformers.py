@@ -10,6 +10,7 @@ from niveristand.translation.py2rtseq import call_transformer
 from niveristand.translation.py2rtseq import compareoperator_transformer
 from niveristand.translation.py2rtseq import default_transformer
 from niveristand.translation.py2rtseq import exp_transformer
+from niveristand.translation.py2rtseq import for_transformer
 from niveristand.translation.py2rtseq import functiondef_transformer
 from niveristand.translation.py2rtseq import if_transformer
 from niveristand.translation.py2rtseq import ifexp_transformer
@@ -37,6 +38,7 @@ TRANSFORMERS = {
     ast.Call.__name__: call_transformer.call_transformer,
     ast.Compare.__name__: compareoperator_transformer.compareoperator_transformer,
     ast.Expr.__name__: exp_transformer.exp_transformer,
+    ast.For.__name__: for_transformer.for_transformer,
     ast.FunctionDef.__name__: functiondef_transformer.functiondef_transformer,
     ast.If.__name__: if_transformer.if_transformer,
     ast.IfExp.__name__: ifexp_transformer.ifexp_transformer,

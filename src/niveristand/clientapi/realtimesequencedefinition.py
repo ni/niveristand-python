@@ -2,6 +2,8 @@ import os
 
 from niveristand import internal
 from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import Expression  # noqa: E501, I100 We need these C# imports to be out of order.
+from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import ForEachLoop
+from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import ForLoop
 from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import IfElse
 from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import LocalDeclaration
 from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import RealTimeSequence
@@ -37,6 +39,18 @@ def add_if_else(block, test_condition):
     if_else = IfElse(Expression(test_condition))
     block.AddStatement(if_else)
     return if_else
+
+
+def add_for_loop(block, loop_variable, iterations):
+    for_loop = ForLoop(loop_variable, Expression(str(iterations)), False)
+    block.AddStatement(for_loop)
+    return for_loop
+
+
+def add_foreach_loop(block, loop_variable, iterations):
+    foreach_loop = ForEachLoop(loop_variable, Expression(str(iterations)), False)
+    block.AddStatement(foreach_loop)
+    return foreach_loop
 
 
 def add_while(block, test_condition):
