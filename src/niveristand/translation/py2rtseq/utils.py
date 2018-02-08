@@ -53,8 +53,8 @@ class Resources:
     def set_dependency_pkg(self, pkg):
         self._deps = pkg
 
-    def add_channel_ref(self, variable_name, channel_name, rtseq_var_name):
-        self._channel_references.append(_ChannelReference(channel_name, rtseq_var_name))
+    def add_channel_ref(self, variable_name, channel_name, rtseq_var_name, channel_is_vector):
+        self._channel_references.append(_ChannelReference(channel_name, rtseq_var_name, channel_is_vector))
         self.add_variable(variable_name, DoubleValue(0), rtseq_var_name)
         self.add_variable(variable_name + ".value", DoubleValue(0), rtseq_var_name)
 
@@ -102,6 +102,7 @@ class _Parameter:
 
 
 class _ChannelReference:
-    def __init__(self, channel_name, rtseq_name):
+    def __init__(self, channel_name, rtseq_name, channel_is_vector):
         self.channel_name = channel_name
         self.rtseq_name = rtseq_name
+        self.channel_is_vector = channel_is_vector

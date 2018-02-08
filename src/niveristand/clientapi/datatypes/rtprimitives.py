@@ -335,9 +335,13 @@ class ChannelReference(DataType):
         return ClientApiDoubleValue(value)
 
 
-class ChannelReferenceArray(ArrayType):
+class VectorChannelReference(ArrayType):
+    @property
+    def value(self):
+        return [DoubleValue(item) for item in self._data_value.Value]
+
     def _to_data_value(self, value):
-        return None
+        return ClientApiDoubleValueArray(value)
 
 
 class BooleanValue(DataType):
@@ -352,7 +356,6 @@ class BooleanValue(DataType):
 
 
 class BooleanValueArray(ArrayType):
-
     @property
     def value(self):
         return [BooleanValue(item) for item in self._data_value.Value]
@@ -369,7 +372,6 @@ class DoubleValue(DataType):
 
 
 class DoubleValueArray(ArrayType):
-
     @property
     def value(self):
         return [DoubleValue(item) for item in self._data_value.Value]
@@ -385,7 +387,6 @@ class I32Value(DataType):
 
 
 class I32ValueArray(ArrayType):
-
     @property
     def value(self):
         return [I32Value(item) for item in self._data_value.Value]
@@ -401,7 +402,6 @@ class I64Value(DataType):
 
 
 class I64ValueArray(ArrayType):
-
     @property
     def value(self):
         return [I64Value(item) for item in self._data_value.Value]
@@ -417,7 +417,6 @@ class U32Value(DataType):
 
 
 class U32ValueArray(ArrayType):
-
     @property
     def value(self):
         return [U32Value(item) for item in self._data_value.Value]
@@ -433,7 +432,6 @@ class U64Value(DataType):
 
 
 class U64ValueArray(ArrayType):
-
     @property
     def value(self):
         return [U64Value(item) for item in self._data_value.Value]
@@ -456,7 +454,8 @@ VALID_TYPES = {
     U32Value.__name__: U32Value,
     U32ValueArray.__name__: U32ValueArray,
     U64Value.__name__: U64Value,
-    U64ValueArray.__name__: U64ValueArray
+    U64ValueArray.__name__: U64ValueArray,
+    VectorChannelReference.__name__: VectorChannelReference,
 }
 
 VALID_RETURN_TYPES = {
@@ -470,5 +469,5 @@ VALID_RETURN_TYPES = {
 
 CHANNEL_REF_TYPES = {
     ChannelReference.__name__: ChannelReference,
-    ChannelReferenceArray.__name__: ChannelReferenceArray
+    VectorChannelReference.__name__: VectorChannelReference
 }

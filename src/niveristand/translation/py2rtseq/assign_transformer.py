@@ -25,11 +25,12 @@ def assign_transformer(node, resources):
     if not resources.has_variable(variable_name):
         # new local variable
         node_value = utils.get_value_from_node(node.value, resources)
-        if isinstance(node_value, datatypes.ChannelReference):
+        if isinstance(node_value, (datatypes.ChannelReference, datatypes.VectorChannelReference)):
             initial_channel_ref_declaration = True
             channel_name = utils.get_channel_name(node.value.args[0])
             rtseq_var_name = rtseqapi.to_channel_ref_name(variable_name)
-            resources.add_channel_ref(variable_name, channel_name, rtseq_var_name)
+            resources.add_channel_ref(variable_name, channel_name, rtseq_var_name,
+                                      isinstance(node_value, datatypes.ArrayType))
         elif isinstance(node_value, datatypes.DataType):
             rtseq_var_name = rtseqapi.add_local_variable(rtseq, variable_name, node_value)
             # add the local variable's accessor to the resources

@@ -11,7 +11,7 @@ from niveristand.exceptions import TranslateError, VeristandError
 from niveristand.translation import utils
 from niveristand.translation.py2rtseq.utils import Resources
 from NationalInstruments.VeriStand.Data import SystemDefinitionChannelResource  # noqa: E501, I100 We need these C# imports to be out of order.
-from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import ChannelReferenceDeclaration
+from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import ChannelReferenceDeclaration, ChannelSizeType
 from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import EvaluationMethod
 from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import ParameterDeclaration
 from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import Reference
@@ -84,9 +84,14 @@ class RealTimeSequence:
     def _update_channel_refs(self, channel_ref_list):
         self._rtseq.Variables.ChannelReferences.ClearChannelReferences()
         for channel_ref_obj in channel_ref_list:
+            if channel_ref_obj.channel_is_vector:
+                size_argument = ChannelSizeType.Vector
+            else:
+                size_argument = ChannelSizeType.Scalar
             system_definition_channel_resource = SystemDefinitionChannelResource(channel_ref_obj.channel_name)
             channel_reference_declaration = ChannelReferenceDeclaration(channel_ref_obj.rtseq_name,
-                                                                        system_definition_channel_resource)
+                                                                        system_definition_channel_resource,
+                                                                        size_argument)
             self._rtseq.Variables.ChannelReferences.AddChannelReference(channel_reference_declaration)
 
     def _build_file_name(self):

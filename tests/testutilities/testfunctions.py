@@ -1,8 +1,8 @@
 import math
 from math import pi
 from niveristand import decorators
-from niveristand.clientapi.datatypes import BooleanValue, ChannelReference, DoubleValue, I32Value
-from niveristand.clientapi.datatypes import BooleanValueArray, DoubleValueArray
+from niveristand.clientapi.datatypes import BooleanValue, BooleanValueArray, ChannelReference, DoubleValue, \
+    DoubleValueArray, I32Value, VectorChannelReference
 
 
 def func_without_decorator():
@@ -130,4 +130,31 @@ def channel_ref_validate_getter():
     a.value = 5.0
     b = DoubleValue(0)
     b.value = a.value
+    return b.value
+
+
+@decorators.nivs_rt_sequence
+def channel_ref_array_type_string():
+    a = VectorChannelReference("Targets/Controller/Simulation Models/Models/Engine Demo/Parameters/a")  # noqa: F841
+
+
+@decorators.nivs_rt_sequence
+def channel_ref_array_setter():
+    a = VectorChannelReference("Targets/Controller/Simulation Models/Models/Engine Demo/Parameters/a")
+    a[0].value = 5
+
+
+@decorators.nivs_rt_sequence
+def channel_ref_array_return():
+    a = VectorChannelReference("Targets/Controller/Simulation Models/Models/Engine Demo/Parameters/a")
+    a[0].value = 5.0
+    return a[0].value
+
+
+@decorators.nivs_rt_sequence
+def channel_ref_array_validate_getter():
+    a = VectorChannelReference("Targets/Controller/Simulation Models/Models/Engine Demo/Parameters/a")
+    a[3].value = 5.0
+    b = DoubleValue(0)
+    b.value = a[3].value
     return b.value
