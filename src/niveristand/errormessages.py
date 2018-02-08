@@ -18,3 +18,4 @@ param_description_no_param = "TODOMSG: parameter definition for undeclared param
 invalid_function_definition = "TODOMSG: unsupported element found in function definition"
 invalid_param_decorator = "TODOMSG: parameter description decorator doesn't follow rules"
 unexpected_argument_redefine = "TODOMSG: unexpected argument added to list"
+invalid_nivs_yield = "TODOMSG: nivs_yield can only be used as a stand-alone statement"

@@ -7,6 +7,7 @@ from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import LocalDec
 from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import RealTimeSequence
 from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import ReturnDeclaration
 from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import WhileLoop
+from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import Yield
 from System.IO import IOException
 
 
@@ -26,6 +27,10 @@ def add_assignment(block, dest_name, source_name):
 
 def add_expression(block, expression):
     block.AddStatement(Expression('%s' % expression))
+
+
+def add_yield(block):
+    block.AddStatement(Yield())
 
 
 def add_if_else(block, test_condition):

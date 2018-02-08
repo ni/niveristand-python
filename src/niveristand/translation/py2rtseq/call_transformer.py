@@ -2,7 +2,7 @@ import ast
 from niveristand import errormessages
 from niveristand import exceptions
 from niveristand.clientapi.datatypes import rtprimitives
-from niveristand.translation import symbols, utils
+from niveristand.translation import custom_action_symbols, symbols, utils
 
 
 def call_transformer(node, resources):
@@ -16,6 +16,10 @@ def call_transformer(node, resources):
         # In case of a type declaration, return only the value because this is not
         # an actual sub-sequence call.
         return str(utils.generic_ast_node_transform(node.args[0], resources))
+    if node.func.id in custom_action_symbols._custom_action_symbols:
+        # Custom action symbols are basically transformers for functions that don't have
+        # their own ast node. Invoke them here
+        return custom_action_symbols._custom_action_symbols[node.func.id](node, resources)
     if node.func.id in symbols._symbols:
         # In case of a builtin expression get it out from symbols and add any arguments it may have
         func_name = symbols._symbols[node.func.id]

@@ -67,3 +67,7 @@ def tickcountms():
 
 def tickcountus():
     raise VeristandNotImplementedError()
+
+
+def nivs_yield():
+    pass
