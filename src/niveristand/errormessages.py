@@ -24,4 +24,3 @@ invalid_iterable_collection = "TODOMSG: the iterable collection can only be a va
 invalid_for_loop_iterator = "TODOMSG: you specified an invalid iterator variable"
 invalid_range_call = "TODOMSG: range can only be called with the end value"
 scalar_iterable_collection = "TODOMSG: a for loop can only iterate on ArrayType, you specified a scalar variable"
-
