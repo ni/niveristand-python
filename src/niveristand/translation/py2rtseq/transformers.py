@@ -25,6 +25,7 @@ from niveristand.translation.py2rtseq import return_transformer
 from niveristand.translation.py2rtseq import subscript_transformer
 from niveristand.translation.py2rtseq import unaryoperator_transformer
 from niveristand.translation.py2rtseq import while_transformer
+from niveristand.translation.py2rtseq import with_transformer
 
 
 TRANSFORMERS = {
@@ -52,6 +53,7 @@ TRANSFORMERS = {
     ast.Subscript.__name__: subscript_transformer.subscript_transformer,
     ast.UnaryOp.__name__: unaryoperator_transformer.unaryoperator_transformer,
     ast.While.__name__: while_transformer.while_transformer,
+    ast.With.__name__: with_transformer.with_transformer,
 }
 
 if sys.version_info >= (3, 5):

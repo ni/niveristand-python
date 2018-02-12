@@ -2,7 +2,8 @@ import sys
 from niveristand import decorators, RealTimeSequence
 from niveristand.clientapi.datatypes import I32Value
 from niveristand.exceptions import TranslateError, VeristandError
-from niveristand.library.builtins import iteration, nivs_yield
+from niveristand.library.builtins import iteration
+from niveristand.library.tasks import nivs_yield
 import pytest
 from testutilities import rtseqrunner, validation
 

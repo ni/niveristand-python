@@ -6,8 +6,10 @@ from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import ForEachL
 from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import ForLoop
 from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import IfElse
 from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import LocalDeclaration
+from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import Multitask
 from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import RealTimeSequence
 from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import ReturnDeclaration
+from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import Task
 from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import WhileLoop
 from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import Yield
 from System.IO import IOException
@@ -57,6 +59,18 @@ def add_while(block, test_condition):
     while_block = WhileLoop(Expression(test_condition), False)
     block.AddStatement(while_block)
     return while_block
+
+
+def add_multi_task(block):
+    multi_task = Multitask()
+    block.AddStatement(multi_task)
+    return multi_task
+
+
+def add_task(multi_task, name):
+    task = Task(name)
+    multi_task.AddTask(task)
+    return task.Body
 
 
 def create_real_time_sequence():
