@@ -6,11 +6,11 @@ from niveristand.translation import utils
 
 
 def with_transformer(node, resources):
-    _validate_multitask(node)
+    mt_name = _validate_multitask(node)
     parent_block = resources.get_current_block()
     multi_task = rtseqapi.add_multi_task(parent_block)
     for task_def in [func_def for func_def in node.body if isinstance(func_def, ast.FunctionDef)]:
-        _validate_task(task_def)
+        _validate_task(task_def, mt_name)
         task_block = rtseqapi.add_task(multi_task, task_def.name)
         resources.set_current_block(task_block)
         for stmt in task_def.body:
@@ -21,26 +21,40 @@ def with_transformer(node, resources):
 def _validate_multitask(node):
     if any(isinstance(stmt, ast.Return) for stmt in node.body):
         raise exceptions.TranslateError(errormessages.return_unsupported_unless_last)
+    if any(not isinstance(stmt, ast.FunctionDef) for stmt in node.body):
+        raise exceptions.TranslateError(errormessages.return_unsupported_unless_last)
     if 'items' in dir(node):
         if len(node.items) > 1 or len(node.items) <= 0:
             raise exceptions.TranslateError(errormessages.invalid_with_block)
         expr = node.items[0].context_expr
+        opt_var = node.items[0].optional_vars
     else:
         expr = node.context_expr
+        opt_var = node.optional_vars
     if not isinstance(expr, ast.Call):
         raise exceptions.TranslateError(errormessages.invalid_with_block)
     # make sure the expression is "multitask()"
-    if utils.get_variable_name_from_node(expr.func).split('.')[-1] is not tasks.multitask.__name__ or \
-            len(expr.args) > 0:
+    func_name = utils.get_variable_name_from_node(expr.func).split('.')[-1]
+    if func_name is not tasks.multitask.__name__ \
+            or len(expr.args) > 0 \
+            or opt_var is None:
         raise exceptions.TranslateError(errormessages.invalid_with_block)
+    return opt_var
 
 
-def _validate_task(node):
+def _validate_task(node, mt_name):
     body = node.body
     if any(isinstance(stmt, ast.FunctionDef) for stmt in body):
         raise exceptions.TranslateError(errormessages.invalid_function_definition)
     if any(isinstance(stmt, ast.Return) for stmt in body):
         raise exceptions.TranslateError(errormessages.return_unsupported_unless_last)
     if len(node.args.args) > 0:
+        raise exceptions.TranslateError(errormessages.invalid_with_block)
+    decs = node.decorator_list
+    if len(decs) is not 1 \
+            or not(isinstance(decs[0], ast.Call)) \
+            or utils.get_variable_name_from_node(decs[0].func).split('.')[-1] is not tasks.task.__name__ \
+            or len(decs[0].args) is not 1 \
+            or decs[0].args[0].id is not mt_name.id:
         raise exceptions.TranslateError(errormessages.invalid_with_block)
     return node

@@ -9,5 +9,12 @@ def multitask():
         f()
 
 
+def task(mt):
+    def _add_task_to_list(func):
+        mt.append(func)
+        return func
+    return _add_task_to_list
+
+
 def nivs_yield():
     pass

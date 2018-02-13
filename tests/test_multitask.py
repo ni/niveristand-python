@@ -2,7 +2,7 @@ import sys
 from niveristand import decorators, RealTimeSequence
 from niveristand.clientapi.datatypes import I32Value
 from niveristand.exceptions import TranslateError, VeristandError
-from niveristand.library.tasks import multitask, nivs_yield
+from niveristand.library.tasks import multitask, nivs_yield, task
 import pytest
 from testutilities import rtseqrunner, validation
 
@@ -17,13 +17,13 @@ def _increase_param_by_ref(param):
 def multitask_pass():
     a = I32Value(1)
     with multitask() as mt:
+        @task(mt)
         def f1():
             pass
 
+        @task(mt)
         def f2():
             pass
-        mt.append(f1)
-        mt.append(f2)
     return a.value
 
 
@@ -31,13 +31,13 @@ def multitask_pass():
 def multitask_access_local():
     a = I32Value(0)
     with multitask() as mt:
+        @task(mt)
         def f1():
             a.value = 5
 
+        @task(mt)
         def f2():
             a.value *= 7
-        mt.append(f1)
-        mt.append(f2)
     return a.value
 
 
@@ -45,21 +45,21 @@ def multitask_access_local():
 def multitask_nested():
     a = I32Value(0)
     with multitask() as mt:
+        @task(mt)
         def f1():
             with multitask() as mt:
+                @task(mt)
                 def fa():
                     a.value = 5
 
+                @task(mt)
                 def fb():
                     a.value *= 7
-                mt.append(fa)
-                mt.append(fb)
 
+        @task(mt)
         def f2():
             a.value *= 13
 
-        mt.append(f1)
-        mt.append(f2)
     return a.value
 
 
@@ -67,15 +67,15 @@ def multitask_nested():
 def multitask_task_with_yield():
     a = I32Value(0)
     with multitask() as mt:
+        @task(mt)
         def f1():
             nivs_yield()
             a.value = 1
 
+        @task(mt)
         def f2():
             a.value = 2
             nivs_yield()
-        mt.append(f1)
-        mt.append(f2)
     return a.value
 
 
@@ -84,17 +84,17 @@ def multitask_call_subroutine_params_byref():
     a = I32Value(0)
     b = I32Value(1)
     with multitask() as mt:
+        @task(mt)
         def f1():
             _increase_param_by_ref(a)
 
+        @task(mt)
         def f2():
             _increase_param_by_ref(b)
 
+        @task(mt)
         def f3():
             a.value += b.value
-        mt.append(f1)
-        mt.append(f2)
-        mt.append(f3)
     return a.value
 
 
@@ -102,13 +102,13 @@ def multitask_call_subroutine_params_byref():
 def multitask_duplicate_name_fails():
     a = I32Value(0)
     with multitask() as mt:
+        @task(mt)
         def f1():
             a.value = 1
 
-        def f1():  # noqa: F811 redefinition is exactly what we're testing here.
+        @task(mt)  # noqa: F811 redefinition is exactly what we're testing here.
+        def f1():
             a.value = 2
-        mt.append(f1)
-        mt.append(f1)
     return a.value
 
 
@@ -116,10 +116,10 @@ def multitask_duplicate_name_fails():
 def multitask_redefine_var_fails():
     a = I32Value(0)
     with multitask() as mt:
+        @task(mt)
         def f1():
             a = I32Value(1)
             a.value = 2
-        mt.append(f1)
     return a.value
 
 
@@ -127,6 +127,18 @@ def multitask_redefine_var_fails():
 def multitask_return_fails():
     a = I32Value(0)
     with multitask() as mt:
+        @task(mt)
+        def f1():
+            a = I32Value(1)
+            a.value = 2
+        return a.value
+
+
+@decorators.nivs_rt_sequence
+def multitask_stmt_fails():
+    a = I32Value(0)
+    with multitask() as mt:
+        @task(mt)
         def f1():
             a = I32Value(1)
             a.value = 2
@@ -138,13 +150,13 @@ def multitask_return_fails():
 def multitask_with_param_fails():
     a = I32Value(1)
     with multitask(a) as mt:
+        @task(mt)
         def f1():
             pass
 
+        @task(mt)
         def f2():
             pass
-        mt.append(f1)
-        mt.append(f2)
     return a.value
 
 
@@ -152,13 +164,13 @@ def multitask_with_param_fails():
 def multitask_task_with_param_fails():
     a = I32Value(1)
     with multitask(a) as mt:
+        @task(mt)
         def f1(x):
             pass
 
+        @task(mt)
         def f2():
             pass
-        mt.append(f1)
-        mt.append(f2)
     return a.value
 
 
@@ -166,10 +178,10 @@ def multitask_task_with_param_fails():
 def multitask_return_in_task_fails():
     a = I32Value(0)
     with multitask() as mt:
+        @task(mt)
         def f1():
             a = I32Value(1)
             return a.value
-        mt.append(f1)
     return a.value
 
 
@@ -177,10 +189,40 @@ def multitask_return_in_task_fails():
 def multitask_funcdef_in_task_fails():
     a = I32Value(0)
     with multitask() as mt:
+        @task(mt)
         def f1():
-            def f2():
-                pass
-        mt.append(f1)
+            pass
+    return a.value
+
+
+@decorators.nivs_rt_sequence
+def multitask_no_var_name_fails():
+    a = I32Value(0)
+    with multitask():
+        @task()
+        def f1():
+            pass
+    return a.value
+
+
+@decorators.nivs_rt_sequence
+def multitask_wrong_var_name_fails():
+    a = I32Value(0)
+    with multitask():
+        @task(a)
+        def f1():
+            pass
+    return a.value
+
+
+@decorators.nivs_rt_sequence
+def multitask_task_multi_dec_fails():
+    a = I32Value(0)
+    with multitask() as mt:
+        @task(mt)
+        @task(mt)
+        def f1():
+            pass
     return a.value
 
 
@@ -200,10 +242,14 @@ skip_tests = [
 fail_transform_tests = [
     (multitask_duplicate_name_fails, (), VeristandError),
     (multitask_return_fails, (), TranslateError),
+    (multitask_stmt_fails, (), TranslateError),
     (multitask_with_param_fails, (), TranslateError),
     (multitask_task_with_param_fails, (), TranslateError),
     (multitask_return_in_task_fails, (), TranslateError),
     (multitask_funcdef_in_task_fails, (), TranslateError),
+    (multitask_no_var_name_fails, (), TranslateError),
+    (multitask_wrong_var_name_fails, (), TranslateError),
+    (multitask_task_multi_dec_fails, (), TranslateError),
 ]
 
 
