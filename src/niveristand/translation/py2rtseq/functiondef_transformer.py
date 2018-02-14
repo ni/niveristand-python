@@ -4,6 +4,7 @@ import sys
 from niveristand import decorators, errormessages, exceptions
 from niveristand.clientapi.datatypes import BooleanValue, DoubleValue
 from niveristand.translation import utils
+from niveristand.translation.py2rtseq import validations
 
 
 def functiondef_transformer(node, resources):
@@ -17,8 +18,9 @@ def functiondef_transformer(node, resources):
         # which in ast terms is treated as an ast.Call. So, we look for those and convert to args.
         p = _decorator_to_arg(decorator, resources)
         resources.update_parameter(p.name, p.def_value, p.by_value)
+    # reparenting should happen in each transformer that contains nested blocks
+    resources.set_current_block(resources.get_rtseq().Code.Main.Body)
     for instruction in node.body:
-        resources.set_current_block(resources.get_rtseq().Code.Main.Body)
         utils.generic_ast_node_transform(instruction, resources)
     return ""
 
@@ -65,7 +67,7 @@ def _decorator_to_arg(node, resources):
 
 
 def _validate_restrictions(node):
-    if any([isinstance(body_stmt, ast.FunctionDef) for body_stmt in node.body]):
+    if validations.check_if_any_in_block(ast.FunctionDef, node.body):
         raise exceptions.TranslateError(errormessages.invalid_function_definition)
     if sys.version_info > (3, 0):
         # py35 restrictions
@@ -82,3 +84,11 @@ def _validate_restrictions(node):
                 or node.args.kwarg is not None \
                 or len(node.args.defaults) is not 0:
             raise exceptions.TranslateError(errormessages.invalid_function_definition)
+    if validations.check_if_any_in_block(validations.ast_try(), node.body):
+        if not isinstance(node.body[0], validations.ast_try()):
+            raise exceptions.TranslateError(errormessages.try_must_be_first_stmt)
+        if len(node.body) > 2:
+            raise exceptions.TranslateError(errormessages.invalid_stmt_after_try)
+        elif len(node.body) == 2:
+            if not isinstance(node.body[1], ast.Return):
+                raise exceptions.TranslateError(errormessages.invalid_stmt_after_try)

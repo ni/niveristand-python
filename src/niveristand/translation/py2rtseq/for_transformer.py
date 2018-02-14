@@ -5,10 +5,11 @@ from niveristand.clientapi import realtimesequencedefinition as rtseqapi
 from niveristand.clientapi.datatypes import ArrayType
 from niveristand.exceptions import TranslateError
 from niveristand.translation import utils
+from niveristand.translation.py2rtseq import validations
 
 
 def for_transformer(node, resources):
-    _validate_node(node)
+    _validate_restrictions(node)
     parent_block = resources.get_current_block()
     var_name = utils.get_variable_name_from_node(node.iter)
     if resources.has_variable(var_name):
@@ -36,10 +37,11 @@ def for_transformer(node, resources):
     resources.set_current_block(parent_block)
 
 
-def _validate_node(node):
+def _validate_restrictions(node):
     if node.orelse:
         raise TranslateError(errormessages.for_else_not_supported)
     if not isinstance(node.iter, (ast.Name, ast.Attribute, ast.Call)):
         raise TranslateError(errormessages.invalid_iterable_collection)
     if not isinstance(node.target, ast.Name):
         raise TranslateError(errormessages.invalid_for_loop_iterator)
+    validations.check_try_in_node_body(node.body)

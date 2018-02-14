@@ -25,3 +25,10 @@ invalid_iterable_collection = "TODOMSG: the iterable collection can only be a va
 invalid_for_loop_iterator = "TODOMSG: you specified an invalid iterator variable"
 invalid_range_call = "TODOMSG: range can only be called with the end value"
 scalar_iterable_collection = "TODOMSG: a for loop can only iterate on ArrayType, you specified a scalar variable"
+invalid_stmt_after_try = "TODMSG: invalid statement after try. Only return allowed"
+try_must_be_first_stmt = "TODOMSG: try must be the first statement in the functiondef"
+invalid_try_except_orelse = "TODOMSG: except and orelse clauses not supported. Only try/finally."
+return_not_supported_in_try_finally = "TODOMSG: return statement not supported inside a try/finally clause. Put the " \
+                                      "return after the finally and it will be executed in the CleanUp section."
+try_only_in_top_level_func = "TODOMSG: the use of try is not allowed in this context. Use try/finally only in the top" \
+                             "level function."

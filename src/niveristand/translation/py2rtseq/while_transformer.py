@@ -2,10 +2,11 @@ import ast
 from niveristand import errormessages, exceptions
 from niveristand.clientapi import realtimesequencedefinition as rtseqapi
 from niveristand.translation import utils
+from niveristand.translation.py2rtseq import validations
 
 
 def while_transformer(node, resources):
-    _validate_transformer(node, resources)
+    _validate_restrictions(node, resources)
     test_condition = utils.generic_ast_node_transform(node.test, resources)
     parent_block = resources.get_current_block()
     while_statement = rtseqapi.add_while(parent_block, test_condition)
@@ -15,8 +16,9 @@ def while_transformer(node, resources):
     resources.set_current_block(parent_block)
 
 
-def _validate_transformer(node, resources):
+def _validate_restrictions(node, resources):
     if node.orelse:
         raise exceptions.TranslateError(errormessages.unsupported_orelse_while)
-    if any([isinstance(body_node, ast.Return) for body_node in node.body]):
+    if validations.check_if_any_in_block(ast.Return, node.body):
         raise exceptions.TranslateError(errormessages.return_unsupported_unless_last)
+    validations.check_try_in_node_body(node.body)

@@ -23,6 +23,7 @@ from niveristand.translation.py2rtseq import num_transformer
 from niveristand.translation.py2rtseq import pass_transformer
 from niveristand.translation.py2rtseq import return_transformer
 from niveristand.translation.py2rtseq import subscript_transformer
+from niveristand.translation.py2rtseq import try_transformer
 from niveristand.translation.py2rtseq import unaryoperator_transformer
 from niveristand.translation.py2rtseq import while_transformer
 from niveristand.translation.py2rtseq import with_transformer
@@ -58,3 +59,7 @@ TRANSFORMERS = {
 
 if sys.version_info >= (3, 5):
     TRANSFORMERS[ast.NameConstant.__name__] = nameconstant_transformer.nameconstant_transformer
+    TRANSFORMERS[ast.Try.__name__] = try_transformer.try_transformer
+else:
+    TRANSFORMERS[ast.TryFinally.__name__] = try_transformer.try_transformer
+    TRANSFORMERS[ast.TryExcept.__name__] = try_transformer.except_transformer
