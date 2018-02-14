@@ -1,3 +1,4 @@
+import time
 from niveristand.exceptions import VeristandNotImplementedError
 
 
@@ -67,3 +68,7 @@ def tickcountms():
 
 def tickcountus():
     raise VeristandNotImplementedError()
+
+
+def localhost_wait(amount=0.1):
+    time.sleep(amount)

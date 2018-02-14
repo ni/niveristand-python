@@ -14,6 +14,7 @@ from NationalInstruments.VeriStand.Data import U64Value as ClientApiU64Value
 from NationalInstruments.VeriStand.Data import U64ValueArray as ClientApiU64ValueArray
 from niveristand import errormessages
 from niveristand import exceptions as nivsexceptions
+from niveristand.clientapi import realtimesequencedefinition
 from System import Int32 as SystemInt32
 from System import Int64 as SystemInt64
 from System import UInt32 as SystemUInt32
@@ -331,6 +332,18 @@ class ArrayType(DataType):
 
 
 class ChannelReference(DataType):
+    def __init__(self, value, description="", units=""):
+        super(ChannelReference, self).__init__(value, description, units)
+        self._channel_name = value
+
+    @property
+    def value(self):
+        return realtimesequencedefinition.get_channel_value(self._channel_name)
+
+    @value.setter
+    def value(self, newvalue):
+        realtimesequencedefinition.set_channel_value(self._channel_name, newvalue)
+
     def _to_data_value(self, value):
         return ClientApiDoubleValue(value)
 

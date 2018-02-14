@@ -3,6 +3,7 @@ from math import pi
 from niveristand import decorators
 from niveristand.clientapi.datatypes import BooleanValue, BooleanValueArray, ChannelReference, DoubleValue, \
     DoubleValueArray, I32Value, VectorChannelReference
+from niveristand.library.builtins import localhost_wait
 
 
 def func_without_decorator():
@@ -121,6 +122,7 @@ def channel_ref_setter():
 def channel_ref_return():
     a = ChannelReference("Aliases/DesiredRPM")
     a.value = 5.0
+    localhost_wait()
     return a.value
 
 
@@ -128,6 +130,7 @@ def channel_ref_return():
 def channel_ref_validate_getter():
     a = ChannelReference("Aliases/DesiredRPM")
     a.value = 5.0
+    localhost_wait()
     b = DoubleValue(0)
     b.value = a.value
     return b.value
@@ -148,6 +151,7 @@ def channel_ref_array_setter():
 def channel_ref_array_return():
     a = VectorChannelReference("Targets/Controller/Simulation Models/Models/Engine Demo/Parameters/a")
     a[0].value = 5.0
+    localhost_wait()
     return a[0].value
 
 
@@ -155,6 +159,7 @@ def channel_ref_array_return():
 def channel_ref_array_validate_getter():
     a = VectorChannelReference("Targets/Controller/Simulation Models/Models/Engine Demo/Parameters/a")
     a[3].value = 5.0
+    localhost_wait()
     b = DoubleValue(0)
     b.value = a[3].value
     return b.value

@@ -3,6 +3,7 @@ import sys
 from niveristand import decorators, RealTimeSequence
 from niveristand.clientapi.datatypes import BooleanValue, ChannelReference, DoubleValue, I32Value
 from niveristand.exceptions import TranslateError, VeristandError
+from niveristand.library.builtins import localhost_wait
 import pytest
 from testutilities import rtseqrunner, validation
 
@@ -227,6 +228,7 @@ def notequal_to_channelref():
     a = BooleanValue(False)
     b = ChannelReference("Aliases/DesiredRPM")
     b.value = 5.0
+    localhost_wait()
     a.value = 1 != b.value
     return a.value
 

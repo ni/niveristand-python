@@ -1,8 +1,8 @@
 import sys
-
 from niveristand import decorators, RealTimeSequence
 from niveristand.clientapi.datatypes import ChannelReference, DoubleValue, I32Value
 from niveristand.exceptions import TranslateError, VeristandError
+from niveristand.library.builtins import localhost_wait
 import pytest
 from testutilities import rtseqrunner, validation
 
@@ -190,6 +190,7 @@ def add_to_channelref():
     a = DoubleValue(0)
     b = ChannelReference("Aliases/DesiredRPM")
     b.value = 5.0
+    localhost_wait()
     a.value = 1 + b.value
     return a.value
 
@@ -272,6 +273,7 @@ def aug_add_to_channelref():
     a = DoubleValue(1)
     b = ChannelReference("Aliases/DesiredRPM")
     b.value = 5.0
+    localhost_wait()
     a.value += b.value
     return a.value
 

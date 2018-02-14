@@ -1,7 +1,8 @@
 import os
 
 from niveristand import internal
-from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import Expression  # noqa: E501, I100 We need these C# imports to be out of order.
+from NationalInstruments.VeriStand.ClientAPI import Factory  # noqa: E501, I100 We need these C# imports to be out of order.
+from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import Expression
 from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import ForEachLoop
 from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import ForLoop
 from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import IfElse
@@ -16,6 +17,9 @@ from System.IO import IOException
 
 
 internal.dummy()
+
+factory = None
+workspace = None
 
 
 def add_local_variable(rt_seq, name, value):
@@ -84,6 +88,16 @@ def add_return_variable(rtseq, name, default_value):
     return name
 
 
+def get_channel_value(name):
+    value = 0.0
+    err, value = _get_workspace().GetSingleChannelValue(name, value)
+    return value
+
+
+def set_channel_value(name, value):
+    _get_workspace().SetSingleChannelValue(name, value)
+
+
 def save_real_time_sequence(rtseq, filepath):
     try:
         rtseq.SaveSequence(os.path.join(filepath))
@@ -105,3 +119,17 @@ def _create_unique_lv_name(name):
 
 def to_channel_ref_name(name):
     return "ch_" + name
+
+
+def _get_factory():
+    global factory
+    if not factory:
+        factory = Factory()
+    return factory
+
+
+def _get_workspace():
+    global workspace
+    if not workspace:
+        workspace = _get_factory().GetIWorkspace2()
+    return workspace
