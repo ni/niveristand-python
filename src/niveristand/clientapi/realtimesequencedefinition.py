@@ -10,6 +10,7 @@ from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import LocalDec
 from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import Multitask
 from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import RealTimeSequence
 from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import ReturnDeclaration
+from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import StopTask
 from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import Task
 from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import WhileLoop
 from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import Yield
@@ -103,6 +104,10 @@ def get_channel_size(name):
     err, node_info_list = _get_workspace().GetSystemNodeChannelList("", node_info_list)
     channel_node_info = _get_channel_node_info(name, node_info_list)
     return channel_node_info.ChannelRowDimension * channel_node_info.ChannelColumnDimension
+
+
+def add_stop_task(block, taskname):
+    block.AddStatement(StopTask(taskname))
 
 
 def save_real_time_sequence(rtseq, filepath):

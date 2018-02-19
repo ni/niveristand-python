@@ -18,3 +18,7 @@ def task(mt):
 
 def nivs_yield():
     pass
+
+
+def stop_task():
+    pass
