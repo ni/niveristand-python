@@ -98,6 +98,13 @@ def set_channel_value(name, value):
     _get_workspace().SetSingleChannelValue(name, value)
 
 
+def get_channel_size(name):
+    node_info_list = None
+    err, node_info_list = _get_workspace().GetSystemNodeChannelList("", node_info_list)
+    channel_node_info = _get_channel_node_info(name, node_info_list)
+    return channel_node_info.ChannelRowDimension * channel_node_info.ChannelColumnDimension
+
+
 def save_real_time_sequence(rtseq, filepath):
     try:
         rtseq.SaveSequence(os.path.join(filepath))
@@ -133,3 +140,9 @@ def _get_workspace():
     if not workspace:
         workspace = _get_factory().GetIWorkspace2()
     return workspace
+
+
+def _get_channel_node_info(name, node_info_list):
+    for channel in node_info_list:
+        if channel.FullPath == name:
+            return channel

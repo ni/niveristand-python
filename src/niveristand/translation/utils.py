@@ -4,6 +4,7 @@ import sys
 from niveristand import errormessages
 from niveristand import exceptions
 from niveristand.clientapi import datatypes
+from niveristand.clientapi import realtimesequencedefinition
 from niveristand.clientapi.datatypes import rtprimitives
 from niveristand.exceptions import TranslateError
 from niveristand.translation import symbols
@@ -23,7 +24,11 @@ def get_value_from_node(node, resources):
         if rtprimitives.is_supported_data_type(node_id):
             datatype = rtprimitives.get_class_by_name(node.func.id)
             if rtprimitives.is_channel_ref_type(datatype.__name__):
-                datavalue = 0
+                channel_size = realtimesequencedefinition.get_channel_size(node.args[0].s)
+                if channel_size == 1:
+                    datavalue = 0.0
+                else:
+                    datavalue = [0] * channel_size
             elif type(node.args[0]) in (ast.Num, ast.UnaryOp):
                 datavalue = get_element_value(node.args[0])
             elif type(node.args[0]) is ast.Name:
