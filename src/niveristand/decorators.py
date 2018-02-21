@@ -2,12 +2,29 @@ from functools import wraps
 import inspect
 from niveristand.clientapi.datatypes import DataType
 from niveristand.clientapi.datatypes import rtprimitives
+from niveristand.exceptions import StopTaskException
+from niveristand.library.tasks import get_scheduler, nivs_yield
 
 rt_seq_mode_id = '__rtseq_mode__'
 
 
 def nivs_rt_sequence(func):
-    return _wrap_helper(func, None)
+    @wraps(func)
+    def ret_func(*args, **kwargs):
+        is_top_level = False
+        task = get_scheduler().try_get_task_for_curr_thread()
+        if task is None:
+            is_top_level = True
+            this_task = get_scheduler().create_task_for_curr_thread()
+            get_scheduler().register_task(this_task)
+        retval = func(*args, **kwargs)
+        if is_top_level:
+            get_scheduler().get_task_for_curr_thread().mark_stopped()
+            nivs_yield()
+        return retval
+
+    _set_rtseq_attrs(func, ret_func)
+    return ret_func
 
 
 class NivsParam:
@@ -19,18 +36,14 @@ class NivsParam:
         self.default_elem = default_elem
         self.by_value = by_value
 
-    def __call__(self, f):
-        return _wrap_helper(f, self)
+    def __call__(self, func):
+        @wraps(func)
+        def ret_func(*args, **kwargs):
+            args = _reconstruct_args(func, args, self)
+            return func(*args, **kwargs)
 
-
-def _wrap_helper(func, param):
-    @wraps(func)
-    def ret_func(*args, **kwargs):
-        args = _reconstruct_args(func, args, param)
-        return func(*args, **kwargs)
-
-    _set_rtseq_attrs(func, ret_func)
-    return ret_func
+        _set_rtseq_attrs(func, ret_func)
+        return ret_func
 
 
 def _set_rtseq_attrs(func, ret_func):
@@ -55,3 +68,27 @@ def _reconstruct_args(f, args, new_param):
             value = args[idx]
         new_args[idx] = datatype(value)
     return tuple(new_args)
+
+
+def task(mt):
+    def _add_task_to_list(func):
+
+        @wraps(func)
+        def _internal_task(task_info):
+            # all tasks start waiting for their turn from the scheduler.
+            task_info.wait_for_turn()
+            try:
+                return func()
+            except StopTaskException:
+                pass
+            finally:
+                # if the task was stopped or it finished execution mark it stopped, then yield.
+                # It won't get scheduled again, and the thread will be marked finished.
+                task_info.mark_stopped()
+                nivs_yield()
+
+        mt.add_func(_internal_task)
+        # return the original function, since we already added the wrapped one to the mt.
+        # this allows the user to call it normally if they choose outside an mt context.
+        return func
+    return _add_task_to_list

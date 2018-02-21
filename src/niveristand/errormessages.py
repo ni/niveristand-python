@@ -33,3 +33,5 @@ return_not_supported_in_try_finally = "TODOMSG: return statement not supported i
 try_only_in_top_level_func = "TODOMSG: the use of try is not allowed in this context. Use try/finally only in the top" \
                              "level function."
 invalid_taskname_for_stop_task = "TODOMSG: the task name provided is invalid."
+unregistered_thread = "TODOMSG: unregistered thread found"
+reregister_thread = "TODOMSG: thread tried to register twice"

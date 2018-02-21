@@ -15,3 +15,7 @@ class VeristandNotImplementedError(VeristandError):
         """Throw Generic exception for things that are not implemented yet."""
         self.message = "Not Implemented"
         super(VeristandNotImplementedError, self).__init__(self.message)
+
+
+class StopTaskException(Exception):
+    pass

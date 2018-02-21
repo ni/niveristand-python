@@ -12,6 +12,6 @@ def test_validate(testmodule):
     for list in lists:
         for item in list:
             final_list.append(item[0].__name__)
-    not_assigned = [f for f in funcs if f not in final_list]
+    not_assigned = [f for f in funcs if f not in final_list and not f.startswith('_')]
     assert not_assigned == [], "Test " + not_assigned.__str__() + " in " + testmodule.__name__ \
                                + " is not added to any list."
