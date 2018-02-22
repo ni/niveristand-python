@@ -356,6 +356,9 @@ class VectorChannelReference(ArrayType):
     def _to_data_value(self, value):
         return ClientApiDoubleValueArray(value)
 
+    def __getitem__(self, key):
+        raise nivsexceptions.VeristandNotImplementedError()
+
 
 class BooleanValue(DataType):
     def _to_data_value(self, value):

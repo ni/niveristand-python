@@ -106,6 +106,17 @@ def get_channel_size(name):
     return channel_node_info.ChannelRowDimension * channel_node_info.ChannelColumnDimension
 
 
+def get_vector_channel_value(name):
+    value = []
+    row_dim = col_dim = 0
+    err, row_dim, col_dim, value = _get_workspace().GetChannelVectorValues(name, row_dim, col_dim, value)
+    return value
+
+
+def set_vector_channel_value(name, value):
+    _get_workspace().SetChannelVectorValues(name, value)
+
+
 def add_stop_task(block, taskname):
     block.AddStatement(StopTask(taskname))
 
