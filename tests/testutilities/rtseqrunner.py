@@ -16,12 +16,12 @@ def _check_can_run_local():
         pytest.skip("RealTimeSequenceRunner assembly not present.")
 
 
-def run_rtseq_local(filepath, channel_names=[], channel_values=[]):
+def run_rtseq_local(filepath, channel_names=[], channel_values=[], deltat=1):
     _check_can_run_local()
     clr.AddReference(rtseq_dll_path)
     from NationalInstruments.VeriStand.RealTimeSequenceUtilities import RealTimeSequenceRunner
 
-    res = RealTimeSequenceRunner.Run(filepath, channel_names, channel_values)
+    res = RealTimeSequenceRunner.Run(filepath, channel_names, channel_values, float(deltat))
     return res
 
 
@@ -36,7 +36,7 @@ def assert_run_python_equals_rtseq(func, expected):
     assert rtseq_result.Value == py_result
 
 
-def run_rtseq_in_VM(func):
+def run_rtseq_in_VM(func, deltat=1):
     filename = realtimesequencetools.save_py_as_rtseq(func, None)
-    rtseq_result = run_rtseq_local(filename)
+    rtseq_result = run_rtseq_local(filename, deltat=deltat)
     return rtseq_result.Value

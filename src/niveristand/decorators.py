@@ -1,8 +1,8 @@
 from functools import wraps
 import inspect
+from niveristand import errormessages, exceptions
 from niveristand.clientapi.datatypes import DataType
 from niveristand.clientapi.datatypes import rtprimitives
-from niveristand.exceptions import StopTaskException
 from niveristand.library.tasks import get_scheduler, nivs_yield
 
 rt_seq_mode_id = '__rtseq_mode__'
@@ -58,15 +58,20 @@ def _reconstruct_args(f, args, new_param):
     new_args = list(args)
     arg_spec = inspect.getargspec(real_func)[0]
 
-    if new_param is not None and new_param.param_name in arg_spec and new_param.by_value:
+    if new_param is not None and new_param.param_name in arg_spec:
         idx = arg_spec.index(new_param.param_name)
         datatype_name = new_param.default_elem.__class__.__name__
         datatype = rtprimitives.get_class_by_name(datatype_name)
-        if isinstance(args[idx], DataType):
-            value = args[idx].value
+        if new_param.by_value:
+            if isinstance(args[idx], DataType):
+                value = args[idx].value
+            else:
+                value = args[idx]
+            new_args[idx] = datatype(value)
         else:
-            value = args[idx]
-        new_args[idx] = datatype(value)
+            if not isinstance(args[idx], DataType):
+                raise exceptions.VeristandError(errormessages.ref_param_not_ref)
+
     return tuple(new_args)
 
 
@@ -79,7 +84,7 @@ def task(mt):
             task_info.wait_for_turn()
             try:
                 return func()
-            except StopTaskException:
+            except exceptions.StopTaskException:
                 pass
             finally:
                 # if the task was stopped or it finished execution mark it stopped, then yield.

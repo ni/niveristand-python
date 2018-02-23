@@ -35,3 +35,4 @@ try_only_in_top_level_func = "TODOMSG: the use of try is not allowed in this con
 invalid_taskname_for_stop_task = "TODOMSG: the task name provided is invalid."
 unregistered_thread = "TODOMSG: unregistered thread found"
 reregister_thread = "TODOMSG: thread tried to register twice"
+ref_param_not_ref = "TODOMSG: a parameter marked as pass by reference was not of valid object type."

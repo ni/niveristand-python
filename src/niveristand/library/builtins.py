@@ -43,7 +43,7 @@ def iteration():
 
 
 def quotient(x, y):
-    raise VeristandNotImplementedError()
+    return x // y
 
 
 def recip(x):
@@ -55,19 +55,19 @@ def rem(x, y):
 
 
 def seqtime():
-    raise VeristandNotImplementedError()
+    return time.time()
 
 
 def seqtimeus():
-    raise VeristandNotImplementedError()
+    return int(time.time() * 10 ** 6)
 
 
 def tickcountms():
-    raise VeristandNotImplementedError()
+    return int(time.clock() * 10 ** 3)
 
 
 def tickcountus():
-    raise VeristandNotImplementedError()
+    return int(time.clock() * 10 ** 6)
 
 
 def localhost_wait(amount=0.1):
