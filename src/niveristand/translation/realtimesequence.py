@@ -37,9 +37,9 @@ class RealTimeSequence:
             self._path = tempfile.mkdtemp()
 
         name = self._build_file_name()
-        rtseqapi.save_real_time_sequence(self._rtseq, name)
         self._rtseqpkg.save_referenced(self._path, self)
         self._update_references()
+        rtseqapi.save_real_time_sequence(self._rtseq, name)
         return name
 
     def _transform(self):
