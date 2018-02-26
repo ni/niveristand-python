@@ -123,3 +123,15 @@ def test_double_array_return_type():
     assert ret[0].value == 0.0
     assert isinstance(ret[3], DoubleValue)
     assert ret[3].value == 3.0
+
+
+def test_a_value_value_assignment():
+    testfunc = testfuncs.a_value_value_assignment
+    with pytest.raises(exceptions.TranslateError):
+        RealTimeSequence(testfunc)
+
+
+def test_a_value_value_assign_to():
+    testfunc = testfuncs.a_value_value_assign_to
+    with pytest.raises(exceptions.TranslateError):
+        RealTimeSequence(testfunc)

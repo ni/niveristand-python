@@ -57,7 +57,7 @@ def _decorator_to_arg(node, resources):
     if 'NameConstant' in dir(ast):
         valid_types.append(ast.NameConstant)
     if isinstance(node.args[2], tuple(valid_types)):
-        by_value_str = utils.generic_ast_node_transform(node.args[2], resources)
+        by_value_str = utils.get_variable_name_from_node(node.args[2])
         by_value_str = getattr(decorators.NivsParam, by_value_str.split('.')[-1], by_value_str)
         by_value = BooleanValue(by_value_str).value
 

@@ -163,3 +163,17 @@ def channel_ref_array_validate_getter():
     b = DoubleValue(0)
     b.value = a[3].value
     return b.value
+
+
+@decorators.nivs_rt_sequence
+def a_value_value_assignment():
+    a = DoubleValue(0)
+    a.value = a.value.value
+    return a.value
+
+
+@decorators.nivs_rt_sequence
+def a_value_value_assign_to():
+    a = DoubleValue(0)
+    a.value.value = 1
+    return a.value

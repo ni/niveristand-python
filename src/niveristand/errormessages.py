@@ -41,3 +41,4 @@ invalid_error_code_for_generate_error = "TODOMSG: invalid error code provided. P
 invalid_message_for_generate_error = "TODOMSG: invalid message provided. Provide a string message."
 invalid_action_for_generate_error = "TODOMSG: invalid error action provided. Provide an error action from ErrorAction" \
                                     "enum."
+unknown_identifier = "TODOMSG: undefined identifier '%s' found."
