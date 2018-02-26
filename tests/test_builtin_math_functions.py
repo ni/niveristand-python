@@ -4,7 +4,7 @@ import sys
 from niveristand import decorators, exceptions, RealTimeSequence
 from niveristand.clientapi.datatypes import BooleanValue, ChannelReference, DoubleValue, I32Value, I64Value, U32Value, \
     U64Value
-from niveristand.library.builtins import localhost_wait
+from niveristand.library.primitives import localhost_wait
 import numpy
 import pytest
 from testutilities import rtseqrunner, validation

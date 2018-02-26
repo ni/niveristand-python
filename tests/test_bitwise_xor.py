@@ -3,7 +3,7 @@ import sys
 from niveristand import decorators, RealTimeSequence
 from niveristand.clientapi.datatypes import BooleanValue, ChannelReference, DoubleValue, I32Value, I64Value
 from niveristand.exceptions import TranslateError, VeristandError
-from niveristand.library.builtins import localhost_wait
+from niveristand.library.primitives import localhost_wait
 import pytest
 from testutilities import rtseqrunner, validation
 

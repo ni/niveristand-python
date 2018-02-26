@@ -72,3 +72,7 @@ def tickcountus():
 
 def localhost_wait(amount=0.1):
     time.sleep(amount)
+
+
+def generate_error(code, message, action):
+    raise NotImplementedError

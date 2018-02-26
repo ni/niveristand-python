@@ -1,8 +1,8 @@
 import sys
 from niveristand import decorators, exceptions, RealTimeSequence
 from niveristand.clientapi.datatypes import BooleanValue, ChannelReference, DoubleValue, DoubleValueArray, I64Value
-from niveristand.library.builtins import abstime, arraysize, clearfault, clearlasterror, deltat, deltatus, fault, fix, \
-    getlasterror, iteration, quotient, recip, rem, seqtime, seqtimeus, tickcountms, tickcountus
+from niveristand.library.primitives import abstime, arraysize, clearfault, clearlasterror, deltat, deltatus, fault, \
+    fix, getlasterror, iteration, quotient, recip, rem, seqtime, seqtimeus, tickcountms, tickcountus
 import pytest
 from testutilities import rtseqrunner, validation
 

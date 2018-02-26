@@ -5,6 +5,7 @@ from NationalInstruments.VeriStand.ClientAPI import Factory  # noqa: E501, I100 
 from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import Expression
 from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import ForEachLoop
 from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import ForLoop
+from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import GenerateError
 from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import IfElse
 from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import LocalDeclaration
 from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import Multitask
@@ -87,6 +88,10 @@ def add_return_variable(rtseq, name, default_value):
     return_declaration = ReturnDeclaration(name, default_value._data_value)
     rtseq.Variables.ReturnType = return_declaration
     return name
+
+
+def add_generate_error(block, code, message, action):
+    block.AddStatement(GenerateError(code, message, action))
 
 
 def get_channel_value(name):

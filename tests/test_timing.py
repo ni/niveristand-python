@@ -2,7 +2,7 @@ import sys
 from niveristand import decorators, RealTimeSequence
 from niveristand.clientapi.datatypes import BooleanValue, DoubleValue, I64Value
 from niveristand.exceptions import VeristandError
-from niveristand.library.builtins import seqtime, tickcountms, tickcountus
+from niveristand.library.primitives import seqtime, tickcountms, tickcountus
 from niveristand.library.tasks import multitask, nivs_yield
 from niveristand.library.timing import wait, wait_until_next_ms_multiple, wait_until_next_us_multiple, \
     wait_until_settled

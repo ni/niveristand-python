@@ -36,3 +36,8 @@ invalid_taskname_for_stop_task = "TODOMSG: the task name provided is invalid."
 unregistered_thread = "TODOMSG: unregistered thread found"
 reregister_thread = "TODOMSG: thread tried to register twice"
 ref_param_not_ref = "TODOMSG: a parameter marked as pass by reference was not of valid object type."
+invalid_error_code_for_generate_error = "TODOMSG: invalid error code provided. Provide an integer number as an error " \
+                                        "code. "
+invalid_message_for_generate_error = "TODOMSG: invalid message provided. Provide a string message."
+invalid_action_for_generate_error = "TODOMSG: invalid error action provided. Provide an error action from ErrorAction" \
+                                    "enum."

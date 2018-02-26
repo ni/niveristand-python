@@ -1,6 +1,6 @@
 from niveristand import decorators
 from niveristand.clientapi.datatypes import BooleanValue, DoubleValue, I64Value
-from niveristand.library.builtins import quotient, seqtime, tickcountms, tickcountus
+from niveristand.library.primitives import quotient, seqtime, tickcountms, tickcountus
 from niveristand.library.tasks import nivs_yield
 
 

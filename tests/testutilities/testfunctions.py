@@ -3,7 +3,7 @@ from math import pi
 from niveristand import decorators
 from niveristand.clientapi.datatypes import BooleanValue, BooleanValueArray, ChannelReference, DoubleValue, \
     DoubleValueArray, I32Value, VectorChannelReference
-from niveristand.library.builtins import localhost_wait
+from niveristand.library.primitives import localhost_wait
 
 
 def func_without_decorator():
