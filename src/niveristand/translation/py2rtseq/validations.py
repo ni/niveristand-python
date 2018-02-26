@@ -19,3 +19,7 @@ def check_if_any_in_block(ast_node, block):
     if any([isinstance(body_stmt, ast_node) for body_stmt in block]):
         return True
     return False
+
+
+def looks_like_doc_block(node):
+    return isinstance(node, ast.Expr) and isinstance(node.value, ast.Str)

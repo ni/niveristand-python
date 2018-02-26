@@ -8,6 +8,8 @@ from niveristand.translation.py2rtseq import validations
 
 
 def functiondef_transformer(node, resources):
+    if validations.looks_like_doc_block(node.body[0]):
+        node.body = node.body[1:]
     _validate_restrictions(node)
     for param in node.args.args:
         p = _init_args(param, resources)
