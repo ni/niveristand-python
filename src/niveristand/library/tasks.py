@@ -1,5 +1,6 @@
 from collections import deque
 from contextlib import contextmanager
+from enum import Enum
 import inspect
 import logging
 from threading import current_thread, Event, Thread
@@ -61,6 +62,12 @@ class _MultiTaskInfo:
 
 
 class _Task:
+
+    class _TaskState(Enum):
+        Running = 0
+        Stopping = 1
+        Stopped = 2
+
     def __init__(self, func, parent=None):
         if inspect.isfunction(func) or inspect.ismethod(func):
             self._task_name = func.__name__
@@ -71,7 +78,7 @@ class _Task:
         else:
             self._thread = current_thread()
             self._task_name = str(func)
-        self._stopped = False
+        self._state = _Task._TaskState.Running
         self._state_signal = Event()
         self._parent = parent
 
@@ -87,10 +94,17 @@ class _Task:
         return self._thread
 
     def is_stopped(self):
-        return self._stopped
+        return self._state == _Task._TaskState.Stopped
+
+    def is_stopping(self):
+        return self._state == _Task._TaskState.Stopping
 
     def wait_for_turn(self):
-        return self._state_signal.wait()
+        result = self._state_signal.wait()
+        if self.is_stopping():
+            self.mark_stopped()
+            raise exceptions.StopTaskException
+        return result
 
     def signal_to_run(self):
         self._state_signal.set()
@@ -99,7 +113,10 @@ class _Task:
         self._state_signal.clear()
 
     def mark_stopped(self):
-        self._stopped = True
+        self._state = _Task._TaskState.Stopped
+
+    def stop_task(self):
+        self._state = _Task._TaskState.Stopping
 
     def __repr__(self):
         return "Task:name={} thread={}".format(self._task_name, str(self._thread))
@@ -181,6 +198,15 @@ class _Scheduler:
             task = None
         return task
 
+    def get_task_by_name(self, taskname):
+        found_tasks = [task for task in self._task_dict.values() if task._task_name == taskname]
+        assert len(found_tasks) <= 1
+        if found_tasks:
+            return found_tasks[0]
+        return None
 
-def stop_task():
-    pass
+
+def stop_task(taskname):
+    task = get_scheduler().get_task_by_name(taskname.__name__)
+    if task:
+        task.stop_task()

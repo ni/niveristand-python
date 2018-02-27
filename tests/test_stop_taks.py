@@ -25,6 +25,7 @@ def stop_task_simple():
     with multitask() as mt:
         @decorators.task(mt)
         def f1():
+            nivs_yield()
             pass
 
         @decorators.task(mt)
@@ -170,7 +171,6 @@ def test_transform(func_name, params, expected_result):
     RealTimeSequence(func_name)
 
 
-@pytest.mark.skip
 @pytest.mark.parametrize("func_name, params, expected_result", run_tests, ids=idfunc)
 def test_runpy(func_name, params, expected_result):
     actual = func_name(*params)
