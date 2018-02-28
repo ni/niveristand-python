@@ -42,3 +42,7 @@ invalid_message_for_generate_error = "TODOMSG: invalid message provided. Provide
 invalid_action_for_generate_error = "TODOMSG: invalid error action provided. Provide an error action from ErrorAction" \
                                     "enum."
 unknown_identifier = "TODOMSG: undefined identifier '%s' found."
+run_without_valid_sequence = "TODOMSG: no valid rtseq to run"
+invalid_path_for_sequence = "TODOMSG: the path provided is not a valid rt sequence path"
+run_aborted = "TODOMSG: the real-time sequence was stopped or aborted during run"
+run_failed = "TODOMSG: the real-time sequence failed"

@@ -19,3 +19,15 @@ class VeristandNotImplementedError(VeristandError):
 
 class StopTaskException(Exception):
     pass
+
+
+class RunError(VeristandError):
+    pass
+
+
+class RunFailedError(RunError):
+    pass
+
+
+class RunAbortedError(RunError):
+    pass

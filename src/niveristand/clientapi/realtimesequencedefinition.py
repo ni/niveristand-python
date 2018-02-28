@@ -1,7 +1,8 @@
 import os
-
 from niveristand import internal
+from niveristand.clientapi import stimulusprofileapi
 from NationalInstruments.VeriStand.ClientAPI import Factory  # noqa: E501, I100 We need these C# imports to be out of order.
+from NationalInstruments.VeriStand.ClientAPI import SequenceCallInfo
 from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import Expression
 from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import ForEachLoop
 from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import ForLoop
@@ -167,3 +168,17 @@ def _get_channel_node_info(name, node_info_list):
     for channel in node_info_list:
         if channel.FullPath == name:
             return channel
+
+
+def run_rt_sequence(wait_to_complete, rt_sequence_path, timeout_within_each_step):
+    seq_call_info = SequenceCallInfo(rt_sequence_path, None, [], False, timeout_within_each_step)
+    session = _get_factory().GetIStimulusProfileSession("localhost", rt_sequence_path, [seq_call_info], "")
+    sequence_control = session[os.path.splitext(os.path.basename(rt_sequence_path))[0] + ":1"]
+    state = stimulusprofileapi.StimulusProfileState()
+    sequence_control.SequenceComplete += state.sequence_complete_event_handler
+    session.Deploy(True, None, None)
+    if wait_to_complete:
+        state.wait_for_result()
+        return state
+    else:
+        return state
