@@ -2,6 +2,7 @@ import sys
 from niveristand import decorators, RealTimeSequence
 from niveristand.clientapi.datatypes import DoubleValue, DoubleValueArray
 from niveristand.exceptions import TranslateError, VeristandError
+from niveristand.library.tasks import multitask, nivs_yield
 import pytest
 from testutilities import rtseqrunner, validation
 
@@ -158,6 +159,62 @@ def try_with_orelse():
     return a.value
 
 
+@decorators.nivs_rt_sequence
+def try_in_task():
+    a = DoubleValue(0)
+    with multitask() as mt:
+        @decorators.task(mt)
+        def f1():
+            try:
+                a.value += 1
+            finally:
+                a.value += 1
+
+        @decorators.task(mt)
+        def f2():
+            nivs_yield()
+    return a.value
+
+
+@decorators.nivs_rt_sequence
+def try_in_multitask():
+    a = DoubleValue(0)
+    with multitask() as mt:
+        try:
+            a.value = 5
+        finally:
+            a.value += 1
+
+        @decorators.task(mt)
+        def f1():
+            try:
+                a.value += 1
+            finally:
+                a.value += 1
+
+        @decorators.task(mt)
+        def f2():
+            nivs_yield()
+    return a.value
+
+
+@decorators.nivs_rt_sequence
+def try_in_multitask1():
+    a = DoubleValue(0)
+    with multitask() as mt:
+        try:
+            @decorators.task(mt)
+            def f1():
+                pass
+        finally:
+            a.value += 1
+
+        @decorators.task(mt)
+        def f2():
+            nivs_yield()
+    return a.value
+
+
 run_tests = [
     (try_simple, (), 5),
     (try_complex_body, (), 1),
@@ -180,6 +237,9 @@ fail_transform_tests = [
     (try_in_for, (), TranslateError),
     (try_with_except, (), TranslateError),
     (try_with_orelse, (), TranslateError),
+    (try_in_task, (), TranslateError),
+    (try_in_multitask, (), TranslateError),
+    (try_in_multitask1, (), TranslateError),
 ]
 
 
@@ -215,6 +275,8 @@ def test_failures(func_name, params, expected_result):
                     str(e.__class__) + ' while expected was: ' + expected_result.__name__)
     except Exception as exception:
         pytest.fail('ExpectedException not raised: ' + exception)
+    else:
+        pytest.fail('No exception raised')
 
 
 @pytest.mark.parametrize("func_name, params, reason", skip_tests, ids=idfunc)

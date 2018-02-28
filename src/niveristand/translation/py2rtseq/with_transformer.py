@@ -3,6 +3,7 @@ from niveristand import decorators, errormessages, exceptions
 from niveristand.clientapi import realtimesequencedefinition as rtseqapi
 from niveristand.library import tasks
 from niveristand.translation import utils
+from niveristand.translation.py2rtseq import validations
 
 
 def with_transformer(node, resources):
@@ -19,6 +20,7 @@ def with_transformer(node, resources):
 
 
 def _validate_multitask(node):
+    validations.check_try_in_node_body(node.body)
     if any(isinstance(stmt, ast.Return) for stmt in node.body):
         raise exceptions.TranslateError(errormessages.return_unsupported_unless_last)
     if any(not isinstance(stmt, ast.FunctionDef) for stmt in node.body):
@@ -44,6 +46,7 @@ def _validate_multitask(node):
 
 def _validate_task(node, mt_name):
     body = node.body
+    validations.check_try_in_node_body(body)
     if any(isinstance(stmt, ast.FunctionDef) for stmt in body):
         raise exceptions.TranslateError(errormessages.invalid_function_definition)
     if any(isinstance(stmt, ast.Return) for stmt in body):
