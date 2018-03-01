@@ -1,8 +1,9 @@
 import sys
 from niveristand import decorators, RealTimeSequence
+from niveristand import realtimesequencetools
 from niveristand.clientapi.datatypes import DoubleValue, I32Value
 from niveristand.clientapi.realtimesequencedefinitionapi.erroraction import ErrorAction
-from niveristand.exceptions import TranslateError, VeristandError
+from niveristand.exceptions import RunAbortedError, RunFailedError, TranslateError, VeristandError
 from niveristand.library.primitives import generate_error
 from niveristand.library.tasks import multitask, nivs_yield
 import pytest
@@ -205,6 +206,22 @@ fail_transform_tests = [
     (invalid_error_action, (), TranslateError),
 ]
 
+run_as_rts_tests = [
+    (generate_error_simple, (), RunFailedError),
+    (generate_continue, (), RunFailedError),
+    (generate_stop, (), RunAbortedError),
+    (generate_abort, (), RunAbortedError),
+    (generate_continue_mt, (), RunFailedError),
+    (generate_stop_mt, (), RunAbortedError),
+    (generate_abort_mt, (), RunAbortedError),
+    (generate_continue_subroutine, (), RunFailedError),
+    (generate_continue_subroutine1, (), RunFailedError),
+    (generate_stop_subroutine, (), RunAbortedError),
+    (generate_stop_subroutine1, (), RunAbortedError),
+    (generate_abort_subroutine, (), RunAbortedError),
+    (generate_abort_subroutine1, (), RunAbortedError),
+]
+
 
 def idfunc(val):
     return val.__name__
@@ -220,6 +237,19 @@ def test_transform(func_name, params, expected_result):
 def test_runpy(func_name, params, expected_result):
     actual = func_name(*params)
     assert actual == expected_result
+
+
+@pytest.mark.parametrize("func_name, params, expected_result", run_as_rts_tests, ids=idfunc)
+def test_run_py_as_rts(func_name, params, expected_result):
+    try:
+        realtimesequencetools.run_py_as_rtseq(func_name)
+    except expected_result:
+        pass
+    except VeristandError as e:
+        pytest.fail('Unexpected exception raised:' +
+                    str(e.__class__) + ' while expected was: ' + expected_result.__name__)
+    except Exception as exception:
+        pytest.fail('ExpectedException not raised: ' + str(exception))
 
 
 @pytest.mark.parametrize("func_name, params, expected_result", run_tests, ids=idfunc)

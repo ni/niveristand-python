@@ -15,10 +15,11 @@ class StimulusProfileState(object):
         Aborted = 0
         Failed = 1
 
-    def __init__(self):
+    def __init__(self, session):
         self.ret_val = None
         self.rt_sequence_completed = False
         self.completion_state = None
+        self.session = session
 
     def sequence_complete_event_handler(self, source, args):
         data_value = args.ReturnValue

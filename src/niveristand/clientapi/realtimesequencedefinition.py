@@ -170,15 +170,11 @@ def _get_channel_node_info(name, node_info_list):
             return channel
 
 
-def run_rt_sequence(wait_to_complete, rt_sequence_path, timeout_within_each_step):
+def run_rt_sequence(rt_sequence_path, timeout_within_each_step):
     seq_call_info = SequenceCallInfo(rt_sequence_path, None, [], False, timeout_within_each_step)
     session = _get_factory().GetIStimulusProfileSession("localhost", rt_sequence_path, [seq_call_info], "")
     sequence_control = session[os.path.splitext(os.path.basename(rt_sequence_path))[0] + ":1"]
-    state = stimulusprofileapi.StimulusProfileState()
+    state = stimulusprofileapi.StimulusProfileState(session)
     sequence_control.SequenceComplete += state.sequence_complete_event_handler
     session.Deploy(True, None, None)
-    if wait_to_complete:
-        state.wait_for_result()
-        return state
-    else:
-        return state
+    return state

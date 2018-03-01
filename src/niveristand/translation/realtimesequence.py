@@ -28,14 +28,14 @@ class RealTimeSequence:
         # finally, initialize the transform
         self._transform()
 
-    def run(self, wait_to_complete=True, timeout_within_each_step=100000):
+    def run(self, timeout_within_each_step=100000):
         if self._rtseq is None:
             raise VeristandError(errormessages.run_without_valid_sequence)
         if self._path is None:
             raise VeristandError(errormessages.invalid_path_for_sequence)
 
         name = self._build_file_name()
-        return rtseqapi.run_rt_sequence(wait_to_complete, name, timeout_within_each_step)
+        return rtseqapi.run_rt_sequence(name, timeout_within_each_step)
 
     def save(self, path=None):
         if self._rtseq is None:

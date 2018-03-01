@@ -1,5 +1,6 @@
 import sys
 from niveristand import decorators, exceptions, RealTimeSequence
+from niveristand import realtimesequencetools
 from niveristand.clientapi.datatypes import BooleanValue, ChannelReference, DoubleValue, DoubleValueArray, I64Value
 from niveristand.library.primitives import abstime, arraysize, clearfault, clearlasterror, deltat, deltatus, fault, \
     fix, getlasterror, iteration, quotient, recip, rem, seqtime, seqtimeus, tickcountms, tickcountus
@@ -133,12 +134,11 @@ def call_tickcountus():
     return a.value
 
 
-run_tests = [
+run_py_as_rts_tests = [
     (call_abstime, (), None),
     (call_arraysize, (), 3),
-    (call_deltat, (), 1),  # technically we're always in the first second
-    (call_deltatus, (), 10 ** 6),  # one second, in microseconds
-    (call_fault, (), 1001),
+    (call_deltat, (), 0.01),  # it is 0.01 for engine demo
+    (call_deltatus, (), 10 ** 4),  # 0.01 seconds in microseconds
     (call_fix, (), 4),
     (call_iteration, (), 0),
     (call_quotient, (), 120),
@@ -148,6 +148,10 @@ run_tests = [
     (call_seqtimeus, (), 0),  # time has not run long enough in the sequence
     (call_tickcountms, (), None),
     (call_tickcountus, (), None),
+]
+
+run_tests = run_py_as_rts_tests + [
+    (call_fault, (), 1001),
 ]
 
 skip_tests = [
@@ -175,9 +179,20 @@ def test_runpy(func_name, params, expected_result):
     assert actual == expected_result
 
 
+@pytest.mark.parametrize("func_name, params, expected_result", run_py_as_rts_tests, ids=idfunc)
+def test_run_py_as_rts(func_name, params, expected_result):
+    actual = realtimesequencetools.run_py_as_rtseq(func_name)
+    # some of these functions are time sensitive so we can't know what to expect
+    # so if the expected result is None we just check that a non-zero value got returned
+    if expected_result is None:
+        assert actual > 0
+    else:
+        assert actual == expected_result
+
+
 @pytest.mark.parametrize("func_name, params, expected_result", run_tests, ids=idfunc)
 def test_run_in_VM(func_name, params, expected_result):
-    actual = rtseqrunner.run_rtseq_in_VM(func_name)
+    actual = rtseqrunner.run_rtseq_in_VM(func_name, 0.01)
     # some of these functions are time sensitive so we can't know what to expect
     # so if the expected result is None we just check that a non-zero value got returned
     if expected_result is None:

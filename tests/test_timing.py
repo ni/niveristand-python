@@ -1,5 +1,6 @@
 import sys
 from niveristand import decorators, RealTimeSequence
+from niveristand import realtimesequencetools
 from niveristand.clientapi.datatypes import BooleanValue, DoubleValue, I64Value
 from niveristand.exceptions import VeristandError
 from niveristand.library.primitives import seqtime, tickcountms, tickcountus
@@ -120,7 +121,7 @@ def wait_until_next_us():
     init.value = tickcountus()
     end.value = wait_until_next_us_multiple(DoubleValue(17000)) - init.value
     # give this one a few us buffer because come on, no way python can do it all that fast
-    if end.value <= 17100 and end.value >= 0:
+    if end.value <= 22000 and end.value >= 0:
         ret.value = True
     return ret.value
 
@@ -210,6 +211,12 @@ def test_transform(func_name, params, expected_result):
 @pytest.mark.parametrize("func_name, params, expected_result", run_tests, ids=idfunc)
 def test_runpy(func_name, params, expected_result):
     actual = func_name(*params)
+    assert actual == expected_result
+
+
+@pytest.mark.parametrize("func_name, params, expected_result", run_tests, ids=idfunc)
+def test_run_py_as_rts(func_name, params, expected_result):
+    actual = realtimesequencetools.run_py_as_rtseq(func_name)
     assert actual == expected_result
 
 

@@ -1,6 +1,7 @@
 import sys
 
 from niveristand import decorators, exceptions, RealTimeSequence
+from niveristand import realtimesequencetools
 from niveristand.clientapi.datatypes import BooleanValue, I32Value
 import pytest
 from testutilities import rtseqrunner, validation
@@ -196,6 +197,12 @@ def test_transform(func_name, params, expected_result):
 @pytest.mark.parametrize("func_name, params, expected_result", run_tests, ids=idfunc)
 def test_runpy(func_name, params, expected_result):
     actual = func_name(*params)
+    assert actual == expected_result
+
+
+@pytest.mark.parametrize("func_name, params, expected_result", run_tests, ids=idfunc)
+def test_run_py_as_rts(func_name, params, expected_result):
+    actual = realtimesequencetools.run_py_as_rtseq(func_name)
     assert actual == expected_result
 
 
