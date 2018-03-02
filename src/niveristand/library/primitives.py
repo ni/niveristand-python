@@ -75,4 +75,14 @@ def localhost_wait(amount=0.1):
 
 
 def generate_error(code, message, action):
-    raise NotImplementedError
+    from niveristand.clientapi.realtimesequencedefinitionapi.erroraction import ErrorAction
+    from niveristand import exceptions
+    from niveristand.library.tasks import get_scheduler
+    assert isinstance(action, ErrorAction)
+    error = exceptions.SequenceError(code, message, action)
+    get_scheduler().get_task_for_curr_thread().error = error
+
+    if action is ErrorAction.ContinueSequenceExecution:
+        return error
+    else:
+        raise error

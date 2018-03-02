@@ -29,8 +29,14 @@ def multitask():
     for task in multitask_info.tasks:
         task.start()
 
+    this_task = get_scheduler().get_task_for_curr_thread()
     while not multitask_info.finished:
+        if this_task.error and this_task.error.is_fatal:
+            for task in multitask_info.tasks:
+                task.stop_task()
         nivs_yield()
+    if this_task.error and this_task.error.is_fatal:
+        raise this_task.error
 
 
 def nivs_yield():
@@ -41,10 +47,11 @@ def nivs_yield():
         task.wait_for_turn()
 
 
-class _MultiTaskInfo:
+class _MultiTaskInfo(object):
     task_id = 0
 
     def __init__(self):
+        self.task = get_scheduler().get_task_for_curr_thread()
         self.tasks = []
 
     def add_func(self, func):
@@ -61,7 +68,7 @@ class _MultiTaskInfo:
         return str(cls.task_id)
 
 
-class _Task:
+class _Task(object):
 
     class _TaskState(Enum):
         Running = 0
@@ -81,6 +88,7 @@ class _Task:
         self._state = _Task._TaskState.Running
         self._state_signal = Event()
         self._parent = parent
+        self._generated_error = None
 
     def start(self):
         self._thread.start()
@@ -116,7 +124,23 @@ class _Task:
         self._state = _Task._TaskState.Stopped
 
     def stop_task(self):
-        self._state = _Task._TaskState.Stopping
+        # only mark a task as stopping if it's running, otherwise we could get into
+        # an infinite loop of going between stopped and stopping.
+        if self._state is _Task._TaskState.Running:
+            self._state = _Task._TaskState.Stopping
+
+    @property
+    def error(self):
+        return self._generated_error
+
+    @error.setter
+    def error(self, error):
+        # cascade errors inside the previous reported error. Only the latest error is reported here, but all are
+        # accessible traversing the chain.
+        error.inner_error = self.error
+        self._generated_error = error
+        if self._parent:
+            self._parent.task.error = error
 
     def __repr__(self):
         return "Task:name={} thread={}".format(self._task_name, str(self._thread))
@@ -125,7 +149,7 @@ class _Task:
         return "Task:name={}".format(self._task_name)
 
 
-class _Scheduler:
+class _Scheduler(object):
     def __init__(self):
         # a dictionary of {threadID:  _Task()}
         self._task_dict = dict()

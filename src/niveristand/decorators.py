@@ -12,15 +12,22 @@ def nivs_rt_sequence(func):
     @wraps(func)
     def ret_func(*args, **kwargs):
         is_top_level = False
-        task = get_scheduler().try_get_task_for_curr_thread()
-        if task is None:
+        this_task = get_scheduler().try_get_task_for_curr_thread()
+        if this_task is None:
             is_top_level = True
             this_task = get_scheduler().create_task_for_curr_thread()
             get_scheduler().register_task(this_task)
-        retval = func(*args, **kwargs)
-        if is_top_level:
-            get_scheduler().get_task_for_curr_thread().mark_stopped()
-            nivs_yield()
+        try:
+            retval = func(*args, **kwargs)
+        except exceptions.SequenceError:
+            # generate error already saved this error in the task, so we can just pass.
+            pass
+        finally:
+            if is_top_level:
+                this_task.mark_stopped()
+                nivs_yield()
+                if this_task.error and this_task.error.should_raise:
+                    raise exceptions.RunError.RunErrorFactory(this_task.error)
         return retval
 
     _set_rtseq_attrs(func, ret_func)
@@ -87,7 +94,7 @@ def task(mt):
             task_info.wait_for_turn()
             try:
                 return func()
-            except exceptions.StopTaskException:
+            except (exceptions.StopTaskException, exceptions.SequenceError):
                 pass
             finally:
                 # if the task was stopped or it finished execution mark it stopped, then yield.
