@@ -26,7 +26,6 @@ _symbols = {
     'hypot': 'hypot',
     'isnan': 'isnan',
     'log1p': 'ln1p',
-    'log': 'log',
     'log10': 'log10',
     'log2': 'log2',
     'max': 'max',

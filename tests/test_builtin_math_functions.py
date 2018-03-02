@@ -273,12 +273,6 @@ def expm1_double():
 
 
 @decorators.nivs_rt_sequence
-def fix_double():
-    # wtf fix is an operator?
-    pass
-
-
-@decorators.nivs_rt_sequence
 def floor_double():
     a = DoubleValue(5.7)
     a.value = floor(a.value)
@@ -303,8 +297,8 @@ def isnan_double():
 
 @decorators.nivs_rt_sequence
 def ln_double():
-    a = DoubleValue(2.71828)
-    a.value = log(a.value)
+    a = DoubleValue(1)
+    a.value = log(exp(a.value))
     return a.value
 
 
@@ -368,18 +362,6 @@ def pow_double():
     b = DoubleValue(3)
     a.value = pow(a.value, b.value)
     return a.value
-
-
-@decorators.nivs_rt_sequence
-def quotient_double():
-    # this is another weird division type I htink
-    pass
-
-
-@decorators.nivs_rt_sequence
-def reciprocal_double():
-    # no reciprocal in python?
-    pass
 
 
 @decorators.nivs_rt_sequence
@@ -458,6 +440,7 @@ run_tests = [
     (hypot_double, (), 5.0),
     (isnan_double, (), False),
     (log10_double, (), 3),
+    (ln_double, (), log(exp(1))),
     (lnp1_double, (), 10),
     (log_double, (), 3),
     (log2_double, (), 10),
@@ -486,10 +469,6 @@ transform_tests = run_tests + [
 
 skip_tests = [
     (abs_variable_boolean, (), "SPE and python treat differently BooleanValue(-5)"),
-    (ln_double, (), "Ln is a special case. Both log and ln in SPE map to log(x) or log(x,y)."),
-    (fix_double, (), "What do we do with these guys?"),
-    (quotient_double, (), "What do we do with these guys?"),
-    (reciprocal_double, (), "What do we do with these guys?"),
 ]
 
 if not sys.version_info > (3, 3):
