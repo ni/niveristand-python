@@ -299,6 +299,11 @@ def boolean_array_invalid_type():
 
 
 @decorators.nivs_rt_sequence
+def boolean_array_invalid_type1():
+    a = BooleanValueArray([True, 'False'])  # noqa: F841 it's ok for this variable to never be used
+
+
+@decorators.nivs_rt_sequence
 def double_array_one_element():
     a = DoubleValueArray([1])  # noqa: F841 it's ok for this variable to never be used
 
@@ -328,6 +333,11 @@ def double_array_type_run():
 @decorators.nivs_rt_sequence
 def double_array_invalid_type():
     a = DoubleValueArray([5.5, 'something'])  # noqa: F841 it's ok for this variable to never be used
+
+
+@decorators.nivs_rt_sequence
+def double_array_invalid_type1():
+    a = DoubleValueArray([5.5, '5.5'])  # noqa: F841 it's ok for this variable to never be used
 
 
 @decorators.nivs_rt_sequence
@@ -363,6 +373,11 @@ def int32_array_invalid_type():
 
 
 @decorators.nivs_rt_sequence
+def int32_array_invalid_type1():
+    a = I32ValueArray([5, '-5'])  # noqa: F841 it's ok for this variable to never be used
+
+
+@decorators.nivs_rt_sequence
 def int64_array_one_element():
     a = I64ValueArray([1])  # noqa: F841 it's ok for this variable to never be used
 
@@ -395,6 +410,11 @@ def int64_array_invalid_type():
 
 
 @decorators.nivs_rt_sequence
+def int64_array_invalid_type1():
+    a = I64ValueArray([5, '-5'])  # noqa: F841 it's ok for this variable to never be used
+
+
+@decorators.nivs_rt_sequence
 def uint32_array_one_element():
     a = U32ValueArray([1])  # noqa: F841 it's ok for this variable to never be used
 
@@ -424,6 +444,11 @@ def uint32_array_type_run():
 @decorators.nivs_rt_sequence
 def uint32_array_invalid_type():
     a = U32ValueArray([5, 'something'])  # noqa: F841 it's ok for this variable to never be used
+
+
+@decorators.nivs_rt_sequence
+def uint32_array_invalid_type1():
+    a = U32ValueArray([5, '5'])  # noqa: F841 it's ok for this variable to never be used
 
 
 @decorators.nivs_rt_sequence
@@ -461,6 +486,11 @@ def uint64_array_empty():
 @decorators.nivs_rt_sequence
 def uint64_array_invalid_type():
     a = U64ValueArray([5, 'something'])  # noqa: F841 it's ok for this variable to never be used
+
+
+@decorators.nivs_rt_sequence
+def uint64_array_invalid_type1():
+    a = U64ValueArray([5, '5'])  # noqa: F841 it's ok for this variable to never be used
 
 
 @decorators.nivs_rt_sequence
@@ -635,11 +665,17 @@ fail_transform_tests = [
     (illegal_uint64_type1, TranslateError),
     (uint64_overflow_error, OverflowError),
     (boolean_array_invalid_type, TranslateError),
+    (boolean_array_invalid_type1, TranslateError),
     (double_array_invalid_type, TranslateError),
+    (double_array_invalid_type1, TranslateError),
     (int32_array_invalid_type, TranslateError),
+    (int32_array_invalid_type1, TranslateError),
     (int64_array_invalid_type, TranslateError),
+    (int64_array_invalid_type1, TranslateError),
     (uint32_array_invalid_type, TranslateError),
+    (uint32_array_invalid_type1, TranslateError),
     (uint64_array_invalid_type, TranslateError),
+    (uint64_array_invalid_type1, TranslateError),
     (invalid_return_type, TranslateError),
     (uint32_type_negative, OverflowError),
     (uint64_type_negative, OverflowError),

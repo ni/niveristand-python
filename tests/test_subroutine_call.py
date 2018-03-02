@@ -56,6 +56,11 @@ def return_parameter_invalid_decorator(param):
     return param
 
 
+@decorators.NivsParam('no_param', DoubleValue(0), decorators.NivsParam.BY_VALUE)
+def _return_param_wrong_param_name_pure_python(param):
+    return param
+
+
 @decorators.NivsParam("wrong", I32Value(5), decorators.NivsParam.BY_VALUE)
 @decorators.nivs_rt_sequence
 def return_parameter_with_decorator_wrong_name(param):
@@ -271,6 +276,13 @@ def recursive_call():
 @decorators.nivs_rt_sequence
 def invalid_call():
     fake_call()  # noqa: F821 this is supposed to be an undefined call.
+
+
+def test_param_wrong_name_python():
+    from niveristand import errormessages
+    with pytest.raises(VeristandError) as e:
+        _return_param_wrong_param_name_pure_python(True)
+    assert str(e.value) is errormessages.param_description_no_param
 
 
 run_tests = [

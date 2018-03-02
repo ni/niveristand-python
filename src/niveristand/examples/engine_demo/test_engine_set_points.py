@@ -109,6 +109,8 @@ def test_run_engine_set_points_python():
     setpoints = DoubleValueArray([2500, 6000, 3000])
     try:
         for setpoint in setpoints:
-            assert 0 < measure_set_point_response(setpoint, DoubleValue(60), DoubleValue(100)) <= 60, "Setpoint %d failed" % setpoint
+            assert 0 < measure_set_point_response(setpoint,
+                                                  DoubleValue(60),
+                                                  DoubleValue(100)) <= 60, "Setpoint %d failed" % setpoint
     finally:
         set_engine_power(False)

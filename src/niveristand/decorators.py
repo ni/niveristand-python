@@ -58,19 +58,22 @@ def _reconstruct_args(f, args, new_param):
     new_args = list(args)
     arg_spec = inspect.getargspec(real_func)[0]
 
-    if new_param is not None and new_param.param_name in arg_spec:
-        idx = arg_spec.index(new_param.param_name)
-        datatype_name = new_param.default_elem.__class__.__name__
-        datatype = rtprimitives.get_class_by_name(datatype_name)
-        if new_param.by_value:
-            if isinstance(args[idx], DataType):
-                value = args[idx].value
+    if new_param is not None:
+        if new_param.param_name in arg_spec:
+            idx = arg_spec.index(new_param.param_name)
+            datatype_name = new_param.default_elem.__class__.__name__
+            datatype = rtprimitives.get_class_by_name(datatype_name)
+            if new_param.by_value:
+                if isinstance(args[idx], DataType):
+                    value = args[idx].value
+                else:
+                    value = args[idx]
+                new_args[idx] = datatype(value)
             else:
-                value = args[idx]
-            new_args[idx] = datatype(value)
+                if not isinstance(args[idx], DataType):
+                    raise exceptions.VeristandError(errormessages.ref_param_not_ref)
         else:
-            if not isinstance(args[idx], DataType):
-                raise exceptions.VeristandError(errormessages.ref_param_not_ref)
+            raise exceptions.VeristandError(errormessages.param_description_no_param)
 
     return tuple(new_args)
 
