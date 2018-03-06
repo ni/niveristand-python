@@ -21,4 +21,6 @@ def _validate_restrictions(node, resources):
         raise exceptions.TranslateError(errormessages.unsupported_orelse_while)
     if validations.check_if_any_in_block(ast.Return, node.body):
         raise exceptions.TranslateError(errormessages.return_unsupported_unless_last)
+    if validations.check_if_any_in_block(ast.FunctionDef, node.body):
+        raise exceptions.TranslateError(errormessages.invalid_nested_funcdef)
     validations.check_try_in_node_body(node.body)

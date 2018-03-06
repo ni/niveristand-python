@@ -167,6 +167,104 @@ def if_elif_condition_complex_expression():
     return a.value
 
 
+@decorators.nivs_rt_sequence
+def if_try_catch_fails():
+    if True:
+        try:
+            pass
+        except Exception:
+            pass
+        finally:
+            pass
+
+
+@decorators.nivs_rt_sequence
+def if_try_finally_fails():
+    if True:
+        try:
+            pass
+        finally:
+            pass
+
+
+@decorators.nivs_rt_sequence
+def if_else_try_finally_fails():
+    if True:
+        pass
+    else:
+        try:
+            pass
+        finally:
+            pass
+
+
+@decorators.nivs_rt_sequence
+def if_elif_try_finally_fails():
+    if True:
+        pass
+    elif True:
+        try:
+            pass
+        finally:
+            pass
+    else:
+        pass
+
+
+@decorators.nivs_rt_sequence
+def if_return_fails():
+    a = BooleanValue(True)
+    if True:
+        return a.value
+
+
+@decorators.nivs_rt_sequence
+def if_else_return_fails():
+    a = BooleanValue(True)
+    if True:
+        pass
+    else:
+        return a.value
+
+
+@decorators.nivs_rt_sequence
+def if_elif_return_fails():
+    a = BooleanValue(True)
+    if False:
+        pass
+    elif True:
+        return a.value
+    else:
+        pass
+
+
+@decorators.nivs_rt_sequence
+def if_funcdef_fails():
+    if True:
+        def func():
+            pass
+
+
+@decorators.nivs_rt_sequence
+def if_else_funcdef_fails():
+    if False:
+        pass
+    else:
+        def func():
+            pass
+
+
+@decorators.nivs_rt_sequence
+def if_elif_funcdef_fails():
+    if False:
+        pass
+    elif True:
+        def func():
+            pass
+    else:
+        pass
+
+
 run_tests = [
     (returns_true, (), True),
     (if_one_statement, (), 1),
@@ -192,7 +290,17 @@ transform_tests = run_tests + [
 fail_transform_tests = [
     (if_invalid_boolean, (), exceptions.VeristandError),
     (if_invalid_boolean_const, (), exceptions.VeristandError),
-    (if_invalid_boolean_var, (), exceptions.VeristandError)
+    (if_invalid_boolean_var, (), exceptions.VeristandError),
+    (if_return_fails, (), exceptions.TranslateError),
+    (if_elif_return_fails, (), exceptions.TranslateError),
+    (if_else_return_fails, (), exceptions.TranslateError),
+    (if_try_catch_fails, (), exceptions.TranslateError),
+    (if_try_finally_fails, (), exceptions.TranslateError),
+    (if_elif_try_finally_fails, (), exceptions.TranslateError),
+    (if_else_try_finally_fails, (), exceptions.TranslateError),
+    (if_funcdef_fails, (), exceptions.TranslateError),
+    (if_elif_funcdef_fails, (), exceptions.TranslateError),
+    (if_else_funcdef_fails, (), exceptions.TranslateError),
 ]
 
 
@@ -229,15 +337,8 @@ def test_run_in_VM(func_name, params, expected_result):
 
 @pytest.mark.parametrize("func_name, params, expected_result", fail_transform_tests, ids=idfunc)
 def test_failures(func_name, params, expected_result):
-    try:
+    with pytest.raises(expected_result):
         RealTimeSequence(func_name)
-    except expected_result:
-        pass
-    except exceptions.VeristandError as e:
-        pytest.fail('Unexpected exception raised:' +
-                    str(e.__class__) + ' while expected was: ' + expected_result.__name__)
-    except Exception as exception:
-        pytest.fail('ExpectedException not raised: ' + exception)
 
 
 @pytest.mark.parametrize("func_name, params, reason", skip_tests, ids=idfunc)

@@ -1,3 +1,5 @@
+import ast
+from niveristand import errormessages, exceptions
 from niveristand.clientapi import realtimesequencedefinition as rtseqapi
 from niveristand.translation import utils
 from niveristand.translation.py2rtseq import validations
@@ -20,3 +22,9 @@ def if_transformer(node, resources):
 def _validate_restrictions(node):
     validations.check_try_in_node_body(node.body)
     validations.check_try_in_node_body(node.orelse)
+    if validations.check_if_any_in_block(ast.Return, node.body) or \
+            validations.check_if_any_in_block(ast.Return, node.orelse):
+        raise exceptions.TranslateError(errormessages.return_unsupported_unless_last)
+    if validations.check_if_any_in_block(ast.FunctionDef, node.body) or \
+            validations.check_if_any_in_block(ast.FunctionDef, node.orelse):
+        raise exceptions.TranslateError(errormessages.invalid_nested_funcdef)

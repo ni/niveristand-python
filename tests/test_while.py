@@ -138,6 +138,41 @@ def while_condition_complex_expression():
 
 
 @decorators.nivs_rt_sequence
+def while_try_catch_fail():
+    while True:
+        try:
+            pass
+        except Exception:
+            pass
+        finally:
+            pass
+
+
+@decorators.nivs_rt_sequence
+def while_try_finally_fail():
+    while True:
+        try:
+            pass
+        finally:
+            pass
+
+
+@decorators.nivs_rt_sequence
+def while_funcdef_fail():
+    while True:
+        def f1():
+            pass
+        f1()
+
+
+@decorators.nivs_rt_sequence
+def while_return_fail():
+    a = BooleanValue(True)
+    while True:
+        return a.value
+
+
+@decorators.nivs_rt_sequence
 def while_false():
     a = I32Value(1)
     while False:
@@ -170,6 +205,10 @@ fail_transform_tests = [
     (while_invalid_boolean_var, (), exceptions.VeristandError),
     (while_else_pass_fails, (), exceptions.TranslateError),
     (while_break, (), exceptions.TranslateError),
+    (while_try_catch_fail, (), exceptions.TranslateError),
+    (while_try_finally_fail, (), exceptions.TranslateError),
+    (while_return_fail, (), exceptions.TranslateError),
+    (while_funcdef_fail, (), exceptions.TranslateError),
 ]
 
 
@@ -207,15 +246,8 @@ def test_run_in_VM(func_name, params, expected_result):
 
 @pytest.mark.parametrize("func_name, params, expected_result", fail_transform_tests, ids=idfunc)
 def test_failures(func_name, params, expected_result):
-    try:
+    with pytest.raises(expected_result):
         RealTimeSequence(func_name)
-    except expected_result:
-        pass
-    except exceptions.VeristandError as e:
-        pytest.fail('Unexpected exception raised:' +
-                    str(e.__class__) + ' while expected was: ' + expected_result.__name__)
-    except Exception as exception:
-        pytest.fail('ExpectedException not raised: ' + exception)
 
 
 @pytest.mark.parametrize("func_name, params, reason", skip_tests, ids=idfunc)
