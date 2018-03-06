@@ -1,4 +1,5 @@
 import os
+from niveristand import errormessages, exceptions
 from niveristand import internal
 from niveristand.clientapi import stimulusprofileapi
 from NationalInstruments.VeriStand.ClientAPI import Factory  # noqa: E501, I100 We need these C# imports to be out of order.
@@ -98,16 +99,22 @@ def add_generate_error(block, code, message, action):
 def get_channel_value(name):
     value = 0.0
     err, value = _get_workspace().GetSingleChannelValue(name, value)
+    if err.ErrorCode:
+        raise exceptions.VeristandError(errormessages.csharp_call_failed % (err.ErrorCode, err.ResolvedErrorMessage))
     return value
 
 
 def set_channel_value(name, value):
-    _get_workspace().SetSingleChannelValue(name, value)
+    err = _get_workspace().SetSingleChannelValue(name, value)
+    if err.ErrorCode:
+        raise exceptions.VeristandError(errormessages.csharp_call_failed % (err.ErrorCode, err.ResolvedErrorMessage))
 
 
 def get_channel_size(name):
     node_info_list = None
     err, node_info_list = _get_workspace().GetSystemNodeChannelList("", node_info_list)
+    if err.ErrorCode:
+        raise exceptions.VeristandError(errormessages.csharp_call_failed % (err.ErrorCode, err.ResolvedErrorMessage))
     channel_node_info = _get_channel_node_info(name, node_info_list)
     return channel_node_info.ChannelRowDimension * channel_node_info.ChannelColumnDimension
 
@@ -116,11 +123,15 @@ def get_vector_channel_value(name):
     value = []
     row_dim = col_dim = 0
     err, row_dim, col_dim, value = _get_workspace().GetChannelVectorValues(name, row_dim, col_dim, value)
+    if err.ErrorCode:
+        raise exceptions.VeristandError(errormessages.csharp_call_failed % (err.ErrorCode, err.ResolvedErrorMessage))
     return value
 
 
 def set_vector_channel_value(name, value):
-    _get_workspace().SetChannelVectorValues(name, value)
+    err = _get_workspace().SetChannelVectorValues(name, value)
+    if err.ErrorCode:
+        raise exceptions.VeristandError(errormessages.csharp_call_failed % (err.ErrorCode, err.ResolvedErrorMessage))
 
 
 def add_stop_task(block, taskname):
@@ -168,6 +179,7 @@ def _get_channel_node_info(name, node_info_list):
     for channel in node_info_list:
         if channel.FullPath == name:
             return channel
+    raise exceptions.VeristandError(errormessages.channel_not_found % name)
 
 
 def run_rt_sequence(rt_sequence_path, timeout_within_each_step):

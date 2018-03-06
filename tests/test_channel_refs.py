@@ -36,6 +36,21 @@ def test_channel_ref_run_python():
     assert result == 5
 
 
+def test_channel_ref_invalid_channel_set():
+    with pytest.raises(exceptions.VeristandError):
+        testfunctions.channel_ref_invalid_channel_set()
+
+
+def test_channel_ref_invalid_channel_get():
+    with pytest.raises(exceptions.VeristandError):
+        testfunctions.channel_ref_invalid_channel_get()
+
+
+def test_channel_ref_invalid_channel_transform():
+    with pytest.raises(exceptions.VeristandError):
+        RealTimeSequence(testfunctions.channel_ref_invalid_channel_transform)
+
+
 def test_channel_ref_array_type_string():
     rtseq = RealTimeSequence(testfunctions.channel_ref_array_type_string)
     assert rtseq._rtseq.Variables.LocalVariables.Variables.Length is 0

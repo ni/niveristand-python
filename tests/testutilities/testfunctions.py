@@ -137,6 +137,24 @@ def channel_ref_validate_getter():
 
 
 @decorators.nivs_rt_sequence
+def channel_ref_invalid_channel_set():
+    a = ChannelReference("InvalidName")
+    a.value = 5
+
+
+@decorators.nivs_rt_sequence
+def channel_ref_invalid_channel_get():
+    a = ChannelReference("InvalidName")
+    b = DoubleValue(0)
+    b.value = a.value
+
+
+@decorators.nivs_rt_sequence
+def channel_ref_invalid_channel_transform():
+    a = ChannelReference("InvalidName")  # noqa: F841 it's ok not to be used
+
+
+@decorators.nivs_rt_sequence
 def channel_ref_array_type_string():
     a = VectorChannelReference("Targets/Controller/Simulation Models/Models/Engine Demo/Parameters/a")  # noqa: F841
 
