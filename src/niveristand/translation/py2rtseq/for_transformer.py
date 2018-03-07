@@ -44,4 +44,8 @@ def _validate_restrictions(node):
         raise TranslateError(errormessages.invalid_iterable_collection)
     if not isinstance(node.target, ast.Name):
         raise TranslateError(errormessages.invalid_for_loop_iterator)
-    validations.check_try_in_node_body(node.body)
+    if validations.check_if_any_in_block(ast.Return, node.body):
+        raise TranslateError(errormessages.return_unsupported_unless_last)
+    if validations.check_if_any_in_block(ast.FunctionDef, node.body):
+        raise TranslateError(errormessages.invalid_nested_funcdef)
+    validations.raise_if_try_in_node_body(node.body)

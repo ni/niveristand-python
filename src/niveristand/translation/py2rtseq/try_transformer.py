@@ -27,4 +27,4 @@ def _validate_restrictions(node):
     if validations.check_if_any_in_block(ast.Return, node.body) or \
             validations.check_if_any_in_block(ast.Return, node.finalbody):
             raise TranslateError(errormessages.return_not_supported_in_try_finally)
-    validations.check_try_in_node_body(node.body)
+    validations.raise_if_try_in_node_body(node.body)

@@ -4,7 +4,7 @@ from niveristand.translation.py2rtseq import validations
 
 
 def exp_transformer(node, resources):
-    if validations.looks_like_doc_block(node):
+    if validations.check_if_looks_like_doc_block(node):
         exp = ""
     else:
         exp = utils.generic_ast_node_transform(node.value, resources)

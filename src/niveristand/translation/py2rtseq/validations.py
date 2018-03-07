@@ -3,7 +3,7 @@ import sys
 from niveristand import errormessages, exceptions
 
 
-def check_try_in_node_body(statements):
+def raise_if_try_in_node_body(statements):
     if check_if_any_in_block(ast_try(), statements):
         raise exceptions.TranslateError(errormessages.try_only_in_top_level_func)
 
@@ -21,5 +21,5 @@ def check_if_any_in_block(ast_node, block):
     return False
 
 
-def looks_like_doc_block(node):
+def check_if_looks_like_doc_block(node):
     return isinstance(node, ast.Expr) and isinstance(node.value, ast.Str)

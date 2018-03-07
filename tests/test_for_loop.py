@@ -1,8 +1,9 @@
 import sys
 from niveristand import decorators, RealTimeSequence
 from niveristand import realtimesequencetools
-from niveristand.clientapi.datatypes import DoubleValue, DoubleValueArray, I32Value
+from niveristand.clientapi.datatypes import ChannelReference, DoubleValue, DoubleValueArray, I32Value
 from niveristand.exceptions import TranslateError, VeristandError
+from niveristand.library.primitives import localhost_wait
 import pytest
 from testutilities import rtseqrunner, validation
 
@@ -13,7 +14,7 @@ def return_constant():
 
 
 @decorators.nivs_rt_sequence
-def increment_param_by_ref(param):
+def _increment_param_by_ref(param):
     param.value = param.value + 1
 
 
@@ -47,7 +48,7 @@ def for_loop_modify_collection():
 def for_loop_modify_elements():
     a = DoubleValueArray([1, 2, 3, 4, 5])
     for x in a.value:
-        increment_param_by_ref(x)
+        _increment_param_by_ref(x)
     return a[0].value
 
 
@@ -87,6 +88,17 @@ def for_loop_range_with_step():
 def for_loop_range_with_variable():
     a = DoubleValue(0)
     b = I32Value(10)
+    for x in range(b.value):
+        a.value += x
+    return a
+
+
+@decorators.nivs_rt_sequence
+def for_loop_range_with_channelref():
+    a = DoubleValue(0)
+    b = ChannelReference('Aliases/DesiredRPM')
+    b.value = 10.0
+    localhost_wait(0.2)
     for x in range(b.value):
         a.value += x
     return a
@@ -150,6 +162,29 @@ def looping_over_invalid_var():
     return a.value
 
 
+@decorators.nivs_rt_sequence
+def for_return_in_body():
+    for i in range(5):
+        return i
+
+
+@decorators.nivs_rt_sequence
+def for_try_in_body():
+    for i in range(5):
+        try:
+            pass
+        finally:
+            pass
+
+
+@decorators.nivs_rt_sequence
+def for_funcdef_in_body():
+    for i in range(5):
+        def func():
+            pass
+        pass
+
+
 run_tests = [
     (return_constant, (), 10),
     (for_loop_variable_array, (), 15),
@@ -166,8 +201,6 @@ run_tests = [
 
 
 skip_tests = [
-    (for_loop_constant_array, (), "Constant parsing not supported in SPE."),
-    (increment_param_by_ref, (), "This call receives a parameter and it can't be faked without a caller."),
 ]
 
 fail_transform_tests = [
@@ -175,6 +208,11 @@ fail_transform_tests = [
     (for_loop_range_with_start, (), TranslateError),
     (for_loop_range_with_step, (), TranslateError),
     (looping_over_invalid_var, (), TranslateError),
+    (for_return_in_body, (), TranslateError),
+    (for_try_in_body, (), TranslateError),
+    (for_funcdef_in_body, (), TranslateError),
+    (for_loop_range_with_channelref, (), VeristandError),
+    (for_loop_constant_array, (), VeristandError),
 ]
 
 
@@ -207,15 +245,8 @@ def test_run_in_VM(func_name, params, expected_result):
 
 @pytest.mark.parametrize("func_name, params, expected_result", fail_transform_tests, ids=idfunc)
 def test_failures(func_name, params, expected_result):
-    try:
+    with pytest.raises(expected_result):
         RealTimeSequence(func_name)
-    except expected_result:
-        pass
-    except VeristandError as e:
-        pytest.fail('Unexpected exception raised:' +
-                    str(e.__class__) + ' while expected was: ' + expected_result.__name__)
-    except Exception as exception:
-        pytest.fail('ExpectedException not raised: ' + exception)
 
 
 @pytest.mark.parametrize("func_name, params, reason", skip_tests, ids=idfunc)
