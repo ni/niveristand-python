@@ -78,7 +78,8 @@ def _reconstruct_args(f, args, new_param):
                 new_args[idx] = datatype(value)
             else:
                 if not isinstance(args[idx], DataType):
-                    raise exceptions.VeristandError(errormessages.ref_param_not_ref)
+                    value = args[idx]
+                    new_args[idx] = datatype(value)
         else:
             raise exceptions.VeristandError(errormessages.param_description_no_param)
 

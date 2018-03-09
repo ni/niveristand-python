@@ -7,7 +7,8 @@ def test_validate(testmodule):
              getattr(f, rt_seq_mode_id, None) is not None]
     lists = [testmodule.__dict__.get(a) for a in dir(testmodule)
              if a.startswith('run_tests') or a.startswith('skip_tests') or
-             a.startswith('transform_tests') or a.startswith('fail_transform_tests')]
+             a.startswith('transform_tests') or a.startswith('fail_transform_tests') or
+             a.startswith('python_tests')]
     final_list = []
     for list in lists:
         for item in list:

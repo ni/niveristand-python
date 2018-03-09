@@ -132,6 +132,20 @@ def _return_parameter_plus1_byvalue_bool(param):
     return param.value
 
 
+@decorators.NivsParam('param', DoubleValue(0), decorators.NivsParam.BY_REF)
+@decorators.nivs_rt_sequence
+def _increment_constant_passed_by_ref(param):
+    param.value += 1
+    return param.value
+
+
+@decorators.nivs_rt_sequence
+def call_increment_constant_passed_by_ref():
+    a = DoubleValue(0)
+    a.value = _increment_constant_passed_by_ref(5)
+    return a.value
+
+
 @decorators.nivs_rt_sequence
 def call_return_constant_as_assignment():
     a = DoubleValue(0)
@@ -294,6 +308,31 @@ def test_param_wrong_name_python():
     assert str(e.value) is errormessages.param_description_no_param
 
 
+@decorators.nivs_rt_sequence
+def constant_passed_by_ref_is_not_actually_by_ref():
+    a = DoubleValue(5)
+    _increment_constant_passed_by_ref(a.value)
+    return a.value
+
+
+@decorators.NivsParam('param', DoubleValue(0), decorators.NivsParam.BY_REF)
+def _increment_constant_passed_by_ref_without_rt_decorator(param):
+    param.value += 1
+    return param.value
+
+
+def test_constant_passed_by_ref_without_rt_decorator():
+    a = DoubleValue(5)
+    _increment_constant_passed_by_ref_without_rt_decorator(a.value)
+    assert a.value == 5
+
+
+def test_object_passed_by_ref_without_rt_decorator():
+    a = DoubleValue(5)
+    _increment_constant_passed_by_ref_without_rt_decorator(a)
+    assert a.value == 6
+
+
 run_tests = [
     (return_constant, (), 5),
     (call_return_constant_as_assignment, (), return_constant()),
@@ -313,6 +352,11 @@ run_tests = [
     (call_parameter_array_elem_byref, (), 2),
     (call_parameter_send_channel_ref_byref, (), 102.2),
     (call_parameter_send_channel_ref_byvalue, (), 67),
+    (call_increment_constant_passed_by_ref, (), 6),
+]
+
+python_tests = run_tests + [
+    (constant_passed_by_ref_is_not_actually_by_ref, (), 5)
 ]
 
 skip_tests = [
@@ -339,7 +383,7 @@ def test_transform(func_name, params, expected_result):
     RealTimeSequence(func_name)
 
 
-@pytest.mark.parametrize("func_name, params, expected_result", run_tests, ids=idfunc)
+@pytest.mark.parametrize("func_name, params, expected_result", python_tests, ids=idfunc)
 def test_runpy(func_name, params, expected_result):
     actual = func_name(*params)
     assert actual == expected_result
