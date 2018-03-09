@@ -3,12 +3,13 @@ import inspect
 from niveristand import errormessages, exceptions
 from niveristand.clientapi.datatypes import DataType
 from niveristand.clientapi.datatypes import rtprimitives
-from niveristand.library.tasks import get_scheduler, nivs_yield
 
 rt_seq_mode_id = '__rtseq_mode__'
 
 
 def nivs_rt_sequence(func):
+    from niveristand.library.tasks import get_scheduler, nivs_yield
+
     @wraps(func)
     def ret_func(*args, **kwargs):
         is_top_level = False
@@ -90,6 +91,7 @@ def _reconstruct_args(f, args, new_param):
 
 def task(mt):
     def _add_task_to_list(func):
+        from niveristand.library.tasks import nivs_yield
 
         @wraps(func)
         def _internal_task(task_info):

@@ -1,7 +1,6 @@
-from niveristand import decorators, realtimesequencetools
-from niveristand.clientapi.datatypes import BooleanValue, ChannelReference, DoubleValue
-from niveristand.library.tasks import multitask, nivs_yield, stop_task
-from niveristand.library.timing import wait_until_settled
+from niveristand import nivs_rt_sequence, NivsParam, run_py_as_rtseq
+from niveristand.clientapi import BooleanValue, ChannelReference, DoubleValue
+from niveristand.library import multitask, nivs_yield, stop_task, task, wait_until_settled
 
 """ This module contains an expansion on the basic example.
 
@@ -10,9 +9,10 @@ Please refer to that Stimulus Profile for details on what this example tries to 
 """
 
 
-@decorators.NivsParam('desired_rpm', DoubleValue(0), decorators.NivsParam.BY_REF)
-@decorators.NivsParam('actual_rpm', DoubleValue(0), decorators.NivsParam.BY_REF)
-@decorators.NivsParam('engine_temp', DoubleValue(0), decorators.NivsParam.BY_REF)
+@NivsParam('desired_rpm', DoubleValue(0), NivsParam.BY_REF)
+@NivsParam('actual_rpm', DoubleValue(0), NivsParam.BY_REF)
+@NivsParam('engine_temp', DoubleValue(0), NivsParam.BY_REF)
+@nivs_rt_sequence
 def engine_demo_advanced(desired_rpm, actual_rpm, engine_temp):
     """Turn on the engine and set it to the desired rpm, while also monitoring engine temperature."""
     # These are local variable declarations that will be used to keep track of the test's status
@@ -25,7 +25,7 @@ def engine_demo_advanced(desired_rpm, actual_rpm, engine_temp):
     with multitask() as mt:
         # Tasks need to be decorated as such. This notation is required.
         # A task is
-        @decorators.task(mt)
+        @task(mt)
         def engine_warmup():
             """Spawn task to wait for the actual rpm signal to settle."""
             desired_rpm.value = 2500
@@ -35,7 +35,7 @@ def engine_demo_advanced(desired_rpm, actual_rpm, engine_temp):
             wait_until_settled(actual_rpm, 9999999, 7800, 25, 120)
             warmup_complete.value = True
 
-        @decorators.task(mt)
+        @task(mt)
         def monitor_temp():
             """Spawn task to monitor engine temperature. If it goes above 110 it will stop the other task."""
             while warmup_complete.value is False:
@@ -49,7 +49,7 @@ def engine_demo_advanced(desired_rpm, actual_rpm, engine_temp):
     return warmup_succeeded.value
 
 
-@decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def run_engine_demo_advanced():
     """Run the engine_demo_advanced example.
 
@@ -74,7 +74,7 @@ def run_engine_demo_advanced():
 
 
 def run_deterministic():
-    return realtimesequencetools.run_py_as_rtseq(run_engine_demo_advanced)
+    return run_py_as_rtseq(run_engine_demo_advanced)
 
 
 def run_non_deterministic():

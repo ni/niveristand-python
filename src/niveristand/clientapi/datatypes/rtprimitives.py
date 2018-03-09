@@ -1,5 +1,6 @@
 import sys
-from NationalInstruments.VeriStand.Data import BooleanValue as ClientApiBooleanValue
+from niveristand import internal
+from NationalInstruments.VeriStand.Data import BooleanValue as ClientApiBooleanValue  # noqa: E501, I100 We need these C# imports to be out of order.
 from NationalInstruments.VeriStand.Data import BooleanValueArray as ClientApiBooleanValueArray
 from NationalInstruments.VeriStand.Data import DataValue
 from NationalInstruments.VeriStand.Data import DoubleValue as ClientApiDoubleValue
@@ -19,6 +20,8 @@ from System import Int32 as SystemInt32
 from System import Int64 as SystemInt64
 from System import UInt32 as SystemUInt32
 from System import UInt64 as SystemUInt64
+
+internal.dummy()
 
 
 def get_class_by_name(name):

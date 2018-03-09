@@ -1,6 +1,6 @@
-from niveristand import decorators, realtimesequencetools
-from niveristand.clientapi.datatypes import BooleanValue, ChannelReference, DoubleValue
-from niveristand.library.timing import wait
+from niveristand import nivs_rt_sequence, NivsParam, realtimesequencetools
+from niveristand.clientapi import BooleanValue, ChannelReference, DoubleValue
+from niveristand.library import wait
 
 """ This module contains a basic example of how to create an RT sequence in python.
 
@@ -10,11 +10,11 @@ Please refer to that Stimulus Profile for details on what this example tries to 
 
 
 # RT Sequences need to be marked as such with this decorator.
-@decorators.nivs_rt_sequence
+@nivs_rt_sequence
 # We also need to know the data type and default value of parameters,
 # as well as whether they should be passed by value or by reference.
-@decorators.NivsParam('engine_power', BooleanValue(0), decorators.NivsParam.BY_REF)
-@decorators.NivsParam('desired_rpm', DoubleValue(0), decorators.NivsParam.BY_REF)
+@NivsParam('engine_power', BooleanValue(0), NivsParam.BY_REF)
+@NivsParam('desired_rpm', DoubleValue(0), NivsParam.BY_REF)
 def engine_demo_basic(engine_power, desired_rpm):
     """Turn on the engine, set the desired_rpm to the passed value for 20 seconds, then shut down.
 
@@ -30,7 +30,7 @@ def engine_demo_basic(engine_power, desired_rpm):
     desired_rpm_chan.value = 0
 
 
-@decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def run_engine_demo():
     """Set up channel references and call the actual test."""
     # Calling into another RT Sequence is just as calling a normal python function.

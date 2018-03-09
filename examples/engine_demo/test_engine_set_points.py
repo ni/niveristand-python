@@ -1,7 +1,6 @@
-from niveristand import decorators, realtimesequencetools
-from niveristand.clientapi.datatypes import BooleanValue, ChannelReference, DoubleValue, DoubleValueArray
-from niveristand.library.primitives import localhost_wait, seqtime
-from niveristand.library.timing import wait_until_settled
+from niveristand import nivs_rt_sequence, NivsParam, run_py_as_rtseq
+from niveristand.clientapi import BooleanValue, ChannelReference, DoubleValue, DoubleValueArray
+from niveristand.library import localhost_wait, seqtime, wait_until_settled
 
 
 """ This module contains a complex example for running multiple tests in sequence.
@@ -13,8 +12,8 @@ for running python tests.
 """
 
 
-@decorators.nivs_rt_sequence
-@decorators.NivsParam('on_off', BooleanValue(False), decorators.NivsParam.BY_VALUE)
+@nivs_rt_sequence
+@NivsParam('on_off', BooleanValue(False), NivsParam.BY_VALUE)
 def set_engine_power(on_off):
     """Turn the engine on or off."""
     engine_power = ChannelReference('Aliases/EnginePower')
@@ -27,7 +26,7 @@ def set_engine_power(on_off):
 # Default Value = 0
 # Passed by reference.
 # In this case, that default is adequate so there's no need to specify it.
-@decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def measure_set_point_response(setpoint, timeout, tolerance):
     """Set the desired rpm to the specified setpoint and wait until the signal settles.
 
@@ -53,7 +52,7 @@ def measure_set_point_response(setpoint, timeout, tolerance):
     return settle_time.value
 
 
-@decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def inbounds_check(test_value, upper, lower):
     """Return True if lower <= value <= upper.
 
@@ -67,7 +66,7 @@ def inbounds_check(test_value, upper, lower):
     return result.value
 
 
-@decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def engine_set_points_profile():
     """Run three tests in one profile."""
     try:
@@ -99,7 +98,7 @@ def engine_set_points_profile():
 
 # This function will run the profile above deterministically. It will be found by unit test frameworks like py.test.
 def test_run_engine_set_points_profile_deterministic():
-    result = realtimesequencetools.run_py_as_rtseq(engine_set_points_profile)
+    result = run_py_as_rtseq(engine_set_points_profile)
     assert result is True
 
 
