@@ -15,8 +15,9 @@ def nivs_rt_sequence(func):
         this_task = get_scheduler().try_get_task_for_curr_thread()
         if this_task is None:
             is_top_level = True
-            this_task = get_scheduler().create_task_for_curr_thread()
-            get_scheduler().register_task(this_task)
+            this_task = get_scheduler().create_and_register_task_for_top_level()
+            get_scheduler().sched()
+            this_task.wait_for_turn()
         try:
             retval = func(*args, **kwargs)
         except exceptions.SequenceError:
@@ -25,6 +26,7 @@ def nivs_rt_sequence(func):
         finally:
             if is_top_level:
                 this_task.mark_stopped()
+                this_task.iteration_counter.finished = True
                 nivs_yield()
                 if this_task.error and this_task.error.should_raise:
                     raise exceptions.RunError.RunErrorFactory(this_task.error)

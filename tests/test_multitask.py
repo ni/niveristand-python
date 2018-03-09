@@ -373,7 +373,8 @@ def multitask_funcdef_in_task_fails():
     with multitask() as mt:
         @decorators.task(mt)
         def f1():
-            pass
+            def func():
+                pass
     return a.value
 
 
@@ -467,16 +468,16 @@ def test_run_in_VM(func_name, params, expected_result):
 
 
 def test_run_multiple_top_level_seqs():
-    assert len(get_scheduler()._task_dict) is 0
+    assert len(get_scheduler()._task_dict) == 0
     for func, params, expected in run_tests:
         actual = func(*params)
         assert actual == expected
-        # check that the scheduler is empty after every run.
-        assert len(get_scheduler()._task_dict) is 0
+        # check that there are no tasks left to run
+        assert len(get_scheduler()._task_dict) == 0
 
 
-@pytest.mark.skip("Multithreading not supported yet")
 def test_run_multiple_top_level_seqs_in_parallel():
+    assert len(get_scheduler()._task_dict) == 0
     threads = list()
     thread_results = dict()
     for func, params, expected in run_tests:
@@ -495,20 +496,15 @@ def test_run_multiple_top_level_seqs_in_parallel():
         thread.join()
 
     for func, results in thread_results.items():
-        assert results[0] == results[1], "Func: %s failed assert" % func.__name__
+        # results[1] is actual, results[0] is expected
+        assert results[1] == results[0], "Func: %s failed assert" % func.__name__
+    assert len(get_scheduler()._task_dict) == 0
 
 
 @pytest.mark.parametrize("func_name, params, expected_result", fail_transform_tests, ids=idfunc)
 def test_failures(func_name, params, expected_result):
-    try:
+    with pytest.raises(expected_result):
         RealTimeSequence(func_name)
-    except expected_result:
-        pass
-    except VeristandError as e:
-        pytest.fail('Unexpected exception raised:' +
-                    str(e.__class__) + ' while expected was: ' + expected_result.__name__)
-    except Exception as exception:
-        pytest.fail('ExpectedException not raised: ' + str(exception))
 
 
 @pytest.mark.parametrize("func_name, params, reason", skip_tests, ids=idfunc)

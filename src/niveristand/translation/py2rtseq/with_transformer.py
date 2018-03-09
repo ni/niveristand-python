@@ -21,8 +21,10 @@ def with_transformer(node, resources):
 
 def _validate_multitask(node):
     validations.raise_if_try_in_node_body(node.body)
-    if any(isinstance(stmt, ast.Return) for stmt in node.body):
+    if validations.check_if_any_in_block(ast.Return, node.body):
         raise exceptions.TranslateError(errormessages.return_unsupported_unless_last)
+    # this validation is the opposite of the usual funcdef check.
+    # we must make sure ALL statements are ast.FunctionDef
     if any(not isinstance(stmt, ast.FunctionDef) for stmt in node.body):
         raise exceptions.TranslateError(errormessages.return_unsupported_unless_last)
     if 'items' in dir(node):
@@ -47,9 +49,9 @@ def _validate_multitask(node):
 def _validate_task(node, mt_name):
     body = node.body
     validations.raise_if_try_in_node_body(body)
-    if any(isinstance(stmt, ast.FunctionDef) for stmt in body):
+    if validations.check_if_any_in_block(ast.FunctionDef, body):
         raise exceptions.TranslateError(errormessages.invalid_function_definition)
-    if any(isinstance(stmt, ast.Return) for stmt in body):
+    if validations.check_if_any_in_block(ast.Return, body):
         raise exceptions.TranslateError(errormessages.return_unsupported_unless_last)
     if len(node.args.args) > 0:
         raise exceptions.TranslateError(errormessages.invalid_with_block)

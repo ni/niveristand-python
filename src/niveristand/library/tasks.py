@@ -3,17 +3,12 @@ from contextlib import contextmanager
 from enum import Enum
 import inspect
 import logging
-from threading import current_thread, Event, Thread
+from threading import current_thread, Event, RLock, Thread
 from niveristand import errormessages, exceptions
-
-_scheduler = None
 
 
 def get_scheduler():
-    global _scheduler
-    if _scheduler is None:
-        _scheduler = _Scheduler()
-    return _scheduler
+    return _Scheduler.get_scheduler()
 
 
 @contextmanager
@@ -42,7 +37,6 @@ def multitask():
 def nivs_yield():
     s = get_scheduler()
     task = s.thread_yielded()
-    s.sched()
     if not task.is_stopped():
         task.wait_for_turn()
 
@@ -55,7 +49,7 @@ class _MultiTaskInfo(object):
         self.tasks = []
 
     def add_func(self, func):
-        task = _Task(func, parent=self)
+        task = _Task(func, parent=self, iteration_counter=self.task.iteration_counter)
         self.tasks.append(task)
 
     @property
@@ -68,6 +62,28 @@ class _MultiTaskInfo(object):
         return str(cls.task_id)
 
 
+class _IterationCounter(object):
+    def __init__(self):
+        self._count = 0
+        self._finished = False
+
+    def inc(self):
+        self._count += 1
+        return self
+
+    @property
+    def count(self):
+        return self._count
+
+    @property
+    def finished(self):
+        return self._finished
+
+    @finished.setter
+    def finished(self, value):
+        self._finished = value
+
+
 class _Task(object):
 
     class _TaskState(Enum):
@@ -75,7 +91,7 @@ class _Task(object):
         Stopping = 1
         Stopped = 2
 
-    def __init__(self, func, parent=None):
+    def __init__(self, func, parent=None, iteration_counter=None):
         if inspect.isfunction(func) or inspect.ismethod(func):
             self._task_name = func.__name__
             self._thread = Thread(
@@ -89,6 +105,7 @@ class _Task(object):
         self._state_signal = Event()
         self._parent = parent
         self._generated_error = None
+        self._iteration_counter = iteration_counter if iteration_counter else _IterationCounter()
 
     def start(self):
         self._thread.start()
@@ -100,6 +117,10 @@ class _Task(object):
     @property
     def thread(self):
         return self._thread
+
+    @property
+    def iteration_counter(self):
+        return self._iteration_counter
 
     def is_stopped(self):
         return self._state == _Task._TaskState.Stopped
@@ -150,24 +171,52 @@ class _Task(object):
 
 
 class _Scheduler(object):
+    _schedulers_lock = RLock()
+    _scheduler = None
+
+    @classmethod
+    def get_scheduler(cls):
+        with cls._schedulers_lock:
+            if cls._scheduler is None:
+                cls._scheduler = _Scheduler()
+            return cls._scheduler
+
     def __init__(self):
         # a dictionary of {threadID:  _Task()}
         self._task_dict = dict()
         self._task_queue = deque()
         self._log = logging.getLogger('<sched>')
+        self._last_sched = None
+
+    @property
+    def _can_sched(self):
+        return not self._last_sched or self._last_sched is self.get_task_for_curr_thread()
 
     def sched(self):
         self._log.debug("Enter sched")
-        # if there are no more tasks to run, return False
-        try:
-            # find the next task in the queue.
-            next_task = self._task_queue.popleft()
-            # then tell it to run
-            self._log.debug("Next task:%s", str(next_task))
-            next_task.signal_to_run()
-        except IndexError:
-            # there was no work to do, but it's not fatal.
+        # bail early if we were not waiting for this thread to yield
+        if not self._can_sched:
             return False
+        with self._schedulers_lock:
+            try:
+                # find the next task in the queue.
+                next_task = self._task_queue.popleft()
+                # if we have iteration counters, process them all.
+                while isinstance(next_task, _IterationCounter):
+                    next_task.inc()
+                    # requeue the iteration counter only if it's not done counting
+                    if not next_task.finished:
+                        self._task_queue.append(next_task)
+                    next_task = self._task_queue.popleft()
+
+                # then tell it to run
+                self._log.debug("Next task:%s", str(next_task))
+                self._last_sched = next_task
+                next_task.signal_to_run()
+            except IndexError:
+                # there was no work to do, so set the _last_sched to None
+                self._last_sched = None
+                return False
         return True
 
     def thread_yielded(self):
@@ -175,12 +224,19 @@ class _Scheduler(object):
         self._log.debug("Task yielded:%s", str(task))
         # mark the yielding task ready to run
         task.move_to_ready()
-        # finally, if this thread is not finished, add it to the run queue
+
+        # if this thread is not finished, add it to the run queue
         if not task.is_stopped():
             self._log.debug("Reschedule Task :%s", str(task))
             self._task_queue.append(task)
-        else:
+
+        # then call sched() so the next thread is signaled to run if necessary
+        self.sched()
+        # finally, remove the task if it's not going to run anymore
+        if task.is_stopped():
             self._log.debug("Finished Task :%s", str(task))
+            # in case the task we're about to delete was the last one we were waiting for,
+            # reset the last_sched marker.
             self.task_finished(task)
         return task
 
@@ -201,11 +257,15 @@ class _Scheduler(object):
     def task_finished(self, task):
         del self._task_dict[task.thread]
 
-    def create_task_for_curr_thread(self):
+    def create_and_register_task_for_top_level(self):
         thread = current_thread()
         if thread in self._task_dict:
             raise exceptions.VeristandError(errormessages.reregister_thread)
         task = _Task(thread.getName())
+        # queue the task
+        self.register_task(task)
+        # queue an iteration counter for this top-level task
+        self._task_queue.append(task.iteration_counter)
         return task
 
     def get_task_for_curr_thread(self):

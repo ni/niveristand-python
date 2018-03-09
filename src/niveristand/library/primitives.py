@@ -39,7 +39,8 @@ def getlasterror():
 
 
 def iteration():
-    raise VeristandNotImplementedError()
+    from niveristand.library.tasks import get_scheduler
+    return get_scheduler().get_task_for_curr_thread().iteration_counter.count
 
 
 def quotient(x, y):
