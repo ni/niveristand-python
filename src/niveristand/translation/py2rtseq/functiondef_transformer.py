@@ -97,5 +97,5 @@ def _validate_restrictions(node):
     return_statements = [statement for statement in node.body if isinstance(statement, ast.Return)]
     if len(return_statements) > 1:
         raise exceptions.TranslateError(errormessages.multiple_return_statements)
-    if any(statement for statement in node.body[:-1] if isinstance(statement, ast.Return)):
+    if validations.check_if_any_in_block(ast.Return, node.body[:-1]):
         raise exceptions.TranslateError(errormessages.return_unsupported_unless_last)
