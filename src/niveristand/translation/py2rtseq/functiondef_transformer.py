@@ -94,3 +94,8 @@ def _validate_restrictions(node):
         elif len(node.body) == 2:
             if not isinstance(node.body[1], ast.Return):
                 raise exceptions.TranslateError(errormessages.invalid_stmt_after_try)
+    return_statements = [statement for statement in node.body if isinstance(statement, ast.Return)]
+    if len(return_statements) > 1:
+        raise exceptions.TranslateError(errormessages.multiple_return_statements)
+    if any(statement for statement in node.body[:-1] if isinstance(statement, ast.Return)):
+        raise exceptions.TranslateError(errormessages.return_unsupported_unless_last)

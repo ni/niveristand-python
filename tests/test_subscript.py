@@ -2,7 +2,7 @@ import sys
 from niveristand import decorators, RealTimeSequence
 from niveristand import realtimesequencetools
 from niveristand.clientapi.datatypes import DoubleValue, DoubleValueArray, I32Value, I32ValueArray
-from niveristand.exceptions import TranslateError, VeristandError
+from niveristand.exceptions import TranslateError
 import pytest
 from testutilities import rtseqrunner, validation
 
@@ -13,13 +13,13 @@ def return_constant():
 
 
 @decorators.nivs_rt_sequence
-def return_param_plusone(param):
-    param = param + 1
-    return param
+def _return_param_plus_one(param):
+    param.value = param.value + 1
+    return param.value
 
 
 @decorators.nivs_rt_sequence
-def modify_param(param):
+def _modify_param(param):
     param.value = param.value + 1
 
 
@@ -87,14 +87,14 @@ def assign_subscript3():
 @decorators.nivs_rt_sequence
 def assign_subroutine_return():
     a = DoubleValueArray([0, 1, 2, 3, 4])
-    a[0].value = return_param_plusone(a[0].value)
+    a[0].value = _return_param_plus_one(a[0])
     return a[0].value
 
 
 @decorators.nivs_rt_sequence
 def modify_array():
     a = DoubleValueArray([0, 1, 2, 3, 4])
-    modify_param(a[0])
+    _modify_param(a[0])
     return a[0].value
 
 
@@ -113,8 +113,6 @@ run_tests = [
 
 
 skip_tests = [
-    (return_param_plusone, (), "This call receives a parameter and it can't be faked without a caller."),
-    (modify_param, (), "This call receives a parameter and it can't be faked without a caller."),
 ]
 
 
@@ -153,15 +151,8 @@ def test_run_in_VM(func_name, params, expected_result):
 
 @pytest.mark.parametrize("func_name, expected_result", fail_transform_tests, ids=idfunc)
 def test_failures(func_name, expected_result):
-    try:
+    with pytest.raises(expected_result):
         RealTimeSequence(func_name)
-    except expected_result:
-        pass
-    except VeristandError as e:
-        pytest.fail('Unexpected exception raised:' +
-                    str(e.__class__) + ' while expected was: ' + expected_result.__name__)
-    except Exception as exception:
-        pytest.fail('ExpectedException not raised: ' + exception)
 
 
 @pytest.mark.parametrize("func_name, params, reason", skip_tests, ids=idfunc)

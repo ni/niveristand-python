@@ -5,7 +5,7 @@ from niveristand import realtimesequencetools
 from niveristand.clientapi.datatypes.rtprimitives import DoubleValue
 from niveristand.clientapi.realtimesequencedefinitionapi.erroraction import ErrorAction
 from niveristand.decorators import nivs_rt_sequence
-from niveristand.exceptions import RunAbortedError, RunFailedError, TranslateError, VeristandError
+from niveristand.exceptions import RunAbortedError, RunFailedError, TranslateError
 from niveristand.library.primitives import generate_error
 from niveristand.library.tasks import get_scheduler
 import pytest
@@ -15,7 +15,7 @@ from testutilities import validation
 @nivs_rt_sequence
 def return_var():
     a = DoubleValue(5)
-    return a
+    return a.value
 
 
 @nivs_rt_sequence
@@ -124,15 +124,8 @@ def test_run_multiple_top_level_seqs_in_parallel():
 
 @pytest.mark.parametrize("func_name, params, expected_result", fail_transform_tests, ids=idfunc)
 def test_failures(func_name, params, expected_result):
-    try:
+    with pytest.raises(expected_result):
         realtimesequencetools.run_py_as_rtseq(func_name)
-    except expected_result:
-        pass
-    except VeristandError as e:
-        pytest.fail('Unexpected exception raised:' +
-                    str(e.__class__) + ' while expected was: ' + expected_result.__name__)
-    except Exception as exception:
-        pytest.fail('ExpectedException not raised: ' + str(exception))
 
 
 def test_check_all_tested():

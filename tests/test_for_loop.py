@@ -65,7 +65,7 @@ def for_loop_range():
     a = DoubleValue(0)
     for x in range(10):
         a.value += x
-    return a
+    return a.value
 
 
 @decorators.nivs_rt_sequence
@@ -73,7 +73,7 @@ def for_loop_range_with_start():
     a = DoubleValue(0)
     for x in range(2, 10):
         a.value += x
-    return a
+    return a.value
 
 
 @decorators.nivs_rt_sequence
@@ -81,7 +81,7 @@ def for_loop_range_with_step():
     a = DoubleValue(0)
     for x in range(2, 10, 2):
         a.value += x
-    return a
+    return a.value
 
 
 @decorators.nivs_rt_sequence
@@ -90,7 +90,7 @@ def for_loop_range_with_variable():
     b = I32Value(10)
     for x in range(b.value):
         a.value += x
-    return a
+    return a.value
 
 
 @decorators.nivs_rt_sequence
@@ -109,7 +109,7 @@ def for_loop_range_with_call():
     a = DoubleValue(0)
     for x in range(return_constant()):
         a.value += x
-    return a
+    return a.value
 
 
 @decorators.nivs_rt_sequence

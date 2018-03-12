@@ -83,7 +83,8 @@ def wait_const_negative():
 
 @decorators.nivs_rt_sequence
 def _return_one():
-    return DoubleValue(1)
+    a = DoubleValue(1)
+    return a.value
 
 
 @decorators.nivs_rt_sequence
@@ -175,7 +176,6 @@ def wait_wrong_param_type():
 
 
 run_tests = [
-    (_return_one, (), 1),
     (wait_nivstype, (), True),
     (wait_const, (), True),
     (wait_const_negative, (), True),
@@ -228,15 +228,8 @@ def test_run_in_VM(func_name, params, expected_result):
 
 @pytest.mark.parametrize("func_name, params, expected_result", fail_transform_tests, ids=idfunc)
 def test_failures(func_name, params, expected_result):
-    try:
+    with pytest.raises(expected_result):
         RealTimeSequence(func_name)
-    except expected_result:
-        pass
-    except VeristandError as e:
-        pytest.fail('Unexpected exception raised:' +
-                    str(e.__class__) + ' while expected was: ' + expected_result.__name__)
-    except Exception as exception:
-        pytest.fail('ExpectedException not raised: ' + exception)
 
 
 @pytest.mark.parametrize("func_name, params, reason", skip_tests, ids=idfunc)

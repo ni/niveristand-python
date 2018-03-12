@@ -1,5 +1,5 @@
 import ast
-
+import sys
 from niveristand import errormessages
 from niveristand.clientapi import realtimesequencedefinition as rtseqapi
 from niveristand.clientapi.datatypes import ArrayType
@@ -8,6 +8,7 @@ from niveristand.translation import utils
 
 
 def return_transformer(node, resources):
+    _validate_restrictions(node)
     rtseq = resources.get_rtseq()
     expression = utils.generic_ast_node_transform(node.value, resources)
     stripped_expression = expression[:expression.find("[")] if expression.find("[") != -1 else expression
@@ -35,3 +36,11 @@ def return_transformer(node, resources):
     var_name = rtseqapi.add_return_variable(rtseq, '__ret_var__', return_default_value)
     rtseqapi.add_assignment(resources.get_current_block(), var_name, rt_expression)
     return "return " + str(expression)
+
+
+def _validate_restrictions(node):
+    valid_types = [ast.Num, ast.Attribute]
+    if sys.version_info > (3, 0):
+        valid_types.append(ast.NameConstant)
+    if not isinstance(node.value, tuple(valid_types)):
+        raise TranslateError(errormessages.invalid_return_type)

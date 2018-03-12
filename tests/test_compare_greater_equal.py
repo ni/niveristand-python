@@ -3,7 +3,7 @@ import sys
 from niveristand import decorators, RealTimeSequence
 from niveristand import realtimesequencetools
 from niveristand.clientapi.datatypes import BooleanValue, ChannelReference, DoubleValue, I32Value
-from niveristand.exceptions import TranslateError, VeristandError
+from niveristand.exceptions import TranslateError
 from niveristand.library.primitives import localhost_wait
 import pytest
 from testutilities import rtseqrunner, validation
@@ -160,8 +160,8 @@ def greater_eq_variable_variable1():
     a = DoubleValue(2)
     b = DoubleValue(1)
     c = BooleanValue(False)
-    c = a >= b
-    return c
+    c.value = a >= b
+    return c.value
 
 
 @decorators.nivs_rt_sequence
@@ -395,8 +395,8 @@ def gt_equal_variable_variable2():
     a = DoubleValue(2)
     b = DoubleValue(2)
     c = BooleanValue(False)
-    c = a >= b
-    return c
+    c.value = a >= b
+    return c.value
 
 
 @decorators.nivs_rt_sequence
@@ -584,15 +584,8 @@ def test_run_in_VM(func_name, params, expected_result):
 
 @pytest.mark.parametrize("func_name, params, expected_result", fail_transform_tests, ids=idfunc)
 def test_failures(func_name, params, expected_result):
-    try:
+    with pytest.raises(expected_result):
         RealTimeSequence(func_name)
-    except expected_result:
-        pass
-    except VeristandError as e:
-        pytest.fail('Unexpected exception raised:' +
-                    str(e.__class__) + ' while expected was: ' + expected_result.__name__)
-    except Exception as exception:
-        pytest.fail('ExpectedException not raised: ' + exception)
 
 
 @pytest.mark.parametrize("func_name, params, reason", skip_tests, ids=idfunc)

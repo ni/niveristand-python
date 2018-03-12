@@ -3,7 +3,7 @@ import sys
 from niveristand import decorators, RealTimeSequence
 from niveristand import realtimesequencetools
 from niveristand.clientapi.datatypes import ChannelReference, DoubleValue, I32Value
-from niveristand.exceptions import TranslateError, VeristandError
+from niveristand.exceptions import TranslateError
 from niveristand.library.primitives import localhost_wait
 import pytest
 from testutilities import rtseqrunner, validation
@@ -194,7 +194,7 @@ def exp_binary_unary():
 def exp_complex_expr():
     a = DoubleValue(0)
     a.value = 3 ** (2 if 2 < 3 else 4)
-    return a
+    return a.value
 
 
 # region augassign tests
@@ -362,15 +362,8 @@ def test_run_in_VM(func_name, params, expected_result):
 
 @pytest.mark.parametrize("func_name, params, expected_result", fail_transform_tests, ids=idfunc)
 def test_failures(func_name, params, expected_result):
-    try:
+    with pytest.raises(expected_result):
         RealTimeSequence(func_name)
-    except expected_result:
-        pass
-    except VeristandError as e:
-        pytest.fail('Unexpected exception raised:' +
-                    str(e.__class__) + ' while expected was: ' + expected_result.__name__)
-    else:
-        pytest.fail('ExpectedException not raised: ' + sys.exc_info()[0])
 
 
 @pytest.mark.parametrize("func_name, params, reason", skip_tests, ids=idfunc)

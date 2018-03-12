@@ -38,9 +38,10 @@ def circular_call_b():
     circular_call_a()
 
 
+@decorators.NivsParam('param', DoubleValue(0), decorators.NivsParam.BY_REF)
 @decorators.nivs_rt_sequence
 def _return_parameter(param):
-    return param
+    return param.value
 
 
 class FunkyDecorator:
@@ -164,7 +165,7 @@ def call_return_constant_as_expr():
 @decorators.nivs_rt_sequence
 def call_return_parameter():
     a = DoubleValue(0)
-    a.value = _return_parameter(5)
+    a.value = _return_parameter(DoubleValue(5))
     return a.value
 
 
@@ -209,7 +210,7 @@ def call_parameter_nivsdatatype_byvalue_bool_ref():
 @decorators.nivs_rt_sequence
 def call_parameter_builtin_math():
     a = DoubleValue(-5)
-    a.value = _return_parameter(abs(5))
+    a.value = _return_parameter(abs(a.value))
     return a.value
 
 
@@ -224,7 +225,7 @@ def call_parameter_array_elem():
 @decorators.nivs_rt_sequence
 def call_parameter_array_elem_byref():
     a = DoubleValueArray([1, 2, 3])
-    return a[1]
+    return a[1].value
 
 
 @decorators.nivs_rt_sequence
@@ -403,15 +404,8 @@ def test_run_in_VM(func_name, params, expected_result):
 
 @pytest.mark.parametrize("func_name, params, expected_result", fail_transform_tests, ids=idfunc)
 def test_failures(func_name, params, expected_result):
-    try:
+    with pytest.raises(expected_result):
         RealTimeSequence(func_name)
-    except expected_result:
-        pass
-    except VeristandError as e:
-        pytest.fail('Unexpected exception raised:' +
-                    str(e.__class__) + ' while expected was: ' + expected_result.__name__)
-    except Exception as exception:
-        pytest.fail('ExpectedException not raised: ' + str(exception))
 
 
 @pytest.mark.parametrize("func_name, params, reason", skip_tests, ids=idfunc)

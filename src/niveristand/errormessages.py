@@ -49,3 +49,4 @@ run_aborted = "TODOMSG: the real-time sequence was stopped or aborted during run
 run_failed = "TODOMSG: the real-time sequence failed"
 csharp_call_failed = "TODOMSG: the call into the C# API failed with error code %d. Message: %s"
 channel_not_found = "TOMOMSG: a channel with name %s could not be found"
+multiple_return_statements = "TODOMSG: there is more than one return statement in this function"

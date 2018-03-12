@@ -46,7 +46,7 @@ def assign_untyped():
 @decorators.nivs_rt_sequence
 def return_var():
     a = DoubleValue(5)
-    return a
+    return a.value
 
 
 @decorators.nivs_rt_sequence
@@ -75,7 +75,7 @@ def return_primitive_num():
 def return_var_pi():
     a = DoubleValue(5)
     a.value = math.pi
-    return a
+    return a.value
 
 
 @decorators.nivs_rt_sequence
@@ -105,6 +105,21 @@ def return_boolean_array():
 def return_double_array():
     a = DoubleValueArray([0, 1, 2, 3])
     return a
+
+
+@decorators.nivs_rt_sequence
+def multiple_returns():
+    a = DoubleValue(5)
+    return a.value
+    b = DoubleValue(5)
+    return b.value
+
+
+@decorators.nivs_rt_sequence
+def return_not_last():
+    a = DoubleValue(5)
+    return a.value
+    a.value += 1
 
 
 @decorators.nivs_rt_sequence

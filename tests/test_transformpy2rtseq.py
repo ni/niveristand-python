@@ -69,10 +69,8 @@ def test_undeclared_variable_fail():
 
 
 def test_return_named_type():
-    testfunc = testfuncs.return_named_type
-    rtseq = RealTimeSequence(testfunc)
-    assert(isinstance(rtseq._rtseq.Variables.ReturnType.DefaultValue.Value, float))
-    assert(rtseq._rtseq.Code.Main.Body.Statements.Length is 1)
+    with pytest.raises(exceptions.TranslateError):
+        RealTimeSequence(testfuncs.return_named_type)
 
 
 def test_return_primitive_num():
@@ -93,6 +91,16 @@ def test_return_untyped_symbol():
     testfunc = testfuncs.return_untyped_symbol
     with pytest.raises(exceptions.TranslateError):
         RealTimeSequence(testfunc)
+
+
+def test_multiple_returns():
+    with pytest.raises(exceptions.TranslateError):
+        RealTimeSequence(testfuncs.multiple_returns)
+
+
+def test_return_not_last():
+    with pytest.raises(exceptions.TranslateError):
+        RealTimeSequence(testfuncs.return_not_last)
 
 
 def test_default_value_bool_true():
