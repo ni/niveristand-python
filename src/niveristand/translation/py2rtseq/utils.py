@@ -75,9 +75,10 @@ class Resources:
     def add_parameter(self, param_name, default_value, by_value):
         if param_name in self._parameters:
             raise exceptions.UnexpectedError(errormessages.unexpected_argument_redefine)
-        self._parameters[param_name] = _Parameter(param_name, default_value, by_value)
-        self.add_variable(param_name, default_value, param_name)
-        self.add_variable(param_name + ".value", default_value, param_name)
+        rt_seq_param_name = _prepend_param_name(param_name)
+        self._parameters[param_name] = _Parameter(rt_seq_param_name, default_value, by_value)
+        self.add_variable(param_name, default_value, rt_seq_param_name)
+        self.add_variable(param_name + ".value", default_value, rt_seq_param_name)
 
     def get_parameters(self):
         return self._parameters.values()
@@ -85,7 +86,12 @@ class Resources:
     def update_parameter(self, param_name, default_value, by_value):
         if param_name not in self._parameters:
             raise exceptions.TranslateError(errormessages.param_description_no_param)
-        self._parameters[param_name] = _Parameter(param_name, default_value, by_value)
+        rt_seq_param_name = _prepend_param_name(param_name)
+        self._parameters[param_name] = _Parameter(rt_seq_param_name, default_value, by_value)
+
+
+def _prepend_param_name(name):
+    return "p_" + name
 
 
 class _Variable:

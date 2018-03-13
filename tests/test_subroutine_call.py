@@ -140,6 +140,12 @@ def _increment_constant_passed_by_ref(param):
     return param.value
 
 
+@decorators.NivsParam('mod', DoubleValue(0), decorators.NivsParam.BY_VALUE)
+@decorators.nivs_rt_sequence
+def _return_parameter_with_built_in_function_name(mod):
+    return mod.value
+
+
 @decorators.nivs_rt_sequence
 def call_increment_constant_passed_by_ref():
     a = DoubleValue(0)
@@ -302,6 +308,13 @@ def invalid_call():
     fake_call()  # noqa: F821 this is supposed to be an undefined call.
 
 
+@decorators.nivs_rt_sequence
+def call_return_parameter_with_built_in_function_name():
+    a = DoubleValue(1)
+    a.value = _return_parameter_with_built_in_function_name(a.value)
+    return a.value
+
+
 def test_param_wrong_name_python():
     from niveristand import errormessages
     with pytest.raises(VeristandError) as e:
@@ -354,6 +367,7 @@ run_tests = [
     (call_parameter_send_channel_ref_byref, (), 102.2),
     (call_parameter_send_channel_ref_byvalue, (), 67),
     (call_increment_constant_passed_by_ref, (), 6),
+    (call_return_parameter_with_built_in_function_name, (), 1)
 ]
 
 python_tests = run_tests + [
