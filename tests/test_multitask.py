@@ -505,6 +505,8 @@ def test_run_multiple_top_level_seqs_in_parallel():
 def test_failures(func_name, params, expected_result):
     with pytest.raises(expected_result):
         RealTimeSequence(func_name)
+    with pytest.raises(expected_result):
+        func_name(*params)
 
 
 @pytest.mark.parametrize("func_name, params, reason", skip_tests, ids=idfunc)

@@ -307,8 +307,10 @@ class DataType(object):
         self.__invert__()
 
     def __invert__(self):
-        if isinstance(self, (I32Value, I64Value)):
+        if isinstance(self, (I32Value, I64Value, U32Value, U64Value)):
             return ~self.value
+        elif isinstance(self, (BooleanValue, DoubleValue)):
+            return 0
         else:
             raise nivsexceptions.VeristandError(errormessages.invalid_type_for_operator)
 

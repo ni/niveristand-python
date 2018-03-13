@@ -20,6 +20,9 @@ def nivs_rt_sequence(func):
             get_scheduler().sched()
             this_task.wait_for_turn()
         try:
+            if is_top_level:
+                from niveristand import RealTimeSequence
+                RealTimeSequence(func)
             retval = func(*args, **kwargs)
         except exceptions.SequenceError:
             # generate error already saved this error in the task, so we can just pass.
@@ -60,6 +63,7 @@ def _set_rtseq_attrs(func, ret_func):
     wrapped = getattr(func, rt_seq_mode_id, None)
     if wrapped is None:
         wrapped = func
+        setattr(func, rt_seq_mode_id, wrapped)
     setattr(ret_func, rt_seq_mode_id, wrapped)
 
 

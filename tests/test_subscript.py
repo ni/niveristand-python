@@ -153,6 +153,8 @@ def test_run_in_VM(func_name, params, expected_result):
 def test_failures(func_name, expected_result):
     with pytest.raises(expected_result):
         RealTimeSequence(func_name)
+    with pytest.raises(expected_result):
+        func_name()
 
 
 @pytest.mark.parametrize("func_name, params, reason", skip_tests, ids=idfunc)

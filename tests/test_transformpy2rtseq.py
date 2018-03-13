@@ -1,6 +1,5 @@
 from niveristand import exceptions
 from niveristand import RealTimeSequence
-from niveristand.clientapi.datatypes import BooleanValue, BooleanValueArray, DoubleValue, DoubleValueArray
 import pytest
 import testutilities.testfunctions as testfuncs
 
@@ -116,21 +115,13 @@ def test_default_value_bool_false():
 
 
 def test_boolean_array_return_type():
-    ret = testfuncs.return_boolean_array()
-    assert isinstance(ret, BooleanValueArray)
-    assert isinstance(ret[0], BooleanValue)
-    assert ret[0].value is True
-    assert isinstance(ret[1], BooleanValue)
-    assert ret[1].value is False
+    with pytest.raises(exceptions.TranslateError):
+        testfuncs.return_boolean_array()
 
 
 def test_double_array_return_type():
-    ret = testfuncs.return_double_array()
-    assert isinstance(ret, DoubleValueArray)
-    assert isinstance(ret[0], DoubleValue)
-    assert ret[0].value == 0.0
-    assert isinstance(ret[3], DoubleValue)
-    assert ret[3].value == 3.0
+    with pytest.raises(exceptions.TranslateError):
+        testfuncs.return_double_array()
 
 
 def test_a_value_value_assignment():

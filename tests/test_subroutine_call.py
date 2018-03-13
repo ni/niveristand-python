@@ -383,7 +383,7 @@ fail_transform_tests = [
     (circular_call_b, (), RuntimeError),
     (finite_recursion, (), RuntimeError),
     (invalid_call, (), TranslateError),
-    (return_parameter_with_decorator_wrong_name, [5], TranslateError),
+    (return_parameter_with_decorator_wrong_name, [5], VeristandError),
     (return_parameter_invalid_decorator, [1], TranslateError),
     (call_parameter_with_decorator_diff_param_type_byref, (), VeristandError),
 ]
@@ -420,6 +420,8 @@ def test_run_in_VM(func_name, params, expected_result):
 def test_failures(func_name, params, expected_result):
     with pytest.raises(expected_result):
         RealTimeSequence(func_name)
+    with pytest.raises(expected_result):
+        func_name(*params)
 
 
 @pytest.mark.parametrize("func_name, params, reason", skip_tests, ids=idfunc)

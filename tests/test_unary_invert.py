@@ -3,7 +3,7 @@ import sys
 from niveristand import decorators, RealTimeSequence
 from niveristand import realtimesequencetools
 from niveristand.clientapi.datatypes import BooleanValue, DoubleValue, I32Value, I64Value
-from niveristand.exceptions import TranslateError, VeristandError
+from niveristand.exceptions import TranslateError
 import numpy
 import pytest
 from testutilities import rtseqrunner, validation
@@ -286,6 +286,8 @@ run_tests = [
     (invert_int64_multiple1, (), 0),
     (invert_parentheses, (), -1),
     (invert_rtseq, (), numpy.int32(-1)),
+    (invert_bool_var, (), False),  # For RTSeqs, negating a bool or double is always 0
+    (invert_double_var, (), 0),  # For RTSeqs, negating a bool or double is always 0
 ]
 
 skip_tests = [
@@ -301,8 +303,6 @@ skip_tests = [
 ]
 
 fail_transform_tests = [
-    (invert_bool_var, (), VeristandError),
-    (invert_double_var, (), VeristandError),
     (invert_invalid_variables, (), TranslateError),
     (invert_invalid_variables1, (), TranslateError),
 ]
@@ -337,15 +337,10 @@ def test_run_in_VM(func_name, params, expected_result):
 
 @pytest.mark.parametrize("func_name, params, expected_result", fail_transform_tests, ids=idfunc)
 def test_failures(func_name, params, expected_result):
-    try:
+    with pytest.raises(expected_result):
         RealTimeSequence(func_name)
-    except expected_result:
-        pass
-    except VeristandError as e:
-        pytest.fail('Unexpected exception raised:' +
-                    str(e.__class__) + ' while expected was: ' + expected_result.__name__)
-    except Exception as exception:
-        pytest.fail('ExpectedException not raised: ' + exception)
+    with pytest.raises(expected_result):
+        func_name(*params)
 
 
 @pytest.mark.parametrize("func_name, params, reason", skip_tests, ids=idfunc)

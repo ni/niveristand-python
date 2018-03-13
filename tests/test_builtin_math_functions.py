@@ -1,7 +1,7 @@
 from math import acos, acosh, asin, asinh, atan, atan2, atanh, ceil, cos, cosh, exp, expm1, floor, fmod, hypot, isnan, \
     log, log10, log1p, pi, sin, sinh, sqrt, tan, tanh
 import sys
-from niveristand import decorators, exceptions, RealTimeSequence
+from niveristand import decorators, RealTimeSequence
 from niveristand import realtimesequencetools
 from niveristand.clientapi.datatypes import BooleanValue, ChannelReference, DoubleValue, I32Value, I64Value, U32Value, \
     U64Value
@@ -506,15 +506,10 @@ def test_run_in_VM(func_name, params, expected_result):
 
 @pytest.mark.parametrize("func_name, params, expected_result", fail_transform_tests, ids=idfunc)
 def test_failures(func_name, params, expected_result):
-    try:
+    with pytest.raises(expected_result):
         RealTimeSequence(func_name)
-    except expected_result:
-        pass
-    except exceptions.VeristandError as e:
-        pytest.fail('Unexpected exception raised:' +
-                    str(e.__class__) + ' while expected was: ' + expected_result.__name__)
-    except Exception as exception:
-        pytest.fail('ExpectedException not raised: ' + exception)
+    with pytest.raises(expected_result):
+        func_name(*params)
 
 
 @pytest.mark.parametrize("func_name, params, reason", skip_tests, ids=idfunc)
