@@ -44,6 +44,8 @@ class DataType(object):
     def __init__(self, value, description="", units=""):
         if isinstance(value, DataValue):
             self._data_value = value
+        elif isinstance(value, DataType):
+            self._data_value = self._to_data_value(value.value)
         else:
             self._data_value = self._to_data_value(value)
 
@@ -60,6 +62,10 @@ class DataType(object):
     @staticmethod
     def _is_integer_type(other):
         return isinstance(other, int) or (sys.version_info < (2, 8) and isinstance(other, long))  # noqa F821
+
+    @staticmethod
+    def _is_valid_assign_type(other):
+        return isinstance(other, (int, float, bool)) or (sys.version_info < (2, 8) and isinstance(other, long))  # noqa F821
 
     def __add__(self, other):
         if isinstance(other, DataType):
@@ -365,12 +371,14 @@ class VectorChannelReference(ArrayType):
 
 class BooleanValue(DataType):
     def _to_data_value(self, value):
-        if type(value) is int or type(value) is float:
+        if self._is_valid_assign_type(value):
             value = bool(value)
-        elif type(value) is str and value == 'true':
+        elif type(value) is str and str(value).lower() == 'true':
             value = True
-        elif type(value) is str and value == 'false':
+        elif type(value) is str and str(value).lower() == 'false':
             value = False
+        else:
+            raise TypeError('%s can not be created from value "%s"' % (self.__class__.__name__, str(value)))
         return ClientApiBooleanValue(value)
 
 
@@ -380,13 +388,16 @@ class BooleanValueArray(ArrayType):
         return [BooleanValue(item) for item in self._data_value.Value]
 
     def _to_data_value(self, value):
-        return ClientApiBooleanValueArray(value)
+        values = [BooleanValue(item).value for item in value]
+        return ClientApiBooleanValueArray(values)
 
 
 class DoubleValue(DataType):
     def _to_data_value(self, value):
-        if type(value) is int or (sys.version_info < (2, 8) and isinstance(value, long)):  # noqa F821
+        if self._is_valid_assign_type(value):
             value = float(value)
+        else:
+            raise TypeError('%s can not be created from value "%s"' % (self.__class__.__name__, str(value)))
         return ClientApiDoubleValue(value)
 
 
@@ -396,12 +407,16 @@ class DoubleValueArray(ArrayType):
         return [DoubleValue(item) for item in self._data_value.Value]
 
     def _to_data_value(self, value):
-        return ClientApiDoubleValueArray(value)
+        values = [DoubleValue(item).value for item in value]
+        return ClientApiDoubleValueArray(values)
 
 
 class I32Value(DataType):
     def _to_data_value(self, value):
-        value = SystemInt32(value)
+        if self._is_valid_assign_type(value):
+            value = SystemInt32(value)
+        else:
+            raise TypeError('%s can not be created from value "%s"' % (self.__class__.__name__, str(value)))
         return ClientApiI32Value(value)
 
 
@@ -411,12 +426,16 @@ class I32ValueArray(ArrayType):
         return [I32Value(item) for item in self._data_value.Value]
 
     def _to_data_value(self, value):
-        return ClientApiI32ValueArray(value)
+        values = [I32Value(item).value for item in value]
+        return ClientApiI32ValueArray(values)
 
 
 class I64Value(DataType):
     def _to_data_value(self, value):
-        value = SystemInt64(value)
+        if self._is_valid_assign_type(value):
+            value = SystemInt64(value)
+        else:
+            raise TypeError('%s can not be created from value "%s"' % (self.__class__.__name__, str(value)))
         return ClientApiI64Value(value)
 
 
@@ -426,12 +445,16 @@ class I64ValueArray(ArrayType):
         return [I64Value(item) for item in self._data_value.Value]
 
     def _to_data_value(self, value):
-        return ClientApiI64ValueArray(value)
+        values = [I64Value(item).value for item in value]
+        return ClientApiI64ValueArray(values)
 
 
 class U32Value(DataType):
     def _to_data_value(self, value):
-        value = SystemUInt32(value)
+        if self._is_valid_assign_type(value):
+            value = SystemUInt32(value)
+        else:
+            raise TypeError('%s can not be created from value "%s"' % (self.__class__.__name__, str(value)))
         return ClientApiU32Value(value)
 
 
@@ -441,12 +464,16 @@ class U32ValueArray(ArrayType):
         return [U32Value(item) for item in self._data_value.Value]
 
     def _to_data_value(self, value):
-        return ClientApiU32ValueArray(value)
+        values = [U32Value(item).value for item in value]
+        return ClientApiU32ValueArray(values)
 
 
 class U64Value(DataType):
     def _to_data_value(self, value):
-        value = SystemUInt64(value)
+        if self._is_valid_assign_type(value):
+            value = SystemUInt64(value)
+        else:
+            raise TypeError('%s can not be created from value "%s"' % (self.__class__.__name__, str(value)))
         return ClientApiU64Value(value)
 
 
@@ -456,7 +483,8 @@ class U64ValueArray(ArrayType):
         return [U64Value(item) for item in self._data_value.Value]
 
     def _to_data_value(self, value):
-        return ClientApiU64ValueArray(value)
+        values = [U64Value(item).value for item in value]
+        return ClientApiU64ValueArray(values)
 
 
 VALID_TYPES = {

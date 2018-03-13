@@ -56,12 +56,12 @@ def _decorator_to_arg(node, resources):
         pass
     # third is whether to pass by ref or by value
     valid_types = [ast.Name, ast.Attribute]
-    if 'NameConstant' in dir(ast):
-        valid_types.append(ast.NameConstant)
     if isinstance(node.args[2], tuple(valid_types)):
         by_value_str = utils.get_variable_name_from_node(node.args[2])
         by_value_str = getattr(decorators.NivsParam, by_value_str.split('.')[-1], by_value_str)
         by_value = BooleanValue(by_value_str).value
+    elif 'NameConstant' in dir(ast) and isinstance(node.args[2], ast.NameConstant):
+        by_value = node.args[2].value
 
     if arg_name is None or def_value is None or by_value is None:
         raise exceptions.TranslateError(errormessages.invalid_param_decorator)

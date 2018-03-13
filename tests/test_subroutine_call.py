@@ -209,7 +209,7 @@ def call_parameter_nivsdatatype_byref_bool_ref():
 def call_parameter_nivsdatatype_byvalue_bool_ref():
     a = DoubleValue(5)
     b = DoubleValue(0)
-    b.value = _return_parameter_plus1_byvalue_bool(a)
+    b.value = _return_parameter_plus1_byvalue_bool(a) + a.value
     return b.value
 
 
@@ -356,7 +356,7 @@ run_tests = [
     (call_parameter_nivsdatatype_byvalue, (), 6),
     (call_parameter_nivsdatatype_byvalue_untouched_orig, (), 11),
     (call_parameter_nivsdatatype_byref_bool_ref, (), 6),
-    (call_parameter_nivsdatatype_byvalue_bool_ref, (), 6),
+    (call_parameter_nivsdatatype_byvalue_bool_ref, (), 11),
     (call_parameter_builtin_math, (), 5),
     (call_parameter_with_decorator, (), 1),
     (call_parameter_with_decorator_diff_param_type_byvalue, (), 1),
