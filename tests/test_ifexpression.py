@@ -144,15 +144,16 @@ def aug_ifexp_bool_test_expression_assign():
     return a.value
 
 
-# region invalid tests
+# <editor-fold desc=Invalid tests>
+
 @decorators.nivs_rt_sequence
 def ifexp_invalid_int_test():
     a = I32Value(0)
     a = I32Value(1) if 1 else I32Value(0)
     return a.value
 
+# </editor-fold>
 
-# end region invalid tests
 
 run_tests = [
     (returns_true, (), True),

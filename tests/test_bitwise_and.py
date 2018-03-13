@@ -197,7 +197,7 @@ def bitwise_and_complex_expr():
     return a.value
 
 
-# region augassign tests
+# <editor-fold desc=Augassign tests>
 
 @decorators.nivs_rt_sequence
 def aug_bitwise_and_simple_numbers():
@@ -252,8 +252,10 @@ def aug_bitwise_and_unary():
     return a.value
 
 
-# end region augassign tests
-# region invalid tests
+# </editor-fold>
+
+# <editor-fold desc=Invalid tests>
+
 @decorators.nivs_rt_sequence
 def bitwise_and_invalid_variables():
     return a.value & b
@@ -262,14 +264,6 @@ def bitwise_and_invalid_variables():
 @decorators.nivs_rt_sequence
 def bitwise_and_invalid_variables1():
     return a.value & b.value
-
-
-@decorators.nivs_rt_sequence
-def bitwise_and_invalid_variables2():
-    a = DoubleValue(0)
-    b = DoubleValue(0)
-    b.value = a.value & 2
-    return b
 
 
 @decorators.nivs_rt_sequence
@@ -285,7 +279,7 @@ def bitwise_and_invalid_rtseq_call():
     a.value = return_constant & 1
     return a.value
 
-# end region
+# </editor-fold>
 
 
 run_tests = [
@@ -316,8 +310,6 @@ run_tests = [
 ]
 
 skip_tests = [
-    (bitwise_and_invalid_variables2, (), "Attribute transformer doesn't catch the a.value.value problem."),
-    (bitwise_and_to_None, (), "Name transformer doesn't raise an exception for NoneType with python 2.7."),
     (bitwise_and_invalid_rtseq_call, (), "RTSeq call not implemented yet."),
 ]
 
@@ -332,6 +324,7 @@ fail_transform_tests = [
     (bitwise_and_with_parantheses2, (), VeristandError),  # cannot do bitwise and on Double
     (bitwise_and_to_channelref, (), VeristandError),  # cannot do bitwise and on Double
     (aug_bitwise_and_to_channelref, (), VeristandError),  # cannot do bitwise and on Double
+    (bitwise_and_to_None, (), TranslateError),
 ]
 
 

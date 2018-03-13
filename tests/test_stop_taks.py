@@ -14,7 +14,7 @@ def _invalid():
 
 @decorators.NivsParam('param', DoubleValue(0), False)
 @decorators.nivs_rt_sequence
-def return_param_plus_1(param):
+def _return_param_plus_1(param):
     a = DoubleValue(0)
     a.value = param.value + 1
     return a.value
@@ -108,7 +108,7 @@ def stop_task_call_subroutine():
 
         @decorators.task(mt)
         def f2():
-            a.value = return_param_plus_1(a)
+            a.value = _return_param_plus_1(a)
             stop_task(f1)
     return a.value
 
@@ -120,7 +120,7 @@ def stop_task_call_subroutine1():
         @decorators.task(mt)
         def f1():
             nivs_yield()
-            a.value = return_param_plus_1(a)
+            a.value = _return_param_plus_1(a)
 
         @decorators.task(mt)
         def f2():
@@ -134,9 +134,9 @@ def stop_task_call_subroutine2():
     with multitask() as mt:
         @decorators.task(mt)
         def f1():
-            a.value = return_param_plus_1(a)
+            a.value = _return_param_plus_1(a)
             nivs_yield()
-            a.value = return_param_plus_1(a)
+            a.value = _return_param_plus_1(a)
 
         @decorators.task(mt)
         def f2():
@@ -154,7 +154,6 @@ run_tests = [
 ]
 
 skip_tests = [
-    (return_param_plus_1, (), "Needs an actual caller."),
 ]
 
 fail_transform_tests = [

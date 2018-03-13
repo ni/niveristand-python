@@ -197,7 +197,7 @@ def exp_complex_expr():
     return a.value
 
 
-# region augassign tests
+# <editor-fold desc=Augassign tests>
 
 @decorators.nivs_rt_sequence
 def aug_exp_simple_numbers():
@@ -252,7 +252,9 @@ def aug_exp_unary():
     return a.value
 
 
-# end region augassign tests
+# </editor-fold>
+
+# <editor-fold desc=Invalid tests>
 
 @decorators.nivs_rt_sequence
 def exp_invalid_variables():
@@ -262,14 +264,6 @@ def exp_invalid_variables():
 @decorators.nivs_rt_sequence
 def exp_invalid_variables1():
     return a.value ** b.value
-
-
-@decorators.nivs_rt_sequence
-def exp_invalid_variables2():
-    a = DoubleValue(0)
-    b = DoubleValue(0)
-    b.value = a.value.value ** 2
-    return b
 
 
 @decorators.nivs_rt_sequence
@@ -284,6 +278,8 @@ def exp_invalid_rtseq_call():
     a = DoubleValue(0)
     a.value = return_constant ** 1
     return a
+
+# </editor-fold>
 
 
 run_tests = [
@@ -323,13 +319,12 @@ run_tests = [
 
 skip_tests = [
     (exp_invalid_rtseq_call, (), "Not implemented yet."),
-    (exp_invalid_variables2, (), "Attribute transformer doesn't catch the a.value.value problem."),
-    (exp_with_None, (), "Name transformer doesn't raise an exception for NoneType with python 2.7."),
 ]
 
 fail_transform_tests = [
     (exp_invalid_variables, (), TranslateError),
     (exp_invalid_variables1, (), TranslateError),
+    (exp_with_None, (), TranslateError),
 ]
 
 

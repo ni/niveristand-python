@@ -109,7 +109,8 @@ def logical_not_sequence():
     return a.value
 
 
-# region invalid tests
+# <editor-fold desc=Invalid tests>
+
 @decorators.nivs_rt_sequence
 def logical_not_invalid_variables():
     return not a.value
@@ -128,7 +129,7 @@ def logical_not_invalid_rtseq_call():
     a.value = not return_true
     return a.value
 
-# endregion
+# </editor-fold>
 
 
 run_tests = [
@@ -146,7 +147,6 @@ run_tests = [
 ]
 
 skip_tests = [
-    (logical_not_None, (), "Name transformer doesn't raise an exception for NoneType with python 2.7."),
     (logical_not_invalid_rtseq_call, (), "RTSeq call not implemented yet."),
     (logical_not_nivsdatatype_double, (), "Not of a constant DataType returns a DataType object, we have to"
                                           "research this how to solve it. A solution is to always use variables in"
@@ -164,6 +164,7 @@ skip_tests = [
 
 fail_transform_tests = [
     (logical_not_invalid_variables, (), TranslateError),
+    (logical_not_None, (), TranslateError),
 ]
 
 

@@ -105,7 +105,8 @@ def logical_or_unary():
     return a.value
 
 
-# region invalid tests
+# <editor-fold desc=Invalid tests>
+
 @decorators.nivs_rt_sequence
 def logical_or_invalid_variables():
     return a.value or b
@@ -129,8 +130,7 @@ def logical_or_invalid_rtseq_call():
     a.value = True or return_true
     return a.value
 
-
-# endregion
+# </editor-fold>
 
 
 run_tests = [
@@ -158,13 +158,13 @@ skip_tests = [
     (logical_or_variables, (), "Or between two constant DataTypes returns a DataType object, we have to"
                                "research this how to solve it. A solution is to always use variables in"
                                "logical operators, and use var.value."),
-    (logical_or_None, (), "Name transformer doesn't raise an exception for NoneType with python 2.7."),
     (logical_or_invalid_rtseq_call, (), "RTSeq call not implemented yet."),
 ]
 
 fail_transform_tests = [
     (logical_or_invalid_variables, (), TranslateError),
     (logical_or_invalid_variables1, (), TranslateError),
+    (logical_or_None, (), TranslateError),
 ]
 
 

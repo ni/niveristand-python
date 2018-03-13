@@ -255,7 +255,8 @@ def notequal_complex_expr():
     return a.value
 
 
-# region invalid tests
+# <editor-fold desc=Invalid tests>
+
 @decorators.nivs_rt_sequence
 def notequal_invalid_variables():
     return a.value != b
@@ -264,14 +265,6 @@ def notequal_invalid_variables():
 @decorators.nivs_rt_sequence
 def notequal_invalid_variables1():
     return a.value != b.value
-
-
-@decorators.nivs_rt_sequence
-def notequal_invalid_variables2():
-    a = BooleanValue(0)
-    b = DoubleValue(0)
-    b.value = a.value != 2
-    return b
 
 
 @decorators.nivs_rt_sequence
@@ -287,7 +280,7 @@ def notequal_invalid_rtseq_call():
     a.value = return_constant != 1
     return a.value
 
-# end region
+# </editor-fold>
 
 
 run_tests = [
@@ -325,7 +318,6 @@ run_tests = [
 ]
 
 skip_tests = [
-    (notequal_to_None, (), "Name transformer doesn't raise an exception for NoneType with python 2.7."),
     (notequal_invalid_rtseq_call, (), "RTSeq call not implemented yet."),
     (notequal_multiple_types, (), "SPE and Python treat 1 != 1.0 differently."),
     (notequal_multiple_types1, (), "SPE and Python treat 1 != 1.0 differently."),
@@ -334,7 +326,7 @@ skip_tests = [
 fail_transform_tests = [
     (notequal_invalid_variables, (), TranslateError),
     (notequal_invalid_variables1, (), TranslateError),
-    (notequal_invalid_variables2, (), TranslateError),
+    (notequal_to_None, (), TranslateError),
 ]
 
 

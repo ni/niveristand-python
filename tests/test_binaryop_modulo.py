@@ -247,7 +247,7 @@ def modulo_complex_expr():
     return a.value
 
 
-# region augassign tests
+# <editor-fold desc=Augassign tests>
 
 @decorators.nivs_rt_sequence
 def aug_modulo_simple_numbers():
@@ -302,9 +302,10 @@ def aug_modulo_unary():
     return a.value
 
 
-# end region augassign tests
+# </editor-fold>
 
-# region invalid tests
+# <editor-fold desc=Invalid tests>
+
 @decorators.nivs_rt_sequence
 def modulo_invalid_variables():
     return a % b
@@ -313,14 +314,6 @@ def modulo_invalid_variables():
 @decorators.nivs_rt_sequence
 def modulo_invalid_variables1():
     return a.value % b.value
-
-
-@decorators.nivs_rt_sequence
-def modulo_invalid_variables2():
-    a = DoubleValue(0)
-    b = DoubleValue(0)
-    b.value = a.value.value % 2
-    return b
 
 
 @decorators.nivs_rt_sequence
@@ -336,7 +329,7 @@ def modulo_invalid_rtseq_call():
     a.value = return_constant % 1
     return a
 
-# endregion
+# </editor-fold>
 
 
 run_tests = [
@@ -384,13 +377,12 @@ skip_tests = [
                               "The difference is subtle but the sign of the result is different."),
     (aug_modulo_unary, (), "SPE and Python treat negative module differently."),
     (modulo_invalid_rtseq_call, (), "Not implemented yet."),
-    (modulo_invalid_variables2, (), "Attribute transformer doesn't catch the a.value.value problem."),
-    (modulo_with_None, (), "Name transformer doesn't raise an exception for NoneType with python 2.7."),
 ]
 
 fail_transform_tests = [
     (modulo_invalid_variables, (), TranslateError),
     (modulo_invalid_variables1, (), TranslateError),
+    (modulo_with_None, (), TranslateError),
 ]
 
 

@@ -211,7 +211,8 @@ def greater_eq_complex_expr():
     return a.value
 
 
-# region invalid tests
+# <editor-fold desc=Invalid tests>
+
 @decorators.nivs_rt_sequence
 def greater_eq_invalid_variables():
     return a.value >= b
@@ -220,14 +221,6 @@ def greater_eq_invalid_variables():
 @decorators.nivs_rt_sequence
 def greater_eq_invalid_variables1():
     return a.value >= b.value
-
-
-@decorators.nivs_rt_sequence
-def greater_eq_invalid_variables2():
-    a = BooleanValue(0)
-    b = DoubleValue(0)
-    b.value = a.value >= 2
-    return b
 
 
 @decorators.nivs_rt_sequence
@@ -242,6 +235,8 @@ def greater_eq_invalid_rtseq_call():
     a = BooleanValue(False)
     a.value = return_constant >= 1
     return a.value
+
+# </editor-fold>
 
 
 @decorators.nivs_rt_sequence
@@ -446,7 +441,8 @@ def gt_equal_complex_expr():
     return a.value
 
 
-# region invalid tests
+# <editor-fold desc=Invalid tests>
+
 @decorators.nivs_rt_sequence
 def gt_equal_invalid_variables():
     return a.value >= b
@@ -455,14 +451,6 @@ def gt_equal_invalid_variables():
 @decorators.nivs_rt_sequence
 def gt_equal_invalid_variables1():
     return a.value >= b.value
-
-
-@decorators.nivs_rt_sequence
-def gt_equal_invalid_variables2():
-    a = BooleanValue(0)
-    b = DoubleValue(0)
-    b.value = a.value >= 2
-    return b
 
 
 @decorators.nivs_rt_sequence
@@ -478,7 +466,7 @@ def gt_equal_invalid_rtseq_call():
     a.value = return_constant >= 1
     return a.value
 
-# end region
+# </editor-fold>
 
 
 run_tests = [
@@ -533,12 +521,10 @@ run_tests = [
 
 skip_tests = [
     (greater_eq_num_nivsdatatype, (), "Builtins as the left comparer can't be overriden"),
-    (greater_eq_to_None, (), "Name transformer doesn't raise an exception for NoneType with python 2.7."),
     (greater_eq_invalid_rtseq_call, (), "RTSeq call not implemented yet."),
     (greater_eq_multiple_types, (), "Cascading comparators untested in VM"),
     (greater_eq_multiple_types1, (), "Cascading comparators untested in VM"),
     (greater_eq_with_multiple_comparators, (), "Cascading comparators untested in VM"),
-    (gt_equal_to_None, (), "Name transformer doesn't raise an exception for NoneType with python 2.7."),
     (gt_equal_invalid_rtseq_call, (), "RTSeq call not implemented yet."),
     (gt_equal_multiple_types, (), "Cascading comparators untested in VM"),
     (gt_equal_multiple_types1, (), "Cascading comparators untested in VM"),
@@ -548,10 +534,10 @@ skip_tests = [
 fail_transform_tests = [
     (greater_eq_invalid_variables, (), TranslateError),
     (greater_eq_invalid_variables1, (), TranslateError),
-    (greater_eq_invalid_variables2, (), TranslateError),
     (gt_equal_invalid_variables, (), TranslateError),
     (gt_equal_invalid_variables1, (), TranslateError),
-    (gt_equal_invalid_variables2, (), TranslateError),
+    (greater_eq_to_None, (), TranslateError),
+    (gt_equal_to_None, (), TranslateError),
 ]
 
 

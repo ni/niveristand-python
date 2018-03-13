@@ -111,7 +111,7 @@ def while_condition_identity_not_operator():
 
 
 @decorators.nivs_rt_sequence
-def returns_true_if_lessthan_5(x):
+def _returns_true_if_less_than_5(x):
     a = BooleanValue(True)
     if x >= 5:
         a.value = False
@@ -121,7 +121,7 @@ def returns_true_if_lessthan_5(x):
 @decorators.nivs_rt_sequence
 def while_condition_function_call():
     ret = DoubleValue(0)
-    while returns_true_if_lessthan_5(ret.value):
+    while _returns_true_if_less_than_5(ret.value):
         ret.value += 1
     return ret.value
 
@@ -132,7 +132,7 @@ def while_condition_complex_expression():
     # the part before the or is true while a.value >= 6
     # the part after the or is true while a.value <6
     # so the last iteration should be a.value == 6
-    while ((True and False) is ((a.value * 3) < 20)) or returns_true_if_lessthan_5(a.value - 1):
+    while ((True and False) is ((a.value * 3) < 20)) or _returns_true_if_less_than_5(a.value - 1):
         a.value += 1
     return a.value
 
@@ -213,7 +213,6 @@ fail_transform_tests = [
 
 
 skip_tests = [
-    (returns_true_if_lessthan_5, (), "Can't fake calling into this function."),
 ]
 
 

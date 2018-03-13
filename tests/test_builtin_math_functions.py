@@ -23,7 +23,8 @@ def return_constant():
     return a.value
 
 
-# region abs
+# <editor-fold desc=Abs tests>
+
 @decorators.nivs_rt_sequence
 def abs_simple_number():
     a = DoubleValue(0)
@@ -164,7 +165,8 @@ def abs_builtin():
     a = DoubleValue(0)
     a.value = abs(abs(-5))
     return a.value
-# endregion
+
+# </editor-fold>
 
 
 @decorators.nivs_rt_sequence

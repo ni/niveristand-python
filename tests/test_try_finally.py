@@ -10,7 +10,7 @@ from testutilities import rtseqrunner, validation
 
 @decorators.NivsParam('param', DoubleValue(0), False)
 @decorators.nivs_rt_sequence
-def _subrtseq(param):
+def _sub_rt_seq(param):
     try:
         a = DoubleValue(1)
     finally:
@@ -132,7 +132,7 @@ def call_subroutine_with_try():
     try:
         a = DoubleValue(0)
         b = DoubleValue(5)
-        a.value = _subrtseq(b)
+        a.value = _sub_rt_seq(b)
     finally:
         b.value = 5
     return a.value
@@ -224,7 +224,6 @@ run_tests = [
 
 
 skip_tests = [
-    (_subrtseq, (), "This call receives a parameter and it can't be faked without a caller."),
 ]
 
 fail_transform_tests = [

@@ -211,7 +211,7 @@ def mult_complex_expr():
     return a.value
 
 
-# region augassign tests
+# <editor-fold desc=Augassign tests>
 
 @decorators.nivs_rt_sequence
 def aug_mult_simple_numbers():
@@ -266,8 +266,10 @@ def aug_mult_unary():
     return a.value
 
 
-# end region augassign tests
-# region invalid tests
+# </editor-fold>
+
+# <editor-fold desc=Augassign tests>
+
 @decorators.nivs_rt_sequence
 def mult_invalid_variables():
     return a * b
@@ -276,14 +278,6 @@ def mult_invalid_variables():
 @decorators.nivs_rt_sequence
 def mult_invalid_variables1():
     return a.value * b.value
-
-
-@decorators.nivs_rt_sequence
-def mult_invalid_variables2():
-    a = DoubleValue(0)
-    b = DoubleValue(0)
-    b.value = a.value.value * 2
-    return b
 
 
 @decorators.nivs_rt_sequence
@@ -299,7 +293,7 @@ def mult_invalid_rtseq_call():
     a.value = return_constant * 1
     return a
 
-# end region invalid tests
+# </editor-fold>
 
 
 run_tests = [
@@ -341,13 +335,12 @@ run_tests = [
 
 skip_tests = [
     (mult_invalid_rtseq_call, (), "Not implemented yet."),
-    (mult_invalid_variables2, (), "Attribute transformer doesn't catch the a.value.value problem."),
-    (mult_with_None, (), "Name transformer doesn't raise an exception for NoneType with python 2.7."),
 ]
 
 fail_transform_tests = [
     (mult_invalid_variables, (), TranslateError),
     (mult_invalid_variables1, (), TranslateError),
+    (mult_with_None, (), TranslateError),
 ]
 
 

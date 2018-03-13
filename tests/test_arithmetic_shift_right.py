@@ -310,7 +310,7 @@ def arithmetic_shift_right_augassign_channelref():
     return a.value
 
 
-# region invalid tests
+# <editor-fold desc=Invalid tests>
 @decorators.nivs_rt_sequence
 def arithmetic_shift_right_invalid_variables():
     return a.value >> b
@@ -319,14 +319,6 @@ def arithmetic_shift_right_invalid_variables():
 @decorators.nivs_rt_sequence
 def arithmetic_shift_right_invalid_variables1():
     return a.value >> b.value
-
-
-@decorators.nivs_rt_sequence
-def arithmetic_shift_right_invalid_variables2():
-    a = DoubleValue(0)
-    b = DoubleValue(0)
-    b.value = a.value >> 2
-    return b
 
 
 @decorators.nivs_rt_sequence
@@ -349,7 +341,7 @@ def arithmetic_shift_right_complex_expr():
     a.value = 15 >> (2 if 2 < 3 else 4)
     return a.value
 
-# end region
+# </editor-fold>
 
 
 run_tests = [
@@ -386,8 +378,6 @@ run_tests = [
 ]
 
 skip_tests = [
-    (arithmetic_shift_right_invalid_variables2, (), "Attribute transformer doesn't catch the a.value.value problem."),
-    (arithmetic_shift_right_to_None, (), "Name transformer doesn't raise an exception for NoneType with python 2.7."),
     (arithmetic_shift_right_invalid_rtseq_call, (), "RTSeq call not implemented yet."),
     (arithmetic_shift_right_binary_unary, (), "Different behaviour between python and SPE."),
 ]
@@ -405,6 +395,7 @@ fail_transform_tests = [
     (arithmetic_shift_right_augassign_variable4, (), VeristandError),  # cannot do shift right on Double
     (arithmetic_shift_right_to_channelref, (), VeristandError),  # cannot do shift right on Double
     (arithmetic_shift_right_augassign_channelref, (), VeristandError),  # cannot do shift right on Double
+    (arithmetic_shift_right_to_None, (), TranslateError),
 ]
 
 

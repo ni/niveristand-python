@@ -231,7 +231,7 @@ def add_complex_expr():
     return a.value
 
 
-# region augassign tests
+# <editor-fold desc=Augassign tests>
 
 @decorators.nivs_rt_sequence
 def aug_add_simple_numbers():
@@ -286,9 +286,9 @@ def aug_add_unary():
     return a.value
 
 
-# end region augassign tests
+# </editor-fold>
 
-# region invalid tests
+# <editor-fold desc=Invalid tests>
 @decorators.nivs_rt_sequence
 def add_invalid_variables():
     return a.value + b
@@ -297,14 +297,6 @@ def add_invalid_variables():
 @decorators.nivs_rt_sequence
 def add_invalid_variables1():
     return a.value + b.value
-
-
-@decorators.nivs_rt_sequence
-def add_invalid_variables2():
-    a = DoubleValue(0)
-    b = DoubleValue(0)
-    b.value = a.value + 2
-    return b
 
 
 @decorators.nivs_rt_sequence
@@ -320,7 +312,7 @@ def add_invalid_rtseq_call():
     a.value = return_constant + 1
     return a.value
 
-# end region
+# </editor-fold>
 
 
 run_tests = [
@@ -361,8 +353,6 @@ run_tests = [
 ]
 
 skip_tests = [
-    (add_invalid_variables2, (), "Attribute transformer doesn't catch the a.value.value problem."),
-    (add_to_None, (), "Name transformer doesn't raise an exception for NoneType with python 2.7."),
     (add_invalid_rtseq_call, (), "RTSeq call not implemented yet."),
     (add_binary_unary_sequence, (), "This test takes 1000x more than the rest. Ignoring for now."),
 ]
@@ -372,6 +362,7 @@ fail_transform_tests = [
     (add_invalid_variables1, (), TranslateError),
     (add_with_multiple_plus, (), VeristandError),  # "UnaryAdd not supported by SPE"
     (add_with_multiple_plus1, (), VeristandError),  # "UnaryAdd not supported by SPE"
+    (add_to_None, (), TranslateError),
 ]
 
 

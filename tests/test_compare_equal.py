@@ -256,7 +256,8 @@ def equal_complex_expr():
     return a.value
 
 
-# region invalid tests
+# <editor-fold desc=Invalid tests>
+
 @decorators.nivs_rt_sequence
 def equal_invalid_variables():
     return a.value == b
@@ -265,14 +266,6 @@ def equal_invalid_variables():
 @decorators.nivs_rt_sequence
 def equal_invalid_variables1():
     return a.value == b.value
-
-
-@decorators.nivs_rt_sequence
-def equal_invalid_variables2():
-    a = BooleanValue(0)
-    b = DoubleValue(0)
-    b.value = a.value == 2
-    return b
 
 
 @decorators.nivs_rt_sequence
@@ -288,7 +281,7 @@ def equal_invalid_rtseq_call():
     a.value = return_constant == 1
     return a.value
 
-# end region
+# </editor-fold>
 
 
 run_tests = [
@@ -328,14 +321,13 @@ run_tests = [
 ]
 
 skip_tests = [
-    (equal_to_None, (), "Name transformer doesn't raise an exception for NoneType with python 2.7."),
     (equal_invalid_rtseq_call, (), "RTSeq call not implemented yet."),
 ]
 
 fail_transform_tests = [
     (equal_invalid_variables, (), TranslateError),
     (equal_invalid_variables1, (), TranslateError),
-    (equal_invalid_variables2, (), TranslateError),
+    (equal_to_None, (), TranslateError),
 ]
 
 

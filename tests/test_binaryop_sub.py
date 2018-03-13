@@ -222,7 +222,7 @@ def sub_complex_expr():
     return a.value
 
 
-# region augassign tests
+# <editor-fold desc=Augassign tests>
 
 @decorators.nivs_rt_sequence
 def aug_sub_simple_numbers():
@@ -277,8 +277,10 @@ def aug_sub_unary():
     return a.value
 
 
-# end region augassign tests
-# region invalid tests
+# </editor-fold>
+
+# <editor-fold desc=Invalid tests>
+
 @decorators.nivs_rt_sequence
 def sub_invalid_variables():
     return a - b
@@ -287,14 +289,6 @@ def sub_invalid_variables():
 @decorators.nivs_rt_sequence
 def sub_invalid_variables1():
     return a.value - b.value
-
-
-@decorators.nivs_rt_sequence
-def sub_invalid_variables2():
-    a = DoubleValue(0)
-    b = DoubleValue(0)
-    b.value = a.value - 2
-    return b.value
 
 
 @decorators.nivs_rt_sequence
@@ -310,7 +304,7 @@ def sub_invalid_rtseq_call():
     a.value = return_constant - 1
     return a.value
 
-# end region invalid tests
+# </editor-fold>
 
 
 run_tests = [
@@ -352,14 +346,13 @@ run_tests = [
 ]
 
 skip_tests = [
-    (sub_invalid_variables2, (), "Attribute transformer doesn't catch the a.value.value problem. -DE14612"),
-    (sub_from_None, (), "Name transformer doesn't raise an exception for NoneType with python 2.7. - DE14611"),
     (sub_invalid_rtseq_call, (), "RTSeq call not implemented yet."),
 ]
 
 fail_transform_tests = [
     (sub_invalid_variables, (), TranslateError),
     (sub_invalid_variables1, (), TranslateError),
+    (sub_from_None, (), TranslateError),
 ]
 
 

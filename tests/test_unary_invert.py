@@ -228,7 +228,8 @@ def invert_double_var():
     return a.value
 
 
-# region invalid tests
+# <editor-fold desc=Invalid tests>
+
 @decorators.nivs_rt_sequence
 def invert_invalid_variables():
     return ~a
@@ -237,14 +238,6 @@ def invert_invalid_variables():
 @decorators.nivs_rt_sequence
 def invert_invalid_variables1():
     return ~a.value
-
-
-@decorators.nivs_rt_sequence
-def invert_invalid_variables2():
-    a = I32Value(0)
-    b = I32Value(0)
-    b.value = ~a.value.value
-    return b.value
 
 
 @decorators.nivs_rt_sequence
@@ -259,7 +252,8 @@ def invert_invalid_rtseq_call():
     a = I32Value(0)
     a.value = ~returns_zero
     return a
-# end region
+
+# </editor-fold>
 
 
 run_tests = [
@@ -298,13 +292,12 @@ skip_tests = [
     (invert_int64_var_3, (), "SPE doesn't support initializing with the full int64 range."),
     (invert_double, (), "Bitwise operations not supported for floating point types."),
     (invert_invalid_rtseq_call, (), "Not implemented yet."),
-    (invert_invalid_variables2, (), "Attribute transformer doesn't catch the a.value.value problem."),
-    (invert_with_None, (), "Name transformer doesn't raise an exception for NoneType with python 2.7."),
 ]
 
 fail_transform_tests = [
     (invert_invalid_variables, (), TranslateError),
     (invert_invalid_variables1, (), TranslateError),
+    (invert_with_None, (), TranslateError),
 ]
 
 

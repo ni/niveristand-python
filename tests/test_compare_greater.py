@@ -211,7 +211,8 @@ def greater_complex_expr():
     return a.value
 
 
-# region invalid tests
+# <editor-fold desc=Invalid tests>
+
 @decorators.nivs_rt_sequence
 def greater_invalid_variables():
     return a.value > b
@@ -220,14 +221,6 @@ def greater_invalid_variables():
 @decorators.nivs_rt_sequence
 def greater_invalid_variables1():
     return a.value > b.value
-
-
-@decorators.nivs_rt_sequence
-def greater_invalid_variables2():
-    a = BooleanValue(0)
-    b = DoubleValue(0)
-    b.value = a.value > 2
-    return b
 
 
 @decorators.nivs_rt_sequence
@@ -243,7 +236,7 @@ def greater_invalid_rtseq_call():
     a.value = return_constant > 1
     return a.value
 
-# end region
+# </editor-fold>
 
 
 run_tests = [
@@ -274,7 +267,6 @@ run_tests = [
 
 skip_tests = [
     (greater_num_nivsdatatype, (), "Builtins as the left comparer can't be overriden"),
-    (greater_to_None, (), "Name transformer doesn't raise an exception for NoneType with python 2.7."),
     (greater_invalid_rtseq_call, (), "RTSeq call not implemented yet."),
     (greater_multiple_types, (), "Cascading comparators untested in VM"),
     (greater_multiple_types1, (), "Cascading comparators untested in VM"),
@@ -284,7 +276,7 @@ skip_tests = [
 fail_transform_tests = [
     (greater_invalid_variables, (), TranslateError),
     (greater_invalid_variables1, (), TranslateError),
-    (greater_invalid_variables2, (), TranslateError),
+    (greater_to_None, (), TranslateError),
 ]
 
 
