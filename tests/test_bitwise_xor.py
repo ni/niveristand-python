@@ -3,7 +3,7 @@ import sys
 from niveristand import decorators, RealTimeSequence
 from niveristand import realtimesequencetools
 from niveristand.clientapi.datatypes import BooleanValue, ChannelReference, DoubleValue, I32Value, I64Value
-from niveristand.exceptions import TranslateError, VeristandError
+from niveristand.exceptions import TranslateError
 from niveristand.library.primitives import localhost_wait
 import pytest
 from testutilities import rtseqrunner, validation
@@ -307,6 +307,14 @@ run_tests = [
     (bitwise_xor_variable_rtseq, (), 4),
     (bitwise_xor_variable_rtseq1, (), 4),
     (aug_bitwise_xor_use_rtseq, (), 4),
+    (bitwise_xor_num_nivsdatatype, (), 2),
+    (bitwise_xor_nivsdatatype_nivsdatatype, (), 2),
+    (bitwise_xor_nivsdatatype_nivsdatatype1, (), 2),
+    (bitwise_xor_nivsdatatype_nivsdatatype2, (), False),
+    (bitwise_xor_with_parantheses1, (), 7),
+    (bitwise_xor_with_parantheses2, (), 4),
+    (bitwise_xor_to_channelref, (), 4),
+    (aug_bitwise_xor_to_channelref, (), 4),
 ]
 
 skip_tests = [
@@ -316,15 +324,18 @@ skip_tests = [
 fail_transform_tests = [
     (bitwise_xor_invalid_variables, (), TranslateError),
     (bitwise_xor_invalid_variables1, (), TranslateError),
-    (bitwise_xor_num_nivsdatatype, (), VeristandError),  # cannot do bitwise xor on Double
-    (bitwise_xor_nivsdatatype_nivsdatatype, (), VeristandError),  # cannot do bitwise xor on Double
-    (bitwise_xor_nivsdatatype_nivsdatatype1, (), VeristandError),  # cannot do bitwise xor on Double
-    (bitwise_xor_nivsdatatype_nivsdatatype2, (), VeristandError),  # cannot do bitwise xor on Boolean
-    (bitwise_xor_with_parantheses1, (), VeristandError),  # cannot do bitwise xor on Double
-    (bitwise_xor_with_parantheses2, (), VeristandError),  # cannot do bitwise xor on Double
-    (bitwise_xor_to_channelref, (), VeristandError),  # cannot do bitwise xor on Double
-    (aug_bitwise_xor_to_channelref, (), VeristandError),  # cannot do bitwise xor on Double
     (bitwise_xor_to_None, (), TranslateError),
+]
+
+py_only_errs = [
+    (bitwise_xor_num_nivsdatatype, (), 2),  # cannot do bitwise xor on float
+    (bitwise_xor_nivsdatatype_nivsdatatype, (), 2),  # cannot do bitwise xor on float
+    (bitwise_xor_nivsdatatype_nivsdatatype1, (), 2),  # cannot do bitwise xor on float
+    (bitwise_xor_nivsdatatype_nivsdatatype2, (), False),  # cannot do bitwise xor on Boolean
+    (bitwise_xor_with_parantheses1, (), 7),  # cannot do bitwise xor on float
+    (bitwise_xor_with_parantheses2, (), 4),  # cannot do bitwise xor on float
+    (bitwise_xor_to_channelref, (), 4),  # cannot do bitwise xor on float
+    (aug_bitwise_xor_to_channelref, (), 4),  # cannot do bitwise xor on float
 ]
 
 
@@ -337,7 +348,7 @@ def test_transform(func_name, params, expected_result):
     RealTimeSequence(func_name)
 
 
-@pytest.mark.parametrize("func_name, params, expected_result", run_tests, ids=idfunc)
+@pytest.mark.parametrize("func_name, params, expected_result", list(set(run_tests) - set(py_only_errs)), ids=idfunc)
 def test_runpy(func_name, params, expected_result):
     actual = func_name(*params)
     assert actual == expected_result
@@ -357,15 +368,10 @@ def test_run_in_VM(func_name, params, expected_result):
 
 @pytest.mark.parametrize("func_name, params, expected_result", fail_transform_tests, ids=idfunc)
 def test_failures(func_name, params, expected_result):
-    try:
+    with pytest.raises(expected_result):
         RealTimeSequence(func_name)
-    except expected_result:
-        pass
-    except VeristandError as e:
-        pytest.fail('Unexpected exception raised:' +
-                    str(e.__class__) + ' while expected was: ' + expected_result.__name__)
-    except Exception as exception:
-        pytest.fail('ExpectedException not raised: ' + exception)
+    with pytest.raises(expected_result):
+        func_name(*params)
 
 
 @pytest.mark.parametrize("func_name, params, reason", skip_tests, ids=idfunc)

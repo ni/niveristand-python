@@ -3,7 +3,7 @@ import sys
 from niveristand import decorators, RealTimeSequence
 from niveristand import realtimesequencetools
 from niveristand.clientapi.datatypes import BooleanValue, ChannelReference, DoubleValue, I32Value, I64Value
-from niveristand.exceptions import TranslateError, VeristandError
+from niveristand.exceptions import TranslateError
 from niveristand.library.primitives import localhost_wait
 import pytest
 from testutilities import rtseqrunner, validation
@@ -307,6 +307,14 @@ run_tests = [
     (bitwise_and_variable_rtseq, (), 1),
     (bitwise_and_variable_rtseq1, (), 1),
     (aug_bitwise_and_use_rtseq, (), 1),
+    (bitwise_and_num_nivsdatatype, (), 1.0),
+    (bitwise_and_nivsdatatype_nivsdatatype, (), 1.0),
+    (bitwise_and_nivsdatatype_nivsdatatype1, (), 1.0),
+    (bitwise_and_nivsdatatype_nivsdatatype2, (), True),
+    (bitwise_and_with_parantheses1, (), 1.0),
+    (bitwise_and_with_parantheses2, (), 0.0),
+    (bitwise_and_to_channelref, (), 1.0),
+    (aug_bitwise_and_to_channelref, (), 1.0),
 ]
 
 skip_tests = [
@@ -316,15 +324,18 @@ skip_tests = [
 fail_transform_tests = [
     (bitwise_and_invalid_variables, (), TranslateError),
     (bitwise_and_invalid_variables1, (), TranslateError),
-    (bitwise_and_num_nivsdatatype, (), VeristandError),  # cannot do bitwise and on Double
-    (bitwise_and_nivsdatatype_nivsdatatype, (), VeristandError),  # cannot do bitwise and on Double
-    (bitwise_and_nivsdatatype_nivsdatatype1, (), VeristandError),  # cannot do bitwise and on Double
-    (bitwise_and_nivsdatatype_nivsdatatype2, (), VeristandError),  # cannot do bitwise and on Boolean
-    (bitwise_and_with_parantheses1, (), VeristandError),  # cannot do bitwise and on Double
-    (bitwise_and_with_parantheses2, (), VeristandError),  # cannot do bitwise and on Double
-    (bitwise_and_to_channelref, (), VeristandError),  # cannot do bitwise and on Double
-    (aug_bitwise_and_to_channelref, (), VeristandError),  # cannot do bitwise and on Double
     (bitwise_and_to_None, (), TranslateError),
+]
+
+py_only_errs = [
+    (bitwise_and_num_nivsdatatype, (), 1.0),  # cannot do bitwise and on float
+    (bitwise_and_nivsdatatype_nivsdatatype, (), 1.0),  # cannot do bitwise and on float
+    (bitwise_and_nivsdatatype_nivsdatatype1, (), 1.0),  # cannot do bitwise and on float
+    (bitwise_and_nivsdatatype_nivsdatatype2, (), True),  # cannot do bitwise and on Boolean
+    (bitwise_and_with_parantheses1, (), 1.0),  # cannot do bitwise and on float
+    (bitwise_and_with_parantheses2, (), 0.0),  # cannot do bitwise and on float
+    (bitwise_and_to_channelref, (), 1.0),  # cannot do bitwise and on float
+    (aug_bitwise_and_to_channelref, (), 1.0),  # cannot do bitwise and on float
 ]
 
 
@@ -337,7 +348,7 @@ def test_transform(func_name, params, expected_result):
     RealTimeSequence(func_name)
 
 
-@pytest.mark.parametrize("func_name, params, expected_result", run_tests, ids=idfunc)
+@pytest.mark.parametrize("func_name, params, expected_result", list(set(run_tests) - set(py_only_errs)), ids=idfunc)
 def test_runpy(func_name, params, expected_result):
     actual = func_name(*params)
     assert actual == expected_result
@@ -357,15 +368,10 @@ def test_run_in_VM(func_name, params, expected_result):
 
 @pytest.mark.parametrize("func_name, params, expected_result", fail_transform_tests, ids=idfunc)
 def test_failures(func_name, params, expected_result):
-    try:
+    with pytest.raises(expected_result):
         RealTimeSequence(func_name)
-    except expected_result:
-        pass
-    except VeristandError as e:
-        pytest.fail('Unexpected exception raised:' +
-                    str(e.__class__) + ' while expected was: ' + expected_result.__name__)
-    except Exception as exception:
-        pytest.fail('ExpectedException not raised: ' + exception)
+    with pytest.raises(expected_result):
+        func_name(*params)
 
 
 @pytest.mark.parametrize("func_name, params, reason", skip_tests, ids=idfunc)

@@ -347,6 +347,7 @@ def arithmetic_shift_left_complex_expr():
 run_tests = [
     (return_constant, (), 5.0),
     (arithmetic_shift_left_simple_numbers, (), 8),
+    (arithmetic_shift_left_nivsdatatype_nivsdatatype1, (), 8),
     (arithmetic_shift_left_nivsdatatype_nivsdatatype3, (), 8),
     (arithmetic_shift_left_variables, (), 32),
     (arithmetic_shift_left_variables1, (), 32),
@@ -387,7 +388,6 @@ fail_transform_tests = [
     (arithmetic_shift_left_invalid_variables1, (), TranslateError),
     (arithmetic_shift_left_num_nivsdatatype, (), VeristandError),  # cannot do shift left on Double
     (arithmetic_shift_left_nivsdatatype_nivsdatatype, (), VeristandError),  # cannot do shift left on Double
-    (arithmetic_shift_left_nivsdatatype_nivsdatatype1, (), VeristandError),  # cannot do shift left on Double
     (arithmetic_shift_left_nivsdatatype_nivsdatatype2, (), VeristandError),  # cannot do shift left on Boolean
     (arithmetic_shift_left_with_parantheses1, (), VeristandError),  # cannot do shift left on Double
     (arithmetic_shift_left_with_parantheses2, (), VeristandError),  # cannot do shift left on Double
@@ -396,6 +396,10 @@ fail_transform_tests = [
     (arithmetic_shift_left_to_channelref, (), VeristandError),  # cannot do shift left on Double
     (arithmetic_shift_left_augassign_channelref, (), VeristandError),  # cannot do shift left on Double
     (arithmetic_shift_left_to_None, (), TranslateError),
+]
+
+py_only_errs = [
+    (arithmetic_shift_left_nivsdatatype_nivsdatatype1, (), 8),  # cannot do shift left on float
 ]
 
 
@@ -408,7 +412,7 @@ def test_transform(func_name, params, expected_result):
     RealTimeSequence(func_name)
 
 
-@pytest.mark.parametrize("func_name, params, expected_result", run_tests, ids=idfunc)
+@pytest.mark.parametrize("func_name, params, expected_result", list(set(run_tests) - set(py_only_errs)), ids=idfunc)
 def test_runpy(func_name, params, expected_result):
     actual = func_name(*params)
     assert actual == expected_result
@@ -428,15 +432,10 @@ def test_run_in_VM(func_name, params, expected_result):
 
 @pytest.mark.parametrize("func_name, params, expected_result", fail_transform_tests, ids=idfunc)
 def test_failures(func_name, params, expected_result):
-    try:
+    with pytest.raises(expected_result):
         RealTimeSequence(func_name)
-    except expected_result:
-        pass
-    except VeristandError as e:
-        pytest.fail('Unexpected exception raised:' +
-                    str(e.__class__) + ' while expected was: ' + expected_result.__name__)
-    except Exception as exception:
-        pytest.fail('ExpectedException not raised: ' + exception)
+    with pytest.raises(expected_result):
+        func_name(*params)
 
 
 @pytest.mark.parametrize("func_name, params, reason", skip_tests, ids=idfunc)

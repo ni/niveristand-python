@@ -36,6 +36,10 @@ def is_supported_return_type(name):
     return name in VALID_RETURN_TYPES
 
 
+def is_scalar_type(name):
+    return name in VALID_RETURN_TYPES
+
+
 def is_channel_ref_type(name):
     return name in CHANNEL_REF_TYPES
 

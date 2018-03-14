@@ -13,9 +13,12 @@ def call_transformer(node, resources):
             raise exceptions.TranslateError(errormessages.invalid_type_for_channel_ref)
         return identifier
     if rtprimitives.is_supported_data_type(node.func.id):
-        # In case of a type declaration, return only the value because this is not
-        # an actual sub-sequence call.
-        return str(utils.generic_ast_node_transform(node.args[0], resources))
+        if rtprimitives.is_scalar_type(node.func.id):
+            return _transform_data_type_scalar(node)
+        elif isinstance(node.args[0], ast.List):
+            return _transform_datatype_non_scalar(node, resources)
+        else:
+            raise exceptions.TranslateError(errormessages.init_var_invalid_type)
     if node.func.id in custom_action_symbols._custom_action_symbols:
         # Custom action symbols are basically transformers for functions that don't have
         # their own ast node. Invoke them here
@@ -36,3 +39,20 @@ def call_transformer(node, resources):
     else:
         # remove space and comma
         return node_str[:-2] + ")"
+
+
+def _transform_datatype_non_scalar(node, resources):
+    data_value_str = utils.generic_ast_node_transform(node.args[0], resources)
+    return data_value_str
+
+
+def _transform_data_type_scalar(node):
+    # In case of data type creation or declaration, create the appropriate value (for example Double(3)
+    # needs to return "3.0", not "3".)
+    data_type = rtprimitives.get_class_by_name(node.func.id)
+    data_value_str = str(data_type(utils.get_element_value(node.args[0])).value)
+    # we need to check the symbols dictionary because of named constants. Using Boolean(True)
+    # needs to return "true" not "True"
+    if data_value_str in symbols._symbols:
+        data_value_str = symbols._symbols[data_value_str]
+    return data_value_str
