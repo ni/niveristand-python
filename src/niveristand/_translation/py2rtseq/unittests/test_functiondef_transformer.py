@@ -27,12 +27,43 @@ def functiondef_nested():
 #    return kwarg
 
 
+def invalid_decorator(func):
+    return func
+
+
+class InvalidDecoratorClass:
+    def __call__(self, f):
+        return f
+
+    @staticmethod
+    def invalid_decorator_as_attribute(func):
+        return func
+
+
+@invalid_decorator
+def functiondef_invalid_decorator():
+    pass
+
+
+@InvalidDecoratorClass()
+def functiondef_invalid_decorator2():
+    pass
+
+
+@InvalidDecoratorClass.invalid_decorator_as_attribute
+def functiondef_invalid_decorator3():
+    pass
+
+
 invalid_func_tests = [
     functiondef_with_default,
     functiondef_with_args,
     functiondef_with_kwargs,
     functiondef_nested,
     #  functiondef_with_kwarg_default,
+    functiondef_invalid_decorator,
+    functiondef_invalid_decorator2,
+    functiondef_invalid_decorator3,
 ]
 
 

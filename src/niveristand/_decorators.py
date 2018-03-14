@@ -116,3 +116,10 @@ def task(mt):
         # this allows the user to call it normally if they choose outside an mt context.
         return func
     return _add_task_to_list
+
+
+_VALID_DECORATORS = {
+    nivs_rt_sequence.__name__: nivs_rt_sequence,
+    NivsParam.__name__: NivsParam,
+    task.__name__: task,
+}

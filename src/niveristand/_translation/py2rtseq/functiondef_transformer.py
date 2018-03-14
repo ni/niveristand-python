@@ -99,3 +99,13 @@ def _validate_restrictions(node):
         raise _exceptions.TranslateError(_errormessages.multiple_return_statements)
     if validations.check_if_any_in_block(ast.Return, node.body[:-1]):
         raise _exceptions.TranslateError(_errormessages.return_unsupported_unless_last)
+    for decorator in node.decorator_list:
+        decorator_name_node = decorator.func if isinstance(decorator, ast.Call) else decorator
+        decorator_name = utils.get_variable_name_from_node(decorator_name_node)
+        decorator_name = decorator_name.split(".")[-1]
+        _raise_if_invalid_decorator(decorator_name)
+
+
+def _raise_if_invalid_decorator(attribute):
+    if not (attribute in _decorators._VALID_DECORATORS):
+        raise _exceptions.TranslateError(_errormessages.invalid_decorator)
