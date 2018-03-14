@@ -1,8 +1,8 @@
 import collections
 import inspect
-from niveristand import errormessages, RealTimeSequence
-from niveristand.decorators import rt_seq_mode_id
-from niveristand.exceptions import TranslateError, VeristandError
+from niveristand import _errormessages, RealTimeSequence
+from niveristand._decorators import rt_seq_mode_id
+from niveristand._exceptions import TranslateError, VeristandError
 
 
 class RealTimeSequencePkg(collections.MutableMapping):
@@ -17,7 +17,7 @@ class RealTimeSequencePkg(collections.MutableMapping):
     def save_referenced(self, path, referencer):
         for seq in self.get_referenced(referencer):
             if seq is None:
-                raise TranslateError(errormessages.dependency_not_found)
+                raise TranslateError(_errormessages.dependency_not_found)
             seq.save(path)
 
     def add_referenced_sequence(self, referencer, referenced_sequence):
@@ -39,7 +39,7 @@ class RealTimeSequencePkg(collections.MutableMapping):
         item = self._obj_to_key(item)
         seq = self._try_resolve(item)
         if seq is None:
-            raise TranslateError(errormessages.dependency_not_found)
+            raise TranslateError(_errormessages.dependency_not_found)
         return self._rtseqs.get(item)
 
     def _obj_to_key(self, item):

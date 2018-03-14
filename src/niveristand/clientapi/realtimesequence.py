@@ -3,12 +3,11 @@ import inspect
 import os
 import tempfile
 
-from niveristand import errormessages
+from niveristand import _errormessages, TranslateError, VeristandError
+from niveristand._translation import utils
+from niveristand._translation.py2rtseq.utils import Resources
 from niveristand.clientapi import realtimesequencedefinition as rtseqapi
 from niveristand.clientapi import rtsequencedefinitionutils as rtsequtils
-from niveristand.exceptions import TranslateError, VeristandError
-from niveristand.translation import utils
-from niveristand.translation.py2rtseq.utils import Resources
 from NationalInstruments.VeriStand.Data import SystemDefinitionChannelResource  # noqa: E501, I100 We need these C# imports to be out of order.
 from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import ChannelReferenceDeclaration, ChannelSizeType
 from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import EvaluationMethod
@@ -29,16 +28,16 @@ class RealTimeSequence:
 
     def run(self, timeout_within_each_step=100000):
         if self._rtseq is None:
-            raise VeristandError(errormessages.run_without_valid_sequence)
+            raise VeristandError(_errormessages.run_without_valid_sequence)
         if self._path is None:
-            raise VeristandError(errormessages.invalid_path_for_sequence)
+            raise VeristandError(_errormessages.invalid_path_for_sequence)
 
         name = self._build_file_name()
         return rtseqapi.run_rt_sequence(name, timeout_within_each_step)
 
     def save(self, path=None):
         if self._rtseq is None:
-            raise VeristandError(errormessages.save_without_valid_sequence)
+            raise VeristandError(_errormessages.save_without_valid_sequence)
         if path is not None:
             self._path = os.path.abspath(path)
         elif not os.path.isdir(self._path):
@@ -51,10 +50,10 @@ class RealTimeSequence:
         return name
 
     def _transform(self):
-        from niveristand.decorators import rt_seq_mode_id
+        from niveristand._decorators import rt_seq_mode_id
         real_obj = getattr(self._top_level_func, rt_seq_mode_id, None)
         if real_obj is None:
-            raise TranslateError(errormessages.invalid_top_level_func)
+            raise TranslateError(_errormessages.invalid_top_level_func)
         src = inspect.getsource(real_obj)
         top_node = ast.parse(src)
         try:
@@ -62,7 +61,7 @@ class RealTimeSequence:
         except TypeError:
             func_node = None
         if func_node is None or not isinstance(func_node, ast.FunctionDef):
-            raise TranslateError(errormessages.invalid_top_level_func)
+            raise TranslateError(_errormessages.invalid_top_level_func)
 
         self._rtseq = rtseqapi.create_real_time_sequence()
         transform_resources = Resources(self._rtseq, str(self))

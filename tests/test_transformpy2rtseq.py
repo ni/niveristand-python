@@ -1,16 +1,16 @@
-from niveristand import exceptions
+from niveristand import _exceptions
 from niveristand import RealTimeSequence
 import pytest
 import testutilities.testfunctions as testfuncs
 
 
 def test_transform_invalid_function_fails():
-    with pytest.raises(exceptions.TranslateError):
+    with pytest.raises(_exceptions.TranslateError):
         RealTimeSequence(testfuncs)
 
 
 def test_transform_func_without_decorator_fails():
-    with pytest.raises(exceptions.TranslateError):
+    with pytest.raises(_exceptions.TranslateError):
         RealTimeSequence(testfuncs.func_without_decorator)
 
 
@@ -43,7 +43,7 @@ def test_transform_pi_assign_to_local():
 
 def test_untyped_declarations_fail():
     testfunc = testfuncs.assign_untyped
-    with pytest.raises(exceptions.TranslateError):
+    with pytest.raises(_exceptions.TranslateError):
         RealTimeSequence(testfunc)
 
 
@@ -63,12 +63,12 @@ def test_return_var_value():
 
 def test_undeclared_variable_fail():
     testfunc = testfuncs.return_var_invalid_value
-    with pytest.raises(exceptions.TranslateError):
+    with pytest.raises(_exceptions.TranslateError):
         RealTimeSequence(testfunc)
 
 
 def test_return_named_type():
-    with pytest.raises(exceptions.TranslateError):
+    with pytest.raises(_exceptions.TranslateError):
         RealTimeSequence(testfuncs.return_named_type)
 
 
@@ -88,17 +88,17 @@ def test_return_var_pi():
 
 def test_return_untyped_symbol():
     testfunc = testfuncs.return_untyped_symbol
-    with pytest.raises(exceptions.TranslateError):
+    with pytest.raises(_exceptions.TranslateError):
         RealTimeSequence(testfunc)
 
 
 def test_multiple_returns():
-    with pytest.raises(exceptions.TranslateError):
+    with pytest.raises(_exceptions.TranslateError):
         RealTimeSequence(testfuncs.multiple_returns)
 
 
 def test_return_not_last():
-    with pytest.raises(exceptions.TranslateError):
+    with pytest.raises(_exceptions.TranslateError):
         RealTimeSequence(testfuncs.return_not_last)
 
 
@@ -115,22 +115,22 @@ def test_default_value_bool_false():
 
 
 def test_boolean_array_return_type():
-    with pytest.raises(exceptions.TranslateError):
+    with pytest.raises(_exceptions.TranslateError):
         testfuncs.return_boolean_array()
 
 
 def test_double_array_return_type():
-    with pytest.raises(exceptions.TranslateError):
+    with pytest.raises(_exceptions.TranslateError):
         testfuncs.return_double_array()
 
 
 def test_a_value_value_assignment():
     testfunc = testfuncs.a_value_value_assignment
-    with pytest.raises(exceptions.TranslateError):
+    with pytest.raises(_exceptions.TranslateError):
         RealTimeSequence(testfunc)
 
 
 def test_a_value_value_assign_to():
     testfunc = testfuncs.a_value_value_assign_to
-    with pytest.raises(exceptions.TranslateError):
+    with pytest.raises(_exceptions.TranslateError):
         RealTimeSequence(testfunc)

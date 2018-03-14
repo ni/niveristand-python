@@ -1,17 +1,18 @@
-from niveristand.clientapi.datatypes import BooleanValue
-from niveristand.clientapi.datatypes import BooleanValueArray
-from niveristand.clientapi.datatypes import ChannelReference
-from niveristand.clientapi.datatypes import DoubleValue
-from niveristand.clientapi.datatypes import DoubleValueArray
-from niveristand.clientapi.datatypes import I32Value
-from niveristand.clientapi.datatypes import I32ValueArray
-from niveristand.clientapi.datatypes import I64Value
-from niveristand.clientapi.datatypes import I64ValueArray
-from niveristand.clientapi.datatypes import U32Value
-from niveristand.clientapi.datatypes import U32ValueArray
-from niveristand.clientapi.datatypes import U64Value
-from niveristand.clientapi.datatypes import U64ValueArray
-from niveristand.clientapi.datatypes import VectorChannelReference
+from niveristand.clientapi._datatypes import BooleanValue
+from niveristand.clientapi._datatypes import BooleanValueArray
+from niveristand.clientapi._datatypes import ChannelReference
+from niveristand.clientapi._datatypes import DoubleValue
+from niveristand.clientapi._datatypes import DoubleValueArray
+from niveristand.clientapi._datatypes import I32Value
+from niveristand.clientapi._datatypes import I32ValueArray
+from niveristand.clientapi._datatypes import I64Value
+from niveristand.clientapi._datatypes import I64ValueArray
+from niveristand.clientapi._datatypes import U32Value
+from niveristand.clientapi._datatypes import U32ValueArray
+from niveristand.clientapi._datatypes import U64Value
+from niveristand.clientapi._datatypes import U64ValueArray
+from niveristand.clientapi._datatypes import VectorChannelReference
+from niveristand.clientapi._realtimesequencedefinitionapi.erroraction import ErrorAction
 
 
 __all__ = ["BooleanValue",
@@ -28,4 +29,5 @@ __all__ = ["BooleanValue",
            "U64Value",
            "U64ValueArray",
            "VectorChannelReference",
+           "ErrorAction",
            ]

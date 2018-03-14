@@ -1,9 +1,8 @@
 import sys
 
-from niveristand import decorators, RealTimeSequence
+from niveristand import _decorators, RealTimeSequence, TranslateError
 from niveristand import realtimesequencetools
-from niveristand.clientapi.datatypes import BooleanValue, ChannelReference, DoubleValue, I32Value, I64Value
-from niveristand.exceptions import TranslateError
+from niveristand.clientapi import BooleanValue, ChannelReference, DoubleValue, I32Value, I64Value
 from niveristand.library.primitives import localhost_wait
 import pytest
 from testutilities import rtseqrunner, validation
@@ -12,118 +11,118 @@ a = 1
 b = 2
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def return_constant():
     a = I32Value(5)
     return a.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def bitwise_xor_simple_numbers():
     a = DoubleValue(0)
     a.value = 1 ^ 3
     return a.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def bitwise_xor_num_nivsdatatype():
     a = DoubleValue(0)
     a.value = 1 ^ DoubleValue(3)
     return a.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def bitwise_xor_nivsdatatype_nivsdatatype():
     a = DoubleValue(0)
     a.value = DoubleValue(1) ^ DoubleValue(3)
     return a.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def bitwise_xor_nivsdatatype_nivsdatatype1():
     a = DoubleValue(0)
     a.value = DoubleValue(1) ^ I32Value(3)
     return a.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def bitwise_xor_nivsdatatype_nivsdatatype2():
     a = BooleanValue(0)
     a.value = BooleanValue(1) ^ BooleanValue(3)
     return a.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def bitwise_xor_nivsdatatype_nivsdatatype3():
     a = DoubleValue(0)
     a.value = I32Value(1) ^ I32Value(3)
     return a.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def bitwise_xor_multiple_types():
     a = I32Value(0)
     a.value = 1 ^ I32Value(3) ^ 5
     return a.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def bitwise_xor_multiple_types1():
     a = I64Value(1)
     a.value = 1 ^ I64Value(5) ^ 3 ^ I32Value(7)
     return a.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def bitwise_xor_use_rtseq():
     a = DoubleValue(0)
     a.value = 1 ^ return_constant()
     return a.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def bitwise_xor_use_rtseq1():
     a = DoubleValue(0)
     a.value = return_constant() ^ 1
     return a.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def bitwise_xor_use_rtseq2():
     a = DoubleValue(0)
     a.value = I32Value(1) ^ return_constant()
     return a.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def bitwise_xor_use_rtseq3():
     a = DoubleValue(0)
     a.value = return_constant() ^ I32Value(1)
     return a.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def bitwise_xor_with_parantheses():
     a = I32Value(0)
     a.value = 1 ^ (5 ^ 3)
     return a.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def bitwise_xor_with_parantheses1():
     a = DoubleValue(0)
     a.value = 1 ^ (DoubleValue(3) ^ I32Value(5))
     return a.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def bitwise_xor_with_parantheses2():
     a = DoubleValue(0)
     a.value = DoubleValue(1) ^ (I32Value(2) ^ 3.0) ^ DoubleValue(4)
     return a.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def bitwise_xor_variables():
     a = I32Value(5)
     b = I32Value(0)
@@ -131,7 +130,7 @@ def bitwise_xor_variables():
     return b.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def bitwise_xor_variables1():
     a = I64Value(5)
     b = I64Value(0)
@@ -139,7 +138,7 @@ def bitwise_xor_variables1():
     return b.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def bitwise_xor_variable_variable():
     a = I32Value(1)
     b = I64Value(3)
@@ -148,7 +147,7 @@ def bitwise_xor_variable_variable():
     return c.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def bitwise_xor_variable_variable1():
     a = I32Value(1)
     b = I64Value(3)
@@ -157,7 +156,7 @@ def bitwise_xor_variable_variable1():
     return c.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def bitwise_xor_variable_rtseq():
     a = I32Value(1)
     b = DoubleValue(0)
@@ -165,7 +164,7 @@ def bitwise_xor_variable_rtseq():
     return b.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def bitwise_xor_variable_rtseq1():
     a = I32Value(1)
     b = DoubleValue(0)
@@ -173,7 +172,7 @@ def bitwise_xor_variable_rtseq1():
     return b.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def bitwise_xor_to_channelref():
     a = DoubleValue(0)
     b = ChannelReference("Aliases/DesiredRPM")
@@ -183,14 +182,14 @@ def bitwise_xor_to_channelref():
     return a.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def bitwise_xor_binary_unary():
     a = I32Value(0)
     a.value = 3 ^ - 1
     return a.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def bitwise_xor_complex_expr():
     a = DoubleValue(0)
     a.value = 1 ^ (2 if 2 < 3 else 4)
@@ -199,35 +198,35 @@ def bitwise_xor_complex_expr():
 
 # <editor-fold desc=Augassign tests>
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def aug_bitwise_xor_simple_numbers():
     a = I32Value(3)
     a.value ^= 7
     return a.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def aug_bitwise_xor_num_nivsdatatype():
     a = I32Value(1)
     a.value ^= I32Value(3)
     return a.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def aug_bitwise_xor_use_rtseq():
     a = I32Value(1)
     a.value ^= return_constant()
     return a.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def aug_bitwise_xor_with_parantheses():
     a = I32Value(1)
     a.value ^= 7 ^ (5 ^ 3)
     return a.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def aug_bitwise_xor_variables():
     a = I32Value(7)
     b = I32Value(3)
@@ -235,7 +234,7 @@ def aug_bitwise_xor_variables():
     return b.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def aug_bitwise_xor_to_channelref():
     a = DoubleValue(1)
     b = ChannelReference("Aliases/DesiredRPM")
@@ -245,7 +244,7 @@ def aug_bitwise_xor_to_channelref():
     return a.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def aug_bitwise_xor_unary():
     a = I32Value(3)
     a.value ^= -1
@@ -256,24 +255,24 @@ def aug_bitwise_xor_unary():
 
 # <editor-fold desc=Invalid tests>
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def bitwise_xor_invalid_variables():
     return a.value ^ b
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def bitwise_xor_invalid_variables1():
     return a.value ^ b.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def bitwise_xor_to_None():
     a = DoubleValue(0)
     a.value = None ^ 1
     return a.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def bitwise_xor_invalid_rtseq_call():
     a = DoubleValue(0)
     a.value = return_constant ^ 1

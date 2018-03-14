@@ -1,11 +1,11 @@
 import sys
-from niveristand import decorators, RealTimeSequence
+from niveristand import _decorators, RealTimeSequence
 from niveristand import realtimesequencetools
-from niveristand.clientapi.datatypes import DoubleValue, I32Value
-from niveristand.clientapi.realtimesequencedefinitionapi.erroraction import ErrorAction
-from niveristand.exceptions import RunAbortedError, RunError, RunFailedError, SequenceError, TranslateError
+from niveristand._exceptions import RunAbortedError, RunError, RunFailedError, SequenceError, TranslateError
+from niveristand.clientapi import DoubleValue, I32Value
+from niveristand.clientapi._realtimesequencedefinitionapi.erroraction import ErrorAction
+from niveristand.library._tasks import multitask, nivs_yield
 from niveristand.library.primitives import generate_error
-from niveristand.library.tasks import multitask, nivs_yield
 import pytest
 from testutilities import rtseqrunner, validation
 
@@ -15,27 +15,27 @@ _cont_err = SequenceError(1, "Continue", ErrorAction.ContinueSequenceExecution)
 _cont_err_no_fail = SequenceError(0, "Continue", ErrorAction.ContinueSequenceExecution)
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def _gen_stop():
     generate_error(-100, "Stop", ErrorAction.StopSequence)
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def _gen_abort():
     generate_error(-200, "Abort", ErrorAction.AbortSequence)
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def _gen_continue():
     generate_error(1, "Continue", ErrorAction.ContinueSequenceExecution)
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def generate_error_simple():
     generate_error(1, "Continue", ErrorAction.ContinueSequenceExecution)
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def generate_continue():
     try:
         a = DoubleValue(0)
@@ -46,7 +46,7 @@ def generate_continue():
     return a.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def _generate_continue_no_fail():
     try:
         a = DoubleValue(0)
@@ -57,7 +57,7 @@ def _generate_continue_no_fail():
     return a.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def generate_stop():
     try:
         a = DoubleValue(0)
@@ -68,7 +68,7 @@ def generate_stop():
     return a.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def generate_abort():
     try:
         a = DoubleValue(0)
@@ -79,52 +79,52 @@ def generate_abort():
     return a.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def generate_continue_mt():
     a = DoubleValue(0)
     with multitask() as mt:
-        @decorators.task(mt)
+        @_decorators.task(mt)
         def f1():
             generate_error(1, "Continue", ErrorAction.ContinueSequenceExecution)
 
-        @decorators.task(mt)
+        @_decorators.task(mt)
         def f2():
             nivs_yield()
             a.value = 1
     return a.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def generate_stop_mt():
     a = DoubleValue(0)
     with multitask() as mt:
-        @decorators.task(mt)
+        @_decorators.task(mt)
         def f1():
             generate_error(-100, "Stop", ErrorAction.StopSequence)
 
-        @decorators.task(mt)
+        @_decorators.task(mt)
         def f2():
             nivs_yield()
             a.value = 1
     return a.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def generate_abort_mt():
     a = DoubleValue(0)
     with multitask() as mt:
-        @decorators.task(mt)
+        @_decorators.task(mt)
         def f1():
             generate_error(-200, "Abort", ErrorAction.AbortSequence)
 
-        @decorators.task(mt)
+        @_decorators.task(mt)
         def f2():
             nivs_yield()
             a.value = 1
     return a.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def generate_continue_subroutine():
     a = DoubleValue(1)
     _gen_continue()
@@ -132,7 +132,7 @@ def generate_continue_subroutine():
     return a.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def generate_continue_subroutine1():
     try:
         a = DoubleValue(0)
@@ -143,7 +143,7 @@ def generate_continue_subroutine1():
     return a.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def generate_stop_subroutine():
     a = DoubleValue(1)
     _gen_stop()
@@ -151,7 +151,7 @@ def generate_stop_subroutine():
     return a.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def generate_stop_subroutine1():
     try:
         a = DoubleValue(0)
@@ -162,7 +162,7 @@ def generate_stop_subroutine1():
     return a.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def generate_abort_subroutine():
     a = DoubleValue(1)
     _gen_abort()
@@ -170,7 +170,7 @@ def generate_abort_subroutine():
     return a.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def generate_abort_subroutine1():
     try:
         a = DoubleValue(0)
@@ -181,23 +181,23 @@ def generate_abort_subroutine1():
     return a.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def invalid_error_code():
     a = I32Value(-1)
     generate_error(a.value, "Message", ErrorAction.AbortSequence)
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def invalid_error_message():
     generate_error(-1, 22, ErrorAction.AbortSequence)
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def invalid_error_action():
     generate_error(1, "Message", 1)
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def generate_multiple_errors():
     _gen_continue()
     _gen_continue()
@@ -205,7 +205,7 @@ def generate_multiple_errors():
     _gen_stop()
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def generate_multiple_errors1():
     try:
         _gen_continue()
@@ -215,7 +215,7 @@ def generate_multiple_errors1():
         _gen_continue()
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def generate_multiple_errors2():
     _gen_continue()
     _gen_abort()

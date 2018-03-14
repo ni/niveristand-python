@@ -1,4 +1,4 @@
-from niveristand import exceptions
+from niveristand import _exceptions
 from niveristand import RealTimeSequence
 import pytest
 from testutilities import rtseqrunner, testfunctions
@@ -22,7 +22,7 @@ def test_channel_ref_setter():
 
 def test_channel_ref_return():
     testfunc = testfunctions.channel_ref_return
-    with pytest.raises(exceptions.TranslateError):
+    with pytest.raises(_exceptions.TranslateError):
         RealTimeSequence(testfunc)
 
 
@@ -37,17 +37,17 @@ def test_channel_ref_run_python():
 
 
 def test_channel_ref_invalid_channel_set():
-    with pytest.raises(exceptions.VeristandError):
+    with pytest.raises(_exceptions.VeristandError):
         testfunctions.channel_ref_invalid_channel_set()
 
 
 def test_channel_ref_invalid_channel_get():
-    with pytest.raises(exceptions.VeristandError):
+    with pytest.raises(_exceptions.VeristandError):
         testfunctions.channel_ref_invalid_channel_get()
 
 
 def test_channel_ref_invalid_channel_transform():
-    with pytest.raises(exceptions.VeristandError):
+    with pytest.raises(_exceptions.VeristandError):
         RealTimeSequence(testfunctions.channel_ref_invalid_channel_transform)
 
 
@@ -68,7 +68,7 @@ def test_channel_ref_array_setter():
 
 def test_channel_ref_array_return():
     testfunc = testfunctions.channel_ref_array_return
-    with pytest.raises(exceptions.TranslateError):
+    with pytest.raises(_exceptions.TranslateError):
         RealTimeSequence(testfunc)
 
 

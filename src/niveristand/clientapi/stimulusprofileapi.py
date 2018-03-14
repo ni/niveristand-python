@@ -1,12 +1,12 @@
 from enum import Enum
 import time
-from niveristand import errormessages
-from niveristand import internal
-from niveristand.clientapi.realtimesequencedefinitionapi.erroraction import ErrorAction
-from niveristand.exceptions import SequenceError, VeristandError
+from niveristand import _errormessages
+from niveristand import _internal
+from niveristand._exceptions import SequenceError, VeristandError
+from niveristand.clientapi._realtimesequencedefinitionapi.erroraction import ErrorAction
 from NationalInstruments.VeriStand.Data import DataType  # noqa: E501, I100 We need these C# imports to be out of order.
 
-internal.dummy()
+_internal.dummy()
 
 
 class StimulusProfileState(object):
@@ -32,7 +32,7 @@ class StimulusProfileState(object):
                                  DataType.UInt64]:
             self.ret_val = data_value.Value
         else:
-            raise VeristandError(errormessages.invalid_return_type)
+            raise VeristandError(_errormessages.invalid_return_type)
         aborted = args.Aborted
         error = args.Error
         if aborted:

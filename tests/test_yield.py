@@ -1,15 +1,13 @@
 import sys
-from niveristand import decorators, RealTimeSequence
+from niveristand import _decorators, RealTimeSequence, TranslateError
 from niveristand import realtimesequencetools
-from niveristand.clientapi.datatypes import I32Value
-from niveristand.exceptions import TranslateError
-from niveristand.library.primitives import iteration
-from niveristand.library.tasks import multitask, nivs_yield
+from niveristand.clientapi import I32Value
+from niveristand.library import iteration, multitask, nivs_yield
 import pytest
 from testutilities import rtseqrunner, validation
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def yield_single():
     a = I32Value(0)
     nivs_yield()
@@ -17,7 +15,7 @@ def yield_single():
     return a.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def yield_many():
     a = I32Value(0)
     nivs_yield()
@@ -29,7 +27,7 @@ def yield_many():
     return a.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def yield_in_while():
     a = I32Value(0)
     while a.value < 10:
@@ -38,23 +36,23 @@ def yield_in_while():
     return a.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def yield_multitask():
     with multitask() as mt:
-        @decorators.task(mt)
+        @_decorators.task(mt)
         def f1():
             for a in range(5):
                 nivs_yield()
 
-        @decorators.task(mt)
+        @_decorators.task(mt)
         def f2():
             with multitask() as mt_inner:
-                @decorators.task(mt_inner)
+                @_decorators.task(mt_inner)
                 def fa():
                     for b in range(7):
                         nivs_yield()
 
-                @decorators.task(mt_inner)
+                @_decorators.task(mt_inner)
                 def fb():
                     for c in range(13):
                         nivs_yield()
@@ -63,12 +61,12 @@ def yield_multitask():
     return a.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def yield_as_parameter_fail():
     abs(nivs_yield())
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def yield_as_operator_fails():
     a = I32Value(0)
     a.value = nivs_yield() + 1

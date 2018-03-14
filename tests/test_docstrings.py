@@ -1,17 +1,17 @@
 import sys
-from niveristand import decorators, RealTimeSequence
-from niveristand.library.tasks import multitask
+from niveristand import _decorators, RealTimeSequence
+from niveristand.library._tasks import multitask
 import pytest
 from testutilities import validation
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def docstring_func_single_line():
     """Single-line doc."""
     pass
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def docstring_func_parameters(arg1, arg2):
     """Test parameters docstring.
 
@@ -21,7 +21,7 @@ def docstring_func_parameters(arg1, arg2):
     pass
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def docstring_func_multi_line():
     """Begin doc.
 
@@ -31,7 +31,7 @@ def docstring_func_multi_line():
     pass
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def docstring_func_in_code():
     """Begin doc.
 
@@ -43,7 +43,7 @@ def docstring_func_in_code():
     pass
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def docstring_try():
     """Begin doc.
 
@@ -56,16 +56,16 @@ def docstring_try():
         pass
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def docstring_multitask():
     """Test multitask docstring."""
     with multitask() as mt:
-        @decorators.task(mt)
+        @_decorators.task(mt)
         def func1():
             """Test task docstring in func1."""
             pass
 
-        @decorators.task(mt)
+        @_decorators.task(mt)
         def func2():
             """Test task docstring in func2.
 
@@ -75,7 +75,7 @@ def docstring_multitask():
     pass
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def docstring_try_inside():
     """Begin doc.
 

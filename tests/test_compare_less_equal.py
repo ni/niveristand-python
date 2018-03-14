@@ -1,9 +1,8 @@
 import sys
 
-from niveristand import decorators, RealTimeSequence
+from niveristand import _decorators, RealTimeSequence, TranslateError
 from niveristand import realtimesequencetools
-from niveristand.clientapi.datatypes import BooleanValue, ChannelReference, DoubleValue, I32Value
-from niveristand.exceptions import TranslateError
+from niveristand.clientapi import BooleanValue, ChannelReference, DoubleValue, I32Value
 from niveristand.library.primitives import localhost_wait
 import pytest
 from testutilities import rtseqrunner, validation
@@ -12,125 +11,125 @@ a = 1
 b = 2
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def return_constant():
     a = DoubleValue(5)
     return a.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def less_eq_simple_numbers():
     a = BooleanValue(True)
     a.value = 5 <= 1
     return a.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def less_eq_nivsdatatype_num():
     a = BooleanValue(True)
     a.value = DoubleValue(5) <= 2
     return a.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def less_eq_num_nivsdatatype():
     a = BooleanValue(True)
     a.value = 5 <= DoubleValue(2)
     return a.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def less_eq_nivsdatatype_nivsdatatype():
     a = BooleanValue(True)
     a.value = DoubleValue(5) <= DoubleValue(1)
     return a.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def less_eq_nivsdatatype_nivsdatatype1():
     a = BooleanValue(True)
     a.value = DoubleValue(5) <= I32Value(1)
     return a.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def less_eq_nivsdatatype_nivsdatatype2():
     a = BooleanValue(True)
     a.value = I32Value(5) <= DoubleValue(1)
     return a.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def less_eq_nivsdatatype_nivsdatatype3():
     a = BooleanValue(True)
     a.value = I32Value(5) <= I32Value(2)
     return a.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def less_eq_multiple_types():
     a = BooleanValue(True)
     a.value = DoubleValue(5) <= 2 <= 1.0
     return a.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def less_eq_multiple_types1():
     a = BooleanValue(True)
     a.value = I32Value(2.0) <= DoubleValue(3) <= 4 <= 5.0
     return a.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def less_eq_use_rtseq():
     a = BooleanValue(True)
     a.value = 6 <= return_constant()
     return a.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def less_eq_use_rtseq1():
     a = BooleanValue(True)
     a.value = return_constant() <= 4
     return a.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def less_eq_use_rtseq2():
     a = BooleanValue(True)
     a.value = DoubleValue(6) <= return_constant()
     return a.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def less_eq_use_rtseq3():
     a = BooleanValue(True)
     a.value = return_constant() <= DoubleValue(4)
     return a.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def less_eq_use_rtseq4():
     a = BooleanValue(True)
     a.value = I32Value(6) <= return_constant()
     return a.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def less_eq_use_rtseq5():
     a = BooleanValue(True)
     a.value = return_constant() <= I32Value(1)
     return a.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def less_eq_with_parantheses():
     a = BooleanValue(True)
     a.value = 5 <= (3 <= 2)
     return a.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def less_eq_variables():
     a = DoubleValue(5)
     b = BooleanValue(False)
@@ -138,7 +137,7 @@ def less_eq_variables():
     return b.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def less_eq_variables1():
     a = DoubleValue(1)
     b = BooleanValue(False)
@@ -146,7 +145,7 @@ def less_eq_variables1():
     return b.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def less_eq_variable_variable():
     a = DoubleValue(2)
     b = DoubleValue(1)
@@ -155,7 +154,7 @@ def less_eq_variable_variable():
     return c.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def less_eq_variable_variable1():
     a = DoubleValue(2)
     b = DoubleValue(1)
@@ -164,7 +163,7 @@ def less_eq_variable_variable1():
     return c.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def less_eq_variable_rtseq():
     a = DoubleValue(6.0)
     b = BooleanValue(False)
@@ -172,7 +171,7 @@ def less_eq_variable_rtseq():
     return b.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def less_eq_variable_rtseq1():
     a = DoubleValue(1)
     b = BooleanValue(False)
@@ -180,7 +179,7 @@ def less_eq_variable_rtseq1():
     return b.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def less_eq_to_channelref():
     a = BooleanValue(False)
     b = ChannelReference("Aliases/DesiredRPM")
@@ -190,21 +189,21 @@ def less_eq_to_channelref():
     return a.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def less_eq_binary_unary():
     a = BooleanValue(True)
     a.value = 2 <= - 1
     return a.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def less_eq_with_multiple_comparators():
     a = BooleanValue(True)
     a.value = 5 <= 4 <= 3 <= 2
     return a.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def less_eq_complex_expr():
     a = BooleanValue(False)
     a.value = 1 <= (2 if 2 < 3 else 1)
@@ -213,24 +212,24 @@ def less_eq_complex_expr():
 
 # <editor-fold desc=Invalid tests>
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def less_eq_invalid_variables():
     return a.value <= b
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def less_eq_invalid_variables1():
     return a.value <= b.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def less_eq_to_None():
     a = BooleanValue(True)
     a.value = None <= 1
     return a.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def less_eq_invalid_rtseq_call():
     a = BooleanValue(True)
     a.value = return_constant <= 1
@@ -239,119 +238,119 @@ def less_eq_invalid_rtseq_call():
 # </editor-fold>
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def lt_equal_simple_numbers():
     a = BooleanValue(True)
     a.value = 1 <= 1
     return a.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def lt_equal_num_nivsdatatype():
     a = BooleanValue(False)
     a.value = DoubleValue(1) <= 2
     return a.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def lt_equal_nivsdatatype_nivsdatatype():
     a = BooleanValue(True)
     a.value = DoubleValue(1) <= DoubleValue(1)
     return a.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def lt_equal_nivsdatatype_nivsdatatype1():
     a = BooleanValue(True)
     a.value = DoubleValue(1) <= I32Value(1)
     return a.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def lt_equal_nivsdatatype_nivsdatatype2():
     a = BooleanValue(True)
     a.value = I32Value(1) <= DoubleValue(1)
     return a.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def lt_equal_nivsdatatype_nivsdatatype3():
     a = BooleanValue(True)
     a.value = I32Value(2) <= I32Value(1)
     return a.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def lt_equal_multiple_types():
     a = BooleanValue(True)
     a.value = DoubleValue(1) <= 1 <= 1.0
     return a.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def lt_equal_multiple_types1():
     a = BooleanValue(True)
     a.value = I32Value(4) <= DoubleValue(3) <= 2.0 <= 1
     return a.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def lt_equal_use_rtseq():
     a = BooleanValue(False)
     a.value = 5 <= return_constant()
     return a.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def lt_equal_use_rtseq1():
     a = BooleanValue(False)
     a.value = return_constant() <= 5
     return a.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def lt_equal_use_rtseq2():
     a = BooleanValue(False)
     a.value = DoubleValue(5) <= return_constant()
     return a.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def lt_equal_use_rtseq3():
     a = BooleanValue(False)
     a.value = return_constant() <= DoubleValue(5)
     return a.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def lt_equal_use_rtseq4():
     a = BooleanValue(False)
     a.value = I32Value(5) <= return_constant()
     return a.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def lt_equal_use_rtseq5():
     a = BooleanValue(True)
     a.value = return_constant() <= I32Value(1)
     return a.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def lt_equal_with_parantheses():
     a = BooleanValue(False)
     a.value = 1 <= (2 <= 3)
     return a.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def lt_equal_with_parantheses1():
     a = BooleanValue(False)
     a.value = 3 <= (DoubleValue(2) <= I32Value(2))
     return a.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def lt_equal_variables():
     a = DoubleValue(1)
     b = BooleanValue(0)
@@ -359,7 +358,7 @@ def lt_equal_variables():
     return b.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def lt_equal_variables1():
     a = DoubleValue(1)
     b = BooleanValue(0)
@@ -367,7 +366,7 @@ def lt_equal_variables1():
     return b.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def lt_equal_variable_variable():
     a = DoubleValue(2)
     b = DoubleValue(1)
@@ -376,7 +375,7 @@ def lt_equal_variable_variable():
     return c.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def lt_equal_variable_variable1():
     a = DoubleValue(2)
     b = DoubleValue(2)
@@ -385,7 +384,7 @@ def lt_equal_variable_variable1():
     return c.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def lt_equal_variable_variable2():
     a = DoubleValue(2)
     b = DoubleValue(2)
@@ -394,7 +393,7 @@ def lt_equal_variable_variable2():
     return c.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def lt_equal_variable_rtseq():
     a = DoubleValue(5)
     b = BooleanValue(False)
@@ -402,7 +401,7 @@ def lt_equal_variable_rtseq():
     return b.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def lt_equal_variable_rtseq1():
     a = DoubleValue(5)
     b = BooleanValue(False)
@@ -410,7 +409,7 @@ def lt_equal_variable_rtseq1():
     return b.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def lt_equal_to_channelref():
     a = BooleanValue(False)
     b = ChannelReference("Aliases/DesiredRPM")
@@ -420,21 +419,21 @@ def lt_equal_to_channelref():
     return a.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def lt_equal_binary_unary():
     a = BooleanValue(True)
     a.value = -1 <= - 1
     return a.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def lt_equal_with_multiple_comparators():
     a = BooleanValue(False)
     a.value = 4 <= 3 <= 2 <= 1
     return a.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def lt_equal_complex_expr():
     a = BooleanValue(False)
     a.value = 1 <= (1 if 2 < 3 else 0)
@@ -443,24 +442,24 @@ def lt_equal_complex_expr():
 
 # <editor-fold desc=Invalid tests>
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def lt_equal_invalid_variables():
     return a.value <= b
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def lt_equal_invalid_variables1():
     return a.value <= b.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def lt_equal_to_None():
     a = BooleanValue(True)
     a.value = None <= 1  # noqa: E711 the identity operator "is" is not being tested here.
     return a.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def lt_equal_invalid_rtseq_call():
     a = BooleanValue(True)
     a.value = return_constant <= 1

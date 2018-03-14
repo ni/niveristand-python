@@ -1,4 +1,5 @@
-from niveristand.decorators import task
+from niveristand._decorators import task
+from niveristand.library._tasks import multitask, nivs_yield, stop_task
 from niveristand.library.primitives import \
     abstime, \
     arraysize, \
@@ -19,7 +20,6 @@ from niveristand.library.primitives import \
     seqtimeus, \
     tickcountms, \
     tickcountus
-from niveristand.library.tasks import multitask, nivs_yield, stop_task
 from niveristand.library.timing import wait, wait_until_next_ms_multiple, wait_until_next_us_multiple, \
     wait_until_settled
 

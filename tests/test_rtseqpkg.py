@@ -1,10 +1,9 @@
 import os
 import sys
 import tempfile
-from niveristand import RealTimeSequence
-from niveristand.clientapi.datatypes import I32Value
+from niveristand import nivs_rt_sequence, RealTimeSequence
+from niveristand.clientapi import I32Value
 from niveristand.clientapi.realtimesequencepkg import RealTimeSequencePkg
-from niveristand.decorators import nivs_rt_sequence
 
 __num_of_valid_rtseqs__ = 4
 

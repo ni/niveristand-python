@@ -1,10 +1,10 @@
 import tempfile
-from niveristand import decorators
+from niveristand import _decorators
 from niveristand import realtimesequencetools
 from testutilities import rtseqrunner
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def simple():
     return 1.0
 

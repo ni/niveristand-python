@@ -1,7 +1,7 @@
 from niveristand import nivs_rt_sequence, NivsParam
-from niveristand.clientapi.datatypes import BooleanValue, DoubleValue, I64Value
+from niveristand.clientapi import BooleanValue, DoubleValue, I64Value
+from niveristand.library import nivs_yield
 from niveristand.library.primitives import quotient, seqtime, tickcountms, tickcountus
-from niveristand.library.tasks import nivs_yield
 
 
 @NivsParam('duration', DoubleValue(0), NivsParam.BY_REF)

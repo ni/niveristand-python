@@ -1,13 +1,10 @@
 import sys
 import threading
-from niveristand import RealTimeSequence
+from niveristand import nivs_rt_sequence, RealTimeSequence, RunAbortedError, RunFailedError, TranslateError
 from niveristand import realtimesequencetools
-from niveristand.clientapi.datatypes.rtprimitives import DoubleValue
-from niveristand.clientapi.realtimesequencedefinitionapi.erroraction import ErrorAction
-from niveristand.decorators import nivs_rt_sequence
-from niveristand.exceptions import RunAbortedError, RunFailedError, TranslateError
-from niveristand.library.primitives import generate_error
-from niveristand.library.tasks import get_scheduler
+from niveristand.clientapi import DoubleValue, ErrorAction
+from niveristand.library import generate_error
+from niveristand.library._tasks import get_scheduler
 import pytest
 from testutilities import validation
 

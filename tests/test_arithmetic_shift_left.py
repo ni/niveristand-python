@@ -1,9 +1,8 @@
 import sys
 
-from niveristand import decorators, RealTimeSequence
+from niveristand import _decorators, RealTimeSequence, TranslateError, VeristandError
 from niveristand import realtimesequencetools
-from niveristand.clientapi.datatypes import BooleanValue, ChannelReference, DoubleValue, I32Value, I64Value
-from niveristand.exceptions import TranslateError, VeristandError
+from niveristand.clientapi import BooleanValue, ChannelReference, DoubleValue, I32Value, I64Value
 from niveristand.library.primitives import localhost_wait
 import pytest
 from testutilities import rtseqrunner, validation
@@ -12,132 +11,132 @@ a = 1
 b = 2
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def return_constant():
     a = I32Value(5)
     return a.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def arithmetic_shift_left_simple_numbers():
     a = DoubleValue(0)
     a.value = 1 << 3
     return a.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def arithmetic_shift_left_num_nivsdatatype():
     a = DoubleValue(0)
     a.value = 1 << DoubleValue(3)
     return a.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def arithmetic_shift_left_nivsdatatype_nivsdatatype():
     a = DoubleValue(0)
     a.value = DoubleValue(1) << DoubleValue(3)
     return a.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def arithmetic_shift_left_nivsdatatype_nivsdatatype1():
     a = DoubleValue(0)
     a.value = DoubleValue(1) << I32Value(3)
     return a.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def arithmetic_shift_left_nivsdatatype_nivsdatatype2():
     a = BooleanValue(0)
     a.value = BooleanValue(1) << BooleanValue(3)
     return a.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def arithmetic_shift_left_nivsdatatype_nivsdatatype3():
     a = DoubleValue(0)
     a.value = I32Value(1) << I32Value(3)
     return a.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def arithmetic_shift_left_multiple_types():
     a = I32Value(0)
     a.value = 1 << I32Value(3) << 5
     return a.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def arithmetic_shift_left_multiple_types1():
     a = I64Value(1)
     a.value = 1 << I64Value(5) << 3 << I32Value(7)
     return a.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def arithmetic_shift_left_use_rtseq():
     a = DoubleValue(0)
     a.value = 1 << return_constant()
     return a.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def arithmetic_shift_left_use_rtseq1():
     a = DoubleValue(0)
     a.value = return_constant() << 1
     return a.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def arithmetic_shift_left_use_rtseq2():
     a = DoubleValue(0)
     a.value = I32Value(1) << return_constant()
     return a.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def arithmetic_shift_left_use_rtseq3():
     a = DoubleValue(0)
     a.value = return_constant() << I32Value(1)
     return a.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def arithmetic_shift_left_use_rtseq4():
     a = DoubleValue(0)
     a.value = I32Value(1) << return_constant()
     return a.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def arithmetic_shift_left_use_rtseq5():
     a = DoubleValue(0)
     a.value = return_constant() << I32Value(1)
     return a.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def arithmetic_shift_left_with_parantheses():
     a = I32Value(0)
     a.value = 1 << (2 << 1)
     return a.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def arithmetic_shift_left_with_parantheses1():
     a = DoubleValue(0)
     a.value = 1 << (DoubleValue(2) << I32Value(1))
     return a.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def arithmetic_shift_left_with_parantheses2():
     a = DoubleValue(0)
     a.value = DoubleValue(1) << (I32Value(2) << 1.0) << DoubleValue(4)
     return a.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def arithmetic_shift_left_variables():
     a = I32Value(5)
     b = I32Value(0)
@@ -145,7 +144,7 @@ def arithmetic_shift_left_variables():
     return b.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def arithmetic_shift_left_variables1():
     a = I64Value(5)
     b = I64Value(0)
@@ -153,7 +152,7 @@ def arithmetic_shift_left_variables1():
     return b.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def arithmetic_shift_left_variable_variable():
     a = I32Value(1)
     b = I64Value(3)
@@ -162,7 +161,7 @@ def arithmetic_shift_left_variable_variable():
     return c.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def arithmetic_shift_left_variable_variable1():
     a = I32Value(1)
     b = I64Value(3)
@@ -171,7 +170,7 @@ def arithmetic_shift_left_variable_variable1():
     return c.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def arithmetic_shift_left_variable_rtseq():
     a = I32Value(1)
     b = DoubleValue(0)
@@ -179,7 +178,7 @@ def arithmetic_shift_left_variable_rtseq():
     return b.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def arithmetic_shift_left_variable_rtseq1():
     a = I32Value(1)
     b = DoubleValue(0)
@@ -187,7 +186,7 @@ def arithmetic_shift_left_variable_rtseq1():
     return b.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def arithmetic_shift_left_to_channelref():
     a = DoubleValue(0)
     b = ChannelReference("Aliases/DesiredRPM")
@@ -197,56 +196,56 @@ def arithmetic_shift_left_to_channelref():
     return a.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def arithmetic_shift_left_binary_unary():
     a = I32Value(0)
     a.value = 3 << - 1
     return a.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def arithmetic_shift_left_augassign_number():
     a = I32Value(1)
     a.value <<= 2
     return a.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def arithmetic_shift_left_augassign_nivsdatatype():
     a = I32Value(1)
     a.value <<= I32Value(2)
     return a.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def arithmetic_shift_left_augassign_nivsdatatype1():
     a = I64Value(1)
     a.value <<= I64Value(2)
     return a.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def arithmetic_shift_left_augassign_nivsdatatype2():
     a = I64Value(1)
     a.value <<= I32Value(2)
     return a.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def arithmetic_shift_left_augassign_nivsdatatype3():
     a = I32Value(1)
     a.value <<= I64Value(2)
     return a.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def arithmetic_shift_left_augassign_nivsdatatype4():
     a = I32Value(1)
     a.value <<= DoubleValue(2)
     return a.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def arithmetic_shift_left_augassign_variable():
     a = I32Value(1)
     b = I32Value(2)
@@ -254,7 +253,7 @@ def arithmetic_shift_left_augassign_variable():
     return a.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def arithmetic_shift_left_augassign_variable1():
     a = I64Value(1)
     b = I64Value(2)
@@ -262,7 +261,7 @@ def arithmetic_shift_left_augassign_variable1():
     return a.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def arithmetic_shift_left_augassign_variable2():
     a = I32Value(1)
     b = I64Value(2)
@@ -270,7 +269,7 @@ def arithmetic_shift_left_augassign_variable2():
     return a.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def arithmetic_shift_left_augassign_variable3():
     a = I64Value(1)
     b = I32Value(2)
@@ -278,7 +277,7 @@ def arithmetic_shift_left_augassign_variable3():
     return a.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def arithmetic_shift_left_augassign_variable4():
     a = I32Value(1)
     b = DoubleValue(2)
@@ -286,21 +285,21 @@ def arithmetic_shift_left_augassign_variable4():
     return a.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def arithmetic_shift_left_augassign_rtseq():
     a = I32Value(1)
     a.value <<= return_constant()
     return a.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def arithemtic_shift_left_augassign_paranthesis():
     a = I32Value(1)
     a.value <<= (2 + I32Value(1)) + I64Value(1)
     return a.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def arithmetic_shift_left_augassign_channelref():
     a = DoubleValue(1)
     b = ChannelReference("Aliases/DesiredRPM")
@@ -311,31 +310,31 @@ def arithmetic_shift_left_augassign_channelref():
 
 
 # <editor-fold desc=Invalid tests>
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def arithmetic_shift_left_invalid_variables():
     return a.value << b
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def arithmetic_shift_left_invalid_variables1():
     return a.value << b.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def arithmetic_shift_left_to_None():
     a = DoubleValue(0)
     a.value = None << 1
     return a.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def arithmetic_shift_left_invalid_rtseq_call():
     a = DoubleValue(0)
     a.value = return_constant << 1
     return a.value
 
 
-@decorators.nivs_rt_sequence
+@_decorators.nivs_rt_sequence
 def arithmetic_shift_left_complex_expr():
     a = DoubleValue(0)
     a.value = 1 << (2 if 2 < 3 else 4)

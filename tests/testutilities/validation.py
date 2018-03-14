@@ -1,5 +1,5 @@
 import inspect
-from niveristand.decorators import rt_seq_mode_id
+from niveristand._decorators import rt_seq_mode_id
 
 
 def test_validate(testmodule):

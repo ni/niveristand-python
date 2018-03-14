@@ -1,9 +1,9 @@
 from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import CompilationEventType
 from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApiUtilities import CompilerUtilities
-from niveristand import internal
-from niveristand.exceptions import VeristandError
+from niveristand import _internal
+from niveristand._exceptions import VeristandError
 
-internal.dummy()
+_internal.dummy()
 
 
 def compile_rtseq(rtseq):

@@ -1,4 +1,4 @@
-from niveristand.exceptions import RunError, VeristandNotImplementedError
+from niveristand._exceptions import RunError, VeristandNotImplementedError
 
 
 def run_py_as_rtseq(toplevelfunc, timeout_within_each_step=100000):
