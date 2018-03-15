@@ -4,3 +4,5 @@
 Real-Time Sequence Tools
 ========================
 
+.. automodule:: niveristand.realtimesequencetools
+   :members:
