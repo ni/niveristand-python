@@ -1,6 +1,6 @@
 import sys
 
-from niveristand import _decorators, RealTimeSequence, TranslateError
+from niveristand import _decorators, RealTimeSequence, TranslateError, VeristandError
 from niveristand import realtimesequencetools
 from niveristand.clientapi import ChannelReference, DoubleValue, I32Value
 from niveristand.library.primitives import localhost_wait
@@ -333,13 +333,13 @@ run_tests = [
 ]
 
 skip_tests = [
-    (div_invalid_rtseq_call, (), "Not implemented yet."),
 ]
 
 fail_transform_tests = [
     (div_invalid_variables, (), TranslateError),
     (div_invalid_variables1, (), TranslateError),
     (div_with_None, (), TranslateError),
+    (div_invalid_rtseq_call, (), VeristandError),
 ]
 
 

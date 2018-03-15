@@ -1,6 +1,6 @@
 import sys
 
-from niveristand import _decorators, RealTimeSequence, TranslateError
+from niveristand import _decorators, RealTimeSequence, TranslateError, VeristandError
 from niveristand import realtimesequencetools
 from niveristand.clientapi import BooleanValue, DoubleValue, I32Value, I64Value
 import pytest
@@ -157,13 +157,13 @@ skip_tests = [
     (logical_or_variables, (), "Or between two constant DataTypes returns a DataType object, we have to"
                                "research this how to solve it. A solution is to always use variables in"
                                "logical operators, and use var.value."),
-    (logical_or_invalid_rtseq_call, (), "RTSeq call not implemented yet."),
 ]
 
 fail_transform_tests = [
     (logical_or_invalid_variables, (), TranslateError),
     (logical_or_invalid_variables1, (), TranslateError),
     (logical_or_None, (), TranslateError),
+    (logical_or_invalid_rtseq_call, (), VeristandError),
 ]
 
 

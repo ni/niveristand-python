@@ -352,7 +352,6 @@ run_tests = [
 ]
 
 skip_tests = [
-    (add_invalid_rtseq_call, (), "RTSeq call not implemented yet."),
     (add_binary_unary_sequence, (), "This test takes 1000x more than the rest. Ignoring for now."),
 ]
 
@@ -362,6 +361,7 @@ fail_transform_tests = [
     (add_with_multiple_plus, (), VeristandError),  # "UnaryAdd not supported by SPE"
     (add_with_multiple_plus1, (), VeristandError),  # "UnaryAdd not supported by SPE"
     (add_to_None, (), TranslateError),
+    (add_invalid_rtseq_call, (), VeristandError),
 ]
 
 

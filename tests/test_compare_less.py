@@ -1,6 +1,6 @@
 import sys
 
-from niveristand import _decorators, RealTimeSequence, TranslateError
+from niveristand import _decorators, RealTimeSequence, TranslateError, VeristandError
 from niveristand import realtimesequencetools
 from niveristand.clientapi import BooleanValue, ChannelReference, DoubleValue, I32Value
 from niveristand.library.primitives import localhost_wait
@@ -266,7 +266,6 @@ run_tests = [
 
 skip_tests = [
     (less_num_nivsdatatype, (), "Builtins as the left comparer can't be overriden"),
-    (less_invalid_rtseq_call, (), "RTSeq call not implemented yet."),
     (less_multiple_types, (), "Cascading comparators untested in VM"),
     (less_multiple_types1, (), "Cascading comparators untested in VM"),
     (less_with_multiple_comparators, (), "Cascading comparators untested in VM"),
@@ -276,6 +275,7 @@ fail_transform_tests = [
     (less_invalid_variables, (), TranslateError),
     (less_invalid_variables1, (), TranslateError),
     (less_to_None, (), TranslateError),
+    (less_invalid_rtseq_call, (), VeristandError),
 ]
 
 

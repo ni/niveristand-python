@@ -1,6 +1,6 @@
 import sys
 
-from niveristand import _decorators, RealTimeSequence, TranslateError
+from niveristand import _decorators, RealTimeSequence, TranslateError, VeristandError
 from niveristand import realtimesequencetools
 from niveristand.clientapi import ChannelReference, DoubleValue, I32Value, I64Value
 from niveristand.library.primitives import localhost_wait
@@ -375,13 +375,13 @@ skip_tests = [
     (modulo_binary_unary, (), "SPE implements remainder. Python implements module. "
                               "The difference is subtle but the sign of the result is different."),
     (aug_modulo_unary, (), "SPE and Python treat negative module differently."),
-    (modulo_invalid_rtseq_call, (), "Not implemented yet."),
 ]
 
 fail_transform_tests = [
     (modulo_invalid_variables, (), TranslateError),
     (modulo_invalid_variables1, (), TranslateError),
     (modulo_with_None, (), TranslateError),
+    (modulo_invalid_rtseq_call, (), VeristandError),
 ]
 
 

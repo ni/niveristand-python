@@ -12,7 +12,7 @@ b = 2
 
 
 @_decorators.nivs_rt_sequence
-def return_constant():
+def _return_constant():
     a = I32Value(5)
     return a.value
 
@@ -76,42 +76,42 @@ def arithmetic_shift_left_multiple_types1():
 @_decorators.nivs_rt_sequence
 def arithmetic_shift_left_use_rtseq():
     a = DoubleValue(0)
-    a.value = 1 << return_constant()
+    a.value = 1 << _return_constant()
     return a.value
 
 
 @_decorators.nivs_rt_sequence
 def arithmetic_shift_left_use_rtseq1():
     a = DoubleValue(0)
-    a.value = return_constant() << 1
+    a.value = _return_constant() << 1
     return a.value
 
 
 @_decorators.nivs_rt_sequence
 def arithmetic_shift_left_use_rtseq2():
     a = DoubleValue(0)
-    a.value = I32Value(1) << return_constant()
+    a.value = I32Value(1) << _return_constant()
     return a.value
 
 
 @_decorators.nivs_rt_sequence
 def arithmetic_shift_left_use_rtseq3():
     a = DoubleValue(0)
-    a.value = return_constant() << I32Value(1)
+    a.value = _return_constant() << I32Value(1)
     return a.value
 
 
 @_decorators.nivs_rt_sequence
 def arithmetic_shift_left_use_rtseq4():
     a = DoubleValue(0)
-    a.value = I32Value(1) << return_constant()
+    a.value = I32Value(1) << _return_constant()
     return a.value
 
 
 @_decorators.nivs_rt_sequence
 def arithmetic_shift_left_use_rtseq5():
     a = DoubleValue(0)
-    a.value = return_constant() << I32Value(1)
+    a.value = _return_constant() << I32Value(1)
     return a.value
 
 
@@ -174,7 +174,7 @@ def arithmetic_shift_left_variable_variable1():
 def arithmetic_shift_left_variable_rtseq():
     a = I32Value(1)
     b = DoubleValue(0)
-    b.value = a.value << return_constant()
+    b.value = a.value << _return_constant()
     return b.value
 
 
@@ -182,7 +182,7 @@ def arithmetic_shift_left_variable_rtseq():
 def arithmetic_shift_left_variable_rtseq1():
     a = I32Value(1)
     b = DoubleValue(0)
-    b.value = return_constant() << a.value
+    b.value = _return_constant() << a.value
     return b.value
 
 
@@ -288,7 +288,7 @@ def arithmetic_shift_left_augassign_variable4():
 @_decorators.nivs_rt_sequence
 def arithmetic_shift_left_augassign_rtseq():
     a = I32Value(1)
-    a.value <<= return_constant()
+    a.value <<= _return_constant()
     return a.value
 
 
@@ -330,7 +330,7 @@ def arithmetic_shift_left_to_None():
 @_decorators.nivs_rt_sequence
 def arithmetic_shift_left_invalid_rtseq_call():
     a = DoubleValue(0)
-    a.value = return_constant << 1
+    a.value = _return_constant << 1
     return a.value
 
 
@@ -344,7 +344,6 @@ def arithmetic_shift_left_complex_expr():
 
 
 run_tests = [
-    (return_constant, (), 5.0),
     (arithmetic_shift_left_simple_numbers, (), 8),
     (arithmetic_shift_left_nivsdatatype_nivsdatatype1, (), 8),
     (arithmetic_shift_left_nivsdatatype_nivsdatatype3, (), 8),
@@ -378,7 +377,6 @@ run_tests = [
 ]
 
 skip_tests = [
-    (arithmetic_shift_left_invalid_rtseq_call, (), "RTSeq call not implemented yet."),
     (arithmetic_shift_left_binary_unary, (), "Different behaviour between python and SPE."),
 ]
 
@@ -395,6 +393,7 @@ fail_transform_tests = [
     (arithmetic_shift_left_to_channelref, (), VeristandError),  # cannot do shift left on Double
     (arithmetic_shift_left_augassign_channelref, (), VeristandError),  # cannot do shift left on Double
     (arithmetic_shift_left_to_None, (), TranslateError),
+    (arithmetic_shift_left_invalid_rtseq_call, (), VeristandError),
 ]
 
 py_only_errs = [

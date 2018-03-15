@@ -378,7 +378,6 @@ run_tests = [
 ]
 
 skip_tests = [
-    (arithmetic_shift_right_invalid_rtseq_call, (), "RTSeq call not implemented yet."),
     (arithmetic_shift_right_binary_unary, (), "Different behaviour between python and SPE."),
 ]
 
@@ -395,6 +394,7 @@ fail_transform_tests = [
     (arithmetic_shift_right_to_channelref, (), VeristandError),  # cannot do shift right on Double
     (arithmetic_shift_right_augassign_channelref, (), VeristandError),  # cannot do shift right on Double
     (arithmetic_shift_right_to_None, (), TranslateError),
+    (arithmetic_shift_right_invalid_rtseq_call, (), VeristandError),
 ]
 
 py_only_errs = [

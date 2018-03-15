@@ -1,6 +1,6 @@
 import sys
 
-from niveristand import _decorators, RealTimeSequence, TranslateError
+from niveristand import _decorators, RealTimeSequence, TranslateError, VeristandError
 from niveristand import realtimesequencetools
 from niveristand.clientapi import BooleanValue, DoubleValue, I32Value, I64Value
 import numpy
@@ -290,13 +290,13 @@ skip_tests = [
     (invert_int32_var_3, (), "SPE doesn't support initializing with the full int64 range."),
     (invert_int64_var_3, (), "SPE doesn't support initializing with the full int64 range."),
     (invert_double, (), "Bitwise operations not supported for floating point types."),
-    (invert_invalid_rtseq_call, (), "Not implemented yet."),
 ]
 
 fail_transform_tests = [
     (invert_invalid_variables, (), TranslateError),
     (invert_invalid_variables1, (), TranslateError),
     (invert_with_None, (), TranslateError),
+    (invert_invalid_rtseq_call, (), VeristandError),
 ]
 
 
