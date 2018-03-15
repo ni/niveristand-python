@@ -219,7 +219,7 @@ def add_with_multiple_plus1():
 @_decorators.nivs_rt_sequence
 def add_binary_unary_sequence():
     a = DoubleValue(0)
-    a.value = 1+ - - - - - - - - -2  # noqa: E225 it's ok to test this
+    a.value = 1+ - - - - -2  # noqa: E225 it's ok to test this
     return a.value
 
 
@@ -349,10 +349,10 @@ run_tests = [
     (aug_add_use_rtseq, (), 6),
     (add_to_channelref, (), 6),
     (aug_add_to_channelref, (), 6),
+    (add_binary_unary_sequence, (), -1),
 ]
 
 skip_tests = [
-    (add_binary_unary_sequence, (), "This test takes 1000x more than the rest. Ignoring for now."),
 ]
 
 fail_transform_tests = [
