@@ -296,13 +296,11 @@ run_tests = [
     (notequal_nivsdatatype_nivsdatatype3, (), True),
     (notequal_with_parantheses, (), True),
     (notequal_with_parantheses1, (), True),
-    (notequal_with_parantheses2, (), True),
     (notequal_variables, (), False),
     (notequal_variables1, (), False),
     (notequal_variable_variable, (), True),
     (notequal_variable_variable1, (), False),
     (notequal_variable_variable2, (), False),
-    (notequal_with_multiple_comparators, (), True),
     (notequal_binary_unary, (), False),
     (notequal_complex_expr, (), True),
     (notequal_use_rtseq, (), False),
@@ -326,6 +324,8 @@ fail_transform_tests = [
     (notequal_invalid_variables1, (), TranslateError),
     (notequal_to_None, (), TranslateError),
     (notequal_invalid_rtseq_call, (), VeristandError),
+    (notequal_with_parantheses2, (), TranslateError),
+    (notequal_with_multiple_comparators, (), TranslateError),
 ]
 
 

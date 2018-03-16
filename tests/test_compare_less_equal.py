@@ -537,6 +537,12 @@ fail_transform_tests = [
     (lt_equal_to_None, (), TranslateError),
     (less_eq_invalid_rtseq_call, (), VeristandError),
     (lt_equal_invalid_rtseq_call, (), VeristandError),
+    (less_eq_multiple_types, (), TranslateError),
+    (less_eq_multiple_types1, (), TranslateError),
+    (less_eq_with_multiple_comparators, (), TranslateError),
+    (lt_equal_multiple_types, (), TranslateError),
+    (lt_equal_multiple_types1, (), TranslateError),
+    (lt_equal_with_multiple_comparators, (), TranslateError),
 ]
 
 

@@ -152,7 +152,7 @@ def if_condition_function_call():
 @_decorators.nivs_rt_sequence
 def if_condition_complex_expression():
     a = I32Value(0)
-    if (True and False) is not a.value * 1 < 10 or returns_true():
+    if (True and False) is not returns_true() or a.value < 10:
         a.value = 1
     return a.value
 
@@ -162,7 +162,7 @@ def if_elif_condition_complex_expression():
     a = I32Value(0)
     if False:
         a.value = 1
-    elif (True and False) is not a.value * 1 < 10 or returns_true():
+    elif (True and False) is not returns_true() or a.value < 10:
         a.value = 2
     return a.value
 

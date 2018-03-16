@@ -295,17 +295,13 @@ run_tests = [
     (equal_nivsdatatype_nivsdatatype1, (), True),
     (equal_nivsdatatype_nivsdatatype2, (), True),
     (equal_nivsdatatype_nivsdatatype3, (), False),
-    (equal_multiple_types, (), True),
-    (equal_multiple_types1, (), False),
     (equal_with_parantheses, (), False),
     (equal_with_parantheses1, (), False),
-    (equal_with_parantheses2, (), False),
     (equal_variables, (), True),
     (equal_variables1, (), True),
     (equal_variable_variable, (), False),
     (equal_variable_variable1, (), True),
     (equal_variable_variable2, (), True),
-    (equal_with_multiple_comparators, (), False),
     (equal_binary_unary, (), True),
     (equal_complex_expr, (), True),
     (equal_use_rtseq, (), True),
@@ -327,6 +323,10 @@ fail_transform_tests = [
     (equal_invalid_variables1, (), TranslateError),
     (equal_to_None, (), TranslateError),
     (equal_invalid_rtseq_call, (), VeristandError),
+    (equal_multiple_types, (), TranslateError),
+    (equal_multiple_types1, (), TranslateError),
+    (equal_with_parantheses2, (), TranslateError),
+    (equal_with_multiple_comparators, (), TranslateError),
 ]
 
 

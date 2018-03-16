@@ -52,3 +52,5 @@ channel_not_found = "TOMOMSG: a channel with name %s could not be found"
 multiple_return_statements = "TODOMSG: there is more than one return statement in this function"
 none_not_supported = "TODOMSG: NoneType not supported"
 invalid_decorator = "TODOMSG: custom decorators are not allowed"
+cascaded_comparison_operators_not_allowed = "TODOMSG: cascading comparison operators is not allowed because of their" \
+                                            "different behaviors between Python and SPE"

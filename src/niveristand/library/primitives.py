@@ -98,6 +98,7 @@ def fix(x):
         (float): the floating-point representation of the rounded value.
 
     **Note**: Only available for Real-Time Sequences. @TODODOC
+
     """
     raise VeristandNotImplementedError()
 

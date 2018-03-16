@@ -104,7 +104,6 @@ def task(mt):
     Refer to :ref:`_multitask_usage` for more details on using tasks.
 
     """
-
     def _add_task_to_list(func):
         from niveristand.library._tasks import nivs_yield
 

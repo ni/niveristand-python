@@ -1,16 +1,18 @@
-from niveristand._exceptions import VeristandNotImplementedError
+from niveristand import _errormessages
+from niveristand._exceptions import TranslateError, VeristandNotImplementedError
 from niveristand._translation import utils
 
 
 def compareoperator_transformer(node, resources):
     left = utils.generic_ast_node_transform(node.left, resources)
     result = "((" + left + ") "
-    for op, comparator in zip(node.ops, node.comparators):
-        operator = _operator(op.__class__.__name__)
-        if operator == "unknown":
-            raise VeristandNotImplementedError()
-        right = utils.generic_ast_node_transform(comparator, resources)
-        result += operator + " (" + right + ")"
+    if len(node.ops) > 1:
+        raise TranslateError(_errormessages.cascaded_comparison_operators_not_allowed)
+    operator = _operator(node.ops[0].__class__.__name__)
+    if operator == "unknown":
+        raise VeristandNotImplementedError()
+    right = utils.generic_ast_node_transform(node.comparators[0], resources)
+    result += operator + " (" + right + ")"
     result += ")"
     return result
 

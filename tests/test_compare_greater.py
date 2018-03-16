@@ -12,7 +12,7 @@ b = 2
 
 
 @_decorators.nivs_rt_sequence
-def return_constant():
+def _return_constant():
     a = DoubleValue(5)
     return a.value
 
@@ -83,42 +83,42 @@ def greater_multiple_types1():
 @_decorators.nivs_rt_sequence
 def greater_use_rtseq():
     a = BooleanValue(False)
-    a.value = 6 > return_constant()
+    a.value = 6 > _return_constant()
     return a.value
 
 
 @_decorators.nivs_rt_sequence
 def greater_use_rtseq1():
     a = BooleanValue(False)
-    a.value = return_constant() > 4
+    a.value = _return_constant() > 4
     return a.value
 
 
 @_decorators.nivs_rt_sequence
 def greater_use_rtseq2():
     a = BooleanValue(False)
-    a.value = DoubleValue(6) > return_constant()
+    a.value = DoubleValue(6) > _return_constant()
     return a.value
 
 
 @_decorators.nivs_rt_sequence
 def greater_use_rtseq3():
     a = BooleanValue(False)
-    a.value = return_constant() > DoubleValue(4)
+    a.value = _return_constant() > DoubleValue(4)
     return a.value
 
 
 @_decorators.nivs_rt_sequence
 def greater_use_rtseq4():
     a = BooleanValue(False)
-    a.value = I32Value(6) > return_constant()
+    a.value = I32Value(6) > _return_constant()
     return a.value
 
 
 @_decorators.nivs_rt_sequence
 def greater_use_rtseq5():
     a = BooleanValue(False)
-    a.value = return_constant() > I32Value(1)
+    a.value = _return_constant() > I32Value(1)
     return a.value
 
 
@@ -167,7 +167,7 @@ def greater_variable_variable1():
 def greater_variable_rtseq():
     a = DoubleValue(6.0)
     b = BooleanValue(False)
-    b.value = a.value > return_constant()
+    b.value = a.value > _return_constant()
     return b.value
 
 
@@ -175,7 +175,7 @@ def greater_variable_rtseq():
 def greater_variable_rtseq1():
     a = DoubleValue(1)
     b = BooleanValue(False)
-    b.value = return_constant() > a.value
+    b.value = _return_constant() > a.value
     return b.value
 
 
@@ -232,14 +232,13 @@ def greater_to_None():
 @_decorators.nivs_rt_sequence
 def greater_invalid_rtseq_call():
     a = BooleanValue(False)
-    a.value = return_constant > 1
+    a.value = _return_constant > 1
     return a.value
 
 # </editor-fold>
 
 
 run_tests = [
-    (return_constant, (), 5),
     (greater_simple_numbers, (), True),
     (greater_nivsdatatype_num, (), True),
     (greater_nivsdatatype_nivsdatatype, (), True),
@@ -276,6 +275,9 @@ fail_transform_tests = [
     (greater_invalid_variables1, (), TranslateError),
     (greater_to_None, (), TranslateError),
     (greater_invalid_rtseq_call, (), VeristandError),
+    (greater_multiple_types, (), TranslateError),
+    (greater_multiple_types1, (), TranslateError),
+    (greater_with_multiple_comparators, (), TranslateError),
 ]
 
 
