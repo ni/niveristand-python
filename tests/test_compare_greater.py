@@ -261,11 +261,11 @@ run_tests = [
     (greater_variable_rtseq, (), True),
     (greater_variable_rtseq1, (), True),
     (greater_binary_unary, (), True),
-    (greater_to_channelref, (), False)
+    (greater_to_channelref, (), False),
+    (greater_num_nivsdatatype, (), True),
 ]
 
 skip_tests = [
-    (greater_num_nivsdatatype, (), "Builtins as the left comparer can't be overriden"),
     (greater_multiple_types, (), "Cascading comparators untested in VM"),
     (greater_multiple_types1, (), "Cascading comparators untested in VM"),
     (greater_with_multiple_comparators, (), "Cascading comparators untested in VM"),
