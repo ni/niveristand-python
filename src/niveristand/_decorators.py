@@ -94,6 +94,17 @@ def _reconstruct_args(f, args, new_param):
 
 
 def task(mt):
+    """
+    Mark a nested function-definition as a task inside a :func:`niveristand.library.multitask`.
+
+    Args:
+        mt: the parent :func:`niveristand.library.multitask`
+
+    This function is meant to be used as a decorator.
+    Refer to :ref:`_multitask_usage` for more details on using tasks.
+
+    """
+
     def _add_task_to_list(func):
         from niveristand.library._tasks import nivs_yield
 

@@ -7,6 +7,19 @@ from niveristand.library.primitives import quotient, seqtime, tickcountms, tickc
 @NivsParam('duration', DoubleValue(0), NivsParam.BY_REF)
 @nivs_rt_sequence
 def wait(duration):
+    """
+    Wait `duration` seconds.
+
+    Args:
+        duration (:class:`niveristand.clientapi.DoubleValue`): seconds to wait.
+
+    Returns:
+        float: seconds waited.
+
+    This is a non-blocking wait. Other tasks will be allowed to run.
+    Fractions of a second are allowed.
+
+    """
     init_time = DoubleValue(0)
     init_time.value = seqtime()
     while seqtime() - init_time.value < duration.value:
@@ -19,6 +32,18 @@ def wait(duration):
 @NivsParam('ms_multiple', I64Value(0), NivsParam.BY_REF)
 @nivs_rt_sequence
 def wait_until_next_ms_multiple(ms_multiple):
+    """
+    Wait until the next millisecond multiple of `ms_multiple`.
+
+    Args:
+        ms_multiple(:class:`niveristand.clientapi.I64Value`): the millisecond multiple to wait until.
+
+    Returns:
+        int: milliseconds waited.
+
+    This is a non-blocking wait. Other tasks will be allowed to run.
+
+    """
     ticks = I64Value(0)
     if ms_multiple.value > 0:
         last_q = I64Value(0)
@@ -40,6 +65,18 @@ def wait_until_next_ms_multiple(ms_multiple):
 @NivsParam('us_multiple', I64Value(0), NivsParam.BY_REF)
 @nivs_rt_sequence
 def wait_until_next_us_multiple(us_multiple):
+    """
+    Wait until the next microsecond multiple of `us_multiple`.
+
+    Args:
+        us_multiple(:class:`niveristand.clientapi.I64Value`): the microsecond multiple to wait until.
+
+    Returns:
+        int: microseconds waited.
+
+    This is a non-blocking wait. Other tasks will be allowed to run.
+
+    """
     ticks = I64Value(0)
     if us_multiple.value > 0:
         last_q = I64Value(0)
@@ -65,6 +102,23 @@ def wait_until_next_us_multiple(us_multiple):
 @NivsParam('timeout', DoubleValue(60), NivsParam.BY_VALUE)
 @nivs_rt_sequence
 def wait_until_settled(signal, upper_limit, lower_limit, settle_time, timeout):
+    """
+    Wait until `signal` settles for `settle_time` seconds.
+
+    Args:
+        signal(:class:`niveristand.clientapi.DoubleValue`): the value to monitor.
+        upper_limit(:class:`niveristand.clientapi.DoubleValue`): upper limit of settle range.
+        lower_limit(:class:`niveristand.clientapi.DoubleValue`): lower limit of settle range.
+        settle_time(:class:`niveristand.clientapi.DoubleValue`): seconds `signal` must stay inside range.
+        timeout(:class:`niveristand.clientapi.DoubleValue`): seconds to wait before giving up.
+
+    Returns:
+        bool: True if the signal failed to settle within the timeout. False otherwise.
+
+    This is a non-blocking wait. Other tasks will be allowed to run.
+    Fractions of a second are allowed.
+
+    """
     init_time = DoubleValue(0)
     curr_time = DoubleValue(0)
     in_limits_duration = DoubleValue(0)

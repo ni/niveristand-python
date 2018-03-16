@@ -14,8 +14,10 @@ def run_py_as_rtseq(toplevelfunc, timeout_within_each_step=100000):
 
     Raises:
         :class:`niveristand.TranslateError`: if the function could not be successfully translated.
-        :class:`niveristand.RunAbortedError`: if :func:`niveristand.library.generate_error` was called with an action of Abort or Stop.
-        :class:`niveristand.RunFailedError`: if :func:`niveristand.library.generate_error` was called with a Continue action.
+        :class:`niveristand.RunAbortedError`: if :func:`niveristand.library.generate_error`
+                was called with an action of Abort or Stop.
+        :class:`niveristand.RunFailedError`: if :func:`niveristand.library.generate_error`
+                was called with a Continue action.
 
     """
     from niveristand import RealTimeSequence
@@ -44,7 +46,7 @@ def save_py_as_rtseq(toplevelfunc, dest_folder):
         The full path to the main sequence file.
 
     Raises:
-        TranslateError: if the function could not be successfully translated.
+        :class:`niveristand.TranslateError`: if the function could not be successfully translated.
 
     """
     from niveristand import RealTimeSequence

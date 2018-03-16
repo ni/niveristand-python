@@ -13,6 +13,11 @@ def get_scheduler():
 
 @contextmanager
 def multitask():
+    """
+    Create a multitask context for branching execution.
+
+    Refer to :ref:`_multitask_usage` for more details on branching execution.
+    """
     multitask_info = _MultiTaskInfo()
     yield multitask_info
     # for a multitask the children need to be added to the queue ahead of the rest of the parent's tasks.
@@ -35,6 +40,11 @@ def multitask():
 
 
 def nivs_yield():
+    """
+    Yield execution from this task or block to the next.
+
+    Refer to :ref:`_multitask_usage` for more details on yielding to other tasks.
+    """
     s = get_scheduler()
     task = s.thread_yielded()
     if not task.is_stopped():
@@ -290,7 +300,16 @@ class _Scheduler(object):
         return None
 
 
-def stop_task(taskname):
-    task = get_scheduler().get_task_by_name(taskname.__name__)
+def stop_task(task_function):
+    """
+    Signal the specified task to stop.
+
+    Args:
+        task_function: a task function previously declared inside a :func:`multitask` context.
+
+
+    Refer to :ref:`_multitask_usage` for more details on stopping tasks.
+    """
+    task = get_scheduler().get_task_by_name(task_function.__name__)
     if task:
         task.stop_task()
