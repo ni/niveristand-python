@@ -14,6 +14,7 @@ from niveristand.clientapi._datatypes import U64ValueArray
 from niveristand.clientapi._datatypes import VectorChannelReference
 from niveristand.clientapi._realtimesequencedefinitionapi.erroraction import ErrorAction
 from niveristand.clientapi.realtimesequence import RealTimeSequence
+from niveristand.clientapi.stimulusprofileapi import StimulusProfileState
 
 
 __all__ = ["BooleanValue",
@@ -32,4 +33,5 @@ __all__ = ["BooleanValue",
            "VectorChannelReference",
            "ErrorAction",
            "RealTimeSequence",
+           "StimulusProfileState",
            ]

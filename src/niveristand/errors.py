@@ -25,7 +25,7 @@ class _StopTaskException(Exception):
 
 class RunError(VeristandError):
     def __init__(self, error):
-        assert isinstance(error, _SequenceError)
+        assert isinstance(error, SequenceError)
         self.error = error
 
     def get_all_errors(self):
@@ -37,7 +37,7 @@ class RunError(VeristandError):
     @classmethod
     def RunErrorFactory(cls, error):
         from niveristand.clientapi._realtimesequencedefinitionapi.erroraction import ErrorAction
-        assert isinstance(error, _SequenceError)
+        assert isinstance(error, SequenceError)
         if error.error_action is ErrorAction.ContinueSequenceExecution:
             return RunFailedError(error)
         else:
@@ -54,9 +54,9 @@ class RunAbortedError(RunError):
         super(RunAbortedError, self).__init__(error)
 
 
-class _SequenceError(VeristandError):
+class SequenceError(VeristandError):
     def __init__(self, error_code, message, error_action):
-        super(_SequenceError, self).__init__(message)
+        super(SequenceError, self).__init__(message)
         self.error_code = error_code
         self.error_action = error_action
         self.message = message
@@ -68,7 +68,7 @@ class _SequenceError(VeristandError):
 
     @inner_error.setter
     def inner_error(self, value):
-        assert isinstance(value, _SequenceError) or value is None
+        assert isinstance(value, SequenceError) or value is None
         assert self._inner_error is None
         self._inner_error = value
 

@@ -3,16 +3,16 @@ from niveristand import nivs_rt_sequence
 from niveristand import realtimesequencetools
 from niveristand.clientapi import DoubleValue, I32Value
 from niveristand.clientapi import ErrorAction, RealTimeSequence
-from niveristand.errors import _SequenceError, RunAbortedError, RunError, RunFailedError, TranslateError
+from niveristand.errors import RunAbortedError, RunError, RunFailedError, SequenceError, TranslateError
 from niveristand.library import multitask, nivs_yield, task
 from niveristand.library.primitives import generate_error
 import pytest
 from testutilities import rtseqrunner, validation
 
-_stop_err = _SequenceError(-100, "Stop", ErrorAction.StopSequence)
-_abort_err = _SequenceError(-200, "Abort", ErrorAction.AbortSequence)
-_cont_err = _SequenceError(1, "Continue", ErrorAction.ContinueSequenceExecution)
-_cont_err_no_fail = _SequenceError(0, "Continue", ErrorAction.ContinueSequenceExecution)
+_stop_err = SequenceError(-100, "Stop", ErrorAction.StopSequence)
+_abort_err = SequenceError(-200, "Abort", ErrorAction.AbortSequence)
+_cont_err = SequenceError(1, "Continue", ErrorAction.ContinueSequenceExecution)
+_cont_err_no_fail = SequenceError(0, "Continue", ErrorAction.ContinueSequenceExecution)
 
 
 @nivs_rt_sequence

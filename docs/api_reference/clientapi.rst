@@ -4,3 +4,10 @@
 Client API
 ==========
 
+.. toctree::
+   :maxdepth: 3
+   :caption: Client API
+
+   datatypes
+   realtimesequence
+   stimulusprofileapi

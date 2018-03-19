@@ -241,7 +241,7 @@ def generate_error(code, message, action):
     from niveristand import errors
     from niveristand.library._tasks import get_scheduler
     assert isinstance(action, ErrorAction)
-    error = errors._SequenceError(code, message, action)
+    error = errors.SequenceError(code, message, action)
     get_scheduler().get_task_for_curr_thread().error = error
 
     if action is ErrorAction.ContinueSequenceExecution:

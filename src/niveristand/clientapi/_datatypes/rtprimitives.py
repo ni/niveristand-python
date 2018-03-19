@@ -45,6 +45,21 @@ def is_channel_ref_type(name):
 
 
 class DataType(object):
+    """
+    Use as base class for all VeriStand datatypes.
+
+    Args:
+        value: initial value. Actual value and type depends on subclass.
+        description(str): a description of the value. For documentation purposes only.
+        units(str): units represented by this value. For documentation purposes only.
+
+    Raises:
+        :class:`TypeError`: if an invalid value is used to initialize an instance.
+
+    This class is not meant to be instantiated.
+
+    """
+
     def __init__(self, value, description="", units=""):
         if isinstance(value, DataValue):
             self._data_value = value
@@ -347,6 +362,15 @@ class ArrayType(DataType):
 
 
 class ChannelReference(DataType):
+    """
+    Create a new reference to a scalar channel.
+
+    Specifies the channel assignment in the system definition to assign to this channel reference. You can
+    specify a channel by its alias or by the path to the channel in the system definition, for example:
+    Targets/Controller/System Channels/Model Count
+
+    """
+
     def __init__(self, value, description="", units=""):
         super(ChannelReference, self).__init__(value, description, units)
         self._channel_name = value
@@ -364,6 +388,15 @@ class ChannelReference(DataType):
 
 
 class VectorChannelReference(ArrayType):
+    """
+    Create a new reference to a vector channel.
+
+    Specifies the channel assignment in the system definition to assign to this channel reference. You can
+    specify a channel by its alias or by the path to the channel in the system definition, for example:
+    Targets/Controller/System Channels/Model Count
+
+    """
+
     @property
     def value(self):
         return [DoubleValue(item) for item in self._data_value.Value]
@@ -376,6 +409,8 @@ class VectorChannelReference(ArrayType):
 
 
 class BooleanValue(DataType):
+    """Create a new boolean value reference."""
+
     def _to_data_value(self, value):
         if self._is_valid_assign_type(value):
             value = bool(value)
@@ -389,6 +424,8 @@ class BooleanValue(DataType):
 
 
 class BooleanValueArray(ArrayType):
+    """Create a new reference to an array of :class:`BooleanValue`."""
+
     @property
     def value(self):
         return [BooleanValue(item) for item in self._data_value.Value]
@@ -399,6 +436,8 @@ class BooleanValueArray(ArrayType):
 
 
 class DoubleValue(DataType):
+    """Create a new floating-point value reference."""
+
     def _to_data_value(self, value):
         if self._is_valid_assign_type(value):
             value = float(value)
@@ -408,6 +447,8 @@ class DoubleValue(DataType):
 
 
 class DoubleValueArray(ArrayType):
+    """Create a new reference to an array of :class:`DoubleValue`."""
+
     @property
     def value(self):
         return [DoubleValue(item) for item in self._data_value.Value]
@@ -418,6 +459,8 @@ class DoubleValueArray(ArrayType):
 
 
 class I32Value(DataType):
+    """Create a new signed 32-bit integer value reference."""
+
     def _to_data_value(self, value):
         if self._is_valid_assign_type(value):
             value = SystemInt32(value)
@@ -427,6 +470,8 @@ class I32Value(DataType):
 
 
 class I32ValueArray(ArrayType):
+    """Create a new reference to an array of :class:`I32Value`."""
+
     @property
     def value(self):
         return [I32Value(item) for item in self._data_value.Value]
@@ -437,6 +482,8 @@ class I32ValueArray(ArrayType):
 
 
 class I64Value(DataType):
+    """Create a new signed 64-bit integer value reference."""
+
     def _to_data_value(self, value):
         if self._is_valid_assign_type(value):
             value = SystemInt64(value)
@@ -446,6 +493,8 @@ class I64Value(DataType):
 
 
 class I64ValueArray(ArrayType):
+    """Create a new reference to an array of :class:`I64Value`."""
+
     @property
     def value(self):
         return [I64Value(item) for item in self._data_value.Value]
@@ -456,6 +505,8 @@ class I64ValueArray(ArrayType):
 
 
 class U32Value(DataType):
+    """Create a new unsigned 32-bit integer value reference."""
+
     def _to_data_value(self, value):
         if self._is_valid_assign_type(value):
             value = SystemUInt32(value)
@@ -465,6 +516,8 @@ class U32Value(DataType):
 
 
 class U32ValueArray(ArrayType):
+    """Create a new reference to an array of :class:`U32Value`."""
+
     @property
     def value(self):
         return [U32Value(item) for item in self._data_value.Value]
@@ -475,6 +528,8 @@ class U32ValueArray(ArrayType):
 
 
 class U64Value(DataType):
+    """Create a new unsigned 64-bit integer value reference."""
+
     def _to_data_value(self, value):
         if self._is_valid_assign_type(value):
             value = SystemUInt64(value)
@@ -484,6 +539,8 @@ class U64Value(DataType):
 
 
 class U64ValueArray(ArrayType):
+    """Create a new reference to an array of :class:`U64Value`."""
+
     @property
     def value(self):
         return [U64Value(item) for item in self._data_value.Value]

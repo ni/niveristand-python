@@ -187,6 +187,6 @@ def run_rt_sequence(rt_sequence_path, timeout_within_each_step):
     session = _get_factory().GetIStimulusProfileSession("localhost", rt_sequence_path, [seq_call_info], "")
     sequence_control = session[os.path.splitext(os.path.basename(rt_sequence_path))[0] + ":1"]
     state = stimulusprofileapi.StimulusProfileState(session)
-    sequence_control.SequenceComplete += state.sequence_complete_event_handler
+    sequence_control.SequenceComplete += state._sequence_complete_event_handler
     session.Deploy(True, None, None)
     return state

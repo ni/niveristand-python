@@ -24,7 +24,7 @@ def nivs_rt_sequence(func):
                 from niveristand.clientapi import RealTimeSequence
                 RealTimeSequence(func)
             retval = func(*args, **kwargs)
-        except errors._SequenceError:
+        except errors.SequenceError:
             # generate error already saved this error in the task, so we can just pass.
             pass
         finally:
@@ -102,7 +102,6 @@ def task(mt):
 
     This function is meant to be used as a decorator.
     Refer to :ref:`_multitask_usage` for more details on using tasks.
-
     """
     def _add_task_to_list(func):
         from niveristand.library._tasks import nivs_yield
@@ -113,7 +112,7 @@ def task(mt):
             task_info.wait_for_turn()
             try:
                 return func()
-            except (errors._StopTaskException, errors._SequenceError):
+            except (errors._StopTaskException, errors.SequenceError):
                 pass
             finally:
                 # if the task was stopped or it finished execution mark it stopped, then yield.
