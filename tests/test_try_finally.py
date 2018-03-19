@@ -1,14 +1,16 @@
 import sys
-from niveristand import _decorators, RealTimeSequence, TranslateError
+from niveristand import nivs_rt_sequence, NivsParam
 from niveristand import realtimesequencetools
 from niveristand.clientapi import DoubleValue, DoubleValueArray
-from niveristand.library import multitask, nivs_yield
+from niveristand.clientapi import RealTimeSequence
+from niveristand.errors import TranslateError
+from niveristand.library import multitask, nivs_yield, task
 import pytest
 from testutilities import rtseqrunner, validation
 
 
-@_decorators.NivsParam('param', DoubleValue(0), False)
-@_decorators.nivs_rt_sequence
+@NivsParam('param', DoubleValue(0), False)
+@nivs_rt_sequence
 def _sub_rt_seq(param):
     try:
         a = DoubleValue(1)
@@ -17,7 +19,7 @@ def _sub_rt_seq(param):
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def try_simple():
     try:
         a = DoubleValue(1)
@@ -26,7 +28,7 @@ def try_simple():
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def try_second_statement():
     a = DoubleValue(0)
     try:
@@ -36,7 +38,7 @@ def try_second_statement():
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def return_in_try():
     try:
         a = DoubleValue(0)
@@ -45,7 +47,7 @@ def return_in_try():
         a.value = 10
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def return_in_finally():
     try:
         a = DoubleValue(0)
@@ -54,7 +56,7 @@ def return_in_finally():
         return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def try_complex_body():
     try:
         a = DoubleValueArray([0, 1, 2, 3, 4])
@@ -70,7 +72,7 @@ def try_complex_body():
     return b.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def try_in_try():
     try:
         a = DoubleValue()
@@ -83,7 +85,7 @@ def try_in_try():
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def try_in_if():
     if True:
         try:
@@ -93,7 +95,7 @@ def try_in_if():
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def try_in_else():
     a = DoubleValue(0)
     if True:
@@ -106,7 +108,7 @@ def try_in_else():
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def try_in_while():
     while True:
         try:
@@ -116,7 +118,7 @@ def try_in_while():
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def try_in_for():
     for i in range(5):
         try:
@@ -126,7 +128,7 @@ def try_in_for():
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def call_subroutine_with_try():
     try:
         a = DoubleValue(0)
@@ -137,7 +139,7 @@ def call_subroutine_with_try():
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def try_with_except():
     try:
         a = DoubleValue(0)
@@ -148,7 +150,7 @@ def try_with_except():
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def try_with_orelse():
     try:
         a = DoubleValue(0)
@@ -159,24 +161,24 @@ def try_with_orelse():
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def try_in_task():
     a = DoubleValue(0)
     with multitask() as mt:
-        @_decorators.task(mt)
+        @task(mt)
         def f1():
             try:
                 a.value += 1
             finally:
                 a.value += 1
 
-        @_decorators.task(mt)
+        @task(mt)
         def f2():
             nivs_yield()
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def try_in_multitask():
     a = DoubleValue(0)
     with multitask() as mt:
@@ -185,31 +187,31 @@ def try_in_multitask():
         finally:
             a.value += 1
 
-        @_decorators.task(mt)
+        @task(mt)
         def f1():
             try:
                 a.value += 1
             finally:
                 a.value += 1
 
-        @_decorators.task(mt)
+        @task(mt)
         def f2():
             nivs_yield()
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def try_in_multitask1():
     a = DoubleValue(0)
     with multitask() as mt:
         try:
-            @_decorators.task(mt)
+            @task(mt)
             def f1():
                 pass
         finally:
             a.value += 1
 
-        @_decorators.task(mt)
+        @task(mt)
         def f2():
             nivs_yield()
     return a.value

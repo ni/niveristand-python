@@ -1,19 +1,21 @@
 import sys
 
-from niveristand import _decorators, _exceptions, RealTimeSequence
+from niveristand import nivs_rt_sequence
 from niveristand import realtimesequencetools
-from niveristand.clientapi._datatypes import BooleanValue, I32Value
+from niveristand.clientapi import BooleanValue, I32Value
+from niveristand.clientapi import RealTimeSequence
+from niveristand.errors import TranslateError, VeristandError
 import pytest
 from testutilities import rtseqrunner, validation
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def if_pass():
     if True:
         pass
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def if_else_pass():
     if True:
         pass
@@ -21,26 +23,26 @@ def if_else_pass():
         pass
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def if_invalid_boolean():
     if 1:
         pass
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def if_invalid_boolean_const():
     if I32Value(0):
         pass
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def if_invalid_boolean_var():
     a = I32Value(1)
     if a.value:
         pass
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def if_elif_pass():
     if True:
         pass
@@ -50,7 +52,7 @@ def if_elif_pass():
         pass
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def if_nested():
     if True:
         if True:
@@ -69,7 +71,7 @@ def if_nested():
         pass
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def if_one_statement():
     ret_var = I32Value(0)
     if True:
@@ -79,7 +81,7 @@ def if_one_statement():
     return ret_var.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def if_multiple_statements():
     ret_var = I32Value(0)
     if True:
@@ -97,7 +99,7 @@ def if_multiple_statements():
     return ret_var.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def if_condition_variable():
     var = BooleanValue(0)
     if var.value:
@@ -107,7 +109,7 @@ def if_condition_variable():
     return var.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def if_condition_equal_operator():
     var = I32Value(1)
     if var.value == 1:
@@ -117,7 +119,7 @@ def if_condition_equal_operator():
     return var.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def if_condition_identity_operator():
     var = BooleanValue(True)
     ret = I32Value(0)
@@ -126,7 +128,7 @@ def if_condition_identity_operator():
     return ret.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def if_condition_identity_not_operator():
     var = BooleanValue(True)
     ret = I32Value(0)
@@ -135,13 +137,13 @@ def if_condition_identity_not_operator():
     return ret.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def returns_true():
     a = BooleanValue(True)
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def if_condition_function_call():
     ret = I32Value(0)
     if returns_true():
@@ -149,7 +151,7 @@ def if_condition_function_call():
     return ret.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def if_condition_complex_expression():
     a = I32Value(0)
     if (True and False) is not returns_true() or a.value < 10:
@@ -157,7 +159,7 @@ def if_condition_complex_expression():
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def if_elif_condition_complex_expression():
     a = I32Value(0)
     if False:
@@ -167,7 +169,7 @@ def if_elif_condition_complex_expression():
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def if_try_catch_fails():
     if True:
         try:
@@ -178,7 +180,7 @@ def if_try_catch_fails():
             pass
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def if_try_finally_fails():
     if True:
         try:
@@ -187,7 +189,7 @@ def if_try_finally_fails():
             pass
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def if_else_try_finally_fails():
     if True:
         pass
@@ -198,7 +200,7 @@ def if_else_try_finally_fails():
             pass
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def if_elif_try_finally_fails():
     if True:
         pass
@@ -211,14 +213,14 @@ def if_elif_try_finally_fails():
         pass
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def if_return_fails():
     a = BooleanValue(True)
     if True:
         return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def if_else_return_fails():
     a = BooleanValue(True)
     if True:
@@ -227,7 +229,7 @@ def if_else_return_fails():
         return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def if_elif_return_fails():
     a = BooleanValue(True)
     if False:
@@ -238,14 +240,14 @@ def if_elif_return_fails():
         pass
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def if_funcdef_fails():
     if True:
         def func():
             pass
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def if_else_funcdef_fails():
     if False:
         pass
@@ -254,7 +256,7 @@ def if_else_funcdef_fails():
             pass
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def if_elif_funcdef_fails():
     if False:
         pass
@@ -288,19 +290,19 @@ transform_tests = run_tests + [
 
 
 fail_transform_tests = [
-    (if_invalid_boolean, (), _exceptions.VeristandError),
-    (if_invalid_boolean_const, (), _exceptions.VeristandError),
-    (if_invalid_boolean_var, (), _exceptions.VeristandError),
-    (if_return_fails, (), _exceptions.TranslateError),
-    (if_elif_return_fails, (), _exceptions.TranslateError),
-    (if_else_return_fails, (), _exceptions.TranslateError),
-    (if_try_catch_fails, (), _exceptions.TranslateError),
-    (if_try_finally_fails, (), _exceptions.TranslateError),
-    (if_elif_try_finally_fails, (), _exceptions.TranslateError),
-    (if_else_try_finally_fails, (), _exceptions.TranslateError),
-    (if_funcdef_fails, (), _exceptions.TranslateError),
-    (if_elif_funcdef_fails, (), _exceptions.TranslateError),
-    (if_else_funcdef_fails, (), _exceptions.TranslateError),
+    (if_invalid_boolean, (), VeristandError),
+    (if_invalid_boolean_const, (), VeristandError),
+    (if_invalid_boolean_var, (), VeristandError),
+    (if_return_fails, (), TranslateError),
+    (if_elif_return_fails, (), TranslateError),
+    (if_else_return_fails, (), TranslateError),
+    (if_try_catch_fails, (), TranslateError),
+    (if_try_finally_fails, (), TranslateError),
+    (if_elif_try_finally_fails, (), TranslateError),
+    (if_else_try_finally_fails, (), TranslateError),
+    (if_funcdef_fails, (), TranslateError),
+    (if_elif_funcdef_fails, (), TranslateError),
+    (if_else_funcdef_fails, (), TranslateError),
 ]
 
 

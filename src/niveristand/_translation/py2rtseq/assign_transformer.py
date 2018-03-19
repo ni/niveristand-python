@@ -1,8 +1,8 @@
 import ast
 from niveristand import _errormessages
-from niveristand._exceptions import TranslateError
 from niveristand._translation import utils
 from niveristand.clientapi import _datatypes, realtimesequencedefinition as rtseqapi
+from niveristand.errors import TranslateError
 
 
 def assign_transformer(node, resources):

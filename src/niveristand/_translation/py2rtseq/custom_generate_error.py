@@ -1,10 +1,10 @@
 import ast
 
 from niveristand import _errormessages
-from niveristand._exceptions import TranslateError
 from niveristand._translation import utils
+from niveristand.clientapi import ErrorAction
 from niveristand.clientapi import realtimesequencedefinition
-from niveristand.clientapi._realtimesequencedefinitionapi.erroraction import ErrorAction
+from niveristand.errors import TranslateError
 
 
 def custom_generate_error(node, resources):

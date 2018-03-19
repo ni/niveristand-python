@@ -1,73 +1,76 @@
 import sys
 import threading
-from niveristand import _decorators, RealTimeSequence, TranslateError, VeristandError
+from niveristand import nivs_rt_sequence, NivsParam
 from niveristand import realtimesequencetools
 from niveristand.clientapi import I32Value
-from niveristand.library._tasks import get_scheduler, multitask, nivs_yield
+from niveristand.clientapi import RealTimeSequence
+from niveristand.errors import TranslateError, VeristandError
+from niveristand.library import multitask, nivs_yield, task
+from niveristand.library._tasks import get_scheduler
 import pytest
 from testutilities import rtseqrunner, validation
 
 
-@_decorators.NivsParam('param', I32Value(0), _decorators.NivsParam.BY_REF)
-@_decorators.nivs_rt_sequence
+@NivsParam('param', I32Value(0), NivsParam.BY_REF)
+@nivs_rt_sequence
 def _increase_param_by_ref(param):
     param.value += 1
 
 
-@_decorators.NivsParam('param', I32Value(0), _decorators.NivsParam.BY_REF)
-@_decorators.nivs_rt_sequence
+@NivsParam('param', I32Value(0), NivsParam.BY_REF)
+@nivs_rt_sequence
 def _subseq_with_multitask(param):
     with multitask() as mt:
-        @_decorators.task(mt)
+        @task(mt)
         def fa():
             nivs_yield()
             if param.value is 2:
                 param.value = 3
 
-        @_decorators.task(mt)
+        @task(mt)
         def fb():
             if param.value is 0:
                 param.value = 1
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def multitask_pass():
     a = I32Value(1)
     with multitask() as mt:
-        @_decorators.task(mt)
+        @task(mt)
         def f1():
             pass
 
-        @_decorators.task(mt)
+        @task(mt)
         def f2():
             pass
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def multitask_access_local():
     a = I32Value(0)
     with multitask() as mt:
-        @_decorators.task(mt)
+        @task(mt)
         def f1():
             a.value = 5
 
-        @_decorators.task(mt)
+        @task(mt)
         def f2():
             a.value *= 7
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def multitask_blocks_until_done():
     a = I32Value(0)
     with multitask() as mt:
-        @_decorators.task(mt)
+        @task(mt)
         def f1():
             nivs_yield()
             a.value = 1
 
-        @_decorators.task(mt)
+        @task(mt)
         def f2():
             a.value = 2
             nivs_yield()
@@ -76,50 +79,50 @@ def multitask_blocks_until_done():
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def multitask_nested():
     a = I32Value(0)
     with multitask() as mt:
-        @_decorators.task(mt)
+        @task(mt)
         def f1():
             with multitask() as mt_inside:
-                @_decorators.task(mt_inside)
+                @task(mt_inside)
                 def fa():
                     a.value = 5
 
-                @_decorators.task(mt_inside)
+                @task(mt_inside)
                 def fb():
                     a.value *= 7
 
-        @_decorators.task(mt)
+        @task(mt)
         def f2():
             a.value *= 13
 
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def multitask_task_with_yield():
     a = I32Value(0)
     with multitask() as mt:
-        @_decorators.task(mt)
+        @task(mt)
         def f1():
             nivs_yield()
             a.value = 1
 
-        @_decorators.task(mt)
+        @task(mt)
         def f2():
             a.value = 2
             nivs_yield()
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def multitask_tasks_with_different_iter_count():
     a = I32Value(0)
     ret = I32Value(1)
     with multitask() as mt:
-        @_decorators.task(mt)
+        @task(mt)
         def f1():
             while a.value < 15:
                 a.value += 1
@@ -127,7 +130,7 @@ def multitask_tasks_with_different_iter_count():
                     ret.value = a.value * -1
                 nivs_yield()
 
-        @_decorators.task(mt)
+        @task(mt)
         def f2():
             while a.value < 10:
                 a.value += 1
@@ -140,19 +143,19 @@ def multitask_tasks_with_different_iter_count():
     return ret.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def multitask_nested_validate_order():
     a = I32Value(0)
     counter = I32Value(1000)
     ret = I32Value(0)
     with multitask() as mt_top:
-        @_decorators.task(mt_top)
+        @task(mt_top)
         def fa():
             with multitask() as mt_nested:
-                @_decorators.task(mt_nested)
+                @task(mt_nested)
                 def f0():
                     with multitask() as mt_bottom:
-                        @_decorators.task(mt_bottom)
+                        @task(mt_bottom)
                         def fx():
                             if a.value is not 0:
                                 ret.value = -1000
@@ -160,7 +163,7 @@ def multitask_nested_validate_order():
                                 counter.value -= 1
                                 nivs_yield()
 
-                @_decorators.task(mt_nested)
+                @task(mt_nested)
                 def f1():
                     if a.value > 3 and ret.value == 0:
                         ret.value = -1
@@ -171,7 +174,7 @@ def multitask_nested_validate_order():
                     a.value += 100
                     nivs_yield()
 
-                @_decorators.task(mt_nested)
+                @task(mt_nested)
                 def f2():
                     if a.value > 3 and ret.value == 0:
                         ret.value = -2
@@ -182,7 +185,7 @@ def multitask_nested_validate_order():
                     a.value += 100
                     nivs_yield()
 
-        @_decorators.task(mt_top)
+        @task(mt_top)
         def fb():
             if a.value > 3 and ret.value == 0:
                 ret.value = -3
@@ -193,7 +196,7 @@ def multitask_nested_validate_order():
             a.value += 100
             nivs_yield()
 
-        @_decorators.task(mt_top)
+        @task(mt_top)
         def fc():
             while counter.value > 0:
                 counter.value -= 1
@@ -204,30 +207,30 @@ def multitask_nested_validate_order():
     return ret.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def multitask_multiple_in_sequence_validate_order():
     a = I32Value(0)
     with multitask() as mt:
-        @_decorators.task(mt)
+        @task(mt)
         def f1():
             nivs_yield()
             if a.value is 1:
                 a.value = 2
 
-        @_decorators.task(mt)
+        @task(mt)
         def f2():
             if a.value is 0:
                 a.value = 1
             nivs_yield()
 
     with multitask() as mt2:
-        @_decorators.task(mt2)
+        @task(mt2)
         def fa():
             nivs_yield()
             if a.value is 3:
                 a.value = 4
 
-        @_decorators.task(mt2)
+        @task(mt2)
         def fb():
             if a.value is 2:
                 a.value = 3
@@ -236,38 +239,38 @@ def multitask_multiple_in_sequence_validate_order():
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def multitask_call_subroutine_params_byref():
     a = I32Value(0)
     b = I32Value(1)
     with multitask() as mt:
-        @_decorators.task(mt)
+        @task(mt)
         def f1():
             _increase_param_by_ref(a)
 
-        @_decorators.task(mt)
+        @task(mt)
         def f2():
             _increase_param_by_ref(b)
 
-        @_decorators.task(mt)
+        @task(mt)
         def f3():
             a.value += b.value
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def multitask_call_subroutine_with_multitask():
     a = I32Value(0)
 
     with multitask() as mt:
-        @_decorators.task(mt)
+        @task(mt)
         def f1():
             _subseq_with_multitask(a)
             nivs_yield()
             if a.value is 3:
                 a.value = 4
 
-        @_decorators.task(mt)
+        @task(mt)
         def f2():
             if a.value is 1:
                 a.value = 2
@@ -280,129 +283,129 @@ def multitask_call_subroutine_with_multitask():
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def multitask_duplicate_name_fails():
     a = I32Value(0)
     with multitask() as mt:
-        @_decorators.task(mt)
+        @task(mt)
         def f1():
             a.value = 1
 
-        @_decorators.task(mt)  # noqa: F811 redefinition is exactly what we're testing here.
+        @task(mt)  # noqa: F811 redefinition is exactly what we're testing here.
         def f1():
             a.value = 2
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def multitask_redefine_var_fails():
     a = I32Value(0)
     with multitask() as mt:
-        @_decorators.task(mt)
+        @task(mt)
         def f1():
             a = I32Value(1)
             a.value = 2
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def multitask_return_fails():
     a = I32Value(0)
     with multitask() as mt:
-        @_decorators.task(mt)
+        @task(mt)
         def f1():
             a = I32Value(1)
             a.value = 2
         return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def multitask_stmt_fails():
     a = I32Value(0)
     with multitask() as mt:
-        @_decorators.task(mt)
+        @task(mt)
         def f1():
             a = I32Value(1)
             a.value = 2
         return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def multitask_with_param_fails():
     a = I32Value(1)
     with multitask(a) as mt:
-        @_decorators.task(mt)
+        @task(mt)
         def f1():
             pass
 
-        @_decorators.task(mt)
+        @task(mt)
         def f2():
             pass
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def multitask_task_with_param_fails():
     a = I32Value(1)
     with multitask(a) as mt:
-        @_decorators.task(mt)
+        @task(mt)
         def f1(x):
             pass
 
-        @_decorators.task(mt)
+        @task(mt)
         def f2():
             pass
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def multitask_return_in_task_fails():
     a = I32Value(0)
     with multitask() as mt:
-        @_decorators.task(mt)
+        @task(mt)
         def f1():
             a = I32Value(1)
             return a.value
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def multitask_funcdef_in_task_fails():
     a = I32Value(0)
     with multitask() as mt:
-        @_decorators.task(mt)
+        @task(mt)
         def f1():
             def func():
                 pass
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def multitask_no_var_name_fails():
     a = I32Value(0)
     with multitask():
-        @_decorators.task()
+        @task()
         def f1():
             pass
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def multitask_wrong_var_name_fails():
     a = I32Value(0)
     with multitask():
-        @_decorators.task(a)
+        @task(a)
         def f1():
             pass
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def multitask_task_multi_dec_fails():
     a = I32Value(0)
     with multitask() as mt:
-        @_decorators.task(mt)
-        @_decorators.task(mt)
+        @task(mt)
+        @task(mt)
         def f1():
             pass
     return a.value

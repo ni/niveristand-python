@@ -1,6 +1,6 @@
 from niveristand import _errormessages
-from niveristand._exceptions import TranslateError
 from niveristand._translation import symbols
+from niveristand.errors import TranslateError
 
 
 def name_transformer(node, resources):

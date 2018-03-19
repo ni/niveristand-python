@@ -1,13 +1,15 @@
 import sys
-from niveristand import _decorators, RealTimeSequence, TranslateError
+from niveristand import nivs_rt_sequence
 from niveristand import realtimesequencetools
 from niveristand.clientapi import I32Value
-from niveristand.library import iteration, multitask, nivs_yield
+from niveristand.clientapi import RealTimeSequence
+from niveristand.errors import TranslateError
+from niveristand.library import iteration, multitask, nivs_yield, task
 import pytest
 from testutilities import rtseqrunner, validation
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def yield_single():
     a = I32Value(0)
     nivs_yield()
@@ -15,7 +17,7 @@ def yield_single():
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def yield_many():
     a = I32Value(0)
     nivs_yield()
@@ -27,7 +29,7 @@ def yield_many():
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def yield_in_while():
     a = I32Value(0)
     while a.value < 10:
@@ -36,23 +38,23 @@ def yield_in_while():
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def yield_multitask():
     with multitask() as mt:
-        @_decorators.task(mt)
+        @task(mt)
         def f1():
             for a in range(5):
                 nivs_yield()
 
-        @_decorators.task(mt)
+        @task(mt)
         def f2():
             with multitask() as mt_inner:
-                @_decorators.task(mt_inner)
+                @task(mt_inner)
                 def fa():
                     for b in range(7):
                         nivs_yield()
 
-                @_decorators.task(mt_inner)
+                @task(mt_inner)
                 def fb():
                     for c in range(13):
                         nivs_yield()
@@ -61,12 +63,12 @@ def yield_multitask():
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def yield_as_parameter_fail():
     abs(nivs_yield())
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def yield_as_operator_fails():
     a = I32Value(0)
     a.value = nivs_yield() + 1

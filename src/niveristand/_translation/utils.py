@@ -2,12 +2,12 @@ import ast
 import sys
 
 from niveristand import _errormessages
-from niveristand import _exceptions
-from niveristand._exceptions import TranslateError
+from niveristand import errors
 from niveristand._translation import symbols
 from niveristand.clientapi import _datatypes
 from niveristand.clientapi import realtimesequencedefinition
 from niveristand.clientapi._datatypes import rtprimitives
+from niveristand.errors import TranslateError
 
 
 def generic_ast_node_transform(node, resources):
@@ -91,5 +91,5 @@ def get_channel_name(node):
     if type(node) is ast.Str:
         channel_name = node.s
     else:
-        raise _exceptions.TranslateError(_errormessages.invalid_type_for_channel_ref)
+        raise errors.TranslateError(_errormessages.invalid_type_for_channel_ref)
     return channel_name

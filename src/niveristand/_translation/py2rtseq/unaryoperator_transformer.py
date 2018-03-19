@@ -1,5 +1,5 @@
-from niveristand._exceptions import VeristandNotImplementedError
 from niveristand._translation import utils
+from niveristand.errors import VeristandNotImplementedError
 
 
 def unaryoperator_transformer(node, resources):

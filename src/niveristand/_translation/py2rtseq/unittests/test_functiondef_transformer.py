@@ -1,6 +1,6 @@
 import ast
 import inspect
-from niveristand import _exceptions
+from niveristand import errors
 from niveristand._translation.py2rtseq import functiondef_transformer
 from niveristand._translation.py2rtseq import utils
 import pytest
@@ -79,5 +79,5 @@ def test_functiondef_transformer_fails(func):
 def _fail_function_helper(func):
     node = (ast.parse(inspect.getsource(func)))
     node = node.body[0]
-    with pytest.raises(_exceptions.TranslateError):
+    with pytest.raises(errors.TranslateError):
         functiondef_transformer.functiondef_transformer(node, utils.Resources(None, '<test>'))

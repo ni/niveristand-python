@@ -1,15 +1,17 @@
 import sys
-from niveristand import _decorators, RealTimeSequence, VeristandError
+from niveristand import nivs_rt_sequence
 from niveristand import realtimesequencetools
 from niveristand.clientapi import BooleanValue, DoubleValue, I64Value
-from niveristand.library import multitask, nivs_yield, seqtime, tickcountms, tickcountus
+from niveristand.clientapi import RealTimeSequence
+from niveristand.errors import VeristandError
+from niveristand.library import multitask, nivs_yield, seqtime, task, tickcountms, tickcountus
 from niveristand.library.timing import wait, wait_until_next_ms_multiple, wait_until_next_us_multiple, \
     wait_until_settled
 import pytest
 from testutilities import rtseqrunner, validation
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def wait_nivstype():
     init = DoubleValue(0)
     duration = DoubleValue(1)
@@ -23,7 +25,7 @@ def wait_nivstype():
     return ret.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def wait_const():
     init = DoubleValue(0)
     end = DoubleValue(0)
@@ -36,7 +38,7 @@ def wait_const():
     return ret.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def wait_multitask():
     ret = BooleanValue(False)
     init1 = DoubleValue(0)
@@ -48,13 +50,13 @@ def wait_multitask():
 
     tot_init.value = seqtime()
     with multitask() as mt:
-        @_decorators.task(mt)
+        @task(mt)
         def f1():
             init1.value = seqtime()
             nivs_yield()
             end1.value = wait(DoubleValue(1)) - init1.value
 
-        @_decorators.task(mt)
+        @task(mt)
         def f2():
             init2.value = seqtime()
             end2.value = wait(DoubleValue(3)) - init2.value
@@ -66,7 +68,7 @@ def wait_multitask():
     return ret.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def wait_const_negative():
     init = DoubleValue(0)
     end = DoubleValue(0)
@@ -79,13 +81,13 @@ def wait_const_negative():
     return ret.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def _return_one():
     a = DoubleValue(1)
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def wait_subseq_call():
     init = DoubleValue(0)
     end = DoubleValue(0)
@@ -98,7 +100,7 @@ def wait_subseq_call():
     return ret.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def wait_until_next_ms():
     init = I64Value(0)
     end = I64Value(0)
@@ -111,7 +113,7 @@ def wait_until_next_ms():
     return ret.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def wait_until_next_us():
     init = I64Value(0)
     end = I64Value(0)
@@ -125,18 +127,18 @@ def wait_until_next_us():
     return ret.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def wait_until_settled_multitask():
     a = DoubleValue(15000)
     timer = DoubleValue(0)
     ret = BooleanValue(False)
     timer.value = seqtime()
     with multitask() as mt:
-        @_decorators.task(mt)
+        @task(mt)
         def monitor():
             ret.value = wait_until_settled(a, DoubleValue(1000), DoubleValue(500), DoubleValue(2), DoubleValue(-1))
 
-        @_decorators.task(mt)
+        @task(mt)
         def signal():
             a.value = 600
             wait(DoubleValue(1))
@@ -151,7 +153,7 @@ def wait_until_settled_multitask():
     return ret.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def wait_until_settled_timeout():
     pass_test = BooleanValue(False)
     time = DoubleValue(0)
@@ -166,7 +168,7 @@ def wait_until_settled_timeout():
     return pass_test.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def wait_wrong_param_type():
     duration = I64Value(1)
     wait(duration)

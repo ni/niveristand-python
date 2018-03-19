@@ -1,11 +1,11 @@
 import ast
 
 from niveristand import _errormessages
-from niveristand._exceptions import TranslateError
 from niveristand._translation import utils
 from niveristand._translation.py2rtseq import validations
 from niveristand.clientapi import realtimesequencedefinition as rtseqapi
 from niveristand.clientapi._datatypes import ArrayType
+from niveristand.errors import TranslateError
 
 
 def for_transformer(node, resources):

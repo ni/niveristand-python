@@ -1,5 +1,5 @@
 import ast
-from niveristand import _errormessages, _exceptions
+from niveristand import _errormessages, errors
 from niveristand._translation import symbols, utils
 
 
@@ -14,4 +14,4 @@ def attribute_transformer(node, resources):
     if built_exp in symbols._symbols:
         return symbols._symbols[built_exp]
     else:
-        raise _exceptions.TranslateError(_errormessages.unknown_identifier % var_name)
+        raise errors.TranslateError(_errormessages.unknown_identifier % var_name)

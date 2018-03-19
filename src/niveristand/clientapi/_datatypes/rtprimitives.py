@@ -14,7 +14,7 @@ from NationalInstruments.VeriStand.Data import U32ValueArray as ClientApiU32Valu
 from NationalInstruments.VeriStand.Data import U64Value as ClientApiU64Value
 from NationalInstruments.VeriStand.Data import U64ValueArray as ClientApiU64ValueArray
 from niveristand import _errormessages
-from niveristand import _exceptions as nivsexceptions
+from niveristand import errors as nivsexceptions
 from niveristand.clientapi import realtimesequencedefinition
 from System import Int32 as SystemInt32
 from System import Int64 as SystemInt64

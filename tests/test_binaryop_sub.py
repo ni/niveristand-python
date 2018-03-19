@@ -1,8 +1,9 @@
 import sys
 
-from niveristand import _decorators, RealTimeSequence, TranslateError, VeristandError
+from niveristand import nivs_rt_sequence
 from niveristand import realtimesequencetools
-from niveristand.clientapi import ChannelReference, DoubleValue, I32Value
+from niveristand.clientapi import ChannelReference, DoubleValue, I32Value, RealTimeSequence
+from niveristand.errors import TranslateError, VeristandError
 from niveristand.library.primitives import localhost_wait
 import pytest
 from testutilities import rtseqrunner, validation
@@ -11,13 +12,13 @@ a = 1
 b = 2
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def return_constant():
     a = DoubleValue(5)
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def sub_simple_numbers():
     a = DoubleValue(0)
     a.value = 1 - 2
@@ -28,119 +29,119 @@ def test_sub_simple_numbers():
     RealTimeSequence(sub_simple_numbers)
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def sub_num_nivsdatatype():
     a = DoubleValue(0)
     a.value = 1 - DoubleValue(2)
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def sub_nivsdatatype_nivsdatatype():
     a = DoubleValue(0)
     a.value = DoubleValue(1) - DoubleValue(2)
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def sub_nivsdatatype_nivsdatatype1():
     a = DoubleValue(0)
     a.value = DoubleValue(1) - I32Value(2)
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def sub_nivsdatatype_nivsdatatype2():
     a = DoubleValue(0)
     a.value = I32Value(1) - DoubleValue(2)
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def sub_nivsdatatype_nivsdatatype3():
     a = DoubleValue(0)
     a.value = I32Value(1) - I32Value(2)
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def sub_multiple_types():
     a = DoubleValue(0)
     a.value = 1 - DoubleValue(2) - 3.0
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def sub_multiple_types1():
     a = I32Value(0)
     a.value = 1 - I32Value(2) - 3.0 - DoubleValue(4)
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def sub_use_rtseq():
     a = DoubleValue(0)
     a.value = 1 - return_constant()
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def sub_use_rtseq1():
     a = DoubleValue(0)
     a.value = return_constant() - 1
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def sub_use_rtseq2():
     a = DoubleValue(0)
     a.value = DoubleValue(1) - return_constant()
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def sub_use_rtseq3():
     a = DoubleValue(0)
     a.value = return_constant() - DoubleValue(1)
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def sub_use_rtseq4():
     a = DoubleValue(0)
     a.value = I32Value(1) - return_constant()
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def sub_use_rtseq5():
     a = DoubleValue(0)
     a.value = return_constant() - I32Value(1)
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def sub_with_parantheses():
     a = DoubleValue(0)
     a.value = 1 - (2 - 3)
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def sub_with_parantheses1():
     a = DoubleValue(0)
     a.value = 1 - (DoubleValue(2) - I32Value(5))
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def sub_with_parantheses2():
     a = DoubleValue(0)
     a.value = DoubleValue(5) - (I32Value(2) - 3.0) - DoubleValue(4)
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def sub_variables():
     a = DoubleValue(5)
     b = DoubleValue(0)
@@ -148,7 +149,7 @@ def sub_variables():
     return b.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def sub_variables1():
     a = DoubleValue(5)
     b = DoubleValue(0)
@@ -156,7 +157,7 @@ def sub_variables1():
     return b.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def sub_variable_variable():
     a = DoubleValue(1)
     b = DoubleValue(2)
@@ -165,7 +166,7 @@ def sub_variable_variable():
     return c.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def sub_variable_variable1():
     a = DoubleValue(1)
     b = DoubleValue(2)
@@ -174,7 +175,7 @@ def sub_variable_variable1():
     return c.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def sub_variable_rtseq():
     a = DoubleValue(1)
     b = DoubleValue(0)
@@ -182,7 +183,7 @@ def sub_variable_rtseq():
     return b.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def sub_variable_rtseq1():
     a = DoubleValue(1)
     b = DoubleValue(0)
@@ -190,7 +191,7 @@ def sub_variable_rtseq1():
     return b.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def sub_to_channelref():
     a = DoubleValue(0)
     b = ChannelReference("Aliases/DesiredRPM")
@@ -200,21 +201,21 @@ def sub_to_channelref():
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def sub_binary_unary():
     a = DoubleValue(0)
     a.value = 2 - -1
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def sub_binary_unary_sequence():
     a = DoubleValue(0)
     a.value = 1 - -----2  # noqa: E225 it's ok to test this
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def sub_complex_expr():
     a = DoubleValue(0)
     a.value = 1 - (2 if 2 < 3 else 4)
@@ -223,35 +224,35 @@ def sub_complex_expr():
 
 # <editor-fold desc=Augassign tests>
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def aug_sub_simple_numbers():
     a = DoubleValue(1)
     a.value -= 2
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def aug_sub_num_nivsdatatype():
     a = DoubleValue(1)
     a.value -= DoubleValue(2)
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def aug_sub_use_rtseq():
     a = DoubleValue(1)
     a.value -= return_constant()
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def aug_sub_with_parantheses():
     a = DoubleValue(1)
     a.value -= (I32Value(2) + 3.0) + DoubleValue(4)
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def aug_sub_variables():
     a = DoubleValue(5)
     b = DoubleValue(1)
@@ -259,7 +260,7 @@ def aug_sub_variables():
     return b.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def aug_sub_to_channelref():
     a = DoubleValue(1)
     b = ChannelReference("Aliases/DesiredRPM")
@@ -269,7 +270,7 @@ def aug_sub_to_channelref():
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def aug_sub_unary():
     a = DoubleValue(1)
     a.value -= -1
@@ -280,24 +281,24 @@ def aug_sub_unary():
 
 # <editor-fold desc=Invalid tests>
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def sub_invalid_variables():
     return a - b
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def sub_invalid_variables1():
     return a.value - b.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def sub_from_None():
     a = DoubleValue(0)
     a.value = None - 1
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def sub_invalid_rtseq_call():
     a = DoubleValue(0)
     a.value = return_constant - 1

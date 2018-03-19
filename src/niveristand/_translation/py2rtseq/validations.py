@@ -1,11 +1,11 @@
 import ast
 import sys
-from niveristand import _errormessages, _exceptions
+from niveristand import _errormessages, errors
 
 
 def raise_if_try_in_node_body(statements):
     if check_if_any_in_block(ast_try(), statements):
-        raise _exceptions.TranslateError(_errormessages.try_only_in_top_level_func)
+        raise errors.TranslateError(_errormessages.try_only_in_top_level_func)
 
 
 def ast_try():

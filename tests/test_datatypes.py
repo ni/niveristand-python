@@ -1,6 +1,7 @@
 import sys
 
-from niveristand import _decorators, RealTimeSequence, realtimesequencetools, TranslateError
+from niveristand import nivs_rt_sequence
+from niveristand import realtimesequencetools
 from niveristand.clientapi import BooleanValue
 from niveristand.clientapi import BooleanValueArray
 from niveristand.clientapi import DoubleValue
@@ -9,588 +10,590 @@ from niveristand.clientapi import I32Value
 from niveristand.clientapi import I32ValueArray
 from niveristand.clientapi import I64Value
 from niveristand.clientapi import I64ValueArray
+from niveristand.clientapi import RealTimeSequence
 from niveristand.clientapi import U32Value
 from niveristand.clientapi import U32ValueArray
 from niveristand.clientapi import U64Value
 from niveristand.clientapi import U64ValueArray
+from niveristand.errors import TranslateError
 import pytest
 from testutilities import rtseqrunner, validation
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def boolean_type():
     a = BooleanValue(True)  # noqa: F841 it's ok for this variable to never be used
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def boolean_type1():
     a = BooleanValue(False)  # noqa: F841 it's ok for this variable to never be used
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def boolean_type2():
     a = BooleanValue(1)  # noqa: F841 it's ok for this variable to never be used
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def boolean_type3():
     a = BooleanValue(0)  # noqa: F841 it's ok for this variable to never be used
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def boolean_type_run():
     a = BooleanValue(True)  # noqa: F841 it's ok for this variable to never be used
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def boolean_type1_run():
     a = BooleanValue(False)  # noqa: F841 it's ok for this variable to never be used
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def boolean_type2_run():
     a = BooleanValue(1)  # noqa: F841 it's ok for this variable to never be used
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def boolean_type3_run():
     a = BooleanValue(0)  # noqa: F841 it's ok for this variable to never be used
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def illegal_boolean_type():
     a = BooleanValue("Some string")  # noqa: F841 it's ok for this variable to never be used
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def double_type():
     a = DoubleValue(5)  # noqa: F841 it's ok for this variable to never be used
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def double_type1():
     a = DoubleValue(5.0)  # noqa: F841 it's ok for this variable to never be used
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def double_type_run():
     a = DoubleValue(5)
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def double_type1_run():
     a = DoubleValue(5.0)
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def illegal_double_type():
     a = DoubleValue("Some string")  # noqa: F841 it's ok for this variable to never be used
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def int32_type():
     a = I32Value(2)  # noqa: F841 it's ok for this variable to never be used
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def int32_type1():
     a = I32Value(1.0)  # noqa: F841 it's ok for this variable to never be used
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def int32_type_run():
     a = I32Value(2)
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def int32_type1_run():
     a = I32Value(1.0)
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def illegal_int32_type():
     a = I32Value("Some string")  # noqa: F841 it's ok for this variable to never be used
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def int32_overflow_error():
     a = I32Value(100000000000000000000)  # noqa: F841 it's ok for this variable to never be used
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def int64_type():
     a = I64Value(2)  # noqa: F841 it's ok for this variable to never be used
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def int64_type1():
     a = I64Value(1.0)  # noqa: F841 it's ok for this variable to never be used
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def int64_type_run():
     a = I64Value(2)
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def int64_type1_run():
     a = I64Value(1.0)
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def illegal_int64_type():
     a = I64Value("Some string")  # noqa: F841 it's ok for this variable to never be used
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def int64_overflow_error():
     a = I64Value(100000000000000000000)  # noqa: F841 it's ok for this variable to never be used
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def uint32_type():
     a = U32Value(2)  # noqa: F841 it's ok for this variable to never be used
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def uint32_type1():
     a = U32Value(1.0)  # noqa: F841 it's ok for this variable to never be used
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def uint32_type_run():
     a = U32Value(2)
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def uint32_type1_run():
     a = U32Value(1.0)
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def illegal_uint32_type():
     a = U32Value("Some string")  # noqa: F841 it's ok for this variable to never be used
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def uint32_overflow_error():
     a = U32Value(100000000000000000000)  # noqa: F841 it's ok for this variable to never be used
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def uint64_type():
     a = U64Value(2)  # noqa: F841 it's ok for this variable to never be used
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def uint64_type1():
     a = U64Value(1.0)  # noqa: F841 it's ok for this variable to never be used
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def uint64_type_run():
     a = U64Value(2)
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def uint64_type1_run():
     a = U64Value(1.0)
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def illegal_uint64_type():
     a = U64Value("Some string")  # noqa: F841 it's ok for this variable to never be used
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def uint64_overflow_error():
     a = U64Value(100000000000000000000)  # noqa: F841 it's ok for this variable to never be used
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def boolean_type_negative():
     a = BooleanValue(-1)  # noqa: F841 it's ok for this variable to never be used
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def double_type_negative():
     a = DoubleValue(-5.0)  # noqa: F841 it's ok for this variable to never be used
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def int32_type_negative():
     a = I32Value(-1)  # noqa: F841 it's ok for this variable to never be used
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def int64_type_negative():
     a = I64Value(-1)  # noqa: F841 it's ok for this variable to never be used
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def uint32_type_negative():
     a = U32Value(-1)  # noqa: F841 it's ok for this variable to never be used
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def uint64_type_negative():
     a = U64Value(-1)  # noqa: F841 it's ok for this variable to never be used
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def boolean_type_negative_run():
     a = BooleanValue(-1)
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def double_type_negative_run():
     a = DoubleValue(-5.0)
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def int32_type_negative_run():
     a = I32Value(-1)
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def int64_type_negative_run():
     a = I64Value(-1)
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def uint32_type_negative_run():
     a = U32Value(-1)
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def uint64_type_negative_run():
     a = U64Value(-1)
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def boolean_array_one_element():
     a = BooleanValueArray([1])  # noqa: F841 it's ok for this variable to never be used
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def boolean_array_type():
     a = BooleanValueArray([True, False, 1, 0])  # noqa: F841 it's ok for this variable to never be used
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def boolean_array_empty():
     a = BooleanValueArray([])  # noqa: F841 it's ok for this variable to never be used
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def boolean_array_one_element_run():
     a = BooleanValueArray([1])
     return a[0].value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def boolean_array_type_run():
     a = BooleanValueArray([True, False, 1, 0])
     return a[3].value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def boolean_array_invalid_type():
     a = BooleanValueArray([True, 'something'])  # noqa: F841 it's ok for this variable to never be used
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def boolean_array_invalid_type1():
     a = BooleanValueArray([True, 'False'])  # noqa: F841 it's ok for this variable to never be used
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def double_array_one_element():
     a = DoubleValueArray([1])  # noqa: F841 it's ok for this variable to never be used
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def double_array_type():
     a = DoubleValueArray([0, 1.0, 5.5])  # noqa: F841 it's ok for this variable to never be used
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def double_array_empty():
     a = DoubleValueArray([])  # noqa: F841 it's ok for this variable to never be used
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def double_array_one_element_run():
     a = DoubleValueArray([1])
     return a[0].value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def double_array_type_run():
     a = DoubleValueArray([0, 1.0, 5.5])
     return a[2].value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def double_array_invalid_type():
     a = DoubleValueArray([5.5, 'something'])  # noqa: F841 it's ok for this variable to never be used
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def double_array_invalid_type1():
     a = DoubleValueArray([5.5, '5.5'])  # noqa: F841 it's ok for this variable to never be used
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def int32_array_one_element():
     a = I32ValueArray([1])  # noqa: F841 it's ok for this variable to never be used
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def int32_array_type():
     a = I32ValueArray([0, 1, 5])  # noqa: F841 it's ok for this variable to never be used
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def int32_array_empty():
     a = I32ValueArray([])  # noqa: F841 it's ok for this variable to never be used
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def int32_array_one_element_run():
     a = I32ValueArray([1])
     return a[0].value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def int32_array_type_run():
     a = I32ValueArray([0, 1, 5])
     return a[2].value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def int32_array_invalid_type():
     a = I32ValueArray([5, 'something'])  # noqa: F841 it's ok for this variable to never be used
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def int32_array_invalid_type1():
     a = I32ValueArray([5, '-5'])  # noqa: F841 it's ok for this variable to never be used
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def int64_array_one_element():
     a = I64ValueArray([1])  # noqa: F841 it's ok for this variable to never be used
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def int64_array_type():
     a = I64ValueArray([0, 1, 5])  # noqa: F841 it's ok for this variable to never be used
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def int64_array_empty():
     a = I64ValueArray([])  # noqa: F841 it's ok for this variable to never be used
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def int64_array_one_element_run():
     a = I64ValueArray([1])
     return a[0].value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def int64_array_type_run():
     a = I64ValueArray([0, 1, 5])
     return a[2].value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def int64_array_invalid_type():
     a = I64ValueArray([5, 'something'])  # noqa: F841 it's ok for this variable to never be used
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def int64_array_invalid_type1():
     a = I64ValueArray([5, '-5'])  # noqa: F841 it's ok for this variable to never be used
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def uint32_array_one_element():
     a = U32ValueArray([1])  # noqa: F841 it's ok for this variable to never be used
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def uint32_array_type():
     a = U32ValueArray([0, 1, 5])  # noqa: F841 it's ok for this variable to never be used
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def uint32_array_empty():
     a = U32ValueArray([])  # noqa: F841 it's ok for this variable to never be used
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def uint32_array_one_element_run():
     a = U32ValueArray([1])
     return a[0].value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def uint32_array_type_run():
     a = U32ValueArray([0, 1, 5])
     return a[2].value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def uint32_array_invalid_type():
     a = U32ValueArray([5, 'something'])  # noqa: F841 it's ok for this variable to never be used
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def uint32_array_invalid_type1():
     a = U32ValueArray([5, '5'])  # noqa: F841 it's ok for this variable to never be used
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def uint32_array_negative_values():
     a = U32ValueArray([-5, -1])  # noqa: F841 it's ok for this variable to never be used
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def uint64_array_one_element():
     a = U64ValueArray([1])  # noqa: F841 it's ok for this variable to never be used
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def uint64_array_type():
     a = U64ValueArray([0, 1, 5])  # noqa: F841 it's ok for this variable to never be used
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def uint64_array_one_element_run():
     a = U64ValueArray([1])
     return a[0].value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def uint64_array_type_run():
     a = U64ValueArray([0, 1, 5])
     return a[2].value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def uint64_array_empty():
     a = U64ValueArray([])  # noqa: F841 it's ok for this variable to never be used
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def uint64_array_invalid_type():
     a = U64ValueArray([5, 'something'])  # noqa: F841 it's ok for this variable to never be used
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def uint64_array_invalid_type1():
     a = U64ValueArray([5, '5'])  # noqa: F841 it's ok for this variable to never be used
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def uint64_array_negative_values():
     a = U64ValueArray([-5, -1])  # noqa: F841 it's ok for this variable to never be used
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def invalid_return_type():
     return DoubleValueArray([5.0, 1])
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def int32_max_value():
     a = I32Value(0x7FFFFFFF)
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def int32_max_value_overflow():
     a = I32Value(0x800000001)
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def int64_max_value():
     a = I64Value(0x7FFFFFFFFFFFFFFF)
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def int64_max_value_overflow():
     a = I64Value(0x80000000000000001)
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def uint32_max_value():
     a = U32Value(0xFFFFFFFF)
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def uint32_max_value_overflow():
     a = U32Value(0x800000001)
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def uint64_max_value():
     a = U64Value(0xFFFFFFFFFFFFFFFF)
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def uint64_max_value_overflow():
     a = U64Value(0x80000000000000001)
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def int32_array_overflow():
     a = I32ValueArray([0x80000000, 0x80000000])
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def int64_array_overflow():
     a = I64ValueArray([0x80000000000000001, 0x8000000000000000])
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def uint32_array_overflow():
     a = U32ValueArray([0x800000001, 0x80000000])
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def uint64_array_overflow():
     a = U64ValueArray([0x80000000000000001, 0x8000000000000000])
     return a.value

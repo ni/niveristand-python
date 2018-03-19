@@ -1,4 +1,4 @@
-from niveristand._exceptions import TranslateError
+from niveristand.errors import TranslateError
 
 
 def default_transformer(node, resources):

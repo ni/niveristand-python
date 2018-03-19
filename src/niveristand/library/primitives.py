@@ -1,5 +1,5 @@
 import time
-from niveristand._exceptions import VeristandNotImplementedError
+from niveristand.errors import VeristandNotImplementedError
 
 
 def abstime():
@@ -238,10 +238,10 @@ def generate_error(code, message, action):
 
     """
     from niveristand.clientapi._realtimesequencedefinitionapi.erroraction import ErrorAction
-    from niveristand import _exceptions
+    from niveristand import errors
     from niveristand.library._tasks import get_scheduler
     assert isinstance(action, ErrorAction)
-    error = _exceptions.SequenceError(code, message, action)
+    error = errors._SequenceError(code, message, action)
     get_scheduler().get_task_for_curr_thread().error = error
 
     if action is ErrorAction.ContinueSequenceExecution:

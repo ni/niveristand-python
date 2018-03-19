@@ -1,8 +1,10 @@
 import sys
-from niveristand import _decorators, RealTimeSequence, TranslateError, VeristandError
+from niveristand import nivs_rt_sequence, NivsParam
 from niveristand import realtimesequencetools
 from niveristand.clientapi import DoubleValue, I32Value
-from niveristand.library import multitask, nivs_yield, stop_task
+from niveristand.clientapi import RealTimeSequence
+from niveristand.errors import TranslateError, VeristandError
+from niveristand.library import multitask, nivs_yield, stop_task, task
 import pytest
 from testutilities import rtseqrunner, validation
 
@@ -11,67 +13,67 @@ def _invalid():
     pass
 
 
-@_decorators.NivsParam('param', DoubleValue(0), False)
-@_decorators.nivs_rt_sequence
+@NivsParam('param', DoubleValue(0), False)
+@nivs_rt_sequence
 def _return_param_plus_1(param):
     a = DoubleValue(0)
     a.value = param.value + 1
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def stop_task_simple():
     a = I32Value(1)
     with multitask() as mt:
-        @_decorators.task(mt)
+        @task(mt)
         def f1():
             nivs_yield()
             pass
 
-        @_decorators.task(mt)
+        @task(mt)
         def f2():
             stop_task(f1)
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def stop_task_invalid_task_name():
     a = I32Value(1)
     with multitask() as mt:
-        @_decorators.task(mt)
+        @task(mt)
         def f1():
             pass
 
-        @_decorators.task(mt)
+        @task(mt)
         def f2():
             stop_task(_invalid)
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def stop_task_invalid_task_name1():
     a = I32Value(1)
     with multitask() as mt:
-        @_decorators.task(mt)
+        @task(mt)
         def f1():
             pass
 
-        @_decorators.task(mt)
+        @task(mt)
         def f2():
             stop_task("whatever")
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def stop_task_in_try():
     try:
         a = I32Value(1)
         with multitask() as mt:
-            @_decorators.task(mt)
+            @task(mt)
             def f1():
                 pass
 
-            @_decorators.task(mt)
+            @task(mt)
             def f2():
                 pass
         stop_task(f1)
@@ -80,64 +82,64 @@ def stop_task_in_try():
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def stop_task_complex():
     a = I32Value(1)
     with multitask() as mt:
-        @_decorators.task(mt)
+        @task(mt)
         def f1():
             nivs_yield()
             a.value = 10
 
-        @_decorators.task(mt)
+        @task(mt)
         def f2():
             a.value = 2
             stop_task(f1)
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def stop_task_call_subroutine():
     a = DoubleValue(0)
     with multitask() as mt:
-        @_decorators.task(mt)
+        @task(mt)
         def f1():
             nivs_yield()
             a.value = 10
 
-        @_decorators.task(mt)
+        @task(mt)
         def f2():
             a.value = _return_param_plus_1(a)
             stop_task(f1)
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def stop_task_call_subroutine1():
     a = DoubleValue(0)
     with multitask() as mt:
-        @_decorators.task(mt)
+        @task(mt)
         def f1():
             nivs_yield()
             a.value = _return_param_plus_1(a)
 
-        @_decorators.task(mt)
+        @task(mt)
         def f2():
             stop_task(f1)
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def stop_task_call_subroutine2():
     a = DoubleValue(0)
     with multitask() as mt:
-        @_decorators.task(mt)
+        @task(mt)
         def f1():
             a.value = _return_param_plus_1(a)
             nivs_yield()
             a.value = _return_param_plus_1(a)
 
-        @_decorators.task(mt)
+        @task(mt)
         def f2():
             stop_task(f1)
     return a.value

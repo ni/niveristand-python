@@ -2,8 +2,7 @@ from enum import Enum
 import time
 from niveristand import _errormessages
 from niveristand import _internal
-from niveristand._exceptions import SequenceError, VeristandError
-from niveristand.clientapi._realtimesequencedefinitionapi.erroraction import ErrorAction
+from niveristand.errors import _SequenceError, VeristandError
 from NationalInstruments.VeriStand.Data import DataType  # noqa: E501, I100 We need these C# imports to be out of order.
 
 _internal.dummy()
@@ -25,6 +24,7 @@ class StimulusProfileState(object):
         self.last_error = None
 
     def sequence_complete_event_handler(self, source, args):
+        from niveristand.clientapi import ErrorAction
         data_value = args.ReturnValue
         if data_value.Type == DataType.Void:
             self.ret_val = None
@@ -37,11 +37,11 @@ class StimulusProfileState(object):
         error = args.Error
         if aborted:
             self.completion_state = StimulusProfileState.CompletionState.Aborted
-            self.last_error = SequenceError(error.Code, error.Message, ErrorAction.AbortSequence)
+            self.last_error = _SequenceError(error.Code, error.Message, ErrorAction.AbortSequence)
         else:
             if error.Code != 0:
                 self.completion_state = StimulusProfileState.CompletionState.Failed
-                self.last_error = SequenceError(error.Code, error.Message, ErrorAction.ContinueSequenceExecution)
+                self.last_error = _SequenceError(error.Code, error.Message, ErrorAction.ContinueSequenceExecution)
             else:
                 self.completion_state = StimulusProfileState.CompletionState.Success
         self.rt_sequence_completed = True

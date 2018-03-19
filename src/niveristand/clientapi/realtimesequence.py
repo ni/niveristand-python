@@ -3,11 +3,12 @@ import inspect
 import os
 import tempfile
 
-from niveristand import _errormessages, TranslateError, VeristandError
+from niveristand import _errormessages
 from niveristand._translation import utils
 from niveristand._translation.py2rtseq.utils import Resources
 from niveristand.clientapi import realtimesequencedefinition as rtseqapi
 from niveristand.clientapi import rtsequencedefinitionutils as rtsequtils
+from niveristand.errors import TranslateError, VeristandError
 from NationalInstruments.VeriStand.Data import SystemDefinitionChannelResource  # noqa: E501, I100 We need these C# imports to be out of order.
 from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import ChannelReferenceDeclaration, ChannelSizeType
 from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import EvaluationMethod

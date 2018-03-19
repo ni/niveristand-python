@@ -1,6 +1,6 @@
 import ast
 import sys
-from niveristand import _exceptions
+from niveristand import errors
 from niveristand._translation.py2rtseq import nameconstant_transformer
 import pytest
 
@@ -22,5 +22,5 @@ def test_false_node_returns_false_string():
 def test_none_node_throws():
     if sys.version_info >= (3, 5):
         node = ast.NameConstant(value=None)
-        with pytest.raises(_exceptions.TranslateError):
+        with pytest.raises(errors.TranslateError):
             nameconstant_transformer.nameconstant_transformer(node, None)

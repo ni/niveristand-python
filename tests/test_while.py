@@ -1,25 +1,27 @@
 import sys
 
-from niveristand import _decorators, _exceptions, RealTimeSequence
+from niveristand import nivs_rt_sequence
 from niveristand import realtimesequencetools
-from niveristand.clientapi._datatypes import BooleanValue, DoubleValue, I32Value
+from niveristand.clientapi import BooleanValue, DoubleValue, I32Value
+from niveristand.clientapi import RealTimeSequence
+from niveristand.errors import TranslateError, VeristandError
 import pytest
 from testutilities import rtseqrunner, validation
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def while_pass():
     while True:
         pass
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def while_break():
     while True:
         break
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def while_else_pass_fails():
     while True:
         pass
@@ -27,26 +29,26 @@ def while_else_pass_fails():
         pass
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def while_invalid_boolean():
     while 1:
         pass
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def while_invalid_boolean_const():
     while I32Value(0):
         pass
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def while_invalid_boolean_var():
     a = I32Value(1)
     while a.value:
         pass
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def while_nested():
     while True:
         while True:
@@ -54,7 +56,7 @@ def while_nested():
                 pass
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def while_one_statement():
     ret_var = I32Value(0)
     while ret_var.value == 0:
@@ -62,7 +64,7 @@ def while_one_statement():
     return ret_var.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def while_multiple_statements():
     cond = BooleanValue(False)
     ret_var = I32Value(0)
@@ -74,7 +76,7 @@ def while_multiple_statements():
     return ret_var.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def while_condition_variable():
     var = BooleanValue(True)
     while var.value:
@@ -82,7 +84,7 @@ def while_condition_variable():
     return var.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def while_condition_equal_operator():
     var = I32Value(1)
     while var.value == 1:
@@ -90,7 +92,7 @@ def while_condition_equal_operator():
     return var.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def while_condition_identity_operator():
     var = BooleanValue(True)
     ret = I32Value(0)
@@ -100,7 +102,7 @@ def while_condition_identity_operator():
     return ret.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def while_condition_identity_not_operator():
     var = BooleanValue(True)
     ret = I32Value(0)
@@ -110,7 +112,7 @@ def while_condition_identity_not_operator():
     return ret.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def _returns_true_if_less_than_5(x):
     a = BooleanValue(True)
     if x >= 5:
@@ -118,7 +120,7 @@ def _returns_true_if_less_than_5(x):
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def while_condition_function_call():
     ret = DoubleValue(0)
     while _returns_true_if_less_than_5(ret.value):
@@ -126,7 +128,7 @@ def while_condition_function_call():
     return ret.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def while_condition_complex_expression():
     a = DoubleValue(0)
     # the part before the or is true while a.value >= 6
@@ -137,7 +139,7 @@ def while_condition_complex_expression():
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def while_try_catch_fail():
     while True:
         try:
@@ -148,7 +150,7 @@ def while_try_catch_fail():
             pass
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def while_try_finally_fail():
     while True:
         try:
@@ -157,7 +159,7 @@ def while_try_finally_fail():
             pass
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def while_funcdef_fail():
     while True:
         def f1():
@@ -165,14 +167,14 @@ def while_funcdef_fail():
         f1()
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def while_return_fail():
     a = BooleanValue(True)
     while True:
         return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def while_false():
     a = I32Value(1)
     while False:
@@ -200,15 +202,15 @@ transform_tests = run_tests + [
 
 
 fail_transform_tests = [
-    (while_invalid_boolean, (), _exceptions.VeristandError),
-    (while_invalid_boolean_const, (), _exceptions.VeristandError),
-    (while_invalid_boolean_var, (), _exceptions.VeristandError),
-    (while_else_pass_fails, (), _exceptions.TranslateError),
-    (while_break, (), _exceptions.TranslateError),
-    (while_try_catch_fail, (), _exceptions.TranslateError),
-    (while_try_finally_fail, (), _exceptions.TranslateError),
-    (while_return_fail, (), _exceptions.TranslateError),
-    (while_funcdef_fail, (), _exceptions.TranslateError),
+    (while_invalid_boolean, (), VeristandError),
+    (while_invalid_boolean_const, (), VeristandError),
+    (while_invalid_boolean_var, (), VeristandError),
+    (while_else_pass_fails, (), TranslateError),
+    (while_break, (), TranslateError),
+    (while_try_catch_fail, (), TranslateError),
+    (while_try_finally_fail, (), TranslateError),
+    (while_return_fail, (), TranslateError),
+    (while_funcdef_fail, (), TranslateError),
 ]
 
 

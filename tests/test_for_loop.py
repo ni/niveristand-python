@@ -1,23 +1,25 @@
 import sys
-from niveristand import _decorators, RealTimeSequence, TranslateError, VeristandError
+from niveristand import nivs_rt_sequence
 from niveristand import realtimesequencetools
 from niveristand.clientapi import ChannelReference, DoubleValue, DoubleValueArray, I32Value
+from niveristand.clientapi import RealTimeSequence
+from niveristand.errors import TranslateError, VeristandError
 from niveristand.library.primitives import localhost_wait
 import pytest
 from testutilities import rtseqrunner, validation
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def return_constant():
     return 10
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def _increment_param_by_ref(param):
     param.value = param.value + 1
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def for_loop_variable_array():
     a = DoubleValue(0)
     b = DoubleValueArray([1, 2, 3, 4, 5])
@@ -26,7 +28,7 @@ def for_loop_variable_array():
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def for_loop_variable_array1():
     a = DoubleValue(0)
     b = DoubleValueArray([1, 2, 3, 4, 5])
@@ -35,7 +37,7 @@ def for_loop_variable_array1():
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def for_loop_modify_collection():
     a = DoubleValueArray([1, 2, 3, 4, 5])
     for x in a.value:
@@ -43,7 +45,7 @@ def for_loop_modify_collection():
     return a[0].value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def for_loop_modify_elements():
     a = DoubleValueArray([1, 2, 3, 4, 5])
     for x in a.value:
@@ -51,7 +53,7 @@ def for_loop_modify_elements():
     return a[0].value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def for_loop_constant_array():
     a = DoubleValue(0)
     for x in [1, 2, 3, 4, 5]:
@@ -59,7 +61,7 @@ def for_loop_constant_array():
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def for_loop_range():
     a = DoubleValue(0)
     for x in range(10):
@@ -67,7 +69,7 @@ def for_loop_range():
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def for_loop_range_with_start():
     a = DoubleValue(0)
     for x in range(2, 10):
@@ -75,7 +77,7 @@ def for_loop_range_with_start():
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def for_loop_range_with_step():
     a = DoubleValue(0)
     for x in range(2, 10, 2):
@@ -83,7 +85,7 @@ def for_loop_range_with_step():
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def for_loop_range_with_variable():
     a = DoubleValue(0)
     b = I32Value(10)
@@ -92,7 +94,7 @@ def for_loop_range_with_variable():
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def for_loop_range_with_channelref():
     a = DoubleValue(0)
     b = ChannelReference('Aliases/DesiredRPM')
@@ -103,7 +105,7 @@ def for_loop_range_with_channelref():
     return a
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def for_loop_range_with_call():
     a = DoubleValue(0)
     for x in range(return_constant()):
@@ -111,7 +113,7 @@ def for_loop_range_with_call():
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def for_loop_iterate_on_array():
     a = DoubleValueArray([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
     for i in range(10):
@@ -119,7 +121,7 @@ def for_loop_iterate_on_array():
     return a[0].value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def for_loop_else():
     a = DoubleValue(0)
     b = DoubleValueArray([1, 2, 3, 4, 5])
@@ -130,7 +132,7 @@ def for_loop_else():
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def nested_for_loop():
     a = DoubleValueArray([1, 2, 3, 4, 5])
     b = DoubleValueArray([1, 2, 3, 4, 5])
@@ -140,7 +142,7 @@ def nested_for_loop():
     return a[3].value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def nested_for_loop_body():
     a = DoubleValueArray([1, 2, 3, 4, 5])
     b = DoubleValueArray([1, 2, 3, 4, 5])
@@ -153,7 +155,7 @@ def nested_for_loop_body():
     return a[3].value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def looping_over_invalid_var():
     a = DoubleValue(0)
     for x in a.value:
@@ -161,13 +163,13 @@ def looping_over_invalid_var():
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def for_return_in_body():
     for i in range(5):
         return i
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def for_try_in_body():
     for i in range(5):
         try:
@@ -176,7 +178,7 @@ def for_try_in_body():
             pass
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def for_funcdef_in_body():
     for i in range(5):
         def func():

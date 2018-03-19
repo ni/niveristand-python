@@ -1,6 +1,6 @@
 from functools import wraps
 import inspect
-from niveristand import _errormessages, _exceptions
+from niveristand import _errormessages, errors
 from niveristand.clientapi._datatypes import DataType
 from niveristand.clientapi._datatypes import rtprimitives
 
@@ -21,10 +21,10 @@ def nivs_rt_sequence(func):
             this_task.wait_for_turn()
         try:
             if is_top_level:
-                from niveristand import RealTimeSequence
+                from niveristand.clientapi import RealTimeSequence
                 RealTimeSequence(func)
             retval = func(*args, **kwargs)
-        except _exceptions.SequenceError:
+        except errors._SequenceError:
             # generate error already saved this error in the task, so we can just pass.
             pass
         finally:
@@ -33,7 +33,7 @@ def nivs_rt_sequence(func):
                 this_task.iteration_counter.finished = True
                 nivs_yield()
                 if this_task.error and this_task.error.should_raise:
-                    raise _exceptions.RunError.RunErrorFactory(this_task.error)
+                    raise errors.RunError.RunErrorFactory(this_task.error)
         return retval
 
     _set_rtseq_attrs(func, ret_func)
@@ -88,7 +88,7 @@ def _reconstruct_args(f, args, new_param):
                     value = args[idx]
                     new_args[idx] = datatype(value)
         else:
-            raise _exceptions.VeristandError(_errormessages.param_description_no_param)
+            raise errors.VeristandError(_errormessages.param_description_no_param)
 
     return tuple(new_args)
 
@@ -113,7 +113,7 @@ def task(mt):
             task_info.wait_for_turn()
             try:
                 return func()
-            except (_exceptions.StopTaskException, _exceptions.SequenceError):
+            except (errors._StopTaskException, errors._SequenceError):
                 pass
             finally:
                 # if the task was stopped or it finished execution mark it stopped, then yield.

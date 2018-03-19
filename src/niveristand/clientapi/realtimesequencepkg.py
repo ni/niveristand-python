@@ -1,8 +1,9 @@
 import collections
 import inspect
-from niveristand import _errormessages, RealTimeSequence
+from niveristand import _errormessages
 from niveristand._decorators import rt_seq_mode_id
-from niveristand._exceptions import TranslateError, VeristandError
+from niveristand.clientapi import RealTimeSequence
+from niveristand.errors import TranslateError, VeristandError
 
 
 class RealTimeSequencePkg(collections.MutableMapping):

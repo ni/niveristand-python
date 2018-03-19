@@ -4,7 +4,7 @@ from enum import Enum
 import inspect
 import logging
 from threading import current_thread, Event, RLock, Thread
-from niveristand import _errormessages, _exceptions
+from niveristand import _errormessages, errors
 
 
 def get_scheduler():
@@ -142,7 +142,7 @@ class _Task(object):
         result = self._state_signal.wait()
         if self.is_stopping():
             self.mark_stopped()
-            raise _exceptions.StopTaskException
+            raise errors._StopTaskException
         return result
 
     def signal_to_run(self):
@@ -270,7 +270,7 @@ class _Scheduler(object):
     def create_and_register_task_for_top_level(self):
         thread = current_thread()
         if thread in self._task_dict:
-            raise _exceptions.VeristandError(_errormessages.reregister_thread)
+            raise errors.VeristandError(_errormessages.reregister_thread)
         task = _Task(thread.getName())
         # queue the task
         self.register_task(task)
@@ -282,13 +282,13 @@ class _Scheduler(object):
         thread = current_thread()
 
         if thread not in self._task_dict:
-            raise _exceptions.VeristandError(_errormessages.unregistered_thread)
+            raise errors.VeristandError(_errormessages.unregistered_thread)
         return self._task_dict[thread]
 
     def try_get_task_for_curr_thread(self):
         try:
             task = self.get_task_for_curr_thread()
-        except _exceptions.VeristandError:
+        except errors.VeristandError:
             task = None
         return task
 

@@ -4,18 +4,18 @@
 Errors
 ======
 
-.. autoclass:: niveristand.VeristandError
+.. autoclass:: niveristand.errors.VeristandError
    :show-inheritance:
 
-.. autoclass:: niveristand.TranslateError
+.. autoclass:: niveristand.errors.TranslateError
    :show-inheritance:
 
-.. autoclass:: niveristand.RunError
+.. autoclass:: niveristand.errors.RunError
    :show-inheritance:
 
-.. autoclass:: niveristand.RunFailedError
+.. autoclass:: niveristand.errors.RunFailedError
    :show-inheritance:
 
-.. autoclass:: niveristand.RunAbortedError
+.. autoclass:: niveristand.errors.RunAbortedError
    :show-inheritance:
 

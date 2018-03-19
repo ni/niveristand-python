@@ -1,7 +1,7 @@
 from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import CompilationEventType
 from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApiUtilities import CompilerUtilities
 from niveristand import _internal
-from niveristand._exceptions import VeristandError
+from niveristand.errors import VeristandError
 
 _internal.dummy()
 

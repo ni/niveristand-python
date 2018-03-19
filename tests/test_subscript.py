@@ -1,52 +1,54 @@
 import sys
-from niveristand import _decorators, RealTimeSequence, TranslateError
+from niveristand import nivs_rt_sequence
 from niveristand import realtimesequencetools
 from niveristand.clientapi import DoubleValue, DoubleValueArray, I32Value, I32ValueArray
+from niveristand.clientapi import RealTimeSequence
+from niveristand.errors import TranslateError
 import pytest
 from testutilities import rtseqrunner, validation
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def return_constant():
     return 2
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def _return_param_plus_one(param):
     param.value = param.value + 1
     return param.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def _modify_param(param):
     param.value = param.value + 1
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def number_subscript():
     a = DoubleValueArray([0, 1, 2])
     return a[1].value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def rtseq_call_subscript():
     a = DoubleValueArray([0, 1, 2])
     return a[return_constant()].value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def subscript_in_subscript():
     a = I32ValueArray([1, 2, 3])
     return a[a[1].value].value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def operator_in_subscript():
     a = DoubleValueArray([0, 1, 2, 3, 4])
     return a[1 + 2].value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def operator_in_subscript1():
     a = DoubleValueArray([0, 1, 2, 3, 4])
     b = I32Value(1)
@@ -54,7 +56,7 @@ def operator_in_subscript1():
     return a[b.value + c.value].value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def assign_subscript():
     a = DoubleValueArray([0, 1, 2, 3, 4])
     b = DoubleValue(0)
@@ -62,35 +64,35 @@ def assign_subscript():
     return b.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def assign_subscript1():
     a = DoubleValueArray([0, 1, 2, 3, 4])
     a[0] = DoubleValue(3)
     return a[0].value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def assign_subscript2():
     a = DoubleValueArray([0, 1, 2, 3, 4])
     a[0] = a[4]
     return a[0].value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def assign_subscript3():
     a = DoubleValueArray([0, 1, 2, 3, 4])
     a[0].value = 5
     return a[0].value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def assign_subroutine_return():
     a = DoubleValueArray([0, 1, 2, 3, 4])
     a[0].value = _return_param_plus_one(a[0])
     return a[0].value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def modify_array():
     a = DoubleValueArray([0, 1, 2, 3, 4])
     _modify_param(a[0])

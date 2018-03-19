@@ -1,21 +1,22 @@
 import sys
-from niveristand import _decorators, RealTimeSequence
+from niveristand import nivs_rt_sequence
 from niveristand import realtimesequencetools
-from niveristand.clientapi._datatypes import BooleanValue, ChannelReference, DoubleValue, DoubleValueArray, I64Value
+from niveristand.clientapi import BooleanValue, ChannelReference, DoubleValue, DoubleValueArray, I64Value
+from niveristand.clientapi import RealTimeSequence
 from niveristand.library.primitives import abstime, arraysize, clearfault, clearlasterror, deltat, deltatus, fault, \
     fix, getlasterror, iteration, quotient, recip, rem, seqtime, seqtimeus, tickcountms, tickcountus
 import pytest
 from testutilities import rtseqrunner, validation
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def call_abstime():
     a = DoubleValue(0)
     a.value = abstime()
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def call_arraysize():
     a = DoubleValue(0)
     b = DoubleValueArray([1, 2, 3])
@@ -23,7 +24,7 @@ def call_arraysize():
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def call_clearfault():
     a = ChannelReference("Aliases/ActualRPM")
     b = DoubleValue(0)
@@ -35,26 +36,26 @@ def call_clearfault():
     return c.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def call_clearlasterror():
     clearlasterror()
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def call_deltat():
     a = DoubleValue(0)
     a.value = deltat()
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def call_deltatus():
     a = DoubleValue(0)
     a.value = deltatus()
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def call_fault():
     a = ChannelReference("Aliases/DesiredRPM")
     b = DoubleValue(0)
@@ -65,27 +66,27 @@ def call_fault():
     return b.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def call_fix():
     a = DoubleValue(4.9)
     a.value = fix(a.value)
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def call_getlasterror():
     getlasterror()
     return True
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def call_iteration():
     a = I64Value(0)
     a.value = iteration()
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def call_quotient():
     a = I64Value(1440)
     b = DoubleValue(12)
@@ -93,14 +94,14 @@ def call_quotient():
     return b.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def call_recip():
     a = DoubleValue(1024)
     a.value = recip(a)
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def call_rem():
     a = I64Value(1439)
     b = DoubleValue(12)
@@ -108,28 +109,28 @@ def call_rem():
     return b.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def call_seqtime():
     a = DoubleValue(0)
     a.value = seqtime()
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def call_seqtimeus():
     a = I64Value(0)
     a.value = seqtimeus()
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def call_tickcountms():
     a = I64Value(0)
     a.value = tickcountms()
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def call_tickcountus():
     a = I64Value(0)
     a.value = tickcountus()

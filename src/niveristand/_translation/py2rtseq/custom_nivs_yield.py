@@ -1,5 +1,5 @@
 import inspect
-from niveristand import _errormessages, _exceptions
+from niveristand import _errormessages, errors
 from niveristand.clientapi import realtimesequencedefinition
 
 
@@ -22,4 +22,4 @@ def _validate_node():
     # We can remove this nasty check if we drop 2.7
     func = exp_frame.function if 'function' in dir(exp_frame) else exp_frame[3]
     if func is not exp_transformer.exp_transformer.__name__:
-        raise _exceptions.TranslateError(_errormessages.invalid_nivs_yield)
+        raise errors.TranslateError(_errormessages.invalid_nivs_yield)

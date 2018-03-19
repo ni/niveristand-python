@@ -13,6 +13,7 @@ from niveristand.clientapi._datatypes import U64Value
 from niveristand.clientapi._datatypes import U64ValueArray
 from niveristand.clientapi._datatypes import VectorChannelReference
 from niveristand.clientapi._realtimesequencedefinitionapi.erroraction import ErrorAction
+from niveristand.clientapi.realtimesequence import RealTimeSequence
 
 
 __all__ = ["BooleanValue",
@@ -30,4 +31,5 @@ __all__ = ["BooleanValue",
            "U64ValueArray",
            "VectorChannelReference",
            "ErrorAction",
+           "RealTimeSequence",
            ]

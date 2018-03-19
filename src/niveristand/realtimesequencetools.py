@@ -1,4 +1,4 @@
-from niveristand._exceptions import RunError, VeristandNotImplementedError
+from niveristand.errors import RunError, VeristandNotImplementedError
 
 
 def run_py_as_rtseq(toplevelfunc, timeout_within_each_step=100000):
@@ -20,7 +20,7 @@ def run_py_as_rtseq(toplevelfunc, timeout_within_each_step=100000):
                 was called with a Continue action.
 
     """
-    from niveristand import RealTimeSequence
+    from niveristand.clientapi import RealTimeSequence
     seq = RealTimeSequence(toplevelfunc)
     result_state = seq.run(timeout_within_each_step=timeout_within_each_step)
     result_state.wait_for_result()
@@ -49,7 +49,7 @@ def save_py_as_rtseq(toplevelfunc, dest_folder):
         :class:`niveristand.TranslateError`: if the function could not be successfully translated.
 
     """
-    from niveristand import RealTimeSequence
+    from niveristand.clientapi import RealTimeSequence
     seq = RealTimeSequence(toplevelfunc)
     filename = seq.save(dest_folder)
     return filename

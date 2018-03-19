@@ -1,6 +1,6 @@
 import ast
 from niveristand import _errormessages
-from niveristand import _exceptions
+from niveristand import errors
 from niveristand._translation import custom_action_symbols, symbols, utils
 from niveristand.clientapi._datatypes import rtprimitives
 
@@ -10,7 +10,7 @@ def call_transformer(node, resources):
         if isinstance(node.args[0], ast.Str):
             identifier = resources.get_channel_ref_rtseq_name_from_channel_name(node.args[0].s)
         else:
-            raise _exceptions.TranslateError(_errormessages.invalid_type_for_channel_ref)
+            raise errors.TranslateError(_errormessages.invalid_type_for_channel_ref)
         return identifier
     if rtprimitives.is_supported_data_type(node.func.id):
         if rtprimitives.is_scalar_type(node.func.id):
@@ -18,7 +18,7 @@ def call_transformer(node, resources):
         elif isinstance(node.args[0], ast.List):
             return _transform_datatype_non_scalar(node, resources)
         else:
-            raise _exceptions.TranslateError(_errormessages.init_var_invalid_type)
+            raise errors.TranslateError(_errormessages.init_var_invalid_type)
     if node.func.id in custom_action_symbols._custom_action_symbols:
         # Custom action symbols are basically transformers for functions that don't have
         # their own ast node. Invoke them here

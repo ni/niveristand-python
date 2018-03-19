@@ -1,8 +1,10 @@
 from math import sqrt
 import sys
-from niveristand import _decorators, RealTimeSequence, TranslateError, VeristandError
+from niveristand import nivs_rt_sequence, NivsParam
 from niveristand import realtimesequencetools
 from niveristand.clientapi import BooleanValue, ChannelReference, DoubleValue, DoubleValueArray, I32Value
+from niveristand.clientapi import RealTimeSequence
+from niveristand.errors import TranslateError, VeristandError
 from niveristand.library.primitives import localhost_wait
 import pytest
 from testutilities import rtseqrunner, validation
@@ -11,13 +13,13 @@ a = 1
 b = 2
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def return_constant():
     a = DoubleValue(5)
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def finite_recursion(x):
     res = BooleanValue(False)
     if x < 0:
@@ -27,18 +29,18 @@ def finite_recursion(x):
     return res.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def circular_call_a():
     circular_call_b()
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def circular_call_b():
     circular_call_a()
 
 
-@_decorators.NivsParam('param', DoubleValue(0), _decorators.NivsParam.BY_REF)
-@_decorators.nivs_rt_sequence
+@NivsParam('param', DoubleValue(0), NivsParam.BY_REF)
+@nivs_rt_sequence
 def _return_parameter(param):
     return param.value
 
@@ -51,115 +53,115 @@ class FunkyDecorator:
         return f
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 @FunkyDecorator(1, 2)
 def return_parameter_invalid_decorator(param):
     return param
 
 
-@_decorators.NivsParam('no_param', DoubleValue(0), _decorators.NivsParam.BY_VALUE)
+@NivsParam('no_param', DoubleValue(0), NivsParam.BY_VALUE)
 def _return_param_wrong_param_name_pure_python(param):
     return param
 
 
-@_decorators.NivsParam("wrong", I32Value(5), _decorators.NivsParam.BY_VALUE)
-@_decorators.nivs_rt_sequence
+@NivsParam("wrong", I32Value(5), NivsParam.BY_VALUE)
+@nivs_rt_sequence
 def return_parameter_with_decorator_wrong_name(param):
     return param.value
 
 
-@_decorators.NivsParam("param", I32Value(5), _decorators.NivsParam.BY_VALUE)
-@_decorators.nivs_rt_sequence
+@NivsParam("param", I32Value(5), NivsParam.BY_VALUE)
+@nivs_rt_sequence
 def _return_parameter_with_decorator(param):
     return param.value
 
 
-@_decorators.NivsParam("param", I32Value(5), _decorators.NivsParam.BY_REF)
-@_decorators.nivs_rt_sequence
+@NivsParam("param", I32Value(5), NivsParam.BY_REF)
+@nivs_rt_sequence
 def _return_parameter_with_decorator_byref(param):
     return param.value
 
 
-@_decorators.nivs_rt_sequence
-@_decorators.NivsParam("param", I32Value(5), _decorators.NivsParam.BY_VALUE)
+@nivs_rt_sequence
+@NivsParam("param", I32Value(5), NivsParam.BY_VALUE)
 def _return_parameter_with_decorator_inverted(param):
     return param.value
 
 
-@_decorators.NivsParam("x", I32Value(5), _decorators.NivsParam.BY_VALUE)
-@_decorators.NivsParam("y", I32Value(5), _decorators.NivsParam.BY_VALUE)
-@_decorators.NivsParam("z", I32Value(5), _decorators.NivsParam.BY_REF)
-@_decorators.nivs_rt_sequence
+@NivsParam("x", I32Value(5), NivsParam.BY_VALUE)
+@NivsParam("y", I32Value(5), NivsParam.BY_VALUE)
+@NivsParam("z", I32Value(5), NivsParam.BY_REF)
+@nivs_rt_sequence
 def _return_byref_in_z_sqrt_of_square_x_plus_square_y(x, y, z):
     z.value = sqrt(x.value ** 2 + y.value ** 2)
 
 
-@_decorators.NivsParam('param', DoubleValueArray([0]), _decorators.NivsParam.BY_REF)
-@_decorators.nivs_rt_sequence
+@NivsParam('param', DoubleValueArray([0]), NivsParam.BY_REF)
+@nivs_rt_sequence
 def _return_arr_element(param):
     return param[0].value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def _return_arr_element_plus1_by_ref(param):
     param[0].value += 1
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def _return_parameter_plus1_byref(param):
     param.value += 1
     return param.value
 
 
-@_decorators.NivsParam('param', DoubleValue(0), _decorators.NivsParam.BY_VALUE)
-@_decorators.nivs_rt_sequence
+@NivsParam('param', DoubleValue(0), NivsParam.BY_VALUE)
+@nivs_rt_sequence
 def _return_parameter_plus1_byvalue(param):
     param.value += 1
     return param.value
 
 
-@_decorators.NivsParam('param', DoubleValue(0), False)
-@_decorators.nivs_rt_sequence
+@NivsParam('param', DoubleValue(0), False)
+@nivs_rt_sequence
 def _return_parameter_plus1_byref_bool(param):
     param.value += 1
     return param.value
 
 
-@_decorators.NivsParam('param', DoubleValue(0), True)
-@_decorators.nivs_rt_sequence
+@NivsParam('param', DoubleValue(0), True)
+@nivs_rt_sequence
 def _return_parameter_plus1_byvalue_bool(param):
     param.value += 1
     return param.value
 
 
-@_decorators.NivsParam('param', DoubleValue(0), _decorators.NivsParam.BY_REF)
-@_decorators.nivs_rt_sequence
+@NivsParam('param', DoubleValue(0), NivsParam.BY_REF)
+@nivs_rt_sequence
 def _increment_constant_passed_by_ref(param):
     param.value += 1
     return param.value
 
 
-@_decorators.NivsParam('mod', DoubleValue(0), _decorators.NivsParam.BY_VALUE)
-@_decorators.nivs_rt_sequence
+@NivsParam('mod', DoubleValue(0), NivsParam.BY_VALUE)
+@nivs_rt_sequence
 def _return_parameter_with_built_in_function_name(mod):
     return mod.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def call_increment_constant_passed_by_ref():
     a = DoubleValue(0)
     a.value = _increment_constant_passed_by_ref(5)
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def call_return_constant_as_assignment():
     a = DoubleValue(0)
     a.value = return_constant()
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def call_return_constant_as_expr():
     a = BooleanValue(0)
     return_constant()
@@ -167,21 +169,21 @@ def call_return_constant_as_expr():
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def call_return_parameter():
     a = DoubleValue(0)
     a.value = _return_parameter(DoubleValue(5))
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def call_parameter_nivsdatatype():
     a = DoubleValue(5)
     _return_parameter_plus1_byref(a)
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def call_parameter_nivsdatatype_byvalue():
     a = DoubleValue(5)
     b = DoubleValue(0)
@@ -189,7 +191,7 @@ def call_parameter_nivsdatatype_byvalue():
     return b.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def call_parameter_nivsdatatype_byvalue_untouched_orig():
     a = DoubleValue(5)
     b = DoubleValue(0)
@@ -197,14 +199,14 @@ def call_parameter_nivsdatatype_byvalue_untouched_orig():
     return b.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def call_parameter_nivsdatatype_byref_bool_ref():
     a = DoubleValue(5)
     _return_parameter_plus1_byref_bool(a)
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def call_parameter_nivsdatatype_byvalue_bool_ref():
     a = DoubleValue(5)
     b = DoubleValue(0)
@@ -212,14 +214,14 @@ def call_parameter_nivsdatatype_byvalue_bool_ref():
     return b.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def call_parameter_builtin_math():
     a = DoubleValue(-5)
     a.value = _return_parameter(abs(a.value))
     return a.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def call_parameter_array_elem():
     a = DoubleValueArray([1, 2, 3])
     b = DoubleValue(0)
@@ -227,13 +229,13 @@ def call_parameter_array_elem():
     return b.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def call_parameter_array_elem_byref():
     a = DoubleValueArray([1, 2, 3])
     return a[1].value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def call_parameter_with_decorator_diff_param_type_byvalue():
     a = DoubleValue(1.2)
     b = DoubleValue(0)
@@ -241,7 +243,7 @@ def call_parameter_with_decorator_diff_param_type_byvalue():
     return b.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def call_parameter_with_decorator_diff_param_type_byref():
     a = DoubleValue(1.2)
     b = DoubleValue(0)
@@ -249,7 +251,7 @@ def call_parameter_with_decorator_diff_param_type_byref():
     return b.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def call_parameter_with_decorator():
     a = I32Value(1)
     b = I32Value(0)
@@ -257,7 +259,7 @@ def call_parameter_with_decorator():
     return b.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def call_parameter_with_decorator_inverted():
     a = DoubleValue(1.2)
     b = DoubleValue(0)
@@ -265,7 +267,7 @@ def call_parameter_with_decorator_inverted():
     return b.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def call_parameter_with_many_decorators():
     a = DoubleValue(3.1)
     b = DoubleValue(4.999)
@@ -274,7 +276,7 @@ def call_parameter_with_many_decorators():
     return c.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def call_parameter_send_channel_ref_byvalue():
     a = ChannelReference('Aliases/DesiredRPM')
     ret = DoubleValue(0)
@@ -285,7 +287,7 @@ def call_parameter_send_channel_ref_byvalue():
     return ret.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def call_parameter_send_channel_ref_byref():
     a = ChannelReference('Aliases/DesiredRPM')
     ret = DoubleValue(0)
@@ -297,17 +299,17 @@ def call_parameter_send_channel_ref_byref():
     return ret.value
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def recursive_call():
     recursive_call()
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def invalid_call():
     fake_call()  # noqa: F821 this is supposed to be an undefined call.
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def call_return_parameter_with_built_in_function_name():
     a = DoubleValue(1)
     a.value = _return_parameter_with_built_in_function_name(a.value)
@@ -321,14 +323,14 @@ def test_param_wrong_name_python():
     assert str(e.value) is _errormessages.param_description_no_param
 
 
-@_decorators.nivs_rt_sequence
+@nivs_rt_sequence
 def constant_passed_by_ref_is_not_actually_by_ref():
     a = DoubleValue(5)
     _increment_constant_passed_by_ref(a.value)
     return a.value
 
 
-@_decorators.NivsParam('param', DoubleValue(0), _decorators.NivsParam.BY_REF)
+@NivsParam('param', DoubleValue(0), NivsParam.BY_REF)
 def _increment_constant_passed_by_ref_without_rt_decorator(param):
     param.value += 1
     return param.value

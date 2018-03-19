@@ -1,6 +1,6 @@
 from niveristand import _errormessages
-from niveristand._exceptions import TranslateError, VeristandNotImplementedError
 from niveristand._translation import utils
+from niveristand.errors import TranslateError, VeristandNotImplementedError
 
 
 def compareoperator_transformer(node, resources):

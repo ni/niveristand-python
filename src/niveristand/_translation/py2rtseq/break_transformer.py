@@ -1,5 +1,5 @@
-from niveristand import _errormessages, _exceptions
+from niveristand import _errormessages, errors
 
 
 def break_transformer(node, resources):
-    raise _exceptions.TranslateError(_errormessages.break_unsupported)
+    raise errors.TranslateError(_errormessages.break_unsupported)

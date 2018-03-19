@@ -1,7 +1,7 @@
 import ast
 from collections import namedtuple
 import sys
-from niveristand import _decorators, _errormessages, _exceptions
+from niveristand import _decorators, _errormessages, errors
 from niveristand._translation import utils
 from niveristand._translation.py2rtseq import validations
 from niveristand.clientapi._datatypes import BooleanValue, DoubleValue
@@ -44,14 +44,14 @@ def _init_args(node, resources):
 def _decorator_to_arg(node, resources):
     arg_name = def_value = by_value = None
     if not len(node.args) == 3:
-        raise _exceptions.TranslateError(_errormessages.invalid_param_decorator)
+        raise errors.TranslateError(_errormessages.invalid_param_decorator)
     # this is a decorator param definition. First parameter is the string for the name.
     if isinstance(node.args[0], ast.Str):
         arg_name = node.args[0].s
     # second is the default value
     try:
         def_value = utils.get_value_from_node(node.args[1], resources)
-    except _exceptions.TranslateError:
+    except errors.TranslateError:
         # def_value won't get assigned anything if an error occurs, which will trigger the exception later.
         pass
     # third is whether to pass by ref or by value
@@ -64,13 +64,13 @@ def _decorator_to_arg(node, resources):
         by_value = node.args[2].value
 
     if arg_name is None or def_value is None or by_value is None:
-        raise _exceptions.TranslateError(_errormessages.invalid_param_decorator)
+        raise errors.TranslateError(_errormessages.invalid_param_decorator)
     return _param(arg_name, def_value, by_value)
 
 
 def _validate_restrictions(node):
     if validations.check_if_any_in_block(ast.FunctionDef, node.body):
-        raise _exceptions.TranslateError(_errormessages.invalid_function_definition)
+        raise errors.TranslateError(_errormessages.invalid_function_definition)
     if sys.version_info > (3, 0):
         # py35 restrictions
         if node.returns is not None \
@@ -79,26 +79,26 @@ def _validate_restrictions(node):
                 or node.args.vararg is not None \
                 or node.args.kwarg is not None \
                 or len(node.args.defaults) is not 0:
-            raise _exceptions.TranslateError(_errormessages.invalid_function_definition)
+            raise errors.TranslateError(_errormessages.invalid_function_definition)
     else:
         # py27 restrictions
         if node.args.vararg is not None \
                 or node.args.kwarg is not None \
                 or len(node.args.defaults) is not 0:
-            raise _exceptions.TranslateError(_errormessages.invalid_function_definition)
+            raise errors.TranslateError(_errormessages.invalid_function_definition)
     if validations.check_if_any_in_block(validations.ast_try(), node.body):
         if not isinstance(node.body[0], validations.ast_try()):
-            raise _exceptions.TranslateError(_errormessages.try_must_be_first_stmt)
+            raise errors.TranslateError(_errormessages.try_must_be_first_stmt)
         if len(node.body) > 2:
-            raise _exceptions.TranslateError(_errormessages.invalid_stmt_after_try)
+            raise errors.TranslateError(_errormessages.invalid_stmt_after_try)
         elif len(node.body) == 2:
             if not isinstance(node.body[1], ast.Return):
-                raise _exceptions.TranslateError(_errormessages.invalid_stmt_after_try)
+                raise errors.TranslateError(_errormessages.invalid_stmt_after_try)
     return_statements = [statement for statement in node.body if isinstance(statement, ast.Return)]
     if len(return_statements) > 1:
-        raise _exceptions.TranslateError(_errormessages.multiple_return_statements)
+        raise errors.TranslateError(_errormessages.multiple_return_statements)
     if validations.check_if_any_in_block(ast.Return, node.body[:-1]):
-        raise _exceptions.TranslateError(_errormessages.return_unsupported_unless_last)
+        raise errors.TranslateError(_errormessages.return_unsupported_unless_last)
     for decorator in node.decorator_list:
         decorator_name_node = decorator.func if isinstance(decorator, ast.Call) else decorator
         decorator_name = utils.get_variable_name_from_node(decorator_name_node)
@@ -108,4 +108,4 @@ def _validate_restrictions(node):
 
 def _raise_if_invalid_decorator(attribute):
     if not (attribute in _decorators._VALID_DECORATORS):
-        raise _exceptions.TranslateError(_errormessages.invalid_decorator)
+        raise errors.TranslateError(_errormessages.invalid_decorator)

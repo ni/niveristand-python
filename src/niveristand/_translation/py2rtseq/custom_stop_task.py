@@ -1,7 +1,7 @@
 import ast
 from niveristand import _errormessages
-from niveristand._exceptions import TranslateError
 from niveristand.clientapi import realtimesequencedefinition
+from niveristand.errors import TranslateError
 
 
 def custom_stop_task(node, resources):
