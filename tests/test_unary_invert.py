@@ -55,7 +55,7 @@ def invert_int32_2():
 
 
 @nivs_rt_sequence
-def invert_int32_3():
+def invert_int32_out_of_spe_range():
     a = I32Value(-0x80000000)
     a.value = ~-0x80000000
     return a.value
@@ -90,7 +90,7 @@ def invert_int32_var_2():
 
 
 @nivs_rt_sequence
-def invert_int32_var_3():
+def invert_int32_var_out_of_spe_range():
     a = I32Value(-0x80000000)
     a.value = ~a
     return a.value
@@ -125,7 +125,7 @@ def invert_int64_2():
 
 
 @nivs_rt_sequence
-def invert_int64_3():
+def invert_int64_out_of_spe_range():
     a = I64Value(-0x8000000000000000)
     a.value = ~-0x8000000000000000
     return a.value
@@ -160,7 +160,7 @@ def invert_int64_var_2():
 
 
 @nivs_rt_sequence
-def invert_int64_var_3():
+def invert_int64_var_out_of_spe_range():
     a = I64Value(-0x8000000000000000)
     a.value = ~a
     return a.value
@@ -284,20 +284,18 @@ run_tests = [
     (invert_double_var, (), 0),  # For RTSeqs, negating a bool or double is always 0
 ]
 
-skip_tests = [
-    (invert_bool, (), "SPE returns 0 for any bitwise negate of a boolean."),
-    (invert_int32_3, (), "SPE doesn't support initializing with the full int32 range."),
-    (invert_int64_3, (), "SPE doesn't support initializing with the full int64 range."),
-    (invert_int32_var_3, (), "SPE doesn't support initializing with the full int64 range."),
-    (invert_int64_var_3, (), "SPE doesn't support initializing with the full int64 range."),
-    (invert_double, (), "Bitwise operations not supported for floating point types."),
-]
-
 fail_transform_tests = [
     (invert_invalid_variables, (), TranslateError),
     (invert_invalid_variables1, (), TranslateError),
     (invert_with_None, (), TranslateError),
     (invert_invalid_rtseq_call, (), VeristandError),
+    (invert_bool, (), TranslateError),
+    (invert_double, (), TranslateError),
+    # SPE doesn't support initializing with the full int32/int64 range.
+    (invert_int32_out_of_spe_range, (), VeristandError),
+    (invert_int64_out_of_spe_range, (), VeristandError),
+    (invert_int32_var_out_of_spe_range, (), VeristandError),
+    (invert_int64_var_out_of_spe_range, (), VeristandError),
 ]
 
 
@@ -334,11 +332,6 @@ def test_failures(func_name, params, expected_result):
         RealTimeSequence(func_name)
     with pytest.raises(expected_result):
         func_name(*params)
-
-
-@pytest.mark.parametrize("func_name, params, reason", skip_tests, ids=idfunc)
-def test_skipped(func_name, params, reason):
-    pytest.skip(func_name.__name__ + ": " + reason)
 
 
 def test_check_all_tested():

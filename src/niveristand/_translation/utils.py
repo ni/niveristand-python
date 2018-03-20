@@ -50,13 +50,20 @@ def get_value_from_node(node, resources):
             return datatype(datavalue)
     elif isinstance(node, ast.Num):
         if isinstance(node.n, int):
-            return _datatypes.I32Value(node.n)
+            try:
+                return_obj = _datatypes.I32Value(node.n)
+            except OverflowError:
+                return_obj = _datatypes.I64Value(node.n)
+            return return_obj
         elif isinstance(node.n, float):
             return _datatypes.DoubleValue(node.n)
     elif sys.version_info >= (3, 5) and isinstance(node, ast.NameConstant):
         if node.value is None:
             raise TranslateError(_errormessages.init_var_invalid_type)
         return _datatypes.BooleanValue(node.value)
+    elif isinstance(node, ast.Name):
+        if node.id in ['True', 'False']:
+            return _datatypes.BooleanValue(node.id)
     raise TranslateError(_errormessages.init_var_invalid_type)
 
 

@@ -13,6 +13,8 @@ def unaryoperator_transformer(node, resources):
             validations.raise_if_invalid_bool_operand(node.operand.operand, resources)
         else:
             validations.raise_if_invalid_bool_operand(node.operand, resources)
+    if operator == '~':
+        validations.raise_if_invalid_invert_operand(node.operand, resources)
     operand = utils.generic_ast_node_transform(node.operand, resources)
     return "(" + operator + "(" + operand + ")" + ")"
 

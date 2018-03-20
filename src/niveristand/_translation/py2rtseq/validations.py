@@ -35,3 +35,14 @@ def raise_if_invalid_bool_operand(node, resources):
         pass
     if invalid_operand:
         raise errors.TranslateError(_errormessages.invalid_operand_for_boolean_operator)
+
+
+def raise_if_invalid_invert_operand(node, resources):
+    invalid_operand = False
+    try:
+        if isinstance(utils.get_value_from_node(node, resources).value, (bool, float)):
+            invalid_operand = True
+    except errors.TranslateError:
+        pass
+    if invalid_operand:
+        raise errors.TranslateError(_errormessages.invalid_operand_for_unary_invert_operator)
