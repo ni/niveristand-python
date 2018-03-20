@@ -14,7 +14,7 @@ b = 2
 
 
 @nivs_rt_sequence
-def return_constant():
+def _return_constant():
     a = I32Value(5)
     return a.value
 
@@ -78,47 +78,47 @@ def bitwise_xor_multiple_types1():
 @nivs_rt_sequence
 def bitwise_xor_use_rtseq():
     a = DoubleValue(0)
-    a.value = 1 ^ return_constant()
+    a.value = 1 ^ _return_constant()
     return a.value
 
 
 @nivs_rt_sequence
 def bitwise_xor_use_rtseq1():
     a = DoubleValue(0)
-    a.value = return_constant() ^ 1
+    a.value = _return_constant() ^ 1
     return a.value
 
 
 @nivs_rt_sequence
 def bitwise_xor_use_rtseq2():
     a = DoubleValue(0)
-    a.value = I32Value(1) ^ return_constant()
+    a.value = I32Value(1) ^ _return_constant()
     return a.value
 
 
 @nivs_rt_sequence
 def bitwise_xor_use_rtseq3():
     a = DoubleValue(0)
-    a.value = return_constant() ^ I32Value(1)
+    a.value = _return_constant() ^ I32Value(1)
     return a.value
 
 
 @nivs_rt_sequence
-def bitwise_xor_with_parantheses():
+def bitwise_xor_with_parentheses():
     a = I32Value(0)
     a.value = 1 ^ (5 ^ 3)
     return a.value
 
 
 @nivs_rt_sequence
-def bitwise_xor_with_parantheses1():
+def bitwise_xor_with_parentheses1():
     a = DoubleValue(0)
     a.value = 1 ^ (DoubleValue(3) ^ I32Value(5))
     return a.value
 
 
 @nivs_rt_sequence
-def bitwise_xor_with_parantheses2():
+def bitwise_xor_with_parentheses2():
     a = DoubleValue(0)
     a.value = DoubleValue(1) ^ (I32Value(2) ^ 3.0) ^ DoubleValue(4)
     return a.value
@@ -162,7 +162,7 @@ def bitwise_xor_variable_variable1():
 def bitwise_xor_variable_rtseq():
     a = I32Value(1)
     b = DoubleValue(0)
-    b.value = a.value ^ return_constant()
+    b.value = a.value ^ _return_constant()
     return b.value
 
 
@@ -170,12 +170,12 @@ def bitwise_xor_variable_rtseq():
 def bitwise_xor_variable_rtseq1():
     a = I32Value(1)
     b = DoubleValue(0)
-    b.value = return_constant() ^ a.value
+    b.value = _return_constant() ^ a.value
     return b.value
 
 
 @nivs_rt_sequence
-def bitwise_xor_to_channelref():
+def bitwise_xor_to_channel_ref():
     a = DoubleValue(0)
     b = ChannelReference("Aliases/DesiredRPM")
     b.value = 5.0
@@ -217,12 +217,12 @@ def aug_bitwise_xor_num_nivsdatatype():
 @nivs_rt_sequence
 def aug_bitwise_xor_use_rtseq():
     a = I32Value(1)
-    a.value ^= return_constant()
+    a.value ^= _return_constant()
     return a.value
 
 
 @nivs_rt_sequence
-def aug_bitwise_xor_with_parantheses():
+def aug_bitwise_xor_with_parentheses():
     a = I32Value(1)
     a.value ^= 7 ^ (5 ^ 3)
     return a.value
@@ -237,7 +237,7 @@ def aug_bitwise_xor_variables():
 
 
 @nivs_rt_sequence
-def aug_bitwise_xor_to_channelref():
+def aug_bitwise_xor_to_channel_ref():
     a = DoubleValue(1)
     b = ChannelReference("Aliases/DesiredRPM")
     b.value = 5.0
@@ -277,28 +277,27 @@ def bitwise_xor_to_None():
 @nivs_rt_sequence
 def bitwise_xor_invalid_rtseq_call():
     a = DoubleValue(0)
-    a.value = return_constant ^ 1
+    a.value = _return_constant ^ 1
     return a.value
 
 # </editor-fold>
 
 
 run_tests = [
-    (return_constant, (), 5.0),
     (bitwise_xor_simple_numbers, (), 2),
     (bitwise_xor_nivsdatatype_nivsdatatype3, (), 2),
     (bitwise_xor_variables, (), 4),
     (bitwise_xor_variables1, (), 4),
     (bitwise_xor_multiple_types, (), 7),
     (bitwise_xor_multiple_types1, (), 0),
-    (bitwise_xor_with_parantheses, (), 7),
+    (bitwise_xor_with_parentheses, (), 7),
     (bitwise_xor_variable_variable, (), 2),
     (bitwise_xor_variable_variable1, (), 2),
     (bitwise_xor_binary_unary, (), -4),
     (aug_bitwise_xor_simple_numbers, (), 4),
     (aug_bitwise_xor_variables, (), 4),
     (aug_bitwise_xor_num_nivsdatatype, (), 2),
-    (aug_bitwise_xor_with_parantheses, (), 0),
+    (aug_bitwise_xor_with_parentheses, (), 0),
     (aug_bitwise_xor_unary, (), -4),
     (bitwise_xor_complex_expr, (), 3),
     (bitwise_xor_use_rtseq, (), 4),
@@ -312,10 +311,10 @@ run_tests = [
     (bitwise_xor_nivsdatatype_nivsdatatype, (), 2),
     (bitwise_xor_nivsdatatype_nivsdatatype1, (), 2),
     (bitwise_xor_nivsdatatype_nivsdatatype2, (), False),
-    (bitwise_xor_with_parantheses1, (), 7),
-    (bitwise_xor_with_parantheses2, (), 4),
-    (bitwise_xor_to_channelref, (), 4),
-    (aug_bitwise_xor_to_channelref, (), 4),
+    (bitwise_xor_with_parentheses1, (), 7),
+    (bitwise_xor_with_parentheses2, (), 4),
+    (bitwise_xor_to_channel_ref, (), 4),
+    (aug_bitwise_xor_to_channel_ref, (), 4),
 ]
 
 skip_tests = [
@@ -333,10 +332,10 @@ py_only_errs = [
     (bitwise_xor_nivsdatatype_nivsdatatype, (), 2),  # cannot do bitwise xor on float
     (bitwise_xor_nivsdatatype_nivsdatatype1, (), 2),  # cannot do bitwise xor on float
     (bitwise_xor_nivsdatatype_nivsdatatype2, (), False),  # cannot do bitwise xor on Boolean
-    (bitwise_xor_with_parantheses1, (), 7),  # cannot do bitwise xor on float
-    (bitwise_xor_with_parantheses2, (), 4),  # cannot do bitwise xor on float
-    (bitwise_xor_to_channelref, (), 4),  # cannot do bitwise xor on float
-    (aug_bitwise_xor_to_channelref, (), 4),  # cannot do bitwise xor on float
+    (bitwise_xor_with_parentheses1, (), 7),  # cannot do bitwise xor on float
+    (bitwise_xor_with_parentheses2, (), 4),  # cannot do bitwise xor on float
+    (bitwise_xor_to_channel_ref, (), 4),  # cannot do bitwise xor on float
+    (aug_bitwise_xor_to_channel_ref, (), 4),  # cannot do bitwise xor on float
 ]
 
 

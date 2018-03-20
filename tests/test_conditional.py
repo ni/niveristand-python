@@ -138,7 +138,7 @@ def if_condition_identity_not_operator():
 
 
 @nivs_rt_sequence
-def returns_true():
+def _returns_true():
     a = BooleanValue(True)
     return a.value
 
@@ -146,7 +146,7 @@ def returns_true():
 @nivs_rt_sequence
 def if_condition_function_call():
     ret = I32Value(0)
-    if returns_true():
+    if _returns_true():
         ret.value = 1
     return ret.value
 
@@ -154,7 +154,7 @@ def if_condition_function_call():
 @nivs_rt_sequence
 def if_condition_complex_expression():
     a = I32Value(0)
-    if (True and False) is not returns_true() or a.value < 10:
+    if (True and False) is not _returns_true() or a.value < 10:
         a.value = 1
     return a.value
 
@@ -164,7 +164,7 @@ def if_elif_condition_complex_expression():
     a = I32Value(0)
     if False:
         a.value = 1
-    elif (True and False) is not returns_true() or a.value < 10:
+    elif (True and False) is not _returns_true() or a.value < 10:
         a.value = 2
     return a.value
 
@@ -268,7 +268,6 @@ def if_elif_funcdef_fails():
 
 
 run_tests = [
-    (returns_true, (), True),
     (if_one_statement, (), 1),
     (if_multiple_statements, (), 3),
     (if_condition_variable, (), False),

@@ -75,7 +75,7 @@ def try_complex_body():
 @nivs_rt_sequence
 def try_in_try():
     try:
-        a = DoubleValue()
+        a = DoubleValue(0)
         try:
             a.value = 1
         finally:

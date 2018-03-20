@@ -54,3 +54,4 @@ none_not_supported = "TODOMSG: NoneType not supported"
 invalid_decorator = "TODOMSG: custom decorators are not allowed"
 cascaded_comparison_operators_not_allowed = "TODOMSG: cascading comparison operators is not allowed because of their" \
                                             "different behaviors between Python and SPE"
+invalid_operand_for_boolean_operator = "TODOMSG: the type of the operand is invalid for boolean operators"

@@ -53,6 +53,10 @@ def get_value_from_node(node, resources):
             return _datatypes.I32Value(node.n)
         elif isinstance(node.n, float):
             return _datatypes.DoubleValue(node.n)
+    elif sys.version_info >= (3, 5) and isinstance(node, ast.NameConstant):
+        if node.value is None:
+            raise TranslateError(_errormessages.init_var_invalid_type)
+        return _datatypes.BooleanValue(node.value)
     raise TranslateError(_errormessages.init_var_invalid_type)
 
 

@@ -125,7 +125,7 @@ def less_use_rtseq5():
 
 
 @nivs_rt_sequence
-def less_with_parantheses():
+def less_with_parentheses():
     a = BooleanValue(True)
     a.value = 5 < (3 < 2)
     return a.value
@@ -182,7 +182,7 @@ def less_variable_rtseq1():
 
 
 @nivs_rt_sequence
-def less_to_channelref():
+def less_to_channel_ref():
     a = BooleanValue(False)
     b = ChannelReference("Aliases/DesiredRPM")
     b.value = 5.0
@@ -247,7 +247,7 @@ run_tests = [
     (less_nivsdatatype_nivsdatatype1, (), False),
     (less_nivsdatatype_nivsdatatype2, (), False),
     (less_nivsdatatype_nivsdatatype3, (), False),
-    (less_with_parantheses, (), False),
+    (less_with_parentheses, (), False),
     (less_variables, (), False),
     (less_variables1, (), False),
     (less_variable_variable, (), False),
@@ -262,14 +262,11 @@ run_tests = [
     (less_use_rtseq5, (), True),
     (less_variable_rtseq, (), False),
     (less_variable_rtseq1, (), False),
-    (less_to_channelref, (), True),
+    (less_to_channel_ref, (), True),
     (less_num_nivsdatatype, (), False),
 ]
 
 skip_tests = [
-    (less_multiple_types, (), "Cascading comparators untested in VM"),
-    (less_multiple_types1, (), "Cascading comparators untested in VM"),
-    (less_with_multiple_comparators, (), "Cascading comparators untested in VM"),
 ]
 
 fail_transform_tests = [

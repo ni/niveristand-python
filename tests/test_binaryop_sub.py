@@ -13,7 +13,7 @@ b = 2
 
 
 @nivs_rt_sequence
-def return_constant():
+def _return_constant():
     a = DoubleValue(5)
     return a.value
 
@@ -81,61 +81,61 @@ def sub_multiple_types1():
 @nivs_rt_sequence
 def sub_use_rtseq():
     a = DoubleValue(0)
-    a.value = 1 - return_constant()
+    a.value = 1 - _return_constant()
     return a.value
 
 
 @nivs_rt_sequence
 def sub_use_rtseq1():
     a = DoubleValue(0)
-    a.value = return_constant() - 1
+    a.value = _return_constant() - 1
     return a.value
 
 
 @nivs_rt_sequence
 def sub_use_rtseq2():
     a = DoubleValue(0)
-    a.value = DoubleValue(1) - return_constant()
+    a.value = DoubleValue(1) - _return_constant()
     return a.value
 
 
 @nivs_rt_sequence
 def sub_use_rtseq3():
     a = DoubleValue(0)
-    a.value = return_constant() - DoubleValue(1)
+    a.value = _return_constant() - DoubleValue(1)
     return a.value
 
 
 @nivs_rt_sequence
 def sub_use_rtseq4():
     a = DoubleValue(0)
-    a.value = I32Value(1) - return_constant()
+    a.value = I32Value(1) - _return_constant()
     return a.value
 
 
 @nivs_rt_sequence
 def sub_use_rtseq5():
     a = DoubleValue(0)
-    a.value = return_constant() - I32Value(1)
+    a.value = _return_constant() - I32Value(1)
     return a.value
 
 
 @nivs_rt_sequence
-def sub_with_parantheses():
+def sub_with_parentheses():
     a = DoubleValue(0)
     a.value = 1 - (2 - 3)
     return a.value
 
 
 @nivs_rt_sequence
-def sub_with_parantheses1():
+def sub_with_parentheses1():
     a = DoubleValue(0)
     a.value = 1 - (DoubleValue(2) - I32Value(5))
     return a.value
 
 
 @nivs_rt_sequence
-def sub_with_parantheses2():
+def sub_with_parentheses2():
     a = DoubleValue(0)
     a.value = DoubleValue(5) - (I32Value(2) - 3.0) - DoubleValue(4)
     return a.value
@@ -179,7 +179,7 @@ def sub_variable_variable1():
 def sub_variable_rtseq():
     a = DoubleValue(1)
     b = DoubleValue(0)
-    b.value = a.value - return_constant()
+    b.value = a.value - _return_constant()
     return b.value
 
 
@@ -187,12 +187,12 @@ def sub_variable_rtseq():
 def sub_variable_rtseq1():
     a = DoubleValue(1)
     b = DoubleValue(0)
-    b.value = return_constant() - a.value
+    b.value = _return_constant() - a.value
     return b.value
 
 
 @nivs_rt_sequence
-def sub_to_channelref():
+def sub_to_channel_ref():
     a = DoubleValue(0)
     b = ChannelReference("Aliases/DesiredRPM")
     b.value = 5.0
@@ -241,12 +241,12 @@ def aug_sub_num_nivsdatatype():
 @nivs_rt_sequence
 def aug_sub_use_rtseq():
     a = DoubleValue(1)
-    a.value -= return_constant()
+    a.value -= _return_constant()
     return a.value
 
 
 @nivs_rt_sequence
-def aug_sub_with_parantheses():
+def aug_sub_with_parentheses():
     a = DoubleValue(1)
     a.value -= (I32Value(2) + 3.0) + DoubleValue(4)
     return a.value
@@ -261,7 +261,7 @@ def aug_sub_variables():
 
 
 @nivs_rt_sequence
-def aug_sub_to_channelref():
+def aug_sub_to_channel_ref():
     a = DoubleValue(1)
     b = ChannelReference("Aliases/DesiredRPM")
     b.value = 5.0
@@ -301,14 +301,13 @@ def sub_from_None():
 @nivs_rt_sequence
 def sub_invalid_rtseq_call():
     a = DoubleValue(0)
-    a.value = return_constant - 1
+    a.value = _return_constant - 1
     return a.value
 
 # </editor-fold>
 
 
 run_tests = [
-    (return_constant, (), 5),
     (sub_simple_numbers, (), -1),
     (sub_num_nivsdatatype, (), -1),
     (sub_nivsdatatype_nivsdatatype, (), -1),
@@ -317,9 +316,9 @@ run_tests = [
     (sub_nivsdatatype_nivsdatatype3, (), -1),
     (sub_multiple_types, (), -4),
     (sub_multiple_types1, (), -8),
-    (sub_with_parantheses, (), 2),
-    (sub_with_parantheses1, (), 4),
-    (sub_with_parantheses2, (), 2),
+    (sub_with_parentheses, (), 2),
+    (sub_with_parentheses1, (), 4),
+    (sub_with_parentheses2, (), 2),
     (sub_variables, (), -4),
     (sub_variables1, (), -4),
     (sub_variable_variable, (), -1),
@@ -328,7 +327,7 @@ run_tests = [
     (sub_binary_unary_sequence, (), 3),
     (aug_sub_simple_numbers, (), -1),
     (aug_sub_num_nivsdatatype, (), -1),
-    (aug_sub_with_parantheses, (), -8),
+    (aug_sub_with_parentheses, (), -8),
     (aug_sub_variables, (), -4),
     (aug_sub_unary, (), 2),
     (sub_complex_expr, (), -1),
@@ -341,8 +340,8 @@ run_tests = [
     (sub_variable_rtseq, (), -4),
     (sub_variable_rtseq1, (), 4),
     (aug_sub_use_rtseq, (), -4),
-    (sub_to_channelref, (), -4.0),
-    (aug_sub_to_channelref, (), -4.0),
+    (sub_to_channel_ref, (), -4.0),
+    (aug_sub_to_channel_ref, (), -4.0),
 ]
 
 skip_tests = [

@@ -13,7 +13,7 @@ b = 2
 
 
 @nivs_rt_sequence
-def return_true():
+def _return_true():
     a = BooleanValue(True)
     return a.value
 
@@ -85,14 +85,14 @@ def logical_not_variables():
 @nivs_rt_sequence
 def logical_not_rtseq():
     a = BooleanValue(True)
-    a.value = not return_true()
+    a.value = not _return_true()
     return a.value
 
 
 @nivs_rt_sequence
-def logical_not_parantheses():
+def logical_not_parentheses():
     a = BooleanValue(True)
-    a.value = not (True and (DoubleValue(2) and I32Value(3)) and False)
+    a.value = not (True and (BooleanValue(True) and BooleanValue(True)) and False)
     return a.value
 
 
@@ -127,45 +127,36 @@ def logical_not_None():
 @nivs_rt_sequence
 def logical_not_invalid_rtseq_call():
     a = BooleanValue(False)
-    a.value = not return_true
+    a.value = not _return_true
     return a.value
 
 # </editor-fold>
 
 
 run_tests = [
-    (return_true, (), True),
-    (logical_not_simple_numbers, (), False),
-    (logical_not_simple_numbers1, (), True),
     (logical_not_bool, (), False),
     (logical_not_bool1, (), True),
     (logical_not_variables, (), True),
-    (logical_not_parantheses, (), True),
+    (logical_not_parentheses, (), True),
     (logical_not_sequence, (), True),
-    (logical_not_unary, (), False),
     (logical_not_sequence, (), True),
     (logical_not_rtseq, (), False),
 ]
 
 skip_tests = [
-    (logical_not_nivsdatatype_double, (), "Not of a constant DataType returns a DataType object, we have to"
-                                          "research this how to solve it. A solution is to always use variables in"
-                                          "logical operators, and use var.value."),
-    (logical_not_nivsdatatype_double1, (), "Not of a constant DataType returns a DataType object, we have to"
-                                           "research this how to solve it. A solution is to always use variables in"
-                                           "logical operators, and use var.value."),
-    (logical_not_nivsdatatype_int32, (), "Not of a constant DataType returns a DataType object, we have to"
-                                         "research this how to solve it. A solution is to always use variables in"
-                                         "logical operators, and use var.value."),
-    (logical_not_nivsdatatype_int64, (), "Not of a constant DataType returns a DataType object, we have to"
-                                         "research this how to solve it. A solution is to always use variables in"
-                                         "logical operators, and use var.value."),
 ]
 
 fail_transform_tests = [
     (logical_not_invalid_variables, (), TranslateError),
     (logical_not_None, (), TranslateError),
     (logical_not_invalid_rtseq_call, (), VeristandError),
+    (logical_not_simple_numbers, (), TranslateError),
+    (logical_not_simple_numbers1, (), TranslateError),
+    (logical_not_nivsdatatype_double, (), TranslateError),
+    (logical_not_nivsdatatype_double1, (), TranslateError),
+    (logical_not_nivsdatatype_int32, (), TranslateError),
+    (logical_not_nivsdatatype_int64, (), TranslateError),
+    (logical_not_unary, (), TranslateError),
 ]
 
 

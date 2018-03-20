@@ -14,7 +14,7 @@ b = 2
 
 
 @nivs_rt_sequence
-def return_constant():
+def _return_constant():
     a = I32Value(5)
     return a.value
 
@@ -78,47 +78,47 @@ def bitwise_and_multiple_types1():
 @nivs_rt_sequence
 def bitwise_and_use_rtseq():
     a = DoubleValue(0)
-    a.value = 1 & return_constant()
+    a.value = 1 & _return_constant()
     return a.value
 
 
 @nivs_rt_sequence
 def bitwise_and_use_rtseq1():
     a = DoubleValue(0)
-    a.value = return_constant() & 1
+    a.value = _return_constant() & 1
     return a.value
 
 
 @nivs_rt_sequence
 def bitwise_and_use_rtseq2():
     a = DoubleValue(0)
-    a.value = I32Value(1) & return_constant()
+    a.value = I32Value(1) & _return_constant()
     return a.value
 
 
 @nivs_rt_sequence
 def bitwise_and_use_rtseq3():
     a = DoubleValue(0)
-    a.value = return_constant() & I32Value(1)
+    a.value = _return_constant() & I32Value(1)
     return a.value
 
 
 @nivs_rt_sequence
-def bitwise_and_with_parantheses():
+def bitwise_and_with_parentheses():
     a = I32Value(0)
     a.value = 1 & (5 & 3)
     return a.value
 
 
 @nivs_rt_sequence
-def bitwise_and_with_parantheses1():
+def bitwise_and_with_parentheses1():
     a = DoubleValue(0)
     a.value = 1 & (DoubleValue(3) & I32Value(5))
     return a.value
 
 
 @nivs_rt_sequence
-def bitwise_and_with_parantheses2():
+def bitwise_and_with_parentheses2():
     a = DoubleValue(0)
     a.value = DoubleValue(1) & (I32Value(2) & 3.0) & DoubleValue(4)
     return a.value
@@ -162,7 +162,7 @@ def bitwise_and_variable_variable1():
 def bitwise_and_variable_rtseq():
     a = I32Value(1)
     b = DoubleValue(0)
-    b.value = a.value & return_constant()
+    b.value = a.value & _return_constant()
     return b.value
 
 
@@ -170,12 +170,12 @@ def bitwise_and_variable_rtseq():
 def bitwise_and_variable_rtseq1():
     a = I32Value(1)
     b = DoubleValue(0)
-    b.value = return_constant() & a.value
+    b.value = _return_constant() & a.value
     return b.value
 
 
 @nivs_rt_sequence
-def bitwise_and_to_channelref():
+def bitwise_and_to_channel_ref():
     a = DoubleValue(0)
     b = ChannelReference("Aliases/DesiredRPM")
     b.value = 5.0
@@ -217,12 +217,12 @@ def aug_bitwise_and_num_nivsdatatype():
 @nivs_rt_sequence
 def aug_bitwise_and_use_rtseq():
     a = I32Value(1)
-    a.value &= return_constant()
+    a.value &= _return_constant()
     return a.value
 
 
 @nivs_rt_sequence
-def aug_bitwise_and_with_parantheses():
+def aug_bitwise_and_with_parentheses():
     a = I32Value(7)
     a.value &= 1 & (5 & 3)
     return a.value
@@ -237,7 +237,7 @@ def aug_bitwise_and_variables():
 
 
 @nivs_rt_sequence
-def aug_bitwise_and_to_channelref():
+def aug_bitwise_and_to_channel_ref():
     a = DoubleValue(1)
     b = ChannelReference("Aliases/DesiredRPM")
     b.value = 5.0
@@ -277,28 +277,27 @@ def bitwise_and_to_None():
 @nivs_rt_sequence
 def bitwise_and_invalid_rtseq_call():
     a = DoubleValue(0)
-    a.value = return_constant & 1
+    a.value = _return_constant & 1
     return a.value
 
 # </editor-fold>
 
 
 run_tests = [
-    (return_constant, (), 5.0),
     (bitwise_and_simple_numbers, (), 1),
     (bitwise_and_nivsdatatype_nivsdatatype3, (), 1),
     (bitwise_and_variables, (), 1),
     (bitwise_and_variables1, (), 1),
     (bitwise_and_multiple_types, (), 1),
     (bitwise_and_multiple_types1, (), 1),
-    (bitwise_and_with_parantheses, (), 1),
+    (bitwise_and_with_parentheses, (), 1),
     (bitwise_and_variable_variable, (), 1),
     (bitwise_and_variable_variable1, (), 1),
     (bitwise_and_binary_unary, (), 3),
     (aug_bitwise_and_simple_numbers, (), 3),
     (aug_bitwise_and_variables, (), 3),
     (aug_bitwise_and_num_nivsdatatype, (), 1),
-    (aug_bitwise_and_with_parantheses, (), 1),
+    (aug_bitwise_and_with_parentheses, (), 1),
     (aug_bitwise_and_unary, (), 3),
     (bitwise_and_complex_expr, (), 0),
     (bitwise_and_use_rtseq, (), 1),
@@ -312,10 +311,10 @@ run_tests = [
     (bitwise_and_nivsdatatype_nivsdatatype, (), 1.0),
     (bitwise_and_nivsdatatype_nivsdatatype1, (), 1.0),
     (bitwise_and_nivsdatatype_nivsdatatype2, (), True),
-    (bitwise_and_with_parantheses1, (), 1.0),
-    (bitwise_and_with_parantheses2, (), 0.0),
-    (bitwise_and_to_channelref, (), 1.0),
-    (aug_bitwise_and_to_channelref, (), 1.0),
+    (bitwise_and_with_parentheses1, (), 1.0),
+    (bitwise_and_with_parentheses2, (), 0.0),
+    (bitwise_and_to_channel_ref, (), 1.0),
+    (aug_bitwise_and_to_channel_ref, (), 1.0),
 ]
 
 skip_tests = [
@@ -333,10 +332,10 @@ py_only_errs = [
     (bitwise_and_nivsdatatype_nivsdatatype, (), 1.0),  # cannot do bitwise and on float
     (bitwise_and_nivsdatatype_nivsdatatype1, (), 1.0),  # cannot do bitwise and on float
     (bitwise_and_nivsdatatype_nivsdatatype2, (), True),  # cannot do bitwise and on Boolean
-    (bitwise_and_with_parantheses1, (), 1.0),  # cannot do bitwise and on float
-    (bitwise_and_with_parantheses2, (), 0.0),  # cannot do bitwise and on float
-    (bitwise_and_to_channelref, (), 1.0),  # cannot do bitwise and on float
-    (aug_bitwise_and_to_channelref, (), 1.0),  # cannot do bitwise and on float
+    (bitwise_and_with_parentheses1, (), 1.0),  # cannot do bitwise and on float
+    (bitwise_and_with_parentheses2, (), 0.0),  # cannot do bitwise and on float
+    (bitwise_and_to_channel_ref, (), 1.0),  # cannot do bitwise and on float
+    (aug_bitwise_and_to_channel_ref, (), 1.0),  # cannot do bitwise and on float
 ]
 
 

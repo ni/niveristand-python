@@ -18,7 +18,7 @@ else:
 
 
 @nivs_rt_sequence
-def return_constant():
+def _return_constant():
     a = DoubleValue(-5)
     return a.value
 
@@ -123,7 +123,7 @@ def abs_variable_boolean():
 
 
 @nivs_rt_sequence
-def abs_channelref():
+def abs_channel_ref():
     a = DoubleValue(0)
     b = ChannelReference("Aliases/DesiredRPM")
     b.value = -5.0
@@ -135,7 +135,7 @@ def abs_channelref():
 @nivs_rt_sequence
 def abs_call_rtseq():
     a = DoubleValue(0)
-    a.value = abs(return_constant())
+    a.value = abs(_return_constant())
     return a.value
 
 
@@ -147,7 +147,7 @@ def abs_expr():
 
 
 @nivs_rt_sequence
-def abs_expr_paranthesis():
+def abs_expr_parentheses():
     a = DoubleValue(0)
     a.value = abs(2 * (2 - 3))
     return a.value
@@ -413,7 +413,6 @@ def tanh_double():
 
 
 run_tests = [
-    (return_constant, (), -5),
     (abs_simple_number, (), 5),
     (abs_variable_double, (), 5.0),
     (abs_variable_i32, (), numpy.int32(5)),
@@ -422,7 +421,7 @@ run_tests = [
     (abs_variable_u64, (), numpy.uint64(5)),
     (abs_call_rtseq, (), 5),
     (abs_expr, (), 1.0),
-    (abs_expr_paranthesis, (), 2.0),
+    (abs_expr_parentheses, (), 2.0),
     (abs_ifexpr, (), 1.0),
     (abs_builtin, (), 5.0),
     (acos_double, (), pi / 2),
@@ -456,7 +455,7 @@ run_tests = [
     (sqrt_double, (), 5),
     (tan_double, (), tan(pi / 2)),
     (tanh_double, (), tanh(pi)),
-    (abs_channelref, (), 5.0)
+    (abs_channel_ref, (), 5.0)
 ]
 
 

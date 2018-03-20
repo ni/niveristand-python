@@ -14,7 +14,7 @@ b = 2
 
 
 @nivs_rt_sequence
-def return_constant():
+def _return_constant():
     a = DoubleValue(5)
     return a.value
 
@@ -106,61 +106,61 @@ def notequal_multiple_types1():
 @nivs_rt_sequence
 def notequal_use_rtseq():
     a = BooleanValue(True)
-    a.value = 5 != return_constant()
+    a.value = 5 != _return_constant()
     return a.value
 
 
 @nivs_rt_sequence
 def notequal_use_rtseq1():
     a = BooleanValue(True)
-    a.value = return_constant() != 5
+    a.value = _return_constant() != 5
     return a.value
 
 
 @nivs_rt_sequence
 def notequal_use_rtseq2():
     a = BooleanValue(True)
-    a.value = DoubleValue(5) != return_constant()
+    a.value = DoubleValue(5) != _return_constant()
     return a.value
 
 
 @nivs_rt_sequence
 def notequal_use_rtseq3():
     a = BooleanValue(True)
-    a.value = return_constant() != DoubleValue(5)
+    a.value = _return_constant() != DoubleValue(5)
     return a.value
 
 
 @nivs_rt_sequence
 def notequal_use_rtseq4():
     a = BooleanValue(False)
-    a.value = I32Value(5) != return_constant()
+    a.value = I32Value(5) != _return_constant()
     return a.value
 
 
 @nivs_rt_sequence
 def notequal_use_rtseq5():
     a = BooleanValue(False)
-    a.value = return_constant() != I32Value(1)
+    a.value = _return_constant() != I32Value(1)
     return a.value
 
 
 @nivs_rt_sequence
-def notequal_with_parantheses():
+def notequal_with_parentheses():
     a = BooleanValue(False)
     a.value = 0 != (2 != 3)
     return a.value
 
 
 @nivs_rt_sequence
-def notequal_with_parantheses1():
+def notequal_with_parentheses1():
     a = BooleanValue(False)
     a.value = 0 != (DoubleValue(2) != I32Value(5))
     return a.value
 
 
 @nivs_rt_sequence
-def notequal_with_parantheses2():
+def notequal_with_parentheses2():
     a = BooleanValue(False)
     a.value = DoubleValue(0) != (I32Value(2) != 3.0) != DoubleValue(4)
     return a.value
@@ -213,7 +213,7 @@ def notequal_variable_variable2():
 def notequal_variable_rtseq():
     a = BooleanValue(False)
     b = DoubleValue(0)
-    a.value = b.value != return_constant()
+    a.value = b.value != _return_constant()
     return a.value
 
 
@@ -221,12 +221,12 @@ def notequal_variable_rtseq():
 def notequal_variable_rtseq1():
     a = BooleanValue(False)
     b = DoubleValue(0)
-    a.value = return_constant() != b.value
+    a.value = _return_constant() != b.value
     return a.value
 
 
 @nivs_rt_sequence
-def notequal_to_channelref():
+def notequal_to_channel_ref():
     a = BooleanValue(False)
     b = ChannelReference("Aliases/DesiredRPM")
     b.value = 5.0
@@ -278,14 +278,13 @@ def notequal_to_None():
 @nivs_rt_sequence
 def notequal_invalid_rtseq_call():
     a = BooleanValue(0)
-    a.value = return_constant != 1
+    a.value = _return_constant != 1
     return a.value
 
 # </editor-fold>
 
 
 run_tests = [
-    (return_constant, (), 5),
     (notequal_bool_builtins, (), False),
     (notequal_bool_builtins1, (), False),
     (notequal_bool_builtins2, (), False),
@@ -296,8 +295,8 @@ run_tests = [
     (notequal_nivsdatatype_nivsdatatype1, (), False),
     (notequal_nivsdatatype_nivsdatatype2, (), False),
     (notequal_nivsdatatype_nivsdatatype3, (), True),
-    (notequal_with_parantheses, (), True),
-    (notequal_with_parantheses1, (), True),
+    (notequal_with_parentheses, (), True),
+    (notequal_with_parentheses1, (), True),
     (notequal_variables, (), False),
     (notequal_variables1, (), False),
     (notequal_variable_variable, (), True),
@@ -313,7 +312,7 @@ run_tests = [
     (notequal_use_rtseq5, (), True),
     (notequal_variable_rtseq, (), True),
     (notequal_variable_rtseq1, (), True),
-    (notequal_to_channelref, (), True),
+    (notequal_to_channel_ref, (), True),
 ]
 
 skip_tests = [
@@ -326,7 +325,7 @@ fail_transform_tests = [
     (notequal_invalid_variables1, (), TranslateError),
     (notequal_to_None, (), TranslateError),
     (notequal_invalid_rtseq_call, (), VeristandError),
-    (notequal_with_parantheses2, (), TranslateError),
+    (notequal_with_parentheses2, (), TranslateError),
     (notequal_with_multiple_comparators, (), TranslateError),
 ]
 

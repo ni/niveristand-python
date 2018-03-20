@@ -14,7 +14,7 @@ b = 2
 
 
 @nivs_rt_sequence
-def returns_zero():
+def _returns_zero():
     a = I32Value(0)
     return a.value
 
@@ -211,7 +211,7 @@ def invert_parentheses():
 @nivs_rt_sequence
 def invert_rtseq():
     a = I32Value(0)
-    a.value = ~returns_zero()
+    a.value = ~_returns_zero()
     return a.value
 
 
@@ -251,14 +251,13 @@ def invert_with_None():
 @nivs_rt_sequence
 def invert_invalid_rtseq_call():
     a = I32Value(0)
-    a.value = ~returns_zero
+    a.value = ~_returns_zero
     return a
 
 # </editor-fold>
 
 
 run_tests = [
-    (returns_zero, (), 0),
     (invert_int32, (), -1),
     (invert_int32_1, (), 0),
     (invert_int32_2, (), numpy.int32(-0x80000000)),

@@ -13,7 +13,7 @@ b = 1
 
 
 @nivs_rt_sequence
-def return_constant():
+def _return_constant():
     a = DoubleValue(5)
     return a.value
 
@@ -78,96 +78,96 @@ def modulo_multiple_types1():
 @nivs_rt_sequence
 def modulo_use_rtseq():
     a = DoubleValue(0)
-    a.value = 6 % return_constant()
+    a.value = 6 % _return_constant()
     return a.value
 
 
 @nivs_rt_sequence
 def modulo_use_rtseq1():
     a = DoubleValue(0)
-    a.value = return_constant() % 2
+    a.value = _return_constant() % 2
     return a.value
 
 
 @nivs_rt_sequence
 def modulo_use_rtseq2():
     a = DoubleValue(0)
-    a.value = DoubleValue(7) % return_constant()
+    a.value = DoubleValue(7) % _return_constant()
     return a.value
 
 
 @nivs_rt_sequence
 def modulo_use_rtseq3():
     a = DoubleValue(0)
-    a.value = return_constant() % DoubleValue(2)
+    a.value = _return_constant() % DoubleValue(2)
     return a.value
 
 
 @nivs_rt_sequence
 def modulo_use_rtseq4():
     a = DoubleValue(0)
-    a.value = I32Value(7) % return_constant()
+    a.value = I32Value(7) % _return_constant()
     return a.value
 
 
 @nivs_rt_sequence
 def modulo_use_rtseq5():
     a = DoubleValue(0)
-    a.value = return_constant() % I32Value(2)
+    a.value = _return_constant() % I32Value(2)
     return a.value
 
 
 @nivs_rt_sequence
-def modulo_with_parantheses():
+def modulo_with_parentheses():
     a = DoubleValue(0)
     a.value = 5 % (5 % 3)
     return a.value
 
 
 @nivs_rt_sequence
-def modulo_with_parantheses1():
+def modulo_with_parentheses1():
     a = DoubleValue(1)
     a.value = 5 % (DoubleValue(5) % I32Value(3))
     return a.value
 
 
 @nivs_rt_sequence
-def modulo_with_parantheses2():
+def modulo_with_parentheses2():
     a = DoubleValue(0)
     a.value = I32Value(11) % (I64Value(11) % I64Value(7)) % DoubleValue(2)
     return a.value
 
 
 @nivs_rt_sequence
-def modulo_with_parantheses3():
+def modulo_with_parentheses3():
     a = DoubleValue(0)
     a.value = I64Value(11) % (I32Value(11) % I32Value(7)) % DoubleValue(2)
     return a.value
 
 
 @nivs_rt_sequence
-def modulo_with_parantheses4():
+def modulo_with_parentheses4():
     a = DoubleValue(0)
     a.value = I32Value(11) % (I64Value(11) % I32Value(7)) % DoubleValue(2)
     return a.value
 
 
 @nivs_rt_sequence
-def modulo_with_parantheses5():
+def modulo_with_parentheses5():
     a = DoubleValue(0)
     a.value = I64Value(11) % (I32Value(11) % I64Value(7)) % DoubleValue(2)
     return a.value
 
 
 @nivs_rt_sequence
-def modulo_with_parantheses6():
+def modulo_with_parentheses6():
     a = DoubleValue(0)
     a.value = I64Value(11) % (I32Value(11) % DoubleValue(7)) % DoubleValue(2)
     return a.value
 
 
 @nivs_rt_sequence
-def modulo_with_parantheses7():
+def modulo_with_parentheses7():
     a = DoubleValue(0)
     a.value = I32Value(11) % (I64Value(11) % DoubleValue(7)) % DoubleValue(2)
     return a.value
@@ -211,7 +211,7 @@ def modulo_variable_variable1():
 def modulo_variable_rtseq():
     a = DoubleValue(6)
     b = DoubleValue(0)
-    b.value = a.value % return_constant()
+    b.value = a.value % _return_constant()
     return b.value
 
 
@@ -219,12 +219,12 @@ def modulo_variable_rtseq():
 def modulo_variable_rtseq1():
     a = DoubleValue(2)
     b = DoubleValue(0)
-    b.value = return_constant() % a.value
+    b.value = _return_constant() % a.value
     return b.value
 
 
 @nivs_rt_sequence
-def modulo_with_channelref():
+def modulo_with_channel_ref():
     a = DoubleValue(0)
     b = ChannelReference("Aliases/DesiredRPM")
     b.value = 2.0
@@ -266,12 +266,12 @@ def aug_modulo_num_nivsdatatype():
 @nivs_rt_sequence
 def aug_modulo_use_rtseq():
     a = DoubleValue(6)
-    a.value %= return_constant()
+    a.value %= _return_constant()
     return a.value
 
 
 @nivs_rt_sequence
-def aug_modulo_with_parantheses():
+def aug_modulo_with_parentheses():
     a = DoubleValue(5)
     a.value %= (I32Value(2) % 3.0) % DoubleValue(4)
     return a.value
@@ -286,7 +286,7 @@ def aug_modulo_variables():
 
 
 @nivs_rt_sequence
-def aug_modulo_to_channelref():
+def aug_modulo_to_channel_ref():
     a = DoubleValue(3)
     b = ChannelReference("Aliases/DesiredRPM")
     b.value = 2.0
@@ -326,14 +326,13 @@ def modulo_with_None():
 @nivs_rt_sequence
 def modulo_invalid_rtseq_call():
     a = DoubleValue(0)
-    a.value = return_constant % 1
+    a.value = _return_constant % 1
     return a
 
 # </editor-fold>
 
 
 run_tests = [
-    (return_constant, (), 5),
     (modulo_simple_numbers, (), 1),
     (modulo_num_nivsdatatype, (), 1),
     (modulo_nivsdatatype_nivsdatatype, (), 1),
@@ -342,14 +341,14 @@ run_tests = [
     (modulo_nivsdatatype_nivsdatatype3, (), 1),
     (modulo_multiple_types, (), 1),
     (modulo_multiple_types1, (), 2),
-    (modulo_with_parantheses, (), 1),
-    (modulo_with_parantheses1, (), 1),
-    (modulo_with_parantheses2, (), 1),
-    (modulo_with_parantheses3, (), 1),
-    (modulo_with_parantheses4, (), 1),
-    (modulo_with_parantheses5, (), 1),
-    (modulo_with_parantheses6, (), 1),
-    (modulo_with_parantheses7, (), 1),
+    (modulo_with_parentheses, (), 1),
+    (modulo_with_parentheses1, (), 1),
+    (modulo_with_parentheses2, (), 1),
+    (modulo_with_parentheses3, (), 1),
+    (modulo_with_parentheses4, (), 1),
+    (modulo_with_parentheses5, (), 1),
+    (modulo_with_parentheses6, (), 1),
+    (modulo_with_parentheses7, (), 1),
     (modulo_variables, (), 2),
     (modulo_variables1, (), 2),
     (modulo_variable_variable, (), 1),
@@ -357,7 +356,7 @@ run_tests = [
     (aug_modulo_simple_numbers, (), 1),
     (aug_modulo_variables, (), 1),
     (aug_modulo_num_nivsdatatype, (), 1),
-    (aug_modulo_with_parantheses, (), 1),
+    (aug_modulo_with_parentheses, (), 1),
     (modulo_complex_expr, (), 1),
     (modulo_variable_rtseq, (), 1),
     (modulo_variable_rtseq1, (), 1),
@@ -368,8 +367,8 @@ run_tests = [
     (modulo_use_rtseq4, (), 2),
     (modulo_use_rtseq5, (), 1),
     (aug_modulo_use_rtseq, (), 1),
-    (modulo_with_channelref, (), 1),
-    (aug_modulo_to_channelref, (), 1),
+    (modulo_with_channel_ref, (), 1),
+    (aug_modulo_to_channel_ref, (), 1),
 ]
 
 skip_tests = [

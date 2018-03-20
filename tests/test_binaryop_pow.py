@@ -12,7 +12,7 @@ b = 1
 
 
 @nivs_rt_sequence
-def return_constant():
+def _return_constant():
     a = DoubleValue(5)
     return a.value
 
@@ -62,61 +62,61 @@ def exp_nivsdatatype_nivsdatatype3():
 @nivs_rt_sequence
 def exp_use_rtseq():
     a = DoubleValue(0)
-    a.value = 2 ** return_constant()
+    a.value = 2 ** _return_constant()
     return a.value
 
 
 @nivs_rt_sequence
 def exp_use_rtseq1():
     a = DoubleValue(0)
-    a.value = return_constant() ** 2
+    a.value = _return_constant() ** 2
     return a.value
 
 
 @nivs_rt_sequence
 def exp_use_rtseq2():
     a = DoubleValue(0)
-    a.value = DoubleValue(2) ** return_constant()
+    a.value = DoubleValue(2) ** _return_constant()
     return a.value
 
 
 @nivs_rt_sequence
 def exp_use_rtseq3():
     a = DoubleValue(0)
-    a.value = return_constant() ** DoubleValue(2)
+    a.value = _return_constant() ** DoubleValue(2)
     return a.value
 
 
 @nivs_rt_sequence
 def exp_use_rtseq4():
     a = DoubleValue(0)
-    a.value = I32Value(2) ** return_constant()
+    a.value = I32Value(2) ** _return_constant()
     return a.value
 
 
 @nivs_rt_sequence
 def exp_use_rtseq5():
     a = DoubleValue(0)
-    a.value = return_constant() ** I32Value(3)
+    a.value = _return_constant() ** I32Value(3)
     return a.value
 
 
 @nivs_rt_sequence
-def exp_with_parantheses():
+def exp_with_parentheses():
     a = DoubleValue(0)
     a.value = 2 ** (2 + 3)
     return a.value
 
 
 @nivs_rt_sequence
-def exp_with_parantheses1():
+def exp_with_parentheses1():
     a = DoubleValue(1)
     a.value = 2 ** (DoubleValue(2) ** I32Value(2))
     return a.value
 
 
 @nivs_rt_sequence
-def exp_with_parantheses2():
+def exp_with_parentheses2():
     a = DoubleValue(0)
     a.value = DoubleValue(1) * (I32Value(2) ** 3.0) ** DoubleValue(2)
     return a.value
@@ -160,7 +160,7 @@ def exp_variable_variable1():
 def exp_variable_rtseq():
     a = DoubleValue(2)
     b = DoubleValue(0)
-    b.value = a.value ** return_constant()
+    b.value = a.value ** _return_constant()
     return b.value
 
 
@@ -168,12 +168,12 @@ def exp_variable_rtseq():
 def exp_variable_rtseq1():
     a = DoubleValue(2)
     b = DoubleValue(0)
-    b.value = return_constant() ** a.value
+    b.value = _return_constant() ** a.value
     return b.value
 
 
 @nivs_rt_sequence
-def exp_with_channelref():
+def exp_with_channel_ref():
     a = DoubleValue(0)
     b = ChannelReference("Aliases/DesiredRPM")
     b.value = 5.0
@@ -215,12 +215,12 @@ def aug_exp_num_nivsdatatype():
 @nivs_rt_sequence
 def aug_exp_use_rtseq():
     a = DoubleValue(2)
-    a.value **= return_constant()
+    a.value **= _return_constant()
     return a.value
 
 
 @nivs_rt_sequence
-def aug_exp_with_parantheses():
+def aug_exp_with_parentheses():
     a = DoubleValue(2)
     a.value **= (I32Value(2) ** 3.0) ** DoubleValue(2)
     return a.value
@@ -235,7 +235,7 @@ def aug_exp_variables():
 
 
 @nivs_rt_sequence
-def aug_exp_to_channelref():
+def aug_exp_to_channel_ref():
     a = DoubleValue(2)
     b = ChannelReference("Aliases/DesiredRPM")
     b.value = 5.0
@@ -275,23 +275,22 @@ def exp_with_None():
 @nivs_rt_sequence
 def exp_invalid_rtseq_call():
     a = DoubleValue(0)
-    a.value = return_constant ** 1
+    a.value = _return_constant ** 1
     return a
 
 # </editor-fold>
 
 
 run_tests = [
-    (return_constant, (), 5),
     (exp_simple_numbers, (), 4),
     (exp_num_nivsdatatype, (), 4),
     (exp_nivsdatatype_nivsdatatype, (), 8),
     (exp_nivsdatatype_nivsdatatype1, (), 8),
     (exp_nivsdatatype_nivsdatatype2, (), 8),
     (exp_nivsdatatype_nivsdatatype3, (), 8),
-    (exp_with_parantheses, (), 32),
-    (exp_with_parantheses1, (), 16),
-    (exp_with_parantheses2, (), 64),
+    (exp_with_parentheses, (), 32),
+    (exp_with_parentheses1, (), 16),
+    (exp_with_parentheses2, (), 64),
     (exp_variables, (), 32),
     (exp_variables1, (), 32),
     (exp_variable_variable, (), 8),
@@ -300,7 +299,7 @@ run_tests = [
     (aug_exp_simple_numbers, (), 4),
     (aug_exp_variables, (), 32),
     (aug_exp_num_nivsdatatype, (), 9),
-    (aug_exp_with_parantheses, (), float(2**64)),
+    (aug_exp_with_parentheses, (), float(2 ** 64)),
     (aug_exp_unary, (), 0.5),
     (exp_complex_expr, (), 9),
     (exp_variable_rtseq, (), 32),
@@ -312,8 +311,8 @@ run_tests = [
     (exp_use_rtseq4, (), 32),
     (exp_use_rtseq5, (), 125),
     (aug_exp_use_rtseq, (), 32),
-    (exp_with_channelref, (), 32),
-    (aug_exp_to_channelref, (), 32),
+    (exp_with_channel_ref, (), 32),
+    (aug_exp_to_channel_ref, (), 32),
 ]
 
 skip_tests = [

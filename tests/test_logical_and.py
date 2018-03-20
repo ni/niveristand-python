@@ -13,7 +13,7 @@ b = 2
 
 
 @nivs_rt_sequence
-def return_true():
+def _return_true():
     a = BooleanValue(True)
     return a.value
 
@@ -27,28 +27,28 @@ def logical_and_simple_numbers():
 
 @nivs_rt_sequence
 def logical_and_simple_numbers1():
-    a = DoubleValue(0)
+    a = BooleanValue(0)
     a.value = 1 and 2
     return a.value
 
 
 @nivs_rt_sequence
 def logical_and_nivsdatatype_double():
-    a = DoubleValue(0)
+    a = BooleanValue(0)
     a = DoubleValue(3) and DoubleValue(1)
     return a.value
 
 
 @nivs_rt_sequence
 def logical_and_nivsdatatype_int32():
-    a = I32Value(0)
+    a = BooleanValue(0)
     a = I32Value(2) and I32Value(1)
     return a.value
 
 
 @nivs_rt_sequence
 def logical_and_nivsdatatype_int64():
-    a = I64Value(0)
+    a = BooleanValue(0)
     a = I64Value(2) and I64Value(1)
     return a.value
 
@@ -64,6 +64,13 @@ def logical_and_nivsdatatype_bool():
 def logical_and_multiple_types():
     a = BooleanValue(False)
     a.value = True and I32Value(2) and DoubleValue(3) and True
+    return a.value
+
+
+@nivs_rt_sequence
+def logical_and_multiple_types1():
+    a = BooleanValue(True)
+    a.value = True and BooleanValue(True) and False
     return a.value
 
 
@@ -88,21 +95,21 @@ def logical_and_variables1():
 @nivs_rt_sequence
 def logical_and_rtseq():
     a = BooleanValue(False)
-    a.value = return_true() and True
+    a.value = _return_true() and True
     return a.value
 
 
 @nivs_rt_sequence
 def logical_and_rtseq1():
     a = BooleanValue(False)
-    a.value = True and return_true()
+    a.value = True and _return_true()
     return a.value
 
 
 @nivs_rt_sequence
-def logical_and_parantheses():
+def logical_and_parentheses():
     a = BooleanValue(True)
-    a.value = True and (DoubleValue(2) and I32Value(3)) and False
+    a.value = True and (BooleanValue(True) and BooleanValue(True)) and False
     return a.value
 
 
@@ -135,40 +142,23 @@ def logical_and_None():
 @nivs_rt_sequence
 def logical_and_invalid_rtseq_call():
     a = BooleanValue(False)
-    a.value = True and return_true
+    a.value = True and _return_true
     return a.value
 
 # </editor-fold>
 
 
 run_tests = [
-    (return_true, (), True),
-    (logical_and_simple_numbers, (), 1),
     (logical_and_nivsdatatype_bool, (), False),
-    (logical_and_multiple_types, (), True),
     (logical_and_variables1, (), False),
-    (logical_and_parantheses, (), False),
+    (logical_and_parentheses, (), False),
     (logical_and_rtseq, (), True),
     (logical_and_rtseq1, (), True),
-    (logical_and_unary, (), True),
+    (logical_and_variables, (), False),
+    (logical_and_multiple_types1, (), False),
 ]
 
 skip_tests = [
-    (logical_and_nivsdatatype_double, (), "And between two constant DataTypes returns a DataType object, we have to"
-                                          "research this how to solve it. A solution is to always use variables in"
-                                          "logical operators, and use var.value."),
-    (logical_and_nivsdatatype_int32, (), "And between two constant DataTypes returns a DataType object, we have to"
-                                         "research this how to solve it. A solution is to always use variables in"
-                                         "logical operators, and use var.value."),
-    (logical_and_nivsdatatype_int64, (), "And between two constant DataTypes returns a DataType object, we have to"
-                                         "research this how to solve it. A solution is to always use variables in"
-                                         "logical operators, and use var.value."),
-    (logical_and_simple_numbers1, (), "For 1 && 2 SPE return 1 and Python returns 2. From logical perspective they are"
-                                      "equal, but we can't test it only by casting to Boolean. Users should be aware of"
-                                      "thi difference when &&-ing numeric types."),
-    (logical_and_variables, (), "And between two constant DataTypes returns a DataType object, we have to"
-                                "research this how to solve it. A solution is to always use variables in"
-                                "logical operators, and use var.value."),
 ]
 
 fail_transform_tests = [
@@ -176,6 +166,13 @@ fail_transform_tests = [
     (logical_and_invalid_variables1, (), TranslateError),
     (logical_and_None, (), TranslateError),
     (logical_and_invalid_rtseq_call, (), VeristandError),
+    (logical_and_simple_numbers, (), TranslateError),
+    (logical_and_simple_numbers1, (), TranslateError),
+    (logical_and_nivsdatatype_double, (), TranslateError),
+    (logical_and_nivsdatatype_int32, (), TranslateError),
+    (logical_and_nivsdatatype_int64, (), TranslateError),
+    (logical_and_unary, (), TranslateError),
+    (logical_and_multiple_types, (), TranslateError),
 ]
 
 

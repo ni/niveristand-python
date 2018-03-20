@@ -9,7 +9,7 @@ from testutilities import rtseqrunner, validation
 
 
 @nivs_rt_sequence
-def return_constant():
+def _return_constant():
     return 2
 
 
@@ -33,7 +33,7 @@ def number_subscript():
 @nivs_rt_sequence
 def rtseq_call_subscript():
     a = DoubleValueArray([0, 1, 2])
-    return a[return_constant()].value
+    return a[_return_constant()].value
 
 
 @nivs_rt_sequence
@@ -100,7 +100,6 @@ def modify_array():
 
 
 run_tests = [
-    (return_constant, (), 2),
     (number_subscript, (), 1),
     (rtseq_call_subscript, (), 2),
     (subscript_in_subscript, (), 3),

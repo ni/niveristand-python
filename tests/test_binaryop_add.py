@@ -13,7 +13,7 @@ b = 2
 
 
 @nivs_rt_sequence
-def return_constant():
+def _return_constant():
     a = DoubleValue(5)
     return a.value
 
@@ -77,61 +77,61 @@ def add_multiple_types1():
 @nivs_rt_sequence
 def add_use_rtseq():
     a = DoubleValue(0)
-    a.value = 1 + return_constant()
+    a.value = 1 + _return_constant()
     return a.value
 
 
 @nivs_rt_sequence
 def add_use_rtseq1():
     a = DoubleValue(0)
-    a.value = return_constant() + 1
+    a.value = _return_constant() + 1
     return a.value
 
 
 @nivs_rt_sequence
 def add_use_rtseq2():
     a = DoubleValue(0)
-    a.value = DoubleValue(1) + return_constant()
+    a.value = DoubleValue(1) + _return_constant()
     return a.value
 
 
 @nivs_rt_sequence
 def add_use_rtseq3():
     a = DoubleValue(0)
-    a.value = return_constant() + DoubleValue(1)
+    a.value = _return_constant() + DoubleValue(1)
     return a.value
 
 
 @nivs_rt_sequence
 def add_use_rtseq4():
     a = DoubleValue(0)
-    a.value = I32Value(1) + return_constant()
+    a.value = I32Value(1) + _return_constant()
     return a.value
 
 
 @nivs_rt_sequence
 def add_use_rtseq5():
     a = DoubleValue(0)
-    a.value = return_constant() + I32Value(1)
+    a.value = _return_constant() + I32Value(1)
     return a.value
 
 
 @nivs_rt_sequence
-def add_with_parantheses():
+def add_with_parentheses():
     a = DoubleValue(0)
     a.value = 1 + (2 + 3)
     return a.value
 
 
 @nivs_rt_sequence
-def add_with_parantheses1():
+def add_with_parentheses1():
     a = DoubleValue(0)
     a.value = 1 + (DoubleValue(2) + I32Value(5))
     return a.value
 
 
 @nivs_rt_sequence
-def add_with_parantheses2():
+def add_with_parentheses2():
     a = DoubleValue(0)
     a.value = DoubleValue(1) + (I32Value(2) + 3.0) + DoubleValue(4)
     return a.value
@@ -175,7 +175,7 @@ def add_variable_variable1():
 def add_variable_rtseq():
     a = DoubleValue(1)
     b = DoubleValue(0)
-    b.value = a.value + return_constant()
+    b.value = a.value + _return_constant()
     return b.value
 
 
@@ -183,12 +183,12 @@ def add_variable_rtseq():
 def add_variable_rtseq1():
     a = DoubleValue(1)
     b = DoubleValue(0)
-    b.value = return_constant() + a.value
+    b.value = _return_constant() + a.value
     return b.value
 
 
 @nivs_rt_sequence
-def add_to_channelref():
+def add_to_channel_ref():
     a = DoubleValue(0)
     b = ChannelReference("Aliases/DesiredRPM")
     b.value = 5.0
@@ -251,12 +251,12 @@ def aug_add_num_nivsdatatype():
 @nivs_rt_sequence
 def aug_add_use_rtseq():
     a = DoubleValue(1)
-    a.value += return_constant()
+    a.value += _return_constant()
     return a.value
 
 
 @nivs_rt_sequence
-def aug_add_with_parantheses():
+def aug_add_with_parentheses():
     a = DoubleValue(1)
     a.value += (I32Value(2) + 3.0) + DoubleValue(4)
     return a.value
@@ -271,7 +271,7 @@ def aug_add_variables():
 
 
 @nivs_rt_sequence
-def aug_add_to_channelref():
+def aug_add_to_channel_ref():
     a = DoubleValue(1)
     b = ChannelReference("Aliases/DesiredRPM")
     b.value = 5.0
@@ -310,14 +310,13 @@ def add_to_None():
 @nivs_rt_sequence
 def add_invalid_rtseq_call():
     a = DoubleValue(0)
-    a.value = return_constant + 1
+    a.value = _return_constant + 1
     return a.value
 
 # </editor-fold>
 
 
 run_tests = [
-    (return_constant, (), 5),
     (add_simple_numbers, (), 3),
     (add_num_nivsdatatype, (), 3),
     (add_nivsdatatype_nivsdatatype, (), 3),
@@ -326,9 +325,9 @@ run_tests = [
     (add_nivsdatatype_nivsdatatype3, (), 3),
     (add_multiple_types, (), 6),
     (add_multiple_types1, (), 10),
-    (add_with_parantheses, (), 6),
-    (add_with_parantheses1, (), 8),
-    (add_with_parantheses2, (), 10),
+    (add_with_parentheses, (), 6),
+    (add_with_parentheses1, (), 8),
+    (add_with_parentheses2, (), 10),
     (add_variables, (), 6),
     (add_variables1, (), 6),
     (add_variable_variable, (), 3),
@@ -337,7 +336,7 @@ run_tests = [
     (aug_add_simple_numbers, (), 3),
     (aug_add_variables, (), 6),
     (aug_add_num_nivsdatatype, (), 3),
-    (aug_add_with_parantheses, (), 10),
+    (aug_add_with_parentheses, (), 10),
     (aug_add_unary, (), 0),
     (add_complex_expr, (), 3),
     (add_use_rtseq, (), 6),
@@ -349,8 +348,8 @@ run_tests = [
     (add_variable_rtseq, (), 6),
     (add_variable_rtseq1, (), 6),
     (aug_add_use_rtseq, (), 6),
-    (add_to_channelref, (), 6),
-    (aug_add_to_channelref, (), 6),
+    (add_to_channel_ref, (), 6),
+    (aug_add_to_channel_ref, (), 6),
     (add_binary_unary_sequence, (), -1),
 ]
 

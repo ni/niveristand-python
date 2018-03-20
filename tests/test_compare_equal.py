@@ -15,7 +15,7 @@ b = 2
 
 
 @nivs_rt_sequence
-def return_constant():
+def _return_constant():
     a = DoubleValue(5)
     return a.value
 
@@ -107,61 +107,61 @@ def equal_multiple_types1():
 @nivs_rt_sequence
 def equal_use_rtseq():
     a = BooleanValue(0)
-    a.value = 5 == return_constant()
+    a.value = 5 == _return_constant()
     return a.value
 
 
 @nivs_rt_sequence
 def equal_use_rtseq1():
     a = BooleanValue(0)
-    a.value = return_constant() == 5
+    a.value = _return_constant() == 5
     return a.value
 
 
 @nivs_rt_sequence
 def equal_use_rtseq2():
     a = BooleanValue(0)
-    a.value = DoubleValue(5) == return_constant()
+    a.value = DoubleValue(5) == _return_constant()
     return a.value
 
 
 @nivs_rt_sequence
 def equal_use_rtseq3():
     a = BooleanValue(0)
-    a.value = return_constant() == DoubleValue(5)
+    a.value = _return_constant() == DoubleValue(5)
     return a.value
 
 
 @nivs_rt_sequence
 def equal_use_rtseq4():
     a = BooleanValue(0)
-    a.value = I32Value(5) == return_constant()
+    a.value = I32Value(5) == _return_constant()
     return a.value
 
 
 @nivs_rt_sequence
 def equal_use_rtseq5():
     a = BooleanValue(0)
-    a.value = return_constant() == I32Value(5)
+    a.value = _return_constant() == I32Value(5)
     return a.value
 
 
 @nivs_rt_sequence
-def equal_with_parantheses():
+def equal_with_parentheses():
     a = BooleanValue(True)
     a.value = 1 == (2 == 3)
     return a.value
 
 
 @nivs_rt_sequence
-def equal_with_parantheses1():
+def equal_with_parentheses1():
     a = BooleanValue(True)
     a.value = 1 == (DoubleValue(2) == I32Value(5))
     return a.value
 
 
 @nivs_rt_sequence
-def equal_with_parantheses2():
+def equal_with_parentheses2():
     a = BooleanValue(True)
     a.value = DoubleValue(1) == (I32Value(2) == 3.0) == DoubleValue(4)
     return a.value
@@ -214,7 +214,7 @@ def equal_variable_variable2():
 def equal_variable_rtseq():
     a = DoubleValue(5)
     b = BooleanValue(0)
-    b.value = a.value == return_constant()
+    b.value = a.value == _return_constant()
     return b.value
 
 
@@ -222,12 +222,12 @@ def equal_variable_rtseq():
 def equal_variable_rtseq1():
     a = DoubleValue(5)
     b = BooleanValue(0)
-    b.value = return_constant() == a.value
+    b.value = _return_constant() == a.value
     return b.value
 
 
 @nivs_rt_sequence
-def equal_to_channelref():
+def equal_to_channel_ref():
     a = BooleanValue(True)
     b = ChannelReference("Aliases/DesiredRPM")
     b.value = 5.0
@@ -279,14 +279,13 @@ def equal_to_None():
 @nivs_rt_sequence
 def equal_invalid_rtseq_call():
     a = BooleanValue(0)
-    a.value = return_constant == 1
+    a.value = _return_constant == 1
     return a.value
 
 # </editor-fold>
 
 
 run_tests = [
-    (return_constant, (), 5),
     (equal_bool_builtins, (), True),
     (equal_bool_builtins1, (), True),
     (equal_bool_builtins2, (), True),
@@ -297,8 +296,8 @@ run_tests = [
     (equal_nivsdatatype_nivsdatatype1, (), True),
     (equal_nivsdatatype_nivsdatatype2, (), True),
     (equal_nivsdatatype_nivsdatatype3, (), False),
-    (equal_with_parantheses, (), False),
-    (equal_with_parantheses1, (), False),
+    (equal_with_parentheses, (), False),
+    (equal_with_parentheses1, (), False),
     (equal_variables, (), True),
     (equal_variables1, (), True),
     (equal_variable_variable, (), False),
@@ -314,7 +313,7 @@ run_tests = [
     (equal_use_rtseq5, (), True),
     (equal_variable_rtseq, (), True),
     (equal_variable_rtseq1, (), True),
-    (equal_to_channelref, (), False),
+    (equal_to_channel_ref, (), False),
 ]
 
 skip_tests = [
@@ -327,7 +326,7 @@ fail_transform_tests = [
     (equal_invalid_rtseq_call, (), VeristandError),
     (equal_multiple_types, (), TranslateError),
     (equal_multiple_types1, (), TranslateError),
-    (equal_with_parantheses2, (), TranslateError),
+    (equal_with_parentheses2, (), TranslateError),
     (equal_with_multiple_comparators, (), TranslateError),
 ]
 

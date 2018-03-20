@@ -125,7 +125,7 @@ def greater_use_rtseq5():
 
 
 @nivs_rt_sequence
-def greater_with_parantheses():
+def greater_with_parentheses():
     a = BooleanValue(False)
     a.value = 5 > (3 > 2)
     return a.value
@@ -182,7 +182,7 @@ def greater_variable_rtseq1():
 
 
 @nivs_rt_sequence
-def greater_to_channelref():
+def greater_to_channel_ref():
     a = BooleanValue(True)
     b = ChannelReference("Aliases/DesiredRPM")
     b.value = 5.0
@@ -247,7 +247,7 @@ run_tests = [
     (greater_nivsdatatype_nivsdatatype1, (), True),
     (greater_nivsdatatype_nivsdatatype2, (), True),
     (greater_nivsdatatype_nivsdatatype3, (), True),
-    (greater_with_parantheses, (), True),
+    (greater_with_parentheses, (), True),
     (greater_variables, (), True),
     (greater_variables1, (), True),
     (greater_variable_variable, (), True),
@@ -262,14 +262,11 @@ run_tests = [
     (greater_variable_rtseq, (), True),
     (greater_variable_rtseq1, (), True),
     (greater_binary_unary, (), True),
-    (greater_to_channelref, (), False),
+    (greater_to_channel_ref, (), False),
     (greater_num_nivsdatatype, (), True),
 ]
 
 skip_tests = [
-    (greater_multiple_types, (), "Cascading comparators untested in VM"),
-    (greater_multiple_types1, (), "Cascading comparators untested in VM"),
-    (greater_with_multiple_comparators, (), "Cascading comparators untested in VM"),
 ]
 
 fail_transform_tests = [

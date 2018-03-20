@@ -13,7 +13,7 @@ b = 2
 
 
 @nivs_rt_sequence
-def return_constant():
+def _return_constant():
     a = I32Value(5)
     return a.value
 
@@ -77,61 +77,61 @@ def arithmetic_shift_right_multiple_types1():
 @nivs_rt_sequence
 def arithmetic_shift_right_use_rtseq():
     a = DoubleValue(1)
-    a.value = 64 >> return_constant()
+    a.value = 64 >> _return_constant()
     return a.value
 
 
 @nivs_rt_sequence
 def arithmetic_shift_right_use_rtseq1():
     a = DoubleValue(0)
-    a.value = return_constant() >> 1
+    a.value = _return_constant() >> 1
     return a.value
 
 
 @nivs_rt_sequence
 def arithmetic_shift_right_use_rtseq2():
     a = DoubleValue(0)
-    a.value = I32Value(64) >> return_constant()
+    a.value = I32Value(64) >> _return_constant()
     return a.value
 
 
 @nivs_rt_sequence
 def arithmetic_shift_right_use_rtseq3():
     a = DoubleValue(0)
-    a.value = return_constant() >> I32Value(1)
+    a.value = _return_constant() >> I32Value(1)
     return a.value
 
 
 @nivs_rt_sequence
 def arithmetic_shift_right_use_rtseq4():
     a = DoubleValue(0)
-    a.value = I32Value(64) >> return_constant()
+    a.value = I32Value(64) >> _return_constant()
     return a.value
 
 
 @nivs_rt_sequence
 def arithmetic_shift_right_use_rtseq5():
     a = DoubleValue(0)
-    a.value = return_constant() >> I32Value(1)
+    a.value = _return_constant() >> I32Value(1)
     return a.value
 
 
 @nivs_rt_sequence
-def arithmetic_shift_right_with_parantheses():
+def arithmetic_shift_right_with_parentheses():
     a = I32Value(0)
     a.value = 1 >> (2 >> 1)
     return a.value
 
 
 @nivs_rt_sequence
-def arithmetic_shift_right_with_parantheses1():
+def arithmetic_shift_right_with_parentheses1():
     a = DoubleValue(0)
     a.value = 1 >> (DoubleValue(2) >> I32Value(1))
     return a.value
 
 
 @nivs_rt_sequence
-def arithmetic_shift_right_with_parantheses2():
+def arithmetic_shift_right_with_parentheses2():
     a = DoubleValue(0)
     a.value = DoubleValue(1) >> (I32Value(2) >> 1.0) >> DoubleValue(4)
     return a.value
@@ -175,7 +175,7 @@ def arithmetic_shift_right_variable_variable1():
 def arithmetic_shift_right_variable_rtseq():
     a = I32Value(64)
     b = DoubleValue(0)
-    b.value = a.value >> return_constant()
+    b.value = a.value >> _return_constant()
     return b.value
 
 
@@ -183,12 +183,12 @@ def arithmetic_shift_right_variable_rtseq():
 def arithmetic_shift_right_variable_rtseq1():
     a = I32Value(1)
     b = DoubleValue(0)
-    b.value = return_constant() >> a.value
+    b.value = _return_constant() >> a.value
     return b.value
 
 
 @nivs_rt_sequence
-def arithmetic_shift_right_to_channelref():
+def arithmetic_shift_right_to_channel_ref():
     a = DoubleValue(0)
     b = ChannelReference("Aliases/DesiredRPM")
     b.value = 5.0
@@ -289,19 +289,19 @@ def arithmetic_shift_right_augassign_variable4():
 @nivs_rt_sequence
 def arithmetic_shift_right_augassign_rtseq():
     a = I32Value(32987)
-    a.value >>= return_constant()
+    a.value >>= _return_constant()
     return a.value
 
 
 @nivs_rt_sequence
-def arithemtic_shift_left_augassign_paranthesis():
+def arithmetic_shift_left_augassign_parentheses():
     a = I32Value(1024)
     a.value >>= (2 + I32Value(1)) + I64Value(1)
     return a.value
 
 
 @nivs_rt_sequence
-def arithmetic_shift_right_augassign_channelref():
+def arithmetic_shift_right_augassign_channel_ref():
     a = DoubleValue(1)
     b = ChannelReference("Aliases/DesiredRPM")
     b.value = 5.0
@@ -331,7 +331,7 @@ def arithmetic_shift_right_to_None():
 @nivs_rt_sequence
 def arithmetic_shift_right_invalid_rtseq_call():
     a = DoubleValue(0)
-    a.value = return_constant >> 1
+    a.value = _return_constant >> 1
     return a.value
 
 
@@ -345,7 +345,6 @@ def arithmetic_shift_right_complex_expr():
 
 
 run_tests = [
-    (return_constant, (), 5.0),
     (arithmetic_shift_right_simple_numbers, (), 1),
     (arithmetic_shift_right_nivsdatatype_nivsdatatype1, (), 1),
     (arithmetic_shift_right_nivsdatatype_nivsdatatype3, (), 1),
@@ -353,7 +352,7 @@ run_tests = [
     (arithmetic_shift_right_variables1, (), 4),
     (arithmetic_shift_right_multiple_types, (), 0),
     (arithmetic_shift_right_multiple_types1, (), 1),
-    (arithmetic_shift_right_with_parantheses, (), 0),
+    (arithmetic_shift_right_with_parentheses, (), 0),
     (arithmetic_shift_right_variable_variable, (), 1),
     (arithmetic_shift_right_variable_variable1, (), 1),
     (arithmetic_shift_right_augassign_number, (), 1),
@@ -365,7 +364,7 @@ run_tests = [
     (arithmetic_shift_right_augassign_variable1, (), 1),
     (arithmetic_shift_right_augassign_variable2, (), 1),
     (arithmetic_shift_right_augassign_variable3, (), 1),
-    (arithemtic_shift_left_augassign_paranthesis, (), 64),
+    (arithmetic_shift_left_augassign_parentheses, (), 64),
     (arithmetic_shift_right_use_rtseq, (), 2),
     (arithmetic_shift_right_use_rtseq1, (), 2),
     (arithmetic_shift_right_use_rtseq2, (), 2),
@@ -388,12 +387,12 @@ fail_transform_tests = [
     (arithmetic_shift_right_num_nivsdatatype, (), VeristandError),  # cannot do shift right on Double
     (arithmetic_shift_right_nivsdatatype_nivsdatatype, (), VeristandError),  # cannot do shift right on Double
     (arithmetic_shift_right_nivsdatatype_nivsdatatype2, (), VeristandError),  # cannot do shift right on Boolean
-    (arithmetic_shift_right_with_parantheses1, (), VeristandError),  # cannot do shift right on Double
-    (arithmetic_shift_right_with_parantheses2, (), VeristandError),  # cannot do shift right on Double
+    (arithmetic_shift_right_with_parentheses1, (), VeristandError),  # cannot do shift right on Double
+    (arithmetic_shift_right_with_parentheses2, (), VeristandError),  # cannot do shift right on Double
     (arithmetic_shift_right_augassign_nivsdatatype4, (), VeristandError),  # cannot do shift right on Double
     (arithmetic_shift_right_augassign_variable4, (), VeristandError),  # cannot do shift right on Double
-    (arithmetic_shift_right_to_channelref, (), VeristandError),  # cannot do shift right on Double
-    (arithmetic_shift_right_augassign_channelref, (), VeristandError),  # cannot do shift right on Double
+    (arithmetic_shift_right_to_channel_ref, (), VeristandError),  # cannot do shift right on Double
+    (arithmetic_shift_right_augassign_channel_ref, (), VeristandError),  # cannot do shift right on Double
     (arithmetic_shift_right_to_None, (), TranslateError),
     (arithmetic_shift_right_invalid_rtseq_call, (), VeristandError),
 ]

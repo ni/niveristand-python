@@ -10,7 +10,7 @@ from testutilities import rtseqrunner, validation
 
 
 @nivs_rt_sequence
-def returns_true():
+def _returns_true():
     a = BooleanValue(True)
     return a.value
 
@@ -107,21 +107,21 @@ def ifexp_nested_ifexp():
 @nivs_rt_sequence
 def ifexp_rtseq_test():
     a = I32Value(0)
-    a.value = 1 if returns_true() else 0
+    a.value = 1 if _returns_true() else 0
     return a.value
 
 
 @nivs_rt_sequence
 def ifexp_rtseq_test_rtseq_assign():
     a = BooleanValue(False)
-    a.value = returns_true() if returns_true() else False
+    a.value = _returns_true() if _returns_true() else False
     return a.value
 
 
 @nivs_rt_sequence
 def ifexp_rtseq_test_rtseq_assign1():
     a = BooleanValue(False)
-    a.value = returns_true() if not returns_true() else returns_true()
+    a.value = _returns_true() if not _returns_true() else _returns_true()
     return a.value
 
 
@@ -158,7 +158,6 @@ def ifexp_invalid_int_test():
 
 
 run_tests = [
-    (returns_true, (), True),
     (ifexp_bool_test_bool_assign, (), True),
     (ifexp_bool_test_int_assign, (), 1),
     (ifexp_bool_test_int_assign1, (), 1),

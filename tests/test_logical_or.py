@@ -13,7 +13,7 @@ b = 2
 
 
 @nivs_rt_sequence
-def return_true():
+def _return_true():
     a = BooleanValue(True)
     return a.value
 
@@ -27,22 +27,22 @@ def logical_or_simple_numbers():
 
 @nivs_rt_sequence
 def logical_or_nivsdatatype_double():
-    a = DoubleValue(0)
-    a = DoubleValue(3) or DoubleValue(1)
+    a = BooleanValue(0)
+    a = DoubleValue(3) or DoubleValue(0)
     return a.value
 
 
 @nivs_rt_sequence
 def logical_or_nivsdatatype_int32():
-    a = I32Value(0)
-    a = I32Value(2) or I32Value(1)
+    a = BooleanValue(0)
+    a = I32Value(2) or I32Value(0)
     return a.value
 
 
 @nivs_rt_sequence
 def logical_or_nivsdatatype_int64():
-    a = I64Value(0)
-    a = I64Value(2) or I64Value(1)
+    a = BooleanValue(0)
+    a = I64Value(2) or I64Value(0)
     return a.value
 
 
@@ -61,8 +61,15 @@ def logical_or_multiple_types():
 
 
 @nivs_rt_sequence
+def logical_or_multiple_types1():
+    a = BooleanValue(False)
+    a.value = True or BooleanValue(False) or False
+    return a.value
+
+
+@nivs_rt_sequence
 def logical_or_variables():
-    a = BooleanValue(True)
+    a = BooleanValue(False)
     b = BooleanValue(True)
     c = BooleanValue(False)
     a = b or c
@@ -81,21 +88,21 @@ def logical_or_variables1():
 @nivs_rt_sequence
 def logical_or_rtseq():
     a = BooleanValue(False)
-    a.value = return_true() or True
+    a.value = _return_true() or True
     return a.value
 
 
 @nivs_rt_sequence
 def logical_or_rtseq1():
     a = BooleanValue(False)
-    a.value = True or return_true()
+    a.value = True or _return_true()
     return a.value
 
 
 @nivs_rt_sequence
-def logical_or_parantheses():
+def logical_or_parentheses():
     a = BooleanValue(True)
-    a.value = True or (DoubleValue(2) or I32Value(3)) or False
+    a.value = True or (BooleanValue(False) or BooleanValue(True)) or False
     return a.value
 
 
@@ -128,44 +135,36 @@ def logical_or_None():
 @nivs_rt_sequence
 def logical_or_invalid_rtseq_call():
     a = BooleanValue(False)
-    a.value = True or return_true
+    a.value = True or _return_true
     return a.value
 
 # </editor-fold>
 
 
 run_tests = [
-    (return_true, (), True),
-    (logical_or_simple_numbers, (), 1),
     (logical_or_nivsdatatype_bool, (), True),
-    (logical_or_multiple_types, (), True),
+    (logical_or_multiple_types1, (), True),
     (logical_or_variables1, (), True),
-    (logical_or_unary, (), True),
-    (logical_or_parantheses, (), True),
+    (logical_or_parentheses, (), True),
     (logical_or_rtseq, (), True),
     (logical_or_rtseq1, (), True),
+    (logical_or_variables, (), True),
 ]
 
 skip_tests = [
-    (logical_or_nivsdatatype_double, (), "Or between two constant DataTypes returns a DataType object, we have to"
-                                         "research this how to solve it. A solution is to always use variables in"
-                                         "logical operators, and use var.value."),
-    (logical_or_nivsdatatype_int32, (), "Or between two constant DataTypes returns a DataType object, we have to"
-                                        "research this how to solve it. A solution is to always use variables in"
-                                        "logical operators, and use var.value."),
-    (logical_or_nivsdatatype_int64, (), "Or between two constant DataTypes returns a DataType object, we have to"
-                                        "research this how to solve it. A solution is to always use variables in"
-                                        "logical operators, and use var.value."),
-    (logical_or_variables, (), "Or between two constant DataTypes returns a DataType object, we have to"
-                               "research this how to solve it. A solution is to always use variables in"
-                               "logical operators, and use var.value."),
 ]
 
 fail_transform_tests = [
+    (logical_or_simple_numbers, (), TranslateError),
+    (logical_or_multiple_types, (), TranslateError),
     (logical_or_invalid_variables, (), TranslateError),
     (logical_or_invalid_variables1, (), TranslateError),
     (logical_or_None, (), TranslateError),
     (logical_or_invalid_rtseq_call, (), VeristandError),
+    (logical_or_unary, (), TranslateError),
+    (logical_or_nivsdatatype_double, (), TranslateError),
+    (logical_or_nivsdatatype_int32, (), TranslateError),
+    (logical_or_nivsdatatype_int64, (), TranslateError),
 ]
 
 

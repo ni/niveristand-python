@@ -10,7 +10,7 @@ from testutilities import rtseqrunner, validation
 
 
 @nivs_rt_sequence
-def return_constant():
+def _return_constant():
     return 10
 
 
@@ -95,7 +95,7 @@ def for_loop_range_with_variable():
 
 
 @nivs_rt_sequence
-def for_loop_range_with_channelref():
+def for_loop_range_with_channel_ref():
     a = DoubleValue(0)
     b = ChannelReference('Aliases/DesiredRPM')
     b.value = 10.0
@@ -108,7 +108,7 @@ def for_loop_range_with_channelref():
 @nivs_rt_sequence
 def for_loop_range_with_call():
     a = DoubleValue(0)
-    for x in range(return_constant()):
+    for x in range(_return_constant()):
         a.value += x
     return a.value
 
@@ -187,7 +187,6 @@ def for_funcdef_in_body():
 
 
 run_tests = [
-    (return_constant, (), 10),
     (for_loop_variable_array, (), 15),
     (for_loop_variable_array1, (), 15),
     (for_loop_modify_collection, (), 2),
@@ -212,7 +211,7 @@ fail_transform_tests = [
     (for_return_in_body, (), TranslateError),
     (for_try_in_body, (), TranslateError),
     (for_funcdef_in_body, (), TranslateError),
-    (for_loop_range_with_channelref, (), VeristandError),
+    (for_loop_range_with_channel_ref, (), VeristandError),
     (for_loop_constant_array, (), VeristandError),
 ]
 

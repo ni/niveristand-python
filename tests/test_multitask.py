@@ -240,7 +240,7 @@ def multitask_multiple_in_sequence_validate_order():
 
 
 @nivs_rt_sequence
-def multitask_call_subroutine_params_byref():
+def multitask_call_subroutine_params_by_ref():
     a = I32Value(0)
     b = I32Value(1)
     with multitask() as mt:
@@ -417,7 +417,7 @@ run_tests = [
     (multitask_access_local, (), 35),
     (multitask_blocks_until_done, (), 1),
     (multitask_task_with_yield, (), 1),
-    (multitask_call_subroutine_params_byref, (), 3),
+    (multitask_call_subroutine_params_by_ref, (), 3),
     (multitask_tasks_with_different_iter_count, (), 15),
     (multitask_nested_validate_order, (), 0),
     (multitask_multiple_in_sequence_validate_order, (), 4),

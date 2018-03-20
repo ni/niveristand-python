@@ -14,7 +14,7 @@ b = 2
 
 
 @nivs_rt_sequence
-def return_constant():
+def _return_constant():
     a = DoubleValue(5)
     return a.value
 
@@ -78,7 +78,7 @@ def _return_parameter_with_decorator(param):
 
 @NivsParam("param", I32Value(5), NivsParam.BY_REF)
 @nivs_rt_sequence
-def _return_parameter_with_decorator_byref(param):
+def _return_parameter_with_decorator_by_ref(param):
     return param.value
 
 
@@ -92,7 +92,7 @@ def _return_parameter_with_decorator_inverted(param):
 @NivsParam("y", I32Value(5), NivsParam.BY_VALUE)
 @NivsParam("z", I32Value(5), NivsParam.BY_REF)
 @nivs_rt_sequence
-def _return_byref_in_z_sqrt_of_square_x_plus_square_y(x, y, z):
+def _return_by_ref_in_z_sqrt_of_square_x_plus_square_y(x, y, z):
     z.value = sqrt(x.value ** 2 + y.value ** 2)
 
 
@@ -108,28 +108,28 @@ def _return_arr_element_plus1_by_ref(param):
 
 
 @nivs_rt_sequence
-def _return_parameter_plus1_byref(param):
+def _return_parameter_plus1_by_ref(param):
     param.value += 1
     return param.value
 
 
 @NivsParam('param', DoubleValue(0), NivsParam.BY_VALUE)
 @nivs_rt_sequence
-def _return_parameter_plus1_byvalue(param):
+def _return_parameter_plus1_by_value(param):
     param.value += 1
     return param.value
 
 
 @NivsParam('param', DoubleValue(0), False)
 @nivs_rt_sequence
-def _return_parameter_plus1_byref_bool(param):
+def _return_parameter_plus1_by_ref_bool(param):
     param.value += 1
     return param.value
 
 
 @NivsParam('param', DoubleValue(0), True)
 @nivs_rt_sequence
-def _return_parameter_plus1_byvalue_bool(param):
+def _return_parameter_plus1_by_value_bool(param):
     param.value += 1
     return param.value
 
@@ -157,14 +157,14 @@ def call_increment_constant_passed_by_ref():
 @nivs_rt_sequence
 def call_return_constant_as_assignment():
     a = DoubleValue(0)
-    a.value = return_constant()
+    a.value = _return_constant()
     return a.value
 
 
 @nivs_rt_sequence
 def call_return_constant_as_expr():
     a = BooleanValue(0)
-    return_constant()
+    _return_constant()
     a.value = True
     return a.value
 
@@ -179,38 +179,38 @@ def call_return_parameter():
 @nivs_rt_sequence
 def call_parameter_nivsdatatype():
     a = DoubleValue(5)
-    _return_parameter_plus1_byref(a)
+    _return_parameter_plus1_by_ref(a)
     return a.value
 
 
 @nivs_rt_sequence
-def call_parameter_nivsdatatype_byvalue():
+def call_parameter_nivsdatatype_by_value():
     a = DoubleValue(5)
     b = DoubleValue(0)
-    b.value = _return_parameter_plus1_byvalue(a)
+    b.value = _return_parameter_plus1_by_value(a)
     return b.value
 
 
 @nivs_rt_sequence
-def call_parameter_nivsdatatype_byvalue_untouched_orig():
+def call_parameter_nivsdatatype_by_value_untouched_orig():
     a = DoubleValue(5)
     b = DoubleValue(0)
-    b.value = _return_parameter_plus1_byvalue(a) + a.value
+    b.value = _return_parameter_plus1_by_value(a) + a.value
     return b.value
 
 
 @nivs_rt_sequence
-def call_parameter_nivsdatatype_byref_bool_ref():
+def call_parameter_nivsdatatype_by_ref_bool_ref():
     a = DoubleValue(5)
-    _return_parameter_plus1_byref_bool(a)
+    _return_parameter_plus1_by_ref_bool(a)
     return a.value
 
 
 @nivs_rt_sequence
-def call_parameter_nivsdatatype_byvalue_bool_ref():
+def call_parameter_nivsdatatype_by_value_bool_ref():
     a = DoubleValue(5)
     b = DoubleValue(0)
-    b.value = _return_parameter_plus1_byvalue_bool(a) + a.value
+    b.value = _return_parameter_plus1_by_value_bool(a) + a.value
     return b.value
 
 
@@ -230,13 +230,13 @@ def call_parameter_array_elem():
 
 
 @nivs_rt_sequence
-def call_parameter_array_elem_byref():
+def call_parameter_array_elem_by_ref():
     a = DoubleValueArray([1, 2, 3])
     return a[1].value
 
 
 @nivs_rt_sequence
-def call_parameter_with_decorator_diff_param_type_byvalue():
+def call_parameter_with_decorator_diff_param_type_by_value():
     a = DoubleValue(1.2)
     b = DoubleValue(0)
     b.value = _return_parameter_with_decorator(a.value)
@@ -244,10 +244,10 @@ def call_parameter_with_decorator_diff_param_type_byvalue():
 
 
 @nivs_rt_sequence
-def call_parameter_with_decorator_diff_param_type_byref():
+def call_parameter_with_decorator_diff_param_type_by_ref():
     a = DoubleValue(1.2)
     b = DoubleValue(0)
-    b.value = _return_parameter_with_decorator_byref(a.value)
+    b.value = _return_parameter_with_decorator_by_ref(a.value)
     return b.value
 
 
@@ -272,28 +272,28 @@ def call_parameter_with_many_decorators():
     a = DoubleValue(3.1)
     b = DoubleValue(4.999)
     c = I32Value(0)
-    _return_byref_in_z_sqrt_of_square_x_plus_square_y(a, b, c)
+    _return_by_ref_in_z_sqrt_of_square_x_plus_square_y(a, b, c)
     return c.value
 
 
 @nivs_rt_sequence
-def call_parameter_send_channel_ref_byvalue():
+def call_parameter_send_channel_ref_by_value():
     a = ChannelReference('Aliases/DesiredRPM')
     ret = DoubleValue(0)
     a.value = 67
     localhost_wait(0.5)
-    _return_parameter_plus1_byvalue(a)
+    _return_parameter_plus1_by_value(a)
     ret.value = a.value
     return ret.value
 
 
 @nivs_rt_sequence
-def call_parameter_send_channel_ref_byref():
+def call_parameter_send_channel_ref_by_ref():
     a = ChannelReference('Aliases/DesiredRPM')
     ret = DoubleValue(0)
     a.value = 101.2
     localhost_wait(0.5)
-    _return_parameter_plus1_byref(a)
+    _return_parameter_plus1_by_ref(a)
     localhost_wait(0.5)
     ret.value = a.value
     return ret.value
@@ -349,24 +349,23 @@ def test_object_passed_by_ref_without_rt_decorator():
 
 
 run_tests = [
-    (return_constant, (), 5),
-    (call_return_constant_as_assignment, (), return_constant()),
+    (call_return_constant_as_assignment, (), _return_constant()),
     (call_return_constant_as_expr, (), True),
     (call_return_parameter, (), 5),
     (call_parameter_nivsdatatype, (), 6),
-    (call_parameter_nivsdatatype_byvalue, (), 6),
-    (call_parameter_nivsdatatype_byvalue_untouched_orig, (), 11),
-    (call_parameter_nivsdatatype_byref_bool_ref, (), 6),
-    (call_parameter_nivsdatatype_byvalue_bool_ref, (), 11),
+    (call_parameter_nivsdatatype_by_value, (), 6),
+    (call_parameter_nivsdatatype_by_value_untouched_orig, (), 11),
+    (call_parameter_nivsdatatype_by_ref_bool_ref, (), 6),
+    (call_parameter_nivsdatatype_by_value_bool_ref, (), 11),
     (call_parameter_builtin_math, (), 5),
     (call_parameter_with_decorator, (), 1),
-    (call_parameter_with_decorator_diff_param_type_byvalue, (), 1),
+    (call_parameter_with_decorator_diff_param_type_by_value, (), 1),
     (call_parameter_with_many_decorators, (), 5),
     (call_parameter_with_decorator_inverted, (), 1),
     (call_parameter_array_elem, (), 1),
-    (call_parameter_array_elem_byref, (), 2),
-    (call_parameter_send_channel_ref_byref, (), 102.2),
-    (call_parameter_send_channel_ref_byvalue, (), 67),
+    (call_parameter_array_elem_by_ref, (), 2),
+    (call_parameter_send_channel_ref_by_ref, (), 102.2),
+    (call_parameter_send_channel_ref_by_value, (), 67),
     (call_increment_constant_passed_by_ref, (), 6),
     (call_return_parameter_with_built_in_function_name, (), 1)
 ]
@@ -386,7 +385,7 @@ fail_transform_tests = [
     (invalid_call, (), TranslateError),
     (return_parameter_with_decorator_wrong_name, [5], VeristandError),
     (return_parameter_invalid_decorator, [1], TranslateError),
-    (call_parameter_with_decorator_diff_param_type_byref, (), VeristandError),
+    (call_parameter_with_decorator_diff_param_type_by_ref, (), VeristandError),
 ]
 
 

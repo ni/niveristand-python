@@ -14,7 +14,7 @@ b = 2
 
 
 @nivs_rt_sequence
-def return_constant():
+def _return_constant():
     a = DoubleValue(5)
     return a.value
 
@@ -85,47 +85,47 @@ def less_eq_multiple_types1():
 @nivs_rt_sequence
 def less_eq_use_rtseq():
     a = BooleanValue(True)
-    a.value = 6 <= return_constant()
+    a.value = 6 <= _return_constant()
     return a.value
 
 
 @nivs_rt_sequence
 def less_eq_use_rtseq1():
     a = BooleanValue(True)
-    a.value = return_constant() <= 4
+    a.value = _return_constant() <= 4
     return a.value
 
 
 @nivs_rt_sequence
 def less_eq_use_rtseq2():
     a = BooleanValue(True)
-    a.value = DoubleValue(6) <= return_constant()
+    a.value = DoubleValue(6) <= _return_constant()
     return a.value
 
 
 @nivs_rt_sequence
 def less_eq_use_rtseq3():
     a = BooleanValue(True)
-    a.value = return_constant() <= DoubleValue(4)
+    a.value = _return_constant() <= DoubleValue(4)
     return a.value
 
 
 @nivs_rt_sequence
 def less_eq_use_rtseq4():
     a = BooleanValue(True)
-    a.value = I32Value(6) <= return_constant()
+    a.value = I32Value(6) <= _return_constant()
     return a.value
 
 
 @nivs_rt_sequence
 def less_eq_use_rtseq5():
     a = BooleanValue(True)
-    a.value = return_constant() <= I32Value(1)
+    a.value = _return_constant() <= I32Value(1)
     return a.value
 
 
 @nivs_rt_sequence
-def less_eq_with_parantheses():
+def less_eq_with_parentheses():
     a = BooleanValue(True)
     a.value = 5 <= (3 <= 2)
     return a.value
@@ -169,7 +169,7 @@ def less_eq_variable_variable1():
 def less_eq_variable_rtseq():
     a = DoubleValue(6.0)
     b = BooleanValue(False)
-    b.value = a.value <= return_constant()
+    b.value = a.value <= _return_constant()
     return b.value
 
 
@@ -177,12 +177,12 @@ def less_eq_variable_rtseq():
 def less_eq_variable_rtseq1():
     a = DoubleValue(1)
     b = BooleanValue(False)
-    b.value = return_constant() <= a.value
+    b.value = _return_constant() <= a.value
     return b.value
 
 
 @nivs_rt_sequence
-def less_eq_to_channelref():
+def less_eq_to_channel_ref():
     a = BooleanValue(False)
     b = ChannelReference("Aliases/DesiredRPM")
     b.value = 5.0
@@ -234,7 +234,7 @@ def less_eq_to_None():
 @nivs_rt_sequence
 def less_eq_invalid_rtseq_call():
     a = BooleanValue(True)
-    a.value = return_constant <= 1
+    a.value = _return_constant <= 1
     return a.value
 
 # </editor-fold>
@@ -299,54 +299,54 @@ def lt_equal_multiple_types1():
 @nivs_rt_sequence
 def lt_equal_use_rtseq():
     a = BooleanValue(False)
-    a.value = 5 <= return_constant()
+    a.value = 5 <= _return_constant()
     return a.value
 
 
 @nivs_rt_sequence
 def lt_equal_use_rtseq1():
     a = BooleanValue(False)
-    a.value = return_constant() <= 5
+    a.value = _return_constant() <= 5
     return a.value
 
 
 @nivs_rt_sequence
 def lt_equal_use_rtseq2():
     a = BooleanValue(False)
-    a.value = DoubleValue(5) <= return_constant()
+    a.value = DoubleValue(5) <= _return_constant()
     return a.value
 
 
 @nivs_rt_sequence
 def lt_equal_use_rtseq3():
     a = BooleanValue(False)
-    a.value = return_constant() <= DoubleValue(5)
+    a.value = _return_constant() <= DoubleValue(5)
     return a.value
 
 
 @nivs_rt_sequence
 def lt_equal_use_rtseq4():
     a = BooleanValue(False)
-    a.value = I32Value(5) <= return_constant()
+    a.value = I32Value(5) <= _return_constant()
     return a.value
 
 
 @nivs_rt_sequence
 def lt_equal_use_rtseq5():
     a = BooleanValue(True)
-    a.value = return_constant() <= I32Value(1)
+    a.value = _return_constant() <= I32Value(1)
     return a.value
 
 
 @nivs_rt_sequence
-def lt_equal_with_parantheses():
+def lt_equal_with_parentheses():
     a = BooleanValue(False)
     a.value = 1 <= (2 <= 3)
     return a.value
 
 
 @nivs_rt_sequence
-def lt_equal_with_parantheses1():
+def lt_equal_with_parentheses1():
     a = BooleanValue(False)
     a.value = 3 <= (DoubleValue(2) <= I32Value(2))
     return a.value
@@ -399,7 +399,7 @@ def lt_equal_variable_variable2():
 def lt_equal_variable_rtseq():
     a = DoubleValue(5)
     b = BooleanValue(False)
-    b.value = a.value <= return_constant()
+    b.value = a.value <= _return_constant()
     return b.value
 
 
@@ -407,12 +407,12 @@ def lt_equal_variable_rtseq():
 def lt_equal_variable_rtseq1():
     a = DoubleValue(5)
     b = BooleanValue(False)
-    b.value = return_constant() <= a.value
+    b.value = _return_constant() <= a.value
     return b.value
 
 
 @nivs_rt_sequence
-def lt_equal_to_channelref():
+def lt_equal_to_channel_ref():
     a = BooleanValue(False)
     b = ChannelReference("Aliases/DesiredRPM")
     b.value = 1.0
@@ -464,21 +464,20 @@ def lt_equal_to_None():
 @nivs_rt_sequence
 def lt_equal_invalid_rtseq_call():
     a = BooleanValue(True)
-    a.value = return_constant <= 1
+    a.value = _return_constant <= 1
     return a.value
 
 # </editor-fold>
 
 
 run_tests = [
-    (return_constant, (), 5),
     (less_eq_simple_numbers, (), False),
     (less_eq_nivsdatatype_num, (), False),
     (less_eq_nivsdatatype_nivsdatatype, (), False),
     (less_eq_nivsdatatype_nivsdatatype1, (), False),
     (less_eq_nivsdatatype_nivsdatatype2, (), False),
     (less_eq_nivsdatatype_nivsdatatype3, (), False),
-    (less_eq_with_parantheses, (), False),
+    (less_eq_with_parentheses, (), False),
     (less_eq_variables, (), False),
     (less_eq_variables1, (), False),
     (less_eq_variable_variable, (), False),
@@ -491,8 +490,8 @@ run_tests = [
     (lt_equal_nivsdatatype_nivsdatatype1, (), True),
     (lt_equal_nivsdatatype_nivsdatatype2, (), True),
     (lt_equal_nivsdatatype_nivsdatatype3, (), False),
-    (lt_equal_with_parantheses, (), True),
-    (lt_equal_with_parantheses1, (), False),
+    (lt_equal_with_parentheses, (), True),
+    (lt_equal_with_parentheses1, (), False),
     (lt_equal_variables, (), True),
     (lt_equal_variables1, (), True),
     (lt_equal_variable_variable, (), False),
@@ -516,18 +515,12 @@ run_tests = [
     (lt_equal_use_rtseq5, (), False),
     (lt_equal_variable_rtseq, (), True),
     (lt_equal_variable_rtseq1, (), True),
-    (less_eq_to_channelref, (), True),
-    (lt_equal_to_channelref, (), True),
+    (less_eq_to_channel_ref, (), True),
+    (lt_equal_to_channel_ref, (), True),
     (less_eq_num_nivsdatatype, (), False),
 ]
 
 skip_tests = [
-    (less_eq_multiple_types, (), "Cascading comparators untested in VM"),
-    (less_eq_multiple_types1, (), "Cascading comparators untested in VM"),
-    (less_eq_with_multiple_comparators, (), "Cascading comparators untested in VM"),
-    (lt_equal_multiple_types, (), "Cascading comparators untested in VM"),
-    (lt_equal_multiple_types1, (), "Cascading comparators untested in VM"),
-    (lt_equal_with_multiple_comparators, (), "Cascading comparators untested in VM"),
 ]
 
 fail_transform_tests = [
