@@ -18,6 +18,20 @@ from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import Referenc
 
 
 class RealTimeSequence:
+    """
+    A Real-Time sequence that can be run on the VeriStand Engine.
+
+    Args:
+        top_level_func: the function to transform.
+        rtseq_pkg(:class:`RealTimeSequencePackage`): the containing package in case this sequence
+                                                     is to be added to a library.
+
+    Raises:
+        :class:`niveristand.errors.TranslateError`: if translation fails
+        :class:`niveristand.errors.VeristandError`: if compilation fails
+
+    """
+
     def __init__(self, top_level_func, rtseq_pkg=None):
         self._top_level_func = top_level_func
         self._path = ''
@@ -28,6 +42,21 @@ class RealTimeSequence:
         self._transform()
 
     def run(self, timeout_within_each_step=100000):
+        """
+        Run the sequence on the globally configured VeriStand Engine.
+
+        Args:
+            timeout_within_each_step (Optional[int]): Timeout for each step before execution is aborted.
+
+        Returns:
+            :class:`niveristand.clientapi.StimulusProfileState`: the stimulus profile session state.
+
+        Deploys and runs the sequence without waiting for it to finish. Use the returned :class:`StimulusProfileState`
+        to wait for completion and obtain return value.
+
+        For a simpler use case, refer to :func:`niveristand.realtimesequencetools.run_py_as_rtseq`
+
+        """
         if self._rtseq is None:
             raise VeristandError(_errormessages.run_without_valid_sequence)
         if self._path is None:
@@ -37,6 +66,24 @@ class RealTimeSequence:
         return rtseqapi.run_rt_sequence(name, timeout_within_each_step)
 
     def save(self, path=None):
+        """
+        Save this sequence to disk.
+
+        Args:
+            path(Optional[str]): the location to save this sequence.
+
+        Returns:
+            The path used for saving the sequence.
+
+        All dependencies required for deployment of this sequence will be saved to the same path.
+        If `path` is `None` this sequence will be saved to:
+
+        * a temporary folder if it was not saved previously.
+        * the previous location this sequence object was saved to.
+
+        For a simpler use case, refer to :func:`niveristand.realtimesequencetools.save_py_as_rtseq`
+
+        """
         if self._rtseq is None:
             raise VeristandError(_errormessages.save_without_valid_sequence)
         if path is not None:
