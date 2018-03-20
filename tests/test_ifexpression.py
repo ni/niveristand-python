@@ -4,7 +4,7 @@ from niveristand import nivs_rt_sequence
 from niveristand import realtimesequencetools
 from niveristand.clientapi import BooleanValue, I32Value
 from niveristand.clientapi import RealTimeSequence
-from niveristand.errors import VeristandError
+from niveristand.errors import TranslateError, VeristandError
 import pytest
 from testutilities import rtseqrunner, validation
 
@@ -49,8 +49,8 @@ def ifexp_bool_test_nivstype_assign():
 def ifexp_nivsbool_test_nivstype_assign():
     a = I32Value(0)
     b = I32Value(1)
-    c = I32Value(0)
-    a.value = b.value if BooleanValue(True) else c.value
+    c = I32Value(2)
+    a.value = b.value if BooleanValue(False) else c.value
     return a.value
 
 
@@ -177,13 +177,8 @@ run_tests = [
 
 fail_transform_tests = [
     (ifexp_invalid_int_test, (), VeristandError),
-]
-
-skip_tests = [
-    (ifexp_nivsbool_test_nivstype_assign, (), "We can't override ifexp so even though it translates"
-                                              "fine python uses the objref as the test, not the value."),
-    (ifexp_nivsbool_test_nivstype_assign1, (), "We can't override ifexp so even though it translates"
-                                               "fine python uses the objref as the test, not the value."),
+    (ifexp_nivsbool_test_nivstype_assign, (), TranslateError),
+    (ifexp_nivsbool_test_nivstype_assign1, (), TranslateError),
 ]
 
 
@@ -220,11 +215,6 @@ def test_failures(func_name, params, expected_result):
         RealTimeSequence(func_name)
     with pytest.raises(expected_result):
         func_name(*params)
-
-
-@pytest.mark.parametrize("func_name, params, reason", skip_tests, ids=idfunc)
-def test_skipped(func_name, params, reason):
-    pytest.skip(func_name.__name__ + ": " + reason)
 
 
 def test_check_all_tested():

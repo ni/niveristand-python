@@ -2,6 +2,7 @@ import ast
 import sys
 from niveristand import _errormessages, errors
 from niveristand._translation import utils
+from niveristand.clientapi._datatypes import VALID_TYPES
 
 
 def raise_if_try_in_node_body(statements):
@@ -35,6 +36,13 @@ def raise_if_invalid_bool_operand(node, resources):
         pass
     if invalid_operand:
         raise errors.TranslateError(_errormessages.invalid_operand_for_boolean_operator)
+
+
+def raise_if_invalid_if_test(node):
+    if isinstance(node, ast.UnaryOp):
+        node = node.operand
+    if isinstance(node, ast.Call) and utils.get_variable_name_from_node(node.func) in VALID_TYPES:
+        raise errors.TranslateError(_errormessages.invalid_type_for_if_test)
 
 
 def raise_if_invalid_invert_operand(node, resources):

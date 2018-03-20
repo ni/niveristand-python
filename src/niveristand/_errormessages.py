@@ -55,4 +55,5 @@ invalid_decorator = "TODOMSG: custom decorators are not allowed"
 cascaded_comparison_operators_not_allowed = "TODOMSG: cascading comparison operators is not allowed because of their" \
                                             "different behaviors between Python and SPE"
 invalid_operand_for_boolean_operator = "TODOMSG: the type of the operand is invalid for boolean operators"
+invalid_type_for_if_test = "TODOMSG: the type of the operand cannot be evaluated in the if test"
 invalid_operand_for_unary_invert_operator = "TODOMSG: the type of the operand is invalid for the unary invert operator"
