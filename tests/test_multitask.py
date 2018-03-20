@@ -425,7 +425,6 @@ run_tests = [
 ]
 
 skip_tests = [
-    (multitask_redefine_var_fails, (), "Redefine restrictions not implemented yet"),
 ]
 
 fail_transform_tests = [
@@ -439,6 +438,7 @@ fail_transform_tests = [
     (multitask_no_var_name_fails, (), TranslateError),
     (multitask_wrong_var_name_fails, (), TranslateError),
     (multitask_task_multi_dec_fails, (), TranslateError),
+    (multitask_redefine_var_fails, (), TranslateError),
 ]
 
 

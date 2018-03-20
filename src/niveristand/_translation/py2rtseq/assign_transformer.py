@@ -13,6 +13,9 @@ def assign_transformer(node, resources):
     # the left hand side can only be a variable name or a name with an attribute (var.value)
     if isinstance(lhs, ast.Name):
         variable_name = utils.get_variable_name_from_node(lhs)
+        # if the variable already exists this kind of assignment is invalid, use var.value instead
+        if resources.has_variable(variable_name):
+            raise TranslateError(_errormessages.variable_reassignment)
     elif isinstance(lhs, ast.Attribute):
         # in case of var[0].value get rid of the [0] part and search in the dictionary for var
         stripped_rtseq_var_name = rtseq_var_name[:rtseq_var_name.find("[")] if rtseq_var_name.find("[") != -1 \

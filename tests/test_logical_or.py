@@ -68,7 +68,7 @@ def logical_or_multiple_types1():
 
 
 @nivs_rt_sequence
-def logical_or_variables():
+def logical_or_variables_redefined():
     a = BooleanValue(False)
     b = BooleanValue(True)
     c = BooleanValue(False)
@@ -148,7 +148,6 @@ run_tests = [
     (logical_or_parentheses, (), True),
     (logical_or_rtseq, (), True),
     (logical_or_rtseq1, (), True),
-    (logical_or_variables, (), True),
 ]
 
 skip_tests = [
@@ -165,6 +164,7 @@ fail_transform_tests = [
     (logical_or_nivsdatatype_double, (), TranslateError),
     (logical_or_nivsdatatype_int32, (), TranslateError),
     (logical_or_nivsdatatype_int64, (), TranslateError),
+    (logical_or_variables_redefined, (), TranslateError),
 ]
 
 
