@@ -19,12 +19,13 @@ def arraysize(x):
         x: the array.
 
     Returns:
-        int: The size of the array.
+        int: The size of the array. If the element is not an array, 0.
 
-    **Note**: Only available for Real-Time Sequences. @TODODOC
 
     """
-    raise VeristandNotImplementedError()
+    if 'len' in dir(x):
+        return len(x)
+    return 0
 
 
 def clearfault(x):

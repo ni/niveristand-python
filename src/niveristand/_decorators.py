@@ -41,8 +41,18 @@ def nivs_rt_sequence(func):
 
 
 class NivsParam:
-    BY_REF = False
-    BY_VALUE = True
+    """
+    Describe a parameter passed down to a function.
+
+    Args:
+        param_name(str): the name of the parameter as it is found in the function definition.
+        default_elem: default value and type. Refer to :ref:_api_datatypes_page for valid values.
+        by_value(bool): True to pass by value, False to pass by reference.
+                        Refer to :any:`NivsParam.BY_REF` or :any:`NivsParam.BY_VALUE` for details.
+    """
+
+    BY_REF = False  #: Pass parameter by reference. Allows the callee to modify the value.
+    BY_VALUE = True  #: Pass parameter by value. Creates a copy of the caller's value for use inside the function.
 
     def __init__(self, param_name, default_elem, by_value):
         self.param_name = param_name
