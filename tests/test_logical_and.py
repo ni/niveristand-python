@@ -157,9 +157,6 @@ run_tests = [
     (logical_and_multiple_types1, (), False),
 ]
 
-skip_tests = [
-]
-
 fail_transform_tests = [
     (logical_and_invalid_variables, (), TranslateError),
     (logical_and_invalid_variables1, (), TranslateError),
@@ -209,11 +206,6 @@ def test_failures(func_name, params, expected_result):
         RealTimeSequence(func_name)
     with pytest.raises(expected_result):
         func_name(*params)
-
-
-@pytest.mark.parametrize("func_name, params, reason", skip_tests, ids=idfunc)
-def test_skipped(func_name, params, reason):
-    pytest.skip(func_name.__name__ + ": " + reason)
 
 
 def test_check_all_tested():

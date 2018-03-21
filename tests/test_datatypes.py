@@ -675,9 +675,6 @@ run_tests = [
     (uint64_array_one_element_run, (), 1),
 ]
 
-skip_tests = [
-]
-
 fail_transform_tests = [
     (illegal_boolean_type, TranslateError),
     (illegal_double_type, TranslateError),
@@ -750,11 +747,6 @@ def test_run_in_VM(func_name, params, expected_result):
 def test_failures(func_name, expected_result):
     with pytest.raises(expected_result):
         RealTimeSequence(func_name)
-
-
-@pytest.mark.parametrize("func_name, reason", skip_tests, ids=idfunc)
-def test_skipped(func_name, reason):
-    pytest.skip(func_name.__name__ + ": " + reason)
 
 
 def test_check_all_tested():

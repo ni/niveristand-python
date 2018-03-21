@@ -54,3 +54,18 @@ def raise_if_invalid_invert_operand(node, resources):
         pass
     if invalid_operand:
         raise errors.TranslateError(_errormessages.invalid_operand_for_unary_invert_operator)
+
+
+def raise_if_negative_binary_operator_operand(node, resources):
+    invalid_operand = False
+    if isinstance(node, ast.UnaryOp) and isinstance(node.op, ast.USub):
+        invalid_operand = True
+    else:
+        try:
+            value = utils.get_value_from_node(node, resources).value
+            if value < 0:
+                invalid_operand = True
+        except errors.TranslateError:
+            pass
+    if invalid_operand:
+        raise errors.TranslateError(_errormessages.negative_operand_for_binary_operator)

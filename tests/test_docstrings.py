@@ -90,9 +90,6 @@ def docstring_try_inside():
         pass
 
 
-skip_tests = [
-]
-
 transform_tests = [
     (docstring_func_in_code, (), None),
     (docstring_func_multi_line, (), None),
@@ -103,9 +100,6 @@ transform_tests = [
     (docstring_try_inside, (), None),
 ]
 
-fail_tests = [
-]
-
 
 def idfunc(val):
     return val.__name__
@@ -114,19 +108,6 @@ def idfunc(val):
 @pytest.mark.parametrize("func_name, params, expected_result", transform_tests, ids=idfunc)
 def test_transform(func_name, params, expected_result):
     RealTimeSequence(func_name)
-
-
-@pytest.mark.parametrize("func_name, params, expected_result", fail_tests, ids=idfunc)
-def test_failures(func_name, params, expected_result):
-    with pytest.raises(expected_result):
-        RealTimeSequence(func_name)
-    with pytest.raises(expected_result):
-        func_name(*params)
-
-
-@pytest.mark.parametrize("func_name, params, reason", skip_tests, ids=idfunc)
-def test_skipped(func_name, params, reason):
-    pytest.skip(func_name.__name__ + ": " + reason)
 
 
 def test_check_all_tested():

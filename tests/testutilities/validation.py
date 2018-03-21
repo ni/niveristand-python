@@ -8,7 +8,7 @@ def test_validate(testmodule):
     lists = [testmodule.__dict__.get(a) for a in dir(testmodule)
              if a.startswith('run_tests') or a.startswith('skip_tests') or
              a.startswith('transform_tests') or a.startswith('fail_transform_tests') or
-             a.startswith('python_tests')]
+             a.startswith('python_tests') or a.startswith('py_only_different_behavior_tests')]
     final_list = []
     for list in lists:
         for item in list:

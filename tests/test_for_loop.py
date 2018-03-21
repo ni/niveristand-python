@@ -199,10 +199,6 @@ run_tests = [
     (nested_for_loop_body, (), 1),
 ]
 
-
-skip_tests = [
-]
-
 fail_transform_tests = [
     (for_loop_else, (), TranslateError),
     (for_loop_range_with_start, (), TranslateError),
@@ -249,11 +245,6 @@ def test_failures(func_name, params, expected_result):
         RealTimeSequence(func_name)
     with pytest.raises(expected_result):
         func_name(*params)
-
-
-@pytest.mark.parametrize("func_name, params, reason", skip_tests, ids=idfunc)
-def test_skipped(func_name, params, reason):
-    pytest.skip(func_name.__name__ + ": " + reason)
 
 
 def test_check_all_tested():

@@ -200,7 +200,7 @@ def arithmetic_shift_right_to_channel_ref():
 @nivs_rt_sequence
 def arithmetic_shift_right_binary_unary():
     a = I32Value(0)
-    a.value = 3 >> - 1
+    a.value = 3 >> -1
     return a.value
 
 
@@ -377,10 +377,6 @@ run_tests = [
     (arithmetic_shift_right_augassign_rtseq, (), 1030),
 ]
 
-skip_tests = [
-    (arithmetic_shift_right_binary_unary, (), "Different behaviour between python and SPE."),
-]
-
 fail_transform_tests = [
     (arithmetic_shift_right_invalid_variables, (), TranslateError),
     (arithmetic_shift_right_invalid_variables1, (), TranslateError),
@@ -395,6 +391,7 @@ fail_transform_tests = [
     (arithmetic_shift_right_augassign_channel_ref, (), VeristandError),  # cannot do shift right on Double
     (arithmetic_shift_right_to_None, (), TranslateError),
     (arithmetic_shift_right_invalid_rtseq_call, (), VeristandError),
+    (arithmetic_shift_right_binary_unary, (), TranslateError),
 ]
 
 py_only_errs = [
@@ -435,11 +432,6 @@ def test_failures(func_name, params, expected_result):
         RealTimeSequence(func_name)
     with pytest.raises(expected_result):
         func_name(*params)
-
-
-@pytest.mark.parametrize("func_name, params, reason", skip_tests, ids=idfunc)
-def test_skipped(func_name, params, reason):
-    pytest.skip(func_name.__name__ + ": " + reason)
 
 
 def test_check_all_tested():

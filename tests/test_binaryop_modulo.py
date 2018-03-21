@@ -236,7 +236,7 @@ def modulo_with_channel_ref():
 @nivs_rt_sequence
 def modulo_binary_unary():
     a = DoubleValue(0)
-    a.value = -5 % 2
+    a.value = 5 % -2
     return a.value
 
 
@@ -371,10 +371,9 @@ run_tests = [
     (aug_modulo_to_channel_ref, (), 1),
 ]
 
-skip_tests = [
-    (modulo_binary_unary, (), "SPE implements remainder. Python implements module. "
-                              "The difference is subtle but the sign of the result is different."),
-    (aug_modulo_unary, (), "SPE and Python treat negative module differently."),
+py_only_different_behavior_tests = [
+    (modulo_binary_unary, (), 1),
+    (aug_modulo_unary, (), 1),
 ]
 
 fail_transform_tests = [
@@ -394,7 +393,8 @@ def test_transform(func_name, params, expected_result):
     RealTimeSequence(func_name)
 
 
-@pytest.mark.parametrize("func_name, params, expected_result", run_tests, ids=idfunc)
+@pytest.mark.parametrize("func_name, params, expected_result", list(set(run_tests) -
+                                                                    set(py_only_different_behavior_tests)), ids=idfunc)
 def test_runpy(func_name, params, expected_result):
     actual = func_name(*params)
     assert actual == expected_result
@@ -418,11 +418,6 @@ def test_failures(func_name, params, expected_result):
         RealTimeSequence(func_name)
     with pytest.raises(expected_result):
         func_name(*params)
-
-
-@pytest.mark.parametrize("func_name, params, reason", skip_tests, ids=idfunc)
-def test_skipped(func_name, params, reason):
-    pytest.skip(func_name.__name__ + ": " + reason)
 
 
 def test_check_all_tested():
