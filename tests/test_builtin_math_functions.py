@@ -455,9 +455,9 @@ run_tests = [
     (sqrt_double, (), 5),
     (tan_double, (), tan(pi / 2)),
     (tanh_double, (), tanh(pi)),
-    (abs_channel_ref, (), 5.0)
+    (abs_channel_ref, (), 5.0),
+    (abs_variable_boolean, (), False),
 ]
-
 
 transform_tests = run_tests + [
     (abs_nivsdatatype, (), 5),
@@ -468,14 +468,9 @@ transform_tests = run_tests + [
     (abs_nivsdatatype5, (), 5),
 ]
 
-skip_tests = [
-    (abs_variable_boolean, (), "SPE and python treat differently BooleanValue(-5)"),
+py_only_different_behavior_tests = [
+    (abs_variable_boolean, (), False),
 ]
-
-if not sys.version_info > (3, 3):
-    skip_tests.append((log2, (), "This is just a helper for old python not having log2"))
-
-fail_transform_tests = []
 
 
 def idfunc(val):
@@ -487,7 +482,8 @@ def test_transform(func_name, params, expected_result):
     RealTimeSequence(func_name)
 
 
-@pytest.mark.parametrize("func_name, params, expected_result", run_tests, ids=idfunc)
+@pytest.mark.parametrize("func_name, params, expected_result", list(set(run_tests) -
+                                                                    set(py_only_different_behavior_tests)), ids=idfunc)
 def test_runpy(func_name, params, expected_result):
     actual = func_name(*params)
     assert actual == expected_result
@@ -503,19 +499,6 @@ def test_run_py_as_rts(func_name, params, expected_result):
 def test_run_in_VM(func_name, params, expected_result):
     actual = rtseqrunner.run_rtseq_in_VM(func_name)
     assert actual == expected_result
-
-
-@pytest.mark.parametrize("func_name, params, expected_result", fail_transform_tests, ids=idfunc)
-def test_failures(func_name, params, expected_result):
-    with pytest.raises(expected_result):
-        RealTimeSequence(func_name)
-    with pytest.raises(expected_result):
-        func_name(*params)
-
-
-@pytest.mark.parametrize("func_name, params, reason", skip_tests, ids=idfunc)
-def test_skipped(func_name, params, reason):
-    pytest.skip(func_name.__name__ + ": " + reason)
 
 
 def test_check_all_tested():

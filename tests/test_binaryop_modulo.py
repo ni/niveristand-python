@@ -297,8 +297,8 @@ def aug_modulo_to_channel_ref():
 
 @nivs_rt_sequence
 def aug_modulo_unary():
-    a = DoubleValue(1)
-    a.value %= -1
+    a = DoubleValue(5)
+    a.value %= -2
     return a.value
 
 
@@ -369,6 +369,8 @@ run_tests = [
     (aug_modulo_use_rtseq, (), 1),
     (modulo_with_channel_ref, (), 1),
     (aug_modulo_to_channel_ref, (), 1),
+    (modulo_binary_unary, (), 1),
+    (aug_modulo_unary, (), 1),
 ]
 
 py_only_different_behavior_tests = [

@@ -1,10 +1,13 @@
+import inspect
 import sys
 from niveristand import nivs_rt_sequence
 from niveristand import realtimesequencetools
 from niveristand.clientapi import BooleanValue, ChannelReference, DoubleValue, DoubleValueArray, I64Value
+from niveristand.clientapi import ErrorAction
 from niveristand.clientapi import RealTimeSequence
+from niveristand.errors import RunFailedError, VeristandError
 from niveristand.library.primitives import abstime, arraysize, clearfault, clearlasterror, deltat, deltatus, fault, \
-    fix, getlasterror, iteration, quotient, recip, rem, seqtime, seqtimeus, tickcountms, tickcountus
+    fix, generate_error, getlasterror, iteration, quotient, recip, rem, seqtime, seqtimeus, tickcountms, tickcountus
 import pytest
 from testutilities import rtseqrunner, validation
 
@@ -26,19 +29,31 @@ def call_arraysize():
 
 @nivs_rt_sequence
 def call_clearfault():
-    a = ChannelReference("Aliases/ActualRPM")
+    a = ChannelReference("Aliases/DesiredRPM")
     b = DoubleValue(0)
     c = BooleanValue(False)
+    # Store initial channel value
     b.value = a.value
     fault(a, 1001)
     clearfault(a)
+    # Try to assign back to the channel the initial value
+    a.value = b.value
+    # If everything went well the initial value and the current value should now be equal
     c.value = b.value == a.value
     return c.value
 
 
 @nivs_rt_sequence
 def call_clearlasterror():
+    generate_error(1, "Continue1", ErrorAction.ContinueSequenceExecution)
+    generate_error(2, "Continue2", ErrorAction.ContinueSequenceExecution)
+    a = BooleanValue(False)
+    b = I64Value(5)
     clearlasterror()
+    b.value = getlasterror()
+    if b.value == 0:
+        a.value = True
+    return a.value
 
 
 @nivs_rt_sequence
@@ -75,8 +90,14 @@ def call_fix():
 
 @nivs_rt_sequence
 def call_getlasterror():
-    getlasterror()
-    return True
+    generate_error(1, "Continue1", ErrorAction.ContinueSequenceExecution)
+    generate_error(2, "Continue2", ErrorAction.ContinueSequenceExecution)
+    a = BooleanValue(False)
+    b = I64Value(0)
+    b.value = getlasterror()
+    if b.value == 2:
+        a.value = True
+    return a.value
 
 
 @nivs_rt_sequence
@@ -113,13 +134,15 @@ def call_rem():
 def call_seqtime():
     a = DoubleValue(0)
     a.value = seqtime()
+    a.value = seqtime() - a.value
     return a.value
 
 
 @nivs_rt_sequence
 def call_seqtimeus():
-    a = I64Value(0)
+    a = DoubleValue(0)
     a.value = seqtimeus()
+    a.value = seqtimeus() - a.value
     return a.value
 
 
@@ -127,6 +150,7 @@ def call_seqtimeus():
 def call_tickcountms():
     a = I64Value(0)
     a.value = tickcountms()
+    a.value = tickcountms() - a.value
     return a.value
 
 
@@ -134,12 +158,15 @@ def call_tickcountms():
 def call_tickcountus():
     a = I64Value(0)
     a.value = tickcountus()
+    a.value = tickcountus() - a.value
     return a.value
 
 
-run_tests = [
+run_everywhere_tests = [
     (call_abstime, (), None),
     (call_arraysize, (), 3),
+    (call_clearfault, (), True),
+    (call_clearlasterror, (), True),
     (call_deltat, (), 0.01),  # it is 0.01 for engine demo
     (call_deltatus, (), 10 ** 4),  # 0.01 seconds in microseconds
     (call_fault, (), 1001),
@@ -148,19 +175,32 @@ run_tests = [
     (call_quotient, (), 120),
     (call_recip, (), 1.0 / 1024),
     (call_rem, (), 11),
-    (call_seqtime, (), 0),  # time has not run long enough in the sequence
-    (call_seqtimeus, (), 0),  # time has not run long enough in the sequence
+    (call_seqtime, (), None),
+    (call_seqtimeus, (), None),
     (call_tickcountms, (), None),
     (call_tickcountus, (), None),
 ]
 
-skip_tests = [
-    (call_clearfault, (), "Seems like rtseqrunner has a bug in handling faults. Will investigate separately."),
-    (call_clearlasterror, (), "GenerateError not implemented"),
-    (call_getlasterror, (), "GenerateError not implemented"),
+run_tests = run_everywhere_tests + [
+    (call_getlasterror, (), True),
 ]
 
-fail_transform_tests = []
+py_only_errs = [
+    (call_abstime, (), None),
+    (call_clearfault, (), True),
+    (call_clearlasterror, (), True),
+    (call_deltat, (), 0.01),  # it is 0.01 for engine demo
+    (call_deltatus, (), 10 ** 4),  # 0.01 seconds in microseconds
+    (call_fault, (), 1001),
+    (call_fix, (), 4),
+    (call_getlasterror, (), True),
+    (call_recip, (), 1.0 / 1024),
+    (call_rem, (), 11),
+]
+
+run_as_rts_tests = run_everywhere_tests + [
+    (call_getlasterror, (), RunFailedError),
+]
 
 
 def idfunc(val):
@@ -172,22 +212,28 @@ def test_transform(func_name, params, expected_result):
     RealTimeSequence(func_name)
 
 
-@pytest.mark.skip("Python implementations missing")
-@pytest.mark.parametrize("func_name, params, expected_result", run_tests, ids=idfunc)
+@pytest.mark.parametrize("func_name, params, expected_result", list(set(run_tests) - set(py_only_errs)), ids=idfunc)
 def test_runpy(func_name, params, expected_result):
     actual = func_name(*params)
-    assert actual == expected_result
-
-
-@pytest.mark.parametrize("func_name, params, expected_result", run_tests, ids=idfunc)
-def test_run_py_as_rts(func_name, params, expected_result):
-    actual = realtimesequencetools.run_py_as_rtseq(func_name)
-    # some of these functions are time sensitive so we can't know what to expect
-    # so if the expected result is None we just check that a non-zero value got returned
     if expected_result is None:
-        assert actual > 0
+        assert actual >= 0
     else:
         assert actual == expected_result
+
+
+@pytest.mark.parametrize("func_name, params, expected_result", run_as_rts_tests, ids=idfunc)
+def test_run_py_as_rts(func_name, params, expected_result):
+    if inspect.isclass(expected_result) and issubclass(expected_result, VeristandError):
+        with pytest.raises(expected_result):
+            realtimesequencetools.run_py_as_rtseq(func_name)
+    else:
+        actual = realtimesequencetools.run_py_as_rtseq(func_name)
+        # some of these functions are time sensitive so we can't know what to expect
+        # so if the expected result is None we just check that a non-zero value got returned
+        if expected_result is None:
+            assert actual >= 0
+        else:
+            assert actual == expected_result
 
 
 @pytest.mark.parametrize("func_name, params, expected_result", run_tests, ids=idfunc)
@@ -196,22 +242,9 @@ def test_run_in_VM(func_name, params, expected_result):
     # some of these functions are time sensitive so we can't know what to expect
     # so if the expected result is None we just check that a non-zero value got returned
     if expected_result is None:
-        assert actual > 0
+        assert actual >= 0
     else:
         assert actual == expected_result
-
-
-@pytest.mark.parametrize("func_name, params, expected_result", fail_transform_tests, ids=idfunc)
-def test_failures(func_name, params, expected_result):
-    with pytest.raises(expected_result):
-        RealTimeSequence(func_name)
-    with pytest.raises(expected_result):
-        func_name(*params)
-
-
-@pytest.mark.parametrize("func_name, params, reason", skip_tests, ids=idfunc)
-def test_skipped(func_name, params, reason):
-    pytest.skip(func_name.__name__ + ": " + reason)
 
 
 def test_check_all_tested():

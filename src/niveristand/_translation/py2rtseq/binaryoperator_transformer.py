@@ -1,4 +1,3 @@
-import ast
 from niveristand._translation import utils
 from niveristand._translation.py2rtseq import validations
 from niveristand.errors import VeristandNotImplementedError

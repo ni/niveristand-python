@@ -23,7 +23,7 @@ def arraysize(x):
 
 
     """
-    if 'len' in dir(x):
+    if '__len__' in dir(x):
         return len(x)
     return 0
 
