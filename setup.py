@@ -32,7 +32,7 @@ setup(
     name=pypi_name,
     version=get_version(pypi_name),
     description='NI VeriStand Python API',
-    long_description=read_contents('README.md'),
+    long_description=read_contents('README.rst'),
     author='National Instruments',
     maintainer="Marcelo Izaguirre",
     maintainer_email="marcelo.izaguirre@ni.com",
