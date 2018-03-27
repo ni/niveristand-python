@@ -33,6 +33,13 @@ def abs_simple_number():
 
 
 @nivs_rt_sequence
+def abs_nivsdatatype_value():
+    a = DoubleValue(0)
+    a.value = abs(DoubleValue(-5).value)
+    return a.value
+
+
+@nivs_rt_sequence
 def abs_nivsdatatype():
     a = DoubleValue(0)
     a.value = abs(DoubleValue(-5))
@@ -413,6 +420,7 @@ def tanh_double():
 
 
 run_tests = [
+    (abs_nivsdatatype_value, (), 5),
     (abs_simple_number, (), 5),
     (abs_variable_double, (), 5.0),
     (abs_variable_i32, (), numpy.int32(5)),

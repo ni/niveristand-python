@@ -10,6 +10,13 @@ def attribute_transformer(node, resources):
             return utils.generic_ast_node_transform(node.value, resources)
         else:
             return resources.get_variable_rtseq_name(var_name)
+    try:
+        # Try to get the value of the node in case it's a DataType(x).value style.
+        node_value = utils.get_value_from_node(node.value, resources)
+        return str(node_value)
+    except errors.TranslateError:
+        # If we get a TranslateError it's because it wasn't a DataType(x).value, so move on.
+        pass
     built_exp = utils.generic_ast_node_transform(node.value, resources) + '.' + node.attr
     if built_exp in symbols._symbols:
         return symbols._symbols[built_exp]
