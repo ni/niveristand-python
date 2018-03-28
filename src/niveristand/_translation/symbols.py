@@ -32,6 +32,7 @@ _symbols = {
     'min': 'min',
     'fmod': 'mod',
     'pow': 'pow',
+    'rand': 'rand',
     'round': 'round',
     'sin': 'sin',
     'sinh': 'sinh',

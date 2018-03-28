@@ -58,18 +58,18 @@ def deltat():
 
     To perform equality or comparison operations, use deltatus instead.
 
-    **Note**: Only available for Real-Time Sequences. @TODODOC
+    **Note**: In Python Mode, it will always return `0.01`, for a rate of 100Hz.
     """
-    raise VeristandNotImplementedError()
+    return 0.01
 
 
 def deltatus():
     """
     Return the duration of the current system timestep in microseconds.
 
-    **Note**: Only available for Real-Time Sequences. @TODODOC
+    **Note**: In Python Mode, it will always return `10000`, for a rate of 100Hz.
     """
-    raise VeristandNotImplementedError()
+    return 10000
 
 
 def fault(channel, value):
@@ -141,6 +141,21 @@ def quotient(x, y):
     return x // y
 
 
+def rand(x):
+    """
+    Return a floating-point number between 0 and the maximum value.
+
+    Args:
+        x(float): the maximum value.
+
+    Returns:
+        float: a number between 0 and `x`
+
+    """
+    from random import random
+    return random() * x
+
+
 def recip(x):
     """
     Return 1/x.
@@ -161,9 +176,8 @@ def rem(x, y):
         x(float): the dividend.
         y(float): the divisor
 
-    **Note**: Only available for Real-Time Sequences. @TODODOC
     """
-    raise VeristandNotImplementedError()
+    return x % y
 
 
 def seqtime():

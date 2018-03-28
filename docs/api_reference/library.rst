@@ -20,6 +20,7 @@ Library
 .. autofunction:: niveristand.library.nivs_yield
 .. autofunction:: niveristand.library.quotient
 .. autofunction:: niveristand.library.recip
+.. autofunction:: niveristand.library.rand
 .. autofunction:: niveristand.library.rem
 .. autofunction:: niveristand.library.seqtime
 .. autofunction:: niveristand.library.seqtimeus
@@ -31,3 +32,8 @@ Library
 .. autofunction:: niveristand.library.wait_until_next_ms_multiple
 .. autofunction:: niveristand.library.wait_until_next_us_multiple
 .. autofunction:: niveristand.library.wait_until_settled
+.. autofunction:: niveristand.library.ramp
+.. autofunction:: niveristand.library.sine_wave
+.. autofunction:: niveristand.library.square_wave
+.. autofunction:: niveristand.library.triangle_wave
+.. autofunction:: niveristand.library.uniform_white_noise_wave

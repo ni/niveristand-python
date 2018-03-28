@@ -55,3 +55,10 @@ Measuring elapsed time example
    :language: python
    :linenos:
    :pyobject: measure_elapsed_time
+
+State machine
+-------------
+.. literalinclude:: ../examples/basic_examples.py
+   :language: python
+   :linenos:
+   :pyobject: state_machine_example

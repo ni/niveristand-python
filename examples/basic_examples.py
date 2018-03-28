@@ -1,7 +1,11 @@
 from niveristand import nivs_rt_sequence, NivsParam, realtimesequencetools
-from niveristand.clientapi import BooleanValue, DoubleValueArray, DoubleValue, I64Value, ErrorAction
+from niveristand.clientapi import BooleanValue, ChannelReference, DoubleValue, DoubleValueArray, ErrorAction, \
+    I32Value, I64Value
 from niveristand.errors import RunError
-from niveristand.library import arraysize, generate_error, iteration, nivs_yield, seqtime, seqtimeus, tickcountms, tickcountus
+from niveristand.library import arraysize, generate_error, iteration, nivs_yield, rand, seqtime, seqtimeus, \
+    tickcountms, tickcountus, wait
+from niveristand.library.waveforms import ramp, sawtooth_wave, sine_wave, square_wave, triangle_wave, \
+    uniform_white_noise_wave
 
 
 @NivsParam('x', DoubleValue(0), NivsParam.BY_VALUE)
@@ -39,9 +43,9 @@ def run_add_two_numbers_tests():
 @nivs_rt_sequence
 def array_operations():
     """
-    This example shows various operations you can do with array data types in a real-time sequence.
-    An array can hold multiple values of the same data type. You cannot have arrays of arrays.
+    Show various operations you can do with array data types in a real-time sequence.
 
+    An array can hold multiple values of the same data type. You cannot have arrays of arrays.
     Use arrays to pass around buffers of data for playback or storage.
 
     Returns:
@@ -68,7 +72,8 @@ def array_operations():
 @nivs_rt_sequence
 def measure_elapsed_time():
     """
-    This example shows a number of ways to measure elapsed time in a sequence.
+    Show a number of ways to measure elapsed time in a sequence.
+
     You can measure time in milliseconds, microseconds, or in seconds.
 
     Returns:
@@ -92,11 +97,41 @@ def measure_elapsed_time():
 
     # Measure the elapsed time by subtracting the initial timestamp from the current time
     seqtime_timer.value = seqtime() - seqtime_timer.value
-    seqtime_us_timer.value= seqtimeus() - seqtime_us_timer.value
+    seqtime_us_timer.value = seqtimeus() - seqtime_us_timer.value
     tick_ms_timer.value = tickcountms() - tick_ms_timer.value
     tick_us_timer.value = tickcountus() - tick_us_timer.value
 
     return tick_ms_timer.value
+
+
+@nivs_rt_sequence
+def state_machine_example():
+    state = I32Value(0)
+    iters = I32Value(0)
+    amplitude = DoubleValue(1000)
+    stop = BooleanValue(False)
+    output = ChannelReference('Aliases/DesiredRPM')
+
+    while stop.value != True and iters.value < 10:  # noqa: E712 it's recommended to use comparison isntead of identity.
+        state.value = rand(7)
+        if state.value == 0:
+            wait(2)
+        elif state.value == 1:
+            sine_wave(output, amplitude, 1, 0, 0, 2)
+        elif state.value == 2:
+            square_wave(output, amplitude, 5, 0, 0, 50, 2)
+        elif state.value == 3:
+            triangle_wave(output, amplitude, 1, 0, 0, 2)
+        elif state.value == 4:
+            uniform_white_noise_wave(output, amplitude, tickcountus(), 2)
+        elif state.value == 5:
+            ramp(output, -amplitude.value, amplitude, 2)
+        elif state.value == 6:
+            sawtooth_wave(output, amplitude, 1, 0, 0, 2)
+        else:
+            stop.value = True
+        iters.value += 1
+        state.value = rand(7)
 
 
 def run_non_deterministic(func):
@@ -132,3 +167,5 @@ if __name__ == '__main__':
 
     run_add_two_numbers_tests()
 
+    run_deterministic(state_machine_example)
+    run_non_deterministic(state_machine_example)
