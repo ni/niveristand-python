@@ -15,6 +15,7 @@ NI VeriStand Python Documentation
    getting_started
    examples
    api_reference
+   restrictions
 
 
 

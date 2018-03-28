@@ -8,7 +8,7 @@ def binaryoperator_transformer(node, resources):
     if operator == "unknown":
         raise VeristandNotImplementedError()
     if operator in ('<<', '>>'):
-        validations.raise_if_negative_binary_operator_operand(node.left, resources)
+        # Validate only the right hand side, on the left it makes sense to have negative numbers.
         validations.raise_if_negative_binary_operator_operand(node.right, resources)
     left = utils.generic_ast_node_transform(node.left, resources)
     right = utils.generic_ast_node_transform(node.right, resources)
