@@ -43,6 +43,7 @@ extensions = [
     'sphinx.ext.todo',
     'sphinx.ext.coverage',
     'sphinx.ext.napoleon',
+    'rinoh.frontend.sphinx',  # output to pdf. Requires rinohtype package
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -113,11 +114,11 @@ htmlhelp_basename = 'niveristand-pythondoc'
 latex_elements = {
     # The paper size ('letterpaper' or 'a4paper').
     #
-    # 'papersize': 'letterpaper',
+    'papersize': 'letterpaper',
 
     # The font size ('10pt', '11pt' or '12pt').
     #
-    # 'pointsize': '10pt',
+    'pointsize': '11pt',
 
     # Additional stuff for the LaTeX preamble.
     #
