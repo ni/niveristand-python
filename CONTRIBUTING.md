@@ -13,11 +13,35 @@ See [GitHub's official documentation](https://help.github.com/articles/using-pul
 
 # Getting Started
 
-- TODO: include build steps here.
+To contribute to this project, it is recommended that you follow these steps:
+
+1. Fork the repository on GitHub.
+2. Run the unit tests on your system (see Testing section). At this point,
+   if any tests fail, do not begin development. Try to investigate these
+   failures. If you're unable to do so, report an issue through our
+   `GitHub issues page <http://github.com/ni/niveristand-python/issues>`_.
+3. Write new tests that demonstrate your bug or feature. Ensure that these
+   new tests fail.
+4. Make your change.
+5. Run all the unit tests again (which include the tests you just added),
+   and confirm that they all pass.
+6. Send a GitHub Pull Request to the main repository's master branch. GitHub
+   Pull Requests are the expected method of code collaboration on this project.
 
 # Testing
 
-- TODO: include testing steps here.
+Before running any tests, these requirements must be met:
+
+    - A supported version of NI VeriStand must be installed.
+    - A supported version of Python must be installed.
+
+**Note**: Many of the tests included require the NI VeriStand `Engine Demo` to be deployed and running on localhost.
+
+To install all development dependencies required:
+```
+$ pip install -r .\requirements.txt
+```
+
 Use the `tox` package for running all tests. To get set up:
 ```
 $ pip install tox
