@@ -15,7 +15,7 @@ def get_version(name):
     script_dir = os.path.dirname(os.path.realpath(__file__))
     script_dir = os.path.join(script_dir, name)
     if not os.path.exists(os.path.join(script_dir, 'VERSION')):
-        version = '1.0.0dev0'
+        version = '0.9.0'
     else:
         with open(os.path.join(script_dir, 'VERSION'), 'r') as version_file:
             version = version_file.read().rstrip()
@@ -36,6 +36,7 @@ setup(
     author='National Instruments',
     maintainer="Marcelo Izaguirre",
     maintainer_email="marcelo.izaguirre@ni.com",
+    url="https://github.com/ni/niveristand-python",
     keywords=['niveristand', 'veristand'],
     license='MIT',
     packages=find_packages('src'),
@@ -44,7 +45,7 @@ setup(
     install_requires=['pythonnet', 'PyYAML', 'enum34'],
     tests_require=['pytest', 'numpy'],
     classifiers=[
-        "Development Status :: 2 - Pre-Alpha",
+        "Development Status :: 4 - Beta",
         "Intended Audience :: Developers",
         "Intended Audience :: Science/Research",
         "License :: OSI Approved :: MIT License",
