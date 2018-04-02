@@ -13,4 +13,5 @@ API Reference
    api_reference/errors
    api_reference/library
    api_reference/realtimesequencetools
+   api_reference/legacy
 

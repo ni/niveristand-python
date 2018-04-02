@@ -9,15 +9,18 @@ def base_assembly_path():
     except (IOError, KeyError):
         pass
     try:
-        return _get_installed_path()
+        return _get_ref_assemblies_path()
     except IOError:
         return ''
 
 
-def _get_installed_path():
-    import winreg
-    latest_dir = ''
+def _get_ref_assemblies_path():
+    latest_dir = _get_install_path()
+    return os.path.join(latest_dir, 'nivs.lib', 'Reference Assemblies')
 
+
+def _get_install_path():
+    import winreg
     with winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, 'SOFTWARE\\Wow6432Node\\National Instruments\\VeriStand\\') as vskey:
         r = winreg.QueryInfoKey(vskey)
         ver = 0
@@ -27,7 +30,7 @@ def _get_installed_path():
                 if this_ver > ver:
                     latest_dir = winreg.QueryValueEx(this_key, 'InstallDir')[0]
                     ver = this_ver
-    return os.path.join(latest_dir, 'nivs.lib', 'Reference Assemblies')
+    return latest_dir if latest_dir is not None else ''
 
 
 def _getdevconfig():
