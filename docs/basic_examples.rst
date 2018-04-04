@@ -41,6 +41,16 @@ Or run it deterministically on the VeriStand Engine our system is able to connec
    :start-after: DETERMINISTIC
    :emphasize-lines: 2
 
+Combining the legacy API with Real-Time sequences
+-------------------------------------------------
+
+The :doc:`api_reference/legacy` can be mixed with python Real-Time sequences
+to create a fully-automated test environment.
+
+.. literalinclude:: ../examples/legacy_mix.py
+   :language: python
+   :linenos:
+
 Array operations example
 ------------------------
 .. literalinclude:: ../examples/basic_examples.py

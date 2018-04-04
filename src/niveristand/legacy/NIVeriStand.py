@@ -227,7 +227,7 @@ class Workspace:
     def GetMultipleChannelValues(self, names):
         """Get multiple channel values."""
         tuppleNames = _ConvertListParamToTuple_(names)
-        data = self.iwks.GetMultipleChannelValues(tuppleNames)
+        data = self.iwks.GetMultipleChannelValues(tuppleNames, None)
         _RaiseException_(data[0])
         values = []
         for i in data[1]:
@@ -236,13 +236,14 @@ class Workspace:
 
     def GetChannelVectorValues(self, name):
         """Get a channel vector values."""
-        data = self.iwks.GetChannelVectorValues(name)
+        zero = System.UInt32(0)
+        data = self.iwks.GetChannelVectorValues(name, zero, zero, None)
         _RaiseException_(data[0])
         return _Convert1DARRVALTOMATRIX_(data[1], data[2], data[3])
 
     def SetSingleChannelValue(self, name, value):
         """Set the channel value."""
-        _RaiseException_(self.iwks.SetSingleChannelValue(name, value))
+        _RaiseException_(self.iwks.SetSingleChannelValue(name, float(value)))
 
     def SetMultipleChannelValues(self, names, values):
         """Set the multiple channels."""
@@ -669,7 +670,7 @@ class Model:
 
     def GetModelExecutionState(self):
         """Get the model time and status."""
-        data = self.imodel.GetModelExecutionState()
+        data = self.imodel.GetModelExecutionState(0.0, ModelState.Idle)
         _RaiseException_(data[0])
         values = {'time': data[1], 'state': self._NetModelStateToPy_(data[2])}
         return values
@@ -730,7 +731,7 @@ class ModelManager:
 
     def GetModelList(self):
         """Return the list of models."""
-        data = self.modmgr.GetModelList()
+        data = self.modmgr.GetModelList(None)
         _RaiseException_(data[0])
         models = []
         for i in data[1]:
@@ -739,7 +740,7 @@ class ModelManager:
 
     def GetParametersList(self):
         """Return the list of parameters in the system."""
-        data = self.modmgr.GetParametersList()
+        data = self.modmgr.GetParametersList(None)
         _RaiseException_(data[0])
         params = []
         for i in data[1]:
@@ -748,14 +749,14 @@ class ModelManager:
 
     def GetSingleParameterValue(self, name):
         """Get the parameters value."""
-        data = self.modmgr.GetSingleParameterValue(name)
+        data = self.modmgr.GetSingleParameterValue(name, System.Double(0))
         _RaiseException_(data[0])
         return data[1]
 
     def GetMultipleParameterValues(self, names):
         """Get multiple parameters values."""
         tupleParamNames = _ConvertListParamToTuple_(names)
-        data = self.modmgr.GetMultipleParameterValues(tupleParamNames)
+        data = self.modmgr.GetMultipleParameterValues(tupleParamNames, None)
         _RaiseException_(data[0])
         values = []
         for i in data[1]:
@@ -764,13 +765,13 @@ class ModelManager:
 
     def GetParameterVectorValues(self, name):
         """Get a parameter vector values."""
-        data = self.modmgr.GetParameterVectorValues(name)
+        data = self.modmgr.GetParameterVectorValues(name, System.UInt32(0), System.UInt32(0), None)
         _RaiseException_(data[0])
         return _Convert1DARRVALTOMATRIX_(data[1], data[2], data[3])
 
     def SetSingleParameterValue(self, name, value):
         """Set parameter value."""
-        _RaiseException_(self.modmgr.SetSingleParameterValue(name, value))
+        _RaiseException_(self.modmgr.SetSingleParameterValue(name, System.Double(value)))
 
     def SetMultipleParameterValues(self, names, values):
         """Set multiple parameters values."""
@@ -792,6 +793,7 @@ class ModelManager2(ModelManager):
     """Interface to query information on the configured models in the system."""
 
     def __init__(self, gateway_ip_address=None):
+        super(self.__class__, self).__init__()
         if (gateway_ip_address is None):
             self.modmgr = Factory().GetIModelManager2("")
         else:
@@ -799,7 +801,7 @@ class ModelManager2(ModelManager):
 
     def GetModelList(self, target):
         """Return the list of models on the specified target."""
-        data = self.modmgr.GetModelList(target)
+        data = self.modmgr.GetModelList(target, None)
         _RaiseException_(data[0])
         models = []
         for i in data[1]:
@@ -808,7 +810,7 @@ class ModelManager2(ModelManager):
 
     def GetParametersList(self, target):
         """Return the list of parameters in the specified target."""
-        data = self.modmgr.GetParametersList(target)
+        data = self.modmgr.GetParametersList(target, None)
         _RaiseException_(data[0])
         params = []
         for i in data[1]:
@@ -817,14 +819,14 @@ class ModelManager2(ModelManager):
 
     def GetSingleParameterValue(self, target, name):
         """Get the parameters value."""
-        data = self.modmgr.GetSingleParameterValue(target, name)
+        data = self.modmgr.GetSingleParameterValue(target, name, System.Double(0))
         _RaiseException_(data[0])
         return data[1]
 
     def GetMultipleParameterValues(self, target, names):
         """Get multiple parameters values."""
         tupleNames = _ConvertListParamToTuple_(names)
-        data = self.modmgr.GetMultipleParameterValues(target, tupleNames)
+        data = self.modmgr.GetMultipleParameterValues(target, tupleNames, None)
         _RaiseException_(data[0])
         values = []
         for i in data[1]:
@@ -833,13 +835,13 @@ class ModelManager2(ModelManager):
 
     def GetParameterVectorValues(self, target, name):
         """Get a parameter vector values."""
-        data = self.modmgr.GetParameterVectorValues(target, name)
+        data = self.modmgr.GetParameterVectorValues(target, name, System.UInt32(0), System.UInt32(0), None)
         _RaiseException_(data[0])
         return _Convert1DARRVALTOMATRIX_(data[1], data[2], data[3])
 
     def SetSingleParameterValue(self, target, name, value):
         """Set parameter value."""
-        _RaiseException_(self.modmgr.SetSingleParameterValue(target, name, value))
+        _RaiseException_(self.modmgr.SetSingleParameterValue(target, name, System.Double(value)))
 
     def SetMultipleParameterValues(self, target, names, values):
         """Set multiple parameters values."""
@@ -852,7 +854,8 @@ class ModelManager2(ModelManager):
 
         Values are expected to be a matrix type.
         """
-        self.SetParameterValues(target, [name], [values])
+        tupleArray = _ConvertMATRIXTO1DARRVAL_(values)
+        _RaiseException_(self.modmgr.SetParameterVectorValues(target, name, tupleArray))
 
     def SetParameterValues(self, target, names, matrixArr):
         """
@@ -865,10 +868,10 @@ class ModelManager2(ModelManager):
         dataArrayArrays = _ConvertMATRIXARRToDataArray_(matrixArr)
         _RaiseException_(self.modmgr.SetParameterValues(target, tupleNames, dataArrayArrays))
 
-    def UpdateParametersFromFile(self, parameterfiles):
+    def UpdateParametersFromFile(self, target, parameterfiles):
         """Update a set of parameters specified in the parameter files."""
         tupleFiles = _ConvertListParamToTuple_(parameterfiles)
-        _RaiseException_(self.modmgr.UpdateParametersFromFile(tupleFiles))
+        _RaiseException_(self.modmgr.UpdateParametersFromFile(target, tupleFiles))
 
 
 # define class ChannelFaultManager
@@ -883,13 +886,13 @@ class ChannelFaultManager:
 
     def GetFaultList(self):
         """Get the current list of all faulted channels."""
-        data = self.isfiu.GetFaultList()
+        data = self.isfiu.GetFaultList(None, None)
         _RaiseException_(data[0])
-        return zip(data[1], data[2])
+        return list(zip(data[1], data[2]))
 
     def GetFaultValue(self, name):
         """Get the fault value of a faulted channel."""
-        data = self.isfiu.GetFaultValue(name)
+        data = self.isfiu.GetFaultValue(name, False, 0.0)
         _RaiseException_(data[0])
         return {'faulted': data[1], 'fault value': data[2]}
 
@@ -947,13 +950,14 @@ class Stimulus:
 
     def GetStimulusProfileManagerState(self):
         """Return the state of the stimulus generation component."""
-        data = self.istim.GetStimulusProfileManagerState()
+        data = self.istim.GetStimulusProfileManagerState(StimulusState.Stopped)
         _RaiseException_(data[0])
         return self._NetStimulusStateToPy_(data[1])
 
     def RunStimulusProfile(self, testfile, baselogpath, timeout, autostart, stopondisconnect):
         """Start the stimulus generation defined by the file."""
-        _RaiseException_(self.istim.RunStimulusProfile(testfile, baselogpath, timeout, autostart, stopondisconnect))
+        _RaiseException_(self.istim.RunStimulusProfile(str(testfile), str(baselogpath), System.UInt32(timeout),
+                                                       bool(autostart), bool(stopondisconnect)))
 
     def StopStimulusProfile(self):
         """Stop the stimulus generation."""
@@ -961,7 +965,7 @@ class Stimulus:
 
     def GetStimulusProfileFile(self):
         """Get the current stimulus definion file."""
-        data = self.istim.GetStimulusProfileFile()
+        data = self.istim.GetStimulusProfileFile("")
         _RaiseException_(data[0])
         return data[1]
 
@@ -971,7 +975,7 @@ class Stimulus:
 
         Only table test will produce a test file result.
         """
-        data = self.istim.GetStimulusProfileResult()
+        data = self.istim.GetStimulusProfileResult(StimulusResult.Failed, "")
         _RaiseException_(data[0])
         values = {'Result': self._NetStimulusResultToPy_(data[1]), 'File': data[2]}
         return values
@@ -989,8 +993,7 @@ class Stimulus:
             raise ValueError
 
     def _NetStimulusResultToPy_(self, net):
-        # TODO: This is supposed to be StimulusResult.None !
-        if (net == StimulusResult.Passed):
+        if (net == 0):
             return PyStimulusResult.NoResult
         elif (net == StimulusResult.Passed):
             return PyStimulusResult.Passed
