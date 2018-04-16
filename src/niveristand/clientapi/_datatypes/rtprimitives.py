@@ -363,12 +363,11 @@ class ArrayType(DataType):
 
 class ChannelReference(DataType):
     """
-    Create a new reference to a scalar channel.
+    Creates a new scalar channel reference.
 
-    Specifies the channel assignment in the system definition to assign to this channel reference. You can
-    specify a channel by its alias or by the path to the channel in the system definition, for example:
+    Creates a new reference to a scalar channel and specifies which channel assignment to map the new channel reference
+    to. You can specify a channel by its alias or by the path to the channel in the system definition, for example:
     Targets/Controller/System Channels/Model Count
-
     """
 
     def __init__(self, value, description="", units=""):
@@ -389,12 +388,11 @@ class ChannelReference(DataType):
 
 class VectorChannelReference(ArrayType):
     """
-    Create a new reference to a vector channel.
+    Creates a new vector channel reference.
 
-    Specifies the channel assignment in the system definition to assign to this channel reference. You can
-    specify a channel by its alias or by the path to the channel in the system definition, for example:
+    Creates a new reference to a vector channel and specifies which channel assignment to map the new channel reference
+    to. You can specify a channel by its alias or by the path to the channel in the system definition, for example:
     Targets/Controller/System Channels/Model Count
-
     """
 
     @property
@@ -409,7 +407,7 @@ class VectorChannelReference(ArrayType):
 
 
 class BooleanValue(DataType):
-    """Create a new boolean value reference."""
+    """Creates a new boolean value reference."""
 
     def _to_data_value(self, value):
         if self._is_valid_assign_type(value):
@@ -424,7 +422,7 @@ class BooleanValue(DataType):
 
 
 class BooleanValueArray(ArrayType):
-    """Create a new reference to an array of :class:`BooleanValue`."""
+    """Creates a new reference to an array of :class:`BooleanValue`."""
 
     @property
     def value(self):
@@ -436,7 +434,7 @@ class BooleanValueArray(ArrayType):
 
 
 class DoubleValue(DataType):
-    """Create a new floating-point value reference."""
+    """Creates a new floating-point value reference."""
 
     def _to_data_value(self, value):
         if self._is_valid_assign_type(value):
@@ -447,7 +445,7 @@ class DoubleValue(DataType):
 
 
 class DoubleValueArray(ArrayType):
-    """Create a new reference to an array of :class:`DoubleValue`."""
+    """Creates a new reference to an array of :class:`DoubleValue`."""
 
     @property
     def value(self):
@@ -459,7 +457,7 @@ class DoubleValueArray(ArrayType):
 
 
 class I32Value(DataType):
-    """Create a new signed 32-bit integer value reference."""
+    """Creates a new signed 32-bit integer value reference."""
 
     def _to_data_value(self, value):
         if self._is_valid_assign_type(value):
@@ -470,7 +468,7 @@ class I32Value(DataType):
 
 
 class I32ValueArray(ArrayType):
-    """Create a new reference to an array of :class:`I32Value`."""
+    """Creates a new reference to an array of :class:`I32Value`."""
 
     @property
     def value(self):
@@ -482,7 +480,7 @@ class I32ValueArray(ArrayType):
 
 
 class I64Value(DataType):
-    """Create a new signed 64-bit integer value reference."""
+    """Creates a new signed 64-bit integer value reference."""
 
     def _to_data_value(self, value):
         if self._is_valid_assign_type(value):
@@ -493,7 +491,7 @@ class I64Value(DataType):
 
 
 class I64ValueArray(ArrayType):
-    """Create a new reference to an array of :class:`I64Value`."""
+    """Creates a new reference to an array of :class:`I64Value`."""
 
     @property
     def value(self):
@@ -505,7 +503,7 @@ class I64ValueArray(ArrayType):
 
 
 class U32Value(DataType):
-    """Create a new unsigned 32-bit integer value reference."""
+    """Creates a new unsigned 32-bit integer value reference."""
 
     def _to_data_value(self, value):
         if self._is_valid_assign_type(value):
@@ -516,7 +514,7 @@ class U32Value(DataType):
 
 
 class U32ValueArray(ArrayType):
-    """Create a new reference to an array of :class:`U32Value`."""
+    """Creates a new reference to an array of :class:`U32Value`."""
 
     @property
     def value(self):
@@ -528,7 +526,7 @@ class U32ValueArray(ArrayType):
 
 
 class U64Value(DataType):
-    """Create a new unsigned 64-bit integer value reference."""
+    """Creates a new unsigned 64-bit integer value reference."""
 
     def _to_data_value(self, value):
         if self._is_valid_assign_type(value):
@@ -539,7 +537,7 @@ class U64Value(DataType):
 
 
 class U64ValueArray(ArrayType):
-    """Create a new reference to an array of :class:`U64Value`."""
+    """Creates a new reference to an array of :class:`U64Value`."""
 
     @property
     def value(self):

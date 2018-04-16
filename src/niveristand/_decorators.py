@@ -42,17 +42,18 @@ def nivs_rt_sequence(func):
 
 class NivsParam:
     """
-    Describe a parameter passed down to a function.
+    Describes a parameter passed down to a function.
 
     Args:
-        param_name(str): the name of the parameter as it is found in the function definition.
-        default_elem: default value and type. Refer to :ref:_api_datatypes_page for valid values.
-        by_value(bool): True to pass by value, False to pass by reference.
+        param_name(str): Name of the parameter as it is found in the function definition.
+        default_elem: Default value and type. Refer to :ref:`api_datatypes_page` for valid values.
+        by_value(bool): Specifies whether to pass a parameter by value or by reference. Set to True to pass by value.
+                        Set to False to pass by reference.
                         Refer to :any:`NivsParam.BY_REF` or :any:`NivsParam.BY_VALUE` for details.
     """
 
-    BY_REF = False  #: Pass parameter by reference. Allows the callee to modify the value.
-    BY_VALUE = True  #: Pass parameter by value. Creates a copy of the caller's value for use inside the function.
+    BY_REF = False  #: Passes a parameter by reference. Allows the callee to modify the value.
+    BY_VALUE = True  #: Passes a parameter by value. Creates a copy of the caller's value for use inside the function.
 
     def __init__(self, param_name, default_elem, by_value):
         self.param_name = param_name
@@ -105,13 +106,13 @@ def _reconstruct_args(f, args, new_param):
 
 def task(mt):
     """
-    Mark a nested function-definition as a task inside a :func:`niveristand.library.multitask`.
+    Marks a nested function-definition as a task inside a :func:`niveristand.library.multitask`.
 
     Args:
         mt: the parent :func:`niveristand.library.multitask`
 
-    This function is meant to be used as a decorator.
-    Refer to :ref:`_multitask_usage` for more details on using tasks.
+    Use this function as a decorator.
+    Refer to :func:`niveristand.library.multitask` for more details on using tasks.
     """
     def _add_task_to_list(func):
         from niveristand.library._tasks import nivs_yield

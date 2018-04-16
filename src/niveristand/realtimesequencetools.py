@@ -3,21 +3,19 @@ from niveristand.errors import RunError, VeristandNotImplementedError
 
 def run_py_as_rtseq(toplevelfunc, timeout_within_each_step=100000):
     """
-    Run a Python function as a Real-Time Sequence in the VeriStand Engine.
+    Runs a Python function as a real-time sequence in the VeriStand Engine.
 
     Args:
         toplevelfunc: the Python function to run.
-        timeout_within_each_step (Optional[int]): Timeout for each step before execution is aborted.
+        timeout_within_each_step (Optional[int]): time, in milliseconds, each step can take before execution is aborted.
 
     Returns:
-        The numeric value returned by the Real-Time Sequence execution.
+        The numeric value returned by the real-time sequence execution.
 
     Raises:
-        :class:`niveristand.errors.TranslateError`: if the function could not be successfully translated.
-        :class:`niveristand.errors.RunAbortedError`: if :func:`niveristand.library.generate_error`
-                was called with an action of Abort or Stop.
-        :class:`niveristand.errors.RunFailedError`: if :func:`niveristand.library.generate_error`
-                was called with a Continue action.
+        :any:`TranslateError`: if the function is not successfully translated.
+        :any:`RunAbortedError`: if this function calls :any:`generate_error` with an action of Abort or Stop.
+        :any:`RunFailedError`: if this function calls :any:`generate_error` with a Continue action.
 
     """
     from niveristand.clientapi import RealTimeSequence
@@ -36,17 +34,17 @@ def save_rtseq_as_py(toplevelseq, srcfolder, destfolder):
 
 def save_py_as_rtseq(toplevelfunc, dest_folder):
     """
-    Save a Python function as a Real-Time Sequence that is compatible with Stimulus Profile Editor.
+    Saves a Python function as a real-time sequence that is compatible with the Stimulus Profile Editor.
 
     Args:
-        toplevelfunc: the Python function to save.
-        dest_folder[str]: the folder to save the sequence and all its dependencies to.
+        toplevelfunc: the Python function you want to save.
+        dest_folder[str]: the folder you want to save the sequence and all its dependencies in.
 
     Returns:
         The full path to the main sequence file.
 
     Raises:
-        :class:`niveristand.errors.TranslateError`: if the function could not be successfully translated.
+        :class:`niveristand.errors.TranslateError`: if the function is not successfully translated.
 
     """
     from niveristand.clientapi import RealTimeSequence

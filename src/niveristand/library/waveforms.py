@@ -11,13 +11,13 @@ from niveristand.library import deltat, localhost_wait, nivs_yield, rem, seqtime
 @nivs_rt_sequence
 def ramp(ramp_out, init_value, final_value, duration):
     """
-    Ramp `ramp_out` from the `init_value` to the `final_value` over the `duration` specified.
+    Ramps a variable from an initial value to an ending value over the duration you specify.
 
     Args:
-        ramp_out(:any:`DoubleValue`): The variable to ramp from the `init_value` to the `final_value`.
-        init_value(:any:`DoubleValue`): The starting value from which to start ramping.
-        final_value(:any:`DoubleValue`): The ending value.
-        duration(:any:`DoubleValue`): The duration in seconds over which to ramp.
+        ramp_out(:any:`DoubleValue`): variable you want to ramp.
+        init_value(:any:`DoubleValue`): starting value.
+        final_value(:any:`DoubleValue`): ending value.
+        duration(:any:`DoubleValue`): time, in seconds, you want the ramp to take.
     """
     step_count = I64Value(0)
     increment = DoubleValue(0)
@@ -42,15 +42,15 @@ def ramp(ramp_out, init_value, final_value, duration):
 @nivs_rt_sequence
 def sawtooth_wave(wave_out, amplitude, freq, phase, bias, duration):
     """
-    Play a sawtooth wave with the parameters specified.
+    Plays a sawtooth wave with the parameters you specify.
 
     Args:
-        wave_out(:any:`DoubleValue`): The variable onto which the sawtooth wave plays.
-        amplitude(:any:`DoubleValue`): The amplitude of the sawtooth wave.
-        freq(:any:`DoubleValue`): The frequency in Hz of the sawtooth wave.
-        phase(:any:`DoubleValue`): The phase in degrees of the sawtooth wave.
-        bias(:any:`DoubleValue`): The offset added to the sawtooth wave.
-        duration(:any:`DoubleValue`): The duration in seconds to play the sawtooth wave.
+        wave_out(:any:`DoubleValue`): variable onto which the sawtooth wave plays.
+        amplitude(:any:`DoubleValue`): amplitude of the sawtooth wave.
+        freq(:any:`DoubleValue`): frequency, in Hz, of the sawtooth wave.
+        phase(:any:`DoubleValue`): phase, in degrees, of the sawtooth wave.
+        bias(:any:`DoubleValue`): offset to add to the sawtooth wave.
+        duration(:any:`DoubleValue`): duration, in seconds, to play the sawtooth wave.
     """
     init_time = DoubleValue(0)
     curr_phase = DoubleValue(0)
@@ -74,15 +74,15 @@ def sawtooth_wave(wave_out, amplitude, freq, phase, bias, duration):
 @nivs_rt_sequence
 def sine_wave(wave_out, amplitude, freq, phase, bias, duration):
     """
-    Play a sine wave with the parameters specified.
+    Plays a sine wave with the parameters you specify.
 
     Args:
-        wave_out(:any:`DoubleValue`): The variable onto which the sine wave plays.
-        amplitude(:any:`DoubleValue`): The amplitude of the sine wave.
-        freq(:any:`DoubleValue`): The frequency in Hz of the sine wave.
-        phase(:any:`DoubleValue`): The phase in degrees of the sine wave.
-        bias(:any:`DoubleValue`): The offset added to the sine wave.
-        duration(:any:`DoubleValue`): The duration in seconds to play the sine wave.
+        wave_out(:any:`DoubleValue`): variable onto which the sine wave plays.
+        amplitude(:any:`DoubleValue`): amplitude of the sine wave.
+        freq(:any:`DoubleValue`): frequency, in Hz, of the sine wave.
+        phase(:any:`DoubleValue`): phase, in degrees, of the sine wave.
+        bias(:any:`DoubleValue`): offset to add to the sine wave.
+        duration(:any:`DoubleValue`): duration, in seconds, to play the sine wave.
     """
     init_time = DoubleValue(0)
     phase_rad = DoubleValue(0)
@@ -106,16 +106,16 @@ def sine_wave(wave_out, amplitude, freq, phase, bias, duration):
 @nivs_rt_sequence
 def square_wave(wave_out, amplitude, freq, phase, bias, duty_cycle, duration):
     """
-    Play a square wave with the parameters specified.
+    Plays a square wave with the parameters you specify.
 
     Args:
-        wave_out(:any:`DoubleValue`): The variable onto which the square wave plays.
-        amplitude(:any:`DoubleValue`): The amplitude of the square wave.
-        freq(:any:`DoubleValue`): The frequency in Hz of the square wave.
-        phase(:any:`DoubleValue`): The phase in degrees of the square wave.
-        bias(:any:`DoubleValue`): The offset added to the square wave.
-        duty_cycle(:any:`DoubleValue`): The percentage of time the square wave remains high versus low over one period.
-        duration(:any:`DoubleValue`): The duration in seconds to play the square wave.
+        wave_out(:any:`DoubleValue`): variable onto which the square wave plays.
+        amplitude(:any:`DoubleValue`): amplitude of the square wave.
+        freq(:any:`DoubleValue`): frequency, in Hz, of the square wave.
+        phase(:any:`DoubleValue`): phase, in degrees, of the square wave.
+        bias(:any:`DoubleValue`): offset to add to the square wave.
+        duty_cycle(:any:`DoubleValue`): percentage of time the square wave remains high versus low over one period.
+        duration(:any:`DoubleValue`): time, in seconds, to play the square wave.
     """
     init_time = DoubleValue(0)
     curr_phase = DoubleValue(0)
@@ -140,15 +140,15 @@ def square_wave(wave_out, amplitude, freq, phase, bias, duty_cycle, duration):
 @nivs_rt_sequence
 def triangle_wave(wave_out, amplitude, freq, phase, bias, duration):
     """
-    Play a triangle wave with the parameters specified.
+    Plays a triangle wave with the parameters you specify.
 
     Args:
-        wave_out(:any:`DoubleValue`): The variable onto which the triangle wave plays.
-        amplitude(:any:`DoubleValue`): The amplitude of the triangle wave.
-        freq(:any:`DoubleValue`): The frequency in Hz of the triangle wave.
-        phase(:any:`DoubleValue`): The phase in degrees of the triangle wave.
-        bias(:any:`DoubleValue`): The offset added to the triangle wave.
-        duration(:any:`DoubleValue`): The duration in seconds to play the triangle wave.
+        wave_out(:any:`DoubleValue`): variable onto which the triangle wave plays.
+        amplitude(:any:`DoubleValue`): amplitude of the triangle wave.
+        freq(:any:`DoubleValue`): frequency, in Hz, of the triangle wave.
+        phase(:any:`DoubleValue`): phase, in degrees, of the triangle wave.
+        bias(:any:`DoubleValue`): offset to add to the triangle wave.
+        duration(:any:`DoubleValue`): duration, in seconds, to play the triangle wave.
     """
     init_time = DoubleValue(0)
     curr_phase = DoubleValue(0)
@@ -173,13 +173,13 @@ def triangle_wave(wave_out, amplitude, freq, phase, bias, duration):
 @nivs_rt_sequence
 def uniform_white_noise_wave(wave_out, amplitude, seed, duration):
     """
-    Play a uniform white noise wave with the parameters specified.
+    Plays a uniform white noise wave with the parameters you specify.
 
     Args:
-        wave_out(:any:`DoubleValue`): The variable onto which the white noise wave plays.
-        amplitude(:any:`DoubleValue`): The amplitude of the white noise wave.
-        seed(:any:`I32Value`): Initial value for white noise.
-        duration(:any:`DoubleValue`): The duration in seconds to play the white noise wave.
+        wave_out(:any:`DoubleValue`): variable onto which the white noise wave plays.
+        amplitude(:any:`DoubleValue`): amplitude of the white noise wave.
+        seed(:any:`I32Value`): seed for random number generator.
+        duration(:any:`DoubleValue`): duration, in seconds, to play the white noise wave.
     """
     x_seed = I32Value(0)
     y_seed = I32Value(0)

@@ -8,16 +8,15 @@ from niveristand.library.primitives import quotient, seqtime, tickcountms, tickc
 @nivs_rt_sequence
 def wait(duration):
     """
-    Wait `duration` seconds.
+    Waits the duration, in seconds, you specify.
 
     Args:
-        duration (:class:`niveristand.clientapi.DoubleValue`): seconds to wait.
+        duration (:any:`DoubleValue`): time, in seconds, this function waits. You may specify fractions of seconds.
 
     Returns:
-        float: seconds waited.
+        float: actual seconds waited.
 
-    This is a non-blocking wait. Other tasks will be allowed to run.
-    Fractions of a second are allowed.
+    This wait is non-blocking, so other tasks will run while this wait executes.
 
     """
     init_time = DoubleValue(0)
@@ -33,15 +32,15 @@ def wait(duration):
 @nivs_rt_sequence
 def wait_until_next_ms_multiple(ms_multiple):
     """
-    Wait until the next millisecond multiple of `ms_multiple`.
+    Waits until the next millisecond multiple of the number you specify in `ms_multiple`.
 
     Args:
-        ms_multiple(:class:`niveristand.clientapi.I64Value`): the millisecond multiple to wait until.
+        ms_multiple(:any:`I64Value`): the millisecond multiple to wait until.
 
     Returns:
-        int: milliseconds waited.
+        int: actual milliseconds waited.
 
-    This is a non-blocking wait. Other tasks will be allowed to run.
+    This wait is non-blocking, so other tasks will run while this wait executes.
 
     """
     ticks = I64Value(0)
@@ -66,15 +65,15 @@ def wait_until_next_ms_multiple(ms_multiple):
 @nivs_rt_sequence
 def wait_until_next_us_multiple(us_multiple):
     """
-    Wait until the next microsecond multiple of `us_multiple`.
+    Wait until the next microsecond multiple of the number you specify in `us_multiple`.
 
     Args:
-        us_multiple(:class:`niveristand.clientapi.I64Value`): the microsecond multiple to wait until.
+        us_multiple(:any:`I64Value`): the microsecond multiple to wait until.
 
     Returns:
-        int: microseconds waited.
+        int: actual microseconds waited.
 
-    This is a non-blocking wait. Other tasks will be allowed to run.
+    This wait is non-blocking, so other tasks will run while this wait executes.
 
     """
     ticks = I64Value(0)
@@ -103,20 +102,23 @@ def wait_until_next_us_multiple(us_multiple):
 @nivs_rt_sequence
 def wait_until_settled(signal, upper_limit, lower_limit, settle_time, timeout):
     """
-    Wait until `signal` settles for `settle_time` seconds.
+    Waits until `signal` settles for the amount of time you specify in `settle_time`.
 
     Args:
-        signal(:class:`niveristand.clientapi.DoubleValue`): the value to monitor.
-        upper_limit(:class:`niveristand.clientapi.DoubleValue`): upper limit of settle range.
-        lower_limit(:class:`niveristand.clientapi.DoubleValue`): lower limit of settle range.
-        settle_time(:class:`niveristand.clientapi.DoubleValue`): seconds `signal` must stay inside range.
-        timeout(:class:`niveristand.clientapi.DoubleValue`): seconds to wait before giving up.
+        signal(:any:`DoubleValue`): value to monitor.
+        upper_limit(:any:`DoubleValue`): maximum value of the settle range.
+        lower_limit(:any:`DoubleValue`): minimum value of the settle range.
+        settle_time(:any:`DoubleValue`): time, in seconds, `signal` must stay inside the settle range.
+        timeout(:any:`DoubleValue`): seconds to wait before the function times out.
 
     Returns:
-        bool: True if the signal failed to settle within the timeout. False otherwise.
+        bool:
 
-    This is a non-blocking wait. Other tasks will be allowed to run.
-    Fractions of a second are allowed.
+        True: The signal failed to settle before the operation timed out.
+        False: The signal settled before the operation timed out.
+
+
+    This wait is non-blocking, so other tasks will run while this wait executes.
 
     """
     init_time = DoubleValue(0)

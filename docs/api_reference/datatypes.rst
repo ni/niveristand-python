@@ -57,7 +57,7 @@ NI VeriStand Data types
     * (int, float): all valid values.
     * bool: True (1.0), False (0.0)
 
-   Non-float values will be converted to their closest floating-point representation. Scientific notation is supported.
+   Non-float values are converted to their closest floating-point representation. Scientific notation is supported.
 
     Examples:
 
@@ -87,7 +87,7 @@ NI VeriStand Data types
     * (int, float): [-2,147,483,648 to 2,147,483,647]
     * bool: True (1), False (0)
 
-   Floating-point values will be rounded down. Scientific notation is supported.
+   Floating-point values are rounded down. Scientific notation is supported.
 
     Examples:
 
@@ -116,7 +116,7 @@ NI VeriStand Data types
        * (int, float): [–9,223,372,036,854,775,808 to 9,223,372,036,854,775,807]
        * bool: True (1), False (0)
 
-      Floating-point values will be rounded down. Scientific notation is supported.
+      Floating-point values are rounded down. Scientific notation is supported.
 
        Examples:
 
@@ -147,7 +147,7 @@ NI VeriStand Data types
        * (int, float): [0 to 4,294,967,295]
        * bool: True (1), False (0)
 
-      Floating-point values will be rounded down. Scientific notation is supported.
+      Floating-point values are rounded down. Scientific notation is supported.
 
        Examples:
 
@@ -178,7 +178,7 @@ NI VeriStand Data types
       * (int, float): [0 to 18,446,744,073,709,551,615]
       * bool: True (1), False (0)
 
-      Floating-point values will be rounded down. Scientific notation is supported.
+      Floating-point values are rounded down. Scientific notation is supported.
 
       Examples:
 
@@ -205,7 +205,7 @@ NI VeriStand Data types
 
     Valid initialization values:
 
-    * string: the path or alias for the channel.
+    * string: path or alias for the channel.
 
     Examples:
 

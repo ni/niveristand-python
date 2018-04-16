@@ -19,12 +19,12 @@ from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import Referenc
 
 class RealTimeSequence:
     """
-    A Real-Time sequence that can be run on the VeriStand Engine.
+    A real-time sequence that can run on the VeriStand Engine.
 
     Args:
         top_level_func: the function to transform.
-        rtseq_pkg(:class:`RealTimeSequencePackage`): the containing package in case this sequence
-                                                     is to be added to a library.
+        rtseq_pkg(:class:`RealTimeSequencePackage`): the containing package in case you want to add this sequence to a
+                                                    library.
 
     Raises:
         :class:`niveristand.errors.TranslateError`: if translation fails
@@ -46,13 +46,14 @@ class RealTimeSequence:
         Run the sequence on the globally configured VeriStand Engine.
 
         Args:
-            timeout_within_each_step (Optional[int]): Timeout for each step before execution is aborted.
+            timeout_within_each_step (Optional[int]): Time, in milliseconds,
+                each step waits before execution is aborted.
 
         Returns:
-            :class:`niveristand.clientapi.StimulusProfileState`: the stimulus profile session state.
+            :class:`niveristand.clientapi.StimulusProfileState`: Stimulus profile session state.
 
-        Deploys and runs the sequence without waiting for it to finish. Use the returned :class:`StimulusProfileState`
-        to wait for completion and obtain return value.
+        Deploys and runs the sequence without waiting for the sequence to finish. Use the returned
+        :class:`StimulusProfileState` to wait for the sequence to complete and obtain the return value.
 
         For a simpler use case, refer to :func:`niveristand.realtimesequencetools.run_py_as_rtseq`
 
@@ -70,16 +71,14 @@ class RealTimeSequence:
         Save this sequence to disk.
 
         Args:
-            path(Optional[str]): the location to save this sequence.
+            path(Optional[str]): path to the location you want to save the sequence file.
 
         Returns:
-            The path used for saving the sequence.
+            path you specify in **path**.
 
-        All dependencies required for deployment of this sequence will be saved to the same path.
-        If `path` is `None` this sequence will be saved to:
-
-        * a temporary folder if it was not saved previously.
-        * the previous location this sequence object was saved to.
+        All dependencies required for deployment of this sequence save to the same path.
+        If **path** is *None* this sequence saves to the location where you last saved the object. If you did not
+        previously save the object, it saves to a temporary folder.
 
         For a simpler use case, refer to :func:`niveristand.realtimesequencetools.save_py_as_rtseq`
 

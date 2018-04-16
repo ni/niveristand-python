@@ -4,12 +4,12 @@
 Restrictions
 ============
 
-A collection of all restrictions inside a function using the :any:`nivs_rt_sequence` decorator. Any violation to these rules causes a :any:`TranslateError`.
+The following section contains a list of all restrictions inside a function using the :any:`nivs_rt_sequence` decorator. If you violate any of the following rules, a :any:`TranslateError` occurs.
 
 Assignment
 ----------
 
-- Value assignment to an already existing variable only works through the `value` property of the object.
+- To assign values to an existing variable, you must use the `value` property of the object.
 
     .. code-block:: python
 
@@ -34,7 +34,7 @@ Assignment
 Conditional
 -----------
 
-- If statements only allow for bool checks. Numbers, numeric data type declarations or numeric variables are not allowed.
+- If statements only allow for boolean checks. You cannot use numbers, numeric data type declarations, or numeric variables inside `If` statements.
 
     .. code-block:: python
 
@@ -50,7 +50,7 @@ Conditional
         if BooleanValue(True):
         if bool_var.value
 
-- Numeric constants and data type declarations are not allowed inside if expressions.
+- You cannot use numeric constants or data type declarations inside `If` expressions.
 
     .. code-block:: python
 
@@ -68,9 +68,10 @@ Conditional
 Data Types
 ----------
 
-- Vector channel references will only work when running sequences deterministically.
+- Vector channel references will only work when you run sequences deterministically.
 
-- Only channel references can be initialized with strings. All other data type declarations will fail. Exception from this rule makes the BooleanValue which works for 'true', 'false', 'True' and 'False'.
+- Only channel references can be initialized with strings. All other data type declarations will fail.
+    * Note: The BooleanValue data type is an exception to this rule. You can initialize BooleanValue with 'true' 'false' 'True' and 'False'.
 
     .. code-block:: python
 
@@ -100,7 +101,7 @@ Data Types
 Error Generation
 ----------------
 
-- Generating an error is only allowed to have integer constants as error code, strings as error message and ErrorAction members as the error action.
+-  When you generate an error, you can only use integer constants for the error code parameter, strings for the error message parameter, and ErrorAction members as the error action parameter.
 
     .. code-block:: python
 
@@ -118,7 +119,7 @@ Functions
 Built-in Math Functions
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-- Passing down an NI VeriStand Data Type directly as a parameter of these functions is not allowed. As an alternative a variable or a data type declaration using the `value` property should be passed down.
+- You cannot pass down an NI VeriStand data type directly as a parameter of the built-in math functions. As an alternative, you can pass a variable or data type declaration to these functions using the `value` property.
 
     .. code-block:: python
 
@@ -129,13 +130,13 @@ Built-in Math Functions
         int_var.value = abs(I32Value(-1).value)
         int_var.value = abs(int_var.value)
 
-- BooleanValue for `abs` behaves differently between Python and SPE.
+- BooleanValue for `abs` behaves differently between Python and Stimulus Profile Editor.
 
     .. code-block:: python
 
         bool_var = BooleanValue(-5)
         bool_var.value = abs(bool_var.value)
-        return bool_var.value # This is False in Stimulus Profile Editor, while True in Python.
+        return bool_var.value # This returns False in the Stimulus Profile Editor but returns True in Python.
 
 Built-in VeriStand Functions
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -145,14 +146,19 @@ Built-in VeriStand Functions
 Function Definitions
 --------------------
 
-- It is not allowed to define new functions inside an if block, a loop or a task.
+- You cannot define new functions inside an `if` block, a loop, or a task.
 
-- `*args` and `kwargs` are not supported.
+- The `*args` and `kwargs` variables are not supported.
 
 Loops
 -----
 
-- For loops do not support else blocks, ranges with start value, ranges with step value, ranges using a channel reference or constant arrays.
+- `For Loops` do not support:
+    * `else` blocks
+    * ranges with a start value
+    * ranges with a step value
+    * ranges that use a channel reference
+    * ranges that use array constants
 
     .. code-block:: python
 
@@ -167,7 +173,10 @@ Loops
         for x in range(channel_ref.value): # This is not allowed.
         for x in [1, 2, 3]: # This is not allowed.
 
-- While loops do not support numeric constants as their condition, else blocks or break statements.
+- `While Loops` do not support:
+    * using `else` blocks
+    * using a numeric constant as the condition
+    * using `break` statements
 
     .. code-block:: python
 
@@ -189,7 +198,7 @@ Operators
 Add
 ^^^
 
-- Several pluses one after another are not supported. Always use one.
+- You cannot use several pluses one after another. Always use one. If you violate this rule a :any:`TranslateError` occurs.
 
     .. code-block:: python
 
@@ -270,7 +279,7 @@ Unary Invert
 Parameters
 ----------
 
-- Passing an immutable (such as the `value` property of an NI VeriStand Data Type) down as parameter by reference will not actually pass it by reference when the code is run in Python. This works well in the deterministic mode.
+- If you need to pass an immutable object (such as the `value` property of an NI VeriStand data type) by reference, you must run your code deterministically. Otherwise, the parameter will not actually pass by reference when you run the code in Python.
 
     .. code-block:: python
 
@@ -285,16 +294,16 @@ Parameters
         def call_increment_by_ref():
             int_var = I32Value(1)
             _increment_by_ref(int_var.value)
-            return int_var.value # This will return 1 in Python, while 2 in SPE.
+            return int_var.value # This will return 1 in Python, while 2 in the Stimulus Profile Editor.
 
 Return Statements
 -----------------
 
 - A function can only have a single return statement and it has to be the last line of the function.
 
-- Return statements are not allowed inside an if block, a try block, a finally block, a loop, a multitask or a task.
+- You cannot use return statements inside an `if` block, a `try` block, a `finally` block, a loop, a multitask, or a task.
 
-- Only scalar values can be returned and the value has to be returned, not the object.
+- Return statements can only return scalar values through the `value` property.
 
     .. code-block:: python
 
@@ -311,7 +320,7 @@ Return Statements
 Tasks
 -----
 
-- Tasks with the same name are not allowed.
+- You cannot create more than one task with the same name.
 
     .. code-block:: python
 
@@ -323,7 +332,7 @@ Tasks
             def f1(): # Task with the same name already exists.
                 pass
 
-- Multitasks and tasks are not allowed to have parameters.
+- You cannot create parameters for tasks or multitasks.
 
     .. code-block:: python
 
@@ -336,11 +345,17 @@ Try
 
 - Try is only allowed to be the first statement of a function.
 
-- It is not allowed to have a try inside another try, to be in an if block, else block, a loop, a task or a multitask.
+- You cannot use a `try` statement within:
+    * another `try` statement
+    * an `if` block
+    * an `else` block
+    * a loop
+    * a task
+    * a multitask
 
-- Try with except or orelse is not supported. Only the try-finally construct is supported.
+- You cannot use a `try` statement with `except` or `orelse`.
 
 Yield
 -----
 
-- It is not allowed to use yield as an operator or parameter.
+- You cannot use `yield` as an operator or parameter.

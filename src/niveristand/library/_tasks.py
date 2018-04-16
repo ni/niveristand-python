@@ -14,9 +14,9 @@ def get_scheduler():
 @contextmanager
 def multitask():
     """
-    Create a multitask context for branching execution.
+    Creates a multitask context for branching execution.
 
-    Refer to :ref:`_multitask_usage` for more details on branching execution.
+    Refer to :func:`niveristand.library.multitask` for more details on branching execution.
     """
     multitask_info = _MultiTaskInfo()
     yield multitask_info
@@ -41,9 +41,9 @@ def multitask():
 
 def nivs_yield():
     """
-    Yield execution from this task or block to the next.
+    Yields execution from this task or block to the next.
 
-    Refer to :ref:`_multitask_usage` for more details on yielding to other tasks.
+    Refer to :func:`niveristand.library.multitask` for more details on yielding to other tasks.
     """
     s = get_scheduler()
     task = s.thread_yielded()
@@ -302,13 +302,14 @@ class _Scheduler(object):
 
 def stop_task(task_function):
     """
-    Signal the specified task to stop.
+    Stops the task you specify.
 
     Args:
-        task_function: a task function previously declared inside a :func:`multitask` context.
+        task_function:  task function you want to stop. You must have previously declared the task function inside
+                        a :func:`multitask` context.
 
 
-    Refer to :ref:`_multitask_usage` for more details on stopping tasks.
+    Refer to :func:`niveristand.library.multitask` for more details on stopping tasks.
     """
     task = get_scheduler().get_task_by_name(task_function.__name__)
     if task:
