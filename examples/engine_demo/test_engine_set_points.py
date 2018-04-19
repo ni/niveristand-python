@@ -5,10 +5,10 @@ from niveristand.library import localhost_wait, seqtime, wait_until_settled
 
 """ This module contains a complex example for running multiple tests in sequence.
 
-This example is based on the 'Test Engine Setpoints' stimulus profile found in the examples installed with VeriStand.
+This example mirrors the 'Test Engine Setpoints' stimulus profile found in the examples that install with VeriStand.
 
-Instead of using a Stimulus Profile to report results, it uses the py.test unit-testing framework that is commonly used
-for running python tests.
+Instead of using a Stimulus Profile to report results, this example uses the py.test
+unit-testing framework that is commonly used for running python tests.
 """
 
 
@@ -20,18 +20,17 @@ def set_engine_power(on_off):
     engine_power.value = on_off.value
 
 
-# Where are the parameter decorator markers?
-# If no parameter decorator is found for a particular parameter, it will default to the following
+# If you do not specify a parameter decorator, the parameter defaults to the following:
 # Type=DoubleValue
 # Default Value = 0
 # Passed by reference.
-# In this case, that default is adequate so there's no need to specify it.
+# In this case, the default is adequate, so you do not need to specify the decorator.
 @nivs_rt_sequence
 def measure_set_point_response(setpoint, timeout, tolerance):
     """Set the desired rpm to the specified setpoint and wait until the signal settles.
 
     The tolerance is used to create upper and lower boundaries for the signal.
-    Returns the amount of time it took to settle, or timeout if it didn't.
+    Returns the amount of time it takes the signal to settle or timeout.
     """
     actual_rpm = ChannelReference('Aliases/ActualRPM')
     desired_rpm = ChannelReference('Aliases/DesiredRPM')
@@ -39,7 +38,7 @@ def measure_set_point_response(setpoint, timeout, tolerance):
     settle_time = DoubleValue(0)
 
     desired_rpm.value = setpoint.value
-    # wait a little bit so the gateway has a chance to update if we're running from the host.
+    # Waits .5 seconds, so the gateway has time to update.
     localhost_wait(0.5)
 
     start_time.value = seqtime()
@@ -56,12 +55,12 @@ def measure_set_point_response(setpoint, timeout, tolerance):
 def inbounds_check(test_value, upper, lower):
     """Return True if lower <= value <= upper.
 
-    A simple helper to do an inbounds check.
+    Performs an inbounds check.
     """
     result = BooleanValue(False)
-    # Even though python supports cascading operators and this instruction could be written as
-    # lower.value <= test_value.value <= upper.value
-    # for Real-Time sequences all comparisons must be done on only two operators.
+    # Typically, you could write this instruction as lower.value <= test_value.value <= upper.value
+    # because Python supports cascading operators. However, for real-time sequences,
+    # you must write all comparisons using only two operands.
     result.value = test_value.value >= lower.value and test_value.value <= upper.value
     return result.value
 
@@ -76,10 +75,10 @@ def engine_set_points_profile():
         test3_passed = BooleanValue(False)
         seq_res = DoubleValue(0)
 
-        # turn on the engine
+        # Turn on the engine.
         set_engine_power(True)
 
-        # Each test case changes the desired rpm and then we check if we settled within 60 seconds
+        # Each test changes the desired rpm and checks to see if the signal settles within 60 seconds.
         seq_res.value = measure_set_point_response(DoubleValue(2500), DoubleValue(60), DoubleValue(100))
         test1_passed.value = inbounds_check(seq_res.value, DoubleValue(60), DoubleValue(0))
 
@@ -96,13 +95,14 @@ def engine_set_points_profile():
     return all_passed.value
 
 
-# This function will run the profile above deterministically. It will be found by unit test frameworks like py.test.
+# The following function runs the profile above deterministically.
+# A unit test framework, such as py.test, can find the function.
 def test_run_engine_set_points_profile_deterministic():
     result = run_py_as_rtseq(engine_set_points_profile)
     assert result is True
 
 
-# This function can be run as part of a py.test run if determinism is not a concern.
+# If you do not need to run the profile deterministically, you can run this function as part of a py.test run.
 def test_run_engine_set_points_python():
     set_engine_power(True)
     setpoints = DoubleValueArray([2500, 6000, 3000])

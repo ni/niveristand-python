@@ -6,23 +6,22 @@ Basic Examples
 
 Writing a sequence
 ------------------
-A Python Real-Time Sequence is a Python function that has been decorated with the :any:`niveristand.nivs_rt_sequence` decorator.
-For example, here we have sequence that will call a function and check the result.
+A Python real-time sequence is a Python function decorated with the :any:`niveristand.nivs_rt_sequence` decorator.
+For example, the following sequence calls a function and checks the result.
 
 .. literalinclude:: ../examples/basic_examples.py
    :language: python
    :linenos:
    :pyobject: call_add_two_numbers_test
 
-The function that gets called also takes in some parameters.
-Parameters need to be defined with the :any:`niveristand.NivsParam` decorator.
+The function also takes in some parameters. You must define parameters using the :any:`niveristand.NivsParam` decorator.
 
 .. literalinclude:: ../examples/basic_examples.py
    :language: python
    :linenos:
    :pyobject: add_two_numbers
 
-Finally, we can run our test either in a non-deterministic way just like any python function:
+You can now run the test just like any other python function. You can run it non-deterministically, as in the following example:
 
 .. literalinclude:: ../examples/basic_examples.py
    :language: python
@@ -32,7 +31,7 @@ Finally, we can run our test either in a non-deterministic way just like any pyt
    :end-before: DETERMINISTIC
    :emphasize-lines: 2
 
-Or run it deterministically on the VeriStand Engine our system is able to connect to.
+Or, you can run the test deterministically on the VeriStand engine connected to your system.
 
 .. literalinclude:: ../examples/basic_examples.py
    :language: python
@@ -41,10 +40,10 @@ Or run it deterministically on the VeriStand Engine our system is able to connec
    :start-after: DETERMINISTIC
    :emphasize-lines: 2
 
-Combining the legacy API with Real-Time sequences
+Combining the legacy API with real-time sequences
 -------------------------------------------------
 
-The :doc:`api_reference/legacy` can be mixed with python Real-Time sequences
+The :doc:`api_reference/legacy` can be mixed with python real-time sequences
 to create a fully-automated test environment.
 
 .. literalinclude:: ../examples/legacy_mix.py

@@ -7,19 +7,19 @@ Getting Started
 Features
 ========
 
-This is an overview of the features included in **niveristand**
+**niveristand** allows you to:
 
-- Convert and save to a file Python functions into Real-Time Sequences compatible with the NI VeriStand engine and Stimulus Profile Editor.
+- Convert Python functions into NI VeriStand real-time (RT) sequences that are compatible with the NI VeriStand engine and Stimulus Profile Editor and save the converted Python functions to a file.
 - Run test sequences in two different modes:
 
    - Deterministic Mode
-      deploy a Real-Time Sequence to a running NI VeriStand system and execute in real-time.
+      deploys a real-time sequence to running NI VeriStand system and executes the sequence in real-time.
    - Python Mode
-      run a test sequence from a host machine that communicates with an NI VeriStand system through the Gateway.
+      runs a test sequence from a host machine that communicates with an NI VeriStand system through the Gateway.
+      Python mode emulates the behavior of Deterministic mode. Python mode is useful in the following cases:
 
-      - Emulates the behavior of running in Deterministic Mode.
-      - Useful for debugging.
-      - Take full advantage of the Python ecosystem.
+      - You need to debug your real-time sequence.
+      - You want to take full advantage of the Python ecosystem.
 
 .. include:: ../README.rst
    :start-after: _installation_section:

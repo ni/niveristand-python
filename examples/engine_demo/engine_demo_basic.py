@@ -2,25 +2,24 @@ from niveristand import nivs_rt_sequence, NivsParam, realtimesequencetools
 from niveristand.clientapi import BooleanValue, ChannelReference, DoubleValue
 from niveristand.library import wait
 
-""" This module contains a basic example of how to create an RT sequence in python.
+""" This module contains a basic example of how to create an RT sequence in Python.
 
-This example mirrors 'Engine Demo Basic' in the examples that get installed with VeriStand.
-Please refer to that Stimulus Profile for details on what this example tries to achieve.
+This example mirrors the 'Engine Demo Basic' example that installs with VeriStand.
+Open the 'Engine Demo Basic' stimulus profile to help you understand the following example.
 """
 
 
-# RT Sequences need to be marked as such with this decorator.
+# You must mark RT sequences with the following decorator:
 @nivs_rt_sequence
-# We also need to know the data type and default value of parameters,
-# as well as whether they should be passed by value or by reference.
+# You must also specify parameter data types, default values, and whether to pass parameters by value or by reference.
 @NivsParam('engine_power', BooleanValue(0), NivsParam.BY_REF)
 @NivsParam('desired_rpm', DoubleValue(0), NivsParam.BY_REF)
 def engine_demo_basic(engine_power, desired_rpm):
-    """Turn on the engine, set the desired_rpm to the passed value for 20 seconds, then shut down.
+    """Turn on the engine, set the desired_rpm to the passed value for 20 seconds, and shut down the engine.
 
-    Parameters passed in need to be accessed through their ".value" property.
+    You must access parameters through their ".value" property.
     """
-    # Channel references can also be specified.
+    # You can access a channel with a ChannelReference
     engine_power_chan = ChannelReference('Aliases/EnginePower')
     desired_rpm_chan = ChannelReference('Aliases/DesiredRPM')
     engine_power_chan.value = engine_power.value
@@ -32,21 +31,20 @@ def engine_demo_basic(engine_power, desired_rpm):
 
 @nivs_rt_sequence
 def run_engine_demo():
-    """Set up channel references and call the actual test."""
-    # Calling into another RT Sequence is just as calling a normal python function.
-    # However, when passing by reference, strongly-typed objects need to be created.
+    """Sets up channel references and calls the actual test."""
+    # You can call an RT sequence the same way you call a normal Python function.
+    # However, if you pass functions by reference you must create strongly-typed objects.
     engine_demo_basic(BooleanValue(True), DoubleValue(2500))
 
 
 def run_non_deterministic():
-    """Run the sequence in a non-deterministic way.
+    """Run the sequence non-deterministically.
 
-    This function will execute the RT Sequence on the host using the public ClientAPI
-    that is already available to VeriStand users. It will communicate to the gateway to
-    set and get channel values.
+    This function executes the RT Sequence on the host using the public ClientAPI
+    that installs with VeriStand. This function communicates with the gateway to set and get channel values.
 
-    If using a python IDE, it's possible to debug this function as any other python function,
-    so setting breakpoints, stepping into and over statements, etc., will work as expected.
+    If you use a Python integrated developer environment (IDE),
+    you can debug this function like a normal Python function.
     """
     run_engine_demo()
 
@@ -54,10 +52,10 @@ def run_non_deterministic():
 def run_deterministic():
     """Compile the sequence and run it deterministically inside the VeriStand engine.
 
-    As the actual sequence won't be executed by python, debugging won't be available. Also, only
-    functions marked as @nivs_rt_sequence will be accepted.
+    You cannot use debugging tools at this stage because VeriStand executes the sequence, not Python.
+    If you do not mark the functions as @nivs_rt_sequence, Python will raise a :any:`niveristand.errors.VeristandError`.
     """
-    # The run_py_as_rtseq function takes as a parameter the function that should be called.
+    # The run_py_as_rtseq function accepts as a parameter the Python function you want to call as an RT sequence.
     realtimesequencetools.run_py_as_rtseq(run_engine_demo)
 
 

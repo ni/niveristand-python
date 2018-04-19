@@ -43,26 +43,26 @@ def run_add_two_numbers_tests():
 @nivs_rt_sequence
 def array_operations():
     """
-    Show various operations you can do with array data types in a real-time sequence.
+    Shows operations you can perform with array data types in a real-time sequence.
 
     An array can hold multiple values of the same data type. You cannot have arrays of arrays.
-    Use arrays to pass around buffers of data for playback or storage.
+    Use arrays to pass buffers of data for playback or storage.
 
     Returns:
-        float: the sum of all values in the array.
+        float: sum of all values in the array.
 
     """
     var = DoubleValue(0)
     arr_size = I64Value(0)
     array = DoubleValueArray([0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100])
 
-    # Index a value out of an array
+    # Indexes a value out of an array.
     var.value = array[4].value + 100
-    # Update a value in an array
+    # Updates a value in an array.
     array[2].value = 6.0
-    # Get the size of an array
+    # Gets the size of an array.
     arr_size.value = arraysize(array)
-    # Loop over each element of an array. Each iteration a value from the array is copied into x.
+    # Loops over each element of an array. Each time the loop iterates a value from the array is copied into x.
     var.value = 0.0
     for x in array:
         var.value += x
@@ -72,12 +72,12 @@ def array_operations():
 @nivs_rt_sequence
 def measure_elapsed_time():
     """
-    Show a number of ways to measure elapsed time in a sequence.
+    Shows different ways to measure elapsed time in a sequence.
 
-    You can measure time in milliseconds, microseconds, or in seconds.
+    You can measure time in milliseconds, microseconds, or seconds.
 
     Returns:
-        int: milliseconds it took to run this sequence.
+        int: time, in milliseconds, it took to run this sequence.
 
     """
     seqtime_timer = DoubleValue(0)
@@ -85,17 +85,17 @@ def measure_elapsed_time():
     tick_ms_timer = I64Value(0)
     tick_us_timer = I64Value(0)
 
-    # These steps capture an initial timestamp in various ways.
+    # The following steps demonstrate different ways you can capture an initial timestamp.
     seqtime_timer.value = seqtime()
     seqtime_us_timer.value = seqtimeus()
     tick_ms_timer.value = tickcountms()
     tick_us_timer.value = tickcountus()
 
-    # Simulated work to time.
+    # Simulates work to time.
     while iteration() < 1000:
         nivs_yield()
 
-    # Measure the elapsed time by subtracting the initial timestamp from the current time
+    # Measures the elapsed time by subtracting the initial timestamp from the current time.
     seqtime_timer.value = seqtime() - seqtime_timer.value
     seqtime_us_timer.value = seqtimeus() - seqtime_us_timer.value
     tick_ms_timer.value = tickcountms() - tick_ms_timer.value
@@ -112,7 +112,7 @@ def state_machine_example():
     stop = BooleanValue(False)
     output = ChannelReference('Aliases/DesiredRPM')
 
-    while stop.value != True and iters.value < 10:  # noqa: E712 it's recommended to use comparison isntead of identity.
+    while stop.value != True and iters.value < 10:  # noqa: E712 NI recommends you use comparison instead of identity.
         state.value = rand(7)
         if state.value == 0:
             wait(2)

@@ -7,46 +7,39 @@ Author       National Instruments
 
 About
 =====
-The **niveristand** package contains an API (Application Programming Interface)
-for interacting with NI VeriStand systems. The package is implemented in Python.
-This package was created and is supported by NI.
+The **niveristand** package contains an API (Application Programming Interface) that interacts with NI VeriStand systems.
+It is implemented in Python. NI created and supports this package.
 
-**niveristand** |version| supports the following versions of NI VeriStand:
+Requirements
+============
+**niveristand** |version| has the following requirements:
 
-- NI VeriStand 2017
-- NI VeriStand 2018
-
-The **niveristand** package requires installation of NI VeriStand on the system running the python code.
-
-**niveristand** supports only the Windows operating system.
-
-**niveristand** supports CPython 2.7 and 3.5+.
+* NI VeriStand 2018 running on the same system as the python code.
+* 64-bit version of Windows 10/8.1/7
+* CPython 2.7 or 3.5+
 
 .. _installation_section:
 
 Installation
 ============
-Running **niveristand** requires NI VeriStand. Visit `ni.com/veristand <http://www.ni.com/veristand/>`_ for information on how to get the latest version of NI VeriStand.
 
-**niveristand** can be installed with `pip <http://pypi.python.org/pypi/pip>`_::
+To install **niveristand** use one of the following methods:
 
-  $ python -m pip install niveristand
+1. `pip <http://pypi.python.org/pypi/pip>`_::
 
-Or **easy_install** from
-`setuptools <http://pypi.python.org/pypi/setuptools>`_::
+   $ python -m pip install niveristand
+2. **easy_install** from `setuptools <http://pypi.python.org/pypi/setuptools>`_::
 
-  $ python -m easy_install niveristand
+   $ python -m easy_install niveristand
+3. Download the project source and run the following script::
 
-You also can download the project source and run::
-
-  $ python setup.py install
-
+   $ python setup.py install
 
 .. _usage_section:
 
 Usage
 =====
-Refer to :doc:`basic_examples` for details on how to write a Python Real-Time Sequence.
+Refer to :doc:`basic_examples` for detailed information on how to write a Python real-time sequence.
 
 .. _support_section:
 
@@ -72,7 +65,7 @@ Additional Documentation
 TODO: Get a real code for the VS docs!
 
 Refer to the `NI VeriStand Help <http://digital.ni.com/express.nsf/bycode/exagg4>`_
-for detailed information on setting up a system and running Real-Time test scenarios.
+for detailed information on setting up a system and running real-time test scenarios.
 
 NI VeriStand Help installs only with the full version of NI VeriStand.
 
