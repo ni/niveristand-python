@@ -88,6 +88,7 @@ class Resources:
             raise errors.TranslateError(_errormessages.param_description_no_param)
         rt_seq_param_name = _prepend_param_name(param_name)
         self._parameters[param_name] = _Parameter(rt_seq_param_name, default_value, by_value)
+        self._local_variables[param_name].py_value = default_value
 
 
 def _prepend_param_name(name):

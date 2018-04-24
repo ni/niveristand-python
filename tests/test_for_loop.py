@@ -1,10 +1,10 @@
 import sys
-from niveristand import nivs_rt_sequence
+from niveristand import nivs_rt_sequence, NivsParam
 from niveristand import realtimesequencetools
 from niveristand.clientapi import ChannelReference, DoubleValue, DoubleValueArray, I32Value
 from niveristand.clientapi import RealTimeSequence
 from niveristand.errors import TranslateError, VeristandError
-from niveristand.library.primitives import localhost_wait
+from niveristand.library.primitives import arraysize, localhost_wait
 import pytest
 from testutilities import rtseqrunner, validation
 
@@ -186,6 +186,24 @@ def for_funcdef_in_body():
         pass
 
 
+@nivs_rt_sequence
+@NivsParam('array', DoubleValueArray([0]), NivsParam.BY_REF)
+def _average(array):
+    average_var = DoubleValue(0)
+    for x in array:
+        average_var.value += x.value
+    average_var.value /= arraysize(array.value)
+    return average_var.value
+
+
+@nivs_rt_sequence
+def call_average():
+    a = DoubleValueArray([1, 2, 3, 4, 5])
+    res = DoubleValue(0)
+    res.value = _average(a)
+    return res.value
+
+
 run_tests = [
     (for_loop_variable_array, (), 15),
     (for_loop_variable_array1, (), 15),
@@ -197,6 +215,7 @@ run_tests = [
     (for_loop_iterate_on_array, (), 45),
     (nested_for_loop, (), 19),
     (nested_for_loop_body, (), 1),
+    (call_average, (), 3),
 ]
 
 fail_transform_tests = [
