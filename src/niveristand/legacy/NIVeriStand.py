@@ -174,58 +174,56 @@ def SetLogInfoChannels(logInfo, logChannelList):
 
 # Workspace definition
 class Workspace:
-    """Interface to control the running state of the system and access the channels in the system."""
+    """Interface that controls the running state of the system and accesses the channels in the system."""
 
     def __init__(self):
         self.iwks = Factory().GetIWorkspace()
 
     def GetEngineState(self):
-        """Return the current state of the system."""
+        """Returns the current state of the system."""
         data = self.iwks.GetEngineState(0, "", "", "")
         _RaiseException_(data[0])
         return {'state': self._NetSystemStateToPy_(data[1]), 'workspace_file': data[2],
                 'systemdefinition_file': data[3], 'ip_address': data[4]}
 
     def RunWorkspaceFile(self, file, launchworkspacewindow, deploysystemdefinition, timeout, username, password):
-        """Start running on the specified workspace configuration file.
+        """Runs the workspace configuration file you specify.
 
-        Function error out when there is already a configuration running.
-        Caller need to explicitly stop the running configuration.
-        Function will wait for the specified timeout.
-        If the process timeout, the deployment process might have taken longer than expected,
-        check the status of the system with GetEngineState function.
+        Raises an error if you call this function while a configuration is already running.
+        You must stop all running configurations before you call this function.
+        If this function times out, check to see if the deployment process took longer than expected
+        and caused the operation to timeout. Use the GetEngineState function to check the status of the system.
         """
         _RaiseException_(
             self.iwks.RunWorkspaceFile(file, launchworkspacewindow, deploysystemdefinition, timeout, username,
                                        password))
 
     def StopWorkspaceFile(self, password):
-        """Stop the current configuration."""
+        """Stops the execution of the currently running configuration."""
         _RaiseException_(self.iwks.StopWorkspaceFile(password))
 
     def LockWorkspaceFile(self, old_password, new_password):
         """
-        Lock the currently running configuration.
+        Locks the configuration that is currently running.
 
-        Function succeed if there is a running configuration.
-        If the currently running configuration has an existing password
-        the user need to provide the current password in old_password.
+        This function will only succeed if a configuration is currently running.
+        If this configuration was locked previously, you must enter the previous password in `old_password`.
         """
         _RaiseException_(self.iwks.LockWorkspaceFile(old_password, new_password))
 
     def UnlockWorkspaceFile(self, password):
-        """Unlock the currently running configuration."""
+        """Unlocks the currently running configuration."""
         _RaiseException_(self.iwks.UnlockWorkspaceFile(password))
 
     def GetSingleChannelValue(self, name):
-        """Get the channel value."""
+        """Acquires the value of the channel you specify."""
         data = 0.0
         data = self.iwks.GetSingleChannelValue(name, data)
         _RaiseException_(data[0])
         return data[1]
 
     def GetMultipleChannelValues(self, names):
-        """Get multiple channel values."""
+        """Acquires values from the channels you specify."""
         tuppleNames = _ConvertListParamToTuple_(names)
         data = self.iwks.GetMultipleChannelValues(tuppleNames, None)
         _RaiseException_(data[0])
@@ -235,33 +233,33 @@ class Workspace:
         return values
 
     def GetChannelVectorValues(self, name):
-        """Get a channel vector values."""
+        """Acquires the vector value of the channel you specify."""
         zero = System.UInt32(0)
         data = self.iwks.GetChannelVectorValues(name, zero, zero, None)
         _RaiseException_(data[0])
         return _Convert1DARRVALTOMATRIX_(data[1], data[2], data[3])
 
     def SetSingleChannelValue(self, name, value):
-        """Set the channel value."""
+        """Sets the value for the channel you specify."""
         _RaiseException_(self.iwks.SetSingleChannelValue(name, float(value)))
 
     def SetMultipleChannelValues(self, names, values):
-        """Set the multiple channels."""
+        """Sets the value(s) for the channels you specify."""
         tuppleNames = _ConvertListParamToTuple_(names)
         tuppleValues = _ConvertListParamToTuple_(values)
         _RaiseException_(self.iwks.SetMultipleChannelValues(tuppleNames, tuppleValues))
 
     def SetChannelVectorValues(self, name, values):
         """
-        Set a parameter vector values.
+        Sets the starting parameter vector value for the channel you specify.
 
-        Values are expected to be a matrix type.
+        The value you specify in `values` must be a matrix data type.
         """
         ws2 = Workspace2("")
         ws2.SetChannelValues([name], [values])
 
     def GetMultipleSystemNodesData(self, names):
-        """Get multiple nodes info."""
+        """Acquires data from the nodes you specify."""
         tuppleNames = _ConvertListParamToTuple_(names)
         data = self.iwks.GetMultipleSystemNodesData(tuppleNames, None)
         _RaiseException_(data[0])
@@ -271,7 +269,7 @@ class Workspace:
         return nodes
 
     def GetSystemNodeChildren(self, name):
-        """Get the node list under a specific node."""
+        """Acquires a list of all the child nodes nested under the node you specify."""
         data = self.iwks.GetSystemNodeChildren(name, None)
         _RaiseException_(data[0])
         nodes = []
@@ -281,9 +279,9 @@ class Workspace:
 
     def GetSystemNodeChannelList(self, name):
         """
-        Get all channels under a specified node.
+        Acquires all channels of the node you specify.
 
-        If node name is "" then it will get all channels in the system
+        If you want to acquire all the channels in the system, enter "" as the node name.
         """
         data = self.iwks.GetSystemNodeChannelList(name, None)
         _RaiseException_(data[0])
@@ -293,7 +291,7 @@ class Workspace:
         return nodes
 
     def GetAliasList(self):
-        """Get all aliases under a system."""
+        """Acquires all the aliases of a system."""
         data = self.iwks.GetAliasList(None, None)
         _RaiseException_(data[0])
         dict = {}
@@ -317,7 +315,7 @@ class Workspace:
 
 
 class Workspace2(Workspace):
-    """Interface to control the running state of the system and access the channels in the system."""
+    """Interface that controls the running state of the system and accesses the channels in the system."""
 
     def __init__(self, gatewayIPAddress=None):
         if (gatewayIPAddress is None):
@@ -326,7 +324,7 @@ class Workspace2(Workspace):
             self.iwks = Factory().GetIWorkspace2(gatewayIPAddress)
 
     def GetSystemState(self):
-        """Return the current state of the system."""
+        """Returns the current state of the system."""
         data = self.iwks.GetSystemState(0, "", None)
         _RaiseException_(data[0])
         targets = []
@@ -336,36 +334,39 @@ class Workspace2(Workspace):
                 'targets': tuple(targets)}
 
     def ConnectToSystem(self, systemdefinition_file, deploy, timeout):
-        """Connect the VeriStand Gateway to one or more targets running the specified System Definition file."""
+        """Connects the VeriStand Gateway to one or more targets running on the System Definition file you specify."""
         _RaiseException_(
             self.iwks.ConnectToSystem(systemdefinition_file, System.Boolean(deploy), System.UInt32(timeout)))
 
     def DisconnectFromSystem(self, password, undeploy_system_definition):
-        """Disconnect the VeriStand Gateway from the targets."""
+        """Disconnects the VeriStand Gateway from the targets."""
         _RaiseException_(self.iwks.DisconnectFromSystem(password, undeploy_system_definition))
 
     def LockConnection(self, old_password, new_password):
         """
-        Lock the current VeriStand Gateway connection.
+        Locks the current VeriStand Gateway connection.
 
-        If the connection has already been locked, the previous password must be supplied.
+        If the connection was locked previously, you must enter the previous password in `old_password`.
         """
         _RaiseException_(self.iwks.LockConnection(old_password, new_password))
 
     def UnlockConnection(self, password):
-        """Unlock the current VeriStand Gateway connection."""
+        """Unlocks the current VeriStand Gateway connection."""
         _RaiseException_(self.iwks.UnlockConnection(password))
 
     def StartDataLogging(self, configuration_name, logInfo):
-        """Start logging data according to the specified configuration."""
+        """Starts logging data to the configuration you specify."""
         _RaiseException_(self.iwks.StartDataLogging(configuration_name, logInfo))
 
     def StopDataLogging(self, configuration_name):
-        """Terminates data logging for the specified configuration."""
+        """Terminates data logging for the configuration you specify."""
         _RaiseException_(self.iwks.StopDataLogging(configuration_name))
 
     def SetChannelValues(self, channels, newValues):
-        """Set multiple channel values can be a mix of scalar or vector or matrix."""
+        """Sets the value for the channels you specify.
+
+        The `newValues` parameter accepts scalar, vector, and matrix data types.
+        """
         tupleChannelNames = _ConvertListParamToTuple_(channels)
         tupleArray = _ConvertMATRIXARRToDataArray_(newValues)
         _RaiseException_(self.iwks.SetChannelValues(tupleChannelNames, tupleArray))
@@ -381,7 +382,7 @@ class PyAlarmPriority:
 
 
 class PyAlarmState:
-    """State of a an alarm in the engine."""
+    """State of an alarm in the engine."""
 
     Disabled = 0
     Enabled = 1
@@ -392,9 +393,10 @@ class PyAlarmState:
 
 class PyAlarmMode:
     """
-    Mode of an alarm when it get triggered.
+    Specifies the mode of an alarm when triggered.
 
-    Normal will run the associated script, Indicate will only trigger the alarm.
+    Normal mode - triggers the alarm and runs the associated script.
+    Indicate mode - only triggers the alarm.
     """
 
     Normal = 0
@@ -403,7 +405,7 @@ class PyAlarmMode:
 
 # define alarm class
 class Alarm:
-    """Interface to query information on a configured alarm."""
+    """Interface that queries information on a configured alarm."""
 
     def __init__(self, name, target=None, gatewayIPAddress=None):
         if ((target is None) and (gatewayIPAddress is None)):
@@ -416,14 +418,14 @@ class Alarm:
             self.ialarm = Factory().GetIAlarm(target, name, gatewayIPAddress)
 
     def GetAlarmData(self, timeout):
-        """Get alarm info for this alarm."""
+        """Acquires the alarm data."""
         data = self.ialarm.GetAlarmData(None, System.UInt32(timeout))
         _RaiseException_(data[0])
         return self._ConvertAlarmToDictionary_(data[1])
 
     def SetAlarmData(self, alarmDict):
         """
-        Set alarm data.
+        Sets the alarm data.
 
         DEPRECATED function. This function does not support the Priority Number field.
         Use SetAlarmData2() instead.
@@ -432,16 +434,16 @@ class Alarm:
         _RaiseException_(self.ialarm.SetAlarmData(netAlarmInfo))
 
     def SetAlarmData2(self, alarmDict):
-        """Modify an alarm in the system."""
+        """Modifies an alarm in the system."""
         netAlarmInfo = self._ConvertDictionaryToAlarm2_(alarmDict)
         _RaiseException_(self.ialarm.SetAlarmData(netAlarmInfo))
 
     def SetEnabledState(self, enabled):
-        """Enable or Disable the current alarm."""
+        """Enables or disables the current alarm."""
         _RaiseException_(self.ialarm.SetEnabledState(enabled))
 
     def SetAlarmMode(self, mode):
-        """Change the mode of this alarm. See PyAlarmMode for possible value."""
+        """Changes the mode of this alarm. See PyAlarmMode for possible values."""
         _RaiseException_(self.ialarm.SetAlarmMode(self._PyAlarmModeToNet_(mode)))
 
     def _NetAlarmPriorityToPy_(self, net):
@@ -561,13 +563,13 @@ class Alarm:
 
 # define AlarmManager class
 class AlarmManager:
-    """Interface to get information on the server alarms state."""
+    """Interface that acquires information on the state of the server alarm."""
 
     def __init__(self):
         self.iamgr = Factory().GetIAlarmManager()
 
     def GetAlarmList(self):
-        """Get the configured alarms' name in the system."""
+        """Acquires a list of names of all the alarms configured in the system."""
         data = []
         data = self.iamgr.GetAlarmList(data)
         _RaiseException_(data[0])
@@ -577,7 +579,7 @@ class AlarmManager:
         return values
 
     def GetAlarmsStatus(self):
-        """Get status on high,med,low alarm in the system."""
+        """Acquires a list of alarms organized by status (high, medium, and low)."""
         a0 = a1 = a2 = System.Boolean(False)
         aname0 = aname1 = aname2 = System.String('')
         data = self.iamgr.GetAlarmsStatus(a0, a1, a2, aname0, aname1, aname2)
@@ -586,7 +588,7 @@ class AlarmManager:
                 'MedAlarmName': data[5], 'LowAlarmName': data[6]}
 
     def GetMultipleAlarmsData(self, alarms, timeout):
-        """Get alarm info for a list of alarms."""
+        """Acquires information about a list of alarms."""
         data = self.iamgr.GetMultipleAlarmsData(list(alarms), System.UInt32(timeout), [])
         _RaiseException_(data[0])
         temp = Alarm('')
@@ -597,7 +599,7 @@ class AlarmManager:
 
 
 class AlarmManager2:
-    """Interface to get information on the server alarms state."""
+    """Interface that acquires information on the state of the server alarm."""
 
     def __init__(self, gateway_ip_address=None):
         if (gateway_ip_address is None):
@@ -606,7 +608,7 @@ class AlarmManager2:
             self.iamgr = Factory().GetIAlarmManager2(gateway_ip_address)
 
     def GetAlarmList(self, target):
-        """Get the configured alarms' name in the system."""
+        """Acquires a list of names of all the alarms configured in the system."""
         data = self.iamgr.GetAlarmList(target, None)
         _RaiseException_(data[0])
         values = []
@@ -615,14 +617,14 @@ class AlarmManager2:
         return values
 
     def GetAlarmsStatus(self, target):
-        """Get status on high,med,low alarm in the system."""
+        """Acquires a list of alarms organized by status (high, medium, and low)."""
         data = self.iamgr.GetAlarmsStatus(target)
         _RaiseException_(data[0])
         return {'HighAlarm': data[1], 'MediumAlarm': data[2], 'LowAlarm': data[3], 'HighAlarmName': data[4],
                 'MedAlarmName': data[5], 'LowAlarmName': data[6]}
 
     def GetMultipleAlarmsData(self, target, alarms, timeout):
-        """Get alarm info for a list of alarms."""
+        """Acquires information about a list of alarms."""
         tupleAlarmNames = _ConvertListParamToTuple_(alarms)
         data = self.iamgr.GetMultipleAlarmsData(target, tupleAlarmNames, System.UInt32(timeout), None)
         _RaiseException_(data[0])
@@ -635,7 +637,7 @@ class AlarmManager2:
 
 # define Model enum
 class PyModelState:
-    """State of a model."""
+    """Represents the state of a model."""
 
     Running = 0
     Paused = 1
@@ -647,7 +649,7 @@ class PyModelState:
 
 
 class PyModelCommand:
-    """Command to change model state."""
+    """Changes the state of the model."""
 
     Start = 0
     Pause = 1
@@ -656,7 +658,7 @@ class PyModelCommand:
 
 # define Model class
 class Model:
-    """Interface to get information on a specific model running on the system."""
+    """Interface that acquires information on a specific model running on the system."""
 
     def __init__(self, name, target=None, gatewayIPAddress=None):
         if ((target is None) and (gatewayIPAddress is None)):
@@ -669,7 +671,7 @@ class Model:
             self.imodel = Factory().GetIModel(gatewayIPAddress, target, name)
 
     def GetModelExecutionState(self):
-        """Get the model time and status."""
+        """Acquires the execution time and state of the model."""
         data = self.imodel.GetModelExecutionState(0.0, ModelState.Idle)
         _RaiseException_(data[0])
         values = {'time': data[1], 'state': self._NetModelStateToPy_(data[2])}
@@ -677,20 +679,20 @@ class Model:
 
     def SetModelExecutionState(self, command):
         """
-        Change the current state of the model.
+        Changes the current state of the model on the server.
 
         This is a request operation on the server.
-        Successful invocation of the function does not imply the model state has change.
-        See PyModelState for command values
+        Even if this function executes successfully, the model state may remain unchanged in some cases.
+        See PyModelState for command values.
         """
         _RaiseException_(self.imodel.SetModelExecutionState(self._PyModelStateToNet_(command)))
 
     def SaveModelState(self, filepath):
-        """Save the current model state to the specified file path on the target."""
+        """Saves the current model state to the path on the target you specify in `filepath`."""
         _RaiseException_(self.imodel.SaveModelState(filepath))
 
     def RestoreModelState(self, filepath):
-        """Restore the model state from a specified file path on the target."""
+        """Restores the state of a model running on the target. Specify the path to the model file in `filepath`."""
         _RaiseException_(self.imodel.RestoreModelState(filepath))
 
     def _NetModelStateToPy_(self, net):
@@ -724,13 +726,13 @@ class Model:
 
 # define ModelManager
 class ModelManager:
-    """Interface to query information on the configured models in the system."""
+    """Interface that queries information on the models configured in the system."""
 
     def __init__(self):
         self.modmgr = Factory().GetIModelManager()
 
     def GetModelList(self):
-        """Return the list of models."""
+        """Returns a list of all models configured in the system."""
         data = self.modmgr.GetModelList(None)
         _RaiseException_(data[0])
         models = []
@@ -739,7 +741,7 @@ class ModelManager:
         return models
 
     def GetParametersList(self):
-        """Return the list of parameters in the system."""
+        """Returns a list of all parameters in the system."""
         data = self.modmgr.GetParametersList(None)
         _RaiseException_(data[0])
         params = []
@@ -748,13 +750,13 @@ class ModelManager:
         return params
 
     def GetSingleParameterValue(self, name):
-        """Get the parameters value."""
+        """Acquires the value of the parameter you specify."""
         data = self.modmgr.GetSingleParameterValue(name, System.Double(0))
         _RaiseException_(data[0])
         return data[1]
 
     def GetMultipleParameterValues(self, names):
-        """Get multiple parameters values."""
+        """Acquires the value(s) of the parameters you specify."""
         tupleParamNames = _ConvertListParamToTuple_(names)
         data = self.modmgr.GetMultipleParameterValues(tupleParamNames, None)
         _RaiseException_(data[0])
@@ -764,33 +766,33 @@ class ModelManager:
         return values
 
     def GetParameterVectorValues(self, name):
-        """Get a parameter vector values."""
+        """Acquires the vector values of the parameter you specify."""
         data = self.modmgr.GetParameterVectorValues(name, System.UInt32(0), System.UInt32(0), None)
         _RaiseException_(data[0])
         return _Convert1DARRVALTOMATRIX_(data[1], data[2], data[3])
 
     def SetSingleParameterValue(self, name, value):
-        """Set parameter value."""
+        """Sets the value of the parameter you specify."""
         _RaiseException_(self.modmgr.SetSingleParameterValue(name, System.Double(value)))
 
     def SetMultipleParameterValues(self, names, values):
-        """Set multiple parameters values."""
+        """Sets the value(s) of the parameters you specify."""
         tupleParamNames = _ConvertListParamToTuple_(names)
         tupleParamValues = _ConvertListParamToTuple_(values)
         _RaiseException_(self.modmgr.SetMultipleParameterValues(tupleParamNames, tupleParamValues))
 
     def SetParameterVectorValues(self, name, values):
         """
-        Set a parameter vector values.
+        Sets an vector value for a parameter.
 
-        Values are expected to be a matrix type.
+        The value you specify in `value` must be a matrix data type.
         """
         tupleArray = _ConvertMATRIXTO1DARRVAL_(values)
         _RaiseException_(self.modmgr.SetParameterVectorValues(name, tupleArray))
 
 
 class ModelManager2(ModelManager):
-    """Interface to query information on the configured models in the system."""
+    """Interface that queries information on the models configured in the system."""
 
     def __init__(self, gateway_ip_address=None):
         super(self.__class__, self).__init__()
@@ -800,7 +802,7 @@ class ModelManager2(ModelManager):
             self.modmgr = Factory().GetIModelManager2(gateway_ip_address)
 
     def GetModelList(self, target):
-        """Return the list of models on the specified target."""
+        """Returns a list of models on the target you specify."""
         data = self.modmgr.GetModelList(target, None)
         _RaiseException_(data[0])
         models = []
@@ -809,7 +811,7 @@ class ModelManager2(ModelManager):
         return models
 
     def GetParametersList(self, target):
-        """Return the list of parameters in the specified target."""
+        """Returns a list of all parameters in the target you specify."""
         data = self.modmgr.GetParametersList(target, None)
         _RaiseException_(data[0])
         params = []
@@ -818,13 +820,13 @@ class ModelManager2(ModelManager):
         return params
 
     def GetSingleParameterValue(self, target, name):
-        """Get the parameters value."""
+        """Acquires the value of the parameter you specify."""
         data = self.modmgr.GetSingleParameterValue(target, name, System.Double(0))
         _RaiseException_(data[0])
         return data[1]
 
     def GetMultipleParameterValues(self, target, names):
-        """Get multiple parameters values."""
+        """Acquires the value(s) of the parameters you specify."""
         tupleNames = _ConvertListParamToTuple_(names)
         data = self.modmgr.GetMultipleParameterValues(target, tupleNames, None)
         _RaiseException_(data[0])
@@ -834,17 +836,17 @@ class ModelManager2(ModelManager):
         return values
 
     def GetParameterVectorValues(self, target, name):
-        """Get a parameter vector values."""
+        """Acquires the vector values of the parameter you specify."""
         data = self.modmgr.GetParameterVectorValues(target, name, System.UInt32(0), System.UInt32(0), None)
         _RaiseException_(data[0])
         return _Convert1DARRVALTOMATRIX_(data[1], data[2], data[3])
 
     def SetSingleParameterValue(self, target, name, value):
-        """Set parameter value."""
+        """Sets the value of the parameter you specify."""
         _RaiseException_(self.modmgr.SetSingleParameterValue(target, name, System.Double(value)))
 
     def SetMultipleParameterValues(self, target, names, values):
-        """Set multiple parameters values."""
+        """Sets the value(s) of the parameters you specify."""
         tupleNames = _ConvertListParamToTuple_(names)
         tupleValues = _ConvertListParamToTuple_(values)
         _RaiseException_(self.modmgr.SetMultipleParameterValues(target, tupleNames, tupleValues))
@@ -859,9 +861,9 @@ class ModelManager2(ModelManager):
 
     def SetParameterValues(self, target, names, matrixArr):
         """
-        Set multiple parameter vector values.
+        Sets the vector value(s) of the parameters you specify.
 
-        Values are expceted to be a array of matrix type.
+        The value you specify in `matrixArr` must be a matrix data type.
         Sample usage ModelManager2.SetParameterValues("target1",["1By3Param","2By3Param"],[[[1,2,3]],[[1,2,3],[4,5,6]]])
         """
         tupleNames = _ConvertListParamToTuple_(names)
@@ -876,7 +878,7 @@ class ModelManager2(ModelManager):
 
 # define class ChannelFaultManager
 class ChannelFaultManager:
-    """Interface to do software value forcing on the system."""
+    """Interface that institutes software value forcing on the system."""
 
     def __init__(self, gatewayIPAddress=None):
         if (gatewayIPAddress is None):
@@ -885,33 +887,33 @@ class ChannelFaultManager:
             self.isfiu = Factory().GetIChannelFault(gatewayIPAddress)
 
     def GetFaultList(self):
-        """Get the current list of all faulted channels."""
+        """Acquires a list of all currently faulted channels."""
         data = self.isfiu.GetFaultList(None, None)
         _RaiseException_(data[0])
         return list(zip(data[1], data[2]))
 
     def GetFaultValue(self, name):
-        """Get the fault value of a faulted channel."""
+        """Acquires the fault value of a channel you specify."""
         data = self.isfiu.GetFaultValue(name, False, 0.0)
         _RaiseException_(data[0])
         return {'faulted': data[1], 'fault value': data[2]}
 
     def SetFaultValue(self, name, value):
-        """Set the fault value of a faulted channel."""
+        """Sets the fault value of the channel you specify."""
         _RaiseException_(self.isfiu.SetFaultValue(name, value))
 
     def ClearFault(self, name):
-        """Remove the channel from faulted list."""
+        """Removes the channel you specify from the fault list."""
         _RaiseException_(self.isfiu.ClearFault(name))
 
     def ClearAllFaults(self):
-        """Clear all faults."""
+        """Clears all faults."""
         _RaiseException_(self.isfiu.ClearAllFaults())
 
 
 # define stimulus enum
 class PyStimulusState:
-    """State of the Stimulus Generation Server."""
+    """Represents the state of the stimulus generation server."""
 
     Stopped = 0
     Starting = 1
@@ -920,7 +922,7 @@ class PyStimulusState:
 
 
 class PyStimulusResult:
-    """Stimulus Generation Result."""
+    """Represents the result of the stimulus generation."""
 
     NoResult = 0
     Passed = 1
@@ -938,42 +940,42 @@ class Stimulus:
 
     def ReserveStimulusProfileManager(self):
         """
-        Create a task will reserve the stimulus generation server for use.
+        Creates a task that reserves the stimulus generation server.
 
-        Creation of a task will prevent other client to interrupt the stimulus generation process.
+        This task prevents other clients from interrupting the stimulus generation process.
         """
         _RaiseException_(self.istim.ReserveStimulusProfileManager())
 
     def UnreserveStimulusProfileManager(self):
-        """Destroy a task will unreserve the stimulus genertion server for other client to use."""
+        """Destroys the task that reserves the stimulus generation server. Frees the server for other clients to use."""
         _RaiseException_(self.istim.UnreserveStimulusProfileManager())
 
     def GetStimulusProfileManagerState(self):
-        """Return the state of the stimulus generation component."""
+        """Returns the state of the stimulus generation component."""
         data = self.istim.GetStimulusProfileManagerState(StimulusState.Stopped)
         _RaiseException_(data[0])
         return self._NetStimulusStateToPy_(data[1])
 
     def RunStimulusProfile(self, testfile, baselogpath, timeout, autostart, stopondisconnect):
-        """Start the stimulus generation defined by the file."""
+        """Starts the stimulus generation you defined in the test file."""
         _RaiseException_(self.istim.RunStimulusProfile(str(testfile), str(baselogpath), System.UInt32(timeout),
                                                        bool(autostart), bool(stopondisconnect)))
 
     def StopStimulusProfile(self):
-        """Stop the stimulus generation."""
+        """Stops the stimulus generation."""
         _RaiseException_(self.istim.StopStimulusProfile())
 
     def GetStimulusProfileFile(self):
-        """Get the current stimulus definion file."""
+        """Acquires the current stimulus definition file."""
         data = self.istim.GetStimulusProfileFile("")
         _RaiseException_(data[0])
         return data[1]
 
     def GetStimulusProfileResult(self):
         """
-        Get the result of stimulus generation test.
+        Acquires the result of stimulus generation test.
 
-        Only table test will produce a test file result.
+        Only the table test produces a test file of the result.
         """
         data = self.istim.GetStimulusProfileResult(StimulusResult.Failed, "")
         _RaiseException_(data[0])
@@ -1006,7 +1008,7 @@ class Stimulus:
 
 
 class Stimulus2(Stimulus):
-    """Class to automate the execution of stimulus profiles."""
+    """Automates the execution of stimulus profiles."""
 
     def __init__(self, gatewayIPAddress=None):
         if (gatewayIPAddress is None):
@@ -1018,7 +1020,7 @@ class Stimulus2(Stimulus):
         self.UnreserveStimulusProfileManager()
 
     def RunStimulusProfile(self, testfile, baselogpath, timeout, autostart, stopondisconnect, parameterfiles=()):
-        """Start the stimulus generation defined by the file."""
+        """Starts the stimulus generation you defined in the test file."""
         tupleFiles = _ConvertListParamToTuple_(parameterfiles)
         _RaiseException_(
             self.istim.RunStimulusProfile(testfile, baselogpath, timeout, autostart, stopondisconnect, tupleFiles))
@@ -1053,7 +1055,7 @@ class MacroRecorder:
 
 # define MacroPlayer
 class PyMacroPlayerState:
-    """The Macro player state."""
+    """Represents the state of the macro player."""
 
     NotPlaying = 0
     Playing = 1
@@ -1061,7 +1063,7 @@ class PyMacroPlayerState:
 
 
 class PyMacroPlayerMode:
-    """The Macro player replay mode."""
+    """Represents the replay mode of the macro player."""
 
     IgnoreTiming = 0
     UseTiming = 1
@@ -1075,11 +1077,11 @@ class MacroPlayer:
             self.player = Factory().GetIMacroPlayer(gatewayIPAddress)
 
     def LoadMacro(self, file):
-        """Load a workspace macro."""
+        """Loads a workspace macro."""
         _RaiseException_(self.player.LoadMacro(file))
 
     def PlayState(self):
-        """Get the current play state."""
+        """Acquires the current play state."""
         data = self.player.PlayState()
         if (data == PlayStateEnum.NotPlaying):
             return PyMacroPlayerState.NotPlaying
@@ -1089,7 +1091,7 @@ class MacroPlayer:
             return PyMacroPlayerState.Paused
 
     def PlayMacro(self, mode):
-        """Replay the loaded macro."""
+        """Replays the loaded macro."""
         if (mode == 0):
             _RaiseException_(self.player.PlayMacro(PlayModeEnum.IgnoreTiming))
         else:

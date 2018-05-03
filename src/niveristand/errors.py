@@ -36,7 +36,7 @@ class _StopTaskException(Exception):
 
 
 class RunError(VeristandError):
-    """Raised at the end of execution if a Real-Time Sequence called :any:`generate_error`."""
+    """Raised at the end of execution if an RT sequence called :any:`generate_error`."""
 
     def __init__(self, error):
         assert isinstance(error, SequenceError)
@@ -67,9 +67,9 @@ class RunError(VeristandError):
 
 class RunFailedError(RunError):
     """
-    Raised by :any:`run_py_as_rtseq` to report that the result of the sequence is failed.
+    Raised by :any:`run_py_as_rtseq` to report that the sequence failed.
 
-    This error is raised if a real-time sequence executes successfully,
+    This error is raised when a real-time sequence executes successfully,
     but :any:`generate_error` was called with :any:`ErrorAction.ContinueSequenceExecution`.
     """
 
@@ -79,9 +79,9 @@ class RunFailedError(RunError):
 
 class RunAbortedError(RunError):
     """
-    Raised by :any:`run_py_as_rtseq` to report that the result of the sequence is failed.
+    Raised by :any:`run_py_as_rtseq` to report that the sequence failed.
 
-    This error is raised when execution finished successfully,
+    This error is raised when a real-time sequence executes successfully,
     but :any:`generate_error` was called with :any:`ErrorAction.StopSequence` or :any:`ErrorAction.AbortSequence`.
     """
 

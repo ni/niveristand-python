@@ -50,7 +50,7 @@ def run_non_deterministic():
 
 
 def run_deterministic():
-    """Compile the sequence and run it deterministically inside the VeriStand engine.
+    """Compiles the sequence and runs it deterministically inside the VeriStand engine.
 
     You cannot use debugging tools at this stage because VeriStand executes the sequence, not Python.
     If you do not mark the functions as @nivs_rt_sequence, Python will raise a :any:`niveristand.errors.VeristandError`.

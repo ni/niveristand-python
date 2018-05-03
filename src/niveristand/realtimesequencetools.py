@@ -3,7 +3,7 @@ from niveristand.errors import RunError, VeristandNotImplementedError
 
 def run_py_as_rtseq(toplevelfunc, timeout_within_each_step=100000):
     """
-    Runs a Python function as a real-time sequence in the VeriStand Engine.
+    Runs a Python function as an RT sequence in the VeriStand Engine.
 
     Args:
         toplevelfunc: the Python function to run.
@@ -34,7 +34,7 @@ def save_rtseq_as_py(toplevelseq, srcfolder, destfolder):
 
 def save_py_as_rtseq(toplevelfunc, dest_folder):
     """
-    Saves a Python function as a real-time sequence that is compatible with the Stimulus Profile Editor.
+    Saves a Python function as an RT sequence that is compatible with the Stimulus Profile Editor.
 
     Args:
         toplevelfunc: the Python function you want to save.

@@ -52,7 +52,7 @@ class NivsParam:
                         Refer to :any:`NivsParam.BY_REF` or :any:`NivsParam.BY_VALUE` for details.
     """
 
-    BY_REF = False  #: Passes a parameter by reference. Allows the callee to modify the value.
+    BY_REF = False  #: Passes a parameter by reference. Allows the called function to modify the value.
     BY_VALUE = True  #: Passes a parameter by value. Creates a copy of the caller's value for use inside the function.
 
     def __init__(self, param_name, default_elem, by_value):

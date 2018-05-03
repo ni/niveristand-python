@@ -15,7 +15,7 @@ unit-testing framework that is commonly used for running python tests.
 @nivs_rt_sequence
 @NivsParam('on_off', BooleanValue(False), NivsParam.BY_VALUE)
 def set_engine_power(on_off):
-    """Turn the engine on or off."""
+    """Turns the engine on or off."""
     engine_power = ChannelReference('Aliases/EnginePower')
     engine_power.value = on_off.value
 
@@ -27,7 +27,7 @@ def set_engine_power(on_off):
 # In this case, the default is adequate, so you do not need to specify the decorator.
 @nivs_rt_sequence
 def measure_set_point_response(setpoint, timeout, tolerance):
-    """Set the desired rpm to the specified setpoint and wait until the signal settles.
+    """Sets the desired rpm to the specified setpoint and wait until the signal settles.
 
     The tolerance is used to create upper and lower boundaries for the signal.
     Returns the amount of time it takes the signal to settle or timeout.
@@ -53,7 +53,7 @@ def measure_set_point_response(setpoint, timeout, tolerance):
 
 @nivs_rt_sequence
 def inbounds_check(test_value, upper, lower):
-    """Return True if lower <= value <= upper.
+    """Returns True if lower <= value <= upper.
 
     Performs an inbounds check.
     """
@@ -67,7 +67,7 @@ def inbounds_check(test_value, upper, lower):
 
 @nivs_rt_sequence
 def engine_set_points_profile():
-    """Run three tests in one profile."""
+    """Runs three tests in one profile."""
     try:
         all_passed = BooleanValue(True)
         test1_passed = BooleanValue(False)
@@ -75,7 +75,7 @@ def engine_set_points_profile():
         test3_passed = BooleanValue(False)
         seq_res = DoubleValue(0)
 
-        # Turn on the engine.
+        # Turns on the engine.
         set_engine_power(True)
 
         # Each test changes the desired rpm and checks to see if the signal settles within 60 seconds.

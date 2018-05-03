@@ -6,7 +6,7 @@ def abstime():
     """
     Returns the current date and time, in seconds, relative to the operating system's epoc.
 
-    **Note**: Only available for real-time sequences. @TODODOC
+    **Note**: Only available for RT sequences.
     """
     raise VeristandNotImplementedError()
 
@@ -38,7 +38,7 @@ def clearfault(x):
     Channel `x` must be a reference to a channel and should not be a reference to a local variable.
     If `channel` references a local variable, :func:`clearfault` performs no operation.
 
-    **Note**: Only available for real-time sequences. @TODODOC
+    **Note**: Only available for RT sequences.
     """
     raise VeristandNotImplementedError()
 
@@ -47,7 +47,7 @@ def clearlasterror():
     """
     Clears the last error set by :func:`generate_error`.
 
-    **Note**: Only available for real-time sequences. @TODODOC
+    **Note**: Only available for RT sequences.
     """
     raise VeristandNotImplementedError()
 
@@ -83,7 +83,7 @@ def fault(channel, value):
     `channel` must be a reference to a channel and should not be a reference to a local variable.
     If `channel` references a local variable, :func:`fault` performs no operation.
 
-    **Note**: Only available for real-time sequences. @TODODOC
+    **Note**: Only available for RT sequences.
     """
     raise VeristandNotImplementedError()
 
@@ -98,7 +98,7 @@ def fix(x):
     Returns:
         (float): floating-point representation of the rounded value.
 
-    **Note**: Only available for real-time sequences. @TODODOC
+    **Note**: Only available for RT sequences.
 
     """
     raise VeristandNotImplementedError()
@@ -108,7 +108,7 @@ def getlasterror():
     """
     Returns the numeric error code of the last error set by :func:`generate_error`.
 
-    **Note**: Only available for real-time sequences. @TODODOC
+    **Note**: Only available for RT sequences.
     """
     raise VeristandNotImplementedError()
 
@@ -158,12 +158,12 @@ def rand(x):
 
 def recip(x):
     """
-    Return 1/x.
+    Returns 1/x.
 
     Args:
         x: divisor.
 
-    **Note**: Only available for Real-Time Sequences. @TODODOC
+    **Note**: Only available for RT sequences.
     """
     raise VeristandNotImplementedError()
 

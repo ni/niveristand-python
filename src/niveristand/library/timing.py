@@ -65,7 +65,7 @@ def wait_until_next_ms_multiple(ms_multiple):
 @nivs_rt_sequence
 def wait_until_next_us_multiple(us_multiple):
     """
-    Wait until the next microsecond multiple of the number you specify in `us_multiple`.
+    Waits until the next microsecond multiple of the number you specify in `us_multiple`.
 
     Args:
         us_multiple(:any:`I64Value`): the microsecond multiple to wait until.

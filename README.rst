@@ -8,7 +8,7 @@ Author       National Instruments
 About
 =====
 The **niveristand** package contains an API (Application Programming Interface) that interacts with NI VeriStand systems.
-It is implemented in Python. NI created and supports this package.
+The package is implemented in Python. NI created and supports this package.
 
 Requirements
 ============
@@ -23,7 +23,7 @@ Requirements
 Installation
 ============
 
-To install **niveristand** use one of the following methods:
+To install **niveristand**, use one of the following methods:
 
 1. `pip <http://pypi.python.org/pypi/pip>`_::
 

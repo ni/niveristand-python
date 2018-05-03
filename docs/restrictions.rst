@@ -34,7 +34,7 @@ Assignment
 Conditional
 -----------
 
-- If statements only allow for boolean checks. You cannot use numbers, numeric data type declarations, or numeric variables inside `If` statements.
+- `If` statements only allow for boolean checks. You cannot use numbers, numeric data type declarations, or numeric variables inside `If` statements.
 
     .. code-block:: python
 
@@ -70,7 +70,7 @@ Data Types
 
 - Vector channel references will only work when you run sequences deterministically.
 
-- Only channel references can be initialized with strings. All other data type declarations will fail.
+- Channel references are the only data type declarations you can initialize with strings. All other data type declarations will fail.
     * Note: The BooleanValue data type is an exception to this rule. You can initialize BooleanValue with 'true' 'false' 'True' and 'False'.
 
     .. code-block:: python
@@ -198,7 +198,7 @@ Operators
 Add
 ^^^
 
-- You cannot use several pluses one after another. Always use one. If you violate this rule a :any:`TranslateError` occurs.
+- You cannot use several pluses one after another. Always use one. If you violate this rule, a :any:`TranslateError` occurs.
 
     .. code-block:: python
 
@@ -209,7 +209,7 @@ Add
 Arithmetic Shift
 ^^^^^^^^^^^^^^^^
 
-- The left hand side of an arithmetic shift operation is not allowed to be of double type in Python.
+- You cannot use double data types to the left of an arithmetic shift operation in Python.
 
     .. code-block:: python
 
@@ -219,7 +219,7 @@ Arithmetic Shift
         double_var.value = 3.0 >> 5
         double_var.value = double_var.value >> 5
 
-- The right hand side of an arithmetic shift operation is not allowed to be of double or bool type.
+- You cannot use double or boolean data types to the right of an arithmetic shift operation.
 
     .. code-block:: python
 
@@ -232,7 +232,7 @@ Arithmetic Shift
         double_var.value = 5 << 3.0
         double_var.value = 5 << double_var.value
 
-- The right hand side of an arithmetic shift operation is not allowed to be a negative number. As an alternative the opposite operation with positive value can be used.
+- You cannot use a negative number to the right of an arithmetic shift operation. As an alternative, use the opposite operation with a positive value.
 
     .. code-block:: python
 
@@ -243,7 +243,7 @@ Arithmetic Shift
 Bitwise Operators
 ^^^^^^^^^^^^^^^^^
 
-- Bitwise operations are not allowed on floats or BooleanValue in Python.
+- You cannot use bitwise operations on float or boolean values in Python.
 
     .. code-block:: python
 
@@ -257,7 +257,7 @@ Bitwise Operators
 Comparison Operators
 ^^^^^^^^^^^^^^^^^^^^
 
-- Cascaded comparison operators are not allowed. Only use one at a time.
+- You cannot use cascading comparison operators. Only use one comparison operator at a time.
 
     .. code-block:: python
 
@@ -267,14 +267,14 @@ Comparison Operators
 Logical Operators
 ^^^^^^^^^^^^^^^^^
 
-- Logical operators only work with bool types.
+- Logical operators only accept boolean values.
 
-- Cascaded logical operators are not allowed. Only use one at a time.
+- You cannot use cascading logical operators. Only use one logical operator at a time.
 
 Unary Invert
 ^^^^^^^^^^^^
 
-- The unary inversion operator (~) only works with integer types.
+- The unary inversion operator (~) only accepts integer values.
 
 Parameters
 ----------

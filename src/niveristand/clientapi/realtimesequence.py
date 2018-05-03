@@ -43,7 +43,7 @@ class RealTimeSequence:
 
     def run(self, timeout_within_each_step=100000):
         """
-        Run the sequence on the globally configured VeriStand Engine.
+        Runs the sequence on the globally configured VeriStand Engine.
 
         Args:
             timeout_within_each_step (Optional[int]): Time, in milliseconds,
@@ -68,7 +68,7 @@ class RealTimeSequence:
 
     def save(self, path=None):
         """
-        Save this sequence to disk.
+        Saves this sequence to disk.
 
         Args:
             path(Optional[str]): path to the location you want to save the sequence file.

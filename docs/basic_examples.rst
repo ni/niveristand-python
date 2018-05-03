@@ -43,8 +43,7 @@ Or, you can run the test deterministically on the VeriStand engine connected to 
 Combining the legacy API with real-time sequences
 -------------------------------------------------
 
-The :doc:`api_reference/legacy` can be mixed with python real-time sequences
-to create a fully-automated test environment.
+To create a fully-automated test environment, you can mix the :doc:`api_reference/legacy` with Python real-time sequences.
 
 .. literalinclude:: ../examples/legacy_mix.py
    :language: python

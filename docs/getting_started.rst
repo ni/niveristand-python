@@ -13,7 +13,7 @@ Features
 - Run test sequences in two different modes:
 
    - Deterministic Mode
-      deploys a real-time sequence to running NI VeriStand system and executes the sequence in real-time.
+      deploys a real-time sequence to a running NI VeriStand system and executes the sequence in real-time.
    - Python Mode
       runs a test sequence from a host machine that communicates with an NI VeriStand system through the Gateway.
       Python mode emulates the behavior of Deterministic mode. Python mode is useful in the following cases:

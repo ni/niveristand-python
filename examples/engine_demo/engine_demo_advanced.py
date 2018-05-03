@@ -19,17 +19,17 @@ def engine_demo_advanced(desired_rpm, actual_rpm, engine_temp):
     warmup_complete = BooleanValue(False)
     warmup_succeeded = BooleanValue(False)
 
-    # Create a multitask with two tasks, one for setting rpm values and one for monitoring.
+    # Create a multitask with two tasks: one for setting rpm values and one for monitoring.
     # In general, a multitask can contain as many tasks as desired. The tasks will all execute asynchronously,
-    # but not in parallel. For more information on multitask behavior, refer to VeriStand help.
+    # but not in parallel. For more information on multitask behavior, refer to the VeriStand help.
     with multitask() as mt:
         # You must decorate tasks using the following notation.
         # The following code shows example of a task.
         @task(mt)
         def engine_warmup():
-            """Spawn a task to wait for the actual rpm signal to settle."""
+            """Spawns a task to wait for the actual rpm signal to settle."""
             desired_rpm.value = 2500
-            # wait for up to 120 seconds for the actual RPM to be between 999999 and 2450 for 25 seconds.
+            # Waits for up to 120 seconds for the actual RPM to be between 999999 and 2450 for 25 seconds.
             wait_until_settled(actual_rpm, 9999999, 2450, 25, 120)
             desired_rpm.value = 8000
             wait_until_settled(actual_rpm, 9999999, 7800, 25, 120)
@@ -37,7 +37,7 @@ def engine_demo_advanced(desired_rpm, actual_rpm, engine_temp):
 
         @task(mt)
         def monitor_temp():
-            """Spawn a task to monitor engine temperature.
+            """Spawns a task to monitor engine temperature.
 
             If the temperature rises above 110, the previous task will stop.
             """

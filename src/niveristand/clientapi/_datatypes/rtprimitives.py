@@ -49,7 +49,7 @@ class DataType(object):
     Use as base class for all VeriStand datatypes.
 
     Args:
-        value: initial value. Actual value and type depends on subclass.
+        value: initial value. Note: Actual value and type depends on subclass.
         description(str): a description of the value. For documentation purposes only.
         units(str): units represented by this value. For documentation purposes only.
 

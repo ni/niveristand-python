@@ -94,7 +94,7 @@ class StimulusProfileState(object):
 
     def wait_for_result(self):
         """
-        Wait for the sequence to finish running.
+        Waits for the sequence to finish running.
 
         Returns:
             The value returned by the VeriStand Engine after this sequence runs.

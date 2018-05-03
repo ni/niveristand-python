@@ -4,7 +4,7 @@
 Legacy API
 ==========
 
-This module provides the functionality that was provided for IronPython in the past.
+This module describes the functionality equivalent to the deprecated IronPython API.
 
 .. autoclass:: niveristand.legacy.NIVeriStand.Workspace
    :members:
