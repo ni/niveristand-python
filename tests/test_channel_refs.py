@@ -47,8 +47,12 @@ def test_channel_ref_invalid_channel_get():
 
 
 def test_channel_ref_invalid_channel_transform():
-    with pytest.raises(errors.VeristandError):
-        RealTimeSequence(testfunctions.channel_ref_invalid_channel_transform)
+    # Transforming sequences with invalid channels should work, because they are not validated. This is, because users
+    # need to be able to transform without a deployed system definition and therefore we are not checking through the
+    # C# API the validity of a channel. This will be improved in the future to differentiate between the two cases.
+    rtseq = RealTimeSequence(testfunctions.channel_ref_invalid_channel_transform)
+    assert rtseq._rtseq.Code.Main.Body.Statements.Length is 0
+    assert rtseq._rtseq.Variables.ChannelReferences.Channels.Length is 1
 
 
 def test_channel_ref_array_type_string():

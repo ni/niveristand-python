@@ -40,6 +40,10 @@ def is_scalar_type(name):
     return name in VALID_RETURN_TYPES
 
 
+def is_array_type(name):
+    return name in VALID_ARRAY_TYPES
+
+
 def is_channel_ref_type(name):
     return name in CHANNEL_REF_TYPES
 
@@ -573,6 +577,16 @@ VALID_RETURN_TYPES = {
     I64Value.__name__: I64Value,
     U32Value.__name__: U32Value,
     U64Value.__name__: U64Value
+}
+
+VALID_ARRAY_TYPES = {
+    BooleanValueArray.__name__: BooleanValueArray,
+    DoubleValueArray.__name__: DoubleValueArray,
+    I32ValueArray.__name__: I32ValueArray,
+    I64Value.__name__: I64ValueArray,
+    U32ValueArray.__name__: U32ValueArray,
+    U64ValueArray.__name__: U64ValueArray,
+    VectorChannelReference.__name__: VectorChannelReference,
 }
 
 CHANNEL_REF_TYPES = {

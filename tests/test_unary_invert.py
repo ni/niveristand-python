@@ -55,7 +55,7 @@ def invert_int32_2():
 
 
 @nivs_rt_sequence
-def invert_int32_out_of_spe_range():
+def invert_int32_limit():
     a = I32Value(-0x80000000)
     a.value = ~-0x80000000
     return a.value
@@ -90,7 +90,7 @@ def invert_int32_var_2():
 
 
 @nivs_rt_sequence
-def invert_int32_var_out_of_spe_range():
+def invert_int32_var_limit():
     a = I32Value(-0x80000000)
     a.value = ~a
     return a.value
@@ -282,6 +282,8 @@ run_tests = [
     (invert_rtseq, (), numpy.int32(-1)),
     (invert_bool_var, (), False),  # For RTSeqs, negating a bool or double is always 0
     (invert_double_var, (), 0),  # For RTSeqs, negating a bool or double is always 0
+    (invert_int32_limit, (), ~-0x80000000),
+    (invert_int32_var_limit, (), ~-0x80000000),
 ]
 
 fail_transform_tests = [
@@ -292,9 +294,7 @@ fail_transform_tests = [
     (invert_bool, (), TranslateError),
     (invert_double, (), TranslateError),
     # SPE doesn't support initializing with the full int32/int64 range.
-    (invert_int32_out_of_spe_range, (), VeristandError),
     (invert_int64_out_of_spe_range, (), VeristandError),
-    (invert_int32_var_out_of_spe_range, (), VeristandError),
     (invert_int64_var_out_of_spe_range, (), VeristandError),
 ]
 
