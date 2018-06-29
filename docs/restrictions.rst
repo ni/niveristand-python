@@ -162,16 +162,16 @@ Loops
 
     .. code-block:: python
 
-        # Invalid statements
+        # The following statements are invalid:
         for x in range(5):
             pass
-        else: # This is not allowed.
+        else:
             pass
-        for x in range(2, 5): # This is not allowed.
-        for x in range(2, 5, 2): # This is not allowed.
+        for x in range(2, 5):
+        for x in range(2, 5, 2):
         channel_ref = ChannelReference('Aliases/DesiredRPM')
-        for x in range(channel_ref.value): # This is not allowed.
-        for x in [1, 2, 3]: # This is not allowed.
+        for x in range(channel_ref.value):
+        for x in [1, 2, 3]:
 
 - `While Loops` do not support:
     * using `else` blocks
@@ -180,7 +180,7 @@ Loops
 
     .. code-block:: python
 
-        # Invalid statements
+        # The following statements are invalid:
         int_var = I32Value(5)
         while 1:
         while int_var:
@@ -198,7 +198,7 @@ Operators
 Add
 ^^^
 
-- You cannot use several pluses one after another. Always use one. If you violate this rule, a :any:`TranslateError` occurs.
+- You cannot use several pluses one after another. Always use one plus sign. If you violate this rule, a :any:`TranslateError` occurs.
 
     .. code-block:: python
 
@@ -214,7 +214,7 @@ Arithmetic Shift
     .. code-block:: python
 
         double_var = DoubleValue(5.0)
-        # The following statements only work when the code is run deterministically
+        # The following statements only work when the code is run deterministically.
         double_var.value = DoubleValue(3.0) << 5
         double_var.value = 3.0 >> 5
         double_var.value = double_var.value >> 5
@@ -237,8 +237,8 @@ Arithmetic Shift
     .. code-block:: python
 
         int_var = I32Value(1)
-        int_var.value = int_var.value >> -2 # This is not allowed
-        int_var.value = int_var.value << 2 # Use this instead
+        int_var.value = int_var.value >> -2 # This is not allowed.
+        int_var.value = int_var.value << 2 # Use this instead.
 
 Bitwise Operators
 ^^^^^^^^^^^^^^^^^
@@ -249,7 +249,7 @@ Bitwise Operators
 
         bool_var = BooleanValue(False)
         double_var = DoubleValue(1.0)
-        # The following statements only work when the code is run deterministically
+        # The following statements only work when the code is run deterministically.
         bool_var.value = BooleanValue(True) & BooleanValue(True)
         double_var.value = 3.5 | 2.5
         double_var.value = DoubleValue(3.5) ^ DoubleValue(2.5)
@@ -294,7 +294,7 @@ Parameters
         def call_increment_by_ref():
             int_var = I32Value(1)
             _increment_by_ref(int_var.value)
-            return int_var.value # This will return 1 in Python, while 2 in the Stimulus Profile Editor.
+            return int_var.value # This will return 1 in Python and 2 in the Stimulus Profile Editor.
 
 Return Statements
 -----------------
@@ -343,7 +343,7 @@ Tasks
 Try
 ---
 
-- Try is only allowed to be the first statement of a function.
+- `Try` is only allowed to be the first statement of a function.
 
 - You cannot use a `try` statement within:
     * another `try` statement

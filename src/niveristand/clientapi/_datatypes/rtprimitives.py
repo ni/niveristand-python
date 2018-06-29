@@ -370,8 +370,8 @@ class ChannelReference(DataType):
     Creates a new scalar channel reference.
 
     Creates a new reference to a scalar channel and specifies which channel assignment to map the new channel reference
-    to. You can specify a channel by its alias or by the path to the channel in the system definition, for example:
-    Targets/Controller/System Channels/Model Count
+    to. You can specify a channel by its alias or by the path to the channel in the system definition. For example:
+    Targets/Controller/System Channels/Model Count.
     """
 
     def __init__(self, value, description="", units=""):
@@ -395,8 +395,8 @@ class VectorChannelReference(ArrayType):
     Creates a new vector channel reference.
 
     Creates a new reference to a vector channel and specifies which channel assignment to map the new channel reference
-    to. You can specify a channel by its alias or by the path to the channel in the system definition, for example:
-    Targets/Controller/System Channels/Model Count
+    to. You can specify a channel by its alias or by the path to the channel in the system definition. For example:
+    Targets/Controller/System Channels/Model Count.
     """
 
     @property
@@ -461,7 +461,7 @@ class DoubleValueArray(ArrayType):
 
 
 class I32Value(DataType):
-    """Creates a new signed 32-bit integer value reference."""
+    """Creates a new, signed 32-bit integer value reference."""
 
     def _to_data_value(self, value):
         if self._is_valid_assign_type(value):
@@ -484,7 +484,7 @@ class I32ValueArray(ArrayType):
 
 
 class I64Value(DataType):
-    """Creates a new signed 64-bit integer value reference."""
+    """Creates a new, signed 64-bit integer value reference."""
 
     def _to_data_value(self, value):
         if self._is_valid_assign_type(value):
@@ -507,7 +507,7 @@ class I64ValueArray(ArrayType):
 
 
 class U32Value(DataType):
-    """Creates a new unsigned 32-bit integer value reference."""
+    """Creates a new, unsigned 32-bit integer value reference."""
 
     def _to_data_value(self, value):
         if self._is_valid_assign_type(value):
@@ -530,7 +530,7 @@ class U32ValueArray(ArrayType):
 
 
 class U64Value(DataType):
-    """Creates a new unsigned 64-bit integer value reference."""
+    """Creates a new, unsigned 64-bit integer value reference."""
 
     def _to_data_value(self, value):
         if self._is_valid_assign_type(value):

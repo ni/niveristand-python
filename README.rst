@@ -14,7 +14,7 @@ Requirements
 ============
 **niveristand** |version| has the following requirements:
 
-* NI VeriStand 2018 running on the same system as the python code.
+* NI VeriStand 2018 running on the same system as the Python code.
 * 64-bit version of Windows 10/8.1/7
 * CPython 2.7 or 3.5+
 
@@ -58,13 +58,12 @@ To report a bug or submit a feature request, please use the
 Documentation
 =============
 
-Documentation is available `here <http://niveristand-python.readthedocs.io>`_.
+To view the documentation, visit the `NI VeriStand Python Documentation Page <http://niveristand-python.readthedocs.io>`_.
 
 Additional Documentation
 ========================
-TODO: Get a real code for the VS docs!
 
-Refer to the `NI VeriStand Help <http://digital.ni.com/express.nsf/bycode/exagg4>`_
+Refer to the `NI VeriStand Help <http://digital.ni.com/express.nsf/bycode/ex9v46>`_
 for detailed information on setting up a system and running real-time test scenarios.
 
 NI VeriStand Help installs only with the full version of NI VeriStand.

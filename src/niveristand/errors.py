@@ -140,8 +140,8 @@ class SequenceError(VeristandError):
         Determines whether or not this error raises an exception.
 
         Returns:
-            bool: False if the error is :any:`ErrorAction.ContinueSequenceExecution` with an error code of 0, true
-            otherwise.
+            bool: False if the error is :any:`ErrorAction.ContinueSequenceExecution` with an error code of 0. Otherwise,
+            this function returns True.
 
         """
         from niveristand.clientapi._realtimesequencedefinitionapi.erroraction import ErrorAction

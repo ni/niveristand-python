@@ -85,7 +85,7 @@ def measure_elapsed_time():
     tick_ms_timer = I64Value(0)
     tick_us_timer = I64Value(0)
 
-    # The following steps demonstrate different ways you can capture an initial timestamp.
+    # The following steps demonstrate different ways you can capture an initial timestamp:
     seqtime_timer.value = seqtime()
     seqtime_us_timer.value = seqtimeus()
     tick_ms_timer.value = tickcountms()

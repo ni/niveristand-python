@@ -7,8 +7,8 @@ from niveristand.library import localhost_wait, seqtime, wait_until_settled
 
 This example mirrors the 'Test Engine Setpoints' stimulus profile found in the examples that install with VeriStand.
 
-Instead of using a Stimulus Profile to report results, this example uses the py.test
-unit-testing framework that is commonly used for running python tests.
+Instead of using a stimulus profile to report results, this example uses the py.test
+unit-testing framework that is commonly used for running Python tests.
 """
 
 

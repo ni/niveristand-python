@@ -2,7 +2,7 @@ from niveristand import nivs_rt_sequence, NivsParam, run_py_as_rtseq
 from niveristand.clientapi import BooleanValue, ChannelReference, DoubleValue
 from niveristand.library import multitask, nivs_yield, stop_task, task, wait_until_settled
 
-""" This module adds multitasking, return values and cleanup tasks to engine_demo_basic.
+""" This module adds multitasking, return values, and cleanup tasks to engine_demo_basic.
 
 This example mirrors the 'Engine Demo Advanced and Return Value' example that installs with VeriStand.
 Open the 'Engine Demo Advanced and Return Value' stimulus profile to help you understand the following example.
@@ -15,11 +15,11 @@ Open the 'Engine Demo Advanced and Return Value' stimulus profile to help you un
 @nivs_rt_sequence
 def engine_demo_advanced(desired_rpm, actual_rpm, engine_temp):
     """Turns on the engine, sets it to the desired rpm, and monitors the engine temperature."""
-    # Use the following local variable declarations to keep track of the test's status.
+    # Use the following local variable declarations to keep track of the test's status:
     warmup_complete = BooleanValue(False)
     warmup_succeeded = BooleanValue(False)
 
-    # Create a multitask with two tasks: one for setting rpm values and one for monitoring.
+    # Create a multitask with two tasks: one for setting rpm values and another for monitoring.
     # In general, a multitask can contain as many tasks as desired. The tasks will all execute asynchronously,
     # but not in parallel. For more information on multitask behavior, refer to the VeriStand help.
     with multitask() as mt:
@@ -39,7 +39,7 @@ def engine_demo_advanced(desired_rpm, actual_rpm, engine_temp):
         def monitor_temp():
             """Spawns a task to monitor engine temperature.
 
-            If the temperature rises above 110, the previous task will stop.
+            If the temperature rises above 110 degrees (C), the previous task will stop.
             """
             while warmup_complete.value is False:
                 if engine_temp.value > 110:
@@ -56,7 +56,7 @@ def engine_demo_advanced(desired_rpm, actual_rpm, engine_temp):
 def run_engine_demo_advanced():
     """Run the engine_demo_advanced example.
 
-    To handle a condition that stops a task (in this case, the engine temperature rising above a safe value),
+    To handle a condition that stops a task (such as, the engine temperature rising above a safe value),
     use a try/finally block.
 
     Regardless of the result of the execution, the finally block can be used to safely shut down the engine.
@@ -85,7 +85,7 @@ def run_non_deterministic():
 
 if __name__ == '__main__':
     # Run the tests.
-    # Note:  We expect the tests to fail because the engine temperature rises above 110,
+    # Note:  We expect the tests to fail because the engine temperature rises above 110 degrees (C),
     # but the cleanup code at the end turns the engine off.
     print("Non-Deterministic test:")
     print("Test Passed!" if run_non_deterministic() else "Test Failed (expected)!")

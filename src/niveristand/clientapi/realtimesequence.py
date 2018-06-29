@@ -27,8 +27,8 @@ class RealTimeSequence:
                                                     library.
 
     Raises:
-        :class:`niveristand.errors.TranslateError`: if translation fails
-        :class:`niveristand.errors.VeristandError`: if compilation fails
+        :class:`niveristand.errors.TranslateError`: if translation fails.
+        :class:`niveristand.errors.VeristandError`: if compilation fails.
 
     """
 
@@ -77,8 +77,8 @@ class RealTimeSequence:
             path you specify in **path**.
 
         All dependencies required for deployment of this sequence save to the same path.
-        If **path** is *None* this sequence saves to the location where you last saved the object. If you did not
-        previously save the object, it saves to a temporary folder.
+        If you do not specify a path in **path**, this sequence saves to the location where you last saved the object.
+        If you did not previously save the object, it saves to a temporary folder.
 
         For a simpler use case, refer to :func:`niveristand.realtimesequencetools.save_py_as_rtseq`
 

@@ -15,7 +15,7 @@ class StimulusProfileState(object):
         """Enum used for possible completion states."""
 
         Success = 0  #: operation ran to completion successfully. No errors occurred.
-        Aborted = 1  #: operation was stopped forcefully.
+        Aborted = 1  #: operation stopped forcefully.
         Failed = 2  #: operation ran to completion, but an error occurred.
 
     def __init__(self, session):
@@ -42,7 +42,7 @@ class StimulusProfileState(object):
         Returns the return value of the sequence.
 
         Returns:
-            (bool, int, float):
+            (bool, int, float): the return value of the sequence.
 
         """
         return self._ret_val
@@ -64,7 +64,7 @@ class StimulusProfileState(object):
         Returns the session you created to execute this sequence.
 
         Returns:
-            A session connected to the VeriStand Engine.
+            a session connected to the VeriStand Engine.
 
         """
         return self._session
@@ -97,7 +97,7 @@ class StimulusProfileState(object):
         Waits for the sequence to finish running.
 
         Returns:
-            The value returned by the VeriStand Engine after this sequence runs.
+            the value returned by the VeriStand Engine after this sequence runs.
 
         """
         while not self._rt_sequence_completed:

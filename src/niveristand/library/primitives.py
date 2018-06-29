@@ -19,7 +19,7 @@ def arraysize(x):
         x: the array for which you want to get the number of elements.
 
     Returns:
-        int: The size of the array. If **x** is not an array, this function returns 0.
+        int: the size of the array. If **x** is not an array, this function returns 0.
 
 
     """
@@ -67,7 +67,7 @@ def deltatus():
     """
     Returns the duration, in microseconds, of the current system timestep.
 
-    **Note**: In Python Mode, this function always returns `10000` for a rate of 100Hz.
+    **Note**: In Python Mode, this function always returns `10,000` for a rate of 100Hz.
     """
     return 10000
 
@@ -233,7 +233,7 @@ def localhost_wait(amount=0.1):
     Args:
         amount(float): time, in seconds, this function waits for channel values to update.
 
-    When running in the VeriStand Engine this function is ignored, as channels are always up to date.
+    When running in the VeriStand Engine, this function is ignored as channels are always up to date.
 
     """
     time.sleep(amount)
@@ -249,7 +249,7 @@ def generate_error(code, message, action):
         action(:class:`niveristand.clientapi.ErrorAction`): action to perform.
 
     Returns:
-        If action is Continue returns the generated error.
+        If action is Continue, returns the generated error.
 
     """
     from niveristand.clientapi._realtimesequencedefinitionapi.erroraction import ErrorAction

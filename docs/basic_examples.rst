@@ -21,7 +21,7 @@ The function also takes in some parameters. You must define parameters using the
    :linenos:
    :pyobject: add_two_numbers
 
-You can now run the test just like any other python function. You can run it non-deterministically, as in the following example:
+You can now run the test just like any other Python function. You can run it non-deterministically, as in the following example:
 
 .. literalinclude:: ../examples/basic_examples.py
    :language: python

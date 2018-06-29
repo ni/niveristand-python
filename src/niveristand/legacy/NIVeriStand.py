@@ -783,7 +783,7 @@ class ModelManager:
 
     def SetParameterVectorValues(self, name, values):
         """
-        Sets an vector value for a parameter.
+        Sets a vector value for a parameter.
 
         The value you specify in `value` must be a matrix data type.
         """
@@ -846,7 +846,7 @@ class ModelManager2(ModelManager):
         _RaiseException_(self.modmgr.SetSingleParameterValue(target, name, System.Double(value)))
 
     def SetMultipleParameterValues(self, target, names, values):
-        """Sets the value(s) of the parameters you specify."""
+        """Sets the value of the parameter(s) you specify."""
         tupleNames = _ConvertListParamToTuple_(names)
         tupleValues = _ConvertListParamToTuple_(values)
         _RaiseException_(self.modmgr.SetMultipleParameterValues(target, tupleNames, tupleValues))
@@ -861,7 +861,7 @@ class ModelManager2(ModelManager):
 
     def SetParameterValues(self, target, names, matrixArr):
         """
-        Sets the vector value(s) of the parameters you specify.
+        Sets the vector value of the parameter(s) you specify.
 
         The value you specify in `matrixArr` must be a matrix data type.
         Sample usage ModelManager2.SetParameterValues("target1",["1By3Param","2By3Param"],[[[1,2,3]],[[1,2,3],[4,5,6]]])
