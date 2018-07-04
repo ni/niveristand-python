@@ -14,8 +14,9 @@
 #
 import os
 import sys
-sys.path.insert(0, os.path.abspath('../src'))
+from unittest.mock import MagicMock
 
+sys.path.insert(0, os.path.abspath('../src'))
 
 # -- Project information -----------------------------------------------------
 
@@ -24,10 +25,9 @@ copyright = '2018, National Instruments'
 author = 'National Instruments'
 
 # The short X.Y version
-version = ''
+version = '0.9'
 # The full version, including alpha/beta/rc tags
-release = '1.0'
-
+release = '0.9.0'
 
 # -- General configuration ---------------------------------------------------
 
@@ -73,7 +73,6 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = 'sphinx'
 
-
 # -- Options for HTML output -------------------------------------------------
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
@@ -108,7 +107,6 @@ html_static_path = ['_static']
 # Output file base name for HTML help builder.
 htmlhelp_basename = 'niveristand-pythondoc'
 
-
 # -- Options for LaTeX output ------------------------------------------------
 
 latex_elements = {
@@ -137,7 +135,6 @@ latex_documents = [
      'National Instruments', 'manual'),
 ]
 
-
 # -- Options for manual page output ------------------------------------------
 
 # One entry per manual page. List of tuples
@@ -146,7 +143,6 @@ man_pages = [
     (master_doc, 'niveristand-python', 'niveristand-python Documentation',
      [author], 1)
 ]
-
 
 # -- Options for Texinfo output ----------------------------------------------
 
@@ -159,10 +155,29 @@ texinfo_documents = [
      'Miscellaneous'),
 ]
 
-
 # -- Extension configuration -------------------------------------------------
 
 # -- Options for todo extension ----------------------------------------------
 
 # If true, `todo` and `todoList` produce output, else they produce nothing.
 todo_include_todos = True
+
+
+class Mock(MagicMock):
+    @classmethod
+    def __getattr__(cls, name):
+        return MagicMock()
+
+
+MOCK_MODULES = ['clr',
+                'System',
+                'System.IO',
+                'NationalInstruments',
+                'NationalInstruments.VeriStand',
+                'NationalInstruments.VeriStand.ClientAPI',
+                'NationalInstruments.VeriStand.Data',
+                'NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi',
+                'NationalInstruments.VeriStand.RealTimeSequenceDefinitionApiUtilities',
+                'niveristand.clientapi._datatypes.rtprimitives',
+                ]
+sys.modules.update((mod_name, Mock()) for mod_name in MOCK_MODULES)
