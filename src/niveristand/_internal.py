@@ -20,13 +20,17 @@ def _get_ref_assemblies_path():
 
 
 def _get_install_path():
-    import winreg
+    import sys
+    if sys.version_info > (3, 0):
+        import winreg
+    else:
+        import _winreg as winreg
     with winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, 'SOFTWARE\\Wow6432Node\\National Instruments\\VeriStand\\') as vskey:
         r = winreg.QueryInfoKey(vskey)
-        ver = 0
+        ver = '0'
         for k in range(r[0]):
             with winreg.OpenKey(vskey, winreg.EnumKey(vskey, k)) as this_key:
-                this_ver = int(winreg.QueryValueEx(this_key, 'VersionString')[0])
+                this_ver = winreg.QueryValueEx(this_key, 'Version')[0]
                 if this_ver > ver:
                     latest_dir = winreg.QueryValueEx(this_key, 'InstallDir')[0]
                     ver = this_ver
@@ -52,14 +56,17 @@ try:
     clr.AddReference("NationalInstruments.VeriStand.DataTypes")
     clr.AddReference("NationalInstruments.VeriStand.ClientAPI")
 except FileNotFoundException:
-    clr.AddReference(os.path.join(base_assembly_path(),
-                                  "NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi.dll"))
-    clr.AddReference(os.path.join(base_assembly_path(),
-                                  "NationalInstruments.VeriStand.RealTimeSequenceDefinitionApiUtilities.dll"))
-    clr.AddReference(os.path.join(base_assembly_path(),
-                                  "NationalInstruments.VeriStand.DataTypes.dll"))
-    clr.AddReference(os.path.join(base_assembly_path(),
-                                  "NationalInstruments.VeriStand.ClientAPI.dll"))
+    try:
+        clr.AddReference(os.path.join(base_assembly_path(),
+                                      "NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi.dll"))
+        clr.AddReference(os.path.join(base_assembly_path(),
+                                      "NationalInstruments.VeriStand.RealTimeSequenceDefinitionApiUtilities.dll"))
+        clr.AddReference(os.path.join(base_assembly_path(),
+                                      "NationalInstruments.VeriStand.DataTypes.dll"))
+        clr.AddReference(os.path.join(base_assembly_path(),
+                                      "NationalInstruments.VeriStand.ClientAPI.dll"))
+    except FileNotFoundException as e:
+        raise IOError(e.Message)
 
 
 def dummy():

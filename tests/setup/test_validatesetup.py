@@ -5,7 +5,7 @@ __vs_binaries__ = ["NationalInstruments.VeriStand.dll"]
 
 
 def _inc(x):
-        return x + 1
+    return x + 1
 
 
 def test_pass():
@@ -26,3 +26,12 @@ def test_binariesfound():
     assert path.isdir(folder)
     for binary in __vs_binaries__:
         assert path.isfile(path.join(folder, binary))
+
+
+def test_getinstalledbinariespath():
+    from niveristand._internal import _get_install_path
+    try:
+        bindir = _get_install_path()
+        assert bindir is not None
+    except (IOError, WindowsError):
+        pass
