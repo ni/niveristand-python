@@ -60,6 +60,7 @@ def run_deterministic():
 
 
 if __name__ == '__main__':
+    realtimesequencetools.save_py_as_rtseq(run_engine_demo, 'd:\\share\\temp\\demo')
     run_non_deterministic()
     print('Finished non-deterministic')
     run_deterministic()
