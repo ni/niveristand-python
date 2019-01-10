@@ -266,7 +266,10 @@ run_as_rts_tests = [
 
 
 def idfunc(val):
-    return val.__name__
+    try:
+        return val.__name__
+    except AttributeError:
+        return str(val)
 
 
 def test_gen_continue_no_fail():

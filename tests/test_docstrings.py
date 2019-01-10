@@ -102,7 +102,10 @@ transform_tests = [
 
 
 def idfunc(val):
-    return val.__name__
+    try:
+        return val.__name__
+    except AttributeError:
+        return str(val)
 
 
 @pytest.mark.parametrize("func_name, params, expected_result", transform_tests, ids=idfunc)

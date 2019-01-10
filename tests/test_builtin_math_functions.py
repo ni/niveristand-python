@@ -455,7 +455,7 @@ run_tests = [
     (log2_double, (), 10),
     (max_double, (), 2048),
     (min_double, (), 1024),
-    (mod_double, (), -2),
+    (mod_double, (), 1.0),
     (pow_double, (), 27),
     (round_double, (), 4),
     (sin_double, (), 1),
@@ -478,11 +478,15 @@ transform_tests = run_tests + [
 
 py_only_different_behavior_tests = [
     (abs_variable_boolean, (), False),
+    (mod_double, (), 1.0),
 ]
 
 
 def idfunc(val):
-    return val.__name__
+    try:
+        return val.__name__
+    except AttributeError:
+        return str(val)
 
 
 @pytest.mark.parametrize("func_name, params, expected_result", transform_tests, ids=idfunc)

@@ -204,7 +204,10 @@ run_as_rts_tests = run_everywhere_tests + [
 
 
 def idfunc(val):
-    return val.__name__
+    try:
+        return val.__name__
+    except AttributeError:
+        return str(val)
 
 
 @pytest.mark.parametrize("func_name, params, expected_result", run_tests, ids=idfunc)
