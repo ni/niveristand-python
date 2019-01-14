@@ -494,8 +494,9 @@ def test_transform(func_name, params, expected_result):
     RealTimeSequence(func_name)
 
 
-@pytest.mark.parametrize("func_name, params, expected_result", list(set(run_tests) -
-                                                                    set(py_only_different_behavior_tests)), ids=idfunc)
+@pytest.mark.parametrize(
+    "func_name, params, expected_result",
+    list(set(run_tests) - set(py_only_different_behavior_tests)), ids=idfunc)
 def test_runpy(func_name, params, expected_result):
     actual = func_name(*params)
     assert actual == expected_result
