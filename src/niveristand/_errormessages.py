@@ -56,3 +56,4 @@ invalid_operand_for_boolean_operator = "Logical operators only accept boolean va
 invalid_type_for_if_test = "If statements only allow for boolean checks."
 invalid_operand_for_unary_invert_operator = "The unary inversion operator (~) only accepts integer values."
 negative_operand_for_binary_operator = "You cannot use a negative number to the right of an arithmetic shift operation."
+unexpected_dot_net_data_type = "Expecting a .net instance of type %s"
