@@ -88,7 +88,18 @@ class _Factory(_DotNetClassWrapperBase):
         workspace2 = self._dot_net_instance.GetIWorkspace2()
         return _Workspace2(workspace2)
 
+
+class _DefaultGatewayFactory(object):
+    """
+    Provides access to the NI VeriStand system and the various interfaces available in the Execution API.
+
+    All the instances that are created by this class are using the gateway at a default ip address. Any code you write
+     using this API must include a Factory constructor to access NI VeriStand.
+
+    """
+
     _default_gateway_ip_address = ""
+    _default_workspace = None
 
     @classmethod
     def set_default_gateway_ip_address(cls, gateway_ip_address):
@@ -102,6 +113,7 @@ class _Factory(_DotNetClassWrapperBase):
 
         """
         cls._default_gateway_ip_address = gateway_ip_address
+        cls._default_gateway = _Factory().get_workspace2(gateway_ip_address)
 
     @classmethod
     def get_default_gateway_ip_address(cls):
@@ -115,3 +127,38 @@ class _Factory(_DotNetClassWrapperBase):
 
         """
         return cls._default_gateway_ip_address
+
+    @classmethod
+    def get_new_stimulus_profile_session(cls, name, sequences, description):
+        """
+        Gets an instance that implements StimulusProfileSession interface.
+
+        The instance can be used to automate the execution of an already deployed Stimulus Profile Session.
+
+        Args:
+            name(str): Specifies the name of the Stimulus Profile Session.
+            sequences([niveristand.clientapi._sequencecallinfo._SequenceCallInfo]): Specifies the sequences to execute
+             in the Stimulus Profile Session.
+            description(str): Specifies a description for the Stimulus Profile Session.
+
+        Returns:
+            niveristand.clientapi._stimulusprofilesession._StimulusProfileSession : A StimulusProfileSession instance.
+
+        """
+        return _Factory().\
+            get_new_stimulus_profile_session(cls._default_gateway_ip_address, name, sequences, description)
+
+    @classmethod
+    def get_workspace2(cls):
+        """
+        Gets an instance that implements the Workspace2 interface.
+
+        The instance can be used use to manage connections between the VeriStand Gateway and one or more targets,
+         to start and stop data logging operations, and to configure events for error and status notifications.
+          This method allows you to specify the IP address of the VeriStand Gateway.
+
+        Returns:
+            niveristand.clientapi._workspace2._Workspace2: A Workspace2 instance.
+
+        """
+        return cls._default_gateway

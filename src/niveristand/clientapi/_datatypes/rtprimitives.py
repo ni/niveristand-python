@@ -15,7 +15,7 @@ from NationalInstruments.VeriStand.Data import U64Value as ClientApiU64Value
 from NationalInstruments.VeriStand.Data import U64ValueArray as ClientApiU64ValueArray
 from niveristand import _errormessages
 from niveristand import errors as nivsexceptions
-from niveristand.clientapi._factory import _Factory
+from niveristand.clientapi._factory import _DefaultGatewayFactory
 from System import Int32 as SystemInt32
 from System import Int64 as SystemInt64
 from System import UInt32 as SystemUInt32
@@ -381,15 +381,11 @@ class ChannelReference(DataType):
     @property
     def value(self):
         return \
-            _Factory().\
-            get_workspace2(_Factory.get_default_gateway_ip_address()).\
-            get_single_channel_value(self._channel_name)
+            _DefaultGatewayFactory.get_workspace2().get_single_channel_value(self._channel_name)
 
     @value.setter
     def value(self, newvalue):
-        _Factory().\
-            get_workspace2(_Factory.get_default_gateway_ip_address()).\
-            set_single_channel_value(self._channel_name, newvalue)
+        _DefaultGatewayFactory.get_workspace2().set_single_channel_value(self._channel_name, newvalue)
 
     def _to_data_value(self, value):
         return ClientApiDoubleValue(value)

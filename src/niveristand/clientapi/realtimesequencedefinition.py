@@ -2,7 +2,7 @@ import os
 from niveristand import _errormessages, errors
 from niveristand import _internal
 from niveristand.clientapi import stimulusprofileapi
-from niveristand.clientapi._factory import _Factory
+from niveristand.clientapi._factory import _DefaultGatewayFactory
 from niveristand.clientapi._sequencecallinfo import _SequenceCallInfoFactory
 from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import Expression  # noqa: I100
 from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import ForEachLoop
@@ -132,8 +132,7 @@ def _get_channel_node_info(name, node_info_list):
 
 def run_rt_sequence(rt_sequence_path, timeout_within_each_step):
     seq_call_info = _SequenceCallInfoFactory.create(rt_sequence_path, None, [], False, timeout_within_each_step)
-    session = _Factory().get_new_stimulus_profile_session(
-        _Factory.get_default_gateway_ip_address(), rt_sequence_path, [seq_call_info], "")
+    session = _DefaultGatewayFactory.get_new_stimulus_profile_session(rt_sequence_path, [seq_call_info], "")
     sequence_control = session[os.path.splitext(os.path.basename(rt_sequence_path))[0] + ":1"]
     state = stimulusprofileapi.StimulusProfileState(session)
     sequence_control.register_sequence_complete_event_handler(state._sequence_complete_event_handler)
