@@ -1,9 +1,11 @@
 import os
 from niveristand import _errormessages, errors
 from niveristand import _internal
+from niveristand._translation.py2rtseq.utils import _py_param_name_to_rtseq_param_name
 from niveristand.clientapi import stimulusprofileapi
 from niveristand.clientapi._factory import _DefaultGatewayFactory
 from niveristand.clientapi._sequencecallinfo import _SequenceCallInfoFactory
+from niveristand.clientapi._sequenceparameterassignmentinfo import _SequenceParameterAssignmentInfoFactory
 from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import Expression  # noqa: I100
 from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import ForEachLoop
 from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import ForLoop
@@ -130,8 +132,11 @@ def _get_channel_node_info(name, node_info_list):
     raise errors.VeristandError(_errormessages.channel_not_found % name)
 
 
-def run_rt_sequence(rt_sequence_path, timeout_within_each_step):
-    seq_call_info = _SequenceCallInfoFactory.create(rt_sequence_path, None, [], False, timeout_within_each_step)
+def run_rt_sequence(rt_sequence_path, rtseq_params):
+    rtseq_params = \
+        [_SequenceParameterAssignmentInfoFactory.create(_py_param_name_to_rtseq_param_name(key), rtseq_params[key])
+         for key in rtseq_params]
+    seq_call_info = _SequenceCallInfoFactory.create(rt_sequence_path, None, rtseq_params, False, 100000)
     session = _DefaultGatewayFactory.get_new_stimulus_profile_session(rt_sequence_path, [seq_call_info], "")
     sequence_control = session[os.path.splitext(os.path.basename(rt_sequence_path))[0] + ":1"]
     state = stimulusprofileapi.StimulusProfileState(session)

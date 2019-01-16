@@ -86,7 +86,7 @@ def test_run_py_as_rts(func_name, params, expected_result):
 
 def test_not_wait_to_complete():
     seq = RealTimeSequence(return_var)
-    result_state = seq.run(False)
+    result_state = seq.run()
     assert result_state.ret_val is None
     result_state.wait_for_result()
     assert result_state.ret_val == 5

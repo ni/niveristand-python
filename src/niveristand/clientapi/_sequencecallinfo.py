@@ -26,7 +26,10 @@ class _SequenceCallInfoFactory(object):
             niveristand.clientapi._sequencecallinfo._SequenceCallInfo: Newly created instance.
 
         """
-        return _SequenceCallInfo(SequenceCallInfoDotNet(sequence_path, target, parameters, debug, timeout))
+        parameters_dot_net = [parameter.dot_net_instance for parameter in parameters]
+        sequence_call_info_dot_net = SequenceCallInfoDotNet(sequence_path, target, parameters_dot_net, debug, timeout)
+        sequence_call_info = _SequenceCallInfo(sequence_call_info_dot_net)
+        return sequence_call_info
 
 
 class _SequenceCallInfo(_DotNetClassWrapperBase):
