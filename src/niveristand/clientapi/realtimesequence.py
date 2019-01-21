@@ -41,16 +41,16 @@ class RealTimeSequence:
         # finally, initialize the transform
         self._transform()
 
-    def run(self, timeout_within_each_step=100000):
+    def run(self, rtseq_params={}):
         """
         Runs the sequence on the globally configured VeriStand Engine.
 
         Args:
-            timeout_within_each_step (Optional[int]): Time, in milliseconds,
-                each step waits before execution is aborted.
+            rtseq_params (Dict[str, niveristand.clientapi._datatypes.rtprimitives.DoubleValue]):  the parameters to be
+             passed to the RT sequence.
 
         Returns:
-            :class:`niveristand.clientapi.StimulusProfileState`: Stimulus profile session state.
+            niveristand.clientapi.stimulusprofileapi.StimulusProfileState: Stimulus profile session state.
 
         Deploys and runs the sequence without waiting for the sequence to finish. Use the returned
         :class:`StimulusProfileState` to wait for the sequence to complete and obtain the return value.
@@ -64,7 +64,7 @@ class RealTimeSequence:
             raise VeristandError(_errormessages.invalid_path_for_sequence)
 
         name = self._build_file_name()
-        return rtseqapi.run_rt_sequence(name, timeout_within_each_step)
+        return rtseqapi.run_rt_sequence(name, rtseq_params)
 
     def save(self, path=None):
         """

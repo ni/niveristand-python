@@ -65,41 +65,22 @@ def inbounds_check(test_value, upper, lower):
     return result.value
 
 
-@nivs_rt_sequence
-def engine_set_points_profile():
-    """Runs three tests in one profile."""
-    try:
-        all_passed = BooleanValue(True)
-        test1_passed = BooleanValue(False)
-        test2_passed = BooleanValue(False)
-        test3_passed = BooleanValue(False)
-        seq_res = DoubleValue(0)
-
-        # Turns on the engine.
-        set_engine_power(True)
-
-        # Each test changes the desired rpm and checks to see if the signal settles within 60 seconds.
-        seq_res.value = measure_set_point_response(DoubleValue(2500), DoubleValue(60), DoubleValue(100))
-        test1_passed.value = inbounds_check(seq_res.value, DoubleValue(60), DoubleValue(0))
-
-        seq_res.value = measure_set_point_response(DoubleValue(6000), DoubleValue(60), DoubleValue(100))
-        test2_passed.value = inbounds_check(seq_res.value, DoubleValue(60), DoubleValue(0))
-
-        seq_res.value = measure_set_point_response(DoubleValue(3000), DoubleValue(60), DoubleValue(100))
-        test3_passed.value = inbounds_check(seq_res.value, DoubleValue(60), DoubleValue(0))
-
-        all_passed.value = test1_passed.value and test2_passed.value and test3_passed.value
-    finally:
-        set_engine_power(False)
-
-    return all_passed.value
-
-
 # The following function runs the profile above deterministically.
 # A unit test framework, such as py.test, can find the function.
 def test_run_engine_set_points_profile_deterministic():
-    result = run_py_as_rtseq(engine_set_points_profile)
-    assert result is True
+    set_engine_power(True)
+    setpoints = DoubleValueArray([2500, 6000, 3000])
+    try:
+        for setpoint in setpoints:
+            test_passed = run_py_as_rtseq(measure_set_point_response,
+                                          {
+                                              "setpoint": setpoint,
+                                              "timeout": DoubleValue(60),
+                                              "tolerance": DoubleValue(100)
+                                          })
+            assert 0 < test_passed <= 60, "Setpoint %d failed" % setpoint
+    finally:
+        set_engine_power(False)
 
 
 # If you do not need to run the profile deterministically, you can run this function as part of a py.test run.

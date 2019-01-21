@@ -7,8 +7,8 @@ def test_validate(testmodule):
              getattr(f, rt_seq_mode_id, None) is not None]
     test_lists = {}
     for a in dir(testmodule):
-        if (a.startswith('run_tests') or a.startswith('skip_tests') or a.startswith('transform_tests') or
-                a.startswith('fail_transform_tests') or a.startswith('python_tests') or
+        if (a.startswith('run_tests') or a.startswith('skip_tests') or a.startswith('transform_tests') or  # noqa: W504
+                a.startswith('fail_transform_tests') or a.startswith('python_tests') or  # noqa: W504
                 a.startswith('py_only_different_behavior_tests') or a.startswith('py_only_errs')):
             test_lists[a] = testmodule.__dict__.get(a)
     _validate_special_lists_are_subsets_of_overall_lists(test_lists, 'py_only_different_behavior_tests', 'run_tests')
