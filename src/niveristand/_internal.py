@@ -38,11 +38,11 @@ def _get_install_path():
 
 
 def _getdevconfig():
-    import yaml
-    cfgfile = os.environ["vsdev.yaml"]
+    import json
+    cfgfile = os.environ["vsdev.json"]
     cfgfile = cfgfile.strip('"')
     with open(os.path.normpath(cfgfile), "r") as f:
-        cfg = yaml.load(f.read())
+        cfg = json.load(f)
     return cfg
 
 
