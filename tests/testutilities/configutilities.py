@@ -1,5 +1,5 @@
 import os
-import yaml
+import json
 
 
 def getbinariesfolder():
@@ -7,9 +7,9 @@ def getbinariesfolder():
 
 
 def _getdevconfig():
-    cfgfile = os.environ["vsdev.yaml"]
+    cfgfile = os.environ["vsdev.json"]
     with open(cfgfile, "r") as f:
-        cfg = yaml.load(f)
+        cfg = json.load(f)
     return cfg
 
 
