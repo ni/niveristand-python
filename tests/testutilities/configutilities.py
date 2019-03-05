@@ -3,7 +3,8 @@ import json
 
 
 def getbinariesfolder():
-    return _getdevconfig()['BaseBinariesPath']
+    from niveristand import _internal
+    return _internal.base_assembly_path()
 
 
 def _getdevconfig():
