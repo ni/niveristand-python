@@ -189,6 +189,12 @@ def channel_ref_array_return():
 
 
 @_decorators.nivs_rt_sequence
+def channel_ref_for_vector_channel():
+    a = ChannelReference('Targets/Controller/Simulation Models/Models/Engine Demo/Parameters/a')
+    a.value = 50
+
+
+@_decorators.nivs_rt_sequence
 def channel_ref_array_validate_getter():
     a = VectorChannelReference("Targets/Controller/Simulation Models/Models/Engine Demo/Parameters/a")
     a[3].value = 5.0

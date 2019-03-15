@@ -1,4 +1,4 @@
-from niveristand import errors
+from niveristand import errors, realtimesequencetools
 from niveristand.clientapi import RealTimeSequence
 import pytest
 from testutilities import rtseqrunner, testfunctions
@@ -75,6 +75,10 @@ def test_channel_ref_array_return():
     with pytest.raises(errors.TranslateError):
         RealTimeSequence(testfunc)
 
+
+def test_channel_ref_for_vector_channel():
+    with pytest.raises(errors.VeristandError):
+        realtimesequencetools.run_py_as_rtseq(testfunctions.channel_ref_for_vector_channel)
 
 @pytest.mark.skip
 def test_channel_ref_array_run():
