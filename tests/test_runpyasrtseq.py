@@ -93,12 +93,12 @@ def test_not_wait_to_complete():
 
 
 def test_run_multiple_top_level_seqs():
-    assert len(get_scheduler()._task_dict) is 0
+    assert len(get_scheduler()._task_dict) == 0
     for func, params, expected in run_tests:
         actual = realtimesequencetools.run_py_as_rtseq(func)
         assert actual == expected
         # check that the scheduler is empty after every run.
-        assert len(get_scheduler()._task_dict) is 0
+        assert len(get_scheduler()._task_dict) == 0
 
 
 def test_run_multiple_top_level_seqs_in_parallel():

@@ -74,17 +74,17 @@ def _validate_restrictions(node):
     if sys.version_info > (3, 0):
         # py35 restrictions
         if node.returns is not None \
-                or len(node.args.kwonlyargs) is not 0 \
-                or len(node.args.kw_defaults) is not 0 \
+                or len(node.args.kwonlyargs) != 0 \
+                or len(node.args.kw_defaults) != 0 \
                 or node.args.vararg is not None \
                 or node.args.kwarg is not None \
-                or len(node.args.defaults) is not 0:
+                or len(node.args.defaults) != 0:
             raise errors.TranslateError(_errormessages.invalid_function_definition)
     else:
         # py27 restrictions
         if node.args.vararg is not None \
                 or node.args.kwarg is not None \
-                or len(node.args.defaults) is not 0:
+                or len(node.args.defaults) != 0:
             raise errors.TranslateError(_errormessages.invalid_function_definition)
     if validations.check_if_any_in_block(validations.ast_try(), node.body):
         if not isinstance(node.body[0], validations.ast_try()):

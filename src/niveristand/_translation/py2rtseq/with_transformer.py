@@ -56,10 +56,10 @@ def _validate_task(node, mt_name):
     if len(node.args.args) > 0:
         raise errors.TranslateError(_errormessages.invalid_with_block)
     decs = node.decorator_list
-    if len(decs) is not 1 \
+    if len(decs) != 1 \
             or not(isinstance(decs[0], ast.Call)) \
             or _get_name_without_namespace_from_node(decs[0].func) != _decorators.task.__name__ \
-            or len(decs[0].args) is not 1 \
+            or len(decs[0].args) != 1 \
             or decs[0].args[0].id is not mt_name.id:
         raise errors.TranslateError(_errormessages.invalid_with_block)
     return node

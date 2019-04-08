@@ -24,12 +24,12 @@ def _subseq_with_multitask(param):
         @task(mt)
         def fa():
             nivs_yield()
-            if param.value is 2:
+            if param.value == 2:
                 param.value = 3
 
         @task(mt)
         def fb():
-            if param.value is 0:
+            if param.value == 0:
                 param.value = 1
 
 
@@ -74,7 +74,7 @@ def multitask_blocks_until_done():
         def f2():
             a.value = 2
             nivs_yield()
-    if a.value is not 1:
+    if a.value != 1:
         a.value = -1
     return a.value
 
@@ -126,7 +126,7 @@ def multitask_tasks_with_different_iter_count():
         def f1():
             while a.value < 15:
                 a.value += 1
-                if a.value % 2 is not 1 and a.value < 10:
+                if a.value % 2 != 1 and a.value < 10:
                     ret.value = a.value * -1
                 nivs_yield()
 
@@ -134,7 +134,7 @@ def multitask_tasks_with_different_iter_count():
         def f2():
             while a.value < 10:
                 a.value += 1
-                if a.value % 2 is not 0:
+                if a.value % 2 != 0:
                     ret.value = a.value * -1
                 if a.value > 10:
                     ret.value -= 100
@@ -157,7 +157,7 @@ def multitask_nested_validate_order():
                     with multitask() as mt_bottom:
                         @task(mt_bottom)
                         def fx():
-                            if a.value is not 0:
+                            if a.value != 0:
                                 ret.value = -1000
                             while counter.value > 0:
                                 counter.value -= 1
@@ -202,7 +202,7 @@ def multitask_nested_validate_order():
                 counter.value -= 1
                 nivs_yield()
 
-    if counter.value is not 0:
+    if counter.value != 0:
         ret.value -= 10000
     return ret.value
 
@@ -214,12 +214,12 @@ def multitask_multiple_in_sequence_validate_order():
         @task(mt)
         def f1():
             nivs_yield()
-            if a.value is 1:
+            if a.value == 1:
                 a.value = 2
 
         @task(mt)
         def f2():
-            if a.value is 0:
+            if a.value == 0:
                 a.value = 1
             nivs_yield()
 
@@ -227,12 +227,12 @@ def multitask_multiple_in_sequence_validate_order():
         @task(mt2)
         def fa():
             nivs_yield()
-            if a.value is 3:
+            if a.value == 3:
                 a.value = 4
 
         @task(mt2)
         def fb():
-            if a.value is 2:
+            if a.value == 2:
                 a.value = 3
             nivs_yield()
 
@@ -267,17 +267,17 @@ def multitask_call_subroutine_with_multitask():
         def f1():
             _subseq_with_multitask(a)
             nivs_yield()
-            if a.value is 3:
+            if a.value == 3:
                 a.value = 4
 
         @task(mt)
         def f2():
-            if a.value is 1:
+            if a.value == 1:
                 a.value = 2
             nivs_yield()
             nivs_yield()
             nivs_yield()
-            if a.value is 4:
+            if a.value == 4:
                 a.value = 5
 
     return a.value
