@@ -146,4 +146,4 @@ class SequenceError(VeristandError):
         """
         from niveristand.clientapi._realtimesequencedefinitionapi.erroraction import ErrorAction
         # If the error code was 0 in a Continue error then don't raise.
-        return not (self.error_action is ErrorAction.ContinueSequenceExecution and self.error_code is 0)
+        return not (self.error_action is ErrorAction.ContinueSequenceExecution and self.error_code == 0)

@@ -2,7 +2,7 @@ from niveristand._translation import utils
 
 
 def custom_math_log(node, resources):
-    if len(node.args) is 1:
+    if len(node.args) == 1:
         func = 'ln'
     else:
         func = 'log'
