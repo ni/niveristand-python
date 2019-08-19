@@ -99,7 +99,7 @@ class _DefaultGatewayFactory(object):
     """
 
     _default_gateway_ip_address = ""
-    _default_workspace = _Factory().get_workspace2("")
+    _default_workspace = None
 
     @classmethod
     def set_default_gateway_ip_address(cls, gateway_ip_address):
@@ -161,4 +161,6 @@ class _DefaultGatewayFactory(object):
             niveristand.clientapi._workspace2._Workspace2: A Workspace2 instance.
 
         """
+        if cls._default_workspace is None:
+            cls._default_workspace = _Factory().get_workspace2("")
         return cls._default_workspace

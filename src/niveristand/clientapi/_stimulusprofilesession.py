@@ -1,9 +1,11 @@
 from niveristand import _errormessages, errors
 from niveristand.clientapi._dotnetclasswrapperbase import _DotNetClassWrapperBase
 from niveristand.clientapi._error import _Error
+from niveristand import _internal
 from NationalInstruments.VeriStand.ClientAPI import ISequenceControl as ISequenceControlDotNet  # noqa: I100
 from NationalInstruments.VeriStand.ClientAPI import IStimulusProfileSession as IStimulusProfileSessionDotNet
 
+_internal.dummy()
 
 class _StimulusProfileSession(_DotNetClassWrapperBase):
     """
