@@ -11,9 +11,6 @@ import os
 import warnings
 import clr
 from niveristand import _internal
-clr.AddReference("NationalInstruments.VeriStand, Version=2018.0.0.0, Culture=neutral, PublicKeyToken=a6d690c380daa308")
-clr.AddReference(
-    "NationalInstruments.VeriStand.ClientAPI, Version=2018.0.0.0, Culture=neutral, PublicKeyToken=a6d690c380daa308")
 import System  # noqa
 from NationalInstruments.VeriStand import DataArray  # noqa
 from NationalInstruments.VeriStand.ClientAPI import Factory  # noqa
@@ -40,13 +37,19 @@ warnings.warn("NIVeriStand.py module is deprecated. "
 def LaunchNIVeriStand():
     """Launch NI VeriStand.exe from the installed location."""
     import subprocess
-    path = _internal._get_install_path()
+    path = _internal.base_assembly_path()
+    # Try launching VeriStand with both the old and new .exe names.
     veristand = os.path.join(path, "NI VeriStand.exe")
-    print(veristand)
     try:
         subprocess.Popen([veristand, ""]).pid
+        print(veristand)
     except OSError:
-        raise NIVeriStandException(-307652, "Could not launch NI VeriStand.")
+        try:
+            veristand = os.path.join(path, "VeriStand Project Explorer.exe")
+            subprocess.Popen([veristand, ""]).pid
+            print(veristand)
+        except OSError:
+            raise NIVeriStandException(-307652, "Could not launch VeriStand.")
 
 
 def _ConvertMATRIXTO1DARRVAL_(values):

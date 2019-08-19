@@ -2,7 +2,7 @@ import time
 import os
 
 from niveristand.legacy import NIVeriStand
-from testutilities import configutilities
+from tests.testutilities import configutilities
 
 def sleep():
     time.sleep(1)

@@ -3,7 +3,7 @@ import os
 import math
 
 from niveristand.legacy import NIVeriStand
-from testutilities import configutilities
+from tests.testutilities import configutilities
 
 
 def sleep():
