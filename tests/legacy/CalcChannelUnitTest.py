@@ -4,7 +4,7 @@ import math
 import pytest
 
 from niveristand.legacy import NIVeriStand
-from testutilities import configutilities
+from tests.testutilities import configutilities
 
 def sleep():
     time.sleep(0.5)

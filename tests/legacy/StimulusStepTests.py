@@ -1,7 +1,7 @@
 import time
 import os
 from niveristand.legacy import NIVeriStand
-from testutilities import configutilities
+from tests.testutilities import configutilities
 
 #helper function to do a wait. This is used when you send a value to the engine, the engine will not reflect the value back untill the TCP Data loop send data back, currently at a 5Hz rate.
 def sleep():

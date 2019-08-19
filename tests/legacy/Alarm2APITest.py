@@ -4,7 +4,7 @@ import pytest
 
 from niveristand.legacy import NIVeriStand
 from niveristand.legacy.NIVeriStand import NIVeriStandException
-from testutilities import configutilities
+from tests.testutilities import configutilities
 
 def sleep():
     time.sleep(1)
@@ -48,7 +48,7 @@ def test_alarm2_api():
         alarmTest2= result[1]
         constantBoundAlarm = result[2]
         print(alarmTest1)
-        assert(alarmTest1['WatchChannel'] == r"AlarmChannel1"), "Fail to confirm alarm channel"
+        assert(alarmTest1['WatchChannel'] == r"Aliases/AlarmChannel1"), "Fail to confirm alarm channel"
         assert((alarmTest1['HighLimitIsConstant'] == 0) or (alarmTest1['HighLimitChannel'] == r"AlarmChannel1High")), "Fail to confirm high limit"
         assert((alarmTest1['LowLimitIsConstant'] == 0) or (alarmTest1['LowLimitChannel'] == r"AlarmChannel1Low")), "Fail to confirm low limit"
         assert(alarmTest1['DelayDuration'] == 0.5), "Fail to confirm delay duration"

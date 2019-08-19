@@ -3,7 +3,7 @@ import os
 import pytest
 from niveristand.legacy import NIVeriStand
 from niveristand.legacy.NIVeriStand import NIVeriStandException
-from testutilities import configutilities
+from tests.testutilities import configutilities
 
 def sleep():
     time.sleep(1)
