@@ -50,6 +50,7 @@ class NivsParam:
         by_value(bool): Specifies whether to pass a parameter by value or by reference. Set to True to pass by value.
                         Set to False to pass by reference.
                         Refer to :any:`NivsParam.BY_REF` or :any:`NivsParam.BY_VALUE` for details.
+
     """
 
     BY_REF = False  #: Passes a parameter by reference. Allows the called function to modify the value.
@@ -113,6 +114,7 @@ def task(mt):
 
     Use this function as a decorator.
     Refer to :func:`niveristand.library.multitask` for more details on using tasks.
+
     """
     def _add_task_to_list(func):
         from niveristand.library._tasks import nivs_yield

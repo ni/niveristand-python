@@ -310,6 +310,7 @@ def stop_task(task_function):
 
 
     Refer to :func:`niveristand.library.multitask` for more details on stopping tasks.
+
     """
     task = get_scheduler().get_task_by_name(task_function.__name__)
     if task:
