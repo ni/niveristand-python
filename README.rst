@@ -1,20 +1,18 @@
-===========  =================================================================================================================================
-Info         NI VeriStand Python Support
+===========  ====================================================
+Info         VeriStand Python Support
 Author       National Instruments
-===========  =================================================================================================================================
-
-.. _about_section:
+===========  ====================================================
 
 About
 =====
-The **niveristand** package contains an API (Application Programming Interface) that interacts with NI VeriStand systems.
+The **niveristand** package contains an API (Application Programming Interface) that interacts with VeriStand systems.
 The package is implemented in Python. NI created and supports this package.
 
 Requirements
 ============
-**niveristand** |version| has the following requirements:
+**niveristand** 0.9.x has the following requirements:
 
-* NI VeriStand 2018 running on the same system as the Python code.
+* VeriStand 2018+ running on the same system as the Python code.
 * 64-bit version of Windows 10/8.1/7
 * CPython 2.7 or 3.5+
 
@@ -28,9 +26,11 @@ To install **niveristand**, use one of the following methods:
 1. `pip <http://pypi.python.org/pypi/pip>`_::
 
    $ python -m pip install niveristand
+
 2. **easy_install** from `setuptools <http://pypi.python.org/pypi/setuptools>`_::
 
    $ python -m easy_install niveristand
+
 3. Download the project source and run the following script::
 
    $ python setup.py install
@@ -39,7 +39,8 @@ To install **niveristand**, use one of the following methods:
 
 Usage
 =====
-Refer to :doc:`basic_examples` for detailed information on how to write a Python real-time sequence.
+Refer to the `Basic Examples section <https://niveristand-python.readthedocs.io/en/latest/basic_examples.html>`_
+for detailed information on how to write a Python real-time sequence.
 
 .. _support_section:
 
@@ -58,15 +59,15 @@ To report a bug or submit a feature request, please use the
 Documentation
 =============
 
-To view the documentation, visit the `NI VeriStand Python Documentation Page <http://niveristand-python.readthedocs.io>`_.
+To view the documentation, visit the `VeriStand Python Documentation Page <http://niveristand-python.readthedocs.io>`_.
 
 Additional Documentation
 ========================
 
-Refer to the `NI VeriStand Help <http://digital.ni.com/express.nsf/bycode/ex9v46>`_
+Refer to the `VeriStand Help <http://digital.ni.com/express.nsf/bycode/ex9v46>`_
 for detailed information on setting up a system and running real-time test scenarios.
 
-NI VeriStand Help installs only with the full version of NI VeriStand.
+VeriStand Help installs only with the full version of VeriStand.
 
 License
 =======

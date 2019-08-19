@@ -24,6 +24,7 @@ Features
 .. include:: ../README.rst
    :start-after: _installation_section:
    :end-before: _usage_section:
-.. include:: ../README.rst
-   :start-after: _usage_section:
-   :end-before: _support_section:
+
+Usage
+=====
+Refer to :doc:`basic_examples` for detailed information on how to write a Python real-time sequence.
