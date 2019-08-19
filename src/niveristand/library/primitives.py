@@ -39,6 +39,7 @@ def clearfault(x):
     If `channel` references a local variable, :func:`clearfault` performs no operation.
 
     **Note**: Only available for RT sequences.
+
     """
     raise VeristandNotImplementedError()
 
@@ -84,6 +85,7 @@ def fault(channel, value):
     If `channel` references a local variable, :func:`fault` performs no operation.
 
     **Note**: Only available for RT sequences.
+
     """
     raise VeristandNotImplementedError()
 
@@ -164,6 +166,7 @@ def recip(x):
         x: divisor.
 
     **Note**: Only available for RT sequences.
+
     """
     raise VeristandNotImplementedError()
 

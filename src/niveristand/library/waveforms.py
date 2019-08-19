@@ -18,6 +18,7 @@ def ramp(ramp_out, init_value, final_value, duration):
         init_value(:any:`DoubleValue`): starting value.
         final_value(:any:`DoubleValue`): ending value.
         duration(:any:`DoubleValue`): time, in seconds, you want the ramp to take.
+
     """
     step_count = I64Value(0)
     increment = DoubleValue(0)
@@ -51,6 +52,7 @@ def sawtooth_wave(wave_out, amplitude, freq, phase, bias, duration):
         phase(:any:`DoubleValue`): phase, in degrees, of the sawtooth wave.
         bias(:any:`DoubleValue`): offset to add to the sawtooth wave.
         duration(:any:`DoubleValue`): duration, in seconds, to play the sawtooth wave.
+
     """
     init_time = DoubleValue(0)
     curr_phase = DoubleValue(0)
@@ -83,6 +85,7 @@ def sine_wave(wave_out, amplitude, freq, phase, bias, duration):
         phase(:any:`DoubleValue`): phase, in degrees, of the sine wave.
         bias(:any:`DoubleValue`): offset to add to the sine wave.
         duration(:any:`DoubleValue`): duration, in seconds, to play the sine wave.
+
     """
     init_time = DoubleValue(0)
     phase_rad = DoubleValue(0)
@@ -116,6 +119,7 @@ def square_wave(wave_out, amplitude, freq, phase, bias, duty_cycle, duration):
         bias(:any:`DoubleValue`): offset to add to the square wave.
         duty_cycle(:any:`DoubleValue`): percentage of time the square wave remains high versus low over one period.
         duration(:any:`DoubleValue`): time, in seconds, to play the square wave.
+
     """
     init_time = DoubleValue(0)
     curr_phase = DoubleValue(0)
@@ -149,6 +153,7 @@ def triangle_wave(wave_out, amplitude, freq, phase, bias, duration):
         phase(:any:`DoubleValue`): phase, in degrees, of the triangle wave.
         bias(:any:`DoubleValue`): offset to add to the triangle wave.
         duration(:any:`DoubleValue`): duration, in seconds, to play the triangle wave.
+
     """
     init_time = DoubleValue(0)
     curr_phase = DoubleValue(0)
@@ -180,6 +185,7 @@ def uniform_white_noise_wave(wave_out, amplitude, seed, duration):
         amplitude(:any:`DoubleValue`): amplitude of the white noise wave.
         seed(:any:`I32Value`): seed for random number generator.
         duration(:any:`DoubleValue`): duration, in seconds, to play the white noise wave.
+
     """
     x_seed = I32Value(0)
     y_seed = I32Value(0)

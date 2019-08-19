@@ -11,6 +11,7 @@ class _Workspace2(_DotNetClassWrapperBase):
 
     Args:
         dot_net_instance (NationalInstruments.VeriStand.ClientAPI.WorkspaceImpl): the C# instance to wrap around.
+
     """
 
     def __init__(self, dot_net_instance):
