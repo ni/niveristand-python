@@ -57,14 +57,12 @@ try:
     clr.AddReference("NationalInstruments.VeriStand.ClientAPI")
 except FileNotFoundException:
     try:
-        clr.AddReference(os.path.join(base_assembly_path(),
-                                      "NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi.dll"))
-        clr.AddReference(os.path.join(base_assembly_path(),
-                                      "NationalInstruments.VeriStand.RealTimeSequenceDefinitionApiUtilities.dll"))
-        clr.AddReference(os.path.join(base_assembly_path(),
-                                      "NationalInstruments.VeriStand.DataTypes.dll"))
-        clr.AddReference(os.path.join(base_assembly_path(),
-                                      "NationalInstruments.VeriStand.ClientAPI.dll"))
+        from sys import path
+        path.append(base_assembly_path())
+        clr.AddReference("NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi")
+        clr.AddReference("NationalInstruments.VeriStand.RealTimeSequenceDefinitionApiUtilities")
+        clr.AddReference("NationalInstruments.VeriStand.DataTypes")
+        clr.AddReference("NationalInstruments.VeriStand.ClientAPI")
     except FileNotFoundException as e:
         raise IOError(e.Message)
 
