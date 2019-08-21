@@ -9,7 +9,6 @@ C-Python code wrapper of NI Veristand client API.
 
 import os
 import warnings
-import clr
 from niveristand import _internal
 import System  # noqa
 from NationalInstruments.VeriStand import DataArray  # noqa
