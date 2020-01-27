@@ -20,7 +20,7 @@ def mix_legacy_and_rtseq_run():
         run_py_as_rtseq(run_engine_demo)
         print("Test Success")
     except RunError as e:
-        print("Test Failed: %d -  %s" % (str(e.error.error_code), e.error.message))
+        print("Test Failed: %d -  %s" % (int(e.error.error_code), e.error.message))
     finally:
         # You can now disconnect from the system, so the next test can run.
         workspace.DisconnectFromSystem('', True)
