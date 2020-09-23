@@ -14,7 +14,7 @@ Requirements
 
 * VeriStand 2018+ running on the same system as the Python code.
 * 64-bit version of Windows 10/8.1/7
-* CPython 2.7 or 3.5+
+* CPython 3.7+
 
 .. _installation_section:
 

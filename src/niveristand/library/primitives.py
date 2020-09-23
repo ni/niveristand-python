@@ -215,7 +215,7 @@ def tickcountms():
         int: time, in milliseconds, as reported by the high-precision counter (if available).
 
     """
-    return int(time.clock() * 10 ** 3)
+    return int(time.process_time() * 10 ** 3)
 
 
 def tickcountus():
@@ -226,7 +226,7 @@ def tickcountus():
         int: time, in microseconds, as reported by the high-precision counter (if available).
 
     """
-    return int(time.clock() * 10 ** 6)
+    return int(time.process_time() * 10 ** 6)
 
 
 def localhost_wait(amount=0.1):

@@ -1,4 +1,3 @@
-import sys
 from niveristand import _internal
 from NationalInstruments.VeriStand.Data import BooleanValue as ClientApiBooleanValue  # noqa: E501, I100 We need these C# imports to be out of order.
 from NationalInstruments.VeriStand.Data import BooleanValueArray as ClientApiBooleanValueArray
@@ -80,15 +79,15 @@ class DataType(object):
 
     @staticmethod
     def _is_compatible_with_datatype(other):
-        return isinstance(other, (int, float)) or (sys.version_info < (2, 8) and isinstance(other, long))  # noqa F821
+        return isinstance(other, (int, float))  # noqa F821
 
     @staticmethod
     def _is_integer_type(other):
-        return isinstance(other, int) or (sys.version_info < (2, 8) and isinstance(other, long))  # noqa F821
+        return isinstance(other, int)  # noqa F821
 
     @staticmethod
     def _is_valid_assign_type(other):
-        return isinstance(other, (int, float, bool)) or (sys.version_info < (2, 8) and isinstance(other, long))  # noqa F821
+        return isinstance(other, (int, float, bool))  # noqa F821
 
     def __add__(self, other):
         if isinstance(other, DataType):

@@ -39,8 +39,6 @@ def return_transformer(node, resources):
 
 
 def _validate_restrictions(node):
-    valid_types = [ast.Num, ast.Attribute]
-    if sys.version_info > (3, 0):
-        valid_types.append(ast.NameConstant)
+    valid_types = [ast.Num, ast.Attribute, ast.NameConstant]
     if not isinstance(node.value, tuple(valid_types)):
         raise TranslateError(_errormessages.invalid_return_type)
