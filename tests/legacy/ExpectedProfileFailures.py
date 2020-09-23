@@ -12,12 +12,12 @@ def sleep():
 
 def wait_for_test(stimulus, wait_time):
     test_state = stimulus.GetStimulusProfileManagerState()
-    start_time = time.process_time()
+    start_time = time.perf_counter()
     elapsed_time = 0
     while (((test_state == 1) or (test_state == 2)) and (elapsed_time < wait_time)):
         sleep()
         test_state = stimulus.GetStimulusProfileManagerState()
-        elapsed_time = time.process_time() - start_time
+        elapsed_time = time.perf_counter() - start_time
     return (elapsed_time > wait_time)
 
 def run_test(wks, stimulus, test_name, wait_time):

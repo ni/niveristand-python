@@ -70,7 +70,6 @@ def _decorator_to_arg(node, resources):
 def _validate_restrictions(node):
     if validations.check_if_any_in_block(ast.FunctionDef, node.body):
         raise errors.TranslateError(_errormessages.invalid_function_definition)
-    # py35 restrictions
     if node.returns is not None \
             or len(node.args.kwonlyargs) != 0 \
             or len(node.args.kw_defaults) != 0 \
