@@ -1,5 +1,5 @@
 from math import acos, acosh, asin, asinh, atan, atan2, atanh, ceil, cos, cosh, exp, expm1, floor, fmod, hypot, isnan, \
-    log, log10, log1p, pi, sin, sinh, sqrt, tan, tanh
+    log, log10, log1p, log2, pi, sin, sinh, sqrt, tan, tanh
 import sys
 from niveristand import nivs_rt_sequence
 from niveristand import realtimesequencetools
@@ -9,12 +9,6 @@ from niveristand.library.primitives import localhost_wait
 import numpy
 import pytest
 from testutilities import rtseqrunner, validation
-
-if sys.version_info > (3, 2):
-    from math import log2
-else:
-    def log2(x):
-        return log(x, 2)
 
 
 @nivs_rt_sequence

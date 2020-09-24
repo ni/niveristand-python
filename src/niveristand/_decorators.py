@@ -82,11 +82,11 @@ def _set_rtseq_attrs(func, ret_func):
 def _reconstruct_args(f, args, new_param):
     real_func = getattr(f, rt_seq_mode_id, f)
     new_args = list(args)
-    arg_spec = inspect.getargspec(real_func)[0]
+    arg_spec = inspect.signature(real_func).parameters
 
     if new_param is not None:
-        if new_param.param_name in arg_spec:
-            idx = arg_spec.index(new_param.param_name)
+        if new_param.param_name in arg_spec.keys():
+            idx = list(arg_spec.keys()).index(new_param.param_name)
             datatype_name = new_param.default_elem.__class__.__name__
             datatype = rtprimitives.get_class_by_name(datatype_name)
             if new_param.by_value:
