@@ -1,5 +1,4 @@
 import ast
-import sys
 from niveristand import _errormessages, errors
 from niveristand._translation import utils
 from niveristand.clientapi._datatypes import VALID_TYPES
@@ -11,10 +10,7 @@ def raise_if_try_in_node_body(statements):
 
 
 def ast_try():
-    if sys.version_info > (3, 0):
-        return ast.Try
-    else:
-        return ast.TryFinally
+    return ast.Try
 
 
 def check_if_any_in_block(ast_node, block):

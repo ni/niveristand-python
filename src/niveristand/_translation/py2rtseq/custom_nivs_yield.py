@@ -18,8 +18,6 @@ def _validate_node():
     # 3: generic_ast_transform
     # 4: exp_transformer
     exp_frame = inspect.stack()[4]
-    # Py27 doesn't have the 'function' element but in Py35 frame[3] is valid for backwards compatibility.
-    # We can remove this nasty check if we drop 2.7
-    func = exp_frame.function if 'function' in dir(exp_frame) else exp_frame[3]
+    func = exp_frame.function
     if func is not exp_transformer.exp_transformer.__name__:
         raise errors.TranslateError(_errormessages.invalid_nivs_yield)

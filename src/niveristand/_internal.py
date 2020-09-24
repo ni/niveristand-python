@@ -20,11 +20,7 @@ def _get_ref_assemblies_path():
 
 
 def _get_install_path():
-    import sys
-    if sys.version_info > (3, 0):
-        import winreg
-    else:
-        import _winreg as winreg
+    import winreg
     with winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, 'SOFTWARE\\Wow6432Node\\National Instruments\\VeriStand\\') as vskey:
         r = winreg.QueryInfoKey(vskey)
         ver = '0'

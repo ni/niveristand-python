@@ -1,5 +1,4 @@
 import ast
-import sys
 
 from niveristand import _errormessages
 from niveristand import errors
@@ -34,9 +33,7 @@ def get_value_from_node(node, resources):
                     datavalue = symbols._symbols[node.args[0].id]
                 else:
                     raise TranslateError(_errormessages.init_var_invalid_type)
-            # this is ugly, but NameConstant does not exist in 2.7 and we need to evaluate the system version
-            # otherwise the 2.7 version will error out by not recognizing the NameConstant attribute
-            elif sys.version_info >= (3, 5) and type(node.args[0]) is ast.NameConstant:
+            elif type(node.args[0]) is ast.NameConstant:
                 if node.args[0].value is True or node.args[0].value is False:
                     datavalue = node.args[0].value
                 else:
@@ -55,7 +52,7 @@ def get_value_from_node(node, resources):
             return return_obj
         elif isinstance(node.n, float):
             return _datatypes.DoubleValue(node.n)
-    elif sys.version_info >= (3, 5) and isinstance(node, ast.NameConstant):
+    elif isinstance(node, ast.NameConstant):
         if node.value is None:
             raise TranslateError(_errormessages.init_var_invalid_type)
         return _datatypes.BooleanValue(node.value)
@@ -75,9 +72,7 @@ def get_element_value(node):
             return symbols._symbols[node.id]
         else:
             raise TranslateError(_errormessages.init_var_invalid_type)
-    # this is ugly, but NameConstant does not exist in 2.7 and we need to evaluate the system version
-    # otherwise the 2.7 version will error out by not recognizing the NameConstant attribute
-    elif sys.version_info >= (3, 5) and type(node) is ast.NameConstant:
+    elif type(node) is ast.NameConstant:
         return node.value
     else:
         raise TranslateError(_errormessages.init_var_invalid_type)
