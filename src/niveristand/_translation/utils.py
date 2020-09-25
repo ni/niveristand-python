@@ -1,4 +1,5 @@
 import ast
+import sys
 
 from niveristand import _errormessages
 from niveristand import errors
@@ -26,14 +27,18 @@ def get_value_from_node(node, resources):
                     datavalue = [0.0]
                 else:
                     datavalue = 0.0
-            elif type(node.args[0]) in (ast.Num, ast.UnaryOp):
+            # In Python 3.8, Num is Constant
+            elif type(node.args[0]) in (ast.Num, ast.UnaryOp) or \
+                    check_ast_constant_num(node.args[0]):
                 datavalue = get_element_value(node.args[0])
             elif type(node.args[0]) is ast.Name:
                 if node.args[0].id in symbols._symbols:
                     datavalue = symbols._symbols[node.args[0].id]
                 else:
                     raise TranslateError(_errormessages.init_var_invalid_type)
-            elif type(node.args[0]) is ast.NameConstant:
+            # In Python 3.8, NameConstant is Constant
+            elif type(node.args[0]) is ast.NameConstant or \
+                    check_ast_constant_nameconstant(node.args[0]):
                 if node.args[0].value is True or node.args[0].value is False:
                     datavalue = node.args[0].value
                 else:
@@ -43,7 +48,8 @@ def get_value_from_node(node, resources):
             else:
                 raise TranslateError(_errormessages.init_var_invalid_type)
             return datatype(datavalue)
-    elif isinstance(node, ast.Num):
+    # Python 3.7
+    elif sys.version_info < (3, 8) and isinstance(node, ast.Num):
         if isinstance(node.n, int):
             try:
                 return_obj = _datatypes.I32Value(node.n)
@@ -52,7 +58,19 @@ def get_value_from_node(node, resources):
             return return_obj
         elif isinstance(node.n, float):
             return _datatypes.DoubleValue(node.n)
-    elif isinstance(node, ast.NameConstant):
+    # In Python 3.8, Num is Constant
+    elif check_ast_constant_num(node):
+        if isinstance(node.value, int):
+            try:
+                return_obj = _datatypes.I32Value(node.value)
+            except OverflowError:
+                return_obj = _datatypes.I64Value(node.value)
+            return return_obj
+        elif isinstance(node.value, float):
+            return _datatypes.DoubleValue(node.value)
+    # In Python 3.8, NameConstant is Constant
+    elif isinstance(node, ast.NameConstant) or \
+            check_ast_constant_nameconstant(node):
         if node.value is None:
             raise TranslateError(_errormessages.init_var_invalid_type)
         return _datatypes.BooleanValue(node.value)
@@ -63,8 +81,12 @@ def get_value_from_node(node, resources):
 
 
 def get_element_value(node):
-    if type(node) is ast.Num:
+    # Python 3.7
+    if sys.version_info < (3, 8) and type(node) is ast.Num:
         return node.n
+    # In Python 3.8, Num is Constant
+    elif check_ast_constant_num(node):
+        return node.value
     elif type(node) is ast.UnaryOp:
         return eval(generic_ast_node_transform(node, ()))
     elif type(node) is ast.Name:
@@ -72,7 +94,8 @@ def get_element_value(node):
             return symbols._symbols[node.id]
         else:
             raise TranslateError(_errormessages.init_var_invalid_type)
-    elif type(node) is ast.NameConstant:
+    # In Python 3.8, NameConstant is Constant
+    elif type(node) is ast.NameConstant or check_ast_constant_nameconstant(node):
         return node.value
     else:
         raise TranslateError(_errormessages.init_var_invalid_type)
@@ -92,8 +115,23 @@ def get_variable_name_from_node(node):
 
 
 def get_channel_name(node):
-    if type(node) is ast.Str:
+    if sys.version_info < (3, 8) and type(node) is ast.Str:
         channel_name = node.s
+    elif check_ast_constant_str(node):
+        channel_name = node.value
     else:
         raise errors.TranslateError(_errormessages.invalid_type_for_channel_ref)
     return channel_name
+
+
+def check_ast_constant_str(node):
+    return isinstance(node, ast.Constant) and isinstance(node.value, str)
+
+
+def check_ast_constant_num(node):
+    return isinstance(node, ast.Constant) and isinstance(node.value, (int, float, complex))
+
+
+def check_ast_constant_nameconstant(node):
+    return isinstance(node, ast.Constant) and (node.value in [True, False, None]
+         or isinstance(node.value, str) and node.value.lower() in ['true', 'false'])

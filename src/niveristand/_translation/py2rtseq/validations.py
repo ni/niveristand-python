@@ -20,7 +20,9 @@ def check_if_any_in_block(ast_node, block):
 
 
 def check_if_looks_like_doc_block(node):
-    return isinstance(node, ast.Expr) and isinstance(node.value, ast.Str)
+    # In Python 3.8, Str is Constant
+    return isinstance(node, ast.Expr) and (isinstance(node.value, ast.Str) or
+            utils.check_ast_constant_str(node.value))
 
 
 def raise_if_invalid_bool_operand(node, resources):
