@@ -48,6 +48,15 @@ def get_value_from_node(node, resources):
             else:
                 raise TranslateError(_errormessages.init_var_invalid_type)
             return datatype(datavalue)
+    elif isinstance(node, ast.Name):
+        if node.id in ['True', 'False']:
+            return _datatypes.BooleanValue(node.id)
+    # In Python 3.8, NameConstant is Constant
+    elif isinstance(node, ast.NameConstant) or \
+            check_ast_constant_nameconstant(node):
+        if node.value is None:
+            raise TranslateError(_errormessages.init_var_invalid_type)
+        return _datatypes.BooleanValue(node.value)
     # Python 3.7
     elif sys.version_info < (3, 8) and isinstance(node, ast.Num):
         if isinstance(node.n, int):
@@ -68,15 +77,6 @@ def get_value_from_node(node, resources):
             return return_obj
         elif isinstance(node.value, float):
             return _datatypes.DoubleValue(node.value)
-    # In Python 3.8, NameConstant is Constant
-    elif isinstance(node, ast.NameConstant) or \
-            check_ast_constant_nameconstant(node):
-        if node.value is None:
-            raise TranslateError(_errormessages.init_var_invalid_type)
-        return _datatypes.BooleanValue(node.value)
-    elif isinstance(node, ast.Name):
-        if node.id in ['True', 'False']:
-            return _datatypes.BooleanValue(node.id)
     raise TranslateError(_errormessages.init_var_invalid_type)
 
 
@@ -129,9 +129,10 @@ def check_ast_constant_str(node):
 
 
 def check_ast_constant_num(node):
-    return isinstance(node, ast.Constant) and isinstance(node.value, (int, float, complex))
+    return isinstance(node, ast.Constant) and isinstance(node.value, (int, float, complex)) \
+        and str(node.value) not in ["True", "False", "None"]
 
 
 def check_ast_constant_nameconstant(node):
-    return isinstance(node, ast.Constant) and (node.value in [True, False, None]
-         or isinstance(node.value, str) and node.value.lower() in ['true', 'false'])
+    return isinstance(node, ast.Constant) and node.value in [True, False, None] \
+        and str(node.value) in ["True", "False", "None"]
