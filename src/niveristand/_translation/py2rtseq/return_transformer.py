@@ -41,17 +41,14 @@ def return_transformer(node, resources):
 
 def _validate_restrictions(node):
     valid_types = [ast.Attribute]
-    valid_types.extend([ast.Num, ast.NameConstant])
-    if not isinstance(node.value, tuple(valid_types)):
-        raise TranslateError(_errormessages.invalid_return_type)
-    # # Python 3.7
-    # if sys.version_info < (3, 8):
-    #     valid_types.extend([ast.Num, ast.NameConstant])
-    #     if not isinstance(node.value, tuple(valid_types)):
-    #         raise TranslateError(_errormessages.invalid_return_type)
-    # # In Python 3.8, Num and NameConstant are Constant
-    # else:
-    #     if not isinstance(node.value, tuple(valid_types)) or not \
-    #             utils.check_ast_constant_nameconstant(node.value) or not \
-    #             utils.check_ast_constant_num(node.value):
-    #         raise TranslateError(_errormessages.invalid_return_type)
+    # Python 3.7
+    if sys.version_info < (3, 8):
+        valid_types.extend([ast.Num, ast.NameConstant])
+        if not isinstance(node.value, tuple(valid_types)):
+            raise TranslateError(_errormessages.invalid_return_type)
+    # In Python 3.8, Num and NameConstant are Constant
+    else:
+        if not isinstance(node.value, tuple(valid_types)) and \
+                not utils.check_ast_constant_nameconstant(node.value) and \
+                not utils.check_ast_constant_num(node.value):
+            raise TranslateError(_errormessages.invalid_return_type)

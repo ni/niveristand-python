@@ -51,12 +51,6 @@ def get_value_from_node(node, resources):
     elif isinstance(node, ast.Name):
         if node.id in ['True', 'False']:
             return _datatypes.BooleanValue(node.id)
-    # In Python 3.8, NameConstant is Constant
-    elif isinstance(node, ast.NameConstant) or \
-            check_ast_constant_nameconstant(node):
-        if node.value is None:
-            raise TranslateError(_errormessages.init_var_invalid_type)
-        return _datatypes.BooleanValue(node.value)
     # Python 3.7
     elif sys.version_info < (3, 8) and isinstance(node, ast.Num):
         if isinstance(node.n, int):
@@ -77,6 +71,12 @@ def get_value_from_node(node, resources):
             return return_obj
         elif isinstance(node.value, float):
             return _datatypes.DoubleValue(node.value)
+    # In Python 3.8, NameConstant is Constant
+    elif isinstance(node, ast.NameConstant) or \
+            check_ast_constant_nameconstant(node):
+        if node.value is None:
+            raise TranslateError(_errormessages.init_var_invalid_type)
+        return _datatypes.BooleanValue(node.value)
     raise TranslateError(_errormessages.init_var_invalid_type)
 
 
