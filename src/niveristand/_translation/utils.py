@@ -34,7 +34,6 @@ def get_value_from_node(node, resources):
                     datavalue = symbols._symbols[node.args[0].id]
                 else:
                     raise TranslateError(_errormessages.init_var_invalid_type)
-            # In Python 3.8, NameConstant is Constant
             elif is_node_ast_nameconstant(node.args[0]):
                 node_value = get_value_from_nameconstant_node(node.args[0])
                 if node_value is True or node_value is False:

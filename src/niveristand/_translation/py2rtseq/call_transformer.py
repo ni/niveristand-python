@@ -1,5 +1,4 @@
 import ast
-import sys
 from niveristand import _errormessages
 from niveristand import errors
 from niveristand._translation import custom_action_symbols, symbols, utils
