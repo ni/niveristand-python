@@ -1,6 +1,4 @@
 import ast
-import sys
-
 from niveristand import _errormessages
 from niveristand._translation import utils
 from niveristand._translation.py2rtseq import validations
