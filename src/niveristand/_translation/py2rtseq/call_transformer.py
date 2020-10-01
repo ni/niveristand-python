@@ -7,8 +7,9 @@ from niveristand.clientapi._datatypes import rtprimitives
 
 def call_transformer(node, resources):
     if rtprimitives.is_channel_ref_type(node.func.id):
-        if isinstance(node.args[0], ast.Str):
-            identifier = resources.get_channel_ref_rtseq_name_from_channel_name(node.args[0].s)
+        if utils.is_node_ast_str(node.args[0]):
+            node_value = utils.get_value_from_str_node(node.args[0])
+            identifier = resources.get_channel_ref_rtseq_name_from_channel_name(node_value)
         else:
             raise errors.TranslateError(_errormessages.invalid_type_for_channel_ref)
         return identifier

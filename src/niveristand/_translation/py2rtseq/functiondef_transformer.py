@@ -45,8 +45,8 @@ def _decorator_to_arg(node, resources):
     if not len(node.args) == 3:
         raise errors.TranslateError(_errormessages.invalid_param_decorator)
     # this is a decorator param definition. First parameter is the string for the name.
-    if isinstance(node.args[0], ast.Str):
-        arg_name = node.args[0].s
+    if utils.is_node_ast_str(node.args[0]):
+        arg_name = utils.get_value_from_str_node(node.args[0])
     # second is the default value
     try:
         def_value = utils.get_value_from_node(node.args[1], resources)
@@ -59,8 +59,8 @@ def _decorator_to_arg(node, resources):
         by_value_str = utils.get_variable_name_from_node(node.args[2])
         by_value_str = getattr(_decorators.NivsParam, by_value_str.split('.')[-1], by_value_str)
         by_value = BooleanValue(by_value_str).value
-    elif 'NameConstant' in dir(ast) and isinstance(node.args[2], ast.NameConstant):
-        by_value = node.args[2].value
+    elif 'NameConstant' in dir(ast) and utils.is_node_ast_nameconstant(node.args[2]):
+        by_value = utils.get_value_from_nameconstant_node(node.args[2])
 
     if arg_name is None or def_value is None or by_value is None:
         raise errors.TranslateError(_errormessages.invalid_param_decorator)
