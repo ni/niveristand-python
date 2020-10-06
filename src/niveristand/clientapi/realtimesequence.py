@@ -37,7 +37,7 @@ class RealTimeSequence:
         self._path = ''
         self._rtseq = None
         self._rtseqpkg = rtseq_pkg
-        self._ref = None
+        self._ref = list()
         # finally, initialize the transform
         self._transform()
 
@@ -123,10 +123,11 @@ class RealTimeSequence:
         rtsequtils.compile_rtseq(self._rtseq)
 
     def _update_references(self):
-        self._ref = Reference(str(self), self._build_file_name())
+        self._ref.append(Reference(str(self), self._build_file_name()))
         self._rtseq.References = References()
         for referenced in self._rtseqpkg.get_referenced(self):
             self._rtseq.References.AddReference(referenced.get_reference())
+            referenced.del_last_reference()
 
     def _update_parameters(self, param_list):
         self._rtseq.Variables.Parameters.ClearParameters()
@@ -153,7 +154,10 @@ class RealTimeSequence:
         return os.path.join(self._path, str(self) + ".nivsseq")
 
     def get_reference(self):
-        return self._ref
+        return self._ref[-1]
+
+    def del_last_reference(self):
+        return self._ref.pop()
 
     def __str__(self):
         return self._top_level_func.__name__
