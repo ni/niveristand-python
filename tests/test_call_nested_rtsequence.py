@@ -4,43 +4,42 @@ from niveristand.library import wait
 import pytest
 
 
-@ NivsParam('var1', DoubleValue(0), NivsParam.BY_REF)
 @ nivs_rt_sequence
-def nested_sequence(var1):
-    wait(var1)
+def nested_sequence():
+    wait(DoubleValue(1))
 
 
-@NivsParam('param', DoubleValue(0), NivsParam.BY_REF)
 @nivs_rt_sequence
-def call_nested_sequence_after(param):
+def call_nested_sequence_after():
+    param = DoubleValue(1)
     wait(param)
-    nested_sequence(param)
+    nested_sequence()
 
 
-@NivsParam('param', DoubleValue(0), NivsParam.BY_REF)
 @nivs_rt_sequence
-def call_nested_sequence_before(param):
-    nested_sequence(param)
+def call_nested_sequence_before():
+    param = DoubleValue(1)
+    nested_sequence()
     wait(param)
 
 
-@NivsParam('param', DoubleValue(0), NivsParam.BY_REF)
 @nivs_rt_sequence
-def call_nested_sequence_twice(param):
+def call_nested_sequence_twice():
+    param = DoubleValue(1)
     wait(param)
-    nested_sequence(param)
-    nested_sequence(param)
+    nested_sequence()
+    nested_sequence()
     wait(param)
     wait(param)
 
 
-@NivsParam('param', DoubleValue(0), NivsParam.BY_REF)
 @nivs_rt_sequence
-def call_complex_nested_sequences(param):
+def call_complex_nested_sequences():
+    param = DoubleValue(1)
     wait(param)
-    call_nested_sequence_after(param)
+    call_nested_sequence_after()
     wait(param)
-    call_nested_sequence_before(param)
+    call_nested_sequence_before()
     wait(param)
 
 
@@ -60,6 +59,5 @@ def idfunc(val):
 
 
 @pytest.mark.parametrize("func_name", run_tests, ids=idfunc)
-def test_save_py_as_rts(func_name):
-    realtimesequencetools.save_py_as_rtseq(func_name,
-            r"C:\Users\Public\Documents\National Instruments\NI VeriStand 2020\Stimulus Profiles\Python Examples")
+def test_run_py_as_rts(func_name):
+    realtimesequencetools.run_py_as_rtseq(func_name)
