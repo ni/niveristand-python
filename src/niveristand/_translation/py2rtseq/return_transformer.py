@@ -1,5 +1,4 @@
 import ast
-import sys
 from niveristand import _errormessages
 from niveristand._translation import utils
 from niveristand.clientapi import realtimesequencedefinition as rtseqapi
@@ -26,7 +25,7 @@ def return_transformer(node, resources):
                     return_default_value = return_default_value[0]
         else:
             raise TranslateError(_errormessages.invalid_return_value)
-    elif isinstance(node.value, (ast.Num, ast.Call)):
+    elif isinstance(node.value, ast.Call) or utils.is_node_ast_num(node.value):
         return_default_value = utils.get_value_from_node(node.value, resources)
         if isinstance(return_default_value, ArrayType):
             raise TranslateError(_errormessages.invalid_return_type)
@@ -39,8 +38,7 @@ def return_transformer(node, resources):
 
 
 def _validate_restrictions(node):
-    valid_types = [ast.Num, ast.Attribute]
-    if sys.version_info > (3, 0):
-        valid_types.append(ast.NameConstant)
-    if not isinstance(node.value, tuple(valid_types)):
+    if not isinstance(node.value, ast.Attribute) and \
+            not utils.is_node_ast_nameconstant(node.value) and \
+            not utils.is_node_ast_num(node.value):
         raise TranslateError(_errormessages.invalid_return_type)

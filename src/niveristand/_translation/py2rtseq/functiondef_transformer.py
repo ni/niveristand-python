@@ -1,6 +1,5 @@
 import ast
 from collections import namedtuple
-import sys
 from niveristand import _decorators, _errormessages, errors
 from niveristand._translation import utils
 from niveristand._translation.py2rtseq import validations
@@ -46,8 +45,8 @@ def _decorator_to_arg(node, resources):
     if not len(node.args) == 3:
         raise errors.TranslateError(_errormessages.invalid_param_decorator)
     # this is a decorator param definition. First parameter is the string for the name.
-    if isinstance(node.args[0], ast.Str):
-        arg_name = node.args[0].s
+    if utils.is_node_ast_str(node.args[0]):
+        arg_name = utils.get_value_from_str_node(node.args[0])
     # second is the default value
     try:
         def_value = utils.get_value_from_node(node.args[1], resources)
@@ -60,8 +59,8 @@ def _decorator_to_arg(node, resources):
         by_value_str = utils.get_variable_name_from_node(node.args[2])
         by_value_str = getattr(_decorators.NivsParam, by_value_str.split('.')[-1], by_value_str)
         by_value = BooleanValue(by_value_str).value
-    elif 'NameConstant' in dir(ast) and isinstance(node.args[2], ast.NameConstant):
-        by_value = node.args[2].value
+    elif 'NameConstant' in dir(ast) and utils.is_node_ast_nameconstant(node.args[2]):
+        by_value = utils.get_value_from_nameconstant_node(node.args[2])
 
     if arg_name is None or def_value is None or by_value is None:
         raise errors.TranslateError(_errormessages.invalid_param_decorator)
@@ -71,21 +70,13 @@ def _decorator_to_arg(node, resources):
 def _validate_restrictions(node):
     if validations.check_if_any_in_block(ast.FunctionDef, node.body):
         raise errors.TranslateError(_errormessages.invalid_function_definition)
-    if sys.version_info > (3, 0):
-        # py35 restrictions
-        if node.returns is not None \
-                or len(node.args.kwonlyargs) != 0 \
-                or len(node.args.kw_defaults) != 0 \
-                or node.args.vararg is not None \
-                or node.args.kwarg is not None \
-                or len(node.args.defaults) != 0:
-            raise errors.TranslateError(_errormessages.invalid_function_definition)
-    else:
-        # py27 restrictions
-        if node.args.vararg is not None \
-                or node.args.kwarg is not None \
-                or len(node.args.defaults) != 0:
-            raise errors.TranslateError(_errormessages.invalid_function_definition)
+    if node.returns is not None \
+            or len(node.args.kwonlyargs) != 0 \
+            or len(node.args.kw_defaults) != 0 \
+            or node.args.vararg is not None \
+            or node.args.kwarg is not None \
+            or len(node.args.defaults) != 0:
+        raise errors.TranslateError(_errormessages.invalid_function_definition)
     if validations.check_if_any_in_block(validations.ast_try(), node.body):
         if not isinstance(node.body[0], validations.ast_try()):
             raise errors.TranslateError(_errormessages.try_must_be_first_stmt)
