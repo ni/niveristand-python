@@ -1,6 +1,8 @@
 from niveristand import _errormessages, errors
 from niveristand.clientapi._dotnetclasswrapperbase import _DotNetClassWrapperBase
 from NationalInstruments.VeriStand.ClientAPI import SequenceCallInfo as SequenceCallInfoDotNet  # noqa: I100
+from NationalInstruments.VeriStand.ClientAPI import SequenceParameterAssignmentInfo
+import System
 
 
 class _SequenceCallInfoFactory(object):
@@ -26,8 +28,16 @@ class _SequenceCallInfoFactory(object):
             niveristand.clientapi._sequencecallinfo._SequenceCallInfo: Newly created instance.
 
         """
+        if target is None:
+            target = ""
+        target = System.String(target)
+        sequence_path = System.String(sequence_path)
+        debug = System.Boolean(debug)
+        timeout = System.Double(timeout)
         parameters_dot_net = [parameter.dot_net_instance for parameter in parameters]
-        sequence_call_info_dot_net = SequenceCallInfoDotNet(sequence_path, target, parameters_dot_net, debug, timeout)
+        parameters_dot_net_array = System.Array[SequenceParameterAssignmentInfo](parameters_dot_net)
+        sequence_call_info_dot_net = \
+            SequenceCallInfoDotNet(sequence_path, target, parameters_dot_net_array, debug, timeout)
         sequence_call_info = _SequenceCallInfo(sequence_call_info_dot_net)
         return sequence_call_info
 
