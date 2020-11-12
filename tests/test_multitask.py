@@ -291,7 +291,7 @@ def multitask_duplicate_name_fails():
         def f1():
             a.value = 1
 
-        @task(mt)
+        @task(mt)  # noqa: F811 redefinition is exactly what we're testing here.
         def f1():  # noqa: F811 redefinition is exactly what we're testing here.
             a.value = 2
     return a.value
