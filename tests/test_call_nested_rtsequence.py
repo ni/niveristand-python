@@ -1,4 +1,4 @@
-from niveristand import nivs_rt_sequence, NivsParam, realtimesequencetools
+from niveristand import nivs_rt_sequence, realtimesequencetools
 from niveristand.clientapi import DoubleValue
 from niveristand.library import wait
 import pytest
