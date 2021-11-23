@@ -36,7 +36,7 @@ warnings.warn("NIVeriStand.py module is deprecated. "
 def LaunchNIVeriStand():
     """Launch NI VeriStand.exe from the installed location."""
     import subprocess
-    path = _internal.base_assembly_path()
+    path = _internal._get_install_path()
     # Try launching VeriStand with both the old and new .exe names.
     veristand = os.path.join(path, "NI VeriStand.exe")
     try:
