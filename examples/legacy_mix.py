@@ -9,12 +9,13 @@ def mix_legacy_and_rtseq_run():
     """Combines the legacy API with Python real-time sequences to run a deterministic test."""
     # Ensures NI VeriStand is running.
     NIVeriStand.LaunchNIVeriStand()
+    NIVeriStand.WaitForNIVeriStandReady()
     # Uses the ClientAPI interface to get a reference to Workspace2
     workspace = NIVeriStand.Workspace2("localhost")
-    engine_demo_path = os.path.join(os.path.expanduser("~"), 'Documents', 'National Instruments', 'VeriStand 2018',
+    engine_demo_path = os.path.join(os.path.expanduser("~public"), 'Documents', 'National Instruments', 'NI VeriStand 2019',
                                     'Examples', 'Stimulus Profile', 'Engine Demo', 'Engine Demo.nivssdf')
     # Deploys the system definition.
-    workspace.ConnectToSystem(engine_demo_path, True, 60000)
+    workspace.ConnectToSystem(engine_demo_path, True, 120000)
     try:
         # Uses Python real-time sequences to run a test.
         run_py_as_rtseq(run_engine_demo)
