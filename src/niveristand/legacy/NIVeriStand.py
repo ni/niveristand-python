@@ -58,7 +58,7 @@ def WaitForNIVeriStandReady(address="localhost", secondsTimeout=120):
             time.sleep(0.5)
             now = time.time()
             if (now - start) > secondsTimeout:
-                raise NIVeriStandException(-307663, "Could not connect to gateway process.")
+                raise NIVeriStandException(-307663, "Could not connect to gateway.")
 
 
 def _ConvertMATRIXTO1DARRVAL_(values):
