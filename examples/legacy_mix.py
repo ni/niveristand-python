@@ -12,8 +12,9 @@ def mix_legacy_and_rtseq_run():
     NIVeriStand.WaitForNIVeriStandReady()
     # Uses the ClientAPI interface to get a reference to Workspace2
     workspace = NIVeriStand.Workspace2("localhost")
-    engine_demo_path = os.path.join(os.path.expanduser("~public"), 'Documents', 'National Instruments', 'NI VeriStand 2019',
-                                    'Examples', 'Stimulus Profile', 'Engine Demo', 'Engine Demo.nivssdf')
+    engine_demo_path = os.path.join(os.path.expanduser("~public"), 'Documents', 'National Instruments',
+                                    'NI VeriStand 2019', 'Examples', 'Stimulus Profile', 'Engine Demo',
+                                    'Engine Demo.nivssdf')
     # Deploys the system definition.
     workspace.ConnectToSystem(engine_demo_path, True, 120000)
     try:
