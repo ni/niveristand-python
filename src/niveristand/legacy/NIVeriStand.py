@@ -37,18 +37,28 @@ def LaunchNIVeriStand():
     """Launch NI VeriStand.exe from the installed location."""
     import subprocess
     path = _internal.base_assembly_path()
-    # Try launching VeriStand with both the old and new .exe names.
-    veristand = os.path.join(path, "NI VeriStand.exe")
+    # Try launching VeriStand with new .exe name.
     try:
+        veristand = os.path.join(path, "VeriStand Project Explorer.exe")
         subprocess.Popen([veristand, ""]).pid
         print(veristand)
     except OSError:
+        raise NIVeriStandException(-307652, "Could not launch VeriStand.")
+
+
+def WaitForNIVeriStandReady(address="localhost", secondsTimeout=120):
+    import time
+
+    start = time.time()
+    while True:
         try:
-            veristand = os.path.join(path, "VeriStand Project Explorer.exe")
-            subprocess.Popen([veristand, ""]).pid
-            print(veristand)
-        except OSError:
-            raise NIVeriStandException(-307652, "Could not launch VeriStand.")
+            Factory().GetIWorkspace2(address)
+            break
+        except Exception:
+            time.sleep(0.5)
+            now = time.time()
+            if (now - start) > secondsTimeout:
+                raise NIVeriStandException(-307663, "Could not connect to gateway.")
 
 
 def _ConvertMATRIXTO1DARRVAL_(values):

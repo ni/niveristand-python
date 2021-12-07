@@ -9,14 +9,9 @@ def base_assembly_path():
     except (IOError, KeyError):
         pass
     try:
-        return _get_ref_assemblies_path()
+        return _get_install_path()
     except IOError:
         return ''
-
-
-def _get_ref_assemblies_path():
-    latest_dir = _get_install_path()
-    return os.path.join(latest_dir, 'nivs.lib', 'Reference Assemblies')
 
 
 def _get_install_path():
