@@ -10,9 +10,9 @@ The package is implemented in Python. NI created and supports this package.
 
 Requirements
 ============
-**niveristand** 1.0.x has the following requirements:
+**niveristand** 2.0.x has the following requirements:
 
-* VeriStand 2018+ running on the same system as the Python code.
+* VeriStand 2019+ running on the same system as the Python code.
 * 64-bit version of Windows 10/8.1/7
 * CPython 3.7+
 
