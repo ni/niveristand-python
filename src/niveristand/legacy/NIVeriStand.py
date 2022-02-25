@@ -12,6 +12,7 @@ import warnings
 from niveristand import _internal
 import System  # noqa
 from NationalInstruments.VeriStand import DataArray  # noqa
+from NationalInstruments.VeriStand.ClientAPI import DeployOptions  # noqa
 from NationalInstruments.VeriStand.ClientAPI import Factory  # noqa
 from NationalInstruments.VeriStand.ClientAPI import SystemState  # noqa
 from NationalInstruments.VeriStand.ClientAPI import AlarmInfo  # noqa
@@ -337,7 +338,7 @@ class Workspace2(Workspace):
 
     def GetSystemState(self):
         """Returns the current state of the system."""
-        data = self.iwks.GetSystemState(0, "", None)
+        data = self.iwks.GetSystemState(SystemState(0), "", None)
         _RaiseException_(data[0])
         targets = []
         for target in data[3]:
@@ -349,6 +350,17 @@ class Workspace2(Workspace):
         """Connects the VeriStand Gateway to one or more targets running on the System Definition file you specify."""
         _RaiseException_(
             self.iwks.ConnectToSystem(systemdefinition_file, System.Boolean(deploy), System.UInt32(timeout)))
+
+    def ReconnectToSystem(self, target, deploy, calibration_file, timeout):
+        """Reconnects the VeriStand Gateway to a target within the system definition file used by the Gateway.\
+            You can also redeploy the system definition file."""
+        options = DeployOptions()
+        options.DeploySystemDefinition = System.Boolean(deploy)
+        options.Timeout = timeout
+        options.CalibratonFilePath = calibration_file
+
+        _RaiseException_(
+            self.iwks.ReconnectToSystem(System.String(target), options))
 
     def DisconnectFromSystem(self, password, undeploy_system_definition):
         """Disconnects the VeriStand Gateway from the targets."""
