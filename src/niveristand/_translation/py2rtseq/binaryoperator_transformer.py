@@ -16,7 +16,7 @@ def binaryoperator_transformer(node, resources):
 
 
 def _operator(ast_operator):
-    return{
+    return {
         'Add': "+",
         'Sub': "-",
         'Mult': "*",

@@ -8,7 +8,8 @@ from niveristand.legacy import NIVeriStand
 
 # This script deploys example project on the selected GATEWAY and it prints two channel values every 100ms
 # This script requires the example SineWave Delay Project(shipped with LabVIEW 2020) to be deployed.
-# SineWave Delay project file path: C:\Users\Public\Documents\National Instruments\NI VeriStand 2020\Projects\Example\Sinewave Delay.nivsproj
+# SineWave Delay project file path:
+#    C:\Users\Public\Documents\National Instruments\NI VeriStand 2020\Projects\Example\Sinewave Delay.nivsproj
 # Press Ctrl + C to stop the program.
 
 GATEWAY = "localhost"

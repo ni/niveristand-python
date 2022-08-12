@@ -37,8 +37,8 @@ def test_transform_simple_local_assignment():
 def test_transform_pi_assign_to_local():
     testfunc = testfuncs.simple_assign_pi
     rtseq = RealTimeSequence(testfunc)
-    assert(rtseq._rtseq.Variables.LocalVariables.Variables.Length == 1)
-    assert(rtseq._rtseq.Code.Main.Body.Statements.Length == 3)
+    assert rtseq._rtseq.Variables.LocalVariables.Variables.Length == 1
+    assert rtseq._rtseq.Code.Main.Body.Statements.Length == 3
 
 
 def test_untyped_declarations_fail():
@@ -50,15 +50,15 @@ def test_untyped_declarations_fail():
 def test_return_var():
     testfunc = testfuncs.return_var
     rtseq = RealTimeSequence(testfunc)
-    assert(isinstance(rtseq._rtseq.Variables.ReturnType.DefaultValue.Value, float))
-    assert(rtseq._rtseq.Code.Main.Body.Statements.Length == 2)
+    assert isinstance(rtseq._rtseq.Variables.ReturnType.DefaultValue.Value, float)
+    assert rtseq._rtseq.Code.Main.Body.Statements.Length == 2
 
 
 def test_return_var_value():
     testfunc = testfuncs.return_var_value
     rtseq = RealTimeSequence(testfunc)
-    assert(isinstance(rtseq._rtseq.Variables.ReturnType.DefaultValue.Value, float))
-    assert(rtseq._rtseq.Code.Main.Body.Statements.Length == 2)
+    assert isinstance(rtseq._rtseq.Variables.ReturnType.DefaultValue.Value, float)
+    assert rtseq._rtseq.Code.Main.Body.Statements.Length == 2
 
 
 def test_undeclared_variable_fail():
@@ -75,15 +75,15 @@ def test_return_named_type():
 def test_return_primitive_num():
     testfunc = testfuncs.return_primitive_num
     rtseq = RealTimeSequence(testfunc)
-    assert(isinstance(rtseq._rtseq.Variables.ReturnType.DefaultValue.Value, float))
-    assert(rtseq._rtseq.Code.Main.Body.Statements.Length == 1)
+    assert isinstance(rtseq._rtseq.Variables.ReturnType.DefaultValue.Value, float)
+    assert rtseq._rtseq.Code.Main.Body.Statements.Length == 1
 
 
 def test_return_var_pi():
     testfunc = testfuncs.return_var_pi
     rtseq = RealTimeSequence(testfunc)
-    assert(isinstance(rtseq._rtseq.Variables.ReturnType.DefaultValue.Value, float))
-    assert(rtseq._rtseq.Code.Main.Body.Statements.Length == 3)
+    assert isinstance(rtseq._rtseq.Variables.ReturnType.DefaultValue.Value, float)
+    assert rtseq._rtseq.Code.Main.Body.Statements.Length == 3
 
 
 def test_return_untyped_symbol():

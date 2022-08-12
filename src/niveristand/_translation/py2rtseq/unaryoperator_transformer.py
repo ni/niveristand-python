@@ -20,7 +20,7 @@ def unaryoperator_transformer(node, resources):
 
 
 def _operator(ast_operator):
-    return{
+    return {
         'USub': "-",
         'Not': "!",
         'Invert': "~",
