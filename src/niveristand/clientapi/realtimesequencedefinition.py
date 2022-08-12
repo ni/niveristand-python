@@ -105,7 +105,7 @@ def add_stop_task(block, taskname):
 def save_real_time_sequence(rtseq, filepath):
     try:
         rtseq.SaveSequence(os.path.join(filepath))
-    except(IOException) as e:
+    except IOException as e:
         raise IOError(e.Message)
 
 

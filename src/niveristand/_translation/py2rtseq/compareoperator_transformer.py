@@ -18,7 +18,7 @@ def compareoperator_transformer(node, resources):
 
 
 def _operator(ast_operator):
-    return{
+    return {
         'Eq': "==",
         'NotEq': "!=",
         'Gt': ">",
