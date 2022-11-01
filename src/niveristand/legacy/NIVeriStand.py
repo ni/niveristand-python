@@ -30,7 +30,7 @@ from NationalInstruments.VeriStand.ClientAPI import PlayStateEnum  # noqa
 
 _internal.dummy()
 warnings.warn("NIVeriStand.py module is deprecated. "
-              "Use only if required functionality is not yet present in niverstinad.clientapi",
+              "Use only if required functionality is not yet present in niveristand.clientapi",
               DeprecationWarning, stacklevel=2)
 
 
