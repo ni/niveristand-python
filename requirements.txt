@@ -1,4 +1,4 @@
 pytest
-pythonnet
+pythonnet~=2.5.2
 tox
 pyyaml
