@@ -1,4 +1,5 @@
 import os
+from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import ErrorAction
 from niveristand import _errormessages, errors
 from niveristand import _internal
 from niveristand._translation.py2rtseq.utils import _py_param_name_to_rtseq_param_name
@@ -95,7 +96,7 @@ def add_return_variable(rtseq, name, default_value):
 
 
 def add_generate_error(block, code, message, action):
-    block.AddStatement(GenerateError(code, message, action))
+    block.AddStatement(GenerateError(code, message, ErrorAction(action)))
 
 
 def add_stop_task(block, taskname):
