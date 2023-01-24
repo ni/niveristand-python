@@ -469,7 +469,6 @@ class I32Value(DataType):
 
     def _to_data_value(self, value):
         if self._is_valid_assign_type(value):
-            print(value)
             value = SystemInt32(int(value))
         else:
             raise TypeError('%s can not be created from value "%s"' % (self.__class__.__name__, str(value)))
