@@ -389,7 +389,7 @@ class ChannelReference(DataType):
     def _to_data_value(self, value):
         # in pythonnet 3.0.0+, strings are no longer coerced to 0 by ClientApiDoubleValue
         if isinstance(value, str):
-            return 0
+            return ClientApiDoubleValue(0.0)
         else:
             return ClientApiDoubleValue(value)
 
