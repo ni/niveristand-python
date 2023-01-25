@@ -271,7 +271,7 @@ class _Scheduler(object):
         thread = current_thread()
         if thread in self._task_dict:
             raise errors.VeristandError(_errormessages.reregister_thread)
-        task = _Task(thread.getName())
+        task = _Task(thread.name)
         # queue the task
         self.register_task(task)
         # queue an iteration counter for this top-level task

@@ -52,7 +52,7 @@ class _StimulusProfileSession(_DotNetClassWrapperBase):
             str: The ID of the Stimulus profile session.
 
         """
-        ret_val, session_id, err = self._dot_net_instance.Deploy(auto_start, None, None)
+        session_id, err = self._dot_net_instance.Deploy(auto_start, None, None)
         err = _Error(err)
         if err.is_error:
             raise \

@@ -387,7 +387,11 @@ class ChannelReference(DataType):
         _DefaultGatewayFactory.get_workspace2().set_single_channel_value(self._channel_name, newvalue)
 
     def _to_data_value(self, value):
-        return ClientApiDoubleValue(value)
+        # in pythonnet 3.0.0+, strings are no longer coerced to 0 by ClientApiDoubleValue
+        if isinstance(value, str):
+            return ClientApiDoubleValue(0.0)
+        else:
+            return ClientApiDoubleValue(value)
 
 
 class VectorChannelReference(ArrayType):
@@ -465,7 +469,7 @@ class I32Value(DataType):
 
     def _to_data_value(self, value):
         if self._is_valid_assign_type(value):
-            value = SystemInt32(value)
+            value = SystemInt32(int(value))
         else:
             raise TypeError('%s can not be created from value "%s"' % (self.__class__.__name__, str(value)))
         return ClientApiI32Value(value)
@@ -488,7 +492,7 @@ class I64Value(DataType):
 
     def _to_data_value(self, value):
         if self._is_valid_assign_type(value):
-            value = SystemInt64(value)
+            value = SystemInt64(int(value))
         else:
             raise TypeError('%s can not be created from value "%s"' % (self.__class__.__name__, str(value)))
         return ClientApiI64Value(value)
@@ -511,7 +515,7 @@ class U32Value(DataType):
 
     def _to_data_value(self, value):
         if self._is_valid_assign_type(value):
-            value = SystemUInt32(value)
+            value = SystemUInt32(int(value))
         else:
             raise TypeError('%s can not be created from value "%s"' % (self.__class__.__name__, str(value)))
         return ClientApiU32Value(value)
@@ -534,7 +538,7 @@ class U64Value(DataType):
 
     def _to_data_value(self, value):
         if self._is_valid_assign_type(value):
-            value = SystemUInt64(value)
+            value = SystemUInt64(int(value))
         else:
             raise TypeError('%s can not be created from value "%s"' % (self.__class__.__name__, str(value)))
         return ClientApiU64Value(value)
