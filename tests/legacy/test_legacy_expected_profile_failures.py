@@ -4,7 +4,7 @@ import pytest
 
 from niveristand.legacy import NIVeriStand
 from niveristand.legacy.NIVeriStand import NIVeriStandException
-from tests.testutilities import configutilities
+from testutilities import configutilities
 
 #helper function to do a wait. This is used when you send a value to the engine, the engine will not reflect the value back untill the TCP Data loop send data back, currently at a 5Hz rate.
 def sleep():
@@ -58,12 +58,12 @@ def test_expected_profile_failures_legacy():
         SYSDEFFILE = os.path.join(configutilities.get_autotest_projects_path(),
                                   "ProfileTest", "Profile Test.nivssdf")
         print("Deploying %s" % SYSDEFFILE )
-        wks.ConnectToSystem(SYSDEFFILE,1,60000)
+        wks.ConnectToSystem(SYSDEFFILE,1,5000)
         print("System Definition deployed")
 
         #Verify the TEST_ID var on test file.
         test_ID = wks.GetSingleChannelValue("TEST_ID")
-        assert(test_ID == TEST_ID), "Deployed wrong test file"
+        assert (test_ID == TEST_ID), "Deployed wrong test file"
 
 
         stm = NIVeriStand.Stimulus()

@@ -1,5 +1,4 @@
 import json
-import os
 
 
 def getbinariesfolder():
@@ -15,4 +14,5 @@ def _getdevconfig():
 
 
 def get_autotest_projects_path():
-    return os.path.join(_getdevconfig()['TestAppData'], 'AutoTestProjects')
+    path = 'C:/Users/virtual/Desktop/AutoTestProjects'
+    return path

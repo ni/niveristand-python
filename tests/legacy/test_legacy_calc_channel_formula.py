@@ -3,7 +3,7 @@ import os
 import math
 
 from niveristand.legacy import NIVeriStand
-from tests.testutilities import configutilities
+from testutilities import configutilities
 
 
 def sleep():
@@ -15,7 +15,7 @@ def test_calculated_channel_formula_legacy():
     SYSDEFFILE = os.path.join(configutilities.get_autotest_projects_path(),
                               "CalcChanFormulaTest", "CalcChanFormulaTest.nivssdf")
     print("Deploying %s" % SYSDEFFILE)
-    wks.RunWorkspaceFile(SYSDEFFILE,0,1,60000,"","")
+    wks.RunWorkspaceFile(SYSDEFFILE,0,1,5000,"","")
 
     try:
         # Compute Machine Epsilon: The smallest floating point number when
@@ -47,7 +47,7 @@ def test_calculated_channel_formula_legacy():
         print("Checking Zero=(Time - Time)")
         expectedResult = 0
         result = wks.GetSingleChannelValue("Zero")
-        assert(result == expectedResult), "Time-Time (%g) does not match calculated (%g)"  % (expectedResult, result)
+        assert (result == expectedResult), "Time-Time (%g) does not match calculated (%g)"  % (expectedResult, result)
         print("...Pass")
 
         # All formulas in VeriStand must have input values. MinusOne is computed
@@ -58,7 +58,7 @@ def test_calculated_channel_formula_legacy():
         print("Checking MinusOne=(Zero - 1)")
         expectedResult = -1
         result = wks.GetSingleChannelValue("MinusOne")
-        assert(result == expectedResult), "Zero-1 (%g) does not match calculated (%g)"  % (expectedResult, result)
+        assert (result == expectedResult), "Zero-1 (%g) does not match calculated (%g)"  % (expectedResult, result)
         print("...Pass")
 
         # This computation of Pi should be accurate to all bits in the mantissa.
@@ -71,7 +71,7 @@ def test_calculated_channel_formula_legacy():
         reltol = eps
         result = wks.GetSingleChannelValue("Pi")
         tol = abstol + reltol*abs(expectedResult);
-        assert((result >= expectedResult - tol) and (result <= expectedResult + tol)), "Pi=acos(-1) (%g) does not match calculated (%g)"  % (expectedResult, result)
+        assert ((result >= expectedResult - tol) and (result <= expectedResult + tol)), "Pi=acos(-1) (%g) does not match calculated (%g)"  % (expectedResult, result)
         print("...Pass")
 
         # Exponentiation is higher precedence than multiplication and
@@ -88,7 +88,7 @@ def test_calculated_channel_formula_legacy():
         expectedResults = [66,66]
         results = wks.GetMultipleChannelValues(channels)
         for i in range(0,len(expectedResults)):
-            assert(results[i] == expectedResults[i]), "%s Expected %g Return Value %g not expected" % (channels[i], expectedResult, result)
+            assert (results[i] == expectedResults[i]), "%s Expected %g Return Value %g not expected" % (channels[i], expectedResult, result)
         print("...Pass")
 
         # Testing against zero; don't use reltol; only use abstol.
@@ -99,7 +99,7 @@ def test_calculated_channel_formula_legacy():
         reltol = 1
         result = wks.GetSingleChannelValue("ZeroEqualsTMinusAcosCosT")
         tol = abstol + reltol*abs(expectedResult);
-        assert(expectedResult - tol <= result <= expectedResult + tol), "T-acos(cos(T)) (%g) does not match calculated (%g)"  % (expectedResult, result)
+        assert (expectedResult - tol <= result <= expectedResult + tol), "T-acos(cos(T)) (%g) does not match calculated (%g)"  % (expectedResult, result)
         print("...Pass")
 
         # Testing against zero; don't use reltol; only use abstol.
@@ -110,7 +110,7 @@ def test_calculated_channel_formula_legacy():
         reltol = 1
         result = wks.GetSingleChannelValue("ZeroEqualsTMinusAsinSinT")
         tol = abstol + reltol*abs(expectedResult);
-        assert(expectedResult - tol <= result <= expectedResult + tol), "T-asin(sin(T)) (%g) does not match calculated (%g)"  % (expectedResult, result)
+        assert (expectedResult - tol <= result <= expectedResult + tol), "T-asin(sin(T)) (%g) does not match calculated (%g)"  % (expectedResult, result)
         print("...Pass")
 
         # Testing against one; don't use abstol; only use reltol.
@@ -121,7 +121,7 @@ def test_calculated_channel_formula_legacy():
         reltol = eps
         result = wks.GetSingleChannelValue("OneEqualsSinSqTPlusCosSqT")
         tol = abstol + reltol*abs(expectedResult);
-        assert(expectedResult - tol <= result <= expectedResult + tol), "Sin^2(T)+Cos^2(T) (%g) does not match calculated (%g)"  % (expectedResult, result)
+        assert (expectedResult - tol <= result <= expectedResult + tol), "Sin^2(T)+Cos^2(T) (%g) does not match calculated (%g)"  % (expectedResult, result)
         print("...Pass")
 
         # This computation of Pi should be accurate to all bits in the mantissa.
@@ -134,7 +134,7 @@ def test_calculated_channel_formula_legacy():
         reltol = eps
         result = wks.GetSingleChannelValue("PiEquals4TimesAtan1")
         tol = abstol + reltol*abs(expectedResult);
-        assert(expectedResult - tol <= result <= expectedResult + tol), "Pi=4*atan(1) (%g) does not match calculated (%g)"  % (expectedResult, result)
+        assert (expectedResult - tol <= result <= expectedResult + tol), "Pi=4*atan(1) (%g) does not match calculated (%g)"  % (expectedResult, result)
         print("...Pass")
 
         # Each value in the subtraction should be plus or minus one.
@@ -144,7 +144,7 @@ def test_calculated_channel_formula_legacy():
         print("Checking (-1)^int(Time/Pi) - sign(sin(Time)); Should be zero")
         expectedResult = 0
         result = wks.GetSingleChannelValue("AnotherFormulaForZero")
-        assert(result == expectedResult), "Test value (%g) does not match calculated (%g)"  % (expectedResult, result)
+        assert (result == expectedResult), "Test value (%g) does not match calculated (%g)"  % (expectedResult, result)
         print("...Pass")
 
         # To check the properties of random numbers, we must wait
@@ -170,7 +170,7 @@ def test_calculated_channel_formula_legacy():
 
         for i in range(0,len(expectedResults)):
             tol = abstol + reltol*abs(expectedResults[i]);
-            assert(expectedResults[i] - tol <= results[i] <= expectedResults[i] + tol), "%s Expected %g Return Value %g not expected" % (channels[i], expectedResults[i], results[i])
+            assert (expectedResults[i] - tol <= results[i] <= expectedResults[i] + tol), "%s Expected %g Return Value %g not expected" % (channels[i], expectedResults[i], results[i])
         print("...Pass")
 
         # In order to test Peak & Valley, we must wait for at least
@@ -201,7 +201,7 @@ def test_calculated_channel_formula_legacy():
 
         for i in range(0,len(expectedResults)):
             tol = abstol + reltol*abs(expectedResults[i])
-            assert(expectedResults[i] - tol <= results[i] <= expectedResults[i] + tol), "%s Expected %g Return Value %g not expected" % (channelNames[i], expectedResults[i], results[i])
+            assert (expectedResults[i] - tol <= results[i] <= expectedResults[i] + tol), "%s Expected %g Return Value %g not expected" % (channelNames[i], expectedResults[i], results[i])
         print("...Pass")
 
         # Wait a lot more for the peak detection algorithm to publish
@@ -223,7 +223,7 @@ def test_calculated_channel_formula_legacy():
 
         for i in range(0,len(expectedResults)):
             tol = abstol + reltol*abs(expectedResults[i]);
-            assert(expectedResults[i] - tol <= results[i] <= expectedResults[i] + tol), "%s Expected %g Return Value %g not expected" % (channelNames[i], expectedResults[i], results[i])
+            assert (expectedResults[i] - tol <= results[i] <= expectedResults[i] + tol), "%s Expected %g Return Value %g not expected" % (channelNames[i], expectedResults[i], results[i])
         print("...Pass")
 
        # Be a bit sloppy in the following test. We have filtered the
@@ -240,7 +240,7 @@ def test_calculated_channel_formula_legacy():
         print("...Got acceptable error=%g" % (result))
 
         tol = abstol + reltol*abs(expectedResult);
-        assert(expectedResult - tol <= result <= expectedResult + tol), "Integral of (FilterOut - 4) does not match expected. Error is %g "  % (result)
+        assert (expectedResult - tol <= result <= expectedResult + tol), "Integral of (FilterOut - 4) does not match expected. Error is %g "  % (result)
         print("...Pass")
 
         # VeriStand computes all calculated channels in one time step.
@@ -249,7 +249,7 @@ def test_calculated_channel_formula_legacy():
         print("Checking final calculated channels time equals initial calculated channels time")
         channels = ("Time","FinalTime")
         results = wks.GetMultipleChannelValues(channels)
-        assert(results[0] == results[1]), "Final Calculated Channels Time (%g) does not equal Initial (%g)" % (results[1], results[0])
+        assert (results[0] == results[1]), "Final Calculated Channels Time (%g) does not equal Initial (%g)" % (results[1], results[0])
         print("...Pass")
 
         print("Test PASSED")

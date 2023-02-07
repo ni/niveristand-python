@@ -1,7 +1,7 @@
 import time
 import os
 from niveristand.legacy import NIVeriStand
-from tests.testutilities import configutilities
+from testutilities import configutilities
 
 #helper function to do a wait. This is used when you send a value to the engine, the engine will not reflect the value back untill the TCP Data loop send data back, currently at a 5Hz rate.
 def sleep():
@@ -24,7 +24,7 @@ def run_test(wks, stimulus, test_name, wait_time):
     print("File Path: %s" % TESTFILE)
     print("...")
     import tempfile
-    stimulus.RunStimulusProfile(TESTFILE,"",60000,1,1)
+    stimulus.RunStimulusProfile(TESTFILE,"",5000,1,1)
     timeout = wait_for_test(stimulus, wait_time)
 
     assert not timeout, "Test %s timed out." % test_name
@@ -47,13 +47,13 @@ def test_stimulus_steps_legacy():
     SYSDEFFILE = os.path.join(configutilities.get_autotest_projects_path(),
                               "ProfileTest", "Profile Test.nivssdf")
     print("Deploying %s" % SYSDEFFILE )
-    wks.ConnectToSystem(SYSDEFFILE,1,60000)
+    wks.ConnectToSystem(SYSDEFFILE,1,5000)
     print("System Definition deployed")
 
     try:
         #Verify the TEST_ID var on test file.
         test_ID = wks.GetSingleChannelValue("TEST_ID")
-        assert(test_ID == TEST_ID), "Deployed wrong test file"
+        assert (test_ID == TEST_ID), "Deployed wrong test file"
 
 
         stm = NIVeriStand.Stimulus()

@@ -1,7 +1,7 @@
 import time
 import os
 from niveristand.legacy import NIVeriStand
-from tests.testutilities import configutilities
+from testutilities import configutilities
 
 def sleep():
     time.sleep(.5)
@@ -12,15 +12,15 @@ TEST_ID = 3000
 
 def test_procedures_legacy():
     wks = NIVeriStand.Workspace2("localhost")
-    SYSDEFINITION = os.path.join(configutilities.get_autotest_projects_path(),
+    system_definition = os.path.join(configutilities.get_autotest_projects_path(),
                                  "ProceduresTest", "ProceduresTest.nivssdf")
-    print("Deploying %s" % SYSDEFINITION)
-    wks.ConnectToSystem(SYSDEFINITION,1,60000)
+    print("Deploying %s" % system_definition)
+    wks.ConnectToSystem(system_definition,1,5000)
 
     try:
         #Verify the TEST_ID var on test file.
         test_ID = wks.GetSingleChannelValue("TEST_ID")
-        assert(test_ID == TEST_ID), "Deployed wrong test file"
+        assert (test_ID == TEST_ID), "Deployed wrong test file"
 
         print("")
         print("Test ID =", TEST_ID)
@@ -34,13 +34,13 @@ def test_procedures_legacy():
         print("")
 
         #Check that we skipped the first procedure and executed the Startup Procedure
-        assert(wks.GetSingleChannelValue("Test Channel 6") >= 0), "Invalid procedure executed before Startup!"
+        assert (wks.GetSingleChannelValue("Test Channel 6") >= 0), "Invalid procedure executed before Startup!"
         print("Successfully skipped initial procedure. Checking Startup Procedure was invoked...")
 
         channelValues = wks.GetMultipleChannelValues(("Test Channel 0","Test Channel 1","Test Channel 2","Test Channel 3","Test Channel 4","Test Channel 7","Test Channel 10", "Test Channel 11"))
 
         print("Startup channel values =", channelValues)
-        assert(channelValues == [1000,2000,20000,30000,40000,0,10,11]), "Startup Test Data Errors!"
+        assert (channelValues == [1000,2000,20000,30000,40000,0,10,11]), "Startup Test Data Errors!"
         print("Startup Procedure invoked successfully")
 
         print("Checking that Startup Procedure is waiting on Test Channel 5 before continuing")
@@ -53,12 +53,12 @@ def test_procedures_legacy():
         print("Triggering After Startup Procedure")
         wks.SetSingleChannelValue("Test Channel 5", 50000)
         time.sleep(2)
-        assert(wks.GetSingleChannelValue("Test Channel 5") == -50000), "Failed to move onto After Startup Procedure"
+        assert (wks.GetSingleChannelValue("Test Channel 5") == -50000), "Failed to move onto After Startup Procedure"
         print("After Startup Procedure Executed Successfully")
 
         #Check that we don't move onto Also Should Not Run Procedure, because After Startup ends with End
         time.sleep(1)
-        assert(wks.GetSingleChannelValue("Test Channel 6")>=0), "Invalid procedure executed after After Startup!"
+        assert (wks.GetSingleChannelValue("Test Channel 6")>=0), "Invalid procedure executed after After Startup!"
         print("Procedure execution ended successfully")
 
         #Test triggering alarms

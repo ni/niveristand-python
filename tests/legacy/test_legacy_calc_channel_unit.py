@@ -4,7 +4,7 @@ import math
 import pytest
 
 from niveristand.legacy import NIVeriStand
-from tests.testutilities import configutilities
+from testutilities import configutilities
 
 def sleep():
     time.sleep(0.5)
@@ -20,7 +20,7 @@ def test_calculated_channel_ut_legacy():
     SYSDEFFILE = os.path.join(configutilities.get_autotest_projects_path(),
                               "CalcChanUnitTest", "CalcChanUnitTest.nivssdf")
     print("Deploying %s" % SYSDEFFILE)
-    wks.RunWorkspaceFile(SYSDEFFILE,0,1,60000,"","")
+    wks.RunWorkspaceFile(SYSDEFFILE,0,1,5000,"","")
 
     try:
         # Compute Machine Epsilon: The smallest floating point number when
@@ -57,7 +57,7 @@ def test_calculated_channel_ut_legacy():
         print("Checking Zero channel is 0.0")
         expectedResult = 0.
         result = wks.GetSingleChannelValue("Zero")
-        assert(result == expectedResult), "Time-Time (%g) does not match calculated (%g)"  % (expectedResult, result)
+        assert (result == expectedResult), "Time-Time (%g) does not match calculated (%g)"  % (expectedResult, result)
         print("...Pass")
 
         # Test functions of one variable

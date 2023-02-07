@@ -3,7 +3,7 @@ import os
 import pytest
 from niveristand.legacy import NIVeriStand
 from niveristand.legacy.NIVeriStand import NIVeriStandException
-from tests.testutilities import configutilities
+from testutilities import configutilities
 
 def sleep():
     time.sleep(1)
@@ -17,12 +17,12 @@ def test_stimulus_api_legacy():
     SYSDEFFILE = os.path.join(configutilities.get_autotest_projects_path(),
                               "TestStimulusAPI", "TestStimulusAPI.nivssdf")
     print("Deploying %s" % SYSDEFFILE)
-    wks.RunWorkspaceFile(SYSDEFFILE,0,1,60000,"","")
+    wks.RunWorkspaceFile(SYSDEFFILE,0,1,5000,"","")
 
     try:
         #Verify the TEST_ID var on test file.
         test_ID = wks.GetSingleChannelValue("TEST_ID")
-        assert(test_ID == TEST_ID), "Deployed wrong test file"
+        assert (test_ID == TEST_ID), "Deployed wrong test file"
 
         STIMULUSPROFILES_DIR = os.path.join(configutilities.get_autotest_projects_path(), "TestStimulusAPI")
         AutoStepTestStimulusAPI = os.path.join(STIMULUSPROFILES_DIR, "AutoStepTestStimulusAPI.nivstest")
@@ -51,7 +51,7 @@ def test_stimulus_api_legacy():
         assert (result == 2), "Test expected to started already"
         print("Test Getting back the file we are running")
         file = stimTest1.GetStimulusProfileFile()
-        assert(file == AutoStepTestStimulusAPI), "Test file are not expected"
+        assert (file == AutoStepTestStimulusAPI), "Test file are not expected"
 
         print("Wait untill stimulus is done")
         time.sleep(40)

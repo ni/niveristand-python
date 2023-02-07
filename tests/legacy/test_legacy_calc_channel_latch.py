@@ -3,7 +3,7 @@ import os
 import math
 
 from niveristand.legacy import NIVeriStand
-from tests.testutilities import configutilities
+from testutilities import configutilities
 
 def sleep():
     time.sleep(1)
@@ -15,7 +15,7 @@ def test_calculated_channel_latch_legacy():
     SYSDEFFILE = os.path.join(configutilities.get_autotest_projects_path(),
                               "CalcChanLatchTest", "CalcChanLatchTest.nivssdf")
     print("Deploying %s" % SYSDEFFILE)
-    wks.RunWorkspaceFile(SYSDEFFILE,0,1,60000,"","")
+    wks.RunWorkspaceFile(SYSDEFFILE,0,1,5000,"","")
 
     try:
         # Compute Machine Epsilon: The smallest floating point number when
@@ -42,7 +42,7 @@ def test_calculated_channel_latch_legacy():
         print("Checking (Delta T)=0.1")
         expectedResult = 0.1
         result = wks.GetSingleChannelValue("Delta T")
-        assert(result == expectedResult), "Delta T (%g) does not match expected (%g)"  % (result, expectedResult)
+        assert (result == expectedResult), "Delta T (%g) does not match expected (%g)"  % (result, expectedResult)
         print("...Pass")
 
 
@@ -58,7 +58,7 @@ def test_calculated_channel_latch_legacy():
         reltol = math.sqrt(eps)
         for i in range(0,len(expectedResults)):
             tol = abstol + reltol*abs(expectedResult)
-            assert(expectedResults[i] - tol <= results[i] <= expectedResults[i] + tol), "%s => Expected %g. Return Value %g not expected." % (channels[i], expectedResults[i], results[i])
+            assert (expectedResults[i] - tol <= results[i] <= expectedResults[i] + tol), "%s => Expected %g. Return Value %g not expected." % (channels[i], expectedResults[i], results[i])
         print("...Pass")
 
         channels = ("P", "Q", "R", "S")
@@ -80,7 +80,7 @@ def test_calculated_channel_latch_legacy():
         expectedResults = wks.GetMultipleChannelValues(channels)
 
         for i in range(0,len(expectedResults)):
-            assert(results[i] == expectedResults[i]), "%s => Expected %g. Return Value %g not expected." % (channels[i], expectedResults[i], results[i])
+            assert (results[i] == expectedResults[i]), "%s => Expected %g. Return Value %g not expected." % (channels[i], expectedResults[i], results[i])
         print("...Pass")
 
         print("Test PASSED")

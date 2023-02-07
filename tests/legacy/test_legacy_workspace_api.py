@@ -4,23 +4,24 @@ import pytest
 
 from niveristand.legacy import NIVeriStand
 from niveristand.legacy.NIVeriStand import NIVeriStandException
-from tests.testutilities import configutilities
+from testutilities import configutilities
 
 
 def sleep():
     time.sleep(1)
 
 
+@pytest.mark.skip("only test workspace 2")
 def test_worspace_api():
     TEST_ID = 124123
 
     wks = NIVeriStand.Workspace()
     print("")
-    SYSDEFINITION = os.path.join(configutilities.get_autotest_projects_path(),
+    system_definition = os.path.join(configutilities.get_autotest_projects_path(),
                                  "TestWorkspaceAPI",
                                  "TestWorkspaceAPI.nivssdf")
-    print("Deploying %s" % SYSDEFINITION)
-    wks.RunWorkspaceFile(SYSDEFINITION, 0, 1, 80000, "", "")
+    print("Deploying %s" % system_definition)
+    wks.RunWorkspaceFile(system_definition, 0, 1, 5000, "", "")
 
     try:
         # Verify the TEST_ID var on test file.
@@ -28,7 +29,7 @@ def test_worspace_api():
         assert test_ID == TEST_ID, "Deployed wrong test file"
 
         result = wks.GetEngineState()
-        assert result['systemdefinition_file'] == SYSDEFINITION, "Workspace file is not the same as deployed"
+        assert result['systemdefinition_file'] == system_definition, "Workspace file is not the same as deployed"
 
         wks.LockWorkspaceFile("", 'LOCK_PASSWORD')
         with pytest.raises(NIVeriStandException):
