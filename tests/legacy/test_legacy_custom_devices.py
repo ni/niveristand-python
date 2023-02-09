@@ -1,3 +1,4 @@
+import os
 import pytest
 import time
 
@@ -35,7 +36,7 @@ def test_custom_devices_legacy():
     print("")
 
     #standard way of running a configuration file.  VSTANDPROJECTDIR is configured to the location where test project files get sync. So just append your folder and rig file.
-    system_definition = r"C:\Users\virtual\Desktop\AutoTestProjects\CustomDevices\CustomDevices.nivssdf"
+    system_definition = os.path.join(os.getcwd(), r"tests\testutilities\legacy_files\CustomDevices\CustomDevices.nivssdf")
     print("[b] Deploying %s" % system_definition )
     workspace.ConnectToSystem(system_definition, 1, 20000)
 

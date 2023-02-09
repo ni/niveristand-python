@@ -1,5 +1,5 @@
 import os
-from engine_demo.engine_demo_basic import run_engine_demo
+from examples.engine_demo.engine_demo_basic import run_engine_demo
 from niveristand import run_py_as_rtseq
 from niveristand.errors import RunError
 from niveristand.legacy import NIVeriStand
@@ -12,8 +12,9 @@ def mix_legacy_and_rtseq_run():
     NIVeriStand.WaitForNIVeriStandReady()
     # Uses the ClientAPI interface to get a reference to Workspace2
     workspace = NIVeriStand.Workspace2("localhost")
-    engine_demo_path = os.path.join(r"C:\Users\public\Documents\National Instruments\NI VeriStand 2021\Examples\Stimulus Profile\Engine Demo\Engine Demo.nivssdf")
-    print("Deploying %s" % engine_demo_path)
+    engine_demo_path = os.path.join(os.path.expanduser("~public"), 'Documents', 'National Instruments',
+                                    'NI VeriStand 2019', 'Examples', 'Stimulus Profile', 'Engine Demo',
+                                    'Engine Demo.nivssdf')
     # Deploys the system definition.
     workspace.ConnectToSystem(engine_demo_path, True, 120000)
     try:

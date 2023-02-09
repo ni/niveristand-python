@@ -1,8 +1,8 @@
-import time
 import os
+import pytest
+import time
 
 from niveristand.legacy import NIVeriStand
-from testutilities import configutilities
 
 def sleep():
     time.sleep(1)
@@ -13,7 +13,7 @@ def test_fault_api_legacy():
 
     workspace = NIVeriStand.Workspace()
     print("")
-    system_definition = r"C:\Users\virtual\Desktop\AutoTestProjects\FaultChannelTest\FaultChannelTest.nivssdf"
+    system_definition = os.path.join(os.getcwd(), r"tests\testutilities\legacy_files\FaultChannelTest\FaultChannelTest.nivssdf")
     print("Deploying %s" % system_definition)
     workspace.RunWorkspaceFile(system_definition, 0, 1, 20000, "", "")
 

@@ -1,0 +1,302 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Document xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="System definition.xsd">
+	<MD5Checksum />
+	<Version Major="2020" Minor="0" Fix="0" Build="0" />
+	<Content>Definition</Content>
+	<Root Name="ModelParameterAPI_AUTOTEST" TypeGUID="d9313aae-3554-45e5-93f3-86454275d4f2" Identifier="f29f8f80-7fef-44d0-9f35-0d3f00ad0523">
+		<Description />
+		<Properties>
+			<Property Name="Name">
+				<String>ModelParameterAPI_AUTOTEST</String>
+			</Property>
+			<Property Name="Version">
+				<String>1.0.0.0</String>
+			</Property>
+			<Property Name="Creator">
+				<String />
+			</Property>
+			<Property Name="Creation Date">
+				<Double>3351079551.2373185</Double>
+			</Property>
+		</Properties>
+		<Errors />
+		<Section Name="System Definition File" TypeGUID="b9227a5b-2770-4a62-8621-ac414d4124fb" Identifier="aec7951f-d2ab-4677-8165-1baf8778aeab">
+			<Description />
+			<Properties />
+			<Errors />
+			<Section Name="ModelParameterAPI_AUTOTEST.nivssdf" TypeGUID="3a41ca74-36ec-4aff-9219-9d05c8f91208" Identifier="3acda691-1383-4743-b773-e19e26847f05">
+				<Description />
+				<Properties>
+					<Property Name="Path">
+						<DependentFile Type="Relative" Path="ModelParameterAPI_AUTOTEST.nivssdf">
+							<Version />
+							<RTDestination />
+							<SupportedTarget />
+							<MD5>eb4abf3d93bd7b3b51ea8672888c94e9</MD5>
+						</DependentFile>
+					</Property>
+				</Properties>
+				<Errors />
+			</Section>
+		</Section>
+		<Section Name="User Interface" TypeGUID="bc98486f-7b49-4949-9504-949cbe254c85" Identifier="1d9d4cf2-d070-4a54-baf6-7998b65a4fda">
+			<Description />
+			<Properties>
+				<Property Name="User Accounts">
+					<Variant>
+						<Type>AAAACgAUQDD/////C2RhdGEgc3RyaW5n</Type>
+						<Data>AAAAzwkAgAAAAAAFAA5AMP////8ETmFtZQAAEkAw/////whQYXNzd29yZAAADkAw/////wVHcm91cABMAPEAAAAAAAAAAhhTZWMgQWRtaW5pc3RyYXRpb24ubHZsaWIMVXNlclR5cGUuY3RsAB5AUAADAAAAAQACDFVzZXIgQWNjb3VudAAAGkBAAAH/////AAMNVXNlciBBY2NvdW50cwABAAQAAAABAAAADUFkbWluaXN0cmF0b3IAAAAAAAAADkFkbWluaXN0cmF0aW9uAAAAAA==</Data>
+					</Variant>
+				</Property>
+				<Property Name="Group Accounts">
+					<Variant>
+						<Type>AAAACgAUQDD/////C2RhdGEgc3RyaW5n</Type>
+						<Data>AAAA7QkAgAAAAAAFAA5AMP////8ETmFtZQAADEAhB0Jvb2xlYW4AGEBAAAH/////AAELUGVybWlzc2lvbnMASwDxAAAAAAAAAAIYU2VjIEFkbWluaXN0cmF0aW9uLmx2bGliDUdyb3VwVHlwZS5jdGwAHEBQAAIAAAACDUdyb3VwIEFjY291bnQAHEBAAAH/////AAMOR3JvdXAgQWNjb3VudHMAAAEABAAAAAIAAAAOQWRtaW5pc3RyYXRpb24AAAANAQEBAQEBAQEBAQEBAQAAAAhPcGVyYXRvcgAAAA0BAAAAAQAAAQEAAAABAAAAAA==</Data>
+					</Variant>
+				</Property>
+				<Property Name="Tools Menu Items">
+					<Variant>
+						<Type>AAAACgAUQDD/////C2RhdGEgc3RyaW5n</Type>
+						<Data>AAAG6wkAgAAAAAAIAA5AMP////8ETmFtZQAAEkAw/////whGdW5jdGlvbgAAYQDxAAAAAAAAAAETVG9vbGJhciBCdXR0b25zLmN0bABFQBYAAwROb25lF1N0aW11bHVzIFByb2ZpbGUgRWRpdG9yC0RhdGEgVmlld2VyAAAOVG9vbGJhciBCdXR0b24AAVMA8QAAAAAAAAABH2VudW1fVXNlciBBZG1pbiBQZXJtaXNzaW9ucy5jdGwBK0AWAA0HRGVmYXVsdA5BZG1pbmlzdHJhdGlvbhdDaGFubmVsIFNjYWxpbmcgVXRpbGl0eRFBZGQgRGlzcGxheSBJdGVtcxNDaGFuZ2UgVXNlciBQcm9maWxlI0VkaXQgU3RpbXVsdXMgUHJvZmlsZSBFZGl0b3IgSGVhZGVyGkVkaXQgRGlzcGxheSBJdGVtIFNldHRpbmdzG01vZGVsIFBhcmFtZXRlciBDYWxpYnJhdGlvbhJSdW50aW1lIEFsYXJtIEVkaXQPRWRpdCBUb29scyBNZW51FkVkaXQgRW5naW5lIENvbXBvbmVudHMaQ29uZmlndXJlIFZpc2libGUgQ2hhbm5lbHMNRmF1bHQgTWFuYWdlcgAAClBlcm1pc3Npb24AABpAMv////8QQ3VzdG9tIFRvb2wgUGF0aAAAdwDxx+1IGQAAAAIRTklWU19TaGFyZWQubHZsaWINUGF0aCB0eXBlLmN0bABPQBYABAhBYnNvbHV0ZQhSZWxhdGl2ZQ5Ub0NvbW1vbkRvY0RpcgxUb0FwcERhdGFEaXIAFUN1c3RvbSBUb29sIFBhdGggVHlwZQBjAPEAAAAAAAAAAhpOSVZTUHJval9GaWxlbWFuYWdlci5sdmxpYhlUb29scyBNZW51IEl0ZW1zIFR5cGUuY3RsACZAUAAGAAAAAQACAAMABAAFD1Rvb2xzIE1lbnUgSXRlbQAeQEAAAf////8ABhBUb29scyBNZW51IEl0ZW1zAAABAAcAAAARAAAADUFsYXJtIE1vbml0b3IAAAAUc3ViX0FsYXJtIE1vbml0b3IudmkAAAABUFRIMAAAAAQAAAAAAAAAAAAXTW9kZWwgUGFyYW1ldGVyIE1hbmFnZXIAAAAaTW9kZWwgUGFyYW1ldGVyIE1hbmFnZXIudmkAAAABUFRIMAAAAAQAAAAAAAAAAAABLQAAAAEtAAAAAVBUSDAAAAAEAAAAAAAAAAAAF1N0aW11bHVzIFByb2ZpbGUgRWRpdG9yAAAAGlN0aW11bHVzIFByb2ZpbGUgRWRpdG9yLnZpAAEAAVBUSDAAAAAEAAAAAAAAAAAAIFN0aW11bHVzIFByb2ZpbGUgU2VxdWVuY2UgRWRpdG9yAAAAFlRlc3QgRWRpdG9yIChCYXRjaCkudmkAAAABUFRIMAAAAAQAAAAAAAAAAAABLQAAAAEtAAAAAVBUSDAAAAAEAAAAAAAAAAAAHUNoYW5uZWwgU2NhbGluZyAmIENhbGlicmF0aW9uAAAAEnN1Yl9DYWxpYnJhdGlvbi52aQAAAAFQVEgwAAAABAAAAAAAAAAAABVDaGFubmVsIEZhdWx0IE1hbmFnZXIAAAAUc2NyX0ZhdWx0IE1hbmFnZXIudmkAAAABUFRIMAAAAAQAAAAAAAAAAAABLQAAAAEtAAAAAVBUSDAAAAAEAAAAAAAAAAAADk1hY3JvIFJlY29yZGVyAAAAMFdvcmtzcGFjZSBNYWNyb1xSZWNvcmRlclBsYXllclxNYWNybyBSZWNvcmRlci52aQAAAAFQVEgwAAAABAAAAAAAAAAAAAxNYWNybyBQbGF5ZXIAAAAuV29ya3NwYWNlIE1hY3JvXFJlY29yZGVyUGxheWVyXE1hY3JvIFBsYXllci52aQAAAAFQVEgwAAAABAAAAAAAAAAAAAEtAAAAAS0AAAABUFRIMAAAAAQAAAAAAAAAAAAQWE5FVCBCdXMgTW9uaXRvcgAAACRYTkVUIEJ1cyBNb25pdG9yXFhORVQgQnVzIE1vbml0b3IudmkAAAABUFRIMAAAAAQAAAAAAAAAAAABLQAAAAEtAAAAAVBUSDAAAAAEAAAAAAAAAAAAE0NoYW5uZWwgRGF0YSBWaWV3ZXIAAAAWQ2hhbm5lbCBEYXRhIFZpZXdlci52aQAAAAFQVEgwAAAABAAAAAAAAAAAAA5Db25zb2xlIFZpZXdlcgAAABJWaWV3IFJUIENvbnNvbGUudmkAAAABUFRIMAAAAAQAAAAAAAAAAAAQVERNUyBGaWxlIFZpZXdlcgAAABdzY3JfVERNUyBEYXRhIFZpZXdlci52aQACAAFQVEgwAAAABAAAAAAAAAAAAAA=</Data>
+					</Variant>
+				</Property>
+				<Property Name="Engine Components">
+					<Variant>
+						<Type>AAAACgAUQDD/////C2RhdGEgc3RyaW5n</Type>
+						<Data>AAACOQkAgAAAAAAIABJAMP////8IRnVuY3Rpb24AAA5AIQlTaG93SXRlbT8AL0AWAAMETm9uZQxXYWl0Q29tcGxldGUIV2FpdFN5bmMAAApMYXVuY2hUeXBlAAARQAMAC1N5bmNUaW1lb3V0ABpAMv////8QQ3VzdG9tIFRvb2wgUGF0aAAAaQDxxyxnxAAAAAIRTklWU19TaGFyZWQubHZsaWINUGF0aCB0eXBlLmN0bABBQBYAAwhBYnNvbHV0ZQhSZWxhdGl2ZQxUb0FwcERhdGFEaXIAABVDdXN0b20gVG9vbCBQYXRoIFR5cGUAaQDxAAAAAAAAAAIaTklWU1Byb2pfRmlsZW1hbmFnZXIubHZsaWIZRW5naW5lIENvbXBvbmVudCBUeXBlLmN0bAAsQFAABgAAAAEAAgADAAQABRVFbmdpbmUgQ29tcG9uZW50IEl0ZW0AHkBAAAH/////AAYRRW5naW5lIENvbXBvbmVudHMAAQAHAAAABAAAABJzdWJfQ2FsaWJyYXRpb24udmkAAAAAAAAAUFRIMAAAAAQAAAAAAAAAAAAVVGVzdCBFZGl0b3IgKFN0ZXApLnZpAAAAAAAAAFBUSDAAAAAEAAAAAAAAAAAAFlRlc3QgRWRpdG9yIChCYXRjaCkudmkAAAAAAAAAUFRIMAAAAAQAAAAAAAAAAAAaTW9kZWwgUGFyYW1ldGVyIE1hbmFnZXIudmkAAAAAAAAAUFRIMAAAAAQAAAAAAAAAAAAA</Data>
+					</Variant>
+				</Property>
+				<Property Name="Hidden Channels">
+					<StringArray />
+				</Property>
+			</Properties>
+			<Errors />
+			<Section Name="Screens" TypeGUID="cdfadfe0-c84a-4268-a677-4f2f3525465e" Identifier="a85a3af1-d51c-4a06-812f-8f97accc704e">
+				<Description />
+				<Properties>
+					<Property Name="Path">
+						<DependentFile Type="Relative" Path="ModelParameterAPI_AUTOTEST.nivsscreen">
+							<Version />
+							<RTDestination />
+							<SupportedTarget />
+							<MD5>5186d85ed828ac5084ab41b98274d80b</MD5>
+						</DependentFile>
+					</Property>
+				</Properties>
+				<Errors />
+			</Section>
+		</Section>
+		<Section Name="Services" TypeGUID="736a951c-d9c8-457f-96a9-cd0ef16011a5" Identifier="9ab6d443-e8aa-4a27-a0f1-5eabc0e63dd8">
+			<Description />
+			<Properties />
+			<Errors />
+			<Section Name="Model Parameter Manager" TypeGUID="cc686646-9933-410d-a553-6308e6e06897" Identifier="016ce052-d9fd-49ca-88d5-2f014a772715">
+				<Description />
+				<Properties>
+					<Property Name="Function">
+						<String>Model Parameter Manager.vi</String>
+					</Property>
+					<Property Name="Path">
+						<DependentFile Type="Absolute" Path="">
+							<Version />
+							<RTDestination />
+							<SupportedTarget />
+							<MD5 />
+						</DependentFile>
+					</Property>
+					<Property Name="Sync Options">
+						<String>WaitSync</String>
+					</Property>
+					<Property Name="Sync Timeout">
+						<I32>10000</I32>
+					</Property>
+				</Properties>
+				<Errors />
+			</Section>
+		</Section>
+		<Section Name="Profiles" TypeGUID="c3bd79ec-3336-4b06-868e-3217c640edd5" Identifier="a04af5b4-1919-486d-9edf-1377d9f1807c">
+			<Description />
+			<Properties />
+			<Errors />
+		</Section>
+		<Section Name="Calibration" TypeGUID="38433223-24A0-4b32-9339-370EC5AA31B4" Identifier="2556d5d2-b770-4339-be8a-39828efa7ff9">
+			<Description />
+			<Properties />
+			<Errors />
+		</Section>
+		<Section Name="Alarm Responses" TypeGUID="3b1ab560-d77a-41f2-adb4-0c0250b010b3" Identifier="03b5473f-086d-4c6b-aa47-09c3e7af45d7">
+			<Description />
+			<Properties />
+			<Errors />
+			<Section Name="Response High" TypeGUID="99267DF5-8C59-4AAC-B020-7591F4886206" Identifier="2de723b9-615c-46e4-b61a-e4a6f6fef0e6">
+				<Description />
+				<Properties>
+					<Property Name="Show Dialog">
+						<Boolean>true</Boolean>
+					</Property>
+					<Property Name="Play Sound">
+						<String>Disabled</String>
+					</Property>
+					<Property Name="Wave File">
+						<DependentFile Type="Absolute" Path="">
+							<Version />
+							<RTDestination />
+							<SupportedTarget />
+							<MD5 />
+						</DependentFile>
+					</Property>
+					<Property Name="Log Alarms">
+						<String>Enabled</String>
+					</Property>
+					<Property Name="Log File">
+						<String>Logs\Alarm Log.txt</String>
+					</Property>
+					<Property Name="Max Priority">
+						<U32>10</U32>
+					</Property>
+					<Property Name="Min Priority">
+						<U32>0</U32>
+					</Property>
+					<Property Name="Enable Response">
+						<Boolean>true</Boolean>
+					</Property>
+				</Properties>
+				<Errors />
+			</Section>
+			<Section Name="Response Med" TypeGUID="99267DF5-8C59-4AAC-B020-7591F4886206" Identifier="673c878f-64f3-41de-84ca-e910fda0c7d1">
+				<Description />
+				<Properties>
+					<Property Name="Show Dialog">
+						<Boolean>true</Boolean>
+					</Property>
+					<Property Name="Play Sound">
+						<String>Disabled</String>
+					</Property>
+					<Property Name="Wave File">
+						<DependentFile Type="Absolute" Path="">
+							<Version />
+							<RTDestination />
+							<SupportedTarget />
+							<MD5 />
+						</DependentFile>
+					</Property>
+					<Property Name="Log Alarms">
+						<String>Enabled</String>
+					</Property>
+					<Property Name="Log File">
+						<String>Logs\Alarm Log.txt</String>
+					</Property>
+					<Property Name="Max Priority">
+						<U32>21</U32>
+					</Property>
+					<Property Name="Min Priority">
+						<U32>11</U32>
+					</Property>
+					<Property Name="Enable Response">
+						<Boolean>true</Boolean>
+					</Property>
+				</Properties>
+				<Errors />
+			</Section>
+			<Section Name="Response Low" TypeGUID="99267DF5-8C59-4AAC-B020-7591F4886206" Identifier="55988c12-a490-4c03-8756-8b5aff2ae997">
+				<Description />
+				<Properties>
+					<Property Name="Show Dialog">
+						<Boolean>false</Boolean>
+					</Property>
+					<Property Name="Play Sound">
+						<String>Disabled</String>
+					</Property>
+					<Property Name="Wave File">
+						<DependentFile Type="Absolute" Path="">
+							<Version />
+							<RTDestination />
+							<SupportedTarget />
+							<MD5 />
+						</DependentFile>
+					</Property>
+					<Property Name="Log Alarms">
+						<String>Enabled</String>
+					</Property>
+					<Property Name="Log File">
+						<String>Logs\Alarm Log.txt</String>
+					</Property>
+					<Property Name="Max Priority">
+						<U32>31</U32>
+					</Property>
+					<Property Name="Min Priority">
+						<U32>22</U32>
+					</Property>
+					<Property Name="Enable Response">
+						<Boolean>true</Boolean>
+					</Property>
+				</Properties>
+				<Errors />
+			</Section>
+		</Section>
+		<Section Name="Custom Files" TypeGUID="9e2cb626-3583-4345-aeb6-b9fead6ec565" Identifier="d5614697-7ebc-4ec0-b81c-7f493ae77999">
+			<Description />
+			<Properties />
+			<Errors />
+		</Section>
+		<Section Name="Dependencies" TypeGUID="e5b093fa-a709-4df2-807e-a403422ba675" Identifier="13ffbe4c-50ab-49fa-9eb0-726b831cf429">
+			<Description />
+			<Properties />
+			<Errors />
+			<Section Name="ModelParameterAPI_AUTOTEST.nivssdf" TypeGUID="369b9797-43bd-4cdf-8352-81032feed666" Identifier="a5b91f3d-49b2-422e-992c-b1fd924df457">
+				<Description />
+				<Properties>
+					<Property Name="Path">
+						<String>C:\Users\virtual\Desktop\AutoTestProjects\ModelParameterAPI_AUTOTEST\ModelParameterAPI_AUTOTEST.nivssdf</String>
+					</Property>
+				</Properties>
+				<Errors />
+			</Section>
+			<Section Name="ModelParameterAPI_AUTOTEST.nivsscreen" TypeGUID="369b9797-43bd-4cdf-8352-81032feed666" Identifier="c290bdc0-a725-4c0e-a416-8d9c64036f22">
+				<Description />
+				<Properties>
+					<Property Name="Path">
+						<String>C:\Users\virtual\Desktop\AutoTestProjects\ModelParameterAPI_AUTOTEST\ModelParameterAPI_AUTOTEST.nivsscreen</String>
+					</Property>
+				</Properties>
+				<Errors />
+			</Section>
+			<Section Name="VectorModelInOutParam.dll" TypeGUID="369b9797-43bd-4cdf-8352-81032feed666" Identifier="67d05f76-7f92-4ee0-8d0a-be16d907d0a1">
+				<Description />
+				<Properties>
+					<Property Name="Path">
+						<String>C:\Users\virtual\Desktop\AutoTestProjects\ModelParameterAPI_AUTOTEST\VectorModelInOutParam.dll</String>
+					</Property>
+				</Properties>
+				<Errors />
+			</Section>
+			<Section Name="VectorModelInOutNonWorkspace.dll" TypeGUID="369b9797-43bd-4cdf-8352-81032feed666" Identifier="db2060f3-1428-44b3-ba13-3cd026579abb">
+				<Description />
+				<Properties>
+					<Property Name="Path">
+						<String>C:\Users\virtual\Desktop\AutoTestProjects\ModelParameterAPI_AUTOTEST\VectorModelInOutNonWorkspace.dll</String>
+					</Property>
+				</Properties>
+				<Errors />
+			</Section>
+			<Section Name="clocktest.dll" TypeGUID="369b9797-43bd-4cdf-8352-81032feed666" Identifier="a59792fe-202e-4c48-b782-a7cb526d958d">
+				<Description />
+				<Properties>
+					<Property Name="Path">
+						<String>C:\Users\virtual\Desktop\AutoTestProjects\ModelParameterAPI_AUTOTEST\clocktest.dll</String>
+					</Property>
+				</Properties>
+				<Errors />
+			</Section>
+			<Section Name="sinewave.dll" TypeGUID="369b9797-43bd-4cdf-8352-81032feed666" Identifier="1e400a77-36db-43e6-8e01-8462c32f0437">
+				<Description />
+				<Properties>
+					<Property Name="Path">
+						<String>C:\Users\virtual\Desktop\AutoTestProjects\ModelParameterAPI_AUTOTEST\sinewave.dll</String>
+					</Property>
+				</Properties>
+				<Errors />
+			</Section>
+		</Section>
+	</Root>
+</Document>

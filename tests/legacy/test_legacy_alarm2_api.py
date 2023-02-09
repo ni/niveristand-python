@@ -1,5 +1,6 @@
-import time
+import os
 import pytest
+import time
 
 from niveristand.legacy import NIVeriStand
 from niveristand.legacy.NIVeriStand import NIVeriStandException
@@ -12,7 +13,7 @@ def test_alarm2_api():
     NIVeriStand.LaunchNIVeriStand()
     NIVeriStand.WaitForNIVeriStandReady()
     workspace = NIVeriStand.Workspace2("localhost")
-    system_definition = r"C:\Users\virtual\Desktop\AutoTestProjects\TestAlarmAPI\TestAlarmAPI.nivssdf"
+    system_definition = os.path.join(os.getcwd(), r"tests\testutilities\legacy_files\TestAlarmAPI\TestAlarmAPI.nivssdf")
     print("Deploying %s" % system_definition)
     workspace.ConnectToSystem(system_definition, True, 20000)
 

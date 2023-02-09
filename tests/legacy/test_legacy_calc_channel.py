@@ -1,3 +1,5 @@
+import os
+import pytest
 import time
 
 from niveristand.legacy import NIVeriStand
@@ -7,7 +9,7 @@ def test_calculated_channel_legacy():
     TEST_ID = 1112
     workspace = NIVeriStand.Workspace()
     print("")
-    system_definition = r"C:\Users\virtual\Desktop\AutoTestProjects\CalculatedChannelTest\CalculatedChannelTest.nivssdf"
+    system_definition = os.path.join(os.getcwd(), r"tests\testutilities\legacy_files\CalculatedChannelTest\CalculatedChannelTest.nivssdf")
     print("Deploying %s" % system_definition)
     workspace.RunWorkspaceFile(system_definition, False, True, 20000, "", "")
 

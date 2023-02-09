@@ -1,7 +1,7 @@
-import time
-import os
 import math
+import os
 import pytest
+import time
 
 from niveristand.legacy import NIVeriStand
 from testutilities import configutilities
@@ -14,7 +14,7 @@ TEST_COMMENT = "" #Test  comment to append to result
 def test_calculated_channel_ut_legacy():
     workspace = NIVeriStand.Workspace()
     print("")
-    system_definition = r"C:\Users\virtual\Desktop\AutoTestProjects\CalcChanUnitTest\CalcChanUnitTest.nivssdf"
+    system_definition = os.path.join(os.getcwd(), r"tests\testutilities\legacy_files\CalcChanUnitTest\CalcChanUnitTest.nivssdf")
     print("Deploying %s" % system_definition)
     workspace.RunWorkspaceFile(system_definition, False, True, 20000, "", "")
 

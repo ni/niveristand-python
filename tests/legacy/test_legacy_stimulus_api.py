@@ -1,6 +1,7 @@
-import time
 import os
 import pytest
+import time
+
 from niveristand.legacy import NIVeriStand
 from niveristand.legacy.NIVeriStand import NIVeriStandException
 
@@ -10,7 +11,7 @@ def test_stimulus_api_legacy():
 
     workspace = NIVeriStand.Workspace()
     print("")
-    system_definition = r"C:\Users\virtual\Desktop\AutoTestProjects\TestStimulusAPI\TestStimulusAPI.nivssdf"
+    system_definition = os.path.join(os.getcwd(), r"tests\testutilities\legacy_files\TestStimulusAPI\TestStimulusAPI.nivssdf")
     print("Deploying %s" % system_definition)
     workspace.RunWorkspaceFile(system_definition, 0, 1, 20000, "", "")
 
@@ -19,8 +20,8 @@ def test_stimulus_api_legacy():
         test_ID = workspace.GetSingleChannelValue("TEST_ID")
         assert (test_ID == TEST_ID), "Deployed wrong test file"
 
-        logging_directory = r"C:\Users\virtual\Desktop\AutoTestProjects\TestStimulusAPI\TestStimulusAPI"
-        AutoStepTestStimulusAPI = r"C:\Users\virtual\Desktop\AutoTestProjects\TestStimulusAPI\AutoStepTestStimulusAPI.nivstest"
+        logging_directory = os.path.join(os.getcwd(), r"tests\testutilities\legacy_files\TestStimulusAPI\TestStimulusAPI")
+        AutoStepTestStimulusAPI = os.path.join(os.getcwd(), r"tests\testutilities\legacy_files\TestStimulusAPI\AutoStepTestStimulusAPI.nivstest")
 
         stimTest1 = NIVeriStand.Stimulus()
         stimTest2 = NIVeriStand.Stimulus()

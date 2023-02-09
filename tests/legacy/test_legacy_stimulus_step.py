@@ -1,5 +1,7 @@
-import time
 import os
+import pytest
+import time
+
 from niveristand.legacy import NIVeriStand
 
 def wait_for_test(stimulus, wait_time):
@@ -13,7 +15,8 @@ def wait_for_test(stimulus, wait_time):
     return (elapsed_time > wait_time)
 
 def run_test(workspace, stimulus, test_name, wait_time):
-    TESTFILE = os.path.join(r"C:\Users\virtual\Desktop\AutoTestProjects","ProfileTest", test_name)
+    base_directory = os.path.join(os.getcwd(), r"tests\testutilities\legacy_files")
+    TESTFILE = os.path.join(base_directory,"ProfileTest", test_name)
     print("")
     print("Running stimulus profile %s" % test_name)
     print("File Path: %s" % TESTFILE)
@@ -39,7 +42,7 @@ def test_stimulus_steps_legacy():
     #print(statement take a string and it is piped out to a single trace file in the background, for your tracing needs.)
     print("")
 
-    system_definition = r"C:\Users\virtual\Desktop\AutoTestProjects\ProfileTest\Profile Test.nivssdf"
+    system_definition = os.path.join(os.getcwd(), r"tests\testutilities\legacy_files\ProfileTest\Profile Test.nivssdf")
     print("Deploying %s" % system_definition )
     workspace.ConnectToSystem(system_definition,1,5000)
     print("System Definition deployed")

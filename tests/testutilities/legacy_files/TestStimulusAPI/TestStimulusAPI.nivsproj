@@ -1,0 +1,289 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Document xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="System definition.xsd">
+	<MD5Checksum />
+	<Version Major="2012" Minor="0" Fix="0" Build="1" />
+	<Content>Definition</Content>
+	<Root Name="TestStimulusAPI" TypeGUID="d9313aae-3554-45e5-93f3-86454275d4f2">
+		<Description />
+		<Properties>
+			<Property Name="Name">
+				<String>TestStimulusAPI</String>
+			</Property>
+			<Property Name="Version">
+				<String>1.0.0.0</String>
+			</Property>
+			<Property Name="Creator">
+				<String />
+			</Property>
+			<Property Name="Creation Date">
+				<Double>3351079555.6588254</Double>
+			</Property>
+		</Properties>
+		<Errors />
+		<Section Name="System Definition File" TypeGUID="b9227a5b-2770-4a62-8621-ac414d4124fb">
+			<Description />
+			<Properties />
+			<Errors />
+			<Section Name="TestStimulusAPI.nivssdf" TypeGUID="3a41ca74-36ec-4aff-9219-9d05c8f91208">
+				<Description />
+				<Properties>
+					<Property Name="Path">
+						<DependentFile Type="Relative" Path="TestStimulusAPI.nivssdf">
+							<Version />
+							<RTDestination />
+							<SupportedTarget />
+							<MD5>344d525fd2179a022ade62bf8cb3fe97</MD5>
+						</DependentFile>
+					</Property>
+				</Properties>
+				<Errors />
+			</Section>
+		</Section>
+		<Section Name="Workspace" TypeGUID="bc98486f-7b49-4949-9504-949cbe254c85">
+			<Description />
+			<Properties>
+				<Property Name="User Accounts">
+					<Variant>
+						<Type>AAAACgAUQDD/////C2RhdGEgc3RyaW5n</Type>
+						<Data>AAAAzwkAgAAAAAAFAA5AMP////8ETmFtZQAAEkAw/////whQYXNzd29yZAAADkAw/////wVHcm91cABMAPEAAAAAAAAAAhhTZWMgQWRtaW5pc3RyYXRpb24ubHZsaWIMVXNlclR5cGUuY3RsAB5AUAADAAAAAQACDFVzZXIgQWNjb3VudAAAGkBAAAH/////AAMNVXNlciBBY2NvdW50cwABAAQAAAABAAAADUFkbWluaXN0cmF0b3IAAAAAAAAADkFkbWluaXN0cmF0aW9uAAAAAA==</Data>
+					</Variant>
+				</Property>
+				<Property Name="Group Accounts">
+					<Variant>
+						<Type>AAAACgAUQDD/////C2RhdGEgc3RyaW5n</Type>
+						<Data>AAAA7QkAgAAAAAAFAA5AMP////8ETmFtZQAADEAhB0Jvb2xlYW4AGEBAAAH/////AAELUGVybWlzc2lvbnMASwDxAAAAAAAAAAIYU2VjIEFkbWluaXN0cmF0aW9uLmx2bGliDUdyb3VwVHlwZS5jdGwAHEBQAAIAAAACDUdyb3VwIEFjY291bnQAHEBAAAH/////AAMOR3JvdXAgQWNjb3VudHMAAAEABAAAAAIAAAAOQWRtaW5pc3RyYXRpb24AAAANAQEBAQEBAQEBAQEBAQAAAAhPcGVyYXRvcgAAAA0BAAAAAQABAQAAAAAAAAAAAA==</Data>
+					</Variant>
+				</Property>
+				<Property Name="Tools Menu Items">
+					<Variant>
+						<Type>AAAACgAUQDD/////C2RhdGEgc3RyaW5n</Type>
+						<Data>AAAD2AkAgAAAAAAIAA5AMP////8ETmFtZQAAEkAw/////whGdW5jdGlvbgAAYQDxAAAAAAAAAAETVG9vbGJhciBCdXR0b25zLmN0bABFQBYAAwROb25lF1N0aW11bHVzIFByb2ZpbGUgRWRpdG9yC0RhdGEgVmlld2VyAAAOVG9vbGJhciBCdXR0b24AAVMA8QAAAAAAAAABH2VudW1fVXNlciBBZG1pbiBQZXJtaXNzaW9ucy5jdGwBK0AWAA0HRGVmYXVsdA5BZG1pbmlzdHJhdGlvbhdDaGFubmVsIFNjYWxpbmcgVXRpbGl0eRFBZGQgRGlzcGxheSBJdGVtcxNDaGFuZ2UgVXNlciBQcm9maWxlI0VkaXQgU3RpbXVsdXMgUHJvZmlsZSBFZGl0b3IgSGVhZGVyGkVkaXQgRGlzcGxheSBJdGVtIFNldHRpbmdzG01vZGVsIFBhcmFtZXRlciBDYWxpYnJhdGlvbhJSdW50aW1lIEFsYXJtIEVkaXQPRWRpdCBUb29scyBNZW51FkVkaXQgRW5naW5lIENvbXBvbmVudHMaQ29uZmlndXJlIFZpc2libGUgQ2hhbm5lbHMNRmF1bHQgTWFuYWdlcgAAClBlcm1pc3Npb24AABpAMv////8QQ3VzdG9tIFRvb2wgUGF0aAAAaQDxxyxnxAAAAAIRTklWU19TaGFyZWQubHZsaWINUGF0aCB0eXBlLmN0bABBQBYAAwhBYnNvbHV0ZQhSZWxhdGl2ZQxUb0FwcERhdGFEaXIAABVDdXN0b20gVG9vbCBQYXRoIFR5cGUAYwDxAAAAAAAAAAIaTklWU1Byb2pfRmlsZW1hbmFnZXIubHZsaWIZVG9vbHMgTWVudSBJdGVtcyBUeXBlLmN0bAAmQFAABgAAAAEAAgADAAQABQ9Ub29scyBNZW51IEl0ZW0AHkBAAAH/////AAYQVG9vbHMgTWVudSBJdGVtcwAAAQAHAAAAAwAAAB5TdGltdWx1cyBQcm9maWxlIEVkaXRvciAtIFN0ZXAAAAAVVGVzdCBFZGl0b3IgKFN0ZXApLnZpAAEAAFBUSDAAAAAEAAAAAAAAAAAAH1N0aW11bHVzIFByb2ZpbGUgRWRpdG9yIC0gVGFibGUAAAAWVGVzdCBFZGl0b3IgKFRhYmxlKS52aQAAAABQVEgwAAAABAAAAAAAAAAAACBTdGltdWx1cyBQcm9maWxlIFNlcXVlbmNlIEVkaXRvcgAAABZUZXN0IEVkaXRvciAoQmF0Y2gpLnZpAAAAAFBUSDAAAAAEAAAAAAAAAAAAAA==</Data>
+					</Variant>
+				</Property>
+				<Property Name="Engine Components">
+					<Variant>
+						<Type>AAAACgAUQDD/////C2RhdGEgc3RyaW5n</Type>
+						<Data>AAABfgkAgAAAAAAIABJAMP////8IRnVuY3Rpb24AAA5AIQlTaG93SXRlbT8AL0AWAAMETm9uZQxXYWl0Q29tcGxldGUIV2FpdFN5bmMAAApMYXVuY2hUeXBlAAARQAMAC1N5bmNUaW1lb3V0ABpAMv////8QQ3VzdG9tIFRvb2wgUGF0aAAAaQDxxyxnxAAAAAIRTklWU19TaGFyZWQubHZsaWINUGF0aCB0eXBlLmN0bABBQBYAAwhBYnNvbHV0ZQhSZWxhdGl2ZQxUb0FwcERhdGFEaXIAABVDdXN0b20gVG9vbCBQYXRoIFR5cGUAaQDxAAAAAAAAAAIaTklWU1Byb2pfRmlsZW1hbmFnZXIubHZsaWIZRW5naW5lIENvbXBvbmVudCBUeXBlLmN0bAAsQFAABgAAAAEAAgADAAQABRVFbmdpbmUgQ29tcG9uZW50IEl0ZW0AHkBAAAH/////AAYRRW5naW5lIENvbXBvbmVudHMAAQAHAAAAAAAAAAA=</Data>
+					</Variant>
+				</Property>
+				<Property Name="Hidden Channels">
+					<StringArray />
+				</Property>
+			</Properties>
+			<Errors />
+			<Section Name="Screens" TypeGUID="cdfadfe0-c84a-4268-a677-4f2f3525465e">
+				<Description />
+				<Properties>
+					<Property Name="Path">
+						<DependentFile Type="Relative" Path="TestStimulusAPI.nivsscreen">
+							<Version />
+							<RTDestination />
+							<SupportedTarget />
+							<MD5>5186d85ed828ac5084ab41b98274d80b</MD5>
+						</DependentFile>
+					</Property>
+				</Properties>
+				<Errors />
+			</Section>
+		</Section>
+		<Section Name="Services" TypeGUID="736a951c-d9c8-457f-96a9-cd0ef16011a5">
+			<Description />
+			<Properties />
+			<Errors />
+			<Section Name="Model Parameter Manager" TypeGUID="cc686646-9933-410d-a553-6308e6e06897">
+				<Description />
+				<Properties>
+					<Property Name="Function">
+						<String>Model Parameter Manager.vi</String>
+					</Property>
+					<Property Name="Path">
+						<DependentFile Type="Absolute" Path="">
+							<Version />
+							<RTDestination />
+							<SupportedTarget />
+							<MD5 />
+						</DependentFile>
+					</Property>
+					<Property Name="Sync Options">
+						<String>WaitSync</String>
+					</Property>
+					<Property Name="Sync Timeout">
+						<I32>10000</I32>
+					</Property>
+				</Properties>
+				<Errors />
+			</Section>
+		</Section>
+		<Section Name="Profiles" TypeGUID="c3bd79ec-3336-4b06-868e-3217c640edd5">
+			<Description />
+			<Properties />
+			<Errors />
+			<Section Name="AutoStepTestStimulusAPI.nivstest" TypeGUID="abf90cfe-5857-440d-9231-18a95fb3d451">
+				<Description />
+				<Properties>
+					<Property Name="Path">
+						<DependentFile Type="Relative" Path="AutoStepTestStimulusAPI.nivstest">
+							<Version />
+							<RTDestination />
+							<SupportedTarget />
+							<MD5>c7b8ec8453fc69d8d8b72a76181e003d</MD5>
+						</DependentFile>
+					</Property>
+				</Properties>
+				<Errors />
+			</Section>
+		</Section>
+		<Section Name="Calibration" TypeGUID="38433223-24A0-4b32-9339-370EC5AA31B4">
+			<Description />
+			<Properties />
+			<Errors />
+		</Section>
+		<Section Name="Alarm Responses" TypeGUID="3b1ab560-d77a-41f2-adb4-0c0250b010b3">
+			<Description />
+			<Properties />
+			<Errors />
+			<Section Name="Response High" TypeGUID="99267DF5-8C59-4AAC-B020-7591F4886206">
+				<Description />
+				<Properties>
+					<Property Name="Show Dialog">
+						<Boolean>true</Boolean>
+					</Property>
+					<Property Name="Play Sound">
+						<String>Disabled</String>
+					</Property>
+					<Property Name="Wave File">
+						<DependentFile Type="Absolute" Path="">
+							<Version />
+							<RTDestination />
+							<SupportedTarget />
+							<MD5 />
+						</DependentFile>
+					</Property>
+					<Property Name="Log Alarms">
+						<String>Enabled</String>
+					</Property>
+					<Property Name="Log File">
+						<String>Logs\Alarm Log.txt</String>
+					</Property>
+					<Property Name="Max Priority">
+						<U32>10</U32>
+					</Property>
+					<Property Name="Min Priority">
+						<U32>0</U32>
+					</Property>
+					<Property Name="Enable Response">
+						<Boolean>true</Boolean>
+					</Property>
+				</Properties>
+				<Errors />
+			</Section>
+			<Section Name="Response Med" TypeGUID="99267DF5-8C59-4AAC-B020-7591F4886206">
+				<Description />
+				<Properties>
+					<Property Name="Show Dialog">
+						<Boolean>true</Boolean>
+					</Property>
+					<Property Name="Play Sound">
+						<String>Disabled</String>
+					</Property>
+					<Property Name="Wave File">
+						<DependentFile Type="Absolute" Path="">
+							<Version />
+							<RTDestination />
+							<SupportedTarget />
+							<MD5 />
+						</DependentFile>
+					</Property>
+					<Property Name="Log Alarms">
+						<String>Enabled</String>
+					</Property>
+					<Property Name="Log File">
+						<String>Logs\Alarm Log.txt</String>
+					</Property>
+					<Property Name="Max Priority">
+						<U32>21</U32>
+					</Property>
+					<Property Name="Min Priority">
+						<U32>11</U32>
+					</Property>
+					<Property Name="Enable Response">
+						<Boolean>true</Boolean>
+					</Property>
+				</Properties>
+				<Errors />
+			</Section>
+			<Section Name="Response Low" TypeGUID="99267DF5-8C59-4AAC-B020-7591F4886206">
+				<Description />
+				<Properties>
+					<Property Name="Show Dialog">
+						<Boolean>false</Boolean>
+					</Property>
+					<Property Name="Play Sound">
+						<String>Disabled</String>
+					</Property>
+					<Property Name="Wave File">
+						<DependentFile Type="Absolute" Path="">
+							<Version />
+							<RTDestination />
+							<SupportedTarget />
+							<MD5 />
+						</DependentFile>
+					</Property>
+					<Property Name="Log Alarms">
+						<String>Enabled</String>
+					</Property>
+					<Property Name="Log File">
+						<String>Logs\Alarm Log.txt</String>
+					</Property>
+					<Property Name="Max Priority">
+						<U32>31</U32>
+					</Property>
+					<Property Name="Min Priority">
+						<U32>22</U32>
+					</Property>
+					<Property Name="Enable Response">
+						<Boolean>true</Boolean>
+					</Property>
+				</Properties>
+				<Errors />
+			</Section>
+		</Section>
+		<Section Name="Custom Files" TypeGUID="9e2cb626-3583-4345-aeb6-b9fead6ec565">
+			<Description />
+			<Properties />
+			<Errors />
+		</Section>
+		<Section Name="Dependencies" TypeGUID="e5b093fa-a709-4df2-807e-a403422ba675">
+			<Description />
+			<Properties />
+			<Errors />
+			<Section Name="TestStimulusAPI.nivssdf [C:\Users\Public\Documents\National Instruments\NI VeriStand 2010\AutoTestProjects\TestStimulusAPI\TestStimulusAPI.nivssdf]" TypeGUID="369b9797-43bd-4cdf-8352-81032feed666">
+				<Description />
+				<Properties>
+					<Property Name="Path">
+						<String>C:\Users\Public\Documents\National Instruments\NI VeriStand 2010\AutoTestProjects\TestStimulusAPI\TestStimulusAPI.nivssdf</String>
+					</Property>
+				</Properties>
+				<Errors />
+			</Section>
+			<Section Name="TestStimulusAPI.nivsscreen [C:\Users\Public\Documents\National Instruments\NI VeriStand 2010\AutoTestProjects\TestStimulusAPI\TestStimulusAPI.nivsscreen]" TypeGUID="369b9797-43bd-4cdf-8352-81032feed666">
+				<Description />
+				<Properties>
+					<Property Name="Path">
+						<String>C:\Users\Public\Documents\National Instruments\NI VeriStand 2010\AutoTestProjects\TestStimulusAPI\TestStimulusAPI.nivsscreen</String>
+					</Property>
+				</Properties>
+				<Errors />
+			</Section>
+			<Section Name="AutoStepTestStimulusAPI.nivstest [C:\Users\Public\Documents\National Instruments\NI VeriStand 2010\AutoTestProjects\TestStimulusAPI\AutoStepTestStimulusAPI.nivstest]" TypeGUID="369b9797-43bd-4cdf-8352-81032feed666">
+				<Description />
+				<Properties>
+					<Property Name="Path">
+						<String>C:\Users\Public\Documents\National Instruments\NI VeriStand 2010\AutoTestProjects\TestStimulusAPI\AutoStepTestStimulusAPI.nivstest</String>
+					</Property>
+				</Properties>
+				<Errors />
+			</Section>
+		</Section>
+	</Root>
+</Document>

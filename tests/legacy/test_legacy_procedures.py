@@ -1,3 +1,5 @@
+import os
+import pytest
 import time
 from niveristand.legacy import NIVeriStand
 
@@ -8,7 +10,7 @@ TEST_ID = 3000
 
 def test_procedures_legacy():
     workspace = NIVeriStand.Workspace2("localhost")
-    system_definition = r"C:\Users\virtual\Desktop\AutoTestProjects\ProceduresTest\ProceduresTest.nivssdf"
+    system_definition = os.path.join(os.getcwd(), r"tests\testutilities\legacy_files\ProceduresTest\ProceduresTest.nivssdf")
     print("Deploying %s" % system_definition)
     workspace.ConnectToSystem(system_definition, 1, 20000)
 

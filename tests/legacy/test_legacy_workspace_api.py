@@ -1,3 +1,4 @@
+import os
 import pytest
 
 from niveristand.legacy import NIVeriStand
@@ -9,7 +10,7 @@ def test_workspace_api():
 
     workspace = NIVeriStand.Workspace()
     print("")
-    system_definition = r"C:\Users\virtual\Desktop\AutoTestProjects\TestWorkspaceAPI\TestWorkspaceAPI.nivssdf"
+    system_definition = os.path.join(os.getcwd(), r"tests\testutilities\legacy_files\TestWorkspaceAPI\TestWorkspaceAPI.nivssdf")
     print("Deploying %s" % system_definition)
     workspace.RunWorkspaceFile(system_definition, False, True, 20000, "", "")
 

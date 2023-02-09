@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SourceFile Checksum="FCEE3C48768D90DE7DA2406C6769F97A067B82775F50FE817D7387F9D1BDEE0FFE09A4BC6072C865C2F39D040582B071EB03BF96C667D7448FDFAAF74C4CBBDD" xmlns="http://www.ni.com/PlatformFramework">
+	<SourceModelFeatureSet>
+		<ParsableNamespace AssemblyFileVersion="9.6.0.49854" FeatureSetName="Editor" Name="http://www.ni.com/PlatformFramework" OldestCompatibleVersion="8.1.0.49152" Version="8.1.0.49152" />
+		<ParsableNamespace AssemblyFileVersion="9.6.0.49854" FeatureSetName="VeriStand Core Components" Name="http://www.ni.com/VeriStand" OldestCompatibleVersion="9.0.0.49152" Version="9.0.0.49152" />
+		<ApplicationVersionInfo Build="9.3.0.49854" Name="VeriStand" Version="9.6.0.49854" />
+	</SourceModelFeatureSet>
+	<Project p2:ProjectVersion="1.0.0.0" xmlns:p2="http://www.ni.com/VeriStand" xmlns="http://www.ni.com/PlatformFramework">
+		<EnvoyManagerRootEnvoy Id="27453b99a96241daa593968d0d26b210" ModelDefinitionType="EnvoyManagerRootEnvoy" Name="RootEnvoy" />
+		<EmbeddedDefinitionReference Id="f5c62124fce842a9a723bd809b8296f6" ModelDefinitionType="NationalInstruments.ProjectExplorer.Modeling.ProjectDataManager" Name="ProjectExplorer">
+			<ProjectExplorer />
+		</EmbeddedDefinitionReference>
+		<NameScopingEnvoy Id="7166ff77dac440de8818d4fae690a333" ModelDefinitionType="DefaultTarget" Name="DefaultTarget">
+			<DefaultTarget />
+			<FileReference Bindings=".nivsproj" Id="81dcf592cad64f04a0f8b8f1d7965af6" ModelDefinitionType="{http://www.ni.com/PlatformFramework}ExternalFile" Name="TestWorkspaceAPI.nivsproj" StoragePath="TestWorkspaceAPI.nivsproj" />
+			<SourceFileReference Bindings="EnvoyManager" Id="9777b8139ad44fe99b03b1cc0ff02a4f" ModelDefinitionType="{http://www.ni.com/VeriStand}SystemDefinition" Name="TestWorkspaceAPI.nivssdf" StoragePath="TestWorkspaceAPI.nivssdf" />
+			<FileReference Bindings=".nivsscreen" Id="db8381cb61234100a32a7f746bd39861" ModelDefinitionType="{http://www.ni.com/PlatformFramework}ExternalFile" Name="TestWorkspaceAPI.nivsscreen" StoragePath="TestWorkspaceAPI.nivsscreen" />
+			<EmbeddedDefinitionReference Id="b9feadc137f43d7a84b6e4211c7f46d" ModelDefinitionType="SdfFilePath" Name="SdfPath" Reparentable="False">
+				<p2:SdfFilePath SdfPath="TestWorkspaceAPI.nivssdf" />
+			</EmbeddedDefinitionReference>
+			<EmbeddedDefinitionReference Id="f33e4e98714f426fb5a1856a0a3fcb59" ModelDefinitionType="GatewayDefinition" Name="Gateway" Reparentable="False">
+				<p2:GatewayDefinition />
+			</EmbeddedDefinitionReference>
+		</NameScopingEnvoy>
+	</Project>
+	<ProjectInformation xmlns="http://www.ni.com/PlatformFramework" />
+</SourceFile>

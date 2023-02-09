@@ -1,0 +1,292 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Document xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="System definition.xsd">
+	<MD5Checksum />
+	<Version Major="2010" Minor="0" Fix="0" Build="0" />
+	<Content>Definition</Content>
+	<Root Name="Stimulus Profile" TypeGUID="f24abe4b-0f2c-46f6-adfa-8336e534294d">
+		<Properties>
+			<Property Name="Data Logging">
+				<Variant>
+					<Type>AAAACgAUQDD/////C2RhdGEgc3RyaW5n</Type>
+					<Data>AAADSwkAgAAAAAAUABJAMv////8JRmlsZSBQYXRoABRAMP////8LRGVzY3JpcHRpb24AcQDxAAAAAAAAAAIiTklfVlMgV29ya3NwYWNlIEV4ZWN1dGlvbkFQSS5sdmxpYhZMb2dGaWxlVHJpZ2dlclR5cGUuY3RsAC9AFgADBE5vbmUJSW4gTGltaXRzDU91dCBvZiBMaW1pdHMAAARUeXBlAAAWQDD/////DENoYW5uZWwgUGF0aAAAEUAKAApIaWdoIExpbWl0AAAPQAoACUxvdyBMaW1pdABlAPEAAAAAAAAAAiJOSV9WUyBXb3Jrc3BhY2UgRXhlY3V0aW9uQVBJLmx2bGliH0xvZ0ZpbGVUcmlnZ2VyQ29uZmlndXJhdGlvbi5jdGwAGkBQAAQAAgADAAQABQdUcmlnZ2VyABJAIQxSZXBsYWNlIEZpbGUAABFAAwAKRGVjaW1hdGlvbgAADkAw/////wROYW1lAAAOQDD/////BVZhbHVlAFMA8QAAAAAAAAACIk5JX1ZTIFdvcmtzcGFjZSBFeGVjdXRpb25BUEkubHZsaWIPTG9nUHJvcGVydHkuY3RsABhAUAACAAkACghQcm9wZXJ0eQAAHEBAAAH/////AAsPRmlsZSBQcm9wZXJ0aWVzABRAMP////8LQ3VzdG9tIE5hbWUAFkAw/////wxDdXN0b20gR3JvdXAAABhAQAAB/////wALClByb3BlcnRpZXMAAGkA8QAAAAAAAAACIk5JX1ZTIFdvcmtzcGFjZSBFeGVjdXRpb25BUEkubHZsaWIbTG9nQ2hhbm5lbENvbmZpZ3VyYXRpb24uY3RsACJAUAAEAAMADQAOAA8OTG9nQ2hhbm5lbEluZm8AABZAQAAB/////wAQCENoYW5uZWxzAAByAPEAAAAAAAAAAiJOSV9WUyBXb3Jrc3BhY2UgRXhlY3V0aW9uQVBJLmx2bGliGExvZ0ZpbGVDb25maWd1cmF0aW9uLmN0bAAuQFAABwAAAAEABgAHAAgADAARFExvZ0ZpbGVDb25maWd1cmF0aW9uAAAkQEAAAf////8AEhZMb2dnaW5nIENvbmZpZ3VyYXRpb25zAAABABMAAAAAAAAAAA==</Data>
+				</Variant>
+			</Property>
+			<Property Name="Header Subpanel VI">
+				<DependentFile Type="Relative" Path="Stimulus Profile Editor Headers\Stimulus Profile Template Header.vi">
+					<Version />
+					<RTDestination />
+					<SupportedTarget />
+					<MD5 />
+				</DependentFile>
+			</Property>
+			<Property Name="Ignore Calibration Errors">
+				<Boolean>false</Boolean>
+			</Property>
+		</Properties>
+		<Errors />
+		<Section Name="Generator 1" TypeGUID="7e9683c6-0873-4667-af75-a66f455873f1">
+			<Properties>
+				<Property Name="Mapped Channels">
+					<StringArray />
+				</Property>
+				<Property Name="Execution Target">
+					<String />
+				</Property>
+			</Properties>
+			<Errors />
+			<Section Name="Dwell" TypeGUID="376cd3a2-af99-4855-a664-842d3500812d">
+				<Properties>
+					<Property Name="Step Type">
+						<String>Dwell</String>
+					</Property>
+					<Property Name="Time">
+						<Double>1</Double>
+					</Property>
+				</Properties>
+				<Errors />
+			</Section>
+		</Section>
+		<Section Name="Generator 2" TypeGUID="7e9683c6-0873-4667-af75-a66f455873f1">
+			<Properties>
+				<Property Name="Mapped Channels">
+					<StringArray />
+				</Property>
+				<Property Name="Execution Target">
+					<String />
+				</Property>
+			</Properties>
+			<Errors />
+			<Section Name="Dwell" TypeGUID="376cd3a2-af99-4855-a664-842d3500812d">
+				<Properties>
+					<Property Name="Step Type">
+						<String>Dwell</String>
+					</Property>
+					<Property Name="Time">
+						<Double>1</Double>
+					</Property>
+				</Properties>
+				<Errors />
+			</Section>
+		</Section>
+		<Section Name="Generator 3" TypeGUID="7e9683c6-0873-4667-af75-a66f455873f1">
+			<Properties>
+				<Property Name="Mapped Channels">
+					<StringArray />
+				</Property>
+				<Property Name="Execution Target">
+					<String />
+				</Property>
+			</Properties>
+			<Errors />
+			<Section Name="Dwell" TypeGUID="376cd3a2-af99-4855-a664-842d3500812d">
+				<Properties>
+					<Property Name="Step Type">
+						<String>Dwell</String>
+					</Property>
+					<Property Name="Time">
+						<Double>1</Double>
+					</Property>
+				</Properties>
+				<Errors />
+			</Section>
+		</Section>
+		<Section Name="Generator 4" TypeGUID="7e9683c6-0873-4667-af75-a66f455873f1">
+			<Properties>
+				<Property Name="Mapped Channels">
+					<StringArray />
+				</Property>
+				<Property Name="Execution Target">
+					<String />
+				</Property>
+			</Properties>
+			<Errors />
+			<Section Name="Dwell" TypeGUID="376cd3a2-af99-4855-a664-842d3500812d">
+				<Properties>
+					<Property Name="Step Type">
+						<String>Dwell</String>
+					</Property>
+					<Property Name="Time">
+						<Double>1</Double>
+					</Property>
+				</Properties>
+				<Errors />
+			</Section>
+		</Section>
+		<Section Name="Generator 5" TypeGUID="7e9683c6-0873-4667-af75-a66f455873f1">
+			<Properties>
+				<Property Name="Mapped Channels">
+					<StringArray />
+				</Property>
+				<Property Name="Execution Target">
+					<String />
+				</Property>
+			</Properties>
+			<Errors />
+			<Section Name="Dwell" TypeGUID="376cd3a2-af99-4855-a664-842d3500812d">
+				<Properties>
+					<Property Name="Step Type">
+						<String>Dwell</String>
+					</Property>
+					<Property Name="Time">
+						<Double>1</Double>
+					</Property>
+				</Properties>
+				<Errors />
+			</Section>
+		</Section>
+		<Section Name="Generator 6" TypeGUID="7e9683c6-0873-4667-af75-a66f455873f1">
+			<Properties>
+				<Property Name="Mapped Channels">
+					<StringArray />
+				</Property>
+				<Property Name="Execution Target">
+					<String />
+				</Property>
+			</Properties>
+			<Errors />
+			<Section Name="Dwell" TypeGUID="376cd3a2-af99-4855-a664-842d3500812d">
+				<Properties>
+					<Property Name="Step Type">
+						<String>Dwell</String>
+					</Property>
+					<Property Name="Time">
+						<Double>1</Double>
+					</Property>
+				</Properties>
+				<Errors />
+			</Section>
+		</Section>
+		<Section Name="Generator 7" TypeGUID="7e9683c6-0873-4667-af75-a66f455873f1">
+			<Properties>
+				<Property Name="Mapped Channels">
+					<StringArray />
+				</Property>
+				<Property Name="Execution Target">
+					<String />
+				</Property>
+			</Properties>
+			<Errors />
+			<Section Name="Dwell" TypeGUID="376cd3a2-af99-4855-a664-842d3500812d">
+				<Properties>
+					<Property Name="Step Type">
+						<String>Dwell</String>
+					</Property>
+					<Property Name="Time">
+						<Double>1</Double>
+					</Property>
+				</Properties>
+				<Errors />
+			</Section>
+		</Section>
+		<Section Name="Generator 8" TypeGUID="7e9683c6-0873-4667-af75-a66f455873f1">
+			<Properties>
+				<Property Name="Mapped Channels">
+					<StringArray />
+				</Property>
+				<Property Name="Execution Target">
+					<String />
+				</Property>
+			</Properties>
+			<Errors />
+			<Section Name="Dwell" TypeGUID="376cd3a2-af99-4855-a664-842d3500812d">
+				<Properties>
+					<Property Name="Step Type">
+						<String>Dwell</String>
+					</Property>
+					<Property Name="Time">
+						<Double>1</Double>
+					</Property>
+				</Properties>
+				<Errors />
+			</Section>
+		</Section>
+		<Section Name="Generator 9" TypeGUID="7e9683c6-0873-4667-af75-a66f455873f1">
+			<Properties>
+				<Property Name="Mapped Channels">
+					<StringArray />
+				</Property>
+				<Property Name="Execution Target">
+					<String />
+				</Property>
+			</Properties>
+			<Errors />
+			<Section Name="Dwell" TypeGUID="376cd3a2-af99-4855-a664-842d3500812d">
+				<Properties>
+					<Property Name="Step Type">
+						<String>Dwell</String>
+					</Property>
+					<Property Name="Time">
+						<Double>1</Double>
+					</Property>
+				</Properties>
+				<Errors />
+			</Section>
+		</Section>
+		<Section Name="Generator 10" TypeGUID="7e9683c6-0873-4667-af75-a66f455873f1">
+			<Properties>
+				<Property Name="Mapped Channels">
+					<StringArray />
+				</Property>
+				<Property Name="Execution Target">
+					<String />
+				</Property>
+			</Properties>
+			<Errors />
+			<Section Name="Dwell" TypeGUID="376cd3a2-af99-4855-a664-842d3500812d">
+				<Properties>
+					<Property Name="Step Type">
+						<String>Dwell</String>
+					</Property>
+					<Property Name="Time">
+						<Double>1</Double>
+					</Property>
+				</Properties>
+				<Errors />
+			</Section>
+		</Section>
+		<Section Name="Generator 11" TypeGUID="7e9683c6-0873-4667-af75-a66f455873f1">
+			<Properties>
+				<Property Name="Mapped Channels">
+					<StringArray />
+				</Property>
+				<Property Name="Execution Target">
+					<String />
+				</Property>
+			</Properties>
+			<Errors />
+			<Section Name="Dwell" TypeGUID="376cd3a2-af99-4855-a664-842d3500812d">
+				<Properties>
+					<Property Name="Step Type">
+						<String>Dwell</String>
+					</Property>
+					<Property Name="Time">
+						<Double>1</Double>
+					</Property>
+				</Properties>
+				<Errors />
+			</Section>
+		</Section>
+		<Section Name="Generator 12" TypeGUID="7e9683c6-0873-4667-af75-a66f455873f1">
+			<Properties>
+				<Property Name="Mapped Channels">
+					<StringArray />
+				</Property>
+				<Property Name="Execution Target">
+					<String />
+				</Property>
+			</Properties>
+			<Errors />
+			<Section Name="Dwell" TypeGUID="376cd3a2-af99-4855-a664-842d3500812d">
+				<Properties>
+					<Property Name="Step Type">
+						<String>Dwell</String>
+					</Property>
+					<Property Name="Time">
+						<Double>1</Double>
+					</Property>
+				</Properties>
+				<Errors />
+			</Section>
+		</Section>
+	</Root>
+</Document>

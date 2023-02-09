@@ -10,7 +10,7 @@ TEST_ID = 12234
 
 def test_alarm_api():
     workspace = NIVeriStand.Workspace()
-    system_definition = r"C:\Users\virtual\Desktop\AutoTestProjects\TestAlarmAPI\TestAlarmAPI.nivssdf"
+    system_definition = os.path.join(os.getcwd(), r"tests\testutilities\legacy_files\TestAlarmAPI\TestAlarmAPI.nivssdf")
     print("Deploying %s" % system_definition)
     workspace.RunWorkspaceFile(system_definition, False, True, 20000, "", "")
 

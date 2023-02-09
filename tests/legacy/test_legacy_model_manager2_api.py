@@ -1,6 +1,7 @@
-import time
 import os
 import pytest
+import time
+
 from niveristand.legacy import NIVeriStand
 from niveristand.legacy.NIVeriStand import NIVeriStandException
 
@@ -15,7 +16,7 @@ def test_model_manager2_legacy():
     workspace = NIVeriStand.Workspace2('localhost')
     mmgr = NIVeriStand.ModelManager2('localhost')
 
-    system_definition = r"C:\Users\virtual\Desktop\AutoTestProjects\ModelParameterAPI_AUTOTEST\ModelParameterAPI_AUTOTEST.nivssdf"
+    system_definition = os.path.join(os.getcwd(), r"tests\testutilities\legacy_files\ModelParameterAPI_AUTOTEST\ModelParameterAPI_AUTOTEST.nivssdf")
     print("Deploying %s" % system_definition)
     workspace.ConnectToSystem(system_definition, 1, 20000)
 

@@ -1,5 +1,7 @@
-import time
 import math
+import os
+import pytest
+import time
 
 from niveristand.legacy import NIVeriStand
 
@@ -7,7 +9,7 @@ from niveristand.legacy import NIVeriStand
 def test_calculated_channel_formula_legacy():
     workspace = NIVeriStand.Workspace()
     print("")
-    system_definition = r"C:\Users\virtual\Desktop\AutoTestProjects\CalcChanFormulaTest\CalcChanFormulaTest.nivssdf"
+    system_definition = os.path.join(os.getcwd(), r"tests\testutilities\legacy_files\CalcChanFormulaTest\CalcChanFormulaTest.nivssdf")
     print("Deploying %s" % system_definition)
     workspace.RunWorkspaceFile(system_definition, False, True, 20000, "", "")
 

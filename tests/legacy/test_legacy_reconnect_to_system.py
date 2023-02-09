@@ -1,3 +1,4 @@
+import os
 import pytest
 
 from niveristand.legacy import NIVeriStand
