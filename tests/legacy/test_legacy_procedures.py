@@ -5,7 +5,7 @@ from niveristand.legacy import NIVeriStand
 
 
 #Every test should have a user variable that have a test ID number to ensure that you are running the correct test configuration.
-TEST_ID = 3000 
+TEST_ID = 3000
 
 
 def test_procedures_legacy():

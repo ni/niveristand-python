@@ -353,13 +353,13 @@ def test_calculated_channel_ut_legacy():
                     # "P + Z*((Q^4)^Y)*R + (P^2)^Y",
                     "(P+R)*(Q^(Y*Z)+21)")
 
-        expectedResults = [ 97.0, 
+        expectedResults = [ 97.0,
                             164.0,
                             # 4.0,
                             24.0,
                             4.0,
                             # 54.0,
-                            456.0 ] 
+                            456.0 ]
         abstol = eps
         reltol = math.sqrt(eps)
 
