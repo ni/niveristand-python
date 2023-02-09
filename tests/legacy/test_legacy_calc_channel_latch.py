@@ -1,21 +1,15 @@
 import time
-import os
 import math
 
 from niveristand.legacy import NIVeriStand
-from testutilities import configutilities
-
-def sleep():
-    time.sleep(1)
 
 
 def test_calculated_channel_latch_legacy():
-    wks = NIVeriStand.Workspace()
+    workspace = NIVeriStand.Workspace()
     print("")
-    SYSDEFFILE = os.path.join(configutilities.get_autotest_projects_path(),
-                              "CalcChanLatchTest", "CalcChanLatchTest.nivssdf")
-    print("Deploying %s" % SYSDEFFILE)
-    wks.RunWorkspaceFile(SYSDEFFILE,0,1,5000,"","")
+    system_definition = r"C:\Users\virtual\Desktop\AutoTestProjects\CalcChanLatchTest\CalcChanLatchTest.nivssdf"
+    print("Deploying %s" % system_definition)
+    workspace.RunWorkspaceFile(system_definition, False, True, 20000, "", "")
 
     try:
         # Compute Machine Epsilon: The smallest floating point number when
@@ -34,14 +28,14 @@ def test_calculated_channel_latch_legacy():
 
         result=0
         while (result < 10):
-            sleep()
-            result = wks.GetSingleChannelValue("Counter")
+            time.sleep(1)
+            result = workspace.GetSingleChannelValue("Counter")
 
         # This test is sensitive to the system Delta T. Ensure that it is 0.1.
 
         print("Checking (Delta T)=0.1")
         expectedResult = 0.1
-        result = wks.GetSingleChannelValue("Delta T")
+        result = workspace.GetSingleChannelValue("Delta T")
         assert (result == expectedResult), "Delta T (%g) does not match expected (%g)"  % (result, expectedResult)
         print("...Pass")
 
@@ -51,7 +45,7 @@ def test_calculated_channel_latch_legacy():
                        "Latch_T_5", "Latch_T_6", "Latch_T_7", "Latch_T_8", "Latch_T_9",
                       "Latch_T_10")
 
-        results = wks.GetMultipleChannelValues(channels)
+        results = workspace.GetMultipleChannelValues(channels)
 
         expectedResults = [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0]
         abstol = eps
@@ -62,7 +56,7 @@ def test_calculated_channel_latch_legacy():
         print("...Pass")
 
         channels = ("P", "Q", "R", "S")
-        results = wks.GetMultipleChannelValues(channels)
+        results = workspace.GetMultipleChannelValues(channels)
 
         print("Input waveform: X = P*sin(Q*(Time+DeltaT) + R) + S")
         print("with P=%g, Q=%g, R=%g, S=%g" % (results[0], results[1], results[2], results[3]))
@@ -72,12 +66,12 @@ def test_calculated_channel_latch_legacy():
         channels = ("Latch_fT_0", "Latch_fT_1", "Latch_fT_2", "Latch_fT_3", "Latch_fT_4",
                        "Latch_fT_5", "Latch_fT_6", "Latch_fT_7", "Latch_fT_8", "Latch_fT_9",
                       "Latch_fT_10")
-        results = wks.GetMultipleChannelValues(channels)
+        results = workspace.GetMultipleChannelValues(channels)
 
         channels = ("Exact_fT_0", "Exact_fT_1", "Exact_fT_2", "Exact_fT_3", "Exact_fT_4",
                        "Exact_fT_5", "Exact_fT_6", "Exact_fT_7", "Exact_fT_8", "Exact_fT_9",
                       "Exact_fT_10")
-        expectedResults = wks.GetMultipleChannelValues(channels)
+        expectedResults = workspace.GetMultipleChannelValues(channels)
 
         for i in range(0,len(expectedResults)):
             assert (results[i] == expectedResults[i]), "%s => Expected %g. Return Value %g not expected." % (channels[i], expectedResults[i], results[i])
@@ -86,4 +80,4 @@ def test_calculated_channel_latch_legacy():
         print("Test PASSED")
         print("")
     finally:
-        wks.StopWorkspaceFile("")
+        workspace.StopWorkspaceFile("")

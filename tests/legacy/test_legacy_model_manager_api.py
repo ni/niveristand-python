@@ -3,31 +3,26 @@ import os
 import pytest
 from niveristand.legacy import NIVeriStand
 from niveristand.legacy.NIVeriStand import NIVeriStandException
-from testutilities import configutilities
 
-#helper function to do a wait. This is used when you send a value to the engine, the engine will not reflect the value back untill the TCP Data loop send data back, currently at a 5Hz rate.
-def sleep():
-    time.sleep(1)
 
 #Every test should have a user variable that have a test ID number to ensure that you are running the correct test configuration.
 TEST_ID = 1122 
 
 
-@pytest.mark.skip('only test model manager2')
+@pytest.mark.skip('need to replace models')
 def test_model_manager_legacy():
     #Getting a handle to the workspace API
     #Other API: Model, Alarm, AlarmManager, SoftwareForcing, ModelManager
-    wks = NIVeriStand.Workspace()
+    workspace = NIVeriStand.Workspace()
     mmgr = NIVeriStand.ModelManager()
 
-    system_definition = os.path.join(configutilities.get_autotest_projects_path(),
-                                 "ModelParameterAPI_AUTOTEST", "ModelParameterAPI_AUTOTEST.nivssdf")
+    system_definition = r"C:\Users\virtual\Desktop\AutoTestProjects\ModelParameterAPI_AUTOTEST\ModelParameterAPI_AUTOTEST.nivssdf"
     print("Deploying %s" % system_definition)
-    wks.RunWorkspaceFile(system_definition,0,1,5000,"","")
+    workspace.RunWorkspaceFile(system_definition, 0, 1, 20000, "", "")
 
     try:
         #Verify the TEST_ID var on test file.
-        test_ID = wks.GetSingleChannelValue("TEST_ID")
+        test_ID = workspace.GetSingleChannelValue("TEST_ID")
         assert (test_ID == TEST_ID), "Deployed wrong test file"
 
         #declaring known and expected system values
@@ -78,7 +73,7 @@ def test_model_manager_legacy():
         for param in nonVectorParamList:
             print(("Set parameter " + param))
             mmgr.SetSingleParameterValue(param,2)
-            sleep()
+            time.sleep(1)
 
         for param in nonVectorParamList:
             print(("Verifying Set Paramater " + param))
@@ -88,7 +83,7 @@ def test_model_manager_legacy():
         print("Test Set Multiple Parameter Values")
         newValue = (3,3,3,3,3)
         mmgr.SetMultipleParameterValues(nonVectorParamList,newValue)
-        sleep()
+        time.sleep(1)
         result = mmgr.GetMultipleParameterValues(nonVectorParamList)
         for i in result:
             assert (i == 3), "Error verifying set multiple parameter value get %d and expected 3" % i
@@ -101,7 +96,7 @@ def test_model_manager_legacy():
         for i in range(0,6):
             print("Set Parameter Vector for " + vectorParamList[i])
             mmgr.SetParameterVectorValues(vectorParamList[i],CONST_MODVALUES[i])
-            sleep()
+            time.sleep(1)
 
         for i in range(0,6):
             print("Verifying Set Parameter Vector for " + vectorParamList[i])
@@ -116,14 +111,14 @@ def test_model_manager_legacy():
         CONST_2by3_VECTOR_ZEROES = [[0,0,0],[0,0,0]]
         inports = ["VectModWorkspace_2by3In","VectModWorkspace2_2by3In"]
         outports = ["VectModWorkspace_2by3Out","VectModWorkspace2_2by3Out"]
-        wks.SetChannelVectorValues(inports[0],CONST_2by3_VECTOR_ZEROES)
-        wks.SetChannelVectorValues(inports[1],CONST_2by3_VECTOR)
+        workspace.SetChannelVectorValues(inports[0],CONST_2by3_VECTOR_ZEROES)
+        workspace.SetChannelVectorValues(inports[1],CONST_2by3_VECTOR)
         mmgr.SetParameterVectorValues("CONST2by3",CONST_2by3_VECTOR)
-        sleep()
-        result = wks.GetChannelVectorValues(outports[0])
+        time.sleep(1)
+        result = workspace.GetChannelVectorValues(outports[0])
         assert (result == CONST_2by3_VECTOR), "Error verifying get channel vector value for %s" % outports[0]
 
-        result = wks.GetChannelVectorValues(outports[1])
+        result = workspace.GetChannelVectorValues(outports[1])
         assert (result == CONST_2by3_VECTOR_TIMES2), "Error verifying get channel vector value for %s" % outports[1]
 
         print("Test Model Set State")
@@ -136,17 +131,17 @@ def test_model_manager_legacy():
         assert (result['state'] == 0), "Expected the model to be running"
 
         model.SetModelExecutionState(1)
-        sleep()
+        time.sleep(1)
         result = model.GetModelExecutionState()
         assert (result['state'] == 1), "Expected the model to be paused"
 
         model.SetModelExecutionState(2)
-        sleep()
+        time.sleep(1)
         result = model.GetModelExecutionState()
         assert (result['state'] == 3), "Expected the model to be idle"
 
         model.SetModelExecutionState(0)
-        sleep()
+        time.sleep(1)
         result = model.GetModelExecutionState()
         assert (result['state'] == 0), "Expected the model to be running"
 
@@ -157,34 +152,30 @@ def test_model_manager_legacy():
 
         print("Pause and get clock time")
         clock.SetModelExecutionState(1)
-        sleep()
+        time.sleep(1)
         result = clock.GetModelExecutionState()
         timeAtSave = result['time']
         print("Time At Save %d" % timeAtSave)
         clock.SaveModelState(SAVE_STATE_LOC)
-        sleep()
+        time.sleep(1)
 
         print("Set model running")
         clock.SetModelExecutionState(0)
-        sleep()
-        sleep()
-        sleep()
-        sleep()
-        sleep()
+        time.sleep(5) 
 
         print("Check if save state file exist on disk")
         assert ((os.path.isfile(SAVE_STATE_LOC)) == 1), "Error verifying that the save parameter state file is on disk %s" % SAVE_STATE_LOC
 
         print("Pause and restore model state")
         clock.SetModelExecutionState(1)
-        sleep()
+        time.sleep(1)
         result = clock.GetModelExecutionState()
         currentTime = result['time']
         print("Current Model Time %d" % currentTime)
         clock.RestoreModelState(SAVE_STATE_LOC)
-        sleep()
+        time.sleep(1)
         clock.SetModelExecutionState(0)
-        sleep()
+        time.sleep(1)
         result = clock.GetModelExecutionState()
         timeRestored = result['time']
         print("Time Restored %d" % timeRestored)
@@ -193,4 +184,4 @@ def test_model_manager_legacy():
         print("Test PASSED")
     finally:
         #Always stop the engine.
-        wks.StopWorkspaceFile("")
+        workspace.StopWorkspaceFile("")

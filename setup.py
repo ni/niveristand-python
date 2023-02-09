@@ -42,7 +42,7 @@ setup(
     packages=find_packages('src'),
     package_dir={'': 'src'},
     include_package_data=True,
-    install_requires=['pythonnet~=2.5.2', 'PyYAML'],
+    install_requires=['pythonnet~=3.0.1', 'PyYAML'],
     tests_require=['pytest', 'numpy'],
     classifiers=[
         "Development Status :: 5 - Production/Stable",

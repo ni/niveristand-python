@@ -1,25 +1,20 @@
 import time
-import os
 from niveristand.legacy import NIVeriStand
-from testutilities import configutilities
 
-def sleep():
-    time.sleep(.5)
 
 #Every test should have a user variable that have a test ID number to ensure that you are running the correct test configuration.
 TEST_ID = 3000 
 
 
 def test_procedures_legacy():
-    wks = NIVeriStand.Workspace2("localhost")
-    system_definition = os.path.join(configutilities.get_autotest_projects_path(),
-                                 "ProceduresTest", "ProceduresTest.nivssdf")
+    workspace = NIVeriStand.Workspace2("localhost")
+    system_definition = r"C:\Users\virtual\Desktop\AutoTestProjects\ProceduresTest\ProceduresTest.nivssdf"
     print("Deploying %s" % system_definition)
-    wks.ConnectToSystem(system_definition,1,5000)
+    workspace.ConnectToSystem(system_definition, 1, 20000)
 
     try:
         #Verify the TEST_ID var on test file.
-        test_ID = wks.GetSingleChannelValue("TEST_ID")
+        test_ID = workspace.GetSingleChannelValue("TEST_ID")
         assert (test_ID == TEST_ID), "Deployed wrong test file"
 
         print("")
@@ -34,10 +29,10 @@ def test_procedures_legacy():
         print("")
 
         #Check that we skipped the first procedure and executed the Startup Procedure
-        assert (wks.GetSingleChannelValue("Test Channel 6") >= 0), "Invalid procedure executed before Startup!"
+        assert (workspace.GetSingleChannelValue("Test Channel 6") >= 0), "Invalid procedure executed before Startup!"
         print("Successfully skipped initial procedure. Checking Startup Procedure was invoked...")
 
-        channelValues = wks.GetMultipleChannelValues(("Test Channel 0","Test Channel 1","Test Channel 2","Test Channel 3","Test Channel 4","Test Channel 7","Test Channel 10", "Test Channel 11"))
+        channelValues = workspace.GetMultipleChannelValues(("Test Channel 0","Test Channel 1","Test Channel 2","Test Channel 3","Test Channel 4","Test Channel 7","Test Channel 10", "Test Channel 11"))
 
         print("Startup channel values =", channelValues)
         assert (channelValues == [1000,2000,20000,30000,40000,0,10,11]), "Startup Test Data Errors!"
@@ -45,20 +40,20 @@ def test_procedures_legacy():
 
         print("Checking that Startup Procedure is waiting on Test Channel 5 before continuing")
         #Check that AfterStartupProcedure hasn't run yet. StartupProcedure should be waiting for TC5 >= 50000
-        assert (wks.GetSingleChannelValue("Test Channel 5") != -50000), "After Startup Procedure premature execution!"
+        assert (workspace.GetSingleChannelValue("Test Channel 5") != -50000), "After Startup Procedure premature execution!"
         print("Startup Procedure successfully waiting")
 
 
         #Set Test Channel 5 to 50000 so that the Startup Procedure ends and proceeds to After Startup Procedure
         print("Triggering After Startup Procedure")
-        wks.SetSingleChannelValue("Test Channel 5", 50000)
+        workspace.SetSingleChannelValue("Test Channel 5", 50000)
         time.sleep(2)
-        assert (wks.GetSingleChannelValue("Test Channel 5") == -50000), "Failed to move onto After Startup Procedure"
+        assert (workspace.GetSingleChannelValue("Test Channel 5") == -50000), "Failed to move onto After Startup Procedure"
         print("After Startup Procedure Executed Successfully")
 
         #Check that we don't move onto Also Should Not Run Procedure, because After Startup ends with End
         time.sleep(1)
-        assert (wks.GetSingleChannelValue("Test Channel 6")>=0), "Invalid procedure executed after After Startup!"
+        assert (workspace.GetSingleChannelValue("Test Channel 6")>=0), "Invalid procedure executed after After Startup!"
         print("Procedure execution ended successfully")
 
         #Test triggering alarms
@@ -67,16 +62,16 @@ def test_procedures_legacy():
         x = 5
         print("Triggering Alarm 1 and 2 and 3", x, "times")
         for i in range(x):
-                wks.SetSingleChannelValue("Alarm Channel 1", 1)
+                workspace.SetSingleChannelValue("Alarm Channel 1", 1)
                 time.sleep(2)
-                wks.SetSingleChannelValue("Alarm Channel 2", 1)
+                workspace.SetSingleChannelValue("Alarm Channel 2", 1)
                 time.sleep(2)
-                wks.SetSingleChannelValue("Alarm Channel 3", 1)
+                workspace.SetSingleChannelValue("Alarm Channel 3", 1)
                 time.sleep(2)
 
-        a1TrigCount = wks.GetSingleChannelValue("Alarm 1 Trigger Count")
-        a2TrigCount = wks.GetSingleChannelValue("Alarm 2 Trigger Count")
-        a3TrigCount = wks.GetSingleChannelValue("Alarm 3 Trigger Count")
+        a1TrigCount = workspace.GetSingleChannelValue("Alarm 1 Trigger Count")
+        a2TrigCount = workspace.GetSingleChannelValue("Alarm 2 Trigger Count")
+        a3TrigCount = workspace.GetSingleChannelValue("Alarm 3 Trigger Count")
         print("Alarm 1 Trigger Count =", a1TrigCount)
         print("Alarm 2 Trigger Count =", a2TrigCount)
         print("Alarm 3 Trigger Count =", a3TrigCount)
@@ -88,21 +83,21 @@ def test_procedures_legacy():
         print("Alarm 3 successfully disabled, did not trigger")
 
         print("Triggering Procedure 4 which should enable Alarm 3")
-        wks.SetSingleChannelValue("Alarm Channel 4",1)
+        workspace.SetSingleChannelValue("Alarm Channel 4",1)
         time.sleep(1)
 
         print("Attempting to trigger Alarm 3...")
-        wks.SetSingleChannelValue("Alarm Channel 3",1)
+        workspace.SetSingleChannelValue("Alarm Channel 3",1)
         time.sleep(1)
-        a3TrigCount = wks.GetSingleChannelValue("Alarm 3 Trigger Count")
+        a3TrigCount = workspace.GetSingleChannelValue("Alarm 3 Trigger Count")
         assert (a3TrigCount == 1), "Alarm 3 not successfully enabled!"
         print("Alarm 3 Trigger Count =", a3TrigCount)
         print("Alarm 3 successfully triggered")
 
         print("Attempting to retrigger Alarm 3, which should now be disabled again after Alarm 3 Procedure executed")
-        wks.SetSingleChannelValue("Alarm Channel 3",1)
+        workspace.SetSingleChannelValue("Alarm Channel 3",1)
         time.sleep(1)
-        a3TrigCount = wks.GetSingleChannelValue("Alarm 3 Trigger Count")
+        a3TrigCount = workspace.GetSingleChannelValue("Alarm 3 Trigger Count")
         assert (a3TrigCount == 1), "Alarm 3 failed to be set to disabled and was triggered!"
         print("Alarm 3 Trigger Count =", a3TrigCount)
         print("Alarm 3 successfully disabled and not triggered")
@@ -113,19 +108,19 @@ def test_procedures_legacy():
         x = 3
         print("Triggering Alarm 5, 6, 7 and ", x, "times")
         for i in range(x):
-                wks.SetSingleChannelValue("Alarm Channel 5", 1)
+                workspace.SetSingleChannelValue("Alarm Channel 5", 1)
                 time.sleep(2)
-                wks.SetSingleChannelValue("Alarm Channel 6", 1)
+                workspace.SetSingleChannelValue("Alarm Channel 6", 1)
                 time.sleep(2)
-                wks.SetSingleChannelValue("Alarm Channel 7", 1)
+                workspace.SetSingleChannelValue("Alarm Channel 7", 1)
                 time.sleep(2)
-                wks.SetSingleChannelValue("Alarm Channel 8", 1)
+                workspace.SetSingleChannelValue("Alarm Channel 8", 1)
                 time.sleep(2)
 
-        a5TrigCount = wks.GetSingleChannelValue("Alarm 5 Trigger Count")
-        a6TrigCount = wks.GetSingleChannelValue("Alarm 6 Trigger Count")
-        a7TrigCount = wks.GetSingleChannelValue("Alarm 7 Trigger Count")
-        a8TrigCount = wks.GetSingleChannelValue("Alarm 8 Trigger Count")
+        a5TrigCount = workspace.GetSingleChannelValue("Alarm 5 Trigger Count")
+        a6TrigCount = workspace.GetSingleChannelValue("Alarm 6 Trigger Count")
+        a7TrigCount = workspace.GetSingleChannelValue("Alarm 7 Trigger Count")
+        a8TrigCount = workspace.GetSingleChannelValue("Alarm 8 Trigger Count")
         print("Alarm 5 Trigger Count =", a5TrigCount)
         print("Alarm 6 Trigger Count =", a6TrigCount)
         print("Alarm 7 Trigger Count =", a7TrigCount)
@@ -137,16 +132,16 @@ def test_procedures_legacy():
         x = 2
         print("Triggering Alarm 9, 10, 11 and ", x, "times")
         for i in range(x):
-                wks.SetSingleChannelValue("Alarm Channel 9", 1)
+                workspace.SetSingleChannelValue("Alarm Channel 9", 1)
                 time.sleep(2)
-                wks.SetSingleChannelValue("Alarm Channel 10", 1)
+                workspace.SetSingleChannelValue("Alarm Channel 10", 1)
                 time.sleep(2)
-                wks.SetSingleChannelValue("Alarm Channel 11", 1)
+                workspace.SetSingleChannelValue("Alarm Channel 11", 1)
                 time.sleep(20)
 
-        a9TrigCount = wks.GetSingleChannelValue("Alarm 9 Trigger Count")
-        a10TrigCount = wks.GetSingleChannelValue("Alarm 10 Trigger Count")
-        a11TrigCount = wks.GetSingleChannelValue("Alarm 11 Trigger Count")
+        a9TrigCount = workspace.GetSingleChannelValue("Alarm 9 Trigger Count")
+        a10TrigCount = workspace.GetSingleChannelValue("Alarm 10 Trigger Count")
+        a11TrigCount = workspace.GetSingleChannelValue("Alarm 11 Trigger Count")
         print("Alarm 9 Trigger Count =", a9TrigCount)
         print("Alarm 10 Trigger Count =", a10TrigCount)
         print("Alarm 11 Trigger Count =", a11TrigCount)
@@ -158,4 +153,4 @@ def test_procedures_legacy():
         print("Test PASSED")
     finally:
         #Always stop the engine.
-        wks.StopWorkspaceFile("")
+        workspace.StopWorkspaceFile("")
