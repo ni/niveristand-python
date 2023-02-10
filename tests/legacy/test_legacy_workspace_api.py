@@ -5,7 +5,7 @@ from niveristand.legacy import NIVeriStand
 from niveristand.legacy.NIVeriStand import NIVeriStandException
 
 
-# This test requires Veristand 2020 or older due to the models
+# This test requires VeriStand 2020 or older due to the models
 def test_workspace_api():
     TEST_ID = 124123
 

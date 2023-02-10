@@ -4,7 +4,7 @@ import pytest
 from niveristand.legacy import NIVeriStand
 
 
-# This test requires Veristand 2020 or older due to the models
+# This test requires VeriStand 2020 or older due to the models
 def test_reconnect_to_system():
     system_definition = r"C:\Users\Public\Documents\National Instruments\NI VeriStand 2020\Projects\Example\Sinewave Delay.nivssdf"
     # connect to system with a separate instance of the workspace
