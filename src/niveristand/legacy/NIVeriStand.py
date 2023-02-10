@@ -194,7 +194,7 @@ class Workspace:
 
     def GetEngineState(self):
         """Returns the current state of the system."""
-        data = self.iwks.GetEngineState(0, "", "", "")
+        data = self.iwks.GetEngineState(SystemState(0), "", "", "")
         _RaiseException_(data[0])
         return {'state': self._NetSystemStateToPy_(data[1]), 'workspace_file': data[2],
                 'systemdefinition_file': data[3], 'ip_address': data[4]}
@@ -208,7 +208,7 @@ class Workspace:
         and caused the operation to timeout. Use the GetEngineState function to check the status of the system.
         """
         _RaiseException_(
-            self.iwks.RunWorkspaceFile(file, launchworkspacewindow, deploysystemdefinition, timeout, username,
+            self.iwks.RunWorkspaceFile(file, bool(launchworkspacewindow), bool(deploysystemdefinition), timeout, username,
                                        password))
 
     def StopWorkspaceFile(self, password):
@@ -349,7 +349,7 @@ class Workspace2(Workspace):
     def ConnectToSystem(self, systemdefinition_file, deploy, timeout):
         """Connects the VeriStand Gateway to one or more targets running on the System Definition file you specify."""
         _RaiseException_(
-            self.iwks.ConnectToSystem(systemdefinition_file, System.Boolean(deploy), System.UInt32(timeout)))
+            self.iwks.ConnectToSystem(systemdefinition_file, System.Boolean(bool(deploy)), System.UInt32(timeout)))
 
     def ReconnectToSystem(self, target, deploy, calibration_file, timeout):
         """Reconnects the VeriStand Gateway to a target within the system definition file used by the Gateway.\
@@ -364,7 +364,7 @@ class Workspace2(Workspace):
 
     def DisconnectFromSystem(self, password, undeploy_system_definition):
         """Disconnects the VeriStand Gateway from the targets."""
-        _RaiseException_(self.iwks.DisconnectFromSystem(password, undeploy_system_definition))
+        _RaiseException_(self.iwks.DisconnectFromSystem(password, bool(undeploy_system_definition)))
 
     def LockConnection(self, old_password, new_password):
         """
@@ -464,7 +464,7 @@ class Alarm:
 
     def SetEnabledState(self, enabled):
         """Enables or disables the current alarm."""
-        _RaiseException_(self.ialarm.SetEnabledState(enabled))
+        _RaiseException_(self.ialarm.SetEnabledState(bool(enabled)))
 
     def SetAlarmMode(self, mode):
         """Changes the mode of this alarm. See PyAlarmMode for possible values."""
