@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Document xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="System definition.xsd">
 	<MD5Checksum />
-	<Version Major="2020" Minor="0" Fix="0" Build="0" />
+	<Version Major="2010" Minor="0" Fix="0" Build="4" />
 	<Content>Definition</Content>
-	<Root Name="TestWorkspaceAPI" TypeGUID="03D3BA22-1485-13A6-56BD17DA950CCD00" Identifier="e0374d52-547c-4201-a95d-2f1dba27c6ad">
+	<Root Name="TestWorkspaceAPI" TypeGUID="03D3BA22-1485-13A6-56BD17DA950CCD00">
 		<Description />
 		<Properties>
 			<Property Name="Name">
@@ -18,16 +18,13 @@
 			<Property Name="Creation Date">
 				<Double>3324654475.359375</Double>
 			</Property>
-			<Property Name="ChannelDiagrams">
-				<BinaryString>77u/PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjxTb3VyY2VGaWxlIENoZWNrc3VtPSI4QzJDRDJCMEE4QTlENkFGRUU4OEQ4QjYzNTVCQjk4QjA0NjhDQ0M5MjFFRTVCN0NFRUZBMTBBRjNGODYwRDlFRjc1MjE5MjMwQzIwQTlCN0UwNTUzQ0UyMzAxREI2QjIzRUUxOEFFRDI4OUFDRkQyRjMwN0IzQTEwNzYyMzBCOCIgVGltZXN0YW1wPSIxRDkzQkQxOTNFQzY0MTUiIHhtbG5zPSJodHRwOi8vd3d3Lm5pLmNvbS9QbGF0Zm9ybUZyYW1ld29yayI+DQoJPFNvdXJjZU1vZGVsRmVhdHVyZVNldD4NCgkJPFBhcnNhYmxlTmFtZXNwYWNlIEFzc2VtYmx5RmlsZVZlcnNpb249IjkuNi4wLjQ5ODU0IiBGZWF0dXJlU2V0TmFtZT0iRWRpdG9yIiBOYW1lPSJodHRwOi8vd3d3Lm5pLmNvbS9QbGF0Zm9ybUZyYW1ld29yayIgT2xkZXN0Q29tcGF0aWJsZVZlcnNpb249IjguMS4wLjQ5MTUyIiBWZXJzaW9uPSI4LjEuMC40OTE1MiIgLz4NCgkJPFBhcnNhYmxlTmFtZXNwYWNlIEFzc2VtYmx5RmlsZVZlcnNpb249IjkuNi4wLjQ5ODU0IiBGZWF0dXJlU2V0TmFtZT0iVmVyaVN0YW5kIENvcmUgQ29tcG9uZW50cyIgTmFtZT0iaHR0cDovL3d3dy5uaS5jb20vVmVyaVN0YW5kIiBPbGRlc3RDb21wYXRpYmxlVmVyc2lvbj0iOS4wLjAuNDkxNTIiIFZlcnNpb249IjkuMC4wLjQ5MTUyIiAvPg0KCQk8QXBwbGljYXRpb25WZXJzaW9uSW5mbyBCdWlsZD0iOS4zLjAuNDk4NTQiIE5hbWU9IlZlcmlTdGFuZCIgVmVyc2lvbj0iOS42LjAuNDk4NTQiIC8+DQoJPC9Tb3VyY2VNb2RlbEZlYXR1cmVTZXQ+DQoJPFN5c3RlbURlZmluaXRpb24geG1sbnM9Imh0dHA6Ly93d3cubmkuY29tL1ZlcmlTdGFuZCI+DQoJCTxCYXNlTm9kZVRvQ29udGVudFRhYmxlMj4NCgkJCTxwLlRhYmxlPiZsdDs/eG1sIHZlcnNpb249IjEuMCIgZW5jb2Rpbmc9InV0Zi04Ij8mZ3Q7DQombHQ7ZGljdGlvbmFyeSZndDsNCgkmbHQ7aXRlbSZndDsNCgkJJmx0O2tleSZndDsNCgkJCSZsdDtzdHJpbmcmZ3Q7Yzc2MmU3NGMtMGM1YS00YTI0LWJiOTgtOTAyYTBlNDYyMzRjJmx0Oy9zdHJpbmcmZ3Q7DQoJCSZsdDsva2V5Jmd0Ow0KCQkmbHQ7dmFsdWUmZ3Q7DQoJCQkmbHQ7c3RyaW5nJmd0OzhmNmYwY2I0YWI3YjRmMWM4YzViNjJjZDFmYzJmMWUxJmx0Oy9zdHJpbmcmZ3Q7DQoJCSZsdDsvdmFsdWUmZ3Q7DQoJJmx0Oy9pdGVtJmd0Ow0KCSZsdDtpdGVtJmd0Ow0KCQkmbHQ7a2V5Jmd0Ow0KCQkJJmx0O3N0cmluZyZndDtUYXJnZXRzIFNlY3Rpb24vQ29udHJvbGxlciZsdDsvc3RyaW5nJmd0Ow0KCQkmbHQ7L2tleSZndDsNCgkJJmx0O3ZhbHVlJmd0Ow0KCQkJJmx0O3N0cmluZyZndDs4ZjZmMGNiNGFiN2I0ZjFjOGM1YjYyY2QxZmMyZjFlMSZsdDsvc3RyaW5nJmd0Ow0KCQkmbHQ7L3ZhbHVlJmd0Ow0KCSZsdDsvaXRlbSZndDsNCiZsdDsvZGljdGlvbmFyeSZndDs8L3AuVGFibGU+DQoJCTwvQmFzZU5vZGVUb0NvbnRlbnRUYWJsZTI+DQoJPC9TeXN0ZW1EZWZpbml0aW9uPg0KCTxFbnZveU1hbmFnZXJGaWxlIElkPSI0NDZhM2NhMTBiNWQ0NmJiYWNkZDUxMTZkNTdhMDU2ZCIgeG1sbnM9Imh0dHA6Ly93d3cubmkuY29tL1BsYXRmb3JtRnJhbWV3b3JrIj4NCgkJPEVudm95TWFuYWdlclJvb3RFbnZveSBJZD0iYjA3NDUwY2VhZmM0NDg3Yzk4ZmY2YmQzZTg1ZTU1YWQiIE1vZGVsRGVmaW5pdGlvblR5cGU9IkVudm95TWFuYWdlclJvb3RFbnZveSIgTmFtZT0iUm9vdEVudm95IiAvPg0KCQk8TmFtZVNjb3BpbmdFbnZveSBBdXRvbWF0aWNhbGx5UmVzb2x2ZVVwPSJUcnVlIiBJZD0iYzlhOGRiY2ZmYjU2NGE5ZGIzM2QyYzYyN2YyOGI0NjkiIE5hbWU9IlRlc3RXb3Jrc3BhY2VBUEkubml2c3NkZiIgTmFtZVRyYWNrc0ZpbGVOYW1lPSJUcnVlIj4NCgkJCTxFbWJlZGRlZERlZmluaXRpb25SZWZlcmVuY2UgSWQ9ImQzZTgzMDE5Y2YzOTRhZmY4N2FjM2Q5YTU4Y2E0MjY3IiBNb2RlbERlZmluaXRpb25UeXBlPSJ7aHR0cDovL3d3dy5uaS5jb20vVmVyaVN0YW5kfVRhcmdldERlZmluaXRpb24iIE5hbWU9IkNvbnRyb2xsZXIiPg0KCQkJCTxUYXJnZXREZWZpbml0aW9uIElkPSI2Njk0ZWFhNjFlYTQ0MzVhYmYzZDM2NDVmMmY5MmJhNiIgVGFyZ2V0TmFtZT0iQ29udHJvbGxlciIgVGFyZ2V0UmF0ZT0iMTAwIiB4bWxucz0iaHR0cDovL3d3dy5uaS5jb20vVmVyaVN0YW5kIj4NCgkJCQkJPEJhc2VOb2RlV3JhcHBlciBCYXNlTm9kZUlkZW50aWZpZXI9IntjNzYyZTc0Yy0wYzVhLTRhMjQtYmI5OC05MDJhMGU0NjIzNGN9IiBJZD0iOGY2ZjBjYjRhYjdiNGYxYzhjNWI2MmNkMWZjMmYxZTEiIE5vZGVQYXRoPSJUYXJnZXRzIFNlY3Rpb24vQ29udHJvbGxlciIgLz4NCgkJCQkJPENoYW5uZWxNYXBwaW5nRGlhZ3JhbSBJZD0iOTM2YTU4NmY5ZGE0NGRmMzg4YTYwYjBlMmIzYWU3MzAiPg0KCQkJCQkJPEJhc2VOb2RlVG9Db250ZW50VGFibGUyPg0KCQkJCQkJCTxwLlRhYmxlPiZsdDs/eG1sIHZlcnNpb249IjEuMCIgZW5jb2Rpbmc9InV0Zi04Ij8mZ3Q7DQombHQ7ZGljdGlvbmFyeSZndDsNCgkmbHQ7aXRlbSZndDsNCgkJJmx0O2tleSZndDsNCgkJCSZsdDtzdHJpbmcmZ3Q7M2IyN2I5NTktZmUyMy00NDNkLThlNjgtOTk2NTY4NjU2NDY5Jmx0Oy9zdHJpbmcmZ3Q7DQoJCSZsdDsva2V5Jmd0Ow0KCQkmbHQ7dmFsdWUmZ3Q7DQoJCQkmbHQ7c3RyaW5nJmd0O2I2ZGVkY2RkZmU0YWIxYTVhYzJlZTBmNWM0MmEyZCZsdDsvc3RyaW5nJmd0Ow0KCQkmbHQ7L3ZhbHVlJmd0Ow0KCSZsdDsvaXRlbSZndDsNCgkmbHQ7aXRlbSZndDsNCgkJJmx0O2tleSZndDsNCgkJCSZsdDtzdHJpbmcmZ3Q7VGFyZ2V0cyBTZWN0aW9uL0NvbnRyb2xsZXIvU3lzdGVtIENoYW5uZWxzJmx0Oy9zdHJpbmcmZ3Q7DQoJCSZsdDsva2V5Jmd0Ow0KCQkmbHQ7dmFsdWUmZ3Q7DQoJCQkmbHQ7c3RyaW5nJmd0O2I2ZGVkY2RkZmU0YWIxYTVhYzJlZTBmNWM0MmEyZCZsdDsvc3RyaW5nJmd0Ow0KCQkmbHQ7L3ZhbHVlJmd0Ow0KCSZsdDsvaXRlbSZndDsNCgkmbHQ7aXRlbSZndDsNCgkJJmx0O2tleSZndDsNCgkJCSZsdDtzdHJpbmcmZ3Q7Y2JkNzczMWMtOGU1MS00MzU0LWFlY2YtNzg2NDE0N2Y1MzVhJmx0Oy9zdHJpbmcmZ3Q7DQoJCSZsdDsva2V5Jmd0Ow0KCQkmbHQ7dmFsdWUmZ3Q7DQoJCQkmbHQ7c3RyaW5nJmd0OzY3Mjk5OTRkOTljNzRmOTA5NzVhM2U2OWZiYWMwOTYxJmx0Oy9zdHJpbmcmZ3Q7DQoJCSZsdDsvdmFsdWUmZ3Q7DQoJJmx0Oy9pdGVtJmd0Ow0KCSZsdDtpdGVtJmd0Ow0KCQkmbHQ7a2V5Jmd0Ow0KCQkJJmx0O3N0cmluZyZndDtUYXJnZXRzIFNlY3Rpb24vQ29udHJvbGxlci9TaW11bGF0aW9uIE1vZGVscy9Nb2RlbHMvc2luZXdhdmUmbHQ7L3N0cmluZyZndDsNCgkJJmx0Oy9rZXkmZ3Q7DQoJCSZsdDt2YWx1ZSZndDsNCgkJCSZsdDtzdHJpbmcmZ3Q7NjcyOTk5NGQ5OWM3NGY5MDk3NWEzZTY5ZmJhYzA5NjEmbHQ7L3N0cmluZyZndDsNCgkJJmx0Oy92YWx1ZSZndDsNCgkmbHQ7L2l0ZW0mZ3Q7DQoJJmx0O2l0ZW0mZ3Q7DQoJCSZsdDtrZXkmZ3Q7DQoJCQkmbHQ7c3RyaW5nJmd0OzQxOTQ1N2JkLWMwODQtNDdiMi05MmFhLWE2ZDI2ZjJjOGQwZSZsdDsvc3RyaW5nJmd0Ow0KCQkmbHQ7L2tleSZndDsNCgkJJmx0O3ZhbHVlJmd0Ow0KCQkJJmx0O3N0cmluZyZndDtlMjFhMTEwNDYxYzQ0ZTM3OTNjZGM0MTFjZTY2NDNiNSZsdDsvc3RyaW5nJmd0Ow0KCQkmbHQ7L3ZhbHVlJmd0Ow0KCSZsdDsvaXRlbSZndDsNCgkmbHQ7aXRlbSZndDsNCgkJJmx0O2tleSZndDsNCgkJCSZsdDtzdHJpbmcmZ3Q7VGFyZ2V0cyBTZWN0aW9uL0NvbnRyb2xsZXIvVXNlciBDaGFubmVsJmx0Oy9zdHJpbmcmZ3Q7DQoJCSZsdDsva2V5Jmd0Ow0KCQkmbHQ7dmFsdWUmZ3Q7DQoJCQkmbHQ7c3RyaW5nJmd0O2UyMWExMTA0NjFjNDRlMzc5M2NkYzQxMWNlNjY0M2I1Jmx0Oy9zdHJpbmcmZ3Q7DQoJCSZsdDsvdmFsdWUmZ3Q7DQoJJmx0Oy9pdGVtJmd0Ow0KCSZsdDtpdGVtJmd0Ow0KCQkmbHQ7a2V5Jmd0Ow0KCQkJJmx0O3N0cmluZyZndDs4YTlhODI3Yy01Zjg5LTQzZWEtODNiZS1mMDBmZTNmNDQ5MmQmbHQ7L3N0cmluZyZndDsNCgkJJmx0Oy9rZXkmZ3Q7DQoJCSZsdDt2YWx1ZSZndDsNCgkJCSZsdDtzdHJpbmcmZ3Q7ZWQzZGYzNjg5YWVkNDM3YzkzNWVjNzlkMWVlYTg2YmMmbHQ7L3N0cmluZyZndDsNCgkJJmx0Oy92YWx1ZSZndDsNCgkmbHQ7L2l0ZW0mZ3Q7DQoJJmx0O2l0ZW0mZ3Q7DQoJCSZsdDtrZXkmZ3Q7DQoJCQkmbHQ7c3RyaW5nJmd0O0FsaWFzZXMmbHQ7L3N0cmluZyZndDsNCgkJJmx0Oy9rZXkmZ3Q7DQoJCSZsdDt2YWx1ZSZndDsNCgkJCSZsdDtzdHJpbmcmZ3Q7ZWQzZGYzNjg5YWVkNDM3YzkzNWVjNzlkMWVlYTg2YmMmbHQ7L3N0cmluZyZndDsNCgkJJmx0Oy92YWx1ZSZndDsNCgkmbHQ7L2l0ZW0mZ3Q7DQombHQ7L2RpY3Rpb25hcnkmZ3Q7PC9wLlRhYmxlPg0KCQkJCQkJPC9CYXNlTm9kZVRvQ29udGVudFRhYmxlMj4NCgkJCQkJCTxCYXNpY01hcHBpbmdEaWFncmFtTm9kZSBCb3VuZHM9IjAgMCAxOTAuNjY2NjcyIDUwIiBJZD0iYmI0YjNmYjJjMTBjNGY4ODg2ODBmZTA4YjdkMWY3MTUiIE5hbWU9IlN5c3RlbSBDaGFubmVscyIgVGVtcGxhdGU9Ikxpc3QiIFR5cGVHdWlkPSIwM0QzQjc1My0xNDg1LTEzQTYtNTZCMTBFRDA4MjBDRjQxMCI+DQoJCQkJCQkJPEJhc2VOb2RlV3JhcHBlciBCYXNlTm9kZUlkZW50aWZpZXI9InszYjI3Yjk1OS1mZTIzLTQ0M2QtOGU2OC05OTY1Njg2NTY0Njl9IiBJZD0iYjZkZWRjZGRmZTRhYjFhNWFjMmVlMGY1YzQyYTJkIiBOb2RlUGF0aD0iVGFyZ2V0cyBTZWN0aW9uL0NvbnRyb2xsZXIvU3lzdGVtIENoYW5uZWxzIiAvPg0KCQkJCQkJPC9CYXNpY01hcHBpbmdEaWFncmFtTm9kZT4NCgkJCQkJCTxTaW11bGF0aW9uTW9kZWwgQm91bmRzPSIwIDU1IDE3OC42NjY2NzIgNTAiIElkPSI0Y2NiZTEyYzlkOGE0ZjQwOTY0YjkwYmFiNjVmZDIxYSIgTmFtZT0ic2luZXdhdmUiIFBhdGg9IiZxdW90O0M6XFxVc2Vyc1xcdmlydHVhbFxcRGVza3RvcFxcQXV0b1Rlc3RQcm9qZWN0c1xcVGVzdFdvcmtzcGFjZUFQSVxcU2luZXdhdmVGbXUuZm11JnF1b3Q7IiBUZW1wbGF0ZT0iTGlzdCIgVHlwZUd1aWQ9IjAzRDNCOUM0LTE0ODUtMTNBNi01NjFGQzlCQjIxODEzODc1Ij4NCgkJCQkJCQk8QmFzZU5vZGVXcmFwcGVyIEJhc2VOb2RlSWRlbnRpZmllcj0ie2NiZDc3MzFjLThlNTEtNDM1NC1hZWNmLTc4NjQxNDdmNTM1YX0iIElkPSI2NzI5OTk0ZDk5Yzc0ZjkwOTc1YTNlNjlmYmFjMDk2MSIgTm9kZVBhdGg9IlRhcmdldHMgU2VjdGlvbi9Db250cm9sbGVyL1NpbXVsYXRpb24gTW9kZWxzL01vZGVscy9zaW5ld2F2ZSIgLz4NCgkJCQkJCTwvU2ltdWxhdGlvbk1vZGVsPg0KCQkJCQkJPFVzZXJDaGFubmVsc01hcHBpbmdOb2RlIEJvdW5kcz0iMCAxMTAgMTY1LjMzMzMyOCA1MCIgSWQ9ImE0MjAyNDBjMWVkYTQzMGNhNzI5MGY5N2JlMGY2ZDA3IiBOYW1lPSJVc2VyIENoYW5uZWwiIFRlbXBsYXRlPSJMaXN0IiBUeXBlR3VpZD0iMDNEM0I2QjctMTQ4NS0xM0E2LTU2N0JFMUUxRTBERjk5OUEiPg0KCQkJCQkJCTxCYXNlTm9kZVdyYXBwZXIgQmFzZU5vZGVJZGVudGlmaWVyPSJ7NDE5NDU3YmQtYzA4NC00N2IyLTkyYWEtYTZkMjZmMmM4ZDBlfSIgSWQ9ImUyMWExMTA0NjFjNDRlMzc5M2NkYzQxMWNlNjY0M2I1IiBOb2RlUGF0aD0iVGFyZ2V0cyBTZWN0aW9uL0NvbnRyb2xsZXIvVXNlciBDaGFubmVsIiAvPg0KCQkJCQkJPC9Vc2VyQ2hhbm5lbHNNYXBwaW5nTm9kZT4NCgkJCQkJCTxBbGlhc01hcHBpbmdOb2RlIEJvdW5kcz0iMCAxNjUgMTIyLjY2NjY2NCA1MCIgSWQ9ImNmYWJkYjc2YmE4NjQ1ODZhNjc1YzE5ZDQzYTFlZmZmIiBOYW1lPSJBbGlhc2VzIiBUZW1wbGF0ZT0iTGlzdCIgVHlwZUd1aWQ9ImUxMWY0NTE5LTA5ZTYtNGZiMC05OWRmLTI5NjdjNDMxM2Q2NyI+DQoJCQkJCQkJPEJhc2VOb2RlV3JhcHBlciBCYXNlTm9kZUlkZW50aWZpZXI9Ins4YTlhODI3Yy01Zjg5LTQzZWEtODNiZS1mMDBmZTNmNDQ5MmR9IiBJZD0iZWQzZGYzNjg5YWVkNDM3YzkzNWVjNzlkMWVlYTg2YmMiIE5vZGVQYXRoPSJBbGlhc2VzIiAvPg0KCQkJCQkJPC9BbGlhc01hcHBpbmdOb2RlPg0KCQkJCQk8L0NoYW5uZWxNYXBwaW5nRGlhZ3JhbT4NCgkJCQk8L1RhcmdldERlZmluaXRpb24+DQoJCQk8L0VtYmVkZGVkRGVmaW5pdGlvblJlZmVyZW5jZT4NCgkJPC9OYW1lU2NvcGluZ0Vudm95Pg0KCTwvRW52b3lNYW5hZ2VyRmlsZT4NCjwvU291cmNlRmlsZT4=</BinaryString>
-			</Property>
 		</Properties>
 		<Errors />
-		<TargetSections Name="Targets Section" TypeGUID="eb379619-68d7-4d81-be90-c0bc511cdc10" Identifier="a5e3dcd6-2579-451d-a848-f004bd3df393">
+		<TargetSections Name="Targets Section" TypeGUID="eb379619-68d7-4d81-be90-c0bc511cdc10">
 			<Description />
 			<Properties />
 			<Errors />
-			<Target Name="Controller" TypeGUID="775504BB-1485-13A6-56755DBF2C326980" Identifier="c762e74c-0c5a-4a24-bb98-902a0e46234c">
+			<Target Name="Controller" TypeGUID="775504BB-1485-13A6-56755DBF2C326980">
 				<Description />
 				<Properties>
 					<Property Name="IP Address">
@@ -87,16 +84,13 @@
 					<Property Name="Filter DAQ Errors">
 						<Boolean>false</Boolean>
 					</Property>
-					<Property Name="DIO Rate">
-						<Double>NaN</Double>
-					</Property>
 				</Properties>
 				<Errors />
-				<Section Name="System Channels" TypeGUID="03D3B753-1485-13A6-56B10ED0820CF410" Identifier="3b27b959-fe23-443d-8e68-996568656469">
+				<Section Name="System Channels" TypeGUID="03D3B753-1485-13A6-56B10ED0820CF410">
 					<Description />
 					<Properties />
 					<Errors />
-					<Channel Name="Actual Loop Rate" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" Identifier="fe5457a8-96d5-4387-884a-eaaf755e855e" RowDim="1" ColDim="1" Units="Hz" BitFields="1">
+					<Channel Name="Actual Loop Rate" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="Hz" BitFields="1">
 						<Description>The execution rate of the Primary Control Loop</Description>
 						<Properties>
 							<Property Name="ID">
@@ -108,8 +102,8 @@
 							<Elem>0</Elem>
 						</DefaultValue>
 					</Channel>
-					<Channel Name="Command Index" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" Identifier="e8263cb0-4409-4b55-b15d-bb7d4c776d9d" RowDim="1" ColDim="1" Units="" BitFields="3">
-						<Description>Deprecated</Description>
+					<Channel Name="Command Index" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="3">
+						<Description>The compiled index of the current procedure step</Description>
 						<Properties>
 							<Property Name="ID">
 								<I32>100001</I32>
@@ -120,7 +114,7 @@
 							<Elem>-1</Elem>
 						</DefaultValue>
 					</Channel>
-					<Channel Name="Command Rate" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" Identifier="abaef586-eca4-4867-a71a-6de38449b630" RowDim="1" ColDim="1" Units="" BitFields="1">
+					<Channel Name="Command Rate" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="1">
 						<Description>The decimation of the Data Processing Loop</Description>
 						<Properties>
 							<Property Name="ID">
@@ -132,7 +126,7 @@
 							<Elem>0</Elem>
 						</DefaultValue>
 					</Channel>
-					<Channel Name="System Time" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" Identifier="715a0c25-0901-428f-a256-3ce3185d6fd1" RowDim="1" ColDim="1" Units="sec" BitFields="1">
+					<Channel Name="System Time" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="sec" BitFields="1">
 						<Description>The relative system time of the VeriStand Engine according to the iteration count and Delta T of the Primary Control Loop</Description>
 						<Properties>
 							<Property Name="ID">
@@ -144,7 +138,7 @@
 							<Elem>0</Elem>
 						</DefaultValue>
 					</Channel>
-					<Channel Name="Alarm Rate" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" Identifier="0e74ca17-6024-4215-b157-34fc4eb0d83b" RowDim="1" ColDim="1" Units="" BitFields="0">
+					<Channel Name="Alarm Rate" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="0">
 						<Description>Deprecated</Description>
 						<Properties>
 							<Property Name="ID">
@@ -156,7 +150,7 @@
 							<Elem>0</Elem>
 						</DefaultValue>
 					</Channel>
-					<Channel Name="DAQ Error" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" Identifier="9bc2a828-9732-4240-86c8-5c8fd9115700" RowDim="1" ColDim="1" Units="" BitFields="1">
+					<Channel Name="DAQ Error" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="1">
 						<Description>The last reported error code from a DAQmx function call. The value zero indicates no error has occurred.</Description>
 						<Properties>
 							<Property Name="ID">
@@ -168,7 +162,7 @@
 							<Elem>0</Elem>
 						</DefaultValue>
 					</Channel>
-					<Channel Name="Delta T" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" Identifier="2b3cccb0-97aa-41d0-acf9-930fde820bef" RowDim="1" ColDim="1" Units="sec" BitFields="1">
+					<Channel Name="Delta T" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="sec" BitFields="1">
 						<Description>The period in seconds of the Primary Control Loop</Description>
 						<Properties>
 							<Property Name="ID">
@@ -180,7 +174,7 @@
 							<Elem>0</Elem>
 						</DefaultValue>
 					</Channel>
-					<Channel Name="Compiler Error" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" Identifier="1dfaf163-ed48-4b8e-b1cd-96b6c83a6d62" RowDim="1" ColDim="1" Units="" BitFields="0">
+					<Channel Name="Compiler Error" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="0">
 						<Description>Deprecated</Description>
 						<Properties>
 							<Property Name="ID">
@@ -192,8 +186,8 @@
 							<Elem>0</Elem>
 						</DefaultValue>
 					</Channel>
-					<Channel Name="Stack Index 1" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" Identifier="542b81be-80a9-4857-bb10-acb0bb179809" RowDim="1" ColDim="1" Units="" BitFields="1">
-						<Description>Deprecated</Description>
+					<Channel Name="Stack Index 1" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="1">
+						<Description>An internal register used by procedures to maintain the stack location when a procedure is preempted by a higher priorty procedure</Description>
 						<Properties>
 							<Property Name="ID">
 								<I32>100008</I32>
@@ -204,8 +198,8 @@
 							<Elem>-1</Elem>
 						</DefaultValue>
 					</Channel>
-					<Channel Name="Stack Index 2" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" Identifier="e36f991b-93ab-431d-b8f0-4e5d0256cc62" RowDim="1" ColDim="1" Units="" BitFields="1">
-						<Description>Deprecated</Description>
+					<Channel Name="Stack Index 2" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="1">
+						<Description>An internal register used by procedures to maintain the stack location when a procedure is preempted by a higher priorty procedure</Description>
 						<Properties>
 							<Property Name="ID">
 								<I32>100009</I32>
@@ -216,8 +210,8 @@
 							<Elem>-1</Elem>
 						</DefaultValue>
 					</Channel>
-					<Channel Name="Stack Index 3" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" Identifier="d0da2593-1d35-42d7-8046-e33e033d9b5e" RowDim="1" ColDim="1" Units="" BitFields="1">
-						<Description>Deprecated</Description>
+					<Channel Name="Stack Index 3" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="1">
+						<Description>An internal register used by procedures to maintain the stack location when a procedure is preempted by a higher priorty procedure</Description>
 						<Properties>
 							<Property Name="ID">
 								<I32>100010</I32>
@@ -228,7 +222,7 @@
 							<Elem>-1</Elem>
 						</DefaultValue>
 					</Channel>
-					<Channel Name="Resume Flag" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" Identifier="36149438-dbd1-4ef3-a5fb-613a404bcf83" RowDim="1" ColDim="1" Units="" BitFields="0">
+					<Channel Name="Resume Flag" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="0">
 						<Description>Deprecated</Description>
 						<Properties>
 							<Property Name="ID">
@@ -240,8 +234,8 @@
 							<Elem>0</Elem>
 						</DefaultValue>
 					</Channel>
-					<Channel Name="Stack Index 4" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" Identifier="16b5b507-78d8-4a19-9bb6-8af1f6bfecdb" RowDim="1" ColDim="1" Units="" BitFields="1">
-						<Description>Deprecated</Description>
+					<Channel Name="Stack Index 4" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="1">
+						<Description>An internal register used by procedures to maintain the stack location when a procedure is preempted by a higher priorty procedure</Description>
 						<Properties>
 							<Property Name="ID">
 								<I32>100012</I32>
@@ -252,8 +246,8 @@
 							<Elem>-1</Elem>
 						</DefaultValue>
 					</Channel>
-					<Channel Name="Stack Index 5" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" Identifier="ae1e781f-6ed5-41de-9802-e39019cfd03b" RowDim="1" ColDim="1" Units="" BitFields="1">
-						<Description>Deprecated</Description>
+					<Channel Name="Stack Index 5" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="1">
+						<Description>An internal register used by procedures to maintain the stack location when a procedure is preempted by a higher priorty procedure</Description>
 						<Properties>
 							<Property Name="ID">
 								<I32>100013</I32>
@@ -264,8 +258,8 @@
 							<Elem>-1</Elem>
 						</DefaultValue>
 					</Channel>
-					<Channel Name="Stack Index 6" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" Identifier="60b4b38a-2c51-4455-a01e-146956207fbf" RowDim="1" ColDim="1" Units="" BitFields="1">
-						<Description>Deprecated</Description>
+					<Channel Name="Stack Index 6" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="1">
+						<Description>An internal register used by procedures to maintain the stack location when a procedure is preempted by a higher priorty procedure</Description>
 						<Properties>
 							<Property Name="ID">
 								<I32>100014</I32>
@@ -276,8 +270,8 @@
 							<Elem>-1</Elem>
 						</DefaultValue>
 					</Channel>
-					<Channel Name="Tripped Low Alarm" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" Identifier="35b5995d-59fd-4dc0-9308-b3dd0af6601d" RowDim="1" ColDim="1" Units="ID" BitFields="1">
-						<Description>Deprecated</Description>
+					<Channel Name="Tripped Low Alarm" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="ID" BitFields="1">
+						<Description>The ID of the alarm that has tripped</Description>
 						<Properties>
 							<Property Name="ID">
 								<I32>100015</I32>
@@ -288,8 +282,8 @@
 							<Elem>0</Elem>
 						</DefaultValue>
 					</Channel>
-					<Channel Name="Tripped Medium Alarm" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" Identifier="86e2feaf-b394-4a9c-aaef-ec70d002ea56" RowDim="1" ColDim="1" Units="ID" BitFields="1">
-						<Description>Deprecated</Description>
+					<Channel Name="Tripped Medium Alarm" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="ID" BitFields="1">
+						<Description>The ID of the alarm that has tripped</Description>
 						<Properties>
 							<Property Name="ID">
 								<I32>100016</I32>
@@ -300,8 +294,8 @@
 							<Elem>0</Elem>
 						</DefaultValue>
 					</Channel>
-					<Channel Name="Tripped High Alarm" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" Identifier="3bcebe33-fc6e-4887-a603-de67eda2edb7" RowDim="1" ColDim="1" Units="ID" BitFields="1">
-						<Description>Deprecated</Description>
+					<Channel Name="Tripped High Alarm" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="ID" BitFields="1">
+						<Description>The ID of the alarm that has tripped</Description>
 						<Properties>
 							<Property Name="ID">
 								<I32>100017</I32>
@@ -312,8 +306,8 @@
 							<Elem>0</Elem>
 						</DefaultValue>
 					</Channel>
-					<Channel Name="Tripped Low Value" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" Identifier="2006f2fc-242f-4dda-be0d-164c0afe0b9c" RowDim="1" ColDim="1" Units="EUs" BitFields="1">
-						<Description>Deprecated</Description>
+					<Channel Name="Tripped Low Value" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="EUs" BitFields="1">
+						<Description>The value of the channel that tripped the alarm</Description>
 						<Properties>
 							<Property Name="ID">
 								<I32>100018</I32>
@@ -324,8 +318,8 @@
 							<Elem>0</Elem>
 						</DefaultValue>
 					</Channel>
-					<Channel Name="Tripped Medium Value" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" Identifier="a15daf60-84fb-4625-889d-21f80bcdf783" RowDim="1" ColDim="1" Units="EUs" BitFields="1">
-						<Description>Deprecated</Description>
+					<Channel Name="Tripped Medium Value" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="EUs" BitFields="1">
+						<Description>The value of the channel that tripped the alarm</Description>
 						<Properties>
 							<Property Name="ID">
 								<I32>100019</I32>
@@ -336,8 +330,8 @@
 							<Elem>0</Elem>
 						</DefaultValue>
 					</Channel>
-					<Channel Name="Tripped High Value" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" Identifier="4ed5b86b-cb48-4f9c-8788-118b0df2fa14" RowDim="1" ColDim="1" Units="EUs" BitFields="1">
-						<Description>Deprecated</Description>
+					<Channel Name="Tripped High Value" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="EUs" BitFields="1">
+						<Description>The value of the channel that tripped the alarm</Description>
 						<Properties>
 							<Property Name="ID">
 								<I32>100020</I32>
@@ -348,7 +342,7 @@
 							<Elem>0</Elem>
 						</DefaultValue>
 					</Channel>
-					<Channel Name="RT Engine Build" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" Identifier="cabf8bf0-d3d7-44b8-9313-b46cb060542d" RowDim="1" ColDim="1" Units="" BitFields="1">
+					<Channel Name="RT Engine Build" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="1">
 						<Description>A value representing the build number of the NI VeriStand Engine</Description>
 						<Properties>
 							<Property Name="ID">
@@ -360,7 +354,7 @@
 							<Elem>0</Elem>
 						</DefaultValue>
 					</Channel>
-					<Channel Name="HP Loop Duration" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" Identifier="d2163712-8692-4a95-9ea1-2b13de88641b" RowDim="1" ColDim="1" Units="nsec" BitFields="1">
+					<Channel Name="HP Loop Duration" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="nsec" BitFields="1">
 						<Description>The duration of the Primary Control Loop in nanoseconds</Description>
 						<Properties>
 							<Property Name="ID">
@@ -372,7 +366,7 @@
 							<Elem>0</Elem>
 						</DefaultValue>
 					</Channel>
-					<Channel Name="LP Loop Duration" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" Identifier="30b0730d-5990-4309-ac6b-2ee43fc3a298" RowDim="1" ColDim="1" Units="nsec" BitFields="1">
+					<Channel Name="LP Loop Duration" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="nsec" BitFields="1">
 						<Description>The duration of the Data Processing Loop in nanoseconds</Description>
 						<Properties>
 							<Property Name="ID">
@@ -384,7 +378,7 @@
 							<Elem>0</Elem>
 						</DefaultValue>
 					</Channel>
-					<Channel Name="System Command" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" Identifier="a26c1faf-dadf-4724-8426-1c725c4d241f" RowDim="1" ColDim="1" Units="Enum" BitFields="3">
+					<Channel Name="System Command" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="Enum" BitFields="3">
 						<Description>Internally commands the RT system with the following numeric values:
 
 0: None
@@ -402,7 +396,7 @@
 							<Elem>0</Elem>
 						</DefaultValue>
 					</Channel>
-					<Channel Name="Streamed Channel Count" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" Identifier="5759be5d-68ed-4641-94d8-43095162a1f7" RowDim="1" ColDim="1" Units="" BitFields="1">
+					<Channel Name="Streamed Channel Count" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="1">
 						<Description>The number of channels that the VeriStand Engine is currently streaming to the host</Description>
 						<Properties>
 							<Property Name="ID">
@@ -414,7 +408,7 @@
 							<Elem>0</Elem>
 						</DefaultValue>
 					</Channel>
-					<Channel Name="Max Streamed Channels" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" Identifier="66f72bec-f55a-45f8-b558-c087d01e82ef" RowDim="1" ColDim="1" Units="" BitFields="1">
+					<Channel Name="Max Streamed Channels" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="1">
 						<Description>The maximum number of channels that the VeriStand Engine can stream to the host</Description>
 						<Properties>
 							<Property Name="ID">
@@ -426,7 +420,7 @@
 							<Elem>0</Elem>
 						</DefaultValue>
 					</Channel>
-					<Channel Name="Model Count" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" Identifier="25c65631-4cda-42a4-8000-48bb913fbaeb" RowDim="1" ColDim="1" Units="" BitFields="1">
+					<Channel Name="Model Count" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="1">
 						<Description>The number of times the models have not completed their execution in time</Description>
 						<Properties>
 							<Property Name="ID">
@@ -438,7 +432,7 @@
 							<Elem>0</Elem>
 						</DefaultValue>
 					</Channel>
-					<Channel Name="Clients" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" Identifier="3a53b675-a571-49b7-b546-25da06cc9f9f" RowDim="1" ColDim="1" Units="" BitFields="0">
+					<Channel Name="Clients" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="0">
 						<Description>Deprecated</Description>
 						<Properties>
 							<Property Name="ID">
@@ -450,7 +444,7 @@
 							<Elem>0</Elem>
 						</DefaultValue>
 					</Channel>
-					<Channel Name="Maximum GENs" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" Identifier="5558bc64-f92b-4a4e-9f73-6db3cee78912" RowDim="1" ColDim="1" Units="" BitFields="1">
+					<Channel Name="Maximum GENs" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="1">
 						<Description>The number of stimulus profile generators instantiated by the system</Description>
 						<Properties>
 							<Property Name="ID">
@@ -462,7 +456,7 @@
 							<Elem>0</Elem>
 						</DefaultValue>
 					</Channel>
-					<Channel Name="Generator Engine State" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" Identifier="cb5ef920-66a6-421b-a08b-a8c197607676" RowDim="1" ColDim="1" Units="" BitFields="1">
+					<Channel Name="Generator Engine State" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="1">
 						<Description>The current state of the stimulus profile generator engine
 
 0: Idle
@@ -479,7 +473,7 @@
 							<Elem>0</Elem>
 						</DefaultValue>
 					</Channel>
-					<Channel Name="Watchdog Timer" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" Identifier="a723956b-ba88-4805-8d30-ecc560c64d10" RowDim="1" ColDim="1" Units="" BitFields="1">
+					<Channel Name="Watchdog Timer" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="1">
 						<Description>The amount of time in nanoseconds since the Watchdog Timer Loop last executed. The Watchdog Timer Loop is set to execute at a rate of 10Hz.</Description>
 						<Properties>
 							<Property Name="ID">
@@ -491,7 +485,7 @@
 							<Elem>0</Elem>
 						</DefaultValue>
 					</Channel>
-					<Channel Name="HS TCP Overflow Count" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" Identifier="22344a77-213f-4dec-bb00-766a5fca027a" RowDim="1" ColDim="1" Units="" BitFields="1">
+					<Channel Name="HS TCP Overflow Count" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="1">
 						<Description>The number of times the streaming data gets overwritten.</Description>
 						<Properties>
 							<Property Name="ID">
@@ -503,7 +497,7 @@
 							<Elem>0</Elem>
 						</DefaultValue>
 					</Channel>
-					<Channel Name="Host IP" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" Identifier="3053e74c-0c88-4760-b84d-76696f039f81" RowDim="1" ColDim="1" Units="" BitFields="1">
+					<Channel Name="Host IP" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="1">
 						<Description>The 32-bit integer IP Address of the connected host. A zero value indicates no host is connected to the VeriStand Engine.</Description>
 						<Properties>
 							<Property Name="ID">
@@ -515,7 +509,7 @@
 							<Elem>0</Elem>
 						</DefaultValue>
 					</Channel>
-					<Channel Name="Trace Enabled Flag" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" Identifier="a623eb39-14bb-4681-b027-f6582ee32774" RowDim="1" ColDim="1" Units="" BitFields="3">
+					<Channel Name="Trace Enabled Flag" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="3">
 						<Description>Deprecated</Description>
 						<Properties>
 							<Property Name="ID">
@@ -527,7 +521,7 @@
 							<Elem>0</Elem>
 						</DefaultValue>
 					</Channel>
-					<Channel Name="Detailed Tracing Flag" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" Identifier="f1372be6-3362-4851-94da-4e862b2799ee" RowDim="1" ColDim="1" Units="" BitFields="3">
+					<Channel Name="Detailed Tracing Flag" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="3">
 						<Description>Deprecated</Description>
 						<Properties>
 							<Property Name="ID">
@@ -539,7 +533,7 @@
 							<Elem>0</Elem>
 						</DefaultValue>
 					</Channel>
-					<Channel Name="VI Tracing Flag" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" Identifier="6df0711f-aee0-4f37-a064-6730c4db6ca2" RowDim="1" ColDim="1" Units="" BitFields="3">
+					<Channel Name="VI Tracing Flag" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="3">
 						<Description>Deprecated</Description>
 						<Properties>
 							<Property Name="ID">
@@ -551,7 +545,7 @@
 							<Elem>0</Elem>
 						</DefaultValue>
 					</Channel>
-					<Channel Name="Trace Buffer Size" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" Identifier="60c8f13c-11a3-446e-89c4-e4fa7f6ce91a" RowDim="1" ColDim="1" Units="" BitFields="3">
+					<Channel Name="Trace Buffer Size" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="3">
 						<Description>Deprecated</Description>
 						<Properties>
 							<Property Name="ID">
@@ -563,7 +557,7 @@
 							<Elem>0</Elem>
 						</DefaultValue>
 					</Channel>
-					<Channel Name="Thread Tracing Flag" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" Identifier="077af24a-17fb-4029-8204-26c5dc678e44" RowDim="1" ColDim="1" Units="" BitFields="3">
+					<Channel Name="Thread Tracing Flag" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="3">
 						<Description>Deprecated</Description>
 						<Properties>
 							<Property Name="ID">
@@ -575,8 +569,8 @@
 							<Elem>0</Elem>
 						</DefaultValue>
 					</Channel>
-					<Channel Name="Absolute Time" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" Identifier="5aac8e62-52d3-47da-b4ad-45f77e46e1f3" RowDim="1" ColDim="1" Units="sec" BitFields="1">
-						<Description>Returns the current date and time in seconds relative to 12:00 a.m., Friday, January 1, 1904, Universal Time [01-01-1904 00:00:00]. This value is coerced from a 128-bit value to double precision, which may impact resolution.</Description>
+					<Channel Name="System Reserved 39" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="0">
+						<Description>Deprecated</Description>
 						<Properties>
 							<Property Name="ID">
 								<I32>100039</I32>
@@ -587,8 +581,8 @@
 							<Elem>0</Elem>
 						</DefaultValue>
 					</Channel>
-					<Channel Name="System Time - Microseconds" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" Identifier="c9d88cdb-da12-45ce-8418-8843586b762c" RowDim="1" ColDim="1" Units="usec" BitFields="1">
-						<Description>The relative system time in microseconds of the VeriStand Engine according to the iteration count and Delta T of the Primary Control Loop</Description>
+					<Channel Name="System Reserved 40" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="0">
+						<Description>Deprecated</Description>
 						<Properties>
 							<Property Name="ID">
 								<I32>100040</I32>
@@ -599,8 +593,8 @@
 							<Elem>0</Elem>
 						</DefaultValue>
 					</Channel>
-					<Channel Name="ASAM XIL EESPort Trigger" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" Identifier="f1a97c42-d071-44fe-a10e-7bc5946e6455" RowDim="1" ColDim="1" Units="" BitFields="3">
-						<Description>Trigger the next EES Error Set from the EES Error Configuration.</Description>
+					<Channel Name="System Reserved 41" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="0">
+						<Description>Deprecated</Description>
 						<Properties>
 							<Property Name="ID">
 								<I32>100041</I32>
@@ -611,8 +605,8 @@
 							<Elem>0</Elem>
 						</DefaultValue>
 					</Channel>
-					<Channel Name="ASAM XIL EESPort Trigger Count" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" Identifier="21139d6a-beee-4334-bcc2-e85a53de4ea3" RowDim="1" ColDim="1" Units="" BitFields="3">
-						<Description>Count the number of EESPort Triggers.</Description>
+					<Channel Name="System Reserved 42" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="0">
+						<Description>Deprecated</Description>
 						<Properties>
 							<Property Name="ID">
 								<I32>100042</I32>
@@ -623,7 +617,7 @@
 							<Elem>0</Elem>
 						</DefaultValue>
 					</Channel>
-					<Channel Name="System Reserved 43" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" Identifier="05be9319-fe83-4e3e-b20a-e8ad3dfcd427" RowDim="1" ColDim="1" Units="" BitFields="0">
+					<Channel Name="System Reserved 43" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="0">
 						<Description>Deprecated</Description>
 						<Properties>
 							<Property Name="ID">
@@ -635,7 +629,7 @@
 							<Elem>0</Elem>
 						</DefaultValue>
 					</Channel>
-					<Channel Name="System Reserved 44" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" Identifier="d0e452c5-42fb-4564-8b19-135b0fa754bc" RowDim="1" ColDim="1" Units="" BitFields="0">
+					<Channel Name="System Reserved 44" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="0">
 						<Description>Deprecated</Description>
 						<Properties>
 							<Property Name="ID">
@@ -647,7 +641,7 @@
 							<Elem>0</Elem>
 						</DefaultValue>
 					</Channel>
-					<Channel Name="PC Timing - Iterations" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" Identifier="8e978bbd-1b2f-4e87-9960-cb355f63d18d" RowDim="1" ColDim="1" Units="" BitFields="0">
+					<Channel Name="PC Timing - Iterations" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="0">
 						<Description>Deprecated</Description>
 						<Properties>
 							<Property Name="ID">
@@ -659,7 +653,7 @@
 							<Elem>0</Elem>
 						</DefaultValue>
 					</Channel>
-					<Channel Name="PC Timing - Min Wait" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" Identifier="ce92e7a0-d525-4b1d-a143-e328e5ede8bf" RowDim="1" ColDim="1" Units="" BitFields="0">
+					<Channel Name="PC Timing - Min Wait" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="0">
 						<Description>Deprecated</Description>
 						<Properties>
 							<Property Name="ID">
@@ -671,7 +665,7 @@
 							<Elem>0</Elem>
 						</DefaultValue>
 					</Channel>
-					<Channel Name="PC Timing - Actual Wait" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" Identifier="7a07e3a5-cd62-4b83-8c0d-0a254f72ed32" RowDim="1" ColDim="1" Units="" BitFields="0">
+					<Channel Name="PC Timing - Actual Wait" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="0">
 						<Description>Deprecated</Description>
 						<Properties>
 							<Property Name="ID">
@@ -683,7 +677,7 @@
 							<Elem>0</Elem>
 						</DefaultValue>
 					</Channel>
-					<Channel Name="Failure Count" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" Identifier="077fa1f8-2d1e-4903-b1ff-8046c61b062c" RowDim="1" ColDim="1" Units="" BitFields="1">
+					<Channel Name="Failure Count" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="1">
 						<Description>The failure count of current analysis settings</Description>
 						<Properties>
 							<Property Name="ID">
@@ -695,7 +689,7 @@
 							<Elem>0</Elem>
 						</DefaultValue>
 					</Channel>
-					<Channel Name="Analysis State" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" Identifier="4afae0d3-ab7e-42d1-89ab-1cb39b471cd1" RowDim="1" ColDim="1" Units="" BitFields="1">
+					<Channel Name="Analysis State" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="1">
 						<Description>The state of the analysis sub-system on the RT execution host</Description>
 						<Properties>
 							<Property Name="ID">
@@ -707,7 +701,7 @@
 							<Elem>0</Elem>
 						</DefaultValue>
 					</Channel>
-					<Channel Name="TCP Data Packet Loss" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" Identifier="c557fa3f-1390-425f-8d47-e02ae8a600f1" RowDim="1" ColDim="1" Units="" BitFields="1">
+					<Channel Name="TCP Data Packet Loss" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="1">
 						<Description>The number of times the VeriStand Engine fails to send a data packet to the host. A non-zero number can indicate data loss in logged data. The value is reset every time a Workspace connects to the VeriStand Engine.</Description>
 						<Properties>
 							<Property Name="ID">
@@ -719,8 +713,8 @@
 							<Elem>0</Elem>
 						</DefaultValue>
 					</Channel>
-					<Channel Name="WPL Overflow Count" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" Identifier="6e4792a4-e0bb-4474-b5d1-81e4a41a4894" RowDim="1" ColDim="1" Units="" BitFields="1">
-						<Description>The number of times the waveform processing loop attempted to write to a waveform read session within the NI VeriStand engine and timed out.</Description>
+					<Channel Name="System Reserved 51" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="0">
+						<Description>Deprecated</Description>
 						<Properties>
 							<Property Name="ID">
 								<I32>100051</I32>
@@ -731,8 +725,8 @@
 							<Elem>0</Elem>
 						</DefaultValue>
 					</Channel>
-					<Channel Name="WPL TCP Overflow Count" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" Identifier="4439bbc1-e2ea-40ef-9412-d06d6b5b0f77" RowDim="1" ColDim="1" Units="" BitFields="1">
-						<Description>The number of times the waveform processing loop attempted to write to the TCP loop (for a host waveform stream session) and timed out.</Description>
+					<Channel Name="System Reserved 52" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="0">
+						<Description>Deprecated</Description>
 						<Properties>
 							<Property Name="ID">
 								<I32>100052</I32>
@@ -743,8 +737,8 @@
 							<Elem>0</Elem>
 						</DefaultValue>
 					</Channel>
-					<Channel Name="WPL Error Count" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" Identifier="1700c57a-5123-4f69-83c7-afd03c54519f" RowDim="1" ColDim="1" Units="" BitFields="1">
-						<Description>The number of times the waveform processing loop encountered an error.</Description>
+					<Channel Name="System Reserved 53" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="0">
+						<Description>Deprecated</Description>
 						<Properties>
 							<Property Name="ID">
 								<I32>100053</I32>
@@ -755,8 +749,8 @@
 							<Elem>0</Elem>
 						</DefaultValue>
 					</Channel>
-					<Channel Name="WPL Error Code" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" Identifier="977071ce-247c-4273-96c8-26eb84c85ee1" RowDim="1" ColDim="1" Units="" BitFields="1">
-						<Description>The last error code encountered by the waveform processing loop.</Description>
+					<Channel Name="System Reserved 54" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="0">
+						<Description>Deprecated</Description>
 						<Properties>
 							<Property Name="ID">
 								<I32>100054</I32>
@@ -767,8 +761,8 @@
 							<Elem>0</Elem>
 						</DefaultValue>
 					</Channel>
-					<Channel Name="Streamed Waveform Count" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" Identifier="37355106-83b3-4037-ad84-d87bb659b9c4" RowDim="1" ColDim="1" Units="" BitFields="1">
-						<Description>The number of waveforms that the VeriStand Engine is currently streaming to the host</Description>
+					<Channel Name="System Reserved 55" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="0">
+						<Description>Deprecated</Description>
 						<Properties>
 							<Property Name="ID">
 								<I32>100055</I32>
@@ -779,8 +773,8 @@
 							<Elem>0</Elem>
 						</DefaultValue>
 					</Channel>
-					<Channel Name="Iteration" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" Identifier="9c190b80-2c55-45a8-babe-9fda05563414" RowDim="1" ColDim="1" Units="" BitFields="1">
-						<Description>The iteration count of the Primary Control Loop.</Description>
+					<Channel Name="System Reserved 56" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="0">
+						<Description>Deprecated</Description>
 						<Properties>
 							<Property Name="ID">
 								<I32>100056</I32>
@@ -791,8 +785,8 @@
 							<Elem>0</Elem>
 						</DefaultValue>
 					</Channel>
-					<Channel Name="Last Late Iteration" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" Identifier="866ed2e1-9124-401e-814a-b30ed683f599" RowDim="1" ColDim="1" Units="" BitFields="1">
-						<Description>The iteration count of the Primary Control Loop that last recorded a late count. If the Primary Control Loop has not recorded a late count, this value is -1.</Description>
+					<Channel Name="System Reserved 57" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="0">
+						<Description>Deprecated</Description>
 						<Properties>
 							<Property Name="ID">
 								<I32>100057</I32>
@@ -803,7 +797,7 @@
 							<Elem>0</Elem>
 						</DefaultValue>
 					</Channel>
-					<Channel Name="System Reserved 58" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" Identifier="83c08759-4f7c-43c0-b92e-be7299bd7693" RowDim="1" ColDim="1" Units="" BitFields="0">
+					<Channel Name="System Reserved 58" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="0">
 						<Description>Deprecated</Description>
 						<Properties>
 							<Property Name="ID">
@@ -815,7 +809,7 @@
 							<Elem>0</Elem>
 						</DefaultValue>
 					</Channel>
-					<Channel Name="System Reserved 59" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" Identifier="04ee767b-791d-439f-86b6-9d6fd3ce654b" RowDim="1" ColDim="1" Units="" BitFields="0">
+					<Channel Name="System Reserved 59" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="0">
 						<Description>Deprecated</Description>
 						<Properties>
 							<Property Name="ID">
@@ -827,12 +821,8 @@
 							<Elem>0</Elem>
 						</DefaultValue>
 					</Channel>
-					<Channel Name="Real-Time Sequence Command" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" Identifier="340a479a-b973-405d-9d3d-1d094c8c0f28" RowDim="1" ColDim="1" Units="" BitFields="3">
-						<Description>Internally commands the active real-time sequences with the following numeric values:
-		
-		0: None
-		1: Stop All
-		2: Abort All</Description>
+					<Channel Name="System Reserved 60" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="0">
+						<Description>Deprecated</Description>
 						<Properties>
 							<Property Name="ID">
 								<I32>100060</I32>
@@ -843,8 +833,8 @@
 							<Elem>0</Elem>
 						</DefaultValue>
 					</Channel>
-					<Channel Name="Real-Time Sequence Count" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" Identifier="1cb568c7-6f11-4f8e-8a12-7d6b6983152c" RowDim="1" ColDim="1" Units="" BitFields="1">
-						<Description>The number of real-time sequences currently running.</Description>
+					<Channel Name="System Reserved 61" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="0">
+						<Description>Deprecated</Description>
 						<Properties>
 							<Property Name="ID">
 								<I32>100061</I32>
@@ -855,7 +845,7 @@
 							<Elem>0</Elem>
 						</DefaultValue>
 					</Channel>
-					<Channel Name="System Reserved 62" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" Identifier="ab00c98a-6bbc-43f0-9bff-0178c7d4a26c" RowDim="1" ColDim="1" Units="" BitFields="0">
+					<Channel Name="System Reserved 62" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="0">
 						<Description>Deprecated</Description>
 						<Properties>
 							<Property Name="ID">
@@ -867,7 +857,7 @@
 							<Elem>0</Elem>
 						</DefaultValue>
 					</Channel>
-					<Channel Name="System Reserved 63" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" Identifier="dc231b40-7801-43eb-af33-33f4df908972" RowDim="1" ColDim="1" Units="" BitFields="0">
+					<Channel Name="System Reserved 63" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="0">
 						<Description>Deprecated</Description>
 						<Properties>
 							<Property Name="ID">
@@ -879,7 +869,7 @@
 							<Elem>0</Elem>
 						</DefaultValue>
 					</Channel>
-					<Channel Name="System Reserved 64" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" Identifier="6f311e2c-150e-43c9-ae4c-274767374e8b" RowDim="1" ColDim="1" Units="" BitFields="0">
+					<Channel Name="System Reserved 64" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="0">
 						<Description>Deprecated</Description>
 						<Properties>
 							<Property Name="ID">
@@ -891,7 +881,7 @@
 							<Elem>0</Elem>
 						</DefaultValue>
 					</Channel>
-					<Channel Name="System Reserved 65" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" Identifier="4be55072-cb3f-4e2a-8213-3bc55df4cb39" RowDim="1" ColDim="1" Units="" BitFields="0">
+					<Channel Name="System Reserved 65" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="0">
 						<Description>Deprecated</Description>
 						<Properties>
 							<Property Name="ID">
@@ -903,7 +893,7 @@
 							<Elem>0</Elem>
 						</DefaultValue>
 					</Channel>
-					<Channel Name="System Reserved 66" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" Identifier="89f15c1a-9d68-4cdc-92bc-9e9930405f92" RowDim="1" ColDim="1" Units="" BitFields="0">
+					<Channel Name="System Reserved 66" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="0">
 						<Description>Deprecated</Description>
 						<Properties>
 							<Property Name="ID">
@@ -915,7 +905,7 @@
 							<Elem>0</Elem>
 						</DefaultValue>
 					</Channel>
-					<Channel Name="System Reserved 67" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" Identifier="fe3b480f-c928-4434-a331-a8e956c163d1" RowDim="1" ColDim="1" Units="" BitFields="0">
+					<Channel Name="System Reserved 67" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="0">
 						<Description>Deprecated</Description>
 						<Properties>
 							<Property Name="ID">
@@ -927,7 +917,7 @@
 							<Elem>0</Elem>
 						</DefaultValue>
 					</Channel>
-					<Channel Name="System Reserved 68" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" Identifier="8e65249d-149c-44a2-943f-92377d432df1" RowDim="1" ColDim="1" Units="" BitFields="0">
+					<Channel Name="System Reserved 68" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="0">
 						<Description>Deprecated</Description>
 						<Properties>
 							<Property Name="ID">
@@ -939,7 +929,7 @@
 							<Elem>0</Elem>
 						</DefaultValue>
 					</Channel>
-					<Channel Name="System Reserved 69" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" Identifier="7857cd94-b508-4f7d-b0fe-6718abaa038c" RowDim="1" ColDim="1" Units="" BitFields="0">
+					<Channel Name="System Reserved 69" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="0">
 						<Description>Deprecated</Description>
 						<Properties>
 							<Property Name="ID">
@@ -951,7 +941,7 @@
 							<Elem>0</Elem>
 						</DefaultValue>
 					</Channel>
-					<Channel Name="System Reserved 70" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" Identifier="c701359c-e56f-412f-95e4-dca98f585d7b" RowDim="1" ColDim="1" Units="" BitFields="0">
+					<Channel Name="System Reserved 70" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="0">
 						<Description>Deprecated</Description>
 						<Properties>
 							<Property Name="ID">
@@ -963,7 +953,7 @@
 							<Elem>0</Elem>
 						</DefaultValue>
 					</Channel>
-					<Channel Name="System Reserved 71" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" Identifier="b3f87180-2088-4358-b818-966134ef1dbb" RowDim="1" ColDim="1" Units="" BitFields="0">
+					<Channel Name="System Reserved 71" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="0">
 						<Description>Deprecated</Description>
 						<Properties>
 							<Property Name="ID">
@@ -975,7 +965,7 @@
 							<Elem>0</Elem>
 						</DefaultValue>
 					</Channel>
-					<Channel Name="System Reserved 72" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" Identifier="be3c622f-9a38-4ebc-a7cd-aa2768c9a171" RowDim="1" ColDim="1" Units="" BitFields="0">
+					<Channel Name="System Reserved 72" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="0">
 						<Description>Deprecated</Description>
 						<Properties>
 							<Property Name="ID">
@@ -987,7 +977,7 @@
 							<Elem>0</Elem>
 						</DefaultValue>
 					</Channel>
-					<Channel Name="System Reserved 73" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" Identifier="274b763d-e935-46f6-bd8d-673a676509aa" RowDim="1" ColDim="1" Units="" BitFields="0">
+					<Channel Name="System Reserved 73" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="0">
 						<Description>Deprecated</Description>
 						<Properties>
 							<Property Name="ID">
@@ -999,7 +989,7 @@
 							<Elem>0</Elem>
 						</DefaultValue>
 					</Channel>
-					<Channel Name="System Reserved 74" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" Identifier="d9ff1cfe-8edd-4df4-967d-a7ed6951f564" RowDim="1" ColDim="1" Units="" BitFields="0">
+					<Channel Name="System Reserved 74" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="0">
 						<Description>Deprecated</Description>
 						<Properties>
 							<Property Name="ID">
@@ -1011,7 +1001,7 @@
 							<Elem>0</Elem>
 						</DefaultValue>
 					</Channel>
-					<Channel Name="System Reserved 75" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" Identifier="decb429e-9619-4670-9111-8cc6dc56e9c3" RowDim="1" ColDim="1" Units="" BitFields="0">
+					<Channel Name="System Reserved 75" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="0">
 						<Description>Deprecated</Description>
 						<Properties>
 							<Property Name="ID">
@@ -1023,7 +1013,7 @@
 							<Elem>0</Elem>
 						</DefaultValue>
 					</Channel>
-					<Channel Name="System Reserved 76" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" Identifier="2fcfee5c-0550-4852-8677-e9e24e2c142a" RowDim="1" ColDim="1" Units="" BitFields="0">
+					<Channel Name="System Reserved 76" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="0">
 						<Description>Deprecated</Description>
 						<Properties>
 							<Property Name="ID">
@@ -1035,7 +1025,7 @@
 							<Elem>0</Elem>
 						</DefaultValue>
 					</Channel>
-					<Channel Name="System Reserved 77" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" Identifier="9f56820b-8b23-4d82-afac-b77c89a5f75a" RowDim="1" ColDim="1" Units="" BitFields="0">
+					<Channel Name="System Reserved 77" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="0">
 						<Description>Deprecated</Description>
 						<Properties>
 							<Property Name="ID">
@@ -1047,7 +1037,7 @@
 							<Elem>0</Elem>
 						</DefaultValue>
 					</Channel>
-					<Channel Name="System Reserved 78" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" Identifier="f5b3db39-b7b1-4992-9c9a-21b6236b805b" RowDim="1" ColDim="1" Units="" BitFields="0">
+					<Channel Name="System Reserved 78" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="0">
 						<Description>Deprecated</Description>
 						<Properties>
 							<Property Name="ID">
@@ -1059,7 +1049,7 @@
 							<Elem>0</Elem>
 						</DefaultValue>
 					</Channel>
-					<Channel Name="System Reserved 79" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" Identifier="d53217f8-f362-4c98-80c5-7d8ba5fe692f" RowDim="1" ColDim="1" Units="" BitFields="0">
+					<Channel Name="System Reserved 79" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="0">
 						<Description>Deprecated</Description>
 						<Properties>
 							<Property Name="ID">
@@ -1071,7 +1061,7 @@
 							<Elem>0</Elem>
 						</DefaultValue>
 					</Channel>
-					<Channel Name="System Reserved 80" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" Identifier="f5b02231-7c99-473e-bc72-14156d4daa06" RowDim="1" ColDim="1" Units="" BitFields="0">
+					<Channel Name="System Reserved 80" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="0">
 						<Description>Deprecated</Description>
 						<Properties>
 							<Property Name="ID">
@@ -1083,7 +1073,7 @@
 							<Elem>0</Elem>
 						</DefaultValue>
 					</Channel>
-					<Channel Name="System Reserved 81" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" Identifier="b934131d-54f7-4df2-aa43-dee7490aba3d" RowDim="1" ColDim="1" Units="" BitFields="0">
+					<Channel Name="System Reserved 81" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="0">
 						<Description>Deprecated</Description>
 						<Properties>
 							<Property Name="ID">
@@ -1095,7 +1085,7 @@
 							<Elem>0</Elem>
 						</DefaultValue>
 					</Channel>
-					<Channel Name="System Reserved 82" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" Identifier="faf8941b-f976-4859-ba8c-c5be08d8d3f3" RowDim="1" ColDim="1" Units="" BitFields="0">
+					<Channel Name="System Reserved 82" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="0">
 						<Description>Deprecated</Description>
 						<Properties>
 							<Property Name="ID">
@@ -1107,7 +1097,7 @@
 							<Elem>0</Elem>
 						</DefaultValue>
 					</Channel>
-					<Channel Name="System Reserved 83" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" Identifier="146b0d51-713a-4576-a784-0aeef78ffdcd" RowDim="1" ColDim="1" Units="" BitFields="0">
+					<Channel Name="System Reserved 83" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="0">
 						<Description>Deprecated</Description>
 						<Properties>
 							<Property Name="ID">
@@ -1119,7 +1109,7 @@
 							<Elem>0</Elem>
 						</DefaultValue>
 					</Channel>
-					<Channel Name="System Reserved 84" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" Identifier="4749388d-0ce2-42eb-975a-665097a4dfe8" RowDim="1" ColDim="1" Units="" BitFields="0">
+					<Channel Name="System Reserved 84" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="0">
 						<Description>Deprecated</Description>
 						<Properties>
 							<Property Name="ID">
@@ -1131,7 +1121,7 @@
 							<Elem>0</Elem>
 						</DefaultValue>
 					</Channel>
-					<Channel Name="System Reserved 85" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" Identifier="ad3e1822-3ffb-4993-b533-76eb3c1147c5" RowDim="1" ColDim="1" Units="" BitFields="0">
+					<Channel Name="System Reserved 85" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="0">
 						<Description>Deprecated</Description>
 						<Properties>
 							<Property Name="ID">
@@ -1143,7 +1133,7 @@
 							<Elem>0</Elem>
 						</DefaultValue>
 					</Channel>
-					<Channel Name="System Reserved 86" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" Identifier="ea70c25b-257c-4b8c-8cfc-40bcf3869b34" RowDim="1" ColDim="1" Units="" BitFields="0">
+					<Channel Name="System Reserved 86" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="0">
 						<Description>Deprecated</Description>
 						<Properties>
 							<Property Name="ID">
@@ -1155,7 +1145,7 @@
 							<Elem>0</Elem>
 						</DefaultValue>
 					</Channel>
-					<Channel Name="System Reserved 87" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" Identifier="16298d9a-6f5b-454f-8ffa-bb24de001275" RowDim="1" ColDim="1" Units="" BitFields="0">
+					<Channel Name="System Reserved 87" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="0">
 						<Description>Deprecated</Description>
 						<Properties>
 							<Property Name="ID">
@@ -1167,7 +1157,7 @@
 							<Elem>0</Elem>
 						</DefaultValue>
 					</Channel>
-					<Channel Name="System Reserved 88" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" Identifier="1c478b7a-c7b9-49bc-9e15-c1348c6afbf1" RowDim="1" ColDim="1" Units="" BitFields="0">
+					<Channel Name="System Reserved 88" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="0">
 						<Description>Deprecated</Description>
 						<Properties>
 							<Property Name="ID">
@@ -1179,7 +1169,7 @@
 							<Elem>0</Elem>
 						</DefaultValue>
 					</Channel>
-					<Channel Name="System Reserved 89" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" Identifier="8155d258-646e-49a7-9057-1050cfa7bc84" RowDim="1" ColDim="1" Units="" BitFields="0">
+					<Channel Name="System Reserved 89" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="0">
 						<Description>Deprecated</Description>
 						<Properties>
 							<Property Name="ID">
@@ -1191,7 +1181,7 @@
 							<Elem>0</Elem>
 						</DefaultValue>
 					</Channel>
-					<Channel Name="System Reserved 90" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" Identifier="8e0c8adb-e0d2-4893-b077-ec08e0aaea5b" RowDim="1" ColDim="1" Units="" BitFields="0">
+					<Channel Name="System Reserved 90" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="0">
 						<Description>Deprecated</Description>
 						<Properties>
 							<Property Name="ID">
@@ -1203,7 +1193,7 @@
 							<Elem>0</Elem>
 						</DefaultValue>
 					</Channel>
-					<Channel Name="System Reserved 91" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" Identifier="99604d1a-853c-4753-9e8c-2a41b9fe961f" RowDim="1" ColDim="1" Units="" BitFields="0">
+					<Channel Name="System Reserved 91" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="0">
 						<Description>Deprecated</Description>
 						<Properties>
 							<Property Name="ID">
@@ -1215,7 +1205,7 @@
 							<Elem>0</Elem>
 						</DefaultValue>
 					</Channel>
-					<Channel Name="AO1 Error" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" Identifier="152976d8-877a-4632-8ce0-28a81e394949" RowDim="1" ColDim="1" Units="" BitFields="0">
+					<Channel Name="AO1 Error" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="0">
 						<Description>Deprecated</Description>
 						<Properties>
 							<Property Name="ID">
@@ -1227,7 +1217,7 @@
 							<Elem>0</Elem>
 						</DefaultValue>
 					</Channel>
-					<Channel Name="HP Loop Wakeup Status" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" Identifier="8204b0dc-40ba-4479-a67a-3d93830e0f71" RowDim="1" ColDim="1" Units="Enum" BitFields="1">
+					<Channel Name="HP Loop Wakeup Status" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="Enum" BitFields="1">
 						<Description>The wakeup status of the Primary Control Loop.
 
 0: Normal
@@ -1246,7 +1236,7 @@
 							<Elem>0</Elem>
 						</DefaultValue>
 					</Channel>
-					<Channel Name="HD Free Space" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" Identifier="7368a614-d9d6-4094-9351-22be7d396b44" RowDim="1" ColDim="1" Units="" BitFields="0">
+					<Channel Name="HD Free Space" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="0">
 						<Description>Deprecated</Description>
 						<Properties>
 							<Property Name="ID">
@@ -1258,7 +1248,7 @@
 							<Elem>0</Elem>
 						</DefaultValue>
 					</Channel>
-					<Channel Name="HP-LP Overwrite" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" Identifier="366ebc1a-55f0-4bfc-aa5f-d963eb982062" RowDim="1" ColDim="1" Units="" BitFields="1">
+					<Channel Name="HP-LP Overwrite" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="1">
 						<Description>The number of times the Primary Control Loop timed out writing channel data to the Data Processing Loop</Description>
 						<Properties>
 							<Property Name="ID">
@@ -1270,7 +1260,7 @@
 							<Elem>0</Elem>
 						</DefaultValue>
 					</Channel>
-					<Channel Name="LP Data Count" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" Identifier="fff9ec28-a46b-42f3-910e-aef7704b6c98" RowDim="1" ColDim="1" Units="" BitFields="1">
+					<Channel Name="LP Data Count" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="1">
 						<Description>The number of times the Data Processing Loop timed out writing channel data to the Communication Send Loop</Description>
 						<Properties>
 							<Property Name="ID">
@@ -1282,7 +1272,7 @@
 							<Elem>0</Elem>
 						</DefaultValue>
 					</Channel>
-					<Channel Name="HP Count" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" Identifier="9fe2edd2-e841-474f-8917-711a8fdc9faf" RowDim="1" ColDim="1" Units="" BitFields="1">
+					<Channel Name="HP Count" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="1">
 						<Description>The number of times the Primary Control Loop reported being late</Description>
 						<Properties>
 							<Property Name="ID">
@@ -1294,7 +1284,7 @@
 							<Elem>0</Elem>
 						</DefaultValue>
 					</Channel>
-					<Channel Name="LP Count" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" Identifier="a6ef30bf-d51a-406a-8542-7465010d914a" RowDim="1" ColDim="1" Units="" BitFields="1">
+					<Channel Name="LP Count" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="1">
 						<Description>The number of times the Data Processing Loop reported being late</Description>
 						<Properties>
 							<Property Name="ID">
@@ -1306,7 +1296,7 @@
 							<Elem>0</Elem>
 						</DefaultValue>
 					</Channel>
-					<Channel Name="Log Status" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" Identifier="2e3e4a9f-975c-49de-ba31-501422a6e419" RowDim="1" ColDim="1" Units="" BitFields="0">
+					<Channel Name="Log Status" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="0">
 						<Description>The state of the logging sub-system on the RT execution host</Description>
 						<Properties>
 							<Property Name="ID">
@@ -1319,11 +1309,11 @@
 						</DefaultValue>
 					</Channel>
 				</Section>
-				<Section Name="Hardware" TypeGUID="775504AB-1485-13A6-560018C1F4E3EEE1" Identifier="cc49c623-8807-4fbb-b5cf-a80c176464fd">
+				<Section Name="Hardware" TypeGUID="775504AB-1485-13A6-560018C1F4E3EEE1">
 					<Description />
 					<Properties />
 					<Errors />
-					<Section Name="Chassis" TypeGUID="03D3BACD-1485-13A6-56E99D97B7543BAF" Identifier="a3771e55-1eff-4b05-abdc-420052fd993f">
+					<Section Name="Chassis" TypeGUID="03D3BACD-1485-13A6-56E99D97B7543BAF">
 						<Description />
 						<Properties>
 							<Property Name="Chassis master active edge">
@@ -1346,27 +1336,22 @@
 							</Property>
 						</Properties>
 						<Errors />
-						<Section Name="Timing and Sync" TypeGUID="03D3BAED-1485-13A6-56E20B50F6E06D94" Identifier="e1dd52bd-0d8b-442c-be93-d9dda6f1d5ed">
+						<Section Name="Timing and Sync" TypeGUID="03D3BAED-1485-13A6-56E20B50F6E06D94">
 							<Description />
 							<Properties />
 							<Errors />
 						</Section>
-						<Section Name="DAQ" TypeGUID="77550612-1485-13A6-56570AB5032158E9" Identifier="b2844fa1-0b51-40e5-a040-fb6b7da90a85">
-							<Description />
-							<Properties />
-							<Errors />
-							<Section Name="Waveform Tasks" TypeGUID="1D6B8779-A957-42D1-B074-82153DB7FF44" Identifier="de438a5f-dabb-4a02-90a5-53a1e3e0991d">
-								<Description />
-								<Properties />
-								<Errors />
-							</Section>
-						</Section>
-						<Section Name="FPGA" TypeGUID="03D3B659-1485-13A6-5652D8A07328ECB7" Identifier="2e9b62fb-3927-41cd-a283-72e87f19c6b5">
+						<Section Name="DAQ" TypeGUID="77550612-1485-13A6-56570AB5032158E9">
 							<Description />
 							<Properties />
 							<Errors />
 						</Section>
-						<Section Name="Data Sharing" TypeGUID="d56f3ac1-7b2c-422c-9d11-fd9cc7abf2a5" Identifier="c90eb9e7-0d55-44bf-83f4-70c2848a1ec1">
+						<Section Name="FPGA" TypeGUID="03D3B659-1485-13A6-5652D8A07328ECB7">
+							<Description />
+							<Properties />
+							<Errors />
+						</Section>
+						<Section Name="Data Sharing" TypeGUID="d56f3ac1-7b2c-422c-9d11-fd9cc7abf2a5">
 							<Description />
 							<Properties>
 								<Property Name="CD Status">
@@ -1375,7 +1360,7 @@
 							</Properties>
 							<Errors />
 						</Section>
-						<Section Name="XNET" TypeGUID="6b693e6d-67b1-40b8-8108-4a4cc3147721" Identifier="8cd0a9b9-c054-49c8-bc5b-c84fd3658157">
+						<Section Name="XNET" TypeGUID="6b693e6d-67b1-40b8-8108-4a4cc3147721">
 							<Description />
 							<Properties>
 								<Property Name="CD Status">
@@ -1383,30 +1368,25 @@
 								</Property>
 							</Properties>
 							<Errors />
-							<Section Name="LIN" TypeGUID="c9c30728-42cb-4dc3-b054-b80e7a54e833" Identifier="49a7cb16-f958-460a-9928-6fbb6ca16a37">
+							<Section Name="LIN" TypeGUID="c9c30728-42cb-4dc3-b054-b80e7a54e833">
 								<Description />
 								<Properties />
 								<Errors />
 							</Section>
-							<Section Name="FlexRay" TypeGUID="e33fae90-03f1-4f76-b2f1-6eb8fcac2676" Identifier="f95bd017-feb7-458e-987a-1525ffd3e7b6">
+							<Section Name="FlexRay" TypeGUID="e33fae90-03f1-4f76-b2f1-6eb8fcac2676">
 								<Description />
 								<Properties />
 								<Errors />
 							</Section>
-							<Section Name="CAN" TypeGUID="6c5bb91f-0da7-407d-aefc-acbe49c768df" Identifier="71b20827-60b7-498b-9f88-ca8b9549d22d">
+							<Section Name="CAN" TypeGUID="6c5bb91f-0da7-407d-aefc-acbe49c768df">
 								<Description />
 								<Properties />
 								<Errors />
 							</Section>
 						</Section>
-					</Section>
-					<Section Name="SLSC" TypeGUID="3ea8ee87-daf4-4abc-a6e6-9c54a9452824" Identifier="47a1d70f-f7b2-4602-8fe8-979ceb49f858">
-						<Description />
-						<Properties />
-						<Errors />
 					</Section>
 				</Section>
-				<Section Name="Stimulus" TypeGUID="03D3B7FF-1485-13A6-56B2328F9511AC8B" Identifier="23d70224-a36a-47b4-956f-b57189e0aa54">
+				<Section Name="Stimulus" TypeGUID="03D3B7FF-1485-13A6-56B2328F9511AC8B">
 					<Description />
 					<Properties>
 						<Property Name="Analysis Buffer Size">
@@ -1426,11 +1406,11 @@
 						</Property>
 					</Properties>
 					<Errors />
-					<Section Name="GEN001" TypeGUID="03D3B80E-1485-13A6-56528B60DC00DC89" Identifier="b86230ef-1d96-4258-85d6-d9c8b85fd082">
+					<Section Name="GEN001" TypeGUID="03D3B80E-1485-13A6-56528B60DC00DC89">
 						<Description />
 						<Properties />
 						<Errors />
-						<Channel Name="GEN001 State" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="a5e0fc23-567a-4ce1-9fc6-f186d8f42243" RowDim="1" ColDim="1" Units="" BitFields="1">
+						<Channel Name="GEN001 State" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -1442,7 +1422,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN001 Rate" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="f9e2e6e4-3f30-4b89-b387-0d4368b2bf31" RowDim="1" ColDim="1" Units="sec/loop" BitFields="1">
+						<Channel Name="GEN001 Rate" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="sec/loop" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -1454,7 +1434,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN001 Current Step" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="1f72c9b1-9b4f-43e7-8639-9a0986974e78" RowDim="1" ColDim="1" Units="" BitFields="3">
+						<Channel Name="GEN001 Current Step" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="3">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -1466,7 +1446,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN001 Current Function" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="7d8e6c00-ded7-43e7-9660-9cdb57be91eb" RowDim="1" ColDim="1" Units="" BitFields="1">
+						<Channel Name="GEN001 Current Function" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -1478,7 +1458,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN001 Hold Flag" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="0c490519-a48e-4bc7-8554-85cdbe436fe1" RowDim="1" ColDim="1" Units="" BitFields="1">
+						<Channel Name="GEN001 Hold Flag" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -1490,7 +1470,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN001 Hold Release" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="f5767194-081b-4841-8032-e365410340c4" RowDim="1" ColDim="1" Units="" BitFields="1">
+						<Channel Name="GEN001 Hold Release" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -1502,7 +1482,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN001 Total # Steps" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="852a7a71-3506-44e0-8be1-e280e15ce63f" RowDim="1" ColDim="1" Units="" BitFields="1">
+						<Channel Name="GEN001 Total # Steps" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -1514,7 +1494,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN001 Group" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="b1c09dba-ca09-4ab3-9cbf-147f102ee5c0" RowDim="1" ColDim="1" Units="" BitFields="1">
+						<Channel Name="GEN001 Group" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -1526,7 +1506,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN001 Client" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="a912f185-9a61-46fb-85aa-ea890a837075" RowDim="1" ColDim="1" Units="" BitFields="1">
+						<Channel Name="GEN001 Client" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -1538,7 +1518,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN001 Total # Blocks" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="93d922d5-64d3-4f15-a6bc-017f5c4b9a90" RowDim="1" ColDim="1" Units="" BitFields="1">
+						<Channel Name="GEN001 Total # Blocks" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -1550,7 +1530,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN001 Current Block" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="4e41482d-170b-410a-9d00-80be558ab4f7" RowDim="1" ColDim="1" Units="" BitFields="3">
+						<Channel Name="GEN001 Current Block" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="3">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -1562,7 +1542,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN001 Cycle" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="ba176e4a-2760-43dd-b4a5-b39dce5d10ea" RowDim="1" ColDim="1" Units="cycles" BitFields="1">
+						<Channel Name="GEN001 Cycle" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="cycles" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -1574,7 +1554,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN001 Total Cycles" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="f73a5b9b-636c-45bb-9aa6-b90e09452ece" RowDim="1" ColDim="1" Units="cycles" BitFields="1">
+						<Channel Name="GEN001 Total Cycles" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="cycles" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -1586,7 +1566,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN001 Time in Function" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="a2a098e6-d0d3-4e04-a69b-df7d75915cd1" RowDim="1" ColDim="1" Units="sec" BitFields="1">
+						<Channel Name="GEN001 Time in Function" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="sec" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -1598,7 +1578,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN001 Total Time" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="cc1e6fd3-7e5f-43e3-976e-48c787286703" RowDim="1" ColDim="1" Units="sec" BitFields="1">
+						<Channel Name="GEN001 Total Time" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="sec" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -1610,7 +1590,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN001 Timer" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="aa338e38-439e-4839-9a2b-08b7f1dcb7df" RowDim="1" ColDim="1" Units="sec" BitFields="1">
+						<Channel Name="GEN001 Timer" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="sec" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -1622,7 +1602,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN001 Output" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="9f90f16a-8f76-4cfa-85ff-f06cddd93dac" RowDim="1" ColDim="1" Units="EUs" BitFields="1">
+						<Channel Name="GEN001 Output" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="EUs" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -1634,7 +1614,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN001 Ramp Setpoint" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="4f1689ce-0182-4380-985b-1fa8109ad45d" RowDim="1" ColDim="1" Units="EUs" BitFields="3">
+						<Channel Name="GEN001 Ramp Setpoint" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="EUs" BitFields="3">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -1646,7 +1626,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN001 Ramp Rate Eu/sec" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="e8d96ae7-20fc-41e1-a682-efc0c653031c" RowDim="1" ColDim="1" Units="EUs/sec" BitFields="3">
+						<Channel Name="GEN001 Ramp Rate Eu/sec" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="EUs/sec" BitFields="3">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -1658,7 +1638,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN001 Spare" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="5bd612fa-3a2a-4341-85c3-40b18d5d8e3c" RowDim="1" ColDim="1" Units="" BitFields="1">
+						<Channel Name="GEN001 Spare" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -1671,11 +1651,11 @@
 							</DefaultValue>
 						</Channel>
 					</Section>
-					<Section Name="GEN002" TypeGUID="03D3B80E-1485-13A6-56528B60DC00DC89" Identifier="5d5e3f08-7ff9-442c-9cbe-7962a10c5fa4">
+					<Section Name="GEN002" TypeGUID="03D3B80E-1485-13A6-56528B60DC00DC89">
 						<Description />
 						<Properties />
 						<Errors />
-						<Channel Name="GEN002 State" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="4f97a46e-459a-44c7-89ea-5d68704697a7" RowDim="1" ColDim="1" Units="" BitFields="1">
+						<Channel Name="GEN002 State" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -1687,7 +1667,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN002 Rate" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="8fcda8f8-7b08-4ac1-abce-37f4aeef8f77" RowDim="1" ColDim="1" Units="sec/loop" BitFields="1">
+						<Channel Name="GEN002 Rate" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="sec/loop" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -1699,7 +1679,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN002 Current Step" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="081a5c1c-4d01-4be9-8470-7914b28fe230" RowDim="1" ColDim="1" Units="" BitFields="3">
+						<Channel Name="GEN002 Current Step" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="3">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -1711,7 +1691,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN002 Current Function" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="7081b260-07cc-4505-9d9b-e01346245926" RowDim="1" ColDim="1" Units="" BitFields="1">
+						<Channel Name="GEN002 Current Function" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -1723,7 +1703,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN002 Hold Flag" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="864aa7c1-410d-434d-bf7d-c0ae6e754e15" RowDim="1" ColDim="1" Units="" BitFields="1">
+						<Channel Name="GEN002 Hold Flag" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -1735,7 +1715,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN002 Hold Release" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="6b1f6ff7-8632-4edc-9a22-2b9d971d45eb" RowDim="1" ColDim="1" Units="" BitFields="1">
+						<Channel Name="GEN002 Hold Release" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -1747,7 +1727,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN002 Total # Steps" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="e2f03577-b719-4950-86e8-160e1a7da28f" RowDim="1" ColDim="1" Units="" BitFields="1">
+						<Channel Name="GEN002 Total # Steps" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -1759,7 +1739,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN002 Group" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="b0a92dc6-7e3d-419c-8bf3-f688ac47ff3e" RowDim="1" ColDim="1" Units="" BitFields="1">
+						<Channel Name="GEN002 Group" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -1771,7 +1751,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN002 Client" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="a1a97221-1716-46f9-9101-c714b4c0371b" RowDim="1" ColDim="1" Units="" BitFields="1">
+						<Channel Name="GEN002 Client" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -1783,7 +1763,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN002 Total # Blocks" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="49c79e0f-cfa2-4e74-840a-f7cb6b48427d" RowDim="1" ColDim="1" Units="" BitFields="1">
+						<Channel Name="GEN002 Total # Blocks" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -1795,7 +1775,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN002 Current Block" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="706b8668-e532-4d98-b823-9bfff645e18d" RowDim="1" ColDim="1" Units="" BitFields="3">
+						<Channel Name="GEN002 Current Block" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="3">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -1807,7 +1787,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN002 Cycle" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="1a6b5e67-d33d-4325-a173-8193ee60bf88" RowDim="1" ColDim="1" Units="cycles" BitFields="1">
+						<Channel Name="GEN002 Cycle" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="cycles" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -1819,7 +1799,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN002 Total Cycles" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="96869db1-aa98-4dd3-a16a-5a8018fa1188" RowDim="1" ColDim="1" Units="cycles" BitFields="1">
+						<Channel Name="GEN002 Total Cycles" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="cycles" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -1831,7 +1811,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN002 Time in Function" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="ab0fb567-a25a-4c54-ad8d-538586d74831" RowDim="1" ColDim="1" Units="sec" BitFields="1">
+						<Channel Name="GEN002 Time in Function" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="sec" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -1843,7 +1823,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN002 Total Time" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="d3b7b0a9-12c2-4939-923f-fa2ff6075d43" RowDim="1" ColDim="1" Units="sec" BitFields="1">
+						<Channel Name="GEN002 Total Time" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="sec" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -1855,7 +1835,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN002 Timer" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="6d18b773-b79b-4ead-9f05-7f3973146c54" RowDim="1" ColDim="1" Units="sec" BitFields="1">
+						<Channel Name="GEN002 Timer" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="sec" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -1867,7 +1847,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN002 Output" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="5719061b-e172-4990-8e3f-ffbaba426ae9" RowDim="1" ColDim="1" Units="EUs" BitFields="1">
+						<Channel Name="GEN002 Output" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="EUs" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -1879,7 +1859,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN002 Ramp Setpoint" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="a36a8dc5-19c2-4a09-9416-75b4c637ec9f" RowDim="1" ColDim="1" Units="EUs" BitFields="3">
+						<Channel Name="GEN002 Ramp Setpoint" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="EUs" BitFields="3">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -1891,7 +1871,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN002 Ramp Rate Eu/sec" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="299d0d5a-3aa4-4cf1-9643-07e563a0b2f1" RowDim="1" ColDim="1" Units="EUs/sec" BitFields="3">
+						<Channel Name="GEN002 Ramp Rate Eu/sec" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="EUs/sec" BitFields="3">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -1903,7 +1883,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN002 Spare" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="08f08c9d-47d5-4cd6-8d0a-b0f73dc1fe60" RowDim="1" ColDim="1" Units="" BitFields="1">
+						<Channel Name="GEN002 Spare" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -1916,11 +1896,11 @@
 							</DefaultValue>
 						</Channel>
 					</Section>
-					<Section Name="GEN003" TypeGUID="03D3B80E-1485-13A6-56528B60DC00DC89" Identifier="88f1b478-3b33-4b82-8f4e-a0f1be2e78a3">
+					<Section Name="GEN003" TypeGUID="03D3B80E-1485-13A6-56528B60DC00DC89">
 						<Description />
 						<Properties />
 						<Errors />
-						<Channel Name="GEN003 State" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="44e0a3dd-5e41-42d8-b0ca-6411b094b86c" RowDim="1" ColDim="1" Units="" BitFields="1">
+						<Channel Name="GEN003 State" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -1932,7 +1912,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN003 Rate" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="9bdfc884-4c7d-4ab4-b8da-02f570b62f5a" RowDim="1" ColDim="1" Units="sec/loop" BitFields="1">
+						<Channel Name="GEN003 Rate" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="sec/loop" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -1944,7 +1924,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN003 Current Step" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="14bae544-a9ee-4d29-b13f-3d17bae7ed9f" RowDim="1" ColDim="1" Units="" BitFields="3">
+						<Channel Name="GEN003 Current Step" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="3">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -1956,7 +1936,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN003 Current Function" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="48b9351d-8d9d-487e-b5c9-6afeee899e31" RowDim="1" ColDim="1" Units="" BitFields="1">
+						<Channel Name="GEN003 Current Function" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -1968,7 +1948,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN003 Hold Flag" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="ce905977-dd18-4ba6-b628-8238bc9c12ac" RowDim="1" ColDim="1" Units="" BitFields="1">
+						<Channel Name="GEN003 Hold Flag" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -1980,7 +1960,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN003 Hold Release" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="381e4dc5-2814-41c8-b743-febe1c766209" RowDim="1" ColDim="1" Units="" BitFields="1">
+						<Channel Name="GEN003 Hold Release" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -1992,7 +1972,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN003 Total # Steps" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="9f8b7351-3287-4df9-baa0-cf2632ae26ea" RowDim="1" ColDim="1" Units="" BitFields="1">
+						<Channel Name="GEN003 Total # Steps" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -2004,7 +1984,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN003 Group" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="466d852c-f362-4292-a4ce-ef4327461597" RowDim="1" ColDim="1" Units="" BitFields="1">
+						<Channel Name="GEN003 Group" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -2016,7 +1996,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN003 Client" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="2c9ab0fb-9a22-46f9-992f-344e3aa34d95" RowDim="1" ColDim="1" Units="" BitFields="1">
+						<Channel Name="GEN003 Client" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -2028,7 +2008,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN003 Total # Blocks" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="7bbfe974-819b-4ac2-836c-3de96c94eb8b" RowDim="1" ColDim="1" Units="" BitFields="1">
+						<Channel Name="GEN003 Total # Blocks" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -2040,7 +2020,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN003 Current Block" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="e530894b-3f52-47f8-81bf-8eb637de6bec" RowDim="1" ColDim="1" Units="" BitFields="3">
+						<Channel Name="GEN003 Current Block" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="3">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -2052,7 +2032,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN003 Cycle" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="0c77de6b-02ce-4400-a0ef-28f9f42e37fd" RowDim="1" ColDim="1" Units="cycles" BitFields="1">
+						<Channel Name="GEN003 Cycle" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="cycles" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -2064,7 +2044,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN003 Total Cycles" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="7f30ab52-a8a8-4f27-8b2d-2ad739685157" RowDim="1" ColDim="1" Units="cycles" BitFields="1">
+						<Channel Name="GEN003 Total Cycles" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="cycles" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -2076,7 +2056,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN003 Time in Function" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="9fdb6e65-b4da-4aed-8221-17fe18f86f54" RowDim="1" ColDim="1" Units="sec" BitFields="1">
+						<Channel Name="GEN003 Time in Function" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="sec" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -2088,7 +2068,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN003 Total Time" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="29092a03-38f6-4383-a190-6443982f29b9" RowDim="1" ColDim="1" Units="sec" BitFields="1">
+						<Channel Name="GEN003 Total Time" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="sec" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -2100,7 +2080,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN003 Timer" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="116f0605-6a82-49ad-98ec-bb7eeeb8ed39" RowDim="1" ColDim="1" Units="sec" BitFields="1">
+						<Channel Name="GEN003 Timer" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="sec" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -2112,7 +2092,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN003 Output" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="3ba708d1-4909-4843-a45a-8513b3a0420e" RowDim="1" ColDim="1" Units="EUs" BitFields="1">
+						<Channel Name="GEN003 Output" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="EUs" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -2124,7 +2104,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN003 Ramp Setpoint" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="791bc13f-02ab-41b6-b971-66ee72f274e5" RowDim="1" ColDim="1" Units="EUs" BitFields="3">
+						<Channel Name="GEN003 Ramp Setpoint" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="EUs" BitFields="3">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -2136,7 +2116,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN003 Ramp Rate Eu/sec" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="5bd7038c-be1c-4332-acd1-741b8b9051e3" RowDim="1" ColDim="1" Units="EUs/sec" BitFields="3">
+						<Channel Name="GEN003 Ramp Rate Eu/sec" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="EUs/sec" BitFields="3">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -2148,7 +2128,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN003 Spare" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="52c5a57a-b195-41de-9909-a37c01db0eb4" RowDim="1" ColDim="1" Units="" BitFields="1">
+						<Channel Name="GEN003 Spare" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -2161,11 +2141,11 @@
 							</DefaultValue>
 						</Channel>
 					</Section>
-					<Section Name="GEN004" TypeGUID="03D3B80E-1485-13A6-56528B60DC00DC89" Identifier="52079867-6750-4264-95a0-82b012a92b25">
+					<Section Name="GEN004" TypeGUID="03D3B80E-1485-13A6-56528B60DC00DC89">
 						<Description />
 						<Properties />
 						<Errors />
-						<Channel Name="GEN004 State" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="0507beb3-f880-4d71-a3e1-db62800f2b26" RowDim="1" ColDim="1" Units="" BitFields="1">
+						<Channel Name="GEN004 State" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -2177,7 +2157,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN004 Rate" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="f4c73e78-fdb0-4cd3-99db-f834d04a6c42" RowDim="1" ColDim="1" Units="sec/loop" BitFields="1">
+						<Channel Name="GEN004 Rate" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="sec/loop" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -2189,7 +2169,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN004 Current Step" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="80f49a57-801b-424f-89a4-4d31cb53d83a" RowDim="1" ColDim="1" Units="" BitFields="3">
+						<Channel Name="GEN004 Current Step" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="3">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -2201,7 +2181,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN004 Current Function" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="b3bc16cd-1da3-4992-b893-a2b2424be6b1" RowDim="1" ColDim="1" Units="" BitFields="1">
+						<Channel Name="GEN004 Current Function" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -2213,7 +2193,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN004 Hold Flag" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="6c859ae4-0b54-40d5-88be-0dc149a60c35" RowDim="1" ColDim="1" Units="" BitFields="1">
+						<Channel Name="GEN004 Hold Flag" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -2225,7 +2205,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN004 Hold Release" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="e7d37561-9e2d-4b19-83e9-479cfa1bffc8" RowDim="1" ColDim="1" Units="" BitFields="1">
+						<Channel Name="GEN004 Hold Release" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -2237,7 +2217,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN004 Total # Steps" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="534c3716-a622-4102-bf14-6e1a750e38be" RowDim="1" ColDim="1" Units="" BitFields="1">
+						<Channel Name="GEN004 Total # Steps" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -2249,7 +2229,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN004 Group" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="81a1dceb-aa28-42d0-8f46-0eec9f57c5da" RowDim="1" ColDim="1" Units="" BitFields="1">
+						<Channel Name="GEN004 Group" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -2261,7 +2241,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN004 Client" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="19427653-ae73-4086-be76-7502812cc2ae" RowDim="1" ColDim="1" Units="" BitFields="1">
+						<Channel Name="GEN004 Client" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -2273,7 +2253,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN004 Total # Blocks" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="521482f2-8b40-48e9-9cdd-5d12c54c973c" RowDim="1" ColDim="1" Units="" BitFields="1">
+						<Channel Name="GEN004 Total # Blocks" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -2285,7 +2265,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN004 Current Block" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="76196db0-cfa2-440e-a48b-7111b86c8425" RowDim="1" ColDim="1" Units="" BitFields="3">
+						<Channel Name="GEN004 Current Block" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="3">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -2297,7 +2277,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN004 Cycle" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="64a5c448-3e48-4ea3-8c07-ac31c706d9a8" RowDim="1" ColDim="1" Units="cycles" BitFields="1">
+						<Channel Name="GEN004 Cycle" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="cycles" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -2309,7 +2289,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN004 Total Cycles" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="6ee72e0f-8870-4cb7-8467-570f83c9ef68" RowDim="1" ColDim="1" Units="cycles" BitFields="1">
+						<Channel Name="GEN004 Total Cycles" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="cycles" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -2321,7 +2301,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN004 Time in Function" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="0b1dac74-f2a0-4d97-92a2-17988260710e" RowDim="1" ColDim="1" Units="sec" BitFields="1">
+						<Channel Name="GEN004 Time in Function" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="sec" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -2333,7 +2313,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN004 Total Time" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="84ccd50b-79dd-497f-96e1-8868773cd4dd" RowDim="1" ColDim="1" Units="sec" BitFields="1">
+						<Channel Name="GEN004 Total Time" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="sec" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -2345,7 +2325,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN004 Timer" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="4f6276a1-b203-4dab-add6-3fe425e36918" RowDim="1" ColDim="1" Units="sec" BitFields="1">
+						<Channel Name="GEN004 Timer" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="sec" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -2357,7 +2337,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN004 Output" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="44762dd6-a637-44fb-ae5c-1205b2cd02fb" RowDim="1" ColDim="1" Units="EUs" BitFields="1">
+						<Channel Name="GEN004 Output" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="EUs" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -2369,7 +2349,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN004 Ramp Setpoint" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="d1f2a9a1-01c2-4975-be6c-e7ca4861d642" RowDim="1" ColDim="1" Units="EUs" BitFields="3">
+						<Channel Name="GEN004 Ramp Setpoint" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="EUs" BitFields="3">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -2381,7 +2361,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN004 Ramp Rate Eu/sec" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="5b0e56d4-1715-49d3-86e2-b1f925e6a1cb" RowDim="1" ColDim="1" Units="EUs/sec" BitFields="3">
+						<Channel Name="GEN004 Ramp Rate Eu/sec" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="EUs/sec" BitFields="3">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -2393,7 +2373,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN004 Spare" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="0264ba5b-5681-460f-8289-38efc6a1ccac" RowDim="1" ColDim="1" Units="" BitFields="1">
+						<Channel Name="GEN004 Spare" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -2406,11 +2386,11 @@
 							</DefaultValue>
 						</Channel>
 					</Section>
-					<Section Name="GEN005" TypeGUID="03D3B80E-1485-13A6-56528B60DC00DC89" Identifier="089063f1-6d16-4b39-b370-0a7b61aed0a3">
+					<Section Name="GEN005" TypeGUID="03D3B80E-1485-13A6-56528B60DC00DC89">
 						<Description />
 						<Properties />
 						<Errors />
-						<Channel Name="GEN005 State" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="c849069b-fc6b-4edf-b868-139aafd04a4e" RowDim="1" ColDim="1" Units="" BitFields="1">
+						<Channel Name="GEN005 State" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -2422,7 +2402,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN005 Rate" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="33978fb3-b5e1-4b53-a6ca-5ee99f6dc262" RowDim="1" ColDim="1" Units="sec/loop" BitFields="1">
+						<Channel Name="GEN005 Rate" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="sec/loop" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -2434,7 +2414,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN005 Current Step" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="2a5cd230-f177-4f6a-8f2f-182bc72ff2cc" RowDim="1" ColDim="1" Units="" BitFields="3">
+						<Channel Name="GEN005 Current Step" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="3">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -2446,7 +2426,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN005 Current Function" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="1f53e081-8762-4268-8297-b60c6b664999" RowDim="1" ColDim="1" Units="" BitFields="1">
+						<Channel Name="GEN005 Current Function" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -2458,7 +2438,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN005 Hold Flag" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="7065b312-effd-4b05-bf0d-88abda04fefc" RowDim="1" ColDim="1" Units="" BitFields="1">
+						<Channel Name="GEN005 Hold Flag" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -2470,7 +2450,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN005 Hold Release" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="ef383558-dcbc-43d2-b9e7-41d105cb8a2b" RowDim="1" ColDim="1" Units="" BitFields="1">
+						<Channel Name="GEN005 Hold Release" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -2482,7 +2462,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN005 Total # Steps" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="c6ae6aa8-9aa7-4cb5-986b-f96e6b9d6945" RowDim="1" ColDim="1" Units="" BitFields="1">
+						<Channel Name="GEN005 Total # Steps" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -2494,7 +2474,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN005 Group" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="6328a52f-0fb6-4e08-8753-542088140dab" RowDim="1" ColDim="1" Units="" BitFields="1">
+						<Channel Name="GEN005 Group" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -2506,7 +2486,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN005 Client" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="e5fde315-85ad-4a39-b31c-8ac56e783d4b" RowDim="1" ColDim="1" Units="" BitFields="1">
+						<Channel Name="GEN005 Client" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -2518,7 +2498,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN005 Total # Blocks" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="a75f678e-f6a4-4e50-83c5-5a952669990c" RowDim="1" ColDim="1" Units="" BitFields="1">
+						<Channel Name="GEN005 Total # Blocks" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -2530,7 +2510,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN005 Current Block" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="fea01b4e-c9f0-4f23-bb42-6bb3df74917f" RowDim="1" ColDim="1" Units="" BitFields="3">
+						<Channel Name="GEN005 Current Block" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="3">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -2542,7 +2522,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN005 Cycle" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="7ba27cbd-4cb3-446b-bab9-c2d087c3760d" RowDim="1" ColDim="1" Units="cycles" BitFields="1">
+						<Channel Name="GEN005 Cycle" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="cycles" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -2554,7 +2534,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN005 Total Cycles" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="cf074584-a611-460b-b563-465842126761" RowDim="1" ColDim="1" Units="cycles" BitFields="1">
+						<Channel Name="GEN005 Total Cycles" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="cycles" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -2566,7 +2546,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN005 Time in Function" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="1634f120-a49c-4fec-90f2-efbbd67a4fc2" RowDim="1" ColDim="1" Units="sec" BitFields="1">
+						<Channel Name="GEN005 Time in Function" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="sec" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -2578,7 +2558,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN005 Total Time" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="5ec90a34-4d34-476b-bc78-b8904c5ae835" RowDim="1" ColDim="1" Units="sec" BitFields="1">
+						<Channel Name="GEN005 Total Time" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="sec" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -2590,7 +2570,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN005 Timer" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="bc525bf9-ee1a-4582-a13d-c483ade57d0d" RowDim="1" ColDim="1" Units="sec" BitFields="1">
+						<Channel Name="GEN005 Timer" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="sec" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -2602,7 +2582,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN005 Output" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="e778b1b0-bd9f-4ba8-a736-ca0f96b2dbe7" RowDim="1" ColDim="1" Units="EUs" BitFields="1">
+						<Channel Name="GEN005 Output" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="EUs" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -2614,7 +2594,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN005 Ramp Setpoint" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="e4abc18a-0ad4-4dc9-ba26-4190fd48a55c" RowDim="1" ColDim="1" Units="EUs" BitFields="3">
+						<Channel Name="GEN005 Ramp Setpoint" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="EUs" BitFields="3">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -2626,7 +2606,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN005 Ramp Rate Eu/sec" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="f9a8f055-dd69-4e7a-bbea-369f0ab4c867" RowDim="1" ColDim="1" Units="EUs/sec" BitFields="3">
+						<Channel Name="GEN005 Ramp Rate Eu/sec" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="EUs/sec" BitFields="3">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -2638,7 +2618,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN005 Spare" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="ff27742e-c501-4f30-9231-b5b890445386" RowDim="1" ColDim="1" Units="" BitFields="1">
+						<Channel Name="GEN005 Spare" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -2651,11 +2631,11 @@
 							</DefaultValue>
 						</Channel>
 					</Section>
-					<Section Name="GEN006" TypeGUID="03D3B80E-1485-13A6-56528B60DC00DC89" Identifier="89a44e69-3d2e-4589-97e2-764acc0db74a">
+					<Section Name="GEN006" TypeGUID="03D3B80E-1485-13A6-56528B60DC00DC89">
 						<Description />
 						<Properties />
 						<Errors />
-						<Channel Name="GEN006 State" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="740d1f93-05b1-4336-8d44-55a9096fac02" RowDim="1" ColDim="1" Units="" BitFields="1">
+						<Channel Name="GEN006 State" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -2667,7 +2647,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN006 Rate" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="9d093476-0f90-4311-b87d-9e8c34c208b7" RowDim="1" ColDim="1" Units="sec/loop" BitFields="1">
+						<Channel Name="GEN006 Rate" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="sec/loop" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -2679,7 +2659,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN006 Current Step" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="b223eaea-4de5-43c3-a46b-99b052face49" RowDim="1" ColDim="1" Units="" BitFields="3">
+						<Channel Name="GEN006 Current Step" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="3">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -2691,7 +2671,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN006 Current Function" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="9c3f2acb-0a6e-4a7d-b433-7289a454d6e6" RowDim="1" ColDim="1" Units="" BitFields="1">
+						<Channel Name="GEN006 Current Function" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -2703,7 +2683,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN006 Hold Flag" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="48da220a-0f66-4d4a-af27-558cb6d72d1a" RowDim="1" ColDim="1" Units="" BitFields="1">
+						<Channel Name="GEN006 Hold Flag" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -2715,7 +2695,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN006 Hold Release" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="fdbc4cc2-06b0-4efc-bee6-c561a984ae13" RowDim="1" ColDim="1" Units="" BitFields="1">
+						<Channel Name="GEN006 Hold Release" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -2727,7 +2707,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN006 Total # Steps" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="76adaf56-e03a-4dc2-a0e8-c98b1ff16656" RowDim="1" ColDim="1" Units="" BitFields="1">
+						<Channel Name="GEN006 Total # Steps" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -2739,7 +2719,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN006 Group" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="639f71a7-de76-46b7-bdcb-e380b719a407" RowDim="1" ColDim="1" Units="" BitFields="1">
+						<Channel Name="GEN006 Group" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -2751,7 +2731,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN006 Client" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="60f8794e-a592-4521-9e48-4425192d26b8" RowDim="1" ColDim="1" Units="" BitFields="1">
+						<Channel Name="GEN006 Client" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -2763,7 +2743,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN006 Total # Blocks" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="9cd26edd-2870-4077-8cb9-d19c5dd92cb4" RowDim="1" ColDim="1" Units="" BitFields="1">
+						<Channel Name="GEN006 Total # Blocks" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -2775,7 +2755,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN006 Current Block" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="47146797-84dc-462e-af20-8491342d4683" RowDim="1" ColDim="1" Units="" BitFields="3">
+						<Channel Name="GEN006 Current Block" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="3">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -2787,7 +2767,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN006 Cycle" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="76edb8a2-a2fa-4d20-b0a4-c61e7adae6ed" RowDim="1" ColDim="1" Units="cycles" BitFields="1">
+						<Channel Name="GEN006 Cycle" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="cycles" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -2799,7 +2779,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN006 Total Cycles" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="6f59eb2a-095e-405f-a0f8-b6372d8e4492" RowDim="1" ColDim="1" Units="cycles" BitFields="1">
+						<Channel Name="GEN006 Total Cycles" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="cycles" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -2811,7 +2791,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN006 Time in Function" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="ba9b8880-650a-4cb8-a09c-8b0e3735a5c5" RowDim="1" ColDim="1" Units="sec" BitFields="1">
+						<Channel Name="GEN006 Time in Function" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="sec" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -2823,7 +2803,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN006 Total Time" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="89b56e3e-94bc-42ab-9653-392eda61186f" RowDim="1" ColDim="1" Units="sec" BitFields="1">
+						<Channel Name="GEN006 Total Time" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="sec" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -2835,7 +2815,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN006 Timer" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="3f05234f-56d6-4cd0-a62b-f4e734ce84ca" RowDim="1" ColDim="1" Units="sec" BitFields="1">
+						<Channel Name="GEN006 Timer" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="sec" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -2847,7 +2827,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN006 Output" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="6233afb7-9ffb-4f85-b325-e7ccc946b9c2" RowDim="1" ColDim="1" Units="EUs" BitFields="1">
+						<Channel Name="GEN006 Output" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="EUs" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -2859,7 +2839,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN006 Ramp Setpoint" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="1025ee21-1605-47b4-aa97-f184fbd7ad43" RowDim="1" ColDim="1" Units="EUs" BitFields="3">
+						<Channel Name="GEN006 Ramp Setpoint" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="EUs" BitFields="3">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -2871,7 +2851,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN006 Ramp Rate Eu/sec" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="90c80820-0dee-4522-b115-94a047691cc1" RowDim="1" ColDim="1" Units="EUs/sec" BitFields="3">
+						<Channel Name="GEN006 Ramp Rate Eu/sec" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="EUs/sec" BitFields="3">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -2883,7 +2863,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN006 Spare" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="15ebd081-5b07-444d-a9ab-b3f6410769ce" RowDim="1" ColDim="1" Units="" BitFields="1">
+						<Channel Name="GEN006 Spare" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -2896,11 +2876,11 @@
 							</DefaultValue>
 						</Channel>
 					</Section>
-					<Section Name="GEN007" TypeGUID="03D3B80E-1485-13A6-56528B60DC00DC89" Identifier="4f9daa0f-8dec-4b87-883c-b528e46ff6d1">
+					<Section Name="GEN007" TypeGUID="03D3B80E-1485-13A6-56528B60DC00DC89">
 						<Description />
 						<Properties />
 						<Errors />
-						<Channel Name="GEN007 State" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="764a494c-a35e-4e33-ae7e-d8f55c85facb" RowDim="1" ColDim="1" Units="" BitFields="1">
+						<Channel Name="GEN007 State" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -2912,7 +2892,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN007 Rate" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="35ac5e57-a915-47fb-a098-a130f090a5e1" RowDim="1" ColDim="1" Units="sec/loop" BitFields="1">
+						<Channel Name="GEN007 Rate" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="sec/loop" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -2924,7 +2904,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN007 Current Step" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="e761a608-c9d5-4181-93ce-add333683eb1" RowDim="1" ColDim="1" Units="" BitFields="3">
+						<Channel Name="GEN007 Current Step" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="3">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -2936,7 +2916,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN007 Current Function" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="76ada45c-cfb1-4759-9050-6c505b4b9eab" RowDim="1" ColDim="1" Units="" BitFields="1">
+						<Channel Name="GEN007 Current Function" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -2948,7 +2928,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN007 Hold Flag" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="acebba89-2759-4d6b-a24d-122224d605ec" RowDim="1" ColDim="1" Units="" BitFields="1">
+						<Channel Name="GEN007 Hold Flag" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -2960,7 +2940,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN007 Hold Release" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="5c163383-42fb-4e78-bc6b-ae0e2378cde8" RowDim="1" ColDim="1" Units="" BitFields="1">
+						<Channel Name="GEN007 Hold Release" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -2972,7 +2952,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN007 Total # Steps" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="0e873890-ff8e-4df7-afd9-fdf9309143c7" RowDim="1" ColDim="1" Units="" BitFields="1">
+						<Channel Name="GEN007 Total # Steps" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -2984,7 +2964,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN007 Group" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="5434d297-55d5-4086-8b6d-8482ab74259f" RowDim="1" ColDim="1" Units="" BitFields="1">
+						<Channel Name="GEN007 Group" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -2996,7 +2976,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN007 Client" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="3fe4a385-7b99-4542-89be-a6b20952c7ab" RowDim="1" ColDim="1" Units="" BitFields="1">
+						<Channel Name="GEN007 Client" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -3008,7 +2988,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN007 Total # Blocks" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="c86072cc-e6ff-4d6b-ba47-340d1409f516" RowDim="1" ColDim="1" Units="" BitFields="1">
+						<Channel Name="GEN007 Total # Blocks" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -3020,7 +3000,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN007 Current Block" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="73708689-5d96-4d57-a206-f4da8d7f450c" RowDim="1" ColDim="1" Units="" BitFields="3">
+						<Channel Name="GEN007 Current Block" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="3">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -3032,7 +3012,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN007 Cycle" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="c9e0d3f3-5756-4ab7-9762-a02c6bcf3662" RowDim="1" ColDim="1" Units="cycles" BitFields="1">
+						<Channel Name="GEN007 Cycle" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="cycles" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -3044,7 +3024,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN007 Total Cycles" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="041c183c-0eee-4504-a859-88832d495913" RowDim="1" ColDim="1" Units="cycles" BitFields="1">
+						<Channel Name="GEN007 Total Cycles" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="cycles" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -3056,7 +3036,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN007 Time in Function" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="2a4b95b3-d6fa-406c-9f5d-42fabafe7b19" RowDim="1" ColDim="1" Units="sec" BitFields="1">
+						<Channel Name="GEN007 Time in Function" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="sec" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -3068,7 +3048,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN007 Total Time" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="cea87127-b614-49d8-8746-17e4a24c8b86" RowDim="1" ColDim="1" Units="sec" BitFields="1">
+						<Channel Name="GEN007 Total Time" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="sec" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -3080,7 +3060,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN007 Timer" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="afd999f9-8a9e-4b6c-9335-9e402d756ff1" RowDim="1" ColDim="1" Units="sec" BitFields="1">
+						<Channel Name="GEN007 Timer" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="sec" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -3092,7 +3072,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN007 Output" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="0bcb423d-de91-4db7-9080-101554181121" RowDim="1" ColDim="1" Units="EUs" BitFields="1">
+						<Channel Name="GEN007 Output" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="EUs" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -3104,7 +3084,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN007 Ramp Setpoint" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="01f40ee6-8661-45d6-8345-0c3c5c1d2ed2" RowDim="1" ColDim="1" Units="EUs" BitFields="3">
+						<Channel Name="GEN007 Ramp Setpoint" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="EUs" BitFields="3">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -3116,7 +3096,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN007 Ramp Rate Eu/sec" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="a12afb82-3b85-4133-b230-ea876e447c67" RowDim="1" ColDim="1" Units="EUs/sec" BitFields="3">
+						<Channel Name="GEN007 Ramp Rate Eu/sec" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="EUs/sec" BitFields="3">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -3128,7 +3108,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN007 Spare" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="b5a2169c-da04-4b40-8ef7-90b3d904bc74" RowDim="1" ColDim="1" Units="" BitFields="1">
+						<Channel Name="GEN007 Spare" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -3141,11 +3121,11 @@
 							</DefaultValue>
 						</Channel>
 					</Section>
-					<Section Name="GEN008" TypeGUID="03D3B80E-1485-13A6-56528B60DC00DC89" Identifier="de0c60f6-bbd7-4293-93b8-6741f1823af5">
+					<Section Name="GEN008" TypeGUID="03D3B80E-1485-13A6-56528B60DC00DC89">
 						<Description />
 						<Properties />
 						<Errors />
-						<Channel Name="GEN008 State" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="f2ba4f02-b6e4-422e-a378-b6cd4e244833" RowDim="1" ColDim="1" Units="" BitFields="1">
+						<Channel Name="GEN008 State" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -3157,7 +3137,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN008 Rate" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="4f238b89-7142-4831-9985-a501ee99b9af" RowDim="1" ColDim="1" Units="sec/loop" BitFields="1">
+						<Channel Name="GEN008 Rate" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="sec/loop" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -3169,7 +3149,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN008 Current Step" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="4e6e6d3b-c1b4-4f95-b5a4-39eec7e51ef8" RowDim="1" ColDim="1" Units="" BitFields="3">
+						<Channel Name="GEN008 Current Step" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="3">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -3181,7 +3161,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN008 Current Function" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="8e14b158-0e62-4637-a5f8-675fe36f5941" RowDim="1" ColDim="1" Units="" BitFields="1">
+						<Channel Name="GEN008 Current Function" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -3193,7 +3173,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN008 Hold Flag" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="e9df7ddc-5e2d-4505-9c2a-78911d417bc7" RowDim="1" ColDim="1" Units="" BitFields="1">
+						<Channel Name="GEN008 Hold Flag" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -3205,7 +3185,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN008 Hold Release" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="6d5e2c8c-815d-4cd2-ab30-811167fa93e1" RowDim="1" ColDim="1" Units="" BitFields="1">
+						<Channel Name="GEN008 Hold Release" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -3217,7 +3197,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN008 Total # Steps" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="8c4f1e5c-beaf-4ca6-9018-bf9860da17d0" RowDim="1" ColDim="1" Units="" BitFields="1">
+						<Channel Name="GEN008 Total # Steps" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -3229,7 +3209,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN008 Group" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="bfe72022-9fd7-42f5-a0d8-eb15c8a60c1d" RowDim="1" ColDim="1" Units="" BitFields="1">
+						<Channel Name="GEN008 Group" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -3241,7 +3221,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN008 Client" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="483ecf97-53f2-4869-9638-16e51cd5def7" RowDim="1" ColDim="1" Units="" BitFields="1">
+						<Channel Name="GEN008 Client" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -3253,7 +3233,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN008 Total # Blocks" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="bc8cc937-2e13-4da2-ac46-bb2bcbdd6cdf" RowDim="1" ColDim="1" Units="" BitFields="1">
+						<Channel Name="GEN008 Total # Blocks" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -3265,7 +3245,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN008 Current Block" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="5da9b6e3-559b-4d64-956e-99aa8125c730" RowDim="1" ColDim="1" Units="" BitFields="3">
+						<Channel Name="GEN008 Current Block" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="3">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -3277,7 +3257,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN008 Cycle" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="f2d30aa1-4644-48ca-9fc5-bf340c07ff3b" RowDim="1" ColDim="1" Units="cycles" BitFields="1">
+						<Channel Name="GEN008 Cycle" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="cycles" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -3289,7 +3269,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN008 Total Cycles" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="9283d139-41bd-4537-8187-53cefde5877c" RowDim="1" ColDim="1" Units="cycles" BitFields="1">
+						<Channel Name="GEN008 Total Cycles" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="cycles" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -3301,7 +3281,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN008 Time in Function" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="1cdb3e81-768c-4355-bd47-3d835ef370f0" RowDim="1" ColDim="1" Units="sec" BitFields="1">
+						<Channel Name="GEN008 Time in Function" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="sec" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -3313,7 +3293,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN008 Total Time" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="bd882d10-f03d-418c-8ab2-c50efbaab666" RowDim="1" ColDim="1" Units="sec" BitFields="1">
+						<Channel Name="GEN008 Total Time" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="sec" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -3325,7 +3305,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN008 Timer" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="327de56b-9c7c-42ce-b46d-acd4e5e7595c" RowDim="1" ColDim="1" Units="sec" BitFields="1">
+						<Channel Name="GEN008 Timer" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="sec" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -3337,7 +3317,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN008 Output" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="dc7b5d6e-e7cc-45a4-ac9c-ad4dadb9185e" RowDim="1" ColDim="1" Units="EUs" BitFields="1">
+						<Channel Name="GEN008 Output" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="EUs" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -3349,7 +3329,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN008 Ramp Setpoint" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="c0ecfde9-921f-435d-878c-b702582c62e9" RowDim="1" ColDim="1" Units="EUs" BitFields="3">
+						<Channel Name="GEN008 Ramp Setpoint" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="EUs" BitFields="3">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -3361,7 +3341,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN008 Ramp Rate Eu/sec" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="d9c8ca11-00cc-497c-94f1-2100e951d3ff" RowDim="1" ColDim="1" Units="EUs/sec" BitFields="3">
+						<Channel Name="GEN008 Ramp Rate Eu/sec" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="EUs/sec" BitFields="3">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -3373,7 +3353,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN008 Spare" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="a5e3b2dc-03a1-4694-b3cb-e10e9264e26d" RowDim="1" ColDim="1" Units="" BitFields="1">
+						<Channel Name="GEN008 Spare" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -3386,11 +3366,11 @@
 							</DefaultValue>
 						</Channel>
 					</Section>
-					<Section Name="GEN009" TypeGUID="03D3B80E-1485-13A6-56528B60DC00DC89" Identifier="8177d5fe-1f96-4f21-a7a1-3a45627e43e7">
+					<Section Name="GEN009" TypeGUID="03D3B80E-1485-13A6-56528B60DC00DC89">
 						<Description />
 						<Properties />
 						<Errors />
-						<Channel Name="GEN009 State" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="305a93da-4523-4865-85f6-b31f3c8e6a9b" RowDim="1" ColDim="1" Units="" BitFields="1">
+						<Channel Name="GEN009 State" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -3402,7 +3382,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN009 Rate" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="38a1484e-4dd6-4ca3-b6cd-ef3a80cbddd5" RowDim="1" ColDim="1" Units="sec/loop" BitFields="1">
+						<Channel Name="GEN009 Rate" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="sec/loop" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -3414,7 +3394,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN009 Current Step" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="d9cb054f-686f-4750-b719-12e2ddb0f3da" RowDim="1" ColDim="1" Units="" BitFields="3">
+						<Channel Name="GEN009 Current Step" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="3">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -3426,7 +3406,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN009 Current Function" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="95ec4aa1-11b1-4576-80f9-8d3bd4f15296" RowDim="1" ColDim="1" Units="" BitFields="1">
+						<Channel Name="GEN009 Current Function" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -3438,7 +3418,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN009 Hold Flag" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="f029cfaf-0d3b-43a7-81ac-cd915d67e78b" RowDim="1" ColDim="1" Units="" BitFields="1">
+						<Channel Name="GEN009 Hold Flag" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -3450,7 +3430,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN009 Hold Release" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="96b32a1e-4a5e-4543-992f-3e3465405e0a" RowDim="1" ColDim="1" Units="" BitFields="1">
+						<Channel Name="GEN009 Hold Release" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -3462,7 +3442,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN009 Total # Steps" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="89043275-52d0-43f8-96f6-a610b61f02d3" RowDim="1" ColDim="1" Units="" BitFields="1">
+						<Channel Name="GEN009 Total # Steps" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -3474,7 +3454,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN009 Group" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="f2b6aa50-cef0-4679-bd41-c85bc51f6129" RowDim="1" ColDim="1" Units="" BitFields="1">
+						<Channel Name="GEN009 Group" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -3486,7 +3466,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN009 Client" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="540c85d5-61f7-4b24-9a88-0b8e6fa561a6" RowDim="1" ColDim="1" Units="" BitFields="1">
+						<Channel Name="GEN009 Client" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -3498,7 +3478,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN009 Total # Blocks" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="62526b18-4432-4f4f-a39e-4029f5fb69e7" RowDim="1" ColDim="1" Units="" BitFields="1">
+						<Channel Name="GEN009 Total # Blocks" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -3510,7 +3490,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN009 Current Block" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="e4d952e1-c40e-451f-8615-d50b492bdec8" RowDim="1" ColDim="1" Units="" BitFields="3">
+						<Channel Name="GEN009 Current Block" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="3">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -3522,7 +3502,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN009 Cycle" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="f4b9e889-3a29-45f1-9a0a-b0a47ad995fb" RowDim="1" ColDim="1" Units="cycles" BitFields="1">
+						<Channel Name="GEN009 Cycle" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="cycles" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -3534,7 +3514,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN009 Total Cycles" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="64ac988d-9e50-4870-93bc-5ee80ef93853" RowDim="1" ColDim="1" Units="cycles" BitFields="1">
+						<Channel Name="GEN009 Total Cycles" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="cycles" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -3546,7 +3526,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN009 Time in Function" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="3e16082b-ee3b-4927-9be6-cd6fca4fc5b6" RowDim="1" ColDim="1" Units="sec" BitFields="1">
+						<Channel Name="GEN009 Time in Function" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="sec" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -3558,7 +3538,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN009 Total Time" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="e6a78e49-8e13-4e97-89f0-389275024b6e" RowDim="1" ColDim="1" Units="sec" BitFields="1">
+						<Channel Name="GEN009 Total Time" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="sec" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -3570,7 +3550,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN009 Timer" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="dee2d114-6ac0-414f-934c-0d2e969e43ab" RowDim="1" ColDim="1" Units="sec" BitFields="1">
+						<Channel Name="GEN009 Timer" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="sec" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -3582,7 +3562,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN009 Output" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="dd79619a-981c-40bf-9671-c87d15aad3b6" RowDim="1" ColDim="1" Units="EUs" BitFields="1">
+						<Channel Name="GEN009 Output" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="EUs" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -3594,7 +3574,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN009 Ramp Setpoint" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="a3c573c2-6026-44c9-8f61-a9986d8db766" RowDim="1" ColDim="1" Units="EUs" BitFields="3">
+						<Channel Name="GEN009 Ramp Setpoint" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="EUs" BitFields="3">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -3606,7 +3586,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN009 Ramp Rate Eu/sec" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="77de3023-0add-4522-afad-c94f660df9e9" RowDim="1" ColDim="1" Units="EUs/sec" BitFields="3">
+						<Channel Name="GEN009 Ramp Rate Eu/sec" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="EUs/sec" BitFields="3">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -3618,7 +3598,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN009 Spare" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="edd75a8d-1241-4133-a094-f5c4a45eed4f" RowDim="1" ColDim="1" Units="" BitFields="1">
+						<Channel Name="GEN009 Spare" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -3631,11 +3611,11 @@
 							</DefaultValue>
 						</Channel>
 					</Section>
-					<Section Name="GEN010" TypeGUID="03D3B80E-1485-13A6-56528B60DC00DC89" Identifier="a2dd36e1-c881-4b0f-a26d-6ea8903d1589">
+					<Section Name="GEN010" TypeGUID="03D3B80E-1485-13A6-56528B60DC00DC89">
 						<Description />
 						<Properties />
 						<Errors />
-						<Channel Name="GEN010 State" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="9357e473-f359-4a0c-82d4-d91168c34b8c" RowDim="1" ColDim="1" Units="" BitFields="1">
+						<Channel Name="GEN010 State" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -3647,7 +3627,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN010 Rate" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="e824a8e4-2845-42ab-8b11-b534aaf06025" RowDim="1" ColDim="1" Units="sec/loop" BitFields="1">
+						<Channel Name="GEN010 Rate" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="sec/loop" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -3659,7 +3639,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN010 Current Step" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="b1d79ec1-173c-435f-81d4-c3143f49408d" RowDim="1" ColDim="1" Units="" BitFields="3">
+						<Channel Name="GEN010 Current Step" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="3">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -3671,7 +3651,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN010 Current Function" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="39b29500-a193-4adf-ad61-acf1978de55b" RowDim="1" ColDim="1" Units="" BitFields="1">
+						<Channel Name="GEN010 Current Function" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -3683,7 +3663,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN010 Hold Flag" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="dcb934d7-a12b-4fcc-8367-ea86e49ab10d" RowDim="1" ColDim="1" Units="" BitFields="1">
+						<Channel Name="GEN010 Hold Flag" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -3695,7 +3675,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN010 Hold Release" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="ca1b5577-6c0d-49f6-9853-6cd92e152be7" RowDim="1" ColDim="1" Units="" BitFields="1">
+						<Channel Name="GEN010 Hold Release" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -3707,7 +3687,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN010 Total # Steps" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="b02fdb94-aacb-431a-8ba9-bc93548f9a36" RowDim="1" ColDim="1" Units="" BitFields="1">
+						<Channel Name="GEN010 Total # Steps" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -3719,7 +3699,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN010 Group" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="ad6b941e-9a6b-4042-bd90-e0c51700fbae" RowDim="1" ColDim="1" Units="" BitFields="1">
+						<Channel Name="GEN010 Group" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -3731,7 +3711,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN010 Client" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="6c321884-c685-49be-94e5-2617cd5713d3" RowDim="1" ColDim="1" Units="" BitFields="1">
+						<Channel Name="GEN010 Client" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -3743,7 +3723,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN010 Total # Blocks" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="efb744da-4419-434f-8ebb-9ad56b3f9b5a" RowDim="1" ColDim="1" Units="" BitFields="1">
+						<Channel Name="GEN010 Total # Blocks" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -3755,7 +3735,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN010 Current Block" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="113057d0-7a07-494d-95f7-d5f975ebfd2a" RowDim="1" ColDim="1" Units="" BitFields="3">
+						<Channel Name="GEN010 Current Block" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="3">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -3767,7 +3747,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN010 Cycle" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="39eee8d2-e1fb-442d-ba6b-ba8270d08df0" RowDim="1" ColDim="1" Units="cycles" BitFields="1">
+						<Channel Name="GEN010 Cycle" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="cycles" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -3779,7 +3759,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN010 Total Cycles" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="5666bacb-a74f-4877-baa2-a0ec1db683b6" RowDim="1" ColDim="1" Units="cycles" BitFields="1">
+						<Channel Name="GEN010 Total Cycles" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="cycles" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -3791,7 +3771,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN010 Time in Function" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="1f8d9648-1cb2-4053-a514-0fef959c7027" RowDim="1" ColDim="1" Units="sec" BitFields="1">
+						<Channel Name="GEN010 Time in Function" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="sec" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -3803,7 +3783,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN010 Total Time" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="a669b159-540e-438c-bc5e-d7b30269b04e" RowDim="1" ColDim="1" Units="sec" BitFields="1">
+						<Channel Name="GEN010 Total Time" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="sec" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -3815,7 +3795,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN010 Timer" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="4e977a03-770e-4c72-8e45-aafb8ed5a780" RowDim="1" ColDim="1" Units="sec" BitFields="1">
+						<Channel Name="GEN010 Timer" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="sec" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -3827,7 +3807,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN010 Output" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="f15914a1-1ec6-4529-8aee-4d2467cd3e8e" RowDim="1" ColDim="1" Units="EUs" BitFields="1">
+						<Channel Name="GEN010 Output" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="EUs" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -3839,7 +3819,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN010 Ramp Setpoint" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="b2052b57-3d39-429f-8f3e-6f4323357ea6" RowDim="1" ColDim="1" Units="EUs" BitFields="3">
+						<Channel Name="GEN010 Ramp Setpoint" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="EUs" BitFields="3">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -3851,7 +3831,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN010 Ramp Rate Eu/sec" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="5556970a-42bd-40dd-8f1c-cd6301683e04" RowDim="1" ColDim="1" Units="EUs/sec" BitFields="3">
+						<Channel Name="GEN010 Ramp Rate Eu/sec" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="EUs/sec" BitFields="3">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -3863,7 +3843,7 @@
 								<Elem>0</Elem>
 							</DefaultValue>
 						</Channel>
-						<Channel Name="GEN010 Spare" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" Identifier="d90bf9e2-2762-49d0-a72e-a742a8750a1f" RowDim="1" ColDim="1" Units="" BitFields="1">
+						<Channel Name="GEN010 Spare" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
 							<Description />
 							<Properties>
 								<Property Name="ID">
@@ -3877,15 +3857,15 @@
 						</Channel>
 					</Section>
 				</Section>
-				<Section Name="Simulation Models" TypeGUID="03D3B937-1485-13A6-5600F2871E269F9A" Identifier="169912db-1908-43f5-ba62-b72e8fe9af2d">
+				<Section Name="Simulation Models" TypeGUID="03D3B937-1485-13A6-5600F2871E269F9A">
 					<Description />
 					<Properties />
 					<Errors />
-					<Section Name="Models" TypeGUID="03D3B976-1485-13A6-5604255F981010CE" Identifier="64c00a72-6353-46d6-a013-31870a3c25f7">
+					<Section Name="Models" TypeGUID="03D3B976-1485-13A6-5604255F981010CE">
 						<Description />
 						<Properties />
 						<Errors />
-						<Section Name="sinewave" TypeGUID="03D3B9C4-1485-13A6-561FC9BB21813875" Identifier="cbd7731c-8e51-4354-aecf-7864147f535a">
+						<Section Name="sinewave" TypeGUID="03D3B9C4-1485-13A6-561FC9BB21813875">
 							<Description />
 							<Properties>
 								<Property Name="Base Rate">
@@ -3898,10 +3878,10 @@
 									</Variant>
 								</Property>
 								<Property Name="DLL Size">
-									<I32>30996</I32>
+									<I32>10240</I32>
 								</Property>
 								<Property Name="DLL Timestamp">
-									<Double>3747443780</Double>
+									<Double>3351020638</Double>
 								</Property>
 								<Property Name="Decimation">
 									<I32>1</I32>
@@ -3913,7 +3893,7 @@
 									<I32>0</I32>
 								</Property>
 								<Property Name="MD5">
-									<String>84ea0bc505263c518a599cf1c03e2407</String>
+									<String>854e31b31a325f1175c026374631107b</String>
 								</Property>
 								<Property Name="Model Timestamp">
 									<Double>0</Double>
@@ -3940,51 +3920,29 @@
 									<U32>0</U32>
 								</Property>
 								<Property Name="DLL Path">
-									<DependentFile Type="Relative" Path="SinewaveFmu.fmu">
+									<DependentFile Type="Relative" Path="sinewave.dll">
 										<Version />
 										<ForceDownload>false</ForceDownload>
-										<RTDestination>C:\ni-rt\NIVeriStand\Models\SinewaveFmu.fmu</RTDestination>
-										<SupportedTarget>All</SupportedTarget>
-										<MD5>84ea0bc505263c518a599cf1c03e2407</MD5>
+										<RTDestination>c:\ni-rt\NIVeriStand2010\Models\sinewave.dll</RTDestination>
+										<SupportedTarget>PharLap &amp; Windows</SupportedTarget>
+										<MD5>854e31b31a325f1175c026374631107b</MD5>
 									</DependentFile>
 								</Property>
-								<Property Name="Model Bitness">
-									<I32>64</I32>
-								</Property>
-								<Property Name="File Version">
-									<String />
-								</Property>
-								<Property Name="Product Name">
-									<String />
-								</Property>
-								<Property Name="Internal Name">
-									<String />
-								</Property>
-								<Property Name="Company Name">
-									<String />
-								</Property>
-								<Property Name="Legal Copyright">
-									<String />
-								</Property>
-								<Property Name="File Description">
-									<String />
-								</Property>
-								<Property Name="Model Generation Toolchain Version">
-									<String />
-								</Property>
-								<Property Name="Model Author">
-									<String />
-								</Property>
-								<Property Name="Target Platforms">
-									<StringArray />
+								<Property Name="Model Path">
+									<DependentFile Type="Absolute" Path="">
+										<Version />
+										<RTDestination />
+										<SupportedTarget />
+										<MD5 />
+									</DependentFile>
 								</Property>
 							</Properties>
 							<Errors />
-							<Section Name="Inports" TypeGUID="03D3B9E3-1485-13A6-56035B19B2245EB3" Identifier="76d3ff06-5fed-4635-b68a-5fb2d30bf7f5">
+							<Section Name="Inports" TypeGUID="03D3B9E3-1485-13A6-56035B19B2245EB3">
 								<Description />
 								<Properties />
 								<Errors />
-								<Channel Name="In1" TypeGUID="03D3B985-1485-13A6-56FC3200A1C00087" Identifier="c4aa06fd-673a-445a-b9fb-4b64dbe61904" RowDim="1" ColDim="1" Units="" BitFields="7">
+								<Channel Name="In1" TypeGUID="03D3B985-1485-13A6-56FC3200A1C00087" RowDim="1" ColDim="1" Units="" BitFields="7">
 									<Description />
 									<Properties>
 										<Property Name="ID">
@@ -3999,9 +3957,6 @@
 										<Property Name="Task ID">
 											<I32>0</I32>
 										</Property>
-										<Property Name="Model Path">
-											<String>In1</String>
-										</Property>
 									</Properties>
 									<Errors />
 									<DefaultValue>
@@ -4009,18 +3964,18 @@
 									</DefaultValue>
 								</Channel>
 							</Section>
-							<Section Name="Outports" TypeGUID="03D3B9F3-1485-13A6-5698C14838D6AA3C" Identifier="aa013705-7bdc-49f5-9a5f-3202ca96ecc2">
+							<Section Name="Outports" TypeGUID="03D3B9F3-1485-13A6-5698C14838D6AA3C">
 								<Description />
 								<Properties />
 								<Errors />
-								<Channel Name="Out1" TypeGUID="03D3B995-1485-13A6-56ABA0860ADF91DF" Identifier="16e761fe-b27d-4ec4-b093-04c926fd0d9e" RowDim="1" ColDim="1" Units="" BitFields="5">
+								<Channel Name="Out1" TypeGUID="03D3B995-1485-13A6-56ABA0860ADF91DF" RowDim="1" ColDim="1" Units="" BitFields="5">
 									<Description />
 									<Properties>
 										<Property Name="ID">
 											<I32>-1</I32>
 										</Property>
 										<Property Name="Index">
-											<I32>0</I32>
+											<I32>1</I32>
 										</Property>
 										<Property Name="Mapped ID">
 											<I32>-1</I32>
@@ -4028,9 +3983,6 @@
 										<Property Name="Task ID">
 											<I32>0</I32>
 										</Property>
-										<Property Name="Model Path">
-											<String>Out1</String>
-										</Property>
 									</Properties>
 									<Errors />
 									<DefaultValue>
@@ -4038,11 +3990,11 @@
 									</DefaultValue>
 								</Channel>
 							</Section>
-							<Section Name="Execution" TypeGUID="03D3BA9F-1485-13A6-56E3D5196780015F" Identifier="43a64ab0-8b33-4915-bfb6-f2611ed97ea0">
+							<Section Name="Execution" TypeGUID="03D3BA9F-1485-13A6-56E3D5196780015F">
 								<Description />
 								<Properties />
 								<Errors />
-								<Channel Name="Model Command" TypeGUID="03D3BABE-1485-13A6-56C34B877844B2C1" Identifier="4585a067-dd2c-4e5a-9126-fc2a932a0cc0" RowDim="1" ColDim="1" Units="" BitFields="3">
+								<Channel Name="Model Command" TypeGUID="03D3BABE-1485-13A6-56C34B877844B2C1" RowDim="1" ColDim="1" Units="" BitFields="11">
 									<Description>0: Start
 1: Pause
 2: Reset
@@ -4054,7 +4006,7 @@
 										<Elem>0</Elem>
 									</DefaultValue>
 								</Channel>
-								<Channel Name="Model Time" TypeGUID="03D3BAAE-1485-13A6-5606A77AB57A7FC9" Identifier="c275b895-8de1-4041-a1c6-0f32077d289f" RowDim="1" ColDim="1" Units="sec" BitFields="1">
+								<Channel Name="Model Time" TypeGUID="03D3BAAE-1485-13A6-5606A77AB57A7FC9" RowDim="1" ColDim="1" Units="sec" BitFields="1">
 									<Description />
 									<Properties />
 									<Errors />
@@ -4062,7 +4014,7 @@
 										<Elem>0</Elem>
 									</DefaultValue>
 								</Channel>
-								<Channel Name="Model Status" TypeGUID="03D3BB6A-1485-13A6-5643A7AFDA3A2658" Identifier="b202b2af-dced-4b4a-b852-30bd0dead27f" RowDim="1" ColDim="1" Units="" BitFields="1">
+								<Channel Name="Model Status" TypeGUID="03D3BB6A-1485-13A6-5643A7AFDA3A2658" RowDim="1" ColDim="1" Units="" BitFields="1">
 									<Description>0: Running
 1: Paused
 2: Resetting
@@ -4076,34 +4028,26 @@
 										<Elem>0</Elem>
 									</DefaultValue>
 								</Channel>
-								<Channel Name="Time Step Duration" TypeGUID="8e7cc8ad-0a9f-4b63-b5f0-59c025358253" Identifier="99446274-29f6-4a56-9253-c5a05001898c" RowDim="1" ColDim="1" Units="usec" BitFields="1">
-									<Description>The duration in microseconds of the last model time step.</Description>
-									<Properties />
-									<Errors />
-									<DefaultValue>
-										<Elem>0</Elem>
-									</DefaultValue>
-								</Channel>
 							</Section>
-							<Section Name="Parameters" TypeGUID="03D3BB0C-1485-13A6-56E10CEFF755E7D3" Identifier="4237a4a3-02ac-442c-81d7-562b1fcfc453">
+							<Section Name="Parameters" TypeGUID="03D3BB0C-1485-13A6-56E10CEFF755E7D3">
 								<Description />
 								<Properties />
 								<Errors />
 							</Section>
-							<Section Name="Signals" TypeGUID="03D3BA31-1485-13A6-567CA69E9D2E71D5" Identifier="e0715cae-de0e-4063-b2e7-677dc097bc06">
+							<Section Name="Signals" TypeGUID="03D3BA31-1485-13A6-567CA69E9D2E71D5">
 								<Description />
 								<Properties />
 								<Errors />
 							</Section>
 						</Section>
 					</Section>
-					<Section Name="Execution Order" TypeGUID="03D3B966-1485-13A6-569CFF8A449BF90A" Identifier="bbb6b1bc-99f8-4aa1-a6a6-581b6d1bf379">
+					<Section Name="Execution Order" TypeGUID="03D3B966-1485-13A6-569CFF8A449BF90A">
 						<Description />
 						<Properties />
 						<Errors />
 					</Section>
 				</Section>
-				<Section Name="Alarms" TypeGUID="03D3B782-1485-13A6-56F58B35B6CBA484" Identifier="03ef8496-fcd5-412d-a566-2be4ad34ec1e">
+				<Section Name="Alarms" TypeGUID="03D3B782-1485-13A6-56F58B35B6CBA484">
 					<Description />
 					<Properties>
 						<Property Name="Alarm Rate">
@@ -4112,21 +4056,21 @@
 					</Properties>
 					<Errors />
 				</Section>
-				<Section Name="Procedures" TypeGUID="03D3B7B1-1485-13A6-56649C7783203F22" Identifier="ab4dc53d-c1ed-4536-846d-76c5667998c3">
+				<Section Name="Procedures" TypeGUID="03D3B7B1-1485-13A6-56649C7783203F22">
 					<Description />
 					<Properties />
 					<Errors />
 				</Section>
-				<Section Name="Custom Devices" TypeGUID="03D3BB79-1485-13A6-5605EB7AFD7405AC" Identifier="0c173daf-ed69-405a-9646-919af962a623">
+				<Section Name="Custom Devices" TypeGUID="03D3BB79-1485-13A6-5605EB7AFD7405AC">
 					<Description />
 					<Properties />
 					<Errors />
 				</Section>
-				<Section Name="User Channel" TypeGUID="03D3B6B7-1485-13A6-567BE1E1E0DF999A" Identifier="419457bd-c084-47b2-92aa-a6d26f2c8d0e">
+				<Section Name="User Channel" TypeGUID="03D3B6B7-1485-13A6-567BE1E1E0DF999A">
 					<Description />
 					<Properties />
 					<Errors />
-					<Channel Name="TEST_ID" TypeGUID="03D3B6C6-1485-13A6-56609EA3AE19E356" Identifier="3620fc14-61b4-424f-95f8-43d172e39d8d" RowDim="1" ColDim="1" Units="" BitFields="7">
+					<Channel Name="TEST_ID" TypeGUID="03D3B6C6-1485-13A6-56609EA3AE19E356" RowDim="1" ColDim="1" Units="" BitFields="7">
 						<Description />
 						<Properties>
 							<Property Name="ID">
@@ -4139,23 +4083,23 @@
 						</DefaultValue>
 					</Channel>
 				</Section>
-				<Section Name="Calculated Channels" TypeGUID="03D3B714-1485-13A6-56031C5F1CCB78A9" Identifier="684867df-f3cb-40aa-a913-9b8ffd3e356c">
+				<Section Name="Calculated Channels" TypeGUID="03D3B714-1485-13A6-56031C5F1CCB78A9">
 					<Description />
 					<Properties />
 					<Errors />
 				</Section>
-				<Section Name="XNET Databases" TypeGUID="def5630b-577f-4ae9-9682-5f8ee445ee21" Identifier="b6f558a0-4c6b-4ad0-8153-27ce11d3abc7">
+				<Section Name="XNET Databases" TypeGUID="def5630b-577f-4ae9-9682-5f8ee445ee21">
 					<Description />
 					<Properties />
 					<Errors />
 				</Section>
 			</Target>
 		</TargetSections>
-		<Section Name="Aliases" TypeGUID="e11f4519-09e6-4fb0-99df-2967c4313d67" Identifier="8a9a827c-5f89-43ea-83be-f00fe3f4492d">
+		<Section Name="Aliases" TypeGUID="e11f4519-09e6-4fb0-99df-2967c4313d67">
 			<Description />
 			<Properties />
 			<Errors />
-			<Alias Name="SinewaveIn1" TypeGUID="2c11e122-dad9-44da-989c-a66ff203fa31" Identifier="1d056c75-a04a-4ce8-887a-e0a905507725">
+			<Alias Name="SinewaveIn1" TypeGUID="2c11e122-dad9-44da-989c-a66ff203fa31">
 				<Description />
 				<Properties>
 					<Property Name="Referenced Channel">
@@ -4164,7 +4108,7 @@
 				</Properties>
 				<Errors />
 			</Alias>
-			<Alias Name="SinewaveOut1" TypeGUID="2c11e122-dad9-44da-989c-a66ff203fa31" Identifier="30529c13-ed2f-41b6-bd39-4d9dbde31b8c">
+			<Alias Name="SinewaveOut1" TypeGUID="2c11e122-dad9-44da-989c-a66ff203fa31">
 				<Description />
 				<Properties>
 					<Property Name="Referenced Channel">
@@ -4173,7 +4117,7 @@
 				</Properties>
 				<Errors />
 			</Alias>
-			<Alias Name="TEST_ID" TypeGUID="2c11e122-dad9-44da-989c-a66ff203fa31" Identifier="a6ffbdd6-7539-4dc2-869a-9318149eb58e">
+			<Alias Name="TEST_ID" TypeGUID="2c11e122-dad9-44da-989c-a66ff203fa31">
 				<Description />
 				<Properties>
 					<Property Name="Referenced Channel">
@@ -4183,7 +4127,7 @@
 				<Errors />
 			</Alias>
 		</Section>
-		<Section Name="Data Sharing Network" TypeGUID="8288dbb9-8c87-4fda-9c66-acec90c46c03" Identifier="d1b09ec2-d4ff-465d-ab45-bf5c15e3c53d">
+		<Section Name="Data Sharing Network" TypeGUID="8288dbb9-8c87-4fda-9c66-acec90c46c03">
 			<Description />
 			<Properties>
 				<Property Name="CD Status">

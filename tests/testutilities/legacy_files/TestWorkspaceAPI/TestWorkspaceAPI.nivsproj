@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Document xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="System definition.xsd">
 	<MD5Checksum />
-	<Version Major="2020" Minor="0" Fix="0" Build="0" />
+	<Version Major="2012" Minor="0" Fix="0" Build="1" />
 	<Content>Definition</Content>
-	<Root Name="TestWorkspaceAPI" TypeGUID="d9313aae-3554-45e5-93f3-86454275d4f2" Identifier="c4979a8e-e451-4526-a1b2-0d38cc0becf0">
+	<Root Name="TestWorkspaceAPI" TypeGUID="d9313aae-3554-45e5-93f3-86454275d4f2">
 		<Description />
 		<Properties>
 			<Property Name="Name">
@@ -20,11 +20,11 @@
 			</Property>
 		</Properties>
 		<Errors />
-		<Section Name="System Definition File" TypeGUID="b9227a5b-2770-4a62-8621-ac414d4124fb" Identifier="5d5d7e00-4ca5-49c9-a42e-c5548d3fca5b">
+		<Section Name="System Definition File" TypeGUID="b9227a5b-2770-4a62-8621-ac414d4124fb">
 			<Description />
 			<Properties />
 			<Errors />
-			<Section Name="TestWorkspaceAPI.nivssdf" TypeGUID="3a41ca74-36ec-4aff-9219-9d05c8f91208" Identifier="d967a7c0-c73b-4a77-997a-6bd1efe7941f">
+			<Section Name="TestWorkspaceAPI.nivssdf" TypeGUID="3a41ca74-36ec-4aff-9219-9d05c8f91208">
 				<Description />
 				<Properties>
 					<Property Name="Path">
@@ -39,7 +39,7 @@
 				<Errors />
 			</Section>
 		</Section>
-		<Section Name="User Interface" TypeGUID="bc98486f-7b49-4949-9504-949cbe254c85" Identifier="46ebfe98-2fab-4b3d-a4c3-b531e9cbf3a7">
+		<Section Name="Workspace" TypeGUID="bc98486f-7b49-4949-9504-949cbe254c85">
 			<Description />
 			<Properties>
 				<Property Name="User Accounts">
@@ -71,7 +71,7 @@
 				</Property>
 			</Properties>
 			<Errors />
-			<Section Name="Screens" TypeGUID="cdfadfe0-c84a-4268-a677-4f2f3525465e" Identifier="32370078-9bcf-4279-ba03-52b90cc8c0ff">
+			<Section Name="Screens" TypeGUID="cdfadfe0-c84a-4268-a677-4f2f3525465e">
 				<Description />
 				<Properties>
 					<Property Name="Path">
@@ -86,11 +86,11 @@
 				<Errors />
 			</Section>
 		</Section>
-		<Section Name="Services" TypeGUID="736a951c-d9c8-457f-96a9-cd0ef16011a5" Identifier="34408dfd-e962-4048-80dc-9e8912e3cb64">
+		<Section Name="Services" TypeGUID="736a951c-d9c8-457f-96a9-cd0ef16011a5">
 			<Description />
 			<Properties />
 			<Errors />
-			<Section Name="Model Parameter Manager" TypeGUID="cc686646-9933-410d-a553-6308e6e06897" Identifier="ab6b7110-ebd6-4807-a40a-f825633c8024">
+			<Section Name="Model Parameter Manager" TypeGUID="cc686646-9933-410d-a553-6308e6e06897">
 				<Description />
 				<Properties>
 					<Property Name="Function">
@@ -114,21 +114,21 @@
 				<Errors />
 			</Section>
 		</Section>
-		<Section Name="Profiles" TypeGUID="c3bd79ec-3336-4b06-868e-3217c640edd5" Identifier="c53569ce-5a0a-4400-8bb0-7726a29d3ed5">
+		<Section Name="Profiles" TypeGUID="c3bd79ec-3336-4b06-868e-3217c640edd5">
 			<Description />
 			<Properties />
 			<Errors />
 		</Section>
-		<Section Name="Calibration" TypeGUID="38433223-24A0-4b32-9339-370EC5AA31B4" Identifier="e8cdd4f1-c248-4e3e-a745-221bdb57e1ac">
+		<Section Name="Calibration" TypeGUID="38433223-24A0-4b32-9339-370EC5AA31B4">
 			<Description />
 			<Properties />
 			<Errors />
 		</Section>
-		<Section Name="Alarm Responses" TypeGUID="3b1ab560-d77a-41f2-adb4-0c0250b010b3" Identifier="df3d29c7-c3db-495f-9fb6-03eca9223d20">
+		<Section Name="Alarm Responses" TypeGUID="3b1ab560-d77a-41f2-adb4-0c0250b010b3">
 			<Description />
 			<Properties />
 			<Errors />
-			<Section Name="Response High" TypeGUID="99267DF5-8C59-4AAC-B020-7591F4886206" Identifier="621d4d6c-6e25-4175-8b5a-61b7086f56ed">
+			<Section Name="Response High" TypeGUID="99267DF5-8C59-4AAC-B020-7591F4886206">
 				<Description />
 				<Properties>
 					<Property Name="Show Dialog">
@@ -163,7 +163,7 @@
 				</Properties>
 				<Errors />
 			</Section>
-			<Section Name="Response Med" TypeGUID="99267DF5-8C59-4AAC-B020-7591F4886206" Identifier="54f77213-a720-4cfb-95fa-f5611f849a3b">
+			<Section Name="Response Med" TypeGUID="99267DF5-8C59-4AAC-B020-7591F4886206">
 				<Description />
 				<Properties>
 					<Property Name="Show Dialog">
@@ -198,7 +198,7 @@
 				</Properties>
 				<Errors />
 			</Section>
-			<Section Name="Response Low" TypeGUID="99267DF5-8C59-4AAC-B020-7591F4886206" Identifier="7e6d1d6a-dc09-4976-a2b0-9c91d850090e">
+			<Section Name="Response Low" TypeGUID="99267DF5-8C59-4AAC-B020-7591F4886206">
 				<Description />
 				<Properties>
 					<Property Name="Show Dialog">
@@ -234,38 +234,38 @@
 				<Errors />
 			</Section>
 		</Section>
-		<Section Name="Custom Files" TypeGUID="9e2cb626-3583-4345-aeb6-b9fead6ec565" Identifier="0ba1e1f9-3793-4d5a-a862-284604d59857">
+		<Section Name="Custom Files" TypeGUID="9e2cb626-3583-4345-aeb6-b9fead6ec565">
 			<Description />
 			<Properties />
 			<Errors />
 		</Section>
-		<Section Name="Dependencies" TypeGUID="e5b093fa-a709-4df2-807e-a403422ba675" Identifier="16183766-775b-492d-8c0c-0ffce0c9ad78">
+		<Section Name="Dependencies" TypeGUID="e5b093fa-a709-4df2-807e-a403422ba675">
 			<Description />
 			<Properties />
 			<Errors />
-			<Section Name="TestWorkspaceAPI.nivssdf" TypeGUID="369b9797-43bd-4cdf-8352-81032feed666" Identifier="21c83652-a244-48ca-9abf-8c3c9591b5bd">
+			<Section Name="TestWorkspaceAPI.nivssdf [C:\Users\Public\Documents\National Instruments\NI VeriStand 2010\AutoTestProjects\TestWorkspaceAPI\TestWorkspaceAPI.nivssdf]" TypeGUID="369b9797-43bd-4cdf-8352-81032feed666">
 				<Description />
 				<Properties>
 					<Property Name="Path">
-						<String>C:\Users\virtual\Desktop\AutoTestProjects\TestWorkspaceAPI\TestWorkspaceAPI.nivssdf</String>
+						<String>C:\Users\Public\Documents\National Instruments\NI VeriStand 2010\AutoTestProjects\TestWorkspaceAPI\TestWorkspaceAPI.nivssdf</String>
 					</Property>
 				</Properties>
 				<Errors />
 			</Section>
-			<Section Name="TestWorkspaceAPI.nivsscreen" TypeGUID="369b9797-43bd-4cdf-8352-81032feed666" Identifier="3a21a67b-f2ec-4a72-b3a6-08ec12e17db0">
+			<Section Name="TestWorkspaceAPI.nivsscreen [C:\Users\Public\Documents\National Instruments\NI VeriStand 2010\AutoTestProjects\TestWorkspaceAPI\TestWorkspaceAPI.nivsscreen]" TypeGUID="369b9797-43bd-4cdf-8352-81032feed666">
 				<Description />
 				<Properties>
 					<Property Name="Path">
-						<String>C:\Users\virtual\Desktop\AutoTestProjects\TestWorkspaceAPI\TestWorkspaceAPI.nivsscreen</String>
+						<String>C:\Users\Public\Documents\National Instruments\NI VeriStand 2010\AutoTestProjects\TestWorkspaceAPI\TestWorkspaceAPI.nivsscreen</String>
 					</Property>
 				</Properties>
 				<Errors />
 			</Section>
-			<Section Name="SinewaveFmu.fmu" TypeGUID="369b9797-43bd-4cdf-8352-81032feed666" Identifier="33ede822-2792-42ad-8f6d-f47d8b5300c1">
+			<Section Name="sinewave.dll [C:\Users\Public\Documents\National Instruments\NI VeriStand 2010\AutoTestProjects\TestWorkspaceAPI\sinewave.dll]" TypeGUID="369b9797-43bd-4cdf-8352-81032feed666">
 				<Description />
 				<Properties>
 					<Property Name="Path">
-						<String>C:\Users\virtual\Desktop\AutoTestProjects\TestWorkspaceAPI\SinewaveFmu.fmu</String>
+						<String>C:\Users\Public\Documents\National Instruments\NI VeriStand 2010\AutoTestProjects\TestWorkspaceAPI\sinewave.dll</String>
 					</Property>
 				</Properties>
 				<Errors />

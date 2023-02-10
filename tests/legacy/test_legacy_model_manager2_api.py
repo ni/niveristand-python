@@ -9,7 +9,7 @@ from niveristand.legacy.NIVeriStand import NIVeriStandException
 #Every test should have a user variable that have a test ID number to ensure that you are running the correct test configuration.
 TEST_ID = 1122
 
-@pytest.mark.skip('need to replace models')
+# @pytest.mark.skip('need to replace models')
 def test_model_manager2_legacy():
     #Getting a handle to the workspace API
     #Other API: Model, Alarm, AlarmManager, SoftwareForcing, ModelManager

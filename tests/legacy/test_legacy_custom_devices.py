@@ -26,7 +26,7 @@ def _test_device(workspace, base_name, multiplier):
         assert (abs(value_out - (multiplier*x + 1000)) > 0.1), "Test failed! Channel value out of range for channel pair %d in device type %s." % (x, base_name)
 
 
-@pytest.mark.skip('custom device test not able to find file in folder that is there')
+@pytest.mark.skip("currently failing, and does not appear to exercise anything special in the legacy API, so we will leave this skipped")
 def test_custom_devices_legacy():
     import random
     #Getting a handle to the workspace API

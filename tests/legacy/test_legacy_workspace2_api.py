@@ -6,6 +6,7 @@ from niveristand.legacy.NIVeriStand import NIVeriStandException
 
 TEST_ID = 124123
 
+# This test requires Veristand 2020 or older due to the models
 def test_workspace2_api():
     workspace = NIVeriStand.Workspace2("localhost")
     print("")

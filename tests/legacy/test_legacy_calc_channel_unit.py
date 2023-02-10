@@ -4,7 +4,6 @@ import pytest
 import time
 
 from niveristand.legacy import NIVeriStand
-from testutilities import configutilities
 
 TEST_RESULT = 0 #Testresult set to false in beginning
 TEST_COMMENT = "" #Test  comment to append to result

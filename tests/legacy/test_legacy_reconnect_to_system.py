@@ -4,8 +4,9 @@ import pytest
 from niveristand.legacy import NIVeriStand
 
 
+# This test requires Veristand 2020 or older due to the models
 def test_reconnect_to_system():
-    system_definition = r"C:\Users\Public\Documents\National Instruments\NI VeriStand 2021\Projects\Example\Sinewave Delay.nivssdf"
+    system_definition = r"C:\Users\Public\Documents\National Instruments\NI VeriStand 2020\Projects\Example\Sinewave Delay.nivssdf"
     # connect to system with a separate instance of the workspace
     prior_workspace = NIVeriStand.Workspace2("localhost")
     print("Initial deployment of system definition file")
@@ -36,7 +37,7 @@ def test_reconnect_to_system():
         print("Get Alias List")
         result = workspace.GetAliasList()
         assert (len(result) == 6), "Expected 6 aliases but get something different %d" % len(result)
-        assert (result['SineWave'] == r"Targets/Controller/Simulation Models/Models/sinewave/Signals/SinewaveFmu/sine/SineWave"), "Alias for SineWave incorrect"
+        assert (result['SineWave'] == r"Targets/Controller/Simulation Models/Models/sinewave/Signals/sine/SineWave"), "Alias for SineWave incorrect"
 
         #Mix up different mode of how we look up system nodes data: full path and also relative to Targets Section.
         nodes = ('Aliases/SineWave', 'Targets/Controller/System Channels/Actual Loop Rate')
