@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SourceFile Checksum="E4DD93980756883C59602EC819D278ED0CA75FC562B7D7D45DDB528A5691CD104350929CBBDF6BC6C5F97C037F4ED823B99C5B69542180B979CD560F142D85FB" xmlns="http://www.ni.com/PlatformFramework">
+	<SourceModelFeatureSet>
+		<ParsableNamespace AssemblyFileVersion="9.6.0.49854" FeatureSetName="Editor" Name="http://www.ni.com/PlatformFramework" OldestCompatibleVersion="8.1.0.49152" Version="8.1.0.49152" />
+		<ParsableNamespace AssemblyFileVersion="9.6.0.49854" FeatureSetName="VeriStand Core Components" Name="http://www.ni.com/VeriStand" OldestCompatibleVersion="9.0.0.49152" Version="9.0.0.49152" />
+		<ApplicationVersionInfo Build="9.3.0.49854" Name="VeriStand" Version="9.6.0.49854" />
+	</SourceModelFeatureSet>
+	<Project p2:ProjectVersion="1.0.0.0" xmlns:p2="http://www.ni.com/VeriStand" xmlns="http://www.ni.com/PlatformFramework">
+		<EnvoyManagerRootEnvoy Id="15994ba212e43358ee97455091182c3" ModelDefinitionType="EnvoyManagerRootEnvoy" Name="RootEnvoy" />
+		<EmbeddedDefinitionReference Id="d581174782364bec8e65893ee631e0cb" ModelDefinitionType="NationalInstruments.ProjectExplorer.Modeling.ProjectDataManager" Name="ProjectExplorer">
+			<ProjectExplorer />
+		</EmbeddedDefinitionReference>
+		<NameScopingEnvoy Id="9c22fe703a81435782608a94bc0471c5" ModelDefinitionType="DefaultTarget" Name="DefaultTarget">
+			<DefaultTarget />
+			<EmbeddedDefinitionReference Id="8eee80089fe842cab3b3fe62e122628a" ModelDefinitionType="GatewayDefinition" Name="Gateway" Reparentable="False">
+				<p2:GatewayDefinition />
+			</EmbeddedDefinitionReference>
+			<FileReference Bindings=".nivsproj" Id="c4828ad0f53c49d9bd5397642eed4878" ModelDefinitionType="{http://www.ni.com/PlatformFramework}ExternalFile" Name="ModelParameterAPI_AUTOTEST.nivsproj" StoragePath="ModelParameterAPI_AUTOTEST.nivsproj" />
+			<SourceFileReference Bindings="EnvoyManager" Id="83a274b6fbe34ea3b224c53c08e0391a" ModelDefinitionType="{http://www.ni.com/VeriStand}SystemDefinition" Name="ModelParameterAPI_AUTOTEST.nivssdf" StoragePath="ModelParameterAPI_AUTOTEST.nivssdf" />
+			<FileReference Bindings=".nivsscreen" Id="6c9ec24e04324005bb953967786165b0" ModelDefinitionType="{http://www.ni.com/PlatformFramework}ExternalFile" Name="ModelParameterAPI_AUTOTEST.nivsscreen" StoragePath="ModelParameterAPI_AUTOTEST.nivsscreen" />
+			<EmbeddedDefinitionReference Id="77424b0dface4e2e8ac68cbd76e90fec" ModelDefinitionType="SdfFilePath" Name="SdfPath" Reparentable="False">
+				<p2:SdfFilePath SdfPath="ModelParameterAPI_AUTOTEST.nivssdf" />
+			</EmbeddedDefinitionReference>
+		</NameScopingEnvoy>
+	</Project>
+	<ProjectInformation xmlns="http://www.ni.com/PlatformFramework" />
+</SourceFile>

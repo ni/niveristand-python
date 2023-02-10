@@ -1,0 +1,4154 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Document xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="System definition.xsd">
+	<MD5Checksum />
+	<Version Major="2010" Minor="0" Fix="0" Build="4" />
+	<Content>Definition</Content>
+	<Root Name="FaultChannelTest" TypeGUID="03D3BA22-1485-13A6-56BD17DA950CCD00">
+		<Description>Test Fault Channel</Description>
+		<Properties>
+			<Property Name="Name">
+				<String>FaultChannelTest</String>
+			</Property>
+			<Property Name="Version">
+				<String>1.0.0.7</String>
+			</Property>
+			<Property Name="Creator">
+				<String>Administrator</String>
+			</Property>
+			<Property Name="Creation Date">
+				<Double>3324485326.515625</Double>
+			</Property>
+		</Properties>
+		<Errors />
+		<TargetSections Name="Targets Section" TypeGUID="eb379619-68d7-4d81-be90-c0bc511cdc10">
+			<Description />
+			<Properties />
+			<Errors />
+			<Target Name="Controller" TypeGUID="775504BB-1485-13A6-56755DBF2C326980">
+				<Description />
+				<Properties>
+					<Property Name="IP Address">
+						<String>localhost</String>
+					</Property>
+					<Property Name="Control Rate">
+						<Double>1</Double>
+					</Property>
+					<Property Name="HS Port">
+						<I32>2040</I32>
+					</Property>
+					<Property Name="LS Port">
+						<I32>2050</I32>
+					</Property>
+					<Property Name="HS Port Timeout">
+						<I32>1000</I32>
+					</Property>
+					<Property Name="LS Port Timeout">
+						<I32>1000</I32>
+					</Property>
+					<Property Name="Control Loop Processor">
+						<I32>-2</I32>
+					</Property>
+					<Property Name="Streamed Channels">
+						<I32>512</I32>
+					</Property>
+					<Property Name="Stream Rate">
+						<I32>1</I32>
+					</Property>
+					<Property Name="Secondary Control Loop Processor">
+						<I32>-2</I32>
+					</Property>
+					<Property Name="OS">
+						<String>Windows</String>
+					</Property>
+					<Property Name="Engine Rate">
+						<Double>100</Double>
+					</Property>
+					<Property Name="Execution Mode">
+						<U32>0</U32>
+					</Property>
+					<Property Name="TL sleep time">
+						<U32>0</U32>
+					</Property>
+					<Property Name="TS_Custom_Dev">
+						<String />
+					</Property>
+					<Property Name="ctr decimation">
+						<U32>1</U32>
+					</Property>
+					<Property Name="custom loop time">
+						<U32>0</U32>
+					</Property>
+					<Property Name="daq">
+						<Variant>
+							<Type>AAAACgAUQDD/////C2RhdGEgc3RyaW5n</Type>
+							<Data>AAAAYwkAgAAAAAADABRAMP////8KREFRIERldmljZQAAJ0AHACBQcmltYXJ5IENvbnRyb2wgTG9vcCByYXRlICh1c2VjKQAAEEBQAAIAAAABBGRhdGEAAAEAAgAAAAAAACcQAAAAAA==</Data>
+						</Variant>
+					</Property>
+					<Property Name="daq timeout">
+						<U32>1000</U32>
+					</Property>
+					<Property Name="dio decimation">
+						<U32>1</U32>
+					</Property>
+					<Property Name="loop time">
+						<U32>10000</U32>
+					</Property>
+					<Property Name="name">
+						<String />
+					</Property>
+					<Property Name="ts">
+						<U32>0</U32>
+					</Property>
+					<Property Name="Filter Watchdog Errors">
+						<Boolean>false</Boolean>
+					</Property>
+					<Property Name="Filter DAQ Errors">
+						<Boolean>false</Boolean>
+					</Property>
+				</Properties>
+				<Errors />
+				<Section Name="System Channels" TypeGUID="03D3B753-1485-13A6-56B10ED0820CF410">
+					<Description />
+					<Properties />
+					<Errors />
+					<Channel Name="Actual Loop Rate" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="Hz" BitFields="1">
+						<Description>The execution rate of the Primary Control Loop</Description>
+						<Properties>
+							<Property Name="ID">
+								<I32>100000</I32>
+							</Property>
+						</Properties>
+						<Errors />
+						<DefaultValue>
+							<Elem>0</Elem>
+						</DefaultValue>
+					</Channel>
+					<Channel Name="Command Index" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="3">
+						<Description>The compiled index of the current procedure step</Description>
+						<Properties>
+							<Property Name="ID">
+								<I32>100001</I32>
+							</Property>
+						</Properties>
+						<Errors />
+						<DefaultValue>
+							<Elem>-1</Elem>
+						</DefaultValue>
+					</Channel>
+					<Channel Name="Command Rate" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="1">
+						<Description>The decimation of the Data Processing Loop</Description>
+						<Properties>
+							<Property Name="ID">
+								<I32>100002</I32>
+							</Property>
+						</Properties>
+						<Errors />
+						<DefaultValue>
+							<Elem>0</Elem>
+						</DefaultValue>
+					</Channel>
+					<Channel Name="System Time" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="sec" BitFields="1">
+						<Description>The relative system time of the VeriStand Engine according to the iteration count and Delta T of the Primary Control Loop</Description>
+						<Properties>
+							<Property Name="ID">
+								<I32>100003</I32>
+							</Property>
+						</Properties>
+						<Errors />
+						<DefaultValue>
+							<Elem>0</Elem>
+						</DefaultValue>
+					</Channel>
+					<Channel Name="Alarm Rate" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="0">
+						<Description>Deprecated</Description>
+						<Properties>
+							<Property Name="ID">
+								<I32>100004</I32>
+							</Property>
+						</Properties>
+						<Errors />
+						<DefaultValue>
+							<Elem>0</Elem>
+						</DefaultValue>
+					</Channel>
+					<Channel Name="DAQ Error" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="1">
+						<Description>The last reported error code from a DAQmx function call. The value zero indicates no error has occurred.</Description>
+						<Properties>
+							<Property Name="ID">
+								<I32>100005</I32>
+							</Property>
+						</Properties>
+						<Errors />
+						<DefaultValue>
+							<Elem>0</Elem>
+						</DefaultValue>
+					</Channel>
+					<Channel Name="Delta T" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="sec" BitFields="1">
+						<Description>The period in seconds of the Primary Control Loop</Description>
+						<Properties>
+							<Property Name="ID">
+								<I32>100006</I32>
+							</Property>
+						</Properties>
+						<Errors />
+						<DefaultValue>
+							<Elem>0</Elem>
+						</DefaultValue>
+					</Channel>
+					<Channel Name="Compiler Error" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="0">
+						<Description>Deprecated</Description>
+						<Properties>
+							<Property Name="ID">
+								<I32>100007</I32>
+							</Property>
+						</Properties>
+						<Errors />
+						<DefaultValue>
+							<Elem>0</Elem>
+						</DefaultValue>
+					</Channel>
+					<Channel Name="Stack Index 1" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="1">
+						<Description>An internal register used by procedures to maintain the stack location when a procedure is preempted by a higher priorty procedure</Description>
+						<Properties>
+							<Property Name="ID">
+								<I32>100008</I32>
+							</Property>
+						</Properties>
+						<Errors />
+						<DefaultValue>
+							<Elem>-1</Elem>
+						</DefaultValue>
+					</Channel>
+					<Channel Name="Stack Index 2" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="1">
+						<Description>An internal register used by procedures to maintain the stack location when a procedure is preempted by a higher priorty procedure</Description>
+						<Properties>
+							<Property Name="ID">
+								<I32>100009</I32>
+							</Property>
+						</Properties>
+						<Errors />
+						<DefaultValue>
+							<Elem>-1</Elem>
+						</DefaultValue>
+					</Channel>
+					<Channel Name="Stack Index 3" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="1">
+						<Description>An internal register used by procedures to maintain the stack location when a procedure is preempted by a higher priorty procedure</Description>
+						<Properties>
+							<Property Name="ID">
+								<I32>100010</I32>
+							</Property>
+						</Properties>
+						<Errors />
+						<DefaultValue>
+							<Elem>-1</Elem>
+						</DefaultValue>
+					</Channel>
+					<Channel Name="Resume Flag" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="0">
+						<Description>Deprecated</Description>
+						<Properties>
+							<Property Name="ID">
+								<I32>100011</I32>
+							</Property>
+						</Properties>
+						<Errors />
+						<DefaultValue>
+							<Elem>0</Elem>
+						</DefaultValue>
+					</Channel>
+					<Channel Name="Stack Index 4" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="1">
+						<Description>An internal register used by procedures to maintain the stack location when a procedure is preempted by a higher priorty procedure</Description>
+						<Properties>
+							<Property Name="ID">
+								<I32>100012</I32>
+							</Property>
+						</Properties>
+						<Errors />
+						<DefaultValue>
+							<Elem>-1</Elem>
+						</DefaultValue>
+					</Channel>
+					<Channel Name="Stack Index 5" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="1">
+						<Description>An internal register used by procedures to maintain the stack location when a procedure is preempted by a higher priorty procedure</Description>
+						<Properties>
+							<Property Name="ID">
+								<I32>100013</I32>
+							</Property>
+						</Properties>
+						<Errors />
+						<DefaultValue>
+							<Elem>-1</Elem>
+						</DefaultValue>
+					</Channel>
+					<Channel Name="Stack Index 6" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="1">
+						<Description>An internal register used by procedures to maintain the stack location when a procedure is preempted by a higher priorty procedure</Description>
+						<Properties>
+							<Property Name="ID">
+								<I32>100014</I32>
+							</Property>
+						</Properties>
+						<Errors />
+						<DefaultValue>
+							<Elem>-1</Elem>
+						</DefaultValue>
+					</Channel>
+					<Channel Name="Tripped Low Alarm" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="ID" BitFields="1">
+						<Description>The ID of the alarm that has tripped</Description>
+						<Properties>
+							<Property Name="ID">
+								<I32>100015</I32>
+							</Property>
+						</Properties>
+						<Errors />
+						<DefaultValue>
+							<Elem>0</Elem>
+						</DefaultValue>
+					</Channel>
+					<Channel Name="Tripped Medium Alarm" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="ID" BitFields="1">
+						<Description>The ID of the alarm that has tripped</Description>
+						<Properties>
+							<Property Name="ID">
+								<I32>100016</I32>
+							</Property>
+						</Properties>
+						<Errors />
+						<DefaultValue>
+							<Elem>0</Elem>
+						</DefaultValue>
+					</Channel>
+					<Channel Name="Tripped High Alarm" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="ID" BitFields="1">
+						<Description>The ID of the alarm that has tripped</Description>
+						<Properties>
+							<Property Name="ID">
+								<I32>100017</I32>
+							</Property>
+						</Properties>
+						<Errors />
+						<DefaultValue>
+							<Elem>0</Elem>
+						</DefaultValue>
+					</Channel>
+					<Channel Name="Tripped Low Value" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="EUs" BitFields="1">
+						<Description>The value of the channel that tripped the alarm</Description>
+						<Properties>
+							<Property Name="ID">
+								<I32>100018</I32>
+							</Property>
+						</Properties>
+						<Errors />
+						<DefaultValue>
+							<Elem>0</Elem>
+						</DefaultValue>
+					</Channel>
+					<Channel Name="Tripped Medium Value" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="EUs" BitFields="1">
+						<Description>The value of the channel that tripped the alarm</Description>
+						<Properties>
+							<Property Name="ID">
+								<I32>100019</I32>
+							</Property>
+						</Properties>
+						<Errors />
+						<DefaultValue>
+							<Elem>0</Elem>
+						</DefaultValue>
+					</Channel>
+					<Channel Name="Tripped High Value" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="EUs" BitFields="1">
+						<Description>The value of the channel that tripped the alarm</Description>
+						<Properties>
+							<Property Name="ID">
+								<I32>100020</I32>
+							</Property>
+						</Properties>
+						<Errors />
+						<DefaultValue>
+							<Elem>0</Elem>
+						</DefaultValue>
+					</Channel>
+					<Channel Name="RT Engine Build" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="1">
+						<Description>A value representing the build number of the NI VeriStand Engine</Description>
+						<Properties>
+							<Property Name="ID">
+								<I32>100021</I32>
+							</Property>
+						</Properties>
+						<Errors />
+						<DefaultValue>
+							<Elem>0</Elem>
+						</DefaultValue>
+					</Channel>
+					<Channel Name="HP Loop Duration" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="nsec" BitFields="1">
+						<Description>The duration of the Primary Control Loop in nanoseconds</Description>
+						<Properties>
+							<Property Name="ID">
+								<I32>100022</I32>
+							</Property>
+						</Properties>
+						<Errors />
+						<DefaultValue>
+							<Elem>0</Elem>
+						</DefaultValue>
+					</Channel>
+					<Channel Name="LP Loop Duration" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="nsec" BitFields="1">
+						<Description>The duration of the Data Processing Loop in nanoseconds</Description>
+						<Properties>
+							<Property Name="ID">
+								<I32>100023</I32>
+							</Property>
+						</Properties>
+						<Errors />
+						<DefaultValue>
+							<Elem>0</Elem>
+						</DefaultValue>
+					</Channel>
+					<Channel Name="System Command" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="Enum" BitFields="3">
+						<Description>Internally commands the RT system with the following numeric values:
+
+0: None
+1: Restart System
+2: Reset System
+3: Shut Down System
+4: Reboot System</Description>
+						<Properties>
+							<Property Name="ID">
+								<I32>100024</I32>
+							</Property>
+						</Properties>
+						<Errors />
+						<DefaultValue>
+							<Elem>0</Elem>
+						</DefaultValue>
+					</Channel>
+					<Channel Name="Streamed Channel Count" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="1">
+						<Description>The number of channels that the VeriStand Engine is currently streaming to the host</Description>
+						<Properties>
+							<Property Name="ID">
+								<I32>100025</I32>
+							</Property>
+						</Properties>
+						<Errors />
+						<DefaultValue>
+							<Elem>0</Elem>
+						</DefaultValue>
+					</Channel>
+					<Channel Name="Max Streamed Channels" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="0">
+						<Description>The maximum number of channels that the VeriStand Engine can stream to the host</Description>
+						<Properties>
+							<Property Name="ID">
+								<I32>100026</I32>
+							</Property>
+						</Properties>
+						<Errors />
+						<DefaultValue>
+							<Elem>0</Elem>
+						</DefaultValue>
+					</Channel>
+					<Channel Name="Model Count" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="1">
+						<Description>The number of times the models have not completed their execution in time</Description>
+						<Properties>
+							<Property Name="ID">
+								<I32>100027</I32>
+							</Property>
+						</Properties>
+						<Errors />
+						<DefaultValue>
+							<Elem>0</Elem>
+						</DefaultValue>
+					</Channel>
+					<Channel Name="Clients" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="0">
+						<Description>Deprecated</Description>
+						<Properties>
+							<Property Name="ID">
+								<I32>100028</I32>
+							</Property>
+						</Properties>
+						<Errors />
+						<DefaultValue>
+							<Elem>0</Elem>
+						</DefaultValue>
+					</Channel>
+					<Channel Name="Maximum GENs" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="1">
+						<Description>The number of stimulus profile generators instantiated by the system</Description>
+						<Properties>
+							<Property Name="ID">
+								<I32>100029</I32>
+							</Property>
+						</Properties>
+						<Errors />
+						<DefaultValue>
+							<Elem>0</Elem>
+						</DefaultValue>
+					</Channel>
+					<Channel Name="Generator Engine State" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="1">
+						<Description>The current state of the stimulus profile generator engine
+
+0: Idle
+1: Running
+2: Stopped
+3: Paused</Description>
+						<Properties>
+							<Property Name="ID">
+								<I32>100030</I32>
+							</Property>
+						</Properties>
+						<Errors />
+						<DefaultValue>
+							<Elem>0</Elem>
+						</DefaultValue>
+					</Channel>
+					<Channel Name="Watchdog Timer" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="1">
+						<Description>The amount of time in nanoseconds since the Watchdog Timer Loop last executed. The Watchdog Timer Loop is set to execute at a rate of 10Hz.</Description>
+						<Properties>
+							<Property Name="ID">
+								<I32>100031</I32>
+							</Property>
+						</Properties>
+						<Errors />
+						<DefaultValue>
+							<Elem>0</Elem>
+						</DefaultValue>
+					</Channel>
+					<Channel Name="HS TCP Overflow Count" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="1">
+						<Description>The number of times the streaming data gets overwritten.</Description>
+						<Properties>
+							<Property Name="ID">
+								<I32>100032</I32>
+							</Property>
+						</Properties>
+						<Errors />
+						<DefaultValue>
+							<Elem>0</Elem>
+						</DefaultValue>
+					</Channel>
+					<Channel Name="Host IP" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="1">
+						<Description>The 32-bit integer IP Address of the connected host. A zero value indicates no host is connected to the VeriStand Engine.</Description>
+						<Properties>
+							<Property Name="ID">
+								<I32>100033</I32>
+							</Property>
+						</Properties>
+						<Errors />
+						<DefaultValue>
+							<Elem>0</Elem>
+						</DefaultValue>
+					</Channel>
+					<Channel Name="Trace Enabled Flag" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="3">
+						<Description>Deprecated</Description>
+						<Properties>
+							<Property Name="ID">
+								<I32>100034</I32>
+							</Property>
+						</Properties>
+						<Errors />
+						<DefaultValue>
+							<Elem>0</Elem>
+						</DefaultValue>
+					</Channel>
+					<Channel Name="Detailed Tracing Flag" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="3">
+						<Description>Deprecated</Description>
+						<Properties>
+							<Property Name="ID">
+								<I32>100035</I32>
+							</Property>
+						</Properties>
+						<Errors />
+						<DefaultValue>
+							<Elem>0</Elem>
+						</DefaultValue>
+					</Channel>
+					<Channel Name="VI Tracing Flag" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="3">
+						<Description>Deprecated</Description>
+						<Properties>
+							<Property Name="ID">
+								<I32>100036</I32>
+							</Property>
+						</Properties>
+						<Errors />
+						<DefaultValue>
+							<Elem>0</Elem>
+						</DefaultValue>
+					</Channel>
+					<Channel Name="Trace Buffer Size" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="3">
+						<Description>Deprecated</Description>
+						<Properties>
+							<Property Name="ID">
+								<I32>100037</I32>
+							</Property>
+						</Properties>
+						<Errors />
+						<DefaultValue>
+							<Elem>0</Elem>
+						</DefaultValue>
+					</Channel>
+					<Channel Name="Thread Tracing Flag" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="3">
+						<Description>Deprecated</Description>
+						<Properties>
+							<Property Name="ID">
+								<I32>100038</I32>
+							</Property>
+						</Properties>
+						<Errors />
+						<DefaultValue>
+							<Elem>0</Elem>
+						</DefaultValue>
+					</Channel>
+					<Channel Name="System Reserved 39" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="0">
+						<Description>Deprecated</Description>
+						<Properties>
+							<Property Name="ID">
+								<I32>100039</I32>
+							</Property>
+						</Properties>
+						<Errors />
+						<DefaultValue>
+							<Elem>0</Elem>
+						</DefaultValue>
+					</Channel>
+					<Channel Name="System Reserved 40" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="0">
+						<Description>Deprecated</Description>
+						<Properties>
+							<Property Name="ID">
+								<I32>100040</I32>
+							</Property>
+						</Properties>
+						<Errors />
+						<DefaultValue>
+							<Elem>0</Elem>
+						</DefaultValue>
+					</Channel>
+					<Channel Name="System Reserved 41" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="0">
+						<Description>Deprecated</Description>
+						<Properties>
+							<Property Name="ID">
+								<I32>100041</I32>
+							</Property>
+						</Properties>
+						<Errors />
+						<DefaultValue>
+							<Elem>0</Elem>
+						</DefaultValue>
+					</Channel>
+					<Channel Name="System Reserved 42" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="0">
+						<Description>Deprecated</Description>
+						<Properties>
+							<Property Name="ID">
+								<I32>100042</I32>
+							</Property>
+						</Properties>
+						<Errors />
+						<DefaultValue>
+							<Elem>0</Elem>
+						</DefaultValue>
+					</Channel>
+					<Channel Name="System Reserved 43" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="0">
+						<Description>Deprecated</Description>
+						<Properties>
+							<Property Name="ID">
+								<I32>100043</I32>
+							</Property>
+						</Properties>
+						<Errors />
+						<DefaultValue>
+							<Elem>0</Elem>
+						</DefaultValue>
+					</Channel>
+					<Channel Name="System Reserved 44" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="0">
+						<Description>Deprecated</Description>
+						<Properties>
+							<Property Name="ID">
+								<I32>100044</I32>
+							</Property>
+						</Properties>
+						<Errors />
+						<DefaultValue>
+							<Elem>0</Elem>
+						</DefaultValue>
+					</Channel>
+					<Channel Name="PC Timing - Iterations" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="0">
+						<Description>Deprecated</Description>
+						<Properties>
+							<Property Name="ID">
+								<I32>100045</I32>
+							</Property>
+						</Properties>
+						<Errors />
+						<DefaultValue>
+							<Elem>0</Elem>
+						</DefaultValue>
+					</Channel>
+					<Channel Name="PC Timing - Min Wait" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="0">
+						<Description>Deprecated</Description>
+						<Properties>
+							<Property Name="ID">
+								<I32>100046</I32>
+							</Property>
+						</Properties>
+						<Errors />
+						<DefaultValue>
+							<Elem>0</Elem>
+						</DefaultValue>
+					</Channel>
+					<Channel Name="PC Timing - Actual Wait" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="0">
+						<Description>Deprecated</Description>
+						<Properties>
+							<Property Name="ID">
+								<I32>100047</I32>
+							</Property>
+						</Properties>
+						<Errors />
+						<DefaultValue>
+							<Elem>0</Elem>
+						</DefaultValue>
+					</Channel>
+					<Channel Name="Failure Count" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="1">
+						<Description>The failure count of current analysis settings</Description>
+						<Properties>
+							<Property Name="ID">
+								<I32>100048</I32>
+							</Property>
+						</Properties>
+						<Errors />
+						<DefaultValue>
+							<Elem>0</Elem>
+						</DefaultValue>
+					</Channel>
+					<Channel Name="Analysis State" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="1">
+						<Description>The state of the analysis sub-system on the RT execution host</Description>
+						<Properties>
+							<Property Name="ID">
+								<I32>100049</I32>
+							</Property>
+						</Properties>
+						<Errors />
+						<DefaultValue>
+							<Elem>0</Elem>
+						</DefaultValue>
+					</Channel>
+					<Channel Name="TCP Data Packet Loss" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="1">
+						<Description>The number of times the VeriStand Engine fails to send a data packet to the host. A non-zero number can indicate data loss in logged data. The value is reset every time a Workspace connects to the VeriStand Engine.</Description>
+						<Properties>
+							<Property Name="ID">
+								<I32>100050</I32>
+							</Property>
+						</Properties>
+						<Errors />
+						<DefaultValue>
+							<Elem>0</Elem>
+						</DefaultValue>
+					</Channel>
+					<Channel Name="System Reserved 51" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="0">
+						<Description>Deprecated</Description>
+						<Properties>
+							<Property Name="ID">
+								<I32>100051</I32>
+							</Property>
+						</Properties>
+						<Errors />
+						<DefaultValue>
+							<Elem>0</Elem>
+						</DefaultValue>
+					</Channel>
+					<Channel Name="System Reserved 52" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="0">
+						<Description>Deprecated</Description>
+						<Properties>
+							<Property Name="ID">
+								<I32>100052</I32>
+							</Property>
+						</Properties>
+						<Errors />
+						<DefaultValue>
+							<Elem>0</Elem>
+						</DefaultValue>
+					</Channel>
+					<Channel Name="System Reserved 53" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="0">
+						<Description>Deprecated</Description>
+						<Properties>
+							<Property Name="ID">
+								<I32>100053</I32>
+							</Property>
+						</Properties>
+						<Errors />
+						<DefaultValue>
+							<Elem>0</Elem>
+						</DefaultValue>
+					</Channel>
+					<Channel Name="System Reserved 54" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="0">
+						<Description>Deprecated</Description>
+						<Properties>
+							<Property Name="ID">
+								<I32>100054</I32>
+							</Property>
+						</Properties>
+						<Errors />
+						<DefaultValue>
+							<Elem>0</Elem>
+						</DefaultValue>
+					</Channel>
+					<Channel Name="System Reserved 55" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="0">
+						<Description>Deprecated</Description>
+						<Properties>
+							<Property Name="ID">
+								<I32>100055</I32>
+							</Property>
+						</Properties>
+						<Errors />
+						<DefaultValue>
+							<Elem>0</Elem>
+						</DefaultValue>
+					</Channel>
+					<Channel Name="System Reserved 56" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="0">
+						<Description>Deprecated</Description>
+						<Properties>
+							<Property Name="ID">
+								<I32>100056</I32>
+							</Property>
+						</Properties>
+						<Errors />
+						<DefaultValue>
+							<Elem>0</Elem>
+						</DefaultValue>
+					</Channel>
+					<Channel Name="System Reserved 57" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="0">
+						<Description>Deprecated</Description>
+						<Properties>
+							<Property Name="ID">
+								<I32>100057</I32>
+							</Property>
+						</Properties>
+						<Errors />
+						<DefaultValue>
+							<Elem>0</Elem>
+						</DefaultValue>
+					</Channel>
+					<Channel Name="System Reserved 58" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="0">
+						<Description>Deprecated</Description>
+						<Properties>
+							<Property Name="ID">
+								<I32>100058</I32>
+							</Property>
+						</Properties>
+						<Errors />
+						<DefaultValue>
+							<Elem>0</Elem>
+						</DefaultValue>
+					</Channel>
+					<Channel Name="System Reserved 59" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="0">
+						<Description>Deprecated</Description>
+						<Properties>
+							<Property Name="ID">
+								<I32>100059</I32>
+							</Property>
+						</Properties>
+						<Errors />
+						<DefaultValue>
+							<Elem>0</Elem>
+						</DefaultValue>
+					</Channel>
+					<Channel Name="System Reserved 60" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="0">
+						<Description>Deprecated</Description>
+						<Properties>
+							<Property Name="ID">
+								<I32>100060</I32>
+							</Property>
+						</Properties>
+						<Errors />
+						<DefaultValue>
+							<Elem>0</Elem>
+						</DefaultValue>
+					</Channel>
+					<Channel Name="System Reserved 61" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="0">
+						<Description>Deprecated</Description>
+						<Properties>
+							<Property Name="ID">
+								<I32>100061</I32>
+							</Property>
+						</Properties>
+						<Errors />
+						<DefaultValue>
+							<Elem>0</Elem>
+						</DefaultValue>
+					</Channel>
+					<Channel Name="System Reserved 62" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="0">
+						<Description>Deprecated</Description>
+						<Properties>
+							<Property Name="ID">
+								<I32>100062</I32>
+							</Property>
+						</Properties>
+						<Errors />
+						<DefaultValue>
+							<Elem>0</Elem>
+						</DefaultValue>
+					</Channel>
+					<Channel Name="System Reserved 63" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="0">
+						<Description>Deprecated</Description>
+						<Properties>
+							<Property Name="ID">
+								<I32>100063</I32>
+							</Property>
+						</Properties>
+						<Errors />
+						<DefaultValue>
+							<Elem>0</Elem>
+						</DefaultValue>
+					</Channel>
+					<Channel Name="System Reserved 64" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="0">
+						<Description>Deprecated</Description>
+						<Properties>
+							<Property Name="ID">
+								<I32>100064</I32>
+							</Property>
+						</Properties>
+						<Errors />
+						<DefaultValue>
+							<Elem>0</Elem>
+						</DefaultValue>
+					</Channel>
+					<Channel Name="System Reserved 65" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="0">
+						<Description>Deprecated</Description>
+						<Properties>
+							<Property Name="ID">
+								<I32>100065</I32>
+							</Property>
+						</Properties>
+						<Errors />
+						<DefaultValue>
+							<Elem>0</Elem>
+						</DefaultValue>
+					</Channel>
+					<Channel Name="System Reserved 66" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="0">
+						<Description>Deprecated</Description>
+						<Properties>
+							<Property Name="ID">
+								<I32>100066</I32>
+							</Property>
+						</Properties>
+						<Errors />
+						<DefaultValue>
+							<Elem>0</Elem>
+						</DefaultValue>
+					</Channel>
+					<Channel Name="System Reserved 67" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="0">
+						<Description>Deprecated</Description>
+						<Properties>
+							<Property Name="ID">
+								<I32>100067</I32>
+							</Property>
+						</Properties>
+						<Errors />
+						<DefaultValue>
+							<Elem>0</Elem>
+						</DefaultValue>
+					</Channel>
+					<Channel Name="System Reserved 68" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="0">
+						<Description>Deprecated</Description>
+						<Properties>
+							<Property Name="ID">
+								<I32>100068</I32>
+							</Property>
+						</Properties>
+						<Errors />
+						<DefaultValue>
+							<Elem>0</Elem>
+						</DefaultValue>
+					</Channel>
+					<Channel Name="System Reserved 69" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="0">
+						<Description>Deprecated</Description>
+						<Properties>
+							<Property Name="ID">
+								<I32>100069</I32>
+							</Property>
+						</Properties>
+						<Errors />
+						<DefaultValue>
+							<Elem>0</Elem>
+						</DefaultValue>
+					</Channel>
+					<Channel Name="System Reserved 70" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="0">
+						<Description>Deprecated</Description>
+						<Properties>
+							<Property Name="ID">
+								<I32>100070</I32>
+							</Property>
+						</Properties>
+						<Errors />
+						<DefaultValue>
+							<Elem>0</Elem>
+						</DefaultValue>
+					</Channel>
+					<Channel Name="System Reserved 71" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="0">
+						<Description>Deprecated</Description>
+						<Properties>
+							<Property Name="ID">
+								<I32>100071</I32>
+							</Property>
+						</Properties>
+						<Errors />
+						<DefaultValue>
+							<Elem>0</Elem>
+						</DefaultValue>
+					</Channel>
+					<Channel Name="System Reserved 72" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="0">
+						<Description>Deprecated</Description>
+						<Properties>
+							<Property Name="ID">
+								<I32>100072</I32>
+							</Property>
+						</Properties>
+						<Errors />
+						<DefaultValue>
+							<Elem>0</Elem>
+						</DefaultValue>
+					</Channel>
+					<Channel Name="System Reserved 73" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="0">
+						<Description>Deprecated</Description>
+						<Properties>
+							<Property Name="ID">
+								<I32>100073</I32>
+							</Property>
+						</Properties>
+						<Errors />
+						<DefaultValue>
+							<Elem>0</Elem>
+						</DefaultValue>
+					</Channel>
+					<Channel Name="System Reserved 74" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="0">
+						<Description>Deprecated</Description>
+						<Properties>
+							<Property Name="ID">
+								<I32>100074</I32>
+							</Property>
+						</Properties>
+						<Errors />
+						<DefaultValue>
+							<Elem>0</Elem>
+						</DefaultValue>
+					</Channel>
+					<Channel Name="System Reserved 75" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="0">
+						<Description>Deprecated</Description>
+						<Properties>
+							<Property Name="ID">
+								<I32>100075</I32>
+							</Property>
+						</Properties>
+						<Errors />
+						<DefaultValue>
+							<Elem>0</Elem>
+						</DefaultValue>
+					</Channel>
+					<Channel Name="System Reserved 76" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="0">
+						<Description>Deprecated</Description>
+						<Properties>
+							<Property Name="ID">
+								<I32>100076</I32>
+							</Property>
+						</Properties>
+						<Errors />
+						<DefaultValue>
+							<Elem>0</Elem>
+						</DefaultValue>
+					</Channel>
+					<Channel Name="System Reserved 77" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="0">
+						<Description>Deprecated</Description>
+						<Properties>
+							<Property Name="ID">
+								<I32>100077</I32>
+							</Property>
+						</Properties>
+						<Errors />
+						<DefaultValue>
+							<Elem>0</Elem>
+						</DefaultValue>
+					</Channel>
+					<Channel Name="System Reserved 78" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="0">
+						<Description>Deprecated</Description>
+						<Properties>
+							<Property Name="ID">
+								<I32>100078</I32>
+							</Property>
+						</Properties>
+						<Errors />
+						<DefaultValue>
+							<Elem>0</Elem>
+						</DefaultValue>
+					</Channel>
+					<Channel Name="System Reserved 79" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="0">
+						<Description>Deprecated</Description>
+						<Properties>
+							<Property Name="ID">
+								<I32>100079</I32>
+							</Property>
+						</Properties>
+						<Errors />
+						<DefaultValue>
+							<Elem>0</Elem>
+						</DefaultValue>
+					</Channel>
+					<Channel Name="System Reserved 80" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="0">
+						<Description>Deprecated</Description>
+						<Properties>
+							<Property Name="ID">
+								<I32>100080</I32>
+							</Property>
+						</Properties>
+						<Errors />
+						<DefaultValue>
+							<Elem>0</Elem>
+						</DefaultValue>
+					</Channel>
+					<Channel Name="System Reserved 81" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="0">
+						<Description>Deprecated</Description>
+						<Properties>
+							<Property Name="ID">
+								<I32>100081</I32>
+							</Property>
+						</Properties>
+						<Errors />
+						<DefaultValue>
+							<Elem>0</Elem>
+						</DefaultValue>
+					</Channel>
+					<Channel Name="System Reserved 82" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="0">
+						<Description>Deprecated</Description>
+						<Properties>
+							<Property Name="ID">
+								<I32>100082</I32>
+							</Property>
+						</Properties>
+						<Errors />
+						<DefaultValue>
+							<Elem>0</Elem>
+						</DefaultValue>
+					</Channel>
+					<Channel Name="System Reserved 83" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="0">
+						<Description>Deprecated</Description>
+						<Properties>
+							<Property Name="ID">
+								<I32>100083</I32>
+							</Property>
+						</Properties>
+						<Errors />
+						<DefaultValue>
+							<Elem>0</Elem>
+						</DefaultValue>
+					</Channel>
+					<Channel Name="System Reserved 84" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="0">
+						<Description>Deprecated</Description>
+						<Properties>
+							<Property Name="ID">
+								<I32>100084</I32>
+							</Property>
+						</Properties>
+						<Errors />
+						<DefaultValue>
+							<Elem>0</Elem>
+						</DefaultValue>
+					</Channel>
+					<Channel Name="System Reserved 85" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="0">
+						<Description>Deprecated</Description>
+						<Properties>
+							<Property Name="ID">
+								<I32>100085</I32>
+							</Property>
+						</Properties>
+						<Errors />
+						<DefaultValue>
+							<Elem>0</Elem>
+						</DefaultValue>
+					</Channel>
+					<Channel Name="System Reserved 86" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="0">
+						<Description>Deprecated</Description>
+						<Properties>
+							<Property Name="ID">
+								<I32>100086</I32>
+							</Property>
+						</Properties>
+						<Errors />
+						<DefaultValue>
+							<Elem>0</Elem>
+						</DefaultValue>
+					</Channel>
+					<Channel Name="System Reserved 87" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="0">
+						<Description>Deprecated</Description>
+						<Properties>
+							<Property Name="ID">
+								<I32>100087</I32>
+							</Property>
+						</Properties>
+						<Errors />
+						<DefaultValue>
+							<Elem>0</Elem>
+						</DefaultValue>
+					</Channel>
+					<Channel Name="System Reserved 88" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="0">
+						<Description>Deprecated</Description>
+						<Properties>
+							<Property Name="ID">
+								<I32>100088</I32>
+							</Property>
+						</Properties>
+						<Errors />
+						<DefaultValue>
+							<Elem>0</Elem>
+						</DefaultValue>
+					</Channel>
+					<Channel Name="System Reserved 89" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="0">
+						<Description>Deprecated</Description>
+						<Properties>
+							<Property Name="ID">
+								<I32>100089</I32>
+							</Property>
+						</Properties>
+						<Errors />
+						<DefaultValue>
+							<Elem>0</Elem>
+						</DefaultValue>
+					</Channel>
+					<Channel Name="System Reserved 90" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="0">
+						<Description>Deprecated</Description>
+						<Properties>
+							<Property Name="ID">
+								<I32>100090</I32>
+							</Property>
+						</Properties>
+						<Errors />
+						<DefaultValue>
+							<Elem>0</Elem>
+						</DefaultValue>
+					</Channel>
+					<Channel Name="System Reserved 91" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="0">
+						<Description>Deprecated</Description>
+						<Properties>
+							<Property Name="ID">
+								<I32>100091</I32>
+							</Property>
+						</Properties>
+						<Errors />
+						<DefaultValue>
+							<Elem>0</Elem>
+						</DefaultValue>
+					</Channel>
+					<Channel Name="AO1 Error" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="0">
+						<Description>Deprecated</Description>
+						<Properties>
+							<Property Name="ID">
+								<I32>100092</I32>
+							</Property>
+						</Properties>
+						<Errors />
+						<DefaultValue>
+							<Elem>0</Elem>
+						</DefaultValue>
+					</Channel>
+					<Channel Name="HP Loop Wakeup Status" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="Enum" BitFields="1">
+						<Description>The wakeup status of the Primary Control Loop.
+
+0: Normal
+1: Aborted
+2: Asynchronous wakeup
+3: Timing source error
+4: Timed loop error
+5: Timeout</Description>
+						<Properties>
+							<Property Name="ID">
+								<I32>100093</I32>
+							</Property>
+						</Properties>
+						<Errors />
+						<DefaultValue>
+							<Elem>0</Elem>
+						</DefaultValue>
+					</Channel>
+					<Channel Name="HD Free Space" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="0">
+						<Description>Deprecated</Description>
+						<Properties>
+							<Property Name="ID">
+								<I32>100094</I32>
+							</Property>
+						</Properties>
+						<Errors />
+						<DefaultValue>
+							<Elem>0</Elem>
+						</DefaultValue>
+					</Channel>
+					<Channel Name="HP-LP Overwrite" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="1">
+						<Description>The number of times the Primary Control Loop timed out writing channel data to the Data Processing Loop</Description>
+						<Properties>
+							<Property Name="ID">
+								<I32>100095</I32>
+							</Property>
+						</Properties>
+						<Errors />
+						<DefaultValue>
+							<Elem>0</Elem>
+						</DefaultValue>
+					</Channel>
+					<Channel Name="LP Data Count" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="1">
+						<Description>The number of times the Data Processing Loop timed out writing channel data to the Communication Send Loop</Description>
+						<Properties>
+							<Property Name="ID">
+								<I32>100096</I32>
+							</Property>
+						</Properties>
+						<Errors />
+						<DefaultValue>
+							<Elem>0</Elem>
+						</DefaultValue>
+					</Channel>
+					<Channel Name="HP Count" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="1">
+						<Description>The number of times the Primary Control Loop reported being late</Description>
+						<Properties>
+							<Property Name="ID">
+								<I32>100097</I32>
+							</Property>
+						</Properties>
+						<Errors />
+						<DefaultValue>
+							<Elem>0</Elem>
+						</DefaultValue>
+					</Channel>
+					<Channel Name="LP Count" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="1">
+						<Description>The number of times the Data Processing Loop reported being late</Description>
+						<Properties>
+							<Property Name="ID">
+								<I32>100098</I32>
+							</Property>
+						</Properties>
+						<Errors />
+						<DefaultValue>
+							<Elem>0</Elem>
+						</DefaultValue>
+					</Channel>
+					<Channel Name="Log Status" TypeGUID="03D3B762-1485-13A6-56F0D6D728909E23" RowDim="1" ColDim="1" Units="" BitFields="0">
+						<Description>The state of the logging sub-system on the RT execution host</Description>
+						<Properties>
+							<Property Name="ID">
+								<I32>100099</I32>
+							</Property>
+						</Properties>
+						<Errors />
+						<DefaultValue>
+							<Elem>0</Elem>
+						</DefaultValue>
+					</Channel>
+				</Section>
+				<Section Name="Hardware" TypeGUID="775504AB-1485-13A6-560018C1F4E3EEE1">
+					<Description />
+					<Properties />
+					<Errors />
+					<Section Name="Chassis" TypeGUID="03D3BACD-1485-13A6-56E99D97B7543BAF">
+						<Description />
+						<Properties>
+							<Property Name="Chassis master active edge">
+								<I32>0</I32>
+							</Property>
+							<Property Name="Chassis master clock source">
+								<I32>0</I32>
+							</Property>
+							<Property Name="Chassis master export clock on line">
+								<I32>0</I32>
+							</Property>
+							<Property Name="Chassis master export sample clock">
+								<I32>0</I32>
+							</Property>
+							<Property Name="Chassis master slope">
+								<I32>0</I32>
+							</Property>
+							<Property Name="Chassis master trigger line">
+								<I32>0</I32>
+							</Property>
+						</Properties>
+						<Errors />
+						<Section Name="Timing and Sync" TypeGUID="03D3BAED-1485-13A6-56E20B50F6E06D94">
+							<Description />
+							<Properties />
+							<Errors />
+						</Section>
+						<Section Name="DAQ" TypeGUID="77550612-1485-13A6-56570AB5032158E9">
+							<Description />
+							<Properties />
+							<Errors />
+						</Section>
+						<Section Name="FPGA" TypeGUID="03D3B659-1485-13A6-5652D8A07328ECB7">
+							<Description />
+							<Properties />
+							<Errors />
+						</Section>
+						<Section Name="Data Sharing" TypeGUID="d56f3ac1-7b2c-422c-9d11-fd9cc7abf2a5">
+							<Description />
+							<Properties>
+								<Property Name="CD Status">
+									<U32>2</U32>
+								</Property>
+							</Properties>
+							<Errors />
+						</Section>
+						<Section Name="XNET" TypeGUID="6b693e6d-67b1-40b8-8108-4a4cc3147721">
+							<Description />
+							<Properties>
+								<Property Name="CD Status">
+									<U32>2</U32>
+								</Property>
+							</Properties>
+							<Errors />
+							<Section Name="LIN" TypeGUID="c9c30728-42cb-4dc3-b054-b80e7a54e833">
+								<Description />
+								<Properties />
+								<Errors />
+							</Section>
+							<Section Name="FlexRay" TypeGUID="e33fae90-03f1-4f76-b2f1-6eb8fcac2676">
+								<Description />
+								<Properties />
+								<Errors />
+							</Section>
+							<Section Name="CAN" TypeGUID="6c5bb91f-0da7-407d-aefc-acbe49c768df">
+								<Description />
+								<Properties />
+								<Errors />
+							</Section>
+						</Section>
+					</Section>
+				</Section>
+				<Section Name="Stimulus" TypeGUID="03D3B7FF-1485-13A6-56B2328F9511AC8B">
+					<Description />
+					<Properties>
+						<Property Name="Analysis Buffer Size">
+							<I32>10000</I32>
+						</Property>
+						<Property Name="Analysis Result Size">
+							<I32>5000</I32>
+						</Property>
+						<Property Name="Aux Buffer Size">
+							<I32>10000</I32>
+						</Property>
+						<Property Name="Max Gen Maps">
+							<I32>256</I32>
+						</Property>
+						<Property Name="Max Steps">
+							<I32>128</I32>
+						</Property>
+					</Properties>
+					<Errors />
+					<Section Name="GEN001" TypeGUID="03D3B80E-1485-13A6-56528B60DC00DC89">
+						<Description />
+						<Properties />
+						<Errors />
+						<Channel Name="GEN001 State" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100100</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN001 Rate" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="sec/loop" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100101</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN001 Current Step" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="3">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100102</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN001 Current Function" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100103</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN001 Hold Flag" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100104</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN001 Hold Release" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100105</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN001 Total # Steps" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100106</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN001 Group" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100107</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN001 Client" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100108</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN001 Total # Blocks" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100109</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN001 Current Block" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="3">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100110</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN001 Cycle" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="cycles" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100111</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN001 Total Cycles" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="cycles" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100112</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN001 Time in Function" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="sec" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100113</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN001 Total Time" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="sec" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100114</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN001 Timer" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="sec" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100115</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN001 Output" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="EUs" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100116</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN001 Ramp Setpoint" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="EUs" BitFields="3">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100117</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN001 Ramp Rate Eu/sec" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="EUs/sec" BitFields="3">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100118</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN001 Spare" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100119</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+					</Section>
+					<Section Name="GEN002" TypeGUID="03D3B80E-1485-13A6-56528B60DC00DC89">
+						<Description />
+						<Properties />
+						<Errors />
+						<Channel Name="GEN002 State" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100120</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN002 Rate" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="sec/loop" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100121</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN002 Current Step" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="3">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100122</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN002 Current Function" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100123</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN002 Hold Flag" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100124</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN002 Hold Release" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100125</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN002 Total # Steps" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100126</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN002 Group" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100127</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN002 Client" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100128</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN002 Total # Blocks" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100129</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN002 Current Block" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="3">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100130</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN002 Cycle" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="cycles" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100131</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN002 Total Cycles" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="cycles" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100132</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN002 Time in Function" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="sec" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100133</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN002 Total Time" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="sec" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100134</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN002 Timer" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="sec" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100135</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN002 Output" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="EUs" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100136</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN002 Ramp Setpoint" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="EUs" BitFields="3">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100137</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN002 Ramp Rate Eu/sec" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="EUs/sec" BitFields="3">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100138</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN002 Spare" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100139</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+					</Section>
+					<Section Name="GEN003" TypeGUID="03D3B80E-1485-13A6-56528B60DC00DC89">
+						<Description />
+						<Properties />
+						<Errors />
+						<Channel Name="GEN003 State" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100140</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN003 Rate" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="sec/loop" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100141</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN003 Current Step" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="3">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100142</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN003 Current Function" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100143</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN003 Hold Flag" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100144</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN003 Hold Release" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100145</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN003 Total # Steps" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100146</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN003 Group" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100147</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN003 Client" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100148</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN003 Total # Blocks" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100149</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN003 Current Block" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="3">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100150</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN003 Cycle" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="cycles" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100151</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN003 Total Cycles" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="cycles" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100152</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN003 Time in Function" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="sec" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100153</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN003 Total Time" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="sec" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100154</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN003 Timer" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="sec" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100155</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN003 Output" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="EUs" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100156</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN003 Ramp Setpoint" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="EUs" BitFields="3">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100157</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN003 Ramp Rate Eu/sec" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="EUs/sec" BitFields="3">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100158</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN003 Spare" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100159</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+					</Section>
+					<Section Name="GEN004" TypeGUID="03D3B80E-1485-13A6-56528B60DC00DC89">
+						<Description />
+						<Properties />
+						<Errors />
+						<Channel Name="GEN004 State" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100160</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN004 Rate" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="sec/loop" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100161</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN004 Current Step" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="3">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100162</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN004 Current Function" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100163</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN004 Hold Flag" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100164</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN004 Hold Release" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100165</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN004 Total # Steps" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100166</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN004 Group" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100167</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN004 Client" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100168</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN004 Total # Blocks" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100169</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN004 Current Block" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="3">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100170</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN004 Cycle" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="cycles" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100171</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN004 Total Cycles" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="cycles" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100172</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN004 Time in Function" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="sec" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100173</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN004 Total Time" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="sec" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100174</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN004 Timer" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="sec" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100175</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN004 Output" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="EUs" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100176</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN004 Ramp Setpoint" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="EUs" BitFields="3">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100177</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN004 Ramp Rate Eu/sec" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="EUs/sec" BitFields="3">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100178</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN004 Spare" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100179</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+					</Section>
+					<Section Name="GEN005" TypeGUID="03D3B80E-1485-13A6-56528B60DC00DC89">
+						<Description />
+						<Properties />
+						<Errors />
+						<Channel Name="GEN005 State" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100180</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN005 Rate" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="sec/loop" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100181</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN005 Current Step" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="3">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100182</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN005 Current Function" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100183</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN005 Hold Flag" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100184</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN005 Hold Release" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100185</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN005 Total # Steps" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100186</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN005 Group" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100187</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN005 Client" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100188</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN005 Total # Blocks" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100189</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN005 Current Block" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="3">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100190</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN005 Cycle" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="cycles" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100191</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN005 Total Cycles" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="cycles" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100192</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN005 Time in Function" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="sec" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100193</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN005 Total Time" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="sec" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100194</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN005 Timer" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="sec" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100195</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN005 Output" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="EUs" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100196</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN005 Ramp Setpoint" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="EUs" BitFields="3">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100197</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN005 Ramp Rate Eu/sec" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="EUs/sec" BitFields="3">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100198</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN005 Spare" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100199</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+					</Section>
+					<Section Name="GEN006" TypeGUID="03D3B80E-1485-13A6-56528B60DC00DC89">
+						<Description />
+						<Properties />
+						<Errors />
+						<Channel Name="GEN006 State" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100200</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN006 Rate" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="sec/loop" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100201</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN006 Current Step" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="3">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100202</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN006 Current Function" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100203</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN006 Hold Flag" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100204</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN006 Hold Release" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100205</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN006 Total # Steps" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100206</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN006 Group" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100207</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN006 Client" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100208</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN006 Total # Blocks" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100209</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN006 Current Block" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="3">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100210</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN006 Cycle" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="cycles" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100211</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN006 Total Cycles" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="cycles" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100212</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN006 Time in Function" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="sec" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100213</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN006 Total Time" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="sec" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100214</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN006 Timer" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="sec" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100215</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN006 Output" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="EUs" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100216</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN006 Ramp Setpoint" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="EUs" BitFields="3">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100217</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN006 Ramp Rate Eu/sec" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="EUs/sec" BitFields="3">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100218</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN006 Spare" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100219</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+					</Section>
+					<Section Name="GEN007" TypeGUID="03D3B80E-1485-13A6-56528B60DC00DC89">
+						<Description />
+						<Properties />
+						<Errors />
+						<Channel Name="GEN007 State" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100220</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN007 Rate" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="sec/loop" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100221</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN007 Current Step" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="3">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100222</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN007 Current Function" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100223</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN007 Hold Flag" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100224</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN007 Hold Release" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100225</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN007 Total # Steps" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100226</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN007 Group" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100227</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN007 Client" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100228</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN007 Total # Blocks" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100229</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN007 Current Block" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="3">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100230</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN007 Cycle" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="cycles" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100231</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN007 Total Cycles" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="cycles" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100232</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN007 Time in Function" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="sec" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100233</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN007 Total Time" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="sec" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100234</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN007 Timer" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="sec" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100235</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN007 Output" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="EUs" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100236</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN007 Ramp Setpoint" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="EUs" BitFields="3">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100237</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN007 Ramp Rate Eu/sec" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="EUs/sec" BitFields="3">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100238</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN007 Spare" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100239</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+					</Section>
+					<Section Name="GEN008" TypeGUID="03D3B80E-1485-13A6-56528B60DC00DC89">
+						<Description />
+						<Properties />
+						<Errors />
+						<Channel Name="GEN008 State" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100240</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN008 Rate" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="sec/loop" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100241</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN008 Current Step" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="3">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100242</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN008 Current Function" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100243</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN008 Hold Flag" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100244</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN008 Hold Release" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100245</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN008 Total # Steps" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100246</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN008 Group" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100247</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN008 Client" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100248</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN008 Total # Blocks" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100249</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN008 Current Block" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="3">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100250</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN008 Cycle" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="cycles" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100251</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN008 Total Cycles" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="cycles" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100252</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN008 Time in Function" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="sec" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100253</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN008 Total Time" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="sec" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100254</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN008 Timer" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="sec" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100255</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN008 Output" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="EUs" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100256</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN008 Ramp Setpoint" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="EUs" BitFields="3">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100257</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN008 Ramp Rate Eu/sec" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="EUs/sec" BitFields="3">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100258</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN008 Spare" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100259</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+					</Section>
+					<Section Name="GEN009" TypeGUID="03D3B80E-1485-13A6-56528B60DC00DC89">
+						<Description />
+						<Properties />
+						<Errors />
+						<Channel Name="GEN009 State" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100260</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN009 Rate" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="sec/loop" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100261</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN009 Current Step" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="3">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100262</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN009 Current Function" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100263</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN009 Hold Flag" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100264</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN009 Hold Release" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100265</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN009 Total # Steps" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100266</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN009 Group" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100267</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN009 Client" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100268</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN009 Total # Blocks" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100269</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN009 Current Block" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="3">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100270</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN009 Cycle" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="cycles" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100271</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN009 Total Cycles" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="cycles" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100272</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN009 Time in Function" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="sec" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100273</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN009 Total Time" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="sec" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100274</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN009 Timer" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="sec" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100275</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN009 Output" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="EUs" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100276</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN009 Ramp Setpoint" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="EUs" BitFields="3">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100277</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN009 Ramp Rate Eu/sec" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="EUs/sec" BitFields="3">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100278</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN009 Spare" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100279</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+					</Section>
+					<Section Name="GEN010" TypeGUID="03D3B80E-1485-13A6-56528B60DC00DC89">
+						<Description />
+						<Properties />
+						<Errors />
+						<Channel Name="GEN010 State" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100280</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN010 Rate" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="sec/loop" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100281</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN010 Current Step" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="3">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100282</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN010 Current Function" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100283</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN010 Hold Flag" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100284</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN010 Hold Release" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100285</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN010 Total # Steps" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100286</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN010 Group" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100287</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN010 Client" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100288</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN010 Total # Blocks" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100289</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN010 Current Block" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="3">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100290</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN010 Cycle" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="cycles" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100291</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN010 Total Cycles" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="cycles" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100292</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN010 Time in Function" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="sec" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100293</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN010 Total Time" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="sec" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100294</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN010 Timer" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="sec" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100295</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN010 Output" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="EUs" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100296</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN010 Ramp Setpoint" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="EUs" BitFields="3">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100297</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN010 Ramp Rate Eu/sec" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="EUs/sec" BitFields="3">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100298</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+						<Channel Name="GEN010 Spare" TypeGUID="03D3B83D-1485-13A6-567FA3A221DFFB5E" RowDim="1" ColDim="1" Units="" BitFields="1">
+							<Description />
+							<Properties>
+								<Property Name="ID">
+									<I32>100299</I32>
+								</Property>
+							</Properties>
+							<Errors />
+							<DefaultValue>
+								<Elem>0</Elem>
+							</DefaultValue>
+						</Channel>
+					</Section>
+				</Section>
+				<Section Name="Simulation Models" TypeGUID="03D3B937-1485-13A6-5600F2871E269F9A">
+					<Description />
+					<Properties />
+					<Errors />
+					<Section Name="Models" TypeGUID="03D3B976-1485-13A6-5604255F981010CE">
+						<Description />
+						<Properties />
+						<Errors />
+					</Section>
+					<Section Name="Execution Order" TypeGUID="03D3B966-1485-13A6-569CFF8A449BF90A">
+						<Description />
+						<Properties />
+						<Errors />
+					</Section>
+				</Section>
+				<Section Name="Alarms" TypeGUID="03D3B782-1485-13A6-56F58B35B6CBA484">
+					<Description />
+					<Properties>
+						<Property Name="Alarm Rate">
+							<I32>1</I32>
+						</Property>
+					</Properties>
+					<Errors />
+				</Section>
+				<Section Name="Procedures" TypeGUID="03D3B7B1-1485-13A6-56649C7783203F22">
+					<Description />
+					<Properties />
+					<Errors />
+				</Section>
+				<Section Name="Custom Devices" TypeGUID="03D3BB79-1485-13A6-5605EB7AFD7405AC">
+					<Description />
+					<Properties />
+					<Errors />
+				</Section>
+				<Section Name="User Channel" TypeGUID="03D3B6B7-1485-13A6-567BE1E1E0DF999A">
+					<Description />
+					<Properties />
+					<Errors />
+					<Channel Name="FaultChannel0" TypeGUID="03D3B6C6-1485-13A6-56609EA3AE19E356" RowDim="1" ColDim="1" Units="" BitFields="7">
+						<Description />
+						<Properties>
+							<Property Name="DataSource">
+								<DataSourceNode Channel="Targets Section/Controller/User Channel/ConstantValue" />
+							</Property>
+						</Properties>
+						<Errors />
+						<DefaultValue>
+							<Elem>0</Elem>
+						</DefaultValue>
+					</Channel>
+					<Channel Name="FaultChannel1" TypeGUID="03D3B6C6-1485-13A6-56609EA3AE19E356" RowDim="1" ColDim="1" Units="" BitFields="7">
+						<Description />
+						<Properties />
+						<Errors />
+						<DefaultValue>
+							<Elem>0</Elem>
+						</DefaultValue>
+					</Channel>
+					<Channel Name="FaultChannel2" TypeGUID="03D3B6C6-1485-13A6-56609EA3AE19E356" RowDim="1" ColDim="1" Units="" BitFields="7">
+						<Description />
+						<Properties />
+						<Errors />
+						<DefaultValue>
+							<Elem>0</Elem>
+						</DefaultValue>
+					</Channel>
+					<Channel Name="FaultChannel3" TypeGUID="03D3B6C6-1485-13A6-56609EA3AE19E356" RowDim="1" ColDim="1" Units="" BitFields="7">
+						<Description />
+						<Properties />
+						<Errors />
+						<DefaultValue>
+							<Elem>0</Elem>
+						</DefaultValue>
+					</Channel>
+					<Channel Name="FaultChannel4" TypeGUID="03D3B6C6-1485-13A6-56609EA3AE19E356" RowDim="1" ColDim="1" Units="" BitFields="7">
+						<Description />
+						<Properties />
+						<Errors />
+						<DefaultValue>
+							<Elem>0</Elem>
+						</DefaultValue>
+					</Channel>
+					<Channel Name="FaultChannel5" TypeGUID="03D3B6C6-1485-13A6-56609EA3AE19E356" RowDim="1" ColDim="1" Units="" BitFields="7">
+						<Description />
+						<Properties />
+						<Errors />
+						<DefaultValue>
+							<Elem>0</Elem>
+						</DefaultValue>
+					</Channel>
+					<Channel Name="FaultChannel6" TypeGUID="03D3B6C6-1485-13A6-56609EA3AE19E356" RowDim="1" ColDim="1" Units="" BitFields="7">
+						<Description />
+						<Properties />
+						<Errors />
+						<DefaultValue>
+							<Elem>0</Elem>
+						</DefaultValue>
+					</Channel>
+					<Channel Name="FaultChannel7" TypeGUID="03D3B6C6-1485-13A6-56609EA3AE19E356" RowDim="1" ColDim="1" Units="" BitFields="7">
+						<Description />
+						<Properties />
+						<Errors />
+						<DefaultValue>
+							<Elem>0</Elem>
+						</DefaultValue>
+					</Channel>
+					<Channel Name="FaultChannel8" TypeGUID="03D3B6C6-1485-13A6-56609EA3AE19E356" RowDim="1" ColDim="1" Units="" BitFields="7">
+						<Description />
+						<Properties />
+						<Errors />
+						<DefaultValue>
+							<Elem>0</Elem>
+						</DefaultValue>
+					</Channel>
+					<Channel Name="FaultChannel9" TypeGUID="03D3B6C6-1485-13A6-56609EA3AE19E356" RowDim="1" ColDim="1" Units="" BitFields="7">
+						<Description />
+						<Properties />
+						<Errors />
+						<DefaultValue>
+							<Elem>0</Elem>
+						</DefaultValue>
+					</Channel>
+					<Channel Name="TEST_ID" TypeGUID="03D3B6C6-1485-13A6-56609EA3AE19E356" RowDim="1" ColDim="1" Units="" BitFields="7">
+						<Description />
+						<Properties>
+							<Property Name="ID">
+								<U32>1</U32>
+							</Property>
+						</Properties>
+						<Errors />
+						<DefaultValue>
+							<Elem>1879</Elem>
+						</DefaultValue>
+					</Channel>
+					<Channel Name="ConstantValue" TypeGUID="03D3B6C6-1485-13A6-56609EA3AE19E356" RowDim="1" ColDim="1" Units="" BitFields="7">
+						<Description />
+						<Properties>
+							<Property Name="ID">
+								<U32>2</U32>
+							</Property>
+						</Properties>
+						<Errors />
+						<DefaultValue>
+							<Elem>56594</Elem>
+						</DefaultValue>
+					</Channel>
+				</Section>
+				<Section Name="Calculated Channels" TypeGUID="03D3B714-1485-13A6-56031C5F1CCB78A9">
+					<Description />
+					<Properties />
+					<Errors />
+				</Section>
+				<Section Name="XNET Databases" TypeGUID="def5630b-577f-4ae9-9682-5f8ee445ee21">
+					<Description />
+					<Properties />
+					<Errors />
+				</Section>
+			</Target>
+		</TargetSections>
+		<Section Name="Aliases" TypeGUID="e11f4519-09e6-4fb0-99df-2967c4313d67">
+			<Description />
+			<Properties />
+			<Errors />
+			<Alias Name="FaultChannel0" TypeGUID="2c11e122-dad9-44da-989c-a66ff203fa31">
+				<Description />
+				<Properties>
+					<Property Name="Referenced Channel">
+						<DependentNode Path="Targets Section/Controller/User Channel/FaultChannel0" />
+					</Property>
+				</Properties>
+				<Errors />
+			</Alias>
+			<Alias Name="FaultChannel1" TypeGUID="2c11e122-dad9-44da-989c-a66ff203fa31">
+				<Description />
+				<Properties>
+					<Property Name="Referenced Channel">
+						<DependentNode Path="Targets Section/Controller/User Channel/FaultChannel1" />
+					</Property>
+				</Properties>
+				<Errors />
+			</Alias>
+			<Alias Name="FaultChannel2" TypeGUID="2c11e122-dad9-44da-989c-a66ff203fa31">
+				<Description />
+				<Properties>
+					<Property Name="Referenced Channel">
+						<DependentNode Path="Targets Section/Controller/User Channel/FaultChannel2" />
+					</Property>
+				</Properties>
+				<Errors />
+			</Alias>
+			<Alias Name="FaultChannel3" TypeGUID="2c11e122-dad9-44da-989c-a66ff203fa31">
+				<Description />
+				<Properties>
+					<Property Name="Referenced Channel">
+						<DependentNode Path="Targets Section/Controller/User Channel/FaultChannel3" />
+					</Property>
+				</Properties>
+				<Errors />
+			</Alias>
+			<Alias Name="FaultChannel4" TypeGUID="2c11e122-dad9-44da-989c-a66ff203fa31">
+				<Description />
+				<Properties>
+					<Property Name="Referenced Channel">
+						<DependentNode Path="Targets Section/Controller/User Channel/FaultChannel4" />
+					</Property>
+				</Properties>
+				<Errors />
+			</Alias>
+			<Alias Name="FaultChannel5" TypeGUID="2c11e122-dad9-44da-989c-a66ff203fa31">
+				<Description />
+				<Properties>
+					<Property Name="Referenced Channel">
+						<DependentNode Path="Targets Section/Controller/User Channel/FaultChannel5" />
+					</Property>
+				</Properties>
+				<Errors />
+			</Alias>
+			<Alias Name="FaultChannel6" TypeGUID="2c11e122-dad9-44da-989c-a66ff203fa31">
+				<Description />
+				<Properties>
+					<Property Name="Referenced Channel">
+						<DependentNode Path="Targets Section/Controller/User Channel/FaultChannel6" />
+					</Property>
+				</Properties>
+				<Errors />
+			</Alias>
+			<Alias Name="FaultChannel7" TypeGUID="2c11e122-dad9-44da-989c-a66ff203fa31">
+				<Description />
+				<Properties>
+					<Property Name="Referenced Channel">
+						<DependentNode Path="Targets Section/Controller/User Channel/FaultChannel7" />
+					</Property>
+				</Properties>
+				<Errors />
+			</Alias>
+			<Alias Name="FaultChannel8" TypeGUID="2c11e122-dad9-44da-989c-a66ff203fa31">
+				<Description />
+				<Properties>
+					<Property Name="Referenced Channel">
+						<DependentNode Path="Targets Section/Controller/User Channel/FaultChannel8" />
+					</Property>
+				</Properties>
+				<Errors />
+			</Alias>
+			<Alias Name="FaultChannel9" TypeGUID="2c11e122-dad9-44da-989c-a66ff203fa31">
+				<Description />
+				<Properties>
+					<Property Name="Referenced Channel">
+						<DependentNode Path="Targets Section/Controller/User Channel/FaultChannel9" />
+					</Property>
+				</Properties>
+				<Errors />
+			</Alias>
+			<Alias Name="TEST_ID" TypeGUID="2c11e122-dad9-44da-989c-a66ff203fa31">
+				<Description />
+				<Properties>
+					<Property Name="Referenced Channel">
+						<DependentNode Path="Targets Section/Controller/User Channel/TEST_ID" />
+					</Property>
+				</Properties>
+				<Errors />
+			</Alias>
+		</Section>
+		<Section Name="Data Sharing Network" TypeGUID="8288dbb9-8c87-4fda-9c66-acec90c46c03">
+			<Description />
+			<Properties>
+				<Property Name="CD Status">
+					<U32>2</U32>
+				</Property>
+			</Properties>
+			<Errors />
+		</Section>
+	</Root>
+</Document>
