@@ -9,9 +9,9 @@ Open the 'Engine Demo Advanced and Return Value' stimulus profile to help you un
 """
 
 
-@NivsParam('desired_rpm', DoubleValue(0), NivsParam.BY_REF)
-@NivsParam('actual_rpm', DoubleValue(0), NivsParam.BY_REF)
-@NivsParam('engine_temp', DoubleValue(0), NivsParam.BY_REF)
+@NivsParam("desired_rpm", DoubleValue(0), NivsParam.BY_REF)
+@NivsParam("actual_rpm", DoubleValue(0), NivsParam.BY_REF)
+@NivsParam("engine_temp", DoubleValue(0), NivsParam.BY_REF)
 @nivs_rt_sequence
 def engine_demo_advanced(desired_rpm, actual_rpm, engine_temp):
     """Turns on the engine, sets it to the desired rpm, and monitors the engine temperature."""
@@ -47,6 +47,7 @@ def engine_demo_advanced(desired_rpm, actual_rpm, engine_temp):
                     warmup_complete.value = True
                     warmup_succeeded.value = False
                 nivs_yield()
+
     # You can use a return value, but some restrictions will apply.
     # For example, the function may only return previously declared variables.
     return warmup_succeeded.value
@@ -63,10 +64,10 @@ def run_engine_demo_advanced():
     """
     try:
         warmup_succeeded = BooleanValue(False)
-        engine_power = ChannelReference('Aliases/EnginePower')
-        desired_rpm = ChannelReference('Aliases/DesiredRPM')
-        actual_rpm = ChannelReference('Aliases/ActualRPM')
-        engine_temp = ChannelReference('Aliases/EngineTemp')
+        engine_power = ChannelReference("Aliases/EnginePower")
+        desired_rpm = ChannelReference("Aliases/DesiredRPM")
+        actual_rpm = ChannelReference("Aliases/ActualRPM")
+        engine_temp = ChannelReference("Aliases/EngineTemp")
         engine_power.value = True
         warmup_succeeded.value = engine_demo_advanced(desired_rpm, actual_rpm, engine_temp)
     finally:
@@ -83,7 +84,7 @@ def run_non_deterministic():
     return run_engine_demo_advanced()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     # Run the tests.
     # Note:  We expect the tests to fail because the engine temperature rises above 110 degrees (C),
     # but the cleanup code at the end turns the engine off.

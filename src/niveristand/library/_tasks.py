@@ -95,7 +95,6 @@ class _IterationCounter(object):
 
 
 class _Task(object):
-
     class _TaskState(Enum):
         Running = 0
         Stopping = 1
@@ -107,7 +106,8 @@ class _Task(object):
             self._thread = Thread(
                 target=func,
                 args=(self,),
-                name=self._task_name + '_' + _MultiTaskInfo.get_unique_task_name())
+                name=self._task_name + "_" + _MultiTaskInfo.get_unique_task_name(),
+            )
         else:
             self._thread = current_thread()
             self._task_name = str(func)
@@ -195,7 +195,7 @@ class _Scheduler(object):
         # a dictionary of {threadID:  _Task()}
         self._task_dict = dict()
         self._task_queue = deque()
-        self._log = logging.getLogger('<sched>')
+        self._log = logging.getLogger("<sched>")
         self._last_sched = None
 
     @property

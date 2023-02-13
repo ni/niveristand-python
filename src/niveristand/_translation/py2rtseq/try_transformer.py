@@ -21,7 +21,8 @@ def except_transformer(node, resources):
 def _validate_restrictions(node):
     if node.handlers or node.orelse:
         raise TranslateError(_errormessages.invalid_try_except_orelse)
-    if validations.check_if_any_in_block(ast.Return, node.body) or\
-       validations.check_if_any_in_block(ast.Return, node.finalbody):
+    if validations.check_if_any_in_block(
+        ast.Return, node.body
+    ) or validations.check_if_any_in_block(ast.Return, node.finalbody):
         raise TranslateError(_errormessages.return_not_supported_in_try_finally)
     validations.raise_if_try_in_node_body(node.body)

@@ -238,7 +238,7 @@ def notequal_to_channel_ref():
 @nivs_rt_sequence
 def notequal_binary_unary():
     a = BooleanValue(True)
-    a.value = -1 != - 1
+    a.value = -1 != -1
     return a.value
 
 
@@ -257,6 +257,7 @@ def notequal_complex_expr():
 
 
 # <editor-fold desc=Invalid tests>
+
 
 @nivs_rt_sequence
 def notequal_invalid_variables():
@@ -280,6 +281,7 @@ def notequal_invalid_rtseq_call():
     a = BooleanValue(0)
     a.value = _return_constant != 1
     return a.value
+
 
 # </editor-fold>
 

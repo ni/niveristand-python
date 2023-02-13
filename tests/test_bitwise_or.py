@@ -187,7 +187,7 @@ def bitwise_or_to_channel_ref():
 @nivs_rt_sequence
 def bitwise_or_binary_unary():
     a = I32Value(0)
-    a.value = 3 | - 1
+    a.value = 3 | -1
     return a.value
 
 
@@ -199,6 +199,7 @@ def bitwise_or_complex_expr():
 
 
 # <editor-fold desc=Augassign tests>
+
 
 @nivs_rt_sequence
 def aug_bitwise_or_simple_numbers():
@@ -257,6 +258,7 @@ def aug_bitwise_or_unary():
 
 # <editor-fold desc=Invalid tests>
 
+
 @nivs_rt_sequence
 def bitwise_or_invalid_variables():
     return a.value | b
@@ -279,6 +281,7 @@ def bitwise_or_invalid_rtseq_call():
     a = DoubleValue(0)
     a.value = _return_constant | 1
     return a.value
+
 
 # </editor-fold>
 
@@ -348,7 +351,9 @@ def test_transform(func_name, params, expected_result):
     RealTimeSequence(func_name)
 
 
-@pytest.mark.parametrize("func_name, params, expected_result", list(set(run_tests) - set(py_only_errs)), ids=idfunc)
+@pytest.mark.parametrize(
+    "func_name, params, expected_result", list(set(run_tests) - set(py_only_errs)), ids=idfunc
+)
 def test_runpy(func_name, params, expected_result):
     actual = func_name(*params)
     assert actual == expected_result

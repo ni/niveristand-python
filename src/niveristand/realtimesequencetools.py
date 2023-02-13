@@ -21,6 +21,7 @@ def run_py_as_rtseq(toplevelfunc, rtseq_params={}):
 
     """
     from niveristand.clientapi import RealTimeSequence
+
     seq = RealTimeSequence(toplevelfunc)
     result_state = seq.run(rtseq_params)
     result_state.wait_for_result()
@@ -50,6 +51,7 @@ def save_py_as_rtseq(toplevelfunc, dest_folder):
 
     """
     from niveristand.clientapi import RealTimeSequence
+
     seq = RealTimeSequence(toplevelfunc)
     filename = seq.save(dest_folder)
     return filename

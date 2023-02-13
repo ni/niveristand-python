@@ -112,6 +112,7 @@ def logical_not_sequence():
 
 # <editor-fold desc=Invalid tests>
 
+
 @nivs_rt_sequence
 def logical_not_invalid_variables():
     return not a.value
@@ -129,6 +130,7 @@ def logical_not_invalid_rtseq_call():
     a = BooleanValue(False)
     a.value = not _return_true
     return a.value
+
 
 # </editor-fold>
 

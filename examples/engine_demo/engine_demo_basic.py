@@ -12,16 +12,16 @@ Open the 'Engine Demo Basic' stimulus profile to help you understand the followi
 # You must mark RT sequences with the following decorator:
 @nivs_rt_sequence
 # You must also specify parameter data types, default values, and whether to pass parameters by value or by reference.
-@NivsParam('engine_power', BooleanValue(0), NivsParam.BY_REF)
-@NivsParam('desired_rpm', DoubleValue(0), NivsParam.BY_REF)
+@NivsParam("engine_power", BooleanValue(0), NivsParam.BY_REF)
+@NivsParam("desired_rpm", DoubleValue(0), NivsParam.BY_REF)
 def engine_demo_basic(engine_power, desired_rpm):
     """Turn on the engine, set the desired_rpm to the passed value for 20 seconds, and shut down the engine.
 
     You must access parameters through their ".value" property.
     """
     # You can access a channel with a ChannelReference
-    engine_power_chan = ChannelReference('Aliases/EnginePower')
-    desired_rpm_chan = ChannelReference('Aliases/DesiredRPM')
+    engine_power_chan = ChannelReference("Aliases/EnginePower")
+    desired_rpm_chan = ChannelReference("Aliases/DesiredRPM")
     engine_power_chan.value = engine_power.value
     desired_rpm_chan.value = desired_rpm.value
     wait(DoubleValue(20))
@@ -59,9 +59,9 @@ def run_deterministic():
     realtimesequencetools.run_py_as_rtseq(run_engine_demo)
 
 
-if __name__ == '__main__':
-    realtimesequencetools.save_py_as_rtseq(run_engine_demo, 'd:\\share\\temp\\demo')
+if __name__ == "__main__":
+    realtimesequencetools.save_py_as_rtseq(run_engine_demo, "d:\\share\\temp\\demo")
     run_non_deterministic()
-    print('Finished non-deterministic')
+    print("Finished non-deterministic")
     run_deterministic()
-    print('Finished deterministic')
+    print("Finished deterministic")

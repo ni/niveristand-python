@@ -122,6 +122,7 @@ def logical_and_unary():
 
 # <editor-fold desc=Invalid tests>
 
+
 @nivs_rt_sequence
 def logical_and_invalid_variables():
     return a.value and b
@@ -144,6 +145,7 @@ def logical_and_invalid_rtseq_call():
     a = BooleanValue(False)
     a.value = True and _return_true
     return a.value
+
 
 # </editor-fold>
 

@@ -11,12 +11,16 @@ invalid_type_to_convert = "Invalid conversion between types."
 dependency_not_found = "Dependency not found."
 invalid_type_for_channel_ref = "Channel references do not support the given type."
 unsupported_orelse_while = "While loops do not support else blocks."
-return_unsupported_unless_last = "A function can only have a single return statement " \
-                                 "and it has to be the last line of the function."
+return_unsupported_unless_last = (
+    "A function can only have a single return statement "
+    "and it has to be the last line of the function."
+)
 break_unsupported = "Loops do not support break statements."
 variable_reassignment = "Redefining a variable is not allowed."
-cannot_change_array_elements = "To assign values to an existing array element, " \
-                               "you must use the value property of the object."
+cannot_change_array_elements = (
+    "To assign values to an existing array element, "
+    "you must use the value property of the object."
+)
 param_description_no_param = "The parameter specified in this definition does not exist."
 invalid_function_definition = "Unsupported element in function definition."
 invalid_param_decorator = "Parameter description decorator doesn't follow parameter rules."
@@ -32,15 +36,21 @@ invalid_stmt_after_try = "Invalid statement after try block. Only return stateme
 try_must_be_first_stmt = "try must be the first statement in the function definition."
 invalid_try_except_orelse = "try blocks do not support orelse or except blocks."
 return_not_supported_in_try_finally = "return statement not supported inside a try/finally block."
-try_only_in_top_level_func = "The use of try is not allowed in this context. " \
-                             "Use try/finally only as the first block in the top-level function."
+try_only_in_top_level_func = (
+    "The use of try is not allowed in this context. "
+    "Use try/finally only as the first block in the top-level function."
+)
 invalid_taskname_for_stop_task = "The task name is invalid."
 unregistered_thread = "Unregistered thread found."
 reregister_thread = "Thread tried to register twice."
 ref_param_not_ref = "A parameter marked as pass by reference was not of valid object type."
-invalid_error_code_for_generate_error = "Invalid error code provided. Provide an integer number as an error code."
+invalid_error_code_for_generate_error = (
+    "Invalid error code provided. Provide an integer number as an error code."
+)
 invalid_message_for_generate_error = "Invalid error message provided. Provide a string message."
-invalid_action_for_generate_error = "Invalid error action provided. Provide an error action from ErrorAction enum."
+invalid_action_for_generate_error = (
+    "Invalid error action provided. Provide an error action from ErrorAction enum."
+)
 unknown_identifier = "Undefined identifier '%s' found."
 run_without_valid_sequence = "Invalid rtseq."
 invalid_path_for_sequence = "Invalid real-time sequence path."
@@ -51,10 +61,15 @@ channel_not_found = "A channel with name %s could not be found."
 multiple_return_statements = "A function can only have a single return statement."
 none_not_supported = "NoneType not supported."
 invalid_decorator = "Custom decorators are not allowed."
-cascaded_comparison_operators_not_allowed = "You cannot use cascading comparison operators. " \
-                                            "Only use one comparison operator at a time."
+cascaded_comparison_operators_not_allowed = (
+    "You cannot use cascading comparison operators. " "Only use one comparison operator at a time."
+)
 invalid_operand_for_boolean_operator = "Logical operators only accept boolean values."
 invalid_type_for_if_test = "If statements only allow for boolean checks."
-invalid_operand_for_unary_invert_operator = "The unary inversion operator (~) only accepts integer values."
-negative_operand_for_binary_operator = "You cannot use a negative number to the right of an arithmetic shift operation."
+invalid_operand_for_unary_invert_operator = (
+    "The unary inversion operator (~) only accepts integer values."
+)
+negative_operand_for_binary_operator = (
+    "You cannot use a negative number to the right of an arithmetic shift operation."
+)
 unexpected_dot_net_data_type = "Expecting a .net instance of type %s"

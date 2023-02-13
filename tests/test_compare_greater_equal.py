@@ -194,7 +194,7 @@ def greater_eq_to_channel_ref():
 @nivs_rt_sequence
 def greater_eq_binary_unary():
     a = BooleanValue(False)
-    a.value = 2 >= - 1
+    a.value = 2 >= -1
     return a.value
 
 
@@ -213,6 +213,7 @@ def greater_eq_complex_expr():
 
 
 # <editor-fold desc=Invalid tests>
+
 
 @nivs_rt_sequence
 def greater_eq_invalid_variables():
@@ -236,6 +237,7 @@ def greater_eq_invalid_rtseq_call():
     a = BooleanValue(False)
     a.value = _return_constant >= 1
     return a.value
+
 
 # </editor-fold>
 
@@ -424,7 +426,7 @@ def gt_equal_to_channel_ref():
 @nivs_rt_sequence
 def gt_equal_binary_unary():
     a = BooleanValue(0)
-    a.value = -1 >= - 1
+    a.value = -1 >= -1
     return a.value
 
 
@@ -443,6 +445,7 @@ def gt_equal_complex_expr():
 
 
 # <editor-fold desc=Invalid tests>
+
 
 @nivs_rt_sequence
 def gt_equal_invalid_variables():
@@ -466,6 +469,7 @@ def gt_equal_invalid_rtseq_call():
     a = BooleanValue(0)
     a.value = _return_constant >= 1
     return a.value
+
 
 # </editor-fold>
 

@@ -1,6 +1,8 @@
 from niveristand import _errormessages, errors
 from niveristand.clientapi._dotnetclasswrapperbase import _DotNetClassWrapperBase
-from NationalInstruments.VeriStand import Error as ErrorDotNet  # noqa: I100 We need these C# imports to be out of order
+from NationalInstruments.VeriStand import (  # noqa: I100 .NET imports need to be out of order
+    Error as ErrorDotNet,
+)
 
 
 class _Error(_DotNetClassWrapperBase):
@@ -18,7 +20,8 @@ class _Error(_DotNetClassWrapperBase):
             super(_Error, self).__init__(dot_net_instance)
         else:
             raise errors.VeristandError(
-                _errormessages.unexpected_dot_net_data_type % "NationalInstruments.VeriStand.Error")
+                _errormessages.unexpected_dot_net_data_type % "NationalInstruments.VeriStand.Error"
+            )
 
     @property
     def error_code(self):

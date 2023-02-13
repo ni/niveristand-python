@@ -2,7 +2,9 @@ from niveristand import _errormessages, errors
 from niveristand.clientapi._dotnetclasswrapperbase import _DotNetClassWrapperBase
 from niveristand.clientapi._error import _Error
 from niveristand.clientapi._nodeinfo import _NodeInfo
-from NationalInstruments.VeriStand.ClientAPI import IWorkspace2 as IWorkspace2DotNet  # noqa: I100
+from NationalInstruments.VeriStand.ClientAPI import (  # noqa: I100 .NET imports need to be out of order
+    IWorkspace2 as IWorkspace2DotNet,
+)
 
 
 class _Workspace2(_DotNetClassWrapperBase):
@@ -19,7 +21,9 @@ class _Workspace2(_DotNetClassWrapperBase):
             super(_Workspace2, self).__init__(dot_net_instance)
         else:
             raise errors.VeristandError(
-                _errormessages.unexpected_dot_net_data_type % "NationalInstruments.VeriStand.ClientAPI.IWorkspace2")
+                _errormessages.unexpected_dot_net_data_type
+                % "NationalInstruments.VeriStand.ClientAPI.IWorkspace2"
+            )
 
     def get_channel_vector_values(self, channel):
         """
@@ -38,8 +42,9 @@ class _Workspace2(_DotNetClassWrapperBase):
         err, row_dim, col_dim, value = self._dot_net_instance.GetChannelVectorValues(channel)
         err = _Error(err)
         if err.is_error:
-            raise \
-                errors.VeristandError(_errormessages.csharp_call_failed % (err.error_code, err.resolved_error_message))
+            raise errors.VeristandError(
+                _errormessages.csharp_call_failed % (err.error_code, err.resolved_error_message)
+            )
         return row_dim, col_dim, value
 
     def get_multiple_system_nodes_data(self, names):
@@ -57,8 +62,9 @@ class _Workspace2(_DotNetClassWrapperBase):
         err, node_infos = self._dot_net_instance.GetMultipleSystemNodesData(names, None)
         err = _Error(err)
         if err.is_error:
-            raise \
-                errors.VeristandError(_errormessages.csharp_call_failed % (err.error_code, err.resolved_error_message))
+            raise errors.VeristandError(
+                _errormessages.csharp_call_failed % (err.error_code, err.resolved_error_message)
+            )
         return [_NodeInfo(node_info) for node_info in node_infos]
 
     def get_single_channel_value(self, name):
@@ -76,8 +82,9 @@ class _Workspace2(_DotNetClassWrapperBase):
         err, value = self._dot_net_instance.GetSingleChannelValue(name, 0)
         err = _Error(err)
         if err.is_error:
-            raise \
-                errors.VeristandError(_errormessages.csharp_call_failed % (err.error_code, err.resolved_error_message))
+            raise errors.VeristandError(
+                _errormessages.csharp_call_failed % (err.error_code, err.resolved_error_message)
+            )
         return value
 
     def set_channel_vector_values(self, channel, new_values):
@@ -94,8 +101,9 @@ class _Workspace2(_DotNetClassWrapperBase):
         err = self._dot_net_instance.SetChannelVectorValues(channel, new_values)
         err = _Error(err)
         if err.is_error:
-            raise \
-                errors.VeristandError(_errormessages.csharp_call_failed % (err.error_code, err.resolved_error_message))
+            raise errors.VeristandError(
+                _errormessages.csharp_call_failed % (err.error_code, err.resolved_error_message)
+            )
 
     def set_single_channel_value(self, name, new_val):
         """
@@ -113,5 +121,6 @@ class _Workspace2(_DotNetClassWrapperBase):
         err = self._dot_net_instance.SetSingleChannelValue(name, new_val)
         err = _Error(err)
         if err.is_error:
-            raise \
-                errors.VeristandError(_errormessages.csharp_call_failed % (err.error_code, err.resolved_error_message))
+            raise errors.VeristandError(
+                _errormessages.csharp_call_failed % (err.error_code, err.resolved_error_message)
+            )

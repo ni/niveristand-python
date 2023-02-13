@@ -2,21 +2,24 @@ from niveristand import errors, realtimesequencetools
 from niveristand.clientapi import RealTimeSequence
 import pytest
 from testutilities import rtseqrunner, testfunctions
-from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import Expression  # noqa: E501, I100 We need these C# imports to be out of order.
+from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import (  # noqa: I100 .NET imports out of order
+    Expression,
+)
 
 
 def test_channel_ref_type_string():
     rtseq = RealTimeSequence(testfunctions.channel_ref_type_string)
     assert rtseq._rtseq.Variables.LocalVariables.Variables.Length == 0
     assert rtseq._rtseq.Variables.ChannelReferences.Channels.Length == 1
-    assert rtseq._rtseq.Variables.ChannelReferences.Channels[0].Channel.Channel \
-        == "Aliases/DesiredRPM"
+    assert (
+        rtseq._rtseq.Variables.ChannelReferences.Channels[0].Channel.Channel == "Aliases/DesiredRPM"
+    )
 
 
 def test_channel_ref_setter():
     rtseq = RealTimeSequence(testfunctions.channel_ref_setter)
     assert rtseq._rtseq.Code.Main.Body.Statements.Length == 1
-    expression = Expression('ch_a = 5')
+    expression = Expression("ch_a = 5")
     assert rtseq._rtseq.Code.Main.Body.Statements[0].Equals(expression)
 
 
@@ -59,14 +62,16 @@ def test_channel_ref_array_type_string():
     rtseq = RealTimeSequence(testfunctions.channel_ref_array_type_string)
     assert rtseq._rtseq.Variables.LocalVariables.Variables.Length == 0
     assert rtseq._rtseq.Variables.ChannelReferences.Channels.Length == 1
-    assert rtseq._rtseq.Variables.ChannelReferences.Channels[0].Channel.Channel \
+    assert (
+        rtseq._rtseq.Variables.ChannelReferences.Channels[0].Channel.Channel
         == "Targets/Controller/Simulation Models/Models/Engine Demo/Parameters/a"
+    )
 
 
 def test_channel_ref_array_setter():
     rtseq = RealTimeSequence(testfunctions.channel_ref_array_setter)
     assert rtseq._rtseq.Code.Main.Body.Statements.Length == 1
-    expression = Expression('ch_a[0] = 5')
+    expression = Expression("ch_a[0] = 5")
     assert rtseq._rtseq.Code.Main.Body.Statements[0].Equals(expression)
 
 

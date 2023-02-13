@@ -4,7 +4,7 @@ from niveristand.library import nivs_yield
 from niveristand.library.primitives import quotient, seqtime, tickcountms, tickcountus
 
 
-@NivsParam('duration', DoubleValue(0), NivsParam.BY_REF)
+@NivsParam("duration", DoubleValue(0), NivsParam.BY_REF)
 @nivs_rt_sequence
 def wait(duration):
     """
@@ -28,7 +28,7 @@ def wait(duration):
     return init_time.value
 
 
-@NivsParam('ms_multiple', I64Value(0), NivsParam.BY_REF)
+@NivsParam("ms_multiple", I64Value(0), NivsParam.BY_REF)
 @nivs_rt_sequence
 def wait_until_next_ms_multiple(ms_multiple):
     """
@@ -61,7 +61,7 @@ def wait_until_next_ms_multiple(ms_multiple):
     return ticks.value
 
 
-@NivsParam('us_multiple', I64Value(0), NivsParam.BY_REF)
+@NivsParam("us_multiple", I64Value(0), NivsParam.BY_REF)
 @nivs_rt_sequence
 def wait_until_next_us_multiple(us_multiple):
     """
@@ -94,11 +94,11 @@ def wait_until_next_us_multiple(us_multiple):
     return ticks.value
 
 
-@NivsParam('signal', DoubleValue(0), NivsParam.BY_REF)
-@NivsParam('upper_limit', DoubleValue(150), NivsParam.BY_VALUE)
-@NivsParam('lower_limit', DoubleValue(50), NivsParam.BY_VALUE)
-@NivsParam('settle_time', DoubleValue(10), NivsParam.BY_VALUE)
-@NivsParam('timeout', DoubleValue(60), NivsParam.BY_VALUE)
+@NivsParam("signal", DoubleValue(0), NivsParam.BY_REF)
+@NivsParam("upper_limit", DoubleValue(150), NivsParam.BY_VALUE)
+@NivsParam("lower_limit", DoubleValue(50), NivsParam.BY_VALUE)
+@NivsParam("settle_time", DoubleValue(10), NivsParam.BY_VALUE)
+@NivsParam("timeout", DoubleValue(60), NivsParam.BY_VALUE)
 @nivs_rt_sequence
 def wait_until_settled(signal, upper_limit, lower_limit, settle_time, timeout):
     """
@@ -131,8 +131,10 @@ def wait_until_settled(signal, upper_limit, lower_limit, settle_time, timeout):
 
     init_time.value = seqtime()
     # first is just used to emulate a do-while loop
-    while first.value \
-            or ((not in_limits.value or (in_limits_duration.value < settle_time.value)) and not timed_out.value):
+    while first.value or (
+        (not in_limits.value or (in_limits_duration.value < settle_time.value))
+        and not timed_out.value
+    ):
         first.value = False
         curr_time.value = seqtime()
         if signal.value <= upper_limit.value and signal.value >= lower_limit.value:

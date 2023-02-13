@@ -17,6 +17,22 @@ from niveristand.clientapi._datatypes.rtprimitives import VALID_TYPES
 from niveristand.clientapi._datatypes.rtprimitives import VectorChannelReference
 
 
-__all__ = ['ArrayType', 'BooleanValue', 'BooleanValueArray', 'ChannelReference', 'VectorChannelReference', 'DataType',
-           'DoubleValue', 'DoubleValueArray', 'I32Value', 'I32ValueArray', 'I64Value', 'I64ValueArray', 'U32Value',
-           'U32ValueArray', 'U64Value', 'U64ValueArray', 'VALID_TYPES']
+__all__ = [
+    "ArrayType",
+    "BooleanValue",
+    "BooleanValueArray",
+    "ChannelReference",
+    "VectorChannelReference",
+    "DataType",
+    "DoubleValue",
+    "DoubleValueArray",
+    "I32Value",
+    "I32ValueArray",
+    "I64Value",
+    "I64ValueArray",
+    "U32Value",
+    "U32ValueArray",
+    "U64Value",
+    "U64ValueArray",
+    "VALID_TYPES",
+]

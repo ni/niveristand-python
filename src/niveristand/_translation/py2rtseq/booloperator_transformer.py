@@ -18,6 +18,6 @@ def booloperator_transformer(node, resources):
 
 def _operator(ast_operator):
     return {
-        'And': "&&",
-        'Or': "||",
+        "And": "&&",
+        "Or": "||",
     }.get(ast_operator, "unknown")

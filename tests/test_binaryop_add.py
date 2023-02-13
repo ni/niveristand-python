@@ -200,28 +200,28 @@ def add_to_channel_ref():
 @nivs_rt_sequence
 def add_binary_unary():
     a = DoubleValue(0)
-    a.value = 2 + - 1
+    a.value = 2 + -1
     return a.value
 
 
 @nivs_rt_sequence
 def add_with_multiple_plus():
     a = DoubleValue(0)
-    a.value = 1 ++ 2   # noqa: E225 it's ok to test this
+    a.value = 1 + +2  # noqa: E225 it's ok to test this
     return a.value
 
 
 @nivs_rt_sequence
 def add_with_multiple_plus1():
     a = DoubleValue(0)
-    a.value = 1 +++ 2   # noqa: E225 it's ok to test this
+    a.value = 1 + ++2  # noqa: E225 it's ok to test this
     return a.value
 
 
 @nivs_rt_sequence
 def add_binary_unary_sequence():
     a = DoubleValue(0)
-    a.value = 1+ - - - - -2  # noqa: E225 it's ok to test this
+    a.value = 1 + -----2  # noqa: E225 it's ok to test this
     return a.value
 
 
@@ -233,6 +233,7 @@ def add_complex_expr():
 
 
 # <editor-fold desc=Augassign tests>
+
 
 @nivs_rt_sequence
 def aug_add_simple_numbers():
@@ -289,6 +290,7 @@ def aug_add_unary():
 
 # </editor-fold>
 
+
 # <editor-fold desc=Invalid tests>
 @nivs_rt_sequence
 def add_invalid_variables():
@@ -312,6 +314,7 @@ def add_invalid_rtseq_call():
     a = DoubleValue(0)
     a.value = _return_constant + 1
     return a.value
+
 
 # </editor-fold>
 
