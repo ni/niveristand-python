@@ -208,8 +208,15 @@ class Workspace:
         and caused the operation to timeout. Use the GetEngineState function to check the status of the system.
         """
         _RaiseException_(
-            self.iwks.RunWorkspaceFile(file, bool(launchworkspacewindow), bool(deploysystemdefinition), timeout, username,
-                                       password))
+            self.iwks.RunWorkspaceFile(
+                file,
+                bool(launchworkspacewindow),
+                bool(deploysystemdefinition),
+                timeout,
+                username,
+                password
+            )
+        )
 
     def StopWorkspaceFile(self, password):
         """Stops the execution of the currently running configuration."""
