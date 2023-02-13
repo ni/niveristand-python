@@ -1,4 +1,4 @@
-"""Setup module for NI Veristand."""
+"""Setup module for NI VeriStand."""
 from os.path import dirname
 from os.path import join
 from setuptools import find_packages

@@ -1,4 +1,4 @@
-init_var_invalid_type = "Variables must be initialized with a valid Veristand datatype."
+init_var_invalid_type = "Variables must be initialized with a valid VeriStand datatype."
 invalid_nested_funcdef = "Nested function definitions are only allowed inside a multitask."
 invalid_top_level_func = "Invalid top level function."
 save_without_valid_sequence = "No valid real-time sequence to save."

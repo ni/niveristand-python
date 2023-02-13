@@ -10,7 +10,7 @@ from niveristand.legacy.NIVeriStand import NIVeriStandException
 TEST_ID = 1122
 
 
-# This test requires Veristand 2020 or older due to the models
+# This test requires VeriStand 2020 or older due to the models
 def test_model_manager_legacy():
     #Getting a handle to the workspace API
     #Other API: Model, Alarm, AlarmManager, SoftwareForcing, ModelManager

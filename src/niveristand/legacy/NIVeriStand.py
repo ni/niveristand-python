@@ -4,7 +4,7 @@ NI VeriStand Python API.
 @ Copyright 2009-2018 by National Instruments Corp.
 All righs reserved.
 
-C-Python code wrapper of NI Veristand client API.
+C-Python code wrapper of NI VeriStand client API.
 """
 
 import os
