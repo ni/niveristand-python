@@ -9,7 +9,9 @@ def call_transformer(node, resources):
     if rtprimitives.is_channel_ref_type(node.func.id):
         if utils.is_node_ast_str(node.args[0]):
             node_value = utils.get_value_from_str_node(node.args[0])
-            identifier = resources.get_channel_ref_rtseq_name_from_channel_name(node_value)
+            identifier = resources.get_channel_ref_rtseq_name_from_channel_name(
+                node_value
+            )
         else:
             raise errors.TranslateError(_errormessages.invalid_type_for_channel_ref)
         return identifier
@@ -23,7 +25,9 @@ def call_transformer(node, resources):
     if node.func.id in custom_action_symbols._custom_action_symbols:
         # Custom action symbols are basically transformers for functions that don't have
         # their own ast node. Invoke them here
-        return custom_action_symbols._custom_action_symbols[node.func.id](node, resources)
+        return custom_action_symbols._custom_action_symbols[node.func.id](
+            node, resources
+        )
     if node.func.id in symbols._symbols:
         # In case of a builtin expression get it out from symbols and add any arguments it may have
         func_name = symbols._symbols[node.func.id]

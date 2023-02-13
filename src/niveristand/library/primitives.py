@@ -23,7 +23,7 @@ def arraysize(x):
 
 
     """
-    if '__len__' in dir(x):
+    if "__len__" in dir(x):
         return len(x)
     return 0
 
@@ -124,6 +124,7 @@ def iteration():
 
     """
     from niveristand.library._tasks import get_scheduler
+
     return get_scheduler().get_task_for_curr_thread().iteration_counter.count
 
 
@@ -155,6 +156,7 @@ def rand(x):
 
     """
     from random import random
+
     return random() * x
 
 
@@ -204,7 +206,7 @@ def seqtimeus():
         int: elapsed time, in microseconds, as reported by the system clock.
 
     """
-    return int(time.time() * 10 ** 6)
+    return int(time.time() * 10**6)
 
 
 def tickcountms():
@@ -215,7 +217,7 @@ def tickcountms():
         int: time, in milliseconds, as reported by the high-precision counter (if available).
 
     """
-    return int(time.perf_counter() * 10 ** 3)
+    return int(time.perf_counter() * 10**3)
 
 
 def tickcountus():
@@ -226,7 +228,7 @@ def tickcountus():
         int: time, in microseconds, as reported by the high-precision counter (if available).
 
     """
-    return int(time.perf_counter() * 10 ** 6)
+    return int(time.perf_counter() * 10**6)
 
 
 def localhost_wait(amount=0.1):
@@ -255,9 +257,12 @@ def generate_error(code, message, action):
         If action is Continue, returns the generated error.
 
     """
-    from niveristand.clientapi._realtimesequencedefinitionapi.erroraction import ErrorAction
+    from niveristand.clientapi._realtimesequencedefinitionapi.erroraction import (
+        ErrorAction,
+    )
     from niveristand import errors
     from niveristand.library._tasks import get_scheduler
+
     assert isinstance(action, ErrorAction)
     error = errors.SequenceError(code, message, action)
     get_scheduler().get_task_for_curr_thread().error = error

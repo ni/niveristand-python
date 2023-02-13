@@ -1,7 +1,12 @@
 import sys
 from niveristand import nivs_rt_sequence, NivsParam
 from niveristand import realtimesequencetools
-from niveristand.clientapi import ChannelReference, DoubleValue, DoubleValueArray, I32Value
+from niveristand.clientapi import (
+    ChannelReference,
+    DoubleValue,
+    DoubleValueArray,
+    I32Value,
+)
 from niveristand.clientapi import RealTimeSequence
 from niveristand.errors import TranslateError, VeristandError
 from niveristand.library.primitives import arraysize, localhost_wait
@@ -97,7 +102,7 @@ def for_loop_range_with_variable():
 @nivs_rt_sequence
 def for_loop_range_with_channel_ref():
     a = DoubleValue(0)
-    b = ChannelReference('Aliases/DesiredRPM')
+    b = ChannelReference("Aliases/DesiredRPM")
     b.value = 10.0
     localhost_wait(0.2)
     for x in range(b.value):
@@ -181,13 +186,15 @@ def for_try_in_body():
 @nivs_rt_sequence
 def for_funcdef_in_body():
     for i in range(5):
+
         def func():
             pass
+
         pass
 
 
 @nivs_rt_sequence
-@NivsParam('array', DoubleValueArray([0]), NivsParam.BY_REF)
+@NivsParam("array", DoubleValueArray([0]), NivsParam.BY_REF)
 def _average(array):
     average_var = DoubleValue(0)
     for x in array:
@@ -261,7 +268,9 @@ def test_run_in_VM(func_name, params, expected_result):
     assert actual == expected_result
 
 
-@pytest.mark.parametrize("func_name, params, expected_result", fail_transform_tests, ids=idfunc)
+@pytest.mark.parametrize(
+    "func_name, params, expected_result", fail_transform_tests, ids=idfunc
+)
 def test_failures(func_name, params, expected_result):
     with pytest.raises(expected_result):
         RealTimeSequence(func_name)

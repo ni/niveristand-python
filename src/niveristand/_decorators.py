@@ -4,7 +4,7 @@ from niveristand import _errormessages, errors
 from niveristand.clientapi._datatypes import DataType
 from niveristand.clientapi._datatypes import rtprimitives
 
-rt_seq_mode_id = '__rtseq_mode__'
+rt_seq_mode_id = "__rtseq_mode__"
 
 
 def nivs_rt_sequence(func):
@@ -22,6 +22,7 @@ def nivs_rt_sequence(func):
         try:
             if is_top_level:
                 from niveristand.clientapi import RealTimeSequence
+
                 RealTimeSequence(func)
             retval = func(*args, **kwargs)
         except errors.SequenceError:
@@ -116,6 +117,7 @@ def task(mt):
     Refer to :func:`niveristand.library.multitask` for more details on using tasks.
 
     """
+
     def _add_task_to_list(func):
         from niveristand.library._tasks import nivs_yield
 
@@ -137,6 +139,7 @@ def task(mt):
         # return the original function, since we already added the wrapped one to the mt.
         # this allows the user to call it normally if they choose outside an mt context.
         return func
+
     return _add_task_to_list
 
 

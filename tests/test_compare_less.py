@@ -194,7 +194,7 @@ def less_to_channel_ref():
 @nivs_rt_sequence
 def less_binary_unary():
     a = BooleanValue(True)
-    a.value = 2 < - 1
+    a.value = 2 < -1
     return a.value
 
 
@@ -213,6 +213,7 @@ def less_complex_expr():
 
 
 # <editor-fold desc=Invalid tests>
+
 
 @nivs_rt_sequence
 def less_invalid_variables():
@@ -236,6 +237,7 @@ def less_invalid_rtseq_call():
     a = BooleanValue(True)
     a.value = _return_constant < 1
     return a.value
+
 
 # </editor-fold>
 
@@ -307,7 +309,9 @@ def test_run_in_VM(func_name, params, expected_result):
     assert actual == expected_result
 
 
-@pytest.mark.parametrize("func_name, params, expected_result", fail_transform_tests, ids=idfunc)
+@pytest.mark.parametrize(
+    "func_name, params, expected_result", fail_transform_tests, ids=idfunc
+)
 def test_failures(func_name, params, expected_result):
     with pytest.raises(expected_result):
         RealTimeSequence(func_name)

@@ -111,7 +111,9 @@ def test_run_multiple_top_level_seqs_in_parallel():
             actual = realtimesequencetools.run_py_as_rtseq(func)
             thread_results[func] = (thread_results[func], actual)
 
-        thread = threading.Thread(target=run_func_helper, name=func.__name__, args=(func,))
+        thread = threading.Thread(
+            target=run_func_helper, name=func.__name__, args=(func,)
+        )
         threads.append(thread)
     for thread in threads:
         thread.start()
@@ -123,7 +125,9 @@ def test_run_multiple_top_level_seqs_in_parallel():
         assert results[0] == results[1], "Func: %s failed assert" % func.__name__
 
 
-@pytest.mark.parametrize("func_name, params, expected_result", fail_transform_tests, ids=idfunc)
+@pytest.mark.parametrize(
+    "func_name, params, expected_result", fail_transform_tests, ids=idfunc
+)
 def test_failures(func_name, params, expected_result):
     with pytest.raises(expected_result):
         realtimesequencetools.run_py_as_rtseq(func_name)

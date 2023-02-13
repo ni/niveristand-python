@@ -4,10 +4,10 @@ from niveristand.clientapi import DoubleValue, I32Value, I64Value
 from niveristand.library import deltat, localhost_wait, nivs_yield, rem, seqtime
 
 
-@NivsParam('ramp_out', DoubleValue(0), NivsParam.BY_REF)
-@NivsParam('init_value', DoubleValue(1), NivsParam.BY_VALUE)
-@NivsParam('final_value', DoubleValue(10), NivsParam.BY_VALUE)
-@NivsParam('duration', DoubleValue(10), NivsParam.BY_VALUE)
+@NivsParam("ramp_out", DoubleValue(0), NivsParam.BY_REF)
+@NivsParam("init_value", DoubleValue(1), NivsParam.BY_VALUE)
+@NivsParam("final_value", DoubleValue(10), NivsParam.BY_VALUE)
+@NivsParam("duration", DoubleValue(10), NivsParam.BY_VALUE)
 @nivs_rt_sequence
 def ramp(ramp_out, init_value, final_value, duration):
     """
@@ -27,19 +27,19 @@ def ramp(ramp_out, init_value, final_value, duration):
     if step_count.value <= 0:
         ramp_out.value = final_value.value
     else:
-        increment.value = ((final_value.value - init_value.value) / step_count.value)
+        increment.value = (final_value.value - init_value.value) / step_count.value
         for i in range(step_count.value + 1):
             ramp_out.value = (i * increment.value) + init_value.value
             localhost_wait(deltat())
             nivs_yield()
 
 
-@NivsParam('wave_out', DoubleValue(0), NivsParam.BY_REF)
-@NivsParam('amplitude', DoubleValue(0), NivsParam.BY_REF)
-@NivsParam('freq', DoubleValue(0), NivsParam.BY_REF)
-@NivsParam('phase', DoubleValue(0), NivsParam.BY_REF)
-@NivsParam('bias', DoubleValue(0), NivsParam.BY_REF)
-@NivsParam('duration', DoubleValue(0), NivsParam.BY_REF)
+@NivsParam("wave_out", DoubleValue(0), NivsParam.BY_REF)
+@NivsParam("amplitude", DoubleValue(0), NivsParam.BY_REF)
+@NivsParam("freq", DoubleValue(0), NivsParam.BY_REF)
+@NivsParam("phase", DoubleValue(0), NivsParam.BY_REF)
+@NivsParam("bias", DoubleValue(0), NivsParam.BY_REF)
+@NivsParam("duration", DoubleValue(0), NivsParam.BY_REF)
 @nivs_rt_sequence
 def sawtooth_wave(wave_out, amplitude, freq, phase, bias, duration):
     """
@@ -58,21 +58,25 @@ def sawtooth_wave(wave_out, amplitude, freq, phase, bias, duration):
     curr_phase = DoubleValue(0)
     init_time.value = seqtime()
     while seqtime() - init_time.value < duration.value:
-        curr_phase.value = rem((freq.value * 360.0 * (seqtime() - init_time.value)) + phase.value, 360.0)
+        curr_phase.value = rem(
+            (freq.value * 360.0 * (seqtime() - init_time.value)) + phase.value, 360.0
+        )
         if curr_phase.value < 180.0:
             wave_out.value = ((curr_phase.value / 180.0) * amplitude.value) + bias.value
         else:
-            wave_out.value = (((curr_phase.value / 180.0) - 2.0) * amplitude.value) + bias.value
+            wave_out.value = (
+                ((curr_phase.value / 180.0) - 2.0) * amplitude.value
+            ) + bias.value
         localhost_wait(deltat())
         nivs_yield()
 
 
-@NivsParam('wave_out', DoubleValue(0), NivsParam.BY_REF)
-@NivsParam('amplitude', DoubleValue(0), NivsParam.BY_REF)
-@NivsParam('freq', DoubleValue(0), NivsParam.BY_REF)
-@NivsParam('phase', DoubleValue(0), NivsParam.BY_REF)
-@NivsParam('bias', DoubleValue(0), NivsParam.BY_REF)
-@NivsParam('duration', DoubleValue(0), NivsParam.BY_REF)
+@NivsParam("wave_out", DoubleValue(0), NivsParam.BY_REF)
+@NivsParam("amplitude", DoubleValue(0), NivsParam.BY_REF)
+@NivsParam("freq", DoubleValue(0), NivsParam.BY_REF)
+@NivsParam("phase", DoubleValue(0), NivsParam.BY_REF)
+@NivsParam("bias", DoubleValue(0), NivsParam.BY_REF)
+@NivsParam("duration", DoubleValue(0), NivsParam.BY_REF)
 @nivs_rt_sequence
 def sine_wave(wave_out, amplitude, freq, phase, bias, duration):
     """
@@ -93,19 +97,25 @@ def sine_wave(wave_out, amplitude, freq, phase, bias, duration):
     init_time.value = seqtime()
     phase_rad.value = (phase.value * pi) / 180.0
     while seqtime() - init_time.value < duration.value:
-        wave_out.value = amplitude.value * \
-            sin(((2 * pi * freq.value) * (seqtime() - init_time.value)) + phase_rad.value) + bias.value
+        wave_out.value = (
+            amplitude.value
+            * sin(
+                ((2 * pi * freq.value) * (seqtime() - init_time.value))
+                + phase_rad.value
+            )
+            + bias.value
+        )
         localhost_wait(deltat())
         nivs_yield()
 
 
-@NivsParam('wave_out', DoubleValue(0), NivsParam.BY_REF)
-@NivsParam('amplitude', DoubleValue(0), NivsParam.BY_REF)
-@NivsParam('freq', DoubleValue(0), NivsParam.BY_REF)
-@NivsParam('phase', DoubleValue(0), NivsParam.BY_REF)
-@NivsParam('bias', DoubleValue(0), NivsParam.BY_REF)
-@NivsParam('duty_cycle', DoubleValue(0), NivsParam.BY_REF)
-@NivsParam('duration', DoubleValue(0), NivsParam.BY_REF)
+@NivsParam("wave_out", DoubleValue(0), NivsParam.BY_REF)
+@NivsParam("amplitude", DoubleValue(0), NivsParam.BY_REF)
+@NivsParam("freq", DoubleValue(0), NivsParam.BY_REF)
+@NivsParam("phase", DoubleValue(0), NivsParam.BY_REF)
+@NivsParam("bias", DoubleValue(0), NivsParam.BY_REF)
+@NivsParam("duty_cycle", DoubleValue(0), NivsParam.BY_REF)
+@NivsParam("duration", DoubleValue(0), NivsParam.BY_REF)
 @nivs_rt_sequence
 def square_wave(wave_out, amplitude, freq, phase, bias, duty_cycle, duration):
     """
@@ -126,7 +136,9 @@ def square_wave(wave_out, amplitude, freq, phase, bias, duty_cycle, duration):
 
     init_time.value = seqtime()
     while seqtime() - init_time.value < duration.value:
-        curr_phase.value = rem(((freq.value * 360.0 * (seqtime() - init_time.value)) + phase.value), 360.0)
+        curr_phase.value = rem(
+            ((freq.value * 360.0 * (seqtime() - init_time.value)) + phase.value), 360.0
+        )
         if curr_phase.value < (duty_cycle.value * 3.6):
             wave_out.value = amplitude.value + bias.value
         else:
@@ -135,12 +147,12 @@ def square_wave(wave_out, amplitude, freq, phase, bias, duty_cycle, duration):
         nivs_yield()
 
 
-@NivsParam('wave_out', DoubleValue(0), NivsParam.BY_REF)
-@NivsParam('amplitude', DoubleValue(0), NivsParam.BY_REF)
-@NivsParam('freq', DoubleValue(0), NivsParam.BY_REF)
-@NivsParam('phase', DoubleValue(0), NivsParam.BY_REF)
-@NivsParam('bias', DoubleValue(0), NivsParam.BY_REF)
-@NivsParam('duration', DoubleValue(0), NivsParam.BY_REF)
+@NivsParam("wave_out", DoubleValue(0), NivsParam.BY_REF)
+@NivsParam("amplitude", DoubleValue(0), NivsParam.BY_REF)
+@NivsParam("freq", DoubleValue(0), NivsParam.BY_REF)
+@NivsParam("phase", DoubleValue(0), NivsParam.BY_REF)
+@NivsParam("bias", DoubleValue(0), NivsParam.BY_REF)
+@NivsParam("duration", DoubleValue(0), NivsParam.BY_REF)
 @nivs_rt_sequence
 def triangle_wave(wave_out, amplitude, freq, phase, bias, duration):
     """
@@ -160,21 +172,27 @@ def triangle_wave(wave_out, amplitude, freq, phase, bias, duration):
 
     init_time.value = seqtime()
     while seqtime() - init_time.value < duration.value:
-        curr_phase.value = rem((freq.value * 360.0 * (seqtime() - init_time.value)) + phase.value, 360.0)
+        curr_phase.value = rem(
+            (freq.value * 360.0 * (seqtime() - init_time.value)) + phase.value, 360.0
+        )
         if curr_phase.value < 90.0:
             wave_out.value = ((curr_phase.value / 90.0) * amplitude.value) + bias.value
         elif curr_phase.value < 270.0:
-            wave_out.value = ((2.0 - (curr_phase.value / 90.0)) * amplitude.value) + bias.value
+            wave_out.value = (
+                (2.0 - (curr_phase.value / 90.0)) * amplitude.value
+            ) + bias.value
         else:
-            wave_out.value = (((curr_phase.value / 90.0) - 4.0) * amplitude.value) + bias.value
+            wave_out.value = (
+                ((curr_phase.value / 90.0) - 4.0) * amplitude.value
+            ) + bias.value
         localhost_wait(deltat())
         nivs_yield()
 
 
-@NivsParam('wave_out', DoubleValue(0), NivsParam.BY_REF)
-@NivsParam('amplitude', DoubleValue(0), NivsParam.BY_REF)
-@NivsParam('duration', DoubleValue(0), NivsParam.BY_REF)
-@NivsParam('seed', I32Value(0), NivsParam.BY_VALUE)
+@NivsParam("wave_out", DoubleValue(0), NivsParam.BY_REF)
+@NivsParam("amplitude", DoubleValue(0), NivsParam.BY_REF)
+@NivsParam("duration", DoubleValue(0), NivsParam.BY_REF)
+@NivsParam("seed", I32Value(0), NivsParam.BY_VALUE)
 @nivs_rt_sequence
 def uniform_white_noise_wave(wave_out, amplitude, seed, duration):
     """
@@ -202,7 +220,13 @@ def uniform_white_noise_wave(wave_out, amplitude, seed, duration):
         x_seed.value = rem(x_seed.value * 171.0, 30269.0)
         y_seed.value = rem(x_seed.value * 172.0, 30307.0)
         z_seed.value = rem(x_seed.value * 170.0, 30323.0)
-        seed_sum.value = (x_seed.value / 30269.0) + (y_seed.value / 30307.0) + (z_seed.value / 30323.0)
-        wave_out.value = amplitude.value * ((seed_sum - floor(seed_sum.value)) - 0.5) * 2.0
+        seed_sum.value = (
+            (x_seed.value / 30269.0)
+            + (y_seed.value / 30307.0)
+            + (z_seed.value / 30323.0)
+        )
+        wave_out.value = (
+            amplitude.value * ((seed_sum - floor(seed_sum.value)) - 0.5) * 2.0
+        )
         localhost_wait(deltat())
         nivs_yield()

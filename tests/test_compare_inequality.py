@@ -22,28 +22,39 @@ def _return_constant():
 @nivs_rt_sequence
 def notequal_bool_builtins():
     a = BooleanValue(True)
-    a.value = True != True  # noqa: E712 the identity operator "is" is not being tested here.
+    a.value = (
+        True != True  # noqa: E712 the identity operator "is" is not being tested here.
+    )
     return a.value
 
 
 @nivs_rt_sequence
 def notequal_bool_builtins1():
     a = BooleanValue(True)
-    a.value = False != False  # noqa: E712 the identity operator "is" is not being tested here.
+    a.value = (
+        False
+        != False  # noqa: E712 the identity operator "is" is not being tested here.
+    )
     return a.value
 
 
 @nivs_rt_sequence
 def notequal_bool_builtins2():
     a = BooleanValue(False)
-    a.value = False != a.value  # noqa: E712 the identity operator "is" is not being tested here.
+    a.value = (
+        False
+        != a.value  # noqa: E712 the identity operator "is" is not being tested here.
+    )
     return a.value
 
 
 @nivs_rt_sequence
 def notequal_bool_builtins3():
     a = BooleanValue(False)
-    a.value = True != a.value  # noqa: E712 the identity operator "is" is not being tested here.
+    a.value = (
+        True
+        != a.value  # noqa: E712 the identity operator "is" is not being tested here.
+    )
     return a.value
 
 
@@ -238,7 +249,7 @@ def notequal_to_channel_ref():
 @nivs_rt_sequence
 def notequal_binary_unary():
     a = BooleanValue(True)
-    a.value = -1 != - 1
+    a.value = -1 != -1
     return a.value
 
 
@@ -258,6 +269,7 @@ def notequal_complex_expr():
 
 # <editor-fold desc=Invalid tests>
 
+
 @nivs_rt_sequence
 def notequal_invalid_variables():
     return a.value != b
@@ -271,7 +283,9 @@ def notequal_invalid_variables1():
 @nivs_rt_sequence
 def notequal_to_None():
     a = BooleanValue(0)
-    a.value = None != 1  # noqa: E711 the identity operator "is" is not being tested here.
+    a.value = (
+        None != 1  # noqa: E711 the identity operator "is" is not being tested here.
+    )
     return a.value
 
 
@@ -280,6 +294,7 @@ def notequal_invalid_rtseq_call():
     a = BooleanValue(0)
     a.value = _return_constant != 1
     return a.value
+
 
 # </editor-fold>
 
@@ -357,7 +372,9 @@ def test_run_in_VM(func_name, params, expected_result):
     assert actual == expected_result
 
 
-@pytest.mark.parametrize("func_name, params, expected_result", fail_transform_tests, ids=idfunc)
+@pytest.mark.parametrize(
+    "func_name, params, expected_result", fail_transform_tests, ids=idfunc
+)
 def test_failures(func_name, params, expected_result):
     with pytest.raises(expected_result):
         RealTimeSequence(func_name)

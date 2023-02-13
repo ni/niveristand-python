@@ -29,14 +29,18 @@ from NationalInstruments.VeriStand.ClientAPI import PlayModeEnum  # noqa
 from NationalInstruments.VeriStand.ClientAPI import PlayStateEnum  # noqa
 
 _internal.dummy()
-warnings.warn("NIVeriStand.py module is deprecated. "
-              "Use only if required functionality is not yet present in niveristand.clientapi",
-              DeprecationWarning, stacklevel=2)
+warnings.warn(
+    "NIVeriStand.py module is deprecated. "
+    "Use only if required functionality is not yet present in niveristand.clientapi",
+    DeprecationWarning,
+    stacklevel=2,
+)
 
 
 def LaunchNIVeriStand():
     """Launch NI VeriStand.exe from the installed location."""
     import subprocess
+
     path = _internal.base_assembly_path()
     # Try launching VeriStand with new .exe name.
     try:
@@ -86,7 +90,10 @@ class NIVeriStandException(Exception):
 
     def message(self):
         """Return a formatted message of the error."""
-        return 'Consult NI VeriStand help for error code 0x%x error message %s' % (self.errcode, self.errstring)
+        return "Consult NI VeriStand help for error code 0x%x error message %s" % (
+            self.errcode,
+            self.errstring,
+        )
 
     def __str__(self):
         return self.message()
@@ -96,7 +103,7 @@ class NIVeriStandException(Exception):
 
 
 def _RaiseException_(errorObject):
-    if (errorObject.IsError):
+    if errorObject.IsError:
         raise NIVeriStandException(errorObject.Code, errorObject.Message)
 
 
@@ -172,11 +179,11 @@ class PyLogInfoTriggerType:
 
 
 def SetLogInfoTrigger(logInfo, triggerType):
-    if (triggerType == 0):
+    if triggerType == 0:
         logInfo.trigger_type = LogInfo.trigger.none
-    elif (triggerType == 1):
+    elif triggerType == 1:
         logInfo.trigger_type = LogInfo.trigger.in_limits
-    elif (triggerType == 2):
+    elif triggerType == 2:
         logInfo.trigger_type = LogInfo.trigger.out_of_limits
 
 
@@ -196,10 +203,22 @@ class Workspace:
         """Returns the current state of the system."""
         data = self.iwks.GetEngineState(SystemState(0), "", "", "")
         _RaiseException_(data[0])
-        return {'state': self._NetSystemStateToPy_(data[1]), 'workspace_file': data[2],
-                'systemdefinition_file': data[3], 'ip_address': data[4]}
+        return {
+            "state": self._NetSystemStateToPy_(data[1]),
+            "workspace_file": data[2],
+            "systemdefinition_file": data[3],
+            "ip_address": data[4],
+        }
 
-    def RunWorkspaceFile(self, file, launchworkspacewindow, deploysystemdefinition, timeout, username, password):
+    def RunWorkspaceFile(
+        self,
+        file,
+        launchworkspacewindow,
+        deploysystemdefinition,
+        timeout,
+        username,
+        password,
+    ):
         """Runs the workspace configuration file you specify.
 
         Raises an error if you call this function while a configuration is already running.
@@ -214,7 +233,7 @@ class Workspace:
                 bool(deploysystemdefinition),
                 timeout,
                 username,
-                password
+                password,
             )
         )
 
@@ -320,25 +339,30 @@ class Workspace:
         return dict
 
     def _NetSystemStateToPy_(self, net):
-        if (net == SystemState.Idle):
+        if net == SystemState.Idle:
             return PySystemState.Idle
-        elif (net == SystemState.Active):
+        elif net == SystemState.Active:
             return PySystemState.Active
         else:
             raise ValueError
 
     def _ConvertNodeInfoToDictionary_(self, nodeInfo):
-        return {'name': nodeInfo.Name, 'path': nodeInfo.FullPath,
-                'isChannel': nodeInfo.IsChannel, 'isReadable': nodeInfo.IsReadable,
-                'isWritable': nodeInfo.IsWritable, 'isScalable': nodeInfo.IsScalable,
-                'unit': nodeInfo.ChannelUnit}
+        return {
+            "name": nodeInfo.Name,
+            "path": nodeInfo.FullPath,
+            "isChannel": nodeInfo.IsChannel,
+            "isReadable": nodeInfo.IsReadable,
+            "isWritable": nodeInfo.IsWritable,
+            "isScalable": nodeInfo.IsScalable,
+            "unit": nodeInfo.ChannelUnit,
+        }
 
 
 class Workspace2(Workspace):
     """Interface that controls the running state of the system and accesses the channels in the system."""
 
     def __init__(self, gatewayIPAddress=None):
-        if (gatewayIPAddress is None):
+        if gatewayIPAddress is None:
             self.iwks = Factory().GetIWorkspace2("")
         else:
             self.iwks = Factory().GetIWorkspace2(gatewayIPAddress)
@@ -350,13 +374,21 @@ class Workspace2(Workspace):
         targets = []
         for target in data[3]:
             targets.append(target)
-        return {'state': self._NetSystemStateToPy_(data[1]), 'systemdefinition_file': data[2],
-                'targets': tuple(targets)}
+        return {
+            "state": self._NetSystemStateToPy_(data[1]),
+            "systemdefinition_file": data[2],
+            "targets": tuple(targets),
+        }
 
     def ConnectToSystem(self, systemdefinition_file, deploy, timeout):
         """Connects the VeriStand Gateway to one or more targets running on the System Definition file you specify."""
         _RaiseException_(
-            self.iwks.ConnectToSystem(systemdefinition_file, System.Boolean(bool(deploy)), System.UInt32(timeout)))
+            self.iwks.ConnectToSystem(
+                systemdefinition_file,
+                System.Boolean(bool(deploy)),
+                System.UInt32(timeout),
+            )
+        )
 
     def ReconnectToSystem(self, target, deploy, calibration_file, timeout):
         """Reconnects the VeriStand Gateway to a target within the system definition file used by the Gateway.\
@@ -366,12 +398,13 @@ class Workspace2(Workspace):
         options.Timeout = timeout
         options.CalibratonFilePath = calibration_file
 
-        _RaiseException_(
-            self.iwks.ReconnectToSystem(System.String(target), options))
+        _RaiseException_(self.iwks.ReconnectToSystem(System.String(target), options))
 
     def DisconnectFromSystem(self, password, undeploy_system_definition):
         """Disconnects the VeriStand Gateway from the targets."""
-        _RaiseException_(self.iwks.DisconnectFromSystem(password, bool(undeploy_system_definition)))
+        _RaiseException_(
+            self.iwks.DisconnectFromSystem(password, bool(undeploy_system_definition))
+        )
 
     def LockConnection(self, old_password, new_password):
         """
@@ -439,11 +472,11 @@ class Alarm:
     """Interface that queries information on a configured alarm."""
 
     def __init__(self, name, target=None, gatewayIPAddress=None):
-        if ((target is None) and (gatewayIPAddress is None)):
+        if (target is None) and (gatewayIPAddress is None):
             self.ialarm = Factory().GetIAlarm(name)
-        elif (target is None):
+        elif target is None:
             self.ialarm = Factory().GetIAlarm("", name, gatewayIPAddress)
-        elif (gatewayIPAddress is None):
+        elif gatewayIPAddress is None:
             self.ialarm = Factory().GetIAlarm(target, name, "")
         else:
             self.ialarm = Factory().GetIAlarm(target, name, gatewayIPAddress)
@@ -478,117 +511,122 @@ class Alarm:
         _RaiseException_(self.ialarm.SetAlarmMode(self._PyAlarmModeToNet_(mode)))
 
     def _NetAlarmPriorityToPy_(self, net):
-        if (net == AlarmPriority.Low):
+        if net == AlarmPriority.Low:
             return PyAlarmPriority.Low
-        elif (net == AlarmPriority.Medium):
+        elif net == AlarmPriority.Medium:
             return PyAlarmPriority.Medium
-        elif (net == AlarmPriority.High):
+        elif net == AlarmPriority.High:
             return PyAlarmPriority.High
         else:
             raise ValueError
 
     def _PyAlarmPriorityToNet_(self, py):
-        if (py == PyAlarmPriority.Low):
+        if py == PyAlarmPriority.Low:
             return AlarmPriority.Low
-        elif (py == PyAlarmPriority.Medium):
+        elif py == PyAlarmPriority.Medium:
             return AlarmPriority.Medium
-        elif (py == PyAlarmPriority.High):
+        elif py == PyAlarmPriority.High:
             return AlarmPriority.High
         else:
             raise ValueError
 
     def _NetAlarmStateToPy_(self, net):
-        if (net == AlarmState.Disabled):
+        if net == AlarmState.Disabled:
             return PyAlarmState.Disabled
-        elif (net == AlarmState.Enabled):
+        elif net == AlarmState.Enabled:
             return PyAlarmState.Enabled
-        elif (net == AlarmState.Tripped):
+        elif net == AlarmState.Tripped:
             return PyAlarmState.Tripped
-        elif (net == AlarmState.DelayedTripped):
+        elif net == AlarmState.DelayedTripped:
             return PyAlarmState.DelayedTripped
-        elif (net == AlarmState.Indicate):
+        elif net == AlarmState.Indicate:
             return PyAlarmState.Indicate
         else:
             raise ValueError
 
     def _PyAlarmStateToNet_(self, py):
-        if (py == PyAlarmState.Disabled):
+        if py == PyAlarmState.Disabled:
             return AlarmState.Disabled
-        elif (py == PyAlarmState.Enabled):
+        elif py == PyAlarmState.Enabled:
             return AlarmState.Enabled
-        elif (py == PyAlarmState.Tripped):
+        elif py == PyAlarmState.Tripped:
             return AlarmState.Tripped
-        elif (py == PyAlarmState.DelayedTripped):
+        elif py == PyAlarmState.DelayedTripped:
             return AlarmState.DelayedTripped
-        elif (py == PyAlarmState.Indicaet):
+        elif py == PyAlarmState.Indicaet:
             return AlarmState.Indicate
         else:
             raise ValueError
 
     def _NetAlarmModeToPy_(self, net):
-        if (net == AlarmMode.Normal):
+        if net == AlarmMode.Normal:
             return PyAlarmMode.Normal
-        elif (net == AlarmMode.IndicateOnly):
+        elif net == AlarmMode.IndicateOnly:
             return PyAlarmMode.IndicateOnly
         else:
             raise ValueError
 
     def _PyAlarmModeToNet_(self, py):
-        if (py == PyAlarmMode.Normal):
+        if py == PyAlarmMode.Normal:
             return AlarmMode.Normal
-        elif (py == PyAlarmMode.IndicateOnly):
+        elif py == PyAlarmMode.IndicateOnly:
             return AlarmMode.IndicateOnly
         else:
             raise ValueError
 
     def _ConvertAlarmToDictionary_(self, alarm):
-        return {'WatchChannel': alarm.WatchChannel,
-                'HighLimitIsConstant': alarm.HighLimitIsConstant, 'HighLimit': alarm.HighLimit,
-                'HighLimitChannel': alarm.HighLimitChannelName,
-                'LowLimitIsConstant': alarm.LowLimitIsConstant, 'LowLimit': alarm.LowLimit,
-                'LowLimitChannel': alarm.LowLimitChannelName,
-                'DelayDuration': alarm.DelayDuration, 'TripValue': alarm.TripValue,
-                'ProcedureName': alarm.ProcedureName,
-                'Priority': self._NetAlarmPriorityToPy_(alarm.Priority),
-                'PriorityNumber': alarm.PriorityNumber,
-                'State': self._NetAlarmStateToPy_(alarm.State),
-                'Mode': self._NetAlarmModeToPy_(alarm.Mode),
-                'GroupNumber': alarm.GroupNumber,
-                'Name': alarm.Name,
-                'FullName': alarm.FullName}
+        return {
+            "WatchChannel": alarm.WatchChannel,
+            "HighLimitIsConstant": alarm.HighLimitIsConstant,
+            "HighLimit": alarm.HighLimit,
+            "HighLimitChannel": alarm.HighLimitChannelName,
+            "LowLimitIsConstant": alarm.LowLimitIsConstant,
+            "LowLimit": alarm.LowLimit,
+            "LowLimitChannel": alarm.LowLimitChannelName,
+            "DelayDuration": alarm.DelayDuration,
+            "TripValue": alarm.TripValue,
+            "ProcedureName": alarm.ProcedureName,
+            "Priority": self._NetAlarmPriorityToPy_(alarm.Priority),
+            "PriorityNumber": alarm.PriorityNumber,
+            "State": self._NetAlarmStateToPy_(alarm.State),
+            "Mode": self._NetAlarmModeToPy_(alarm.Mode),
+            "GroupNumber": alarm.GroupNumber,
+            "Name": alarm.Name,
+            "FullName": alarm.FullName,
+        }
 
     def _ConvertDictionaryToAlarm_(self, alarm):
         net = AlarmInfo()
-        net.WatchChannel = alarm['WatchChannel']
-        net.HighLimitIsConstant = alarm['HighLimitIsConstant']
-        net.HighLimit = alarm['HighLimit']
-        net.HighLimitChannelName = alarm['HighLimitChannel']
-        net.LowLimitIsConstant = alarm['LowLimitIsConstant']
-        net.LowLimit = alarm['LowLimit']
-        net.LowLimitChannelName = alarm['LowLimitChannel']
-        net.DelayDuration = alarm['DelayDuration']
-        net.TripValue = alarm['TripValue']
-        net.ProcedureName = alarm['ProcedureName']
-        net.Priority = self._PyAlarmPriorityToNet_(alarm['Priority'])
-        net.State = self._PyAlarmStateToNet_(alarm['State'])
-        net.Mode = self._PyAlarmModeToNet_(alarm['Mode'])
+        net.WatchChannel = alarm["WatchChannel"]
+        net.HighLimitIsConstant = alarm["HighLimitIsConstant"]
+        net.HighLimit = alarm["HighLimit"]
+        net.HighLimitChannelName = alarm["HighLimitChannel"]
+        net.LowLimitIsConstant = alarm["LowLimitIsConstant"]
+        net.LowLimit = alarm["LowLimit"]
+        net.LowLimitChannelName = alarm["LowLimitChannel"]
+        net.DelayDuration = alarm["DelayDuration"]
+        net.TripValue = alarm["TripValue"]
+        net.ProcedureName = alarm["ProcedureName"]
+        net.Priority = self._PyAlarmPriorityToNet_(alarm["Priority"])
+        net.State = self._PyAlarmStateToNet_(alarm["State"])
+        net.Mode = self._PyAlarmModeToNet_(alarm["Mode"])
         return net
 
     def _ConvertDictionaryToAlarm2_(self, alarm):
         net = AlarmInfo()
-        net.WatchChannel = alarm['WatchChannel']
-        net.HighLimitIsConstant = alarm['HighLimitIsConstant']
-        net.HighLimit = alarm['HighLimit']
-        net.HighLimitChannelName = alarm['HighLimitChannel']
-        net.LowLimitIsConstant = alarm['LowLimitIsConstant']
-        net.LowLimit = alarm['LowLimit']
-        net.LowLimitChannelName = alarm['LowLimitChannel']
-        net.DelayDuration = alarm['DelayDuration']
-        net.TripValue = alarm['TripValue']
-        net.ProcedureName = alarm['ProcedureName']
-        net.PriorityNumber = alarm['PriorityNumber']
-        net.State = self._PyAlarmStateToNet_(alarm['State'])
-        net.Mode = self._PyAlarmModeToNet_(alarm['Mode'])
+        net.WatchChannel = alarm["WatchChannel"]
+        net.HighLimitIsConstant = alarm["HighLimitIsConstant"]
+        net.HighLimit = alarm["HighLimit"]
+        net.HighLimitChannelName = alarm["HighLimitChannel"]
+        net.LowLimitIsConstant = alarm["LowLimitIsConstant"]
+        net.LowLimit = alarm["LowLimit"]
+        net.LowLimitChannelName = alarm["LowLimitChannel"]
+        net.DelayDuration = alarm["DelayDuration"]
+        net.TripValue = alarm["TripValue"]
+        net.ProcedureName = alarm["ProcedureName"]
+        net.PriorityNumber = alarm["PriorityNumber"]
+        net.State = self._PyAlarmStateToNet_(alarm["State"])
+        net.Mode = self._PyAlarmModeToNet_(alarm["Mode"])
         return net
 
 
@@ -612,17 +650,25 @@ class AlarmManager:
     def GetAlarmsStatus(self):
         """Acquires a list of alarms organized by status (high, medium, and low)."""
         a0 = a1 = a2 = System.Boolean(False)
-        aname0 = aname1 = aname2 = System.String('')
+        aname0 = aname1 = aname2 = System.String("")
         data = self.iamgr.GetAlarmsStatus(a0, a1, a2, aname0, aname1, aname2)
         _RaiseException_(data[0])
-        return {'HighAlarm': data[1], 'MediumAlarm': data[2], 'LowAlarm': data[3], 'HighAlarmName': data[4],
-                'MedAlarmName': data[5], 'LowAlarmName': data[6]}
+        return {
+            "HighAlarm": data[1],
+            "MediumAlarm": data[2],
+            "LowAlarm": data[3],
+            "HighAlarmName": data[4],
+            "MedAlarmName": data[5],
+            "LowAlarmName": data[6],
+        }
 
     def GetMultipleAlarmsData(self, alarms, timeout):
         """Acquires information about a list of alarms."""
-        data = self.iamgr.GetMultipleAlarmsData(list(alarms), System.UInt32(timeout), [])
+        data = self.iamgr.GetMultipleAlarmsData(
+            list(alarms), System.UInt32(timeout), []
+        )
         _RaiseException_(data[0])
-        temp = Alarm('')
+        temp = Alarm("")
         values = []
         for netAlarmInfo in data[1]:
             values.append(temp._ConvertAlarmToDictionary_(netAlarmInfo))
@@ -633,7 +679,7 @@ class AlarmManager2:
     """Interface that acquires information on the state of the server alarm."""
 
     def __init__(self, gateway_ip_address=None):
-        if (gateway_ip_address is None):
+        if gateway_ip_address is None:
             self.iamgr = Factory().GetIAlarmManager2("")
         else:
             self.iamgr = Factory().GetIAlarmManager2(gateway_ip_address)
@@ -651,15 +697,23 @@ class AlarmManager2:
         """Acquires a list of alarms organized by status (high, medium, and low)."""
         data = self.iamgr.GetAlarmsStatus(target)
         _RaiseException_(data[0])
-        return {'HighAlarm': data[1], 'MediumAlarm': data[2], 'LowAlarm': data[3], 'HighAlarmName': data[4],
-                'MedAlarmName': data[5], 'LowAlarmName': data[6]}
+        return {
+            "HighAlarm": data[1],
+            "MediumAlarm": data[2],
+            "LowAlarm": data[3],
+            "HighAlarmName": data[4],
+            "MedAlarmName": data[5],
+            "LowAlarmName": data[6],
+        }
 
     def GetMultipleAlarmsData(self, target, alarms, timeout):
         """Acquires information about a list of alarms."""
         tupleAlarmNames = _ConvertListParamToTuple_(alarms)
-        data = self.iamgr.GetMultipleAlarmsData(target, tupleAlarmNames, System.UInt32(timeout), None)
+        data = self.iamgr.GetMultipleAlarmsData(
+            target, tupleAlarmNames, System.UInt32(timeout), None
+        )
         _RaiseException_(data[0])
-        temp = Alarm('')
+        temp = Alarm("")
         values = []
         for netAlarmInfo in data[1]:
             values.append(temp._ConvertAlarmToDictionary_(netAlarmInfo))
@@ -692,11 +746,11 @@ class Model:
     """Interface that acquires information on a specific model running on the system."""
 
     def __init__(self, name, target=None, gatewayIPAddress=None):
-        if ((target is None) and (gatewayIPAddress is None)):
+        if (target is None) and (gatewayIPAddress is None):
             self.imodel = Factory().GetIModel(name)
-        elif (target is None):
+        elif target is None:
             self.imodel = Factory().GetIModel(gatewayIPAddress, "", name)
-        elif (gatewayIPAddress is None):
+        elif gatewayIPAddress is None:
             self.imodel = Factory().GetIModel("", target, name)
         else:
             self.imodel = Factory().GetIModel(gatewayIPAddress, target, name)
@@ -705,7 +759,7 @@ class Model:
         """Acquires the execution time and state of the model."""
         data = self.imodel.GetModelExecutionState(0.0, ModelState.Idle)
         _RaiseException_(data[0])
-        values = {'time': data[1], 'state': self._NetModelStateToPy_(data[2])}
+        values = {"time": data[1], "state": self._NetModelStateToPy_(data[2])}
         return values
 
     def SetModelExecutionState(self, command):
@@ -716,7 +770,9 @@ class Model:
         Even if this function executes successfully, the model state may remain unchanged in some cases.
         See PyModelState for command values.
         """
-        _RaiseException_(self.imodel.SetModelExecutionState(self._PyModelStateToNet_(command)))
+        _RaiseException_(
+            self.imodel.SetModelExecutionState(self._PyModelStateToNet_(command))
+        )
 
     def SaveModelState(self, filepath):
         """Saves the current model state to the path on the target you specify in `filepath`."""
@@ -727,29 +783,29 @@ class Model:
         _RaiseException_(self.imodel.RestoreModelState(filepath))
 
     def _NetModelStateToPy_(self, net):
-        if (net == ModelState.Running):
+        if net == ModelState.Running:
             return PyModelState.Running
-        elif (net == ModelState.Paused):
+        elif net == ModelState.Paused:
             return PyModelState.Paused
-        elif (net == ModelState.Resetting):
+        elif net == ModelState.Resetting:
             return PyModelState.Resetting
-        elif (net == ModelState.Idle):
+        elif net == ModelState.Idle:
             return PyModelState.Idle
-        elif (net == ModelState.Stopped):
+        elif net == ModelState.Stopped:
             return PyModelState.Stopped
-        elif (net == ModelState.Restoring):
+        elif net == ModelState.Restoring:
             return PyModelState.Restoring
-        elif (net == ModelState.Saving):
+        elif net == ModelState.Saving:
             return PyModelState.Saving
         else:
             raise ValueError
 
     def _PyModelStateToNet_(self, py):
-        if (py == PyModelCommand.Start):
+        if py == PyModelCommand.Start:
             return ModelCommand.Start
-        elif (py == PyModelCommand.Pause):
+        elif py == PyModelCommand.Pause:
             return ModelCommand.Pause
-        elif (py == PyModelCommand.Reset):
+        elif py == PyModelCommand.Reset:
             return ModelCommand.Reset
         else:
             raise ValueError
@@ -798,19 +854,25 @@ class ModelManager:
 
     def GetParameterVectorValues(self, name):
         """Acquires the vector values of the parameter you specify."""
-        data = self.modmgr.GetParameterVectorValues(name, System.UInt32(0), System.UInt32(0), None)
+        data = self.modmgr.GetParameterVectorValues(
+            name, System.UInt32(0), System.UInt32(0), None
+        )
         _RaiseException_(data[0])
         return _Convert1DARRVALTOMATRIX_(data[1], data[2], data[3])
 
     def SetSingleParameterValue(self, name, value):
         """Sets the value of the parameter you specify."""
-        _RaiseException_(self.modmgr.SetSingleParameterValue(name, System.Double(value)))
+        _RaiseException_(
+            self.modmgr.SetSingleParameterValue(name, System.Double(value))
+        )
 
     def SetMultipleParameterValues(self, names, values):
         """Sets the value(s) of the parameters you specify."""
         tupleParamNames = _ConvertListParamToTuple_(names)
         tupleParamValues = _ConvertListParamToTuple_(values)
-        _RaiseException_(self.modmgr.SetMultipleParameterValues(tupleParamNames, tupleParamValues))
+        _RaiseException_(
+            self.modmgr.SetMultipleParameterValues(tupleParamNames, tupleParamValues)
+        )
 
     def SetParameterVectorValues(self, name, values):
         """
@@ -827,7 +889,7 @@ class ModelManager2(ModelManager):
 
     def __init__(self, gateway_ip_address=None):
         super(self.__class__, self).__init__()
-        if (gateway_ip_address is None):
+        if gateway_ip_address is None:
             self.modmgr = Factory().GetIModelManager2("")
         else:
             self.modmgr = Factory().GetIModelManager2(gateway_ip_address)
@@ -868,19 +930,25 @@ class ModelManager2(ModelManager):
 
     def GetParameterVectorValues(self, target, name):
         """Acquires the vector values of the parameter you specify."""
-        data = self.modmgr.GetParameterVectorValues(target, name, System.UInt32(0), System.UInt32(0), None)
+        data = self.modmgr.GetParameterVectorValues(
+            target, name, System.UInt32(0), System.UInt32(0), None
+        )
         _RaiseException_(data[0])
         return _Convert1DARRVALTOMATRIX_(data[1], data[2], data[3])
 
     def SetSingleParameterValue(self, target, name, value):
         """Sets the value of the parameter you specify."""
-        _RaiseException_(self.modmgr.SetSingleParameterValue(target, name, System.Double(value)))
+        _RaiseException_(
+            self.modmgr.SetSingleParameterValue(target, name, System.Double(value))
+        )
 
     def SetMultipleParameterValues(self, target, names, values):
         """Sets the value of the parameter(s) you specify."""
         tupleNames = _ConvertListParamToTuple_(names)
         tupleValues = _ConvertListParamToTuple_(values)
-        _RaiseException_(self.modmgr.SetMultipleParameterValues(target, tupleNames, tupleValues))
+        _RaiseException_(
+            self.modmgr.SetMultipleParameterValues(target, tupleNames, tupleValues)
+        )
 
     def SetParameterVectorValues(self, target, name, values):
         """Set a parameter vector values.
@@ -899,7 +967,9 @@ class ModelManager2(ModelManager):
         """
         tupleNames = _ConvertListParamToTuple_(names)
         dataArrayArrays = _ConvertMATRIXARRToDataArray_(matrixArr)
-        _RaiseException_(self.modmgr.SetParameterValues(target, tupleNames, dataArrayArrays))
+        _RaiseException_(
+            self.modmgr.SetParameterValues(target, tupleNames, dataArrayArrays)
+        )
 
     def UpdateParametersFromFile(self, target, parameterfiles):
         """Update a set of parameters specified in the parameter files."""
@@ -912,7 +982,7 @@ class ChannelFaultManager:
     """Interface that institutes software value forcing on the system."""
 
     def __init__(self, gatewayIPAddress=None):
-        if (gatewayIPAddress is None):
+        if gatewayIPAddress is None:
             self.isfiu = Factory().GetIChannelFault("")
         else:
             self.isfiu = Factory().GetIChannelFault(gatewayIPAddress)
@@ -927,7 +997,7 @@ class ChannelFaultManager:
         """Acquires the fault value of a channel you specify."""
         data = self.isfiu.GetFaultValue(name, False, 0.0)
         _RaiseException_(data[0])
-        return {'faulted': data[1], 'fault value': data[2]}
+        return {"faulted": data[1], "fault value": data[2]}
 
     def SetFaultValue(self, name, value):
         """Sets the fault value of the channel you specify."""
@@ -987,10 +1057,19 @@ class Stimulus:
         _RaiseException_(data[0])
         return self._NetStimulusStateToPy_(data[1])
 
-    def RunStimulusProfile(self, testfile, baselogpath, timeout, autostart, stopondisconnect):
+    def RunStimulusProfile(
+        self, testfile, baselogpath, timeout, autostart, stopondisconnect
+    ):
         """Starts the stimulus generation you defined in the test file."""
-        _RaiseException_(self.istim.RunStimulusProfile(str(testfile), str(baselogpath), System.UInt32(timeout),
-                                                       bool(autostart), bool(stopondisconnect)))
+        _RaiseException_(
+            self.istim.RunStimulusProfile(
+                str(testfile),
+                str(baselogpath),
+                System.UInt32(timeout),
+                bool(autostart),
+                bool(stopondisconnect),
+            )
+        )
 
     def StopStimulusProfile(self):
         """Stops the stimulus generation."""
@@ -1010,29 +1089,29 @@ class Stimulus:
         """
         data = self.istim.GetStimulusProfileResult(StimulusResult.Failed, "")
         _RaiseException_(data[0])
-        values = {'Result': self._NetStimulusResultToPy_(data[1]), 'File': data[2]}
+        values = {"Result": self._NetStimulusResultToPy_(data[1]), "File": data[2]}
         return values
 
     def _NetStimulusStateToPy_(self, net):
-        if (net == StimulusState.Stopped):
+        if net == StimulusState.Stopped:
             return PyStimulusState.Stopped
-        elif (net == StimulusState.Starting):
+        elif net == StimulusState.Starting:
             return PyStimulusState.Starting
-        elif (net == StimulusState.Running):
+        elif net == StimulusState.Running:
             return PyStimulusState.Running
-        elif (net == StimulusState.Stopping):
+        elif net == StimulusState.Stopping:
             return PyStimulusState.Stopping
         else:
             raise ValueError
 
     def _NetStimulusResultToPy_(self, net):
-        if (net == 0):
+        if net == 0:
             return PyStimulusResult.NoResult
-        elif (net == StimulusResult.Passed):
+        elif net == StimulusResult.Passed:
             return PyStimulusResult.Passed
-        elif (net == StimulusResult.Failed):
+        elif net == StimulusResult.Failed:
             return PyStimulusResult.Failed
-        elif (net == PyStimulusResult.Error):
+        elif net == PyStimulusResult.Error:
             return PyStimulusResult.Error
         else:
             raise ValueError
@@ -1042,7 +1121,7 @@ class Stimulus2(Stimulus):
     """Automates the execution of stimulus profiles."""
 
     def __init__(self, gatewayIPAddress=None):
-        if (gatewayIPAddress is None):
+        if gatewayIPAddress is None:
             self.istim = Factory().GetIStimulus2("")
         else:
             self.istim = Factory().GetIStimulus2(gatewayIPAddress)
@@ -1050,11 +1129,22 @@ class Stimulus2(Stimulus):
     def __del__(self):
         self.UnreserveStimulusProfileManager()
 
-    def RunStimulusProfile(self, testfile, baselogpath, timeout, autostart, stopondisconnect, parameterfiles=()):
+    def RunStimulusProfile(
+        self,
+        testfile,
+        baselogpath,
+        timeout,
+        autostart,
+        stopondisconnect,
+        parameterfiles=(),
+    ):
         """Starts the stimulus generation you defined in the test file."""
         tupleFiles = _ConvertListParamToTuple_(parameterfiles)
         _RaiseException_(
-            self.istim.RunStimulusProfile(testfile, baselogpath, timeout, autostart, stopondisconnect, tupleFiles))
+            self.istim.RunStimulusProfile(
+                testfile, baselogpath, timeout, autostart, stopondisconnect, tupleFiles
+            )
+        )
 
 
 # define MacroRecorder
@@ -1079,7 +1169,7 @@ class MacroRecorder:
         _RaiseException_(data[0])
         commandLines = []
         for i in data[1]:
-            data = {'seconds': i.seconds, 'cmdLine': i.cmdLine}
+            data = {"seconds": i.seconds, "cmdLine": i.cmdLine}
             commandLines.append(data)
         return commandLines
 
@@ -1102,7 +1192,7 @@ class PyMacroPlayerMode:
 
 class MacroPlayer:
     def __init__(self, gatewayIPAddress=None):
-        if (gatewayIPAddress is None):
+        if gatewayIPAddress is None:
             self.player = Factory().GetIMacroPlayer("")
         else:
             self.player = Factory().GetIMacroPlayer(gatewayIPAddress)
@@ -1114,16 +1204,16 @@ class MacroPlayer:
     def PlayState(self):
         """Acquires the current play state."""
         data = self.player.PlayState()
-        if (data == PlayStateEnum.NotPlaying):
+        if data == PlayStateEnum.NotPlaying:
             return PyMacroPlayerState.NotPlaying
-        elif (data == PlayStateEnum.Playing):
+        elif data == PlayStateEnum.Playing:
             return PyMacroPlayerState.Playing
-        elif (data == PlayStateEnum.Paused):
+        elif data == PlayStateEnum.Paused:
             return PyMacroPlayerState.Paused
 
     def PlayMacro(self, mode):
         """Replays the loaded macro."""
-        if (mode == 0):
+        if mode == 0:
             _RaiseException_(self.player.PlayMacro(PlayModeEnum.IgnoreTiming))
         else:
             _RaiseException_(self.player.PlayMacro(PlayModeEnum.UseTiming))
@@ -1145,6 +1235,6 @@ class MacroPlayer:
         _RaiseException_(data[0])
         commandLines = []
         for i in data[1]:
-            data = {'seconds': i.seconds, 'cmdLine': i.cmdLine}
+            data = {"seconds": i.seconds, "cmdLine": i.cmdLine}
             commandLines.append(data)
         return commandLines

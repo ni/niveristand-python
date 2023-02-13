@@ -26,7 +26,7 @@ def functiondef_transformer(node, resources):
     return ""
 
 
-_param = namedtuple('_param', 'name def_value by_value')
+_param = namedtuple("_param", "name def_value by_value")
 
 
 def _init_args(node, resources):
@@ -35,7 +35,7 @@ def _init_args(node, resources):
     def_value = DoubleValue(0)
     if type(node) is ast.Name:
         arg_name = utils.generic_ast_node_transform(node, resources)
-    elif 'arg' in dir(ast) and type(node) is ast.arg:
+    elif "arg" in dir(ast) and type(node) is ast.arg:
         arg_name = node.arg
     return _param(arg_name, def_value, by_value)
 
@@ -57,9 +57,11 @@ def _decorator_to_arg(node, resources):
     valid_types = [ast.Name, ast.Attribute]
     if isinstance(node.args[2], tuple(valid_types)):
         by_value_str = utils.get_variable_name_from_node(node.args[2])
-        by_value_str = getattr(_decorators.NivsParam, by_value_str.split('.')[-1], by_value_str)
+        by_value_str = getattr(
+            _decorators.NivsParam, by_value_str.split(".")[-1], by_value_str
+        )
         by_value = BooleanValue(by_value_str).value
-    elif 'NameConstant' in dir(ast) and utils.is_node_ast_nameconstant(node.args[2]):
+    elif "NameConstant" in dir(ast) and utils.is_node_ast_nameconstant(node.args[2]):
         by_value = utils.get_value_from_nameconstant_node(node.args[2])
 
     if arg_name is None or def_value is None or by_value is None:
@@ -70,12 +72,14 @@ def _decorator_to_arg(node, resources):
 def _validate_restrictions(node):
     if validations.check_if_any_in_block(ast.FunctionDef, node.body):
         raise errors.TranslateError(_errormessages.invalid_function_definition)
-    if node.returns is not None \
-            or len(node.args.kwonlyargs) != 0 \
-            or len(node.args.kw_defaults) != 0 \
-            or node.args.vararg is not None \
-            or node.args.kwarg is not None \
-            or len(node.args.defaults) != 0:
+    if (
+        node.returns is not None
+        or len(node.args.kwonlyargs) != 0
+        or len(node.args.kw_defaults) != 0
+        or node.args.vararg is not None
+        or node.args.kwarg is not None
+        or len(node.args.defaults) != 0
+    ):
         raise errors.TranslateError(_errormessages.invalid_function_definition)
     if validations.check_if_any_in_block(validations.ast_try(), node.body):
         if not isinstance(node.body[0], validations.ast_try()):
@@ -85,13 +89,17 @@ def _validate_restrictions(node):
         elif len(node.body) == 2:
             if not isinstance(node.body[1], ast.Return):
                 raise errors.TranslateError(_errormessages.invalid_stmt_after_try)
-    return_statements = [statement for statement in node.body if isinstance(statement, ast.Return)]
+    return_statements = [
+        statement for statement in node.body if isinstance(statement, ast.Return)
+    ]
     if len(return_statements) > 1:
         raise errors.TranslateError(_errormessages.multiple_return_statements)
     if validations.check_if_any_in_block(ast.Return, node.body[:-1]):
         raise errors.TranslateError(_errormessages.return_unsupported_unless_last)
     for decorator in node.decorator_list:
-        decorator_name_node = decorator.func if isinstance(decorator, ast.Call) else decorator
+        decorator_name_node = (
+            decorator.func if isinstance(decorator, ast.Call) else decorator
+        )
         decorator_name = utils.get_variable_name_from_node(decorator_name_node)
         decorator_name = decorator_name.split(".")[-1]
         _raise_if_invalid_decorator(decorator_name)

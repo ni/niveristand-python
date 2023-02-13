@@ -6,8 +6,12 @@ from niveristand._translation.py2rtseq.utils import _py_param_name_to_rtseq_para
 from niveristand.clientapi import stimulusprofileapi
 from niveristand.clientapi._factory import _DefaultGatewayFactory
 from niveristand.clientapi._sequencecallinfo import _SequenceCallInfoFactory
-from niveristand.clientapi._sequenceparameterassignmentinfo import _SequenceParameterAssignmentInfoFactory
-from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import Expression  # noqa: I100
+from niveristand.clientapi._sequenceparameterassignmentinfo import (
+    _SequenceParameterAssignmentInfoFactory,
+)
+from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import (  # noqa: I100, E501 C# imports need to be out of order
+    Expression,
+)
 from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import ForEachLoop
 from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import ForLoop
 from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import GenerateError
@@ -15,7 +19,9 @@ from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import IfElse
 from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import LocalDeclaration
 from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import Multitask
 from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import RealTimeSequence
-from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import ReturnDeclaration
+from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import (
+    ReturnDeclaration,
+)
 from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import StopTask
 from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import Task
 from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import WhileLoop
@@ -37,11 +43,11 @@ def add_local_variable(rt_seq, name, value):
 
 
 def add_assignment(block, dest_name, source_name):
-    add_expression(block, '%s = %s' % (dest_name, source_name))
+    add_expression(block, "%s = %s" % (dest_name, source_name))
 
 
 def add_expression(block, expression):
-    block.AddStatement(Expression('%s' % expression))
+    block.AddStatement(Expression("%s" % expression))
 
 
 def add_yield(block):
@@ -116,8 +122,8 @@ def _create_unique_lv_name(name):
     except AttributeError:
         _create_unique_lv_name.lv_cnt = 0
     if name is None:
-        name = ''
-    name = 'lv_' + name + '_' + str(_create_unique_lv_name.lv_cnt)
+        name = ""
+    name = "lv_" + name + "_" + str(_create_unique_lv_name.lv_cnt)
     _create_unique_lv_name.lv_cnt += 1
     return name
 
@@ -134,13 +140,24 @@ def _get_channel_node_info(name, node_info_list):
 
 
 def run_rt_sequence(rt_sequence_path, rtseq_params):
-    rtseq_params = \
-        [_SequenceParameterAssignmentInfoFactory.create(_py_param_name_to_rtseq_param_name(key), rtseq_params[key])
-         for key in rtseq_params]
-    seq_call_info = _SequenceCallInfoFactory.create(rt_sequence_path, None, rtseq_params, False, 100000)
-    session = _DefaultGatewayFactory.get_new_stimulus_profile_session(rt_sequence_path, [seq_call_info], "")
-    sequence_control = session[os.path.splitext(os.path.basename(rt_sequence_path))[0] + ":1"]
+    rtseq_params = [
+        _SequenceParameterAssignmentInfoFactory.create(
+            _py_param_name_to_rtseq_param_name(key), rtseq_params[key]
+        )
+        for key in rtseq_params
+    ]
+    seq_call_info = _SequenceCallInfoFactory.create(
+        rt_sequence_path, None, rtseq_params, False, 100000
+    )
+    session = _DefaultGatewayFactory.get_new_stimulus_profile_session(
+        rt_sequence_path, [seq_call_info], ""
+    )
+    sequence_control = session[
+        os.path.splitext(os.path.basename(rt_sequence_path))[0] + ":1"
+    ]
     state = stimulusprofileapi.StimulusProfileState(session)
-    sequence_control.register_sequence_complete_event_handler(state._sequence_complete_event_handler)
+    sequence_control.register_sequence_complete_event_handler(
+        state._sequence_complete_event_handler
+    )
     session.deploy(True)
     return state

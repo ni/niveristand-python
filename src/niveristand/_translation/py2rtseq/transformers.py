@@ -31,7 +31,7 @@ from niveristand._translation.py2rtseq import with_transformer
 
 
 TRANSFORMERS = {
-    'Default': default_transformer.default_transformer,
+    "Default": default_transformer.default_transformer,
     ast.Assign.__name__: assign_transformer.assign_transformer,
     ast.Attribute.__name__: attribute_transformer.attribute_transformer,
     ast.AugAssign.__name__: augassign_transformer.augassign_transformer,
@@ -59,7 +59,9 @@ TRANSFORMERS = {
 }
 
 if sys.version_info < (3, 8):
-    TRANSFORMERS[ast.NameConstant.__name__] = nameconstant_transformer.nameconstant_transformer
+    TRANSFORMERS[
+        ast.NameConstant.__name__
+    ] = nameconstant_transformer.nameconstant_transformer
     TRANSFORMERS[ast.Num.__name__] = num_transformer.num_transformer
 else:
     TRANSFORMERS[ast.Constant.__name__] = constant_transformer.constant_transformer

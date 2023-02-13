@@ -122,6 +122,7 @@ def logical_and_unary():
 
 # <editor-fold desc=Invalid tests>
 
+
 @nivs_rt_sequence
 def logical_and_invalid_variables():
     return a.value and b
@@ -144,6 +145,7 @@ def logical_and_invalid_rtseq_call():
     a = BooleanValue(False)
     a.value = True and _return_true
     return a.value
+
 
 # </editor-fold>
 
@@ -203,7 +205,9 @@ def test_run_in_VM(func_name, params, expected_result):
     assert actual == expected_result
 
 
-@pytest.mark.parametrize("func_name, params, expected_result", fail_transform_tests, ids=idfunc)
+@pytest.mark.parametrize(
+    "func_name, params, expected_result", fail_transform_tests, ids=idfunc
+)
 def test_failures(func_name, params, expected_result):
     with pytest.raises(expected_result):
         RealTimeSequence(func_name)

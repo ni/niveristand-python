@@ -148,11 +148,13 @@ def aug_ifexp_bool_test_expression_assign():
 
 # <editor-fold desc=Invalid tests>
 
+
 @nivs_rt_sequence
 def ifexp_invalid_int_test():
     a = I32Value(0)
     a = I32Value(1) if 1 else I32Value(0)
     return a.value
+
 
 # </editor-fold>
 
@@ -212,7 +214,9 @@ def test_run_in_VM(func_name, params, expected_result):
     assert actual == expected_result
 
 
-@pytest.mark.parametrize("func_name, params, expected_result", fail_transform_tests, ids=idfunc)
+@pytest.mark.parametrize(
+    "func_name, params, expected_result", fail_transform_tests, ids=idfunc
+)
 def test_failures(func_name, params, expected_result):
     with pytest.raises(expected_result):
         RealTimeSequence(func_name)

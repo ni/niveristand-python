@@ -2,7 +2,13 @@ from math import sqrt
 import sys
 from niveristand import nivs_rt_sequence, NivsParam
 from niveristand import realtimesequencetools
-from niveristand.clientapi import BooleanValue, ChannelReference, DoubleValue, DoubleValueArray, I32Value
+from niveristand.clientapi import (
+    BooleanValue,
+    ChannelReference,
+    DoubleValue,
+    DoubleValueArray,
+    I32Value,
+)
 from niveristand.clientapi import RealTimeSequence
 from niveristand.errors import TranslateError, VeristandError
 from niveristand.library.primitives import localhost_wait
@@ -39,7 +45,7 @@ def circular_call_b():
     circular_call_a()
 
 
-@NivsParam('param', DoubleValue(0), NivsParam.BY_REF)
+@NivsParam("param", DoubleValue(0), NivsParam.BY_REF)
 @nivs_rt_sequence
 def _return_parameter(param):
     return param.value
@@ -59,7 +65,7 @@ def return_parameter_invalid_decorator(param):
     return param
 
 
-@NivsParam('no_param', DoubleValue(0), NivsParam.BY_VALUE)
+@NivsParam("no_param", DoubleValue(0), NivsParam.BY_VALUE)
 def _return_param_wrong_param_name_pure_python(param):
     return param
 
@@ -93,10 +99,10 @@ def _return_parameter_with_decorator_inverted(param):
 @NivsParam("z", I32Value(5), NivsParam.BY_REF)
 @nivs_rt_sequence
 def _return_by_ref_in_z_sqrt_of_square_x_plus_square_y(x, y, z):
-    z.value = sqrt(x.value ** 2 + y.value ** 2)
+    z.value = sqrt(x.value**2 + y.value**2)
 
 
-@NivsParam('param', DoubleValueArray([0]), NivsParam.BY_REF)
+@NivsParam("param", DoubleValueArray([0]), NivsParam.BY_REF)
 @nivs_rt_sequence
 def _return_arr_element(param):
     return param[0].value
@@ -113,35 +119,35 @@ def _return_parameter_plus1_by_ref(param):
     return param.value
 
 
-@NivsParam('param', DoubleValue(0), NivsParam.BY_VALUE)
+@NivsParam("param", DoubleValue(0), NivsParam.BY_VALUE)
 @nivs_rt_sequence
 def _return_parameter_plus1_by_value(param):
     param.value += 1
     return param.value
 
 
-@NivsParam('param', DoubleValue(0), False)
+@NivsParam("param", DoubleValue(0), False)
 @nivs_rt_sequence
 def _return_parameter_plus1_by_ref_bool(param):
     param.value += 1
     return param.value
 
 
-@NivsParam('param', DoubleValue(0), True)
+@NivsParam("param", DoubleValue(0), True)
 @nivs_rt_sequence
 def _return_parameter_plus1_by_value_bool(param):
     param.value += 1
     return param.value
 
 
-@NivsParam('param', DoubleValue(0), NivsParam.BY_REF)
+@NivsParam("param", DoubleValue(0), NivsParam.BY_REF)
 @nivs_rt_sequence
 def _increment_constant_passed_by_ref(param):
     param.value += 1
     return param.value
 
 
-@NivsParam('mod', DoubleValue(0), NivsParam.BY_VALUE)
+@NivsParam("mod", DoubleValue(0), NivsParam.BY_VALUE)
 @nivs_rt_sequence
 def _return_parameter_with_built_in_function_name(mod):
     return mod.value
@@ -278,7 +284,7 @@ def call_parameter_with_many_decorators():
 
 @nivs_rt_sequence
 def call_parameter_send_channel_ref_by_value():
-    a = ChannelReference('Aliases/DesiredRPM')
+    a = ChannelReference("Aliases/DesiredRPM")
     ret = DoubleValue(0)
     a.value = 67
     localhost_wait(0.5)
@@ -289,7 +295,7 @@ def call_parameter_send_channel_ref_by_value():
 
 @nivs_rt_sequence
 def call_parameter_send_channel_ref_by_ref():
-    a = ChannelReference('Aliases/DesiredRPM')
+    a = ChannelReference("Aliases/DesiredRPM")
     ret = DoubleValue(0)
     a.value = 101.2
     localhost_wait(0.5)
@@ -318,6 +324,7 @@ def call_return_parameter_with_built_in_function_name():
 
 def test_param_wrong_name_python():
     from niveristand import _errormessages
+
     with pytest.raises(VeristandError) as e:
         _return_param_wrong_param_name_pure_python(True)
     assert str(e.value) is _errormessages.param_description_no_param
@@ -330,7 +337,7 @@ def constant_passed_by_ref_is_not_actually_by_ref():
     return a.value
 
 
-@NivsParam('param', DoubleValue(0), NivsParam.BY_REF)
+@NivsParam("param", DoubleValue(0), NivsParam.BY_REF)
 def _increment_constant_passed_by_ref_without_rt_decorator(param):
     param.value += 1
     return param.value
@@ -367,12 +374,10 @@ run_tests = [
     (call_parameter_send_channel_ref_by_ref, (), 102.2),
     (call_parameter_send_channel_ref_by_value, (), 67),
     (call_increment_constant_passed_by_ref, (), 6),
-    (call_return_parameter_with_built_in_function_name, (), 1)
+    (call_return_parameter_with_built_in_function_name, (), 1),
 ]
 
-python_tests = run_tests + [
-    (constant_passed_by_ref_is_not_actually_by_ref, (), 5)
-]
+python_tests = run_tests + [(constant_passed_by_ref_is_not_actually_by_ref, (), 5)]
 
 fail_transform_tests = [
     (recursive_call, (), RuntimeError),
@@ -416,7 +421,9 @@ def test_run_in_VM(func_name, params, expected_result):
     assert actual == expected_result
 
 
-@pytest.mark.parametrize("func_name, params, expected_result", fail_transform_tests, ids=idfunc)
+@pytest.mark.parametrize(
+    "func_name, params, expected_result", fail_transform_tests, ids=idfunc
+)
 def test_failures(func_name, params, expected_result):
     with pytest.raises(expected_result):
         RealTimeSequence(func_name)

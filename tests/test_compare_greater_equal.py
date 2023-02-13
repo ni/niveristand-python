@@ -194,7 +194,7 @@ def greater_eq_to_channel_ref():
 @nivs_rt_sequence
 def greater_eq_binary_unary():
     a = BooleanValue(False)
-    a.value = 2 >= - 1
+    a.value = 2 >= -1
     return a.value
 
 
@@ -213,6 +213,7 @@ def greater_eq_complex_expr():
 
 
 # <editor-fold desc=Invalid tests>
+
 
 @nivs_rt_sequence
 def greater_eq_invalid_variables():
@@ -236,6 +237,7 @@ def greater_eq_invalid_rtseq_call():
     a = BooleanValue(False)
     a.value = _return_constant >= 1
     return a.value
+
 
 # </editor-fold>
 
@@ -424,7 +426,7 @@ def gt_equal_to_channel_ref():
 @nivs_rt_sequence
 def gt_equal_binary_unary():
     a = BooleanValue(0)
-    a.value = -1 >= - 1
+    a.value = -1 >= -1
     return a.value
 
 
@@ -444,6 +446,7 @@ def gt_equal_complex_expr():
 
 # <editor-fold desc=Invalid tests>
 
+
 @nivs_rt_sequence
 def gt_equal_invalid_variables():
     return a.value >= b
@@ -457,7 +460,9 @@ def gt_equal_invalid_variables1():
 @nivs_rt_sequence
 def gt_equal_to_None():
     a = BooleanValue(0)
-    a.value = None >= 1  # noqa: E711 the identity operator "is" is not being tested here.
+    a.value = (
+        None >= 1
+    )  # noqa: E711 the identity operator "is" is not being tested here.
     return a.value
 
 
@@ -466,6 +471,7 @@ def gt_equal_invalid_rtseq_call():
     a = BooleanValue(0)
     a.value = _return_constant >= 1
     return a.value
+
 
 # </editor-fold>
 
@@ -568,7 +574,9 @@ def test_run_in_VM(func_name, params, expected_result):
     assert actual == expected_result
 
 
-@pytest.mark.parametrize("func_name, params, expected_result", fail_transform_tests, ids=idfunc)
+@pytest.mark.parametrize(
+    "func_name, params, expected_result", fail_transform_tests, ids=idfunc
+)
 def test_failures(func_name, params, expected_result):
     with pytest.raises(expected_result):
         RealTimeSequence(func_name)

@@ -22,9 +22,11 @@ def if_transformer(node, resources):
 def _validate_restrictions(node):
     validations.raise_if_try_in_node_body(node.body)
     validations.raise_if_try_in_node_body(node.orelse)
-    if validations.check_if_any_in_block(ast.Return, node.body) or \
-            validations.check_if_any_in_block(ast.Return, node.orelse):
+    if validations.check_if_any_in_block(
+        ast.Return, node.body
+    ) or validations.check_if_any_in_block(ast.Return, node.orelse):
         raise errors.TranslateError(_errormessages.return_unsupported_unless_last)
-    if validations.check_if_any_in_block(ast.FunctionDef, node.body) or \
-            validations.check_if_any_in_block(ast.FunctionDef, node.orelse):
+    if validations.check_if_any_in_block(
+        ast.FunctionDef, node.body
+    ) or validations.check_if_any_in_block(ast.FunctionDef, node.orelse):
         raise errors.TranslateError(_errormessages.invalid_nested_funcdef)

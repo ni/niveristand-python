@@ -13,7 +13,7 @@ def _invalid():
     pass
 
 
-@NivsParam('param', DoubleValue(0), False)
+@NivsParam("param", DoubleValue(0), False)
 @nivs_rt_sequence
 def _return_param_plus_1(param):
     a = DoubleValue(0)
@@ -25,6 +25,7 @@ def _return_param_plus_1(param):
 def stop_task_simple():
     a = I32Value(1)
     with multitask() as mt:
+
         @task(mt)
         def f1():
             nivs_yield()
@@ -33,6 +34,7 @@ def stop_task_simple():
         @task(mt)
         def f2():
             stop_task(f1)
+
     return a.value
 
 
@@ -40,6 +42,7 @@ def stop_task_simple():
 def stop_task_invalid_task_name():
     a = I32Value(1)
     with multitask() as mt:
+
         @task(mt)
         def f1():
             pass
@@ -47,6 +50,7 @@ def stop_task_invalid_task_name():
         @task(mt)
         def f2():
             stop_task(_invalid)
+
     return a.value
 
 
@@ -54,6 +58,7 @@ def stop_task_invalid_task_name():
 def stop_task_invalid_task_name1():
     a = I32Value(1)
     with multitask() as mt:
+
         @task(mt)
         def f1():
             pass
@@ -61,6 +66,7 @@ def stop_task_invalid_task_name1():
         @task(mt)
         def f2():
             stop_task("whatever")
+
     return a.value
 
 
@@ -69,6 +75,7 @@ def stop_task_in_try():
     try:
         a = I32Value(1)
         with multitask() as mt:
+
             @task(mt)
             def f1():
                 pass
@@ -76,6 +83,7 @@ def stop_task_in_try():
             @task(mt)
             def f2():
                 pass
+
         stop_task(f1)
     finally:
         a.value = 2
@@ -86,6 +94,7 @@ def stop_task_in_try():
 def stop_task_complex():
     a = I32Value(1)
     with multitask() as mt:
+
         @task(mt)
         def f1():
             nivs_yield()
@@ -95,6 +104,7 @@ def stop_task_complex():
         def f2():
             a.value = 2
             stop_task(f1)
+
     return a.value
 
 
@@ -102,6 +112,7 @@ def stop_task_complex():
 def stop_task_call_subroutine():
     a = DoubleValue(0)
     with multitask() as mt:
+
         @task(mt)
         def f1():
             nivs_yield()
@@ -111,6 +122,7 @@ def stop_task_call_subroutine():
         def f2():
             a.value = _return_param_plus_1(a)
             stop_task(f1)
+
     return a.value
 
 
@@ -118,6 +130,7 @@ def stop_task_call_subroutine():
 def stop_task_call_subroutine1():
     a = DoubleValue(0)
     with multitask() as mt:
+
         @task(mt)
         def f1():
             nivs_yield()
@@ -126,6 +139,7 @@ def stop_task_call_subroutine1():
         @task(mt)
         def f2():
             stop_task(f1)
+
     return a.value
 
 
@@ -133,6 +147,7 @@ def stop_task_call_subroutine1():
 def stop_task_call_subroutine2():
     a = DoubleValue(0)
     with multitask() as mt:
+
         @task(mt)
         def f1():
             a.value = _return_param_plus_1(a)
@@ -142,6 +157,7 @@ def stop_task_call_subroutine2():
         @task(mt)
         def f2():
             stop_task(f1)
+
     return a.value
 
 
@@ -190,7 +206,9 @@ def test_run_in_VM(func_name, params, expected_result):
     assert actual == expected_result
 
 
-@pytest.mark.parametrize("func_name, params, expected_result", fail_transform_tests, ids=idfunc)
+@pytest.mark.parametrize(
+    "func_name, params, expected_result", fail_transform_tests, ids=idfunc
+)
 def test_failures(func_name, params, expected_result):
     with pytest.raises(expected_result):
         RealTimeSequence(func_name)

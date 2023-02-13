@@ -243,6 +243,7 @@ def if_elif_return_fails():
 @nivs_rt_sequence
 def if_funcdef_fails():
     if True:
+
         def func():
             pass
 
@@ -252,6 +253,7 @@ def if_else_funcdef_fails():
     if False:
         pass
     else:
+
         def func():
             pass
 
@@ -261,8 +263,10 @@ def if_elif_funcdef_fails():
     if False:
         pass
     elif True:
+
         def func():
             pass
+
     else:
         pass
 
@@ -312,7 +316,9 @@ def idfunc(val):
         return str(val)
 
 
-@pytest.mark.parametrize("func_name, params, expected_result", transform_tests, ids=idfunc)
+@pytest.mark.parametrize(
+    "func_name, params, expected_result", transform_tests, ids=idfunc
+)
 def test_transform(func_name, params, expected_result):
     RealTimeSequence(func_name)
 
@@ -335,7 +341,9 @@ def test_run_in_VM(func_name, params, expected_result):
     assert actual == expected_result
 
 
-@pytest.mark.parametrize("func_name, params, expected_result", fail_transform_tests, ids=idfunc)
+@pytest.mark.parametrize(
+    "func_name, params, expected_result", fail_transform_tests, ids=idfunc
+)
 def test_failures(func_name, params, expected_result):
     with pytest.raises(expected_result):
         RealTimeSequence(func_name)

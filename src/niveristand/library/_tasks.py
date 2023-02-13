@@ -95,7 +95,6 @@ class _IterationCounter(object):
 
 
 class _Task(object):
-
     class _TaskState(Enum):
         Running = 0
         Stopping = 1
@@ -107,7 +106,8 @@ class _Task(object):
             self._thread = Thread(
                 target=func,
                 args=(self,),
-                name=self._task_name + '_' + _MultiTaskInfo.get_unique_task_name())
+                name=self._task_name + "_" + _MultiTaskInfo.get_unique_task_name(),
+            )
         else:
             self._thread = current_thread()
             self._task_name = str(func)
@@ -115,7 +115,9 @@ class _Task(object):
         self._state_signal = Event()
         self._parent = parent
         self._generated_error = None
-        self._iteration_counter = iteration_counter if iteration_counter else _IterationCounter()
+        self._iteration_counter = (
+            iteration_counter if iteration_counter else _IterationCounter()
+        )
 
     def start(self):
         self._thread.start()
@@ -195,12 +197,14 @@ class _Scheduler(object):
         # a dictionary of {threadID:  _Task()}
         self._task_dict = dict()
         self._task_queue = deque()
-        self._log = logging.getLogger('<sched>')
+        self._log = logging.getLogger("<sched>")
         self._last_sched = None
 
     @property
     def _can_sched(self):
-        return not self._last_sched or self._last_sched is self.get_task_for_curr_thread()
+        return (
+            not self._last_sched or self._last_sched is self.get_task_for_curr_thread()
+        )
 
     def sched(self):
         self._log.debug("Enter sched")
@@ -293,7 +297,9 @@ class _Scheduler(object):
         return task
 
     def get_task_by_name(self, taskname):
-        found_tasks = [task for task in self._task_dict.values() if task._task_name == taskname]
+        found_tasks = [
+            task for task in self._task_dict.values() if task._task_name == taskname
+        ]
         assert len(found_tasks) <= 1
         if found_tasks:
             return found_tasks[0]

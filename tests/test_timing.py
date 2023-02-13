@@ -4,9 +4,20 @@ from niveristand import realtimesequencetools
 from niveristand.clientapi import BooleanValue, DoubleValue, I64Value
 from niveristand.clientapi import RealTimeSequence
 from niveristand.errors import VeristandError
-from niveristand.library import multitask, nivs_yield, seqtime, task, tickcountms, tickcountus
-from niveristand.library.timing import wait, wait_until_next_ms_multiple, wait_until_next_us_multiple, \
-    wait_until_settled
+from niveristand.library import (
+    multitask,
+    nivs_yield,
+    seqtime,
+    task,
+    tickcountms,
+    tickcountus,
+)
+from niveristand.library.timing import (
+    wait,
+    wait_until_next_ms_multiple,
+    wait_until_next_us_multiple,
+    wait_until_settled,
+)
 import pytest
 from testutilities import rtseqrunner, validation
 
@@ -50,6 +61,7 @@ def wait_multitask():
 
     tot_init.value = seqtime()
     with multitask() as mt:
+
         @task(mt)
         def f1():
             init1.value = seqtime()
@@ -62,9 +74,14 @@ def wait_multitask():
             end2.value = wait(DoubleValue(3)) - init2.value
 
     tot_end.value = seqtime() - tot_init.value
-    ret.value = tot_end.value >= 3 and tot_end.value <= 4 and \
-        end1.value >= 1 and end1.value <= 2 and \
-        end2.value >= 3 and end2.value <= 4
+    ret.value = (
+        tot_end.value >= 3
+        and tot_end.value <= 4
+        and end1.value >= 1
+        and end1.value <= 2
+        and end2.value >= 3
+        and end2.value <= 4
+    )
     return ret.value
 
 
@@ -134,9 +151,12 @@ def wait_until_settled_multitask():
     ret = BooleanValue(False)
     timer.value = seqtime()
     with multitask() as mt:
+
         @task(mt)
         def monitor():
-            ret.value = wait_until_settled(a, DoubleValue(1000), DoubleValue(500), DoubleValue(2), DoubleValue(-1))
+            ret.value = wait_until_settled(
+                a, DoubleValue(1000), DoubleValue(500), DoubleValue(2), DoubleValue(-1)
+            )
 
         @task(mt)
         def signal():
@@ -149,7 +169,9 @@ def wait_until_settled_multitask():
             a.value = 750
 
     timer.value = seqtime() - timer.value
-    ret.value = a.value == 750 and timer.value >= 4 and timer.value <= 6 and not ret.value
+    ret.value = (
+        a.value == 750 and timer.value >= 4 and timer.value <= 6 and not ret.value
+    )
     return ret.value
 
 
@@ -158,11 +180,13 @@ def wait_until_settled_timeout():
     pass_test = BooleanValue(False)
     time = DoubleValue(0)
     time.value = seqtime()
-    pass_test.value = wait_until_settled(DoubleValue(100),
-                                         DoubleValue(90),
-                                         DoubleValue(0),
-                                         DoubleValue(2),
-                                         DoubleValue(1))
+    pass_test.value = wait_until_settled(
+        DoubleValue(100),
+        DoubleValue(90),
+        DoubleValue(0),
+        DoubleValue(2),
+        DoubleValue(1),
+    )
     time.value = seqtime() - time.value
     pass_test.value &= time.value > 1 and time.value < 1.1
     return pass_test.value
@@ -189,8 +213,16 @@ run_tests = [
 
 skip_tests = [
     (wait, (), "Imported RT sequence that we're trying to test."),
-    (wait_until_next_ms_multiple, (), "Imported RT sequence that we're trying to test."),
-    (wait_until_next_us_multiple, (), "Imported RT sequence that we're trying to test."),
+    (
+        wait_until_next_ms_multiple,
+        (),
+        "Imported RT sequence that we're trying to test.",
+    ),
+    (
+        wait_until_next_us_multiple,
+        (),
+        "Imported RT sequence that we're trying to test.",
+    ),
     (wait_until_settled, (), "Imported RT sequence that we're trying to test."),
 ]
 
@@ -229,7 +261,9 @@ def test_run_in_VM(func_name, params, expected_result):
     assert actual == expected_result
 
 
-@pytest.mark.parametrize("func_name, params, expected_result", fail_transform_tests, ids=idfunc)
+@pytest.mark.parametrize(
+    "func_name, params, expected_result", fail_transform_tests, ids=idfunc
+)
 def test_failures(func_name, params, expected_result):
     with pytest.raises(expected_result):
         RealTimeSequence(func_name)

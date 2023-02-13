@@ -134,7 +134,9 @@ def while_condition_complex_expression():
     # the part before the or is true while a.value >= 6
     # the part after the or is true while a.value <6
     # so the last iteration should be a.value == 6
-    while ((True and False) is ((a.value * 3) < 20)) or _returns_true_if_less_than_5(a.value - 1):
+    while ((True and False) is ((a.value * 3) < 20)) or _returns_true_if_less_than_5(
+        a.value - 1
+    ):
         a.value += 1
     return a.value
 
@@ -162,8 +164,10 @@ def while_try_finally_fail():
 @nivs_rt_sequence
 def while_funcdef_fail():
     while True:
+
         def f1():
             pass
+
         f1()
 
 
@@ -221,7 +225,9 @@ def idfunc(val):
         return str(val)
 
 
-@pytest.mark.parametrize("func_name, params, expected_result", transform_tests, ids=idfunc)
+@pytest.mark.parametrize(
+    "func_name, params, expected_result", transform_tests, ids=idfunc
+)
 def test_transform(func_name, params, expected_result):
     RealTimeSequence(func_name)
 
@@ -244,7 +250,9 @@ def test_run_in_VM(func_name, params, expected_result):
     assert actual == expected_result
 
 
-@pytest.mark.parametrize("func_name, params, expected_result", fail_transform_tests, ids=idfunc)
+@pytest.mark.parametrize(
+    "func_name, params, expected_result", fail_transform_tests, ids=idfunc
+)
 def test_failures(func_name, params, expected_result):
     with pytest.raises(expected_result):
         RealTimeSequence(func_name)

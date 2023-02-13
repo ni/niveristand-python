@@ -11,15 +11,16 @@ from niveristand.errors import TranslateError
 
 def generic_ast_node_transform(node, resources):
     from niveristand._translation.py2rtseq.transformers import TRANSFORMERS
+
     transformer_name = node.__class__.__name__
-    transformer = TRANSFORMERS.get(transformer_name, TRANSFORMERS['Default'])
+    transformer = TRANSFORMERS.get(transformer_name, TRANSFORMERS["Default"])
     return transformer(node, resources)
 
 
 def get_value_from_node(node, resources):
     if isinstance(node, ast.Call):
         call = generic_ast_node_transform(node.func, resources)
-        node_id = call.split('.')[-1]
+        node_id = call.split(".")[-1]
         if rtprimitives.is_supported_data_type(node_id):
             datatype = rtprimitives.get_class_by_name(node.func.id)
             if rtprimitives.is_channel_ref_type(datatype.__name__):
@@ -41,12 +42,14 @@ def get_value_from_node(node, resources):
                 else:
                     raise TranslateError(_errormessages.init_var_invalid_type)
             elif type(node.args[0]) is ast.List:
-                datavalue = [get_element_value(element) for element in node.args[0].elts]
+                datavalue = [
+                    get_element_value(element) for element in node.args[0].elts
+                ]
             else:
                 raise TranslateError(_errormessages.init_var_invalid_type)
             return datatype(datavalue)
     elif isinstance(node, ast.Name):
-        if node.id in ['True', 'False']:
+        if node.id in ["True", "False"]:
             return _datatypes.BooleanValue(node.id)
     elif is_node_ast_num(node):
         node_value = get_value_from_num_node(node)
@@ -83,10 +86,10 @@ def get_element_value(node):
 
 
 def get_variable_name_from_node(node):
-    full_name = ''
+    full_name = ""
     cur_node = node
     while isinstance(cur_node, ast.Attribute):
-        full_name = '.' + cur_node.attr + full_name
+        full_name = "." + cur_node.attr + full_name
         cur_node = cur_node.value
     if isinstance(cur_node, ast.Name):
         full_name = cur_node.id + full_name
@@ -108,8 +111,11 @@ def is_node_ast_str(node):
     if sys.version_info < (3, 8) and isinstance(node, ast.Str):
         return True
     # In Python 3.8, Str is Constant
-    elif sys.version_info >= (3, 8) and isinstance(node, ast.Constant) \
-            and isinstance(node.value, str):
+    elif (
+        sys.version_info >= (3, 8)
+        and isinstance(node, ast.Constant)
+        and isinstance(node.value, str)
+    ):
         return True
     return False
 
@@ -119,8 +125,11 @@ def is_node_ast_num(node):
     if sys.version_info < (3, 8) and isinstance(node, ast.Num):
         return True
     # In Python 3.8, Num is Constant
-    elif isinstance(node, ast.Constant) and isinstance(node.value, (int, float, complex)) \
-            and str(node.value) not in ["True", "False", "None"]:
+    elif (
+        isinstance(node, ast.Constant)
+        and isinstance(node.value, (int, float, complex))
+        and str(node.value) not in ["True", "False", "None"]
+    ):
         return True
     return False
 
@@ -130,8 +139,11 @@ def is_node_ast_nameconstant(node):
     if sys.version_info < (3, 8) and isinstance(node, ast.NameConstant):
         return True
     # In Python 3.8, NameConstant is Constant
-    elif isinstance(node, ast.Constant) and node.value in [True, False, None] and \
-            str(node.value) in ["True", "False", "None"]:
+    elif (
+        isinstance(node, ast.Constant)
+        and node.value in [True, False, None]
+        and str(node.value) in ["True", "False", "None"]
+    ):
         return True
     return False
 

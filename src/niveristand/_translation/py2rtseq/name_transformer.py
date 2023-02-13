@@ -4,7 +4,7 @@ from niveristand.errors import TranslateError
 
 
 def name_transformer(node, resources):
-    if node.id == 'None':
+    if node.id == "None":
         raise TranslateError(_errormessages.none_not_supported)
     if node.id in symbols._symbols:
         return symbols._symbols[node.id]

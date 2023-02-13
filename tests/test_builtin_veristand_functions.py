@@ -2,12 +2,36 @@ import inspect
 import sys
 from niveristand import nivs_rt_sequence
 from niveristand import realtimesequencetools
-from niveristand.clientapi import BooleanValue, ChannelReference, DoubleValue, DoubleValueArray, I64Value
+from niveristand.clientapi import (
+    BooleanValue,
+    ChannelReference,
+    DoubleValue,
+    DoubleValueArray,
+    I64Value,
+)
 from niveristand.clientapi import ErrorAction
 from niveristand.clientapi import RealTimeSequence
 from niveristand.errors import RunFailedError, VeristandError
-from niveristand.library.primitives import abstime, arraysize, clearfault, clearlasterror, deltat, deltatus, fault, \
-    fix, generate_error, getlasterror, iteration, quotient, recip, rem, seqtime, seqtimeus, tickcountms, tickcountus
+from niveristand.library.primitives import (
+    abstime,
+    arraysize,
+    clearfault,
+    clearlasterror,
+    deltat,
+    deltatus,
+    fault,
+    fix,
+    generate_error,
+    getlasterror,
+    iteration,
+    quotient,
+    recip,
+    rem,
+    seqtime,
+    seqtimeus,
+    tickcountms,
+    tickcountus,
+)
 import pytest
 from testutilities import rtseqrunner, validation
 
@@ -168,7 +192,7 @@ run_everywhere_tests = [
     (call_clearfault, (), True),
     (call_clearlasterror, (), True),
     (call_deltat, (), 0.01),  # it is 0.01 for engine demo
-    (call_deltatus, (), 10 ** 4),  # 0.01 seconds in microseconds
+    (call_deltatus, (), 10**4),  # 0.01 seconds in microseconds
     (call_fault, (), 1001),
     (call_fix, (), 4),
     (call_iteration, (), 0),
@@ -190,7 +214,7 @@ py_only_errs = [
     (call_clearfault, (), True),
     (call_clearlasterror, (), True),
     (call_deltat, (), 0.01),  # it is 0.01 for engine demo
-    (call_deltatus, (), 10 ** 4),  # 0.01 seconds in microseconds
+    (call_deltatus, (), 10**4),  # 0.01 seconds in microseconds
     (call_fault, (), 1001),
     (call_fix, (), 4),
     (call_getlasterror, (), True),
@@ -215,7 +239,11 @@ def test_transform(func_name, params, expected_result):
     RealTimeSequence(func_name)
 
 
-@pytest.mark.parametrize("func_name, params, expected_result", list(set(run_tests) - set(py_only_errs)), ids=idfunc)
+@pytest.mark.parametrize(
+    "func_name, params, expected_result",
+    list(set(run_tests) - set(py_only_errs)),
+    ids=idfunc,
+)
 def test_runpy(func_name, params, expected_result):
     actual = func_name(*params)
     if expected_result is None:
@@ -224,7 +252,9 @@ def test_runpy(func_name, params, expected_result):
         assert actual == expected_result
 
 
-@pytest.mark.parametrize("func_name, params, expected_result", run_as_rts_tests, ids=idfunc)
+@pytest.mark.parametrize(
+    "func_name, params, expected_result", run_as_rts_tests, ids=idfunc
+)
 def test_run_py_as_rts(func_name, params, expected_result):
     if inspect.isclass(expected_result) and issubclass(expected_result, VeristandError):
         with pytest.raises(expected_result):

@@ -75,7 +75,7 @@ def test_float_1_check_returns_false_bool():
 
 def test_complex_1_check_returns_false_bool():
     if sys.version_info >= (3, 8):
-        node = ast.Constant(value=1J)
+        node = ast.Constant(value=1j)
         res = utils.is_node_ast_nameconstant(node)
         assert res is False
 

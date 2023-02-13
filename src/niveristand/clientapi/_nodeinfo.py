@@ -1,6 +1,8 @@
 from niveristand import _errormessages, errors
 from niveristand.clientapi._dotnetclasswrapperbase import _DotNetClassWrapperBase
-from NationalInstruments.VeriStand.ClientAPI import NodeInfo as NodeInfoDotNet  # noqa: I100
+from NationalInstruments.VeriStand.ClientAPI import (  # noqa: I100 C# imports need to be out of order
+    NodeInfo as NodeInfoDotNet,
+)
 
 
 class _NodeInfo(_DotNetClassWrapperBase):
@@ -17,7 +19,9 @@ class _NodeInfo(_DotNetClassWrapperBase):
             super(_NodeInfo, self).__init__(dot_net_instance)
         else:
             raise errors.VeristandError(
-                _errormessages.unexpected_dot_net_data_type % "NationalInstruments.VeriStand.ClientAPI.NodeInfo")
+                _errormessages.unexpected_dot_net_data_type
+                % "NationalInstruments.VeriStand.ClientAPI.NodeInfo"
+            )
 
     @property
     def channel_row_dimension(self):

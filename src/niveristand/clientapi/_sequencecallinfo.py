@@ -1,6 +1,8 @@
 from niveristand import _errormessages, errors
 from niveristand.clientapi._dotnetclasswrapperbase import _DotNetClassWrapperBase
-from NationalInstruments.VeriStand.ClientAPI import SequenceCallInfo as SequenceCallInfoDotNet  # noqa: I100
+from NationalInstruments.VeriStand.ClientAPI import (  # noqa: I100 C# imports need to be out of order
+    SequenceCallInfo as SequenceCallInfoDotNet,
+)
 from NationalInstruments.VeriStand.ClientAPI import SequenceParameterAssignmentInfo
 import System
 
@@ -35,9 +37,12 @@ class _SequenceCallInfoFactory(object):
         debug = System.Boolean(debug)
         timeout = System.Double(timeout)
         parameters_dot_net = [parameter.dot_net_instance for parameter in parameters]
-        parameters_dot_net_array = System.Array[SequenceParameterAssignmentInfo](parameters_dot_net)
-        sequence_call_info_dot_net = \
-            SequenceCallInfoDotNet(sequence_path, target, parameters_dot_net_array, debug, timeout)
+        parameters_dot_net_array = System.Array[SequenceParameterAssignmentInfo](
+            parameters_dot_net
+        )
+        sequence_call_info_dot_net = SequenceCallInfoDotNet(
+            sequence_path, target, parameters_dot_net_array, debug, timeout
+        )
         sequence_call_info = _SequenceCallInfo(sequence_call_info_dot_net)
         return sequence_call_info
 
@@ -56,5 +61,7 @@ class _SequenceCallInfo(_DotNetClassWrapperBase):
             super(_SequenceCallInfo, self).__init__(dot_net_instance)
         else:
             raise errors.VeristandError(
-                _errormessages.unexpected_dot_net_data_type % "NationalInstruments.VeriStand.ClientAPI."
-                                                              "SequenceCallInfo")
+                _errormessages.unexpected_dot_net_data_type
+                % "NationalInstruments.VeriStand.ClientAPI."
+                "SequenceCallInfo"
+            )

@@ -1,5 +1,3 @@
-
-
 class VeristandError(Exception):
     """
     The base class for all VeriStandErrors.
@@ -57,7 +55,10 @@ class RunError(VeristandError):
 
     @classmethod
     def RunErrorFactory(cls, error):
-        from niveristand.clientapi._realtimesequencedefinitionapi.erroraction import ErrorAction
+        from niveristand.clientapi._realtimesequencedefinitionapi.erroraction import (
+            ErrorAction,
+        )
+
         assert isinstance(error, SequenceError)
         if error.error_action is ErrorAction.ContinueSequenceExecution:
             return RunFailedError(error)
@@ -129,9 +130,13 @@ class SequenceError(VeristandError):
             the error is :any:`ErrorAction.ContinueSequenceExecution`.
 
         """
-        from niveristand.clientapi._realtimesequencedefinitionapi.erroraction import ErrorAction
-        isfatal = (self.error_action in (ErrorAction.AbortSequence, ErrorAction.StopSequence)) or \
-                  (self._inner_error and self.inner_error.is_fatal)
+        from niveristand.clientapi._realtimesequencedefinitionapi.erroraction import (
+            ErrorAction,
+        )
+
+        isfatal = (
+            self.error_action in (ErrorAction.AbortSequence, ErrorAction.StopSequence)
+        ) or (self._inner_error and self.inner_error.is_fatal)
         return isfatal
 
     @property
@@ -144,6 +149,12 @@ class SequenceError(VeristandError):
             this function returns True.
 
         """
-        from niveristand.clientapi._realtimesequencedefinitionapi.erroraction import ErrorAction
+        from niveristand.clientapi._realtimesequencedefinitionapi.erroraction import (
+            ErrorAction,
+        )
+
         # If the error code was 0 in a Continue error then don't raise.
-        return not (self.error_action is ErrorAction.ContinueSequenceExecution and self.error_code == 0)
+        return not (
+            self.error_action is ErrorAction.ContinueSequenceExecution
+            and self.error_code == 0
+        )

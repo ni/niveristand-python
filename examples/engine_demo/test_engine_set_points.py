@@ -1,5 +1,10 @@
 from niveristand import nivs_rt_sequence, NivsParam, run_py_as_rtseq
-from niveristand.clientapi import BooleanValue, ChannelReference, DoubleValue, DoubleValueArray
+from niveristand.clientapi import (
+    BooleanValue,
+    ChannelReference,
+    DoubleValue,
+    DoubleValueArray,
+)
 from niveristand.library import localhost_wait, seqtime, wait_until_settled
 
 
@@ -13,10 +18,10 @@ unit-testing framework that is commonly used for running Python tests.
 
 
 @nivs_rt_sequence
-@NivsParam('on_off', BooleanValue(False), NivsParam.BY_VALUE)
+@NivsParam("on_off", BooleanValue(False), NivsParam.BY_VALUE)
 def set_engine_power(on_off):
     """Turns the engine on or off."""
-    engine_power = ChannelReference('Aliases/EnginePower')
+    engine_power = ChannelReference("Aliases/EnginePower")
     engine_power.value = on_off.value
 
 
@@ -32,8 +37,8 @@ def measure_set_point_response(setpoint, timeout, tolerance):
     The tolerance is used to create upper and lower boundaries for the signal.
     Returns the amount of time it takes the signal to settle or timeout.
     """
-    actual_rpm = ChannelReference('Aliases/ActualRPM')
-    desired_rpm = ChannelReference('Aliases/DesiredRPM')
+    actual_rpm = ChannelReference("Aliases/ActualRPM")
+    desired_rpm = ChannelReference("Aliases/DesiredRPM")
     start_time = DoubleValue(0)
     settle_time = DoubleValue(0)
 
@@ -42,11 +47,13 @@ def measure_set_point_response(setpoint, timeout, tolerance):
     localhost_wait(0.5)
 
     start_time.value = seqtime()
-    wait_until_settled(actual_rpm,
-                       desired_rpm.value + tolerance.value,
-                       desired_rpm.value - tolerance.value,
-                       DoubleValue(2.0),
-                       timeout.value)
+    wait_until_settled(
+        actual_rpm,
+        desired_rpm.value + tolerance.value,
+        desired_rpm.value - tolerance.value,
+        DoubleValue(2.0),
+        timeout.value,
+    )
     settle_time.value = seqtime() - start_time.value
     return settle_time.value
 
@@ -72,12 +79,14 @@ def test_run_engine_set_points_profile_deterministic():
     setpoints = DoubleValueArray([2500, 6000, 3000])
     try:
         for setpoint in setpoints:
-            test_passed = run_py_as_rtseq(measure_set_point_response,
-                                          {
-                                              "setpoint": setpoint,
-                                              "timeout": DoubleValue(60),
-                                              "tolerance": DoubleValue(100)
-                                          })
+            test_passed = run_py_as_rtseq(
+                measure_set_point_response,
+                {
+                    "setpoint": setpoint,
+                    "timeout": DoubleValue(60),
+                    "tolerance": DoubleValue(100),
+                },
+            )
             assert 0 < test_passed <= 60, "Setpoint %d failed" % setpoint
     finally:
         set_engine_power(False)
@@ -89,8 +98,12 @@ def test_run_engine_set_points_python():
     setpoints = DoubleValueArray([2500, 6000, 3000])
     try:
         for setpoint in setpoints:
-            assert 0 < measure_set_point_response(setpoint,
-                                                  DoubleValue(60),
-                                                  DoubleValue(100)) <= 60, "Setpoint %d failed" % setpoint
+            assert (
+                0
+                < measure_set_point_response(
+                    setpoint, DoubleValue(60), DoubleValue(100)
+                )
+                <= 60
+            ), ("Setpoint %d failed" % setpoint)
     finally:
         set_engine_power(False)

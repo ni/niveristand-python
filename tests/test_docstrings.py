@@ -61,6 +61,7 @@ def docstring_try():
 def docstring_multitask():
     """Test multitask docstring."""
     with multitask() as mt:
+
         @task(mt)
         def func1():
             """Test task docstring in func1."""
@@ -73,6 +74,7 @@ def docstring_multitask():
             Multi-line comment here.
             """
             pass
+
     pass
 
 
@@ -108,7 +110,9 @@ def idfunc(val):
         return str(val)
 
 
-@pytest.mark.parametrize("func_name, params, expected_result", transform_tests, ids=idfunc)
+@pytest.mark.parametrize(
+    "func_name, params, expected_result", transform_tests, ids=idfunc
+)
 def test_transform(func_name, params, expected_result):
     RealTimeSequence(func_name)
 

@@ -2,8 +2,12 @@ from niveristand import _errormessages, errors
 from niveristand import _internal
 from niveristand.clientapi._dotnetclasswrapperbase import _DotNetClassWrapperBase
 from niveristand.clientapi._error import _Error
-from NationalInstruments.VeriStand.ClientAPI import ISequenceControl as ISequenceControlDotNet  # noqa: I100
-from NationalInstruments.VeriStand.ClientAPI import IStimulusProfileSession as IStimulusProfileSessionDotNet
+from NationalInstruments.VeriStand.ClientAPI import (  # noqa: I100 C# imports need to be out of order
+    ISequenceControl as ISequenceControlDotNet,
+)
+from NationalInstruments.VeriStand.ClientAPI import (
+    IStimulusProfileSession as IStimulusProfileSessionDotNet,
+)
 
 _internal.dummy()
 
@@ -23,8 +27,10 @@ class _StimulusProfileSession(_DotNetClassWrapperBase):
             super(_StimulusProfileSession, self).__init__(dot_net_instance)
         else:
             raise errors.VeristandError(
-                _errormessages.unexpected_dot_net_data_type % "NationalInstruments.VeriStand.ClientAPI."
-                                                              "IStimulusProfileSession")
+                _errormessages.unexpected_dot_net_data_type
+                % "NationalInstruments.VeriStand.ClientAPI."
+                "IStimulusProfileSession"
+            )
 
     def __getitem__(self, item):
         """
@@ -55,8 +61,10 @@ class _StimulusProfileSession(_DotNetClassWrapperBase):
         session_id, err = self._dot_net_instance.Deploy(auto_start, None, None)
         err = _Error(err)
         if err.is_error:
-            raise \
-                errors.VeristandError(_errormessages.csharp_call_failed % (err.error_code, err.resolved_error_message))
+            raise errors.VeristandError(
+                _errormessages.csharp_call_failed
+                % (err.error_code, err.resolved_error_message)
+            )
         return session_id
 
     def undeploy(self):
@@ -70,8 +78,10 @@ class _StimulusProfileSession(_DotNetClassWrapperBase):
         err = self._dot_net_instance.Undeploy(None)
         err = _Error(err)
         if err.is_error:
-            raise \
-                errors.VeristandError(_errormessages.csharp_call_failed % (err.error_code, err.resolved_error_message))
+            raise errors.VeristandError(
+                _errormessages.csharp_call_failed
+                % (err.error_code, err.resolved_error_message)
+            )
 
 
 class _SequenceControl(_DotNetClassWrapperBase):
@@ -88,8 +98,10 @@ class _SequenceControl(_DotNetClassWrapperBase):
             super(_SequenceControl, self).__init__(dot_net_instance)
         else:
             raise errors.VeristandError(
-                _errormessages.unexpected_dot_net_data_type % "NationalInstruments.VeriStand.ClientAPI."
-                                                              "ISequenceControl")
+                _errormessages.unexpected_dot_net_data_type
+                % "NationalInstruments.VeriStand.ClientAPI."
+                "ISequenceControl"
+            )
 
     def register_sequence_complete_event_handler(self, handler):
         """

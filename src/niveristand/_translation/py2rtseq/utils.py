@@ -7,6 +7,7 @@ from niveristand.clientapi._datatypes.rtprimitives import DoubleValue
 class Resources:
     def __init__(self, rtseq, alias):
         from niveristand.clientapi.realtimesequencepkg import RealTimeSequencePkg
+
         self._rtseq = rtseq
         self._seq_alias = alias
         self._block = None
@@ -35,7 +36,7 @@ class Resources:
         return self._local_variables[variable_name].rtseq_name
 
     def get_variable_py_name(self, rtseq_var_name):
-        result = ''
+        result = ""
         for key in self._local_variables.keys():
             if self._local_variables[key].rtseq_name == rtseq_var_name:
                 result = key
@@ -53,8 +54,12 @@ class Resources:
     def set_dependency_pkg(self, pkg):
         self._deps = pkg
 
-    def add_channel_ref(self, variable_name, channel_name, rtseq_var_name, channel_is_vector):
-        self._channel_references.append(_ChannelReference(channel_name, rtseq_var_name, channel_is_vector))
+    def add_channel_ref(
+        self, variable_name, channel_name, rtseq_var_name, channel_is_vector
+    ):
+        self._channel_references.append(
+            _ChannelReference(channel_name, rtseq_var_name, channel_is_vector)
+        )
         self.add_variable(variable_name, DoubleValue(0), rtseq_var_name)
         self.add_variable(variable_name + ".value", DoubleValue(0), rtseq_var_name)
 
@@ -76,7 +81,9 @@ class Resources:
         if param_name in self._parameters:
             raise errors.UnexpectedError(_errormessages.unexpected_argument_redefine)
         rt_seq_param_name = _py_param_name_to_rtseq_param_name(param_name)
-        self._parameters[param_name] = _Parameter(rt_seq_param_name, default_value, by_value)
+        self._parameters[param_name] = _Parameter(
+            rt_seq_param_name, default_value, by_value
+        )
         self.add_variable(param_name, default_value, rt_seq_param_name)
         self.add_variable(param_name + ".value", default_value, rt_seq_param_name)
 
@@ -87,7 +94,9 @@ class Resources:
         if param_name not in self._parameters:
             raise errors.TranslateError(_errormessages.param_description_no_param)
         rt_seq_param_name = _py_param_name_to_rtseq_param_name(param_name)
-        self._parameters[param_name] = _Parameter(rt_seq_param_name, default_value, by_value)
+        self._parameters[param_name] = _Parameter(
+            rt_seq_param_name, default_value, by_value
+        )
         self._local_variables[param_name].py_value = default_value
 
 

@@ -2,7 +2,12 @@ import sys
 
 from niveristand import nivs_rt_sequence
 from niveristand import realtimesequencetools
-from niveristand.clientapi import ChannelReference, DoubleValue, I32Value, RealTimeSequence
+from niveristand.clientapi import (
+    ChannelReference,
+    DoubleValue,
+    I32Value,
+    RealTimeSequence,
+)
 from niveristand.errors import TranslateError, VeristandError
 from niveristand.library.primitives import localhost_wait
 import pytest
@@ -200,7 +205,7 @@ def mult_with_channel_ref():
 @nivs_rt_sequence
 def mult_binary_unary():
     a = DoubleValue(0)
-    a.value = 2 * - 1
+    a.value = 2 * -1
     return a.value
 
 
@@ -212,6 +217,7 @@ def mult_complex_expr():
 
 
 # <editor-fold desc=Augassign tests>
+
 
 @nivs_rt_sequence
 def aug_mult_simple_numbers():
@@ -270,6 +276,7 @@ def aug_mult_unary():
 
 # <editor-fold desc=Augassign tests>
 
+
 @nivs_rt_sequence
 def mult_invalid_variables():
     return a * b
@@ -292,6 +299,7 @@ def mult_invalid_rtseq_call():
     a = DoubleValue(0)
     a.value = _return_constant * 1
     return a
+
 
 # </editor-fold>
 
@@ -370,7 +378,9 @@ def test_run_in_VM(func_name, params, expected_result):
     assert actual == expected_result
 
 
-@pytest.mark.parametrize("func_name, params, expected_result", fail_transform_tests, ids=idfunc)
+@pytest.mark.parametrize(
+    "func_name, params, expected_result", fail_transform_tests, ids=idfunc
+)
 def test_failures(func_name, params, expected_result):
     with pytest.raises(expected_result):
         RealTimeSequence(func_name)

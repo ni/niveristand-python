@@ -6,7 +6,9 @@ from niveristand.errors import TranslateError
 
 def custom_stop_task(node, resources):
     _validate_restrictions(node)
-    realtimesequencedefinition.add_stop_task(resources.get_current_block(), node.args[0].id)
+    realtimesequencedefinition.add_stop_task(
+        resources.get_current_block(), node.args[0].id
+    )
 
 
 def _validate_restrictions(node):

@@ -1,6 +1,8 @@
 from niveristand import _errormessages, errors
 from niveristand.clientapi._dotnetclasswrapperbase import _DotNetClassWrapperBase
-from NationalInstruments.VeriStand.Data import SystemDefinitionChannelResource as SystemDefinitionChannelResourceDotNet  # noqa: E501, I100
+from NationalInstruments.VeriStand.Data import (  # noqa: I100 C# imports need to be out of order
+    SystemDefinitionChannelResource as SystemDefinitionChannelResourceDotNet,
+)
 
 
 class _SystemDefinitionChannelResourceFactory(object):
@@ -29,7 +31,9 @@ class _SystemDefinitionChannelResourceFactory(object):
              instance.
 
         """
-        return _SystemDefinitionChannelResource(SystemDefinitionChannelResourceDotNet(channel))
+        return _SystemDefinitionChannelResource(
+            SystemDefinitionChannelResourceDotNet(channel)
+        )
 
 
 class _SystemDefinitionChannelResource(_DotNetClassWrapperBase):
@@ -47,5 +51,7 @@ class _SystemDefinitionChannelResource(_DotNetClassWrapperBase):
             super(_SystemDefinitionChannelResource, self).__init__(dot_net_instance)
         else:
             raise errors.VeristandError(
-                _errormessages.unexpected_dot_net_data_type % "NationalInstruments.VeriStand.Data."
-                                                              "SystemDefinitionChannelResource")
+                _errormessages.unexpected_dot_net_data_type
+                % "NationalInstruments.VeriStand.Data."
+                "SystemDefinitionChannelResource"
+            )

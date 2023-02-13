@@ -3,7 +3,9 @@ import time
 from niveristand import _errormessages
 from niveristand import _internal
 from niveristand.errors import SequenceError, VeristandError
-from NationalInstruments.VeriStand.Data import DataType  # noqa: E501, I100 We need these C# imports to be out of order.
+from NationalInstruments.VeriStand.Data import (  # noqa: I100 C# imports need to be out of order
+    DataType,
+)
 
 _internal.dummy()
 
@@ -71,11 +73,18 @@ class StimulusProfileState(object):
 
     def _sequence_complete_event_handler(self, source, args):
         from niveristand.clientapi import ErrorAction
+
         data_value = args.ReturnValue
         if data_value.Type == DataType.Void:
             self._ret_val = None
-        elif data_value.Type in [DataType.Boolean, DataType.Double, DataType.Int32, DataType.Int64, DataType.UInt32,
-                                 DataType.UInt64]:
+        elif data_value.Type in [
+            DataType.Boolean,
+            DataType.Double,
+            DataType.Int32,
+            DataType.Int64,
+            DataType.UInt32,
+            DataType.UInt64,
+        ]:
             self._ret_val = data_value.Value
         else:
             raise VeristandError(_errormessages.invalid_return_type)
@@ -83,11 +92,15 @@ class StimulusProfileState(object):
         error = args.Error
         if aborted:
             self._completion_state = StimulusProfileState.CompletionState.Aborted
-            self._last_error = SequenceError(error.Code, error.Message, ErrorAction.AbortSequence)
+            self._last_error = SequenceError(
+                error.Code, error.Message, ErrorAction.AbortSequence
+            )
         else:
             if error.Code != 0:
                 self._completion_state = StimulusProfileState.CompletionState.Failed
-                self._last_error = SequenceError(error.Code, error.Message, ErrorAction.ContinueSequenceExecution)
+                self._last_error = SequenceError(
+                    error.Code, error.Message, ErrorAction.ContinueSequenceExecution
+                )
             else:
                 self._completion_state = StimulusProfileState.CompletionState.Success
         self._rt_sequence_completed = True

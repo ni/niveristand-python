@@ -1,9 +1,15 @@
 from niveristand import _internal
-from NationalInstruments.VeriStand.Data import BooleanValue as ClientApiBooleanValue  # noqa: E501, I100 We need these C# imports to be out of order.
-from NationalInstruments.VeriStand.Data import BooleanValueArray as ClientApiBooleanValueArray
+from NationalInstruments.VeriStand.Data import (  # noqa: I100 C# imports need to be out of order
+    BooleanValue as ClientApiBooleanValue,
+)
+from NationalInstruments.VeriStand.Data import (
+    BooleanValueArray as ClientApiBooleanValueArray,
+)
 from NationalInstruments.VeriStand.Data import DataValue
 from NationalInstruments.VeriStand.Data import DoubleValue as ClientApiDoubleValue
-from NationalInstruments.VeriStand.Data import DoubleValueArray as ClientApiDoubleValueArray
+from NationalInstruments.VeriStand.Data import (
+    DoubleValueArray as ClientApiDoubleValueArray,
+)
 from NationalInstruments.VeriStand.Data import I32Value as ClientApiI32Value
 from NationalInstruments.VeriStand.Data import I32ValueArray as ClientApiI32ValueArray
 from NationalInstruments.VeriStand.Data import I64Value as ClientApiI64Value
@@ -95,7 +101,9 @@ class DataType(object):
         elif isinstance(other, (int, float)):
             return self.value + other
         else:
-            raise nivsexceptions.VeristandError(_errormessages.invalid_type_for_operator)
+            raise nivsexceptions.VeristandError(
+                _errormessages.invalid_type_for_operator
+            )
 
     def __radd__(self, other):
         return self.__add__(other)
@@ -106,7 +114,9 @@ class DataType(object):
         elif isinstance(other, (int, float)):
             return self.value - other
         else:
-            raise nivsexceptions.VeristandError(_errormessages.invalid_type_for_operator)
+            raise nivsexceptions.VeristandError(
+                _errormessages.invalid_type_for_operator
+            )
 
     def __rsub__(self, other):
         if isinstance(other, DataType):
@@ -114,7 +124,9 @@ class DataType(object):
         elif isinstance(other, (int, float)):
             return other - self.value
         else:
-            raise nivsexceptions.VeristandError(_errormessages.invalid_type_for_operator)
+            raise nivsexceptions.VeristandError(
+                _errormessages.invalid_type_for_operator
+            )
 
     def __mul__(self, other):
         if isinstance(other, DataType):
@@ -122,7 +134,9 @@ class DataType(object):
         elif isinstance(other, (int, float)):
             return self.value * other
         else:
-            raise nivsexceptions.VeristandError(_errormessages.invalid_type_for_operator)
+            raise nivsexceptions.VeristandError(
+                _errormessages.invalid_type_for_operator
+            )
 
     def __rmul__(self, other):
         return self.__mul__(other)
@@ -133,7 +147,9 @@ class DataType(object):
         elif isinstance(other, (int, float)):
             return self.value / other
         else:
-            raise nivsexceptions.VeristandError(_errormessages.invalid_type_for_operator)
+            raise nivsexceptions.VeristandError(
+                _errormessages.invalid_type_for_operator
+            )
 
     def __rdivmod__(self, other):
         if isinstance(other, DataType):
@@ -141,7 +157,9 @@ class DataType(object):
         elif isinstance(other, (int, float)):
             return other / self.value
         else:
-            raise nivsexceptions.VeristandError(_errormessages.invalid_type_for_operator)
+            raise nivsexceptions.VeristandError(
+                _errormessages.invalid_type_for_operator
+            )
 
     def __floordiv__(self, other):
         if isinstance(other, DataType):
@@ -149,7 +167,9 @@ class DataType(object):
         elif isinstance(other, (int, float)):
             return self.value // other
         else:
-            raise nivsexceptions.VeristandError(_errormessages.invalid_type_for_operator)
+            raise nivsexceptions.VeristandError(
+                _errormessages.invalid_type_for_operator
+            )
 
     def __rfloordiv__(self, other):
         if isinstance(other, DataType):
@@ -157,7 +177,9 @@ class DataType(object):
         elif isinstance(other, (int, float)):
             return other // self.value
         else:
-            raise nivsexceptions.VeristandError(_errormessages.invalid_type_for_operator)
+            raise nivsexceptions.VeristandError(
+                _errormessages.invalid_type_for_operator
+            )
 
     def __truediv__(self, other):
         if isinstance(other, DataType):
@@ -165,7 +187,9 @@ class DataType(object):
         elif isinstance(other, (int, float)):
             return self.value / other
         else:
-            raise nivsexceptions.VeristandError(_errormessages.invalid_type_for_operator)
+            raise nivsexceptions.VeristandError(
+                _errormessages.invalid_type_for_operator
+            )
 
     def __rtruediv__(self, other):
         if isinstance(other, DataType):
@@ -173,7 +197,9 @@ class DataType(object):
         elif isinstance(other, (int, float)):
             return other / self.value
         else:
-            raise nivsexceptions.VeristandError(_errormessages.invalid_type_for_operator)
+            raise nivsexceptions.VeristandError(
+                _errormessages.invalid_type_for_operator
+            )
 
     def __div__(self, other):
         if isinstance(other, DataType):
@@ -181,7 +207,9 @@ class DataType(object):
         elif isinstance(other, (int, float)):
             return self.value / other
         else:
-            raise nivsexceptions.VeristandError(_errormessages.invalid_type_for_operator)
+            raise nivsexceptions.VeristandError(
+                _errormessages.invalid_type_for_operator
+            )
 
     def __rdiv__(self, other):
         if isinstance(other, DataType):
@@ -191,19 +219,23 @@ class DataType(object):
 
     def __pow__(self, power, modulo=None):
         if isinstance(power, DataType):
-            return self.value ** power.value
+            return self.value**power.value
         elif isinstance(power, (int, float)):
-            return self.value ** power
+            return self.value**power
         else:
-            raise nivsexceptions.VeristandError(_errormessages.invalid_type_for_operator)
+            raise nivsexceptions.VeristandError(
+                _errormessages.invalid_type_for_operator
+            )
 
     def __rpow__(self, other):
         if isinstance(other, DataType):
-            return other.value ** self.value
+            return other.value**self.value
         elif isinstance(other, (int, float)):
-            return other ** self.value
+            return other**self.value
         else:
-            raise nivsexceptions.VeristandError(_errormessages.invalid_type_for_operator)
+            raise nivsexceptions.VeristandError(
+                _errormessages.invalid_type_for_operator
+            )
 
     def __mod__(self, other):
         if isinstance(other, DataType):
@@ -211,7 +243,9 @@ class DataType(object):
         elif self._is_compatible_with_datatype(other):
             return self.value % other
         else:
-            raise nivsexceptions.VeristandError(_errormessages.invalid_type_for_operator)
+            raise nivsexceptions.VeristandError(
+                _errormessages.invalid_type_for_operator
+            )
 
     def __rmod__(self, other):
         if isinstance(other, DataType):
@@ -219,7 +253,9 @@ class DataType(object):
         elif self._is_compatible_with_datatype(other):
             return other % self.value
         else:
-            raise nivsexceptions.VeristandError(_errormessages.invalid_type_for_operator)
+            raise nivsexceptions.VeristandError(
+                _errormessages.invalid_type_for_operator
+            )
 
     def __and__(self, other):
         if isinstance(other, (I32Value, I64Value)):
@@ -227,7 +263,9 @@ class DataType(object):
         elif self._is_integer_type(other):
             return self.value & other
         else:
-            raise nivsexceptions.VeristandError(_errormessages.invalid_type_for_operator)
+            raise nivsexceptions.VeristandError(
+                _errormessages.invalid_type_for_operator
+            )
 
     def __rand__(self, other):
         return self.__and__(other)
@@ -238,7 +276,9 @@ class DataType(object):
         elif self._is_integer_type(other):
             return self.value | other
         else:
-            raise nivsexceptions.VeristandError(_errormessages.invalid_type_for_operator)
+            raise nivsexceptions.VeristandError(
+                _errormessages.invalid_type_for_operator
+            )
 
     def __ror__(self, other):
         return self.__or__(other)
@@ -249,7 +289,9 @@ class DataType(object):
         elif self._is_integer_type(other):
             return self.value ^ other
         else:
-            raise nivsexceptions.VeristandError(_errormessages.invalid_type_for_operator)
+            raise nivsexceptions.VeristandError(
+                _errormessages.invalid_type_for_operator
+            )
 
     def __rxor__(self, other):
         return self.__xor__(other)
@@ -260,7 +302,9 @@ class DataType(object):
         elif self._is_integer_type(other):
             return self.value << other
         else:
-            raise nivsexceptions.VeristandError(_errormessages.invalid_type_for_operator)
+            raise nivsexceptions.VeristandError(
+                _errormessages.invalid_type_for_operator
+            )
 
     def __rlshift__(self, other):
         if isinstance(other, (I32Value, I64Value)):
@@ -269,7 +313,9 @@ class DataType(object):
             return other << self.value
 
         else:
-            raise nivsexceptions.VeristandError(_errormessages.invalid_type_for_operator)
+            raise nivsexceptions.VeristandError(
+                _errormessages.invalid_type_for_operator
+            )
 
     def __rshift__(self, other):
         if isinstance(other, (I32Value, I64Value)):
@@ -277,7 +323,9 @@ class DataType(object):
         elif self._is_integer_type(other):
             return self.value >> other
         else:
-            raise nivsexceptions.VeristandError(_errormessages.invalid_type_for_operator)
+            raise nivsexceptions.VeristandError(
+                _errormessages.invalid_type_for_operator
+            )
 
     def __rrshift__(self, other):
         if isinstance(other, (I32Value, I64Value)):
@@ -291,7 +339,9 @@ class DataType(object):
         elif isinstance(other, (int, float, bool)):
             return self.value == other
         else:
-            raise nivsexceptions.VeristandError(_errormessages.invalid_type_for_operator)
+            raise nivsexceptions.VeristandError(
+                _errormessages.invalid_type_for_operator
+            )
 
     def __ne__(self, other):
         if isinstance(other, DataType):
@@ -299,7 +349,9 @@ class DataType(object):
         elif self._is_compatible_with_datatype(other):
             return self.value != other
         else:
-            raise nivsexceptions.VeristandError(_errormessages.invalid_type_for_operator)
+            raise nivsexceptions.VeristandError(
+                _errormessages.invalid_type_for_operator
+            )
 
     def __gt__(self, other):
         if isinstance(other, DataType):
@@ -307,7 +359,9 @@ class DataType(object):
         elif self._is_compatible_with_datatype(other):
             return self.value > other
         else:
-            raise nivsexceptions.VeristandError(_errormessages.invalid_type_for_operator)
+            raise nivsexceptions.VeristandError(
+                _errormessages.invalid_type_for_operator
+            )
 
     def __ge__(self, other):
         if isinstance(other, DataType):
@@ -315,7 +369,9 @@ class DataType(object):
         elif self._is_compatible_with_datatype(other):
             return self.value >= other
         else:
-            raise nivsexceptions.VeristandError(_errormessages.invalid_type_for_operator)
+            raise nivsexceptions.VeristandError(
+                _errormessages.invalid_type_for_operator
+            )
 
     def __lt__(self, other):
         if isinstance(other, DataType):
@@ -323,7 +379,9 @@ class DataType(object):
         elif self._is_compatible_with_datatype(other):
             return self.value < other
         else:
-            raise nivsexceptions.VeristandError(_errormessages.invalid_type_for_operator)
+            raise nivsexceptions.VeristandError(
+                _errormessages.invalid_type_for_operator
+            )
 
     def __inv__(self):
         self.__invert__()
@@ -334,7 +392,9 @@ class DataType(object):
         elif isinstance(self, (BooleanValue, DoubleValue)):
             return 0
         else:
-            raise nivsexceptions.VeristandError(_errormessages.invalid_type_for_operator)
+            raise nivsexceptions.VeristandError(
+                _errormessages.invalid_type_for_operator
+            )
 
     def __le__(self, other):
         if isinstance(other, DataType):
@@ -342,7 +402,9 @@ class DataType(object):
         elif self._is_compatible_with_datatype(other):
             return self.value <= other
         else:
-            raise nivsexceptions.VeristandError(_errormessages.invalid_type_for_operator)
+            raise nivsexceptions.VeristandError(
+                _errormessages.invalid_type_for_operator
+            )
 
     @property
     def value(self):
@@ -361,7 +423,9 @@ class ArrayType(DataType):
         return self.value[key]
 
     def __setitem__(self, key, value):
-        return nivsexceptions.VeristandError(_errormessages.cannot_change_array_elements)
+        return nivsexceptions.VeristandError(
+            _errormessages.cannot_change_array_elements
+        )
 
 
 class ChannelReference(DataType):
@@ -379,12 +443,15 @@ class ChannelReference(DataType):
 
     @property
     def value(self):
-        return \
-            _DefaultGatewayFactory.get_workspace2().get_single_channel_value(self._channel_name)
+        return _DefaultGatewayFactory.get_workspace2().get_single_channel_value(
+            self._channel_name
+        )
 
     @value.setter
     def value(self, newvalue):
-        _DefaultGatewayFactory.get_workspace2().set_single_channel_value(self._channel_name, newvalue)
+        _DefaultGatewayFactory.get_workspace2().set_single_channel_value(
+            self._channel_name, newvalue
+        )
 
     def _to_data_value(self, value):
         # in pythonnet 3.0.0+, strings are no longer coerced to 0 by ClientApiDoubleValue
@@ -420,12 +487,15 @@ class BooleanValue(DataType):
     def _to_data_value(self, value):
         if self._is_valid_assign_type(value):
             value = bool(value)
-        elif type(value) is str and str(value).lower() == 'true':
+        elif type(value) is str and str(value).lower() == "true":
             value = True
-        elif type(value) is str and str(value).lower() == 'false':
+        elif type(value) is str and str(value).lower() == "false":
             value = False
         else:
-            raise TypeError('%s can not be created from value "%s"' % (self.__class__.__name__, str(value)))
+            raise TypeError(
+                '%s can not be created from value "%s"'
+                % (self.__class__.__name__, str(value))
+            )
         return ClientApiBooleanValue(value)
 
 
@@ -448,7 +518,10 @@ class DoubleValue(DataType):
         if self._is_valid_assign_type(value):
             value = float(value)
         else:
-            raise TypeError('%s can not be created from value "%s"' % (self.__class__.__name__, str(value)))
+            raise TypeError(
+                '%s can not be created from value "%s"'
+                % (self.__class__.__name__, str(value))
+            )
         return ClientApiDoubleValue(value)
 
 
@@ -471,7 +544,10 @@ class I32Value(DataType):
         if self._is_valid_assign_type(value):
             value = SystemInt32(int(value))
         else:
-            raise TypeError('%s can not be created from value "%s"' % (self.__class__.__name__, str(value)))
+            raise TypeError(
+                '%s can not be created from value "%s"'
+                % (self.__class__.__name__, str(value))
+            )
         return ClientApiI32Value(value)
 
 
@@ -494,7 +570,10 @@ class I64Value(DataType):
         if self._is_valid_assign_type(value):
             value = SystemInt64(int(value))
         else:
-            raise TypeError('%s can not be created from value "%s"' % (self.__class__.__name__, str(value)))
+            raise TypeError(
+                '%s can not be created from value "%s"'
+                % (self.__class__.__name__, str(value))
+            )
         return ClientApiI64Value(value)
 
 
@@ -517,7 +596,10 @@ class U32Value(DataType):
         if self._is_valid_assign_type(value):
             value = SystemUInt32(int(value))
         else:
-            raise TypeError('%s can not be created from value "%s"' % (self.__class__.__name__, str(value)))
+            raise TypeError(
+                '%s can not be created from value "%s"'
+                % (self.__class__.__name__, str(value))
+            )
         return ClientApiU32Value(value)
 
 
@@ -540,7 +622,10 @@ class U64Value(DataType):
         if self._is_valid_assign_type(value):
             value = SystemUInt64(int(value))
         else:
-            raise TypeError('%s can not be created from value "%s"' % (self.__class__.__name__, str(value)))
+            raise TypeError(
+                '%s can not be created from value "%s"'
+                % (self.__class__.__name__, str(value))
+            )
         return ClientApiU64Value(value)
 
 
@@ -580,7 +665,7 @@ VALID_RETURN_TYPES = {
     I32Value.__name__: I32Value,
     I64Value.__name__: I64Value,
     U32Value.__name__: U32Value,
-    U64Value.__name__: U64Value
+    U64Value.__name__: U64Value,
 }
 
 VALID_ARRAY_TYPES = {
@@ -595,5 +680,5 @@ VALID_ARRAY_TYPES = {
 
 CHANNEL_REF_TYPES = {
     ChannelReference.__name__: ChannelReference,
-    VectorChannelReference.__name__: VectorChannelReference
+    VectorChannelReference.__name__: VectorChannelReference,
 }

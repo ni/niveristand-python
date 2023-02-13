@@ -7,7 +7,7 @@ def binaryoperator_transformer(node, resources):
     operator = _operator(node.op.__class__.__name__)
     if operator == "unknown":
         raise VeristandNotImplementedError()
-    if operator in ('<<', '>>'):
+    if operator in ("<<", ">>"):
         # Validate only the right hand side, on the left it makes sense to have negative numbers.
         validations.raise_if_negative_binary_operator_operand(node.right, resources)
     left = utils.generic_ast_node_transform(node.left, resources)
@@ -17,15 +17,15 @@ def binaryoperator_transformer(node, resources):
 
 def _operator(ast_operator):
     return {
-        'Add': "+",
-        'Sub': "-",
-        'Mult': "*",
-        'Div': "/",
-        'Pow': "**",
-        'Mod': "%",
-        'BitAnd': "&",
-        'BitOr': "|",
-        'BitXor': "^",
-        'LShift': "<<",
-        'RShift': ">>",
+        "Add": "+",
+        "Sub": "-",
+        "Mult": "*",
+        "Div": "/",
+        "Pow": "**",
+        "Mod": "%",
+        "BitAnd": "&",
+        "BitOr": "|",
+        "BitXor": "^",
+        "LShift": "<<",
+        "RShift": ">>",
     }.get(ast_operator, "unknown")

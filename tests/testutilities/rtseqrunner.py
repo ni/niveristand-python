@@ -7,8 +7,10 @@ import pytest
 import testutilities.configutilities as configutilities
 
 
-rtseq_dll_path = os.path.join(configutilities.getbinariesfolder(),
-                              "NationalInstruments.VeriStand.RealTimeSequenceUtilities.dll")
+rtseq_dll_path = os.path.join(
+    configutilities.getbinariesfolder(),
+    "NationalInstruments.VeriStand.RealTimeSequenceUtilities.dll",
+)
 
 
 def _check_can_run_local():
@@ -19,9 +21,13 @@ def _check_can_run_local():
 def run_rtseq_local(filepath, channel_names=[], channel_values=[], deltat=1):
     _check_can_run_local()
     clr.AddReference(rtseq_dll_path)
-    from NationalInstruments.VeriStand.RealTimeSequenceUtilities import RealTimeSequenceRunner
+    from NationalInstruments.VeriStand.RealTimeSequenceUtilities import (
+        RealTimeSequenceRunner,
+    )
 
-    res = RealTimeSequenceRunner.Run(filepath, channel_names, channel_values, float(deltat))
+    res = RealTimeSequenceRunner.Run(
+        filepath, channel_names, channel_values, float(deltat)
+    )
     return res
 
 
@@ -38,6 +44,7 @@ def assert_run_python_equals_rtseq(func, expected):
 
 def run_rtseq_in_VM(func, deltat=1):
     from NationalInstruments.VeriStand.Data import VoidValue
+
     filename = realtimesequencetools.save_py_as_rtseq(func, None)
     rtseq_result = run_rtseq_local(filename, deltat=deltat)
     if isinstance(rtseq_result, VoidValue):

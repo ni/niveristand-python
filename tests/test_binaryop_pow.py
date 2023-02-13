@@ -1,7 +1,12 @@
 import sys
 from niveristand import nivs_rt_sequence
 from niveristand import realtimesequencetools
-from niveristand.clientapi import ChannelReference, DoubleValue, I32Value, RealTimeSequence
+from niveristand.clientapi import (
+    ChannelReference,
+    DoubleValue,
+    I32Value,
+    RealTimeSequence,
+)
 from niveristand.errors import TranslateError, VeristandError
 from niveristand.library.primitives import localhost_wait
 import pytest
@@ -20,7 +25,7 @@ def _return_constant():
 @nivs_rt_sequence
 def exp_simple_numbers():
     a = DoubleValue(0)
-    a.value = 2 ** 2
+    a.value = 2**2
     return a.value
 
 
@@ -126,7 +131,7 @@ def exp_with_parentheses2():
 def exp_variables():
     a = DoubleValue(5)
     b = DoubleValue(0)
-    b.value = 2 ** a
+    b.value = 2**a
     return b.value
 
 
@@ -134,7 +139,7 @@ def exp_variables():
 def exp_variables1():
     a = DoubleValue(5)
     b = DoubleValue(0)
-    b.value = 2 ** a.value
+    b.value = 2**a.value
     return b.value
 
 
@@ -143,7 +148,7 @@ def exp_variable_variable():
     a = DoubleValue(2)
     b = DoubleValue(3)
     c = DoubleValue(0)
-    c.value = a.value ** b.value
+    c.value = a.value**b.value
     return c.value
 
 
@@ -152,7 +157,7 @@ def exp_variable_variable1():
     a = DoubleValue(2)
     b = I32Value(3)
     c = DoubleValue(0)
-    c.value = a.value ** b.value
+    c.value = a.value**b.value
     return c.value
 
 
@@ -178,14 +183,14 @@ def exp_with_channel_ref():
     b = ChannelReference("Aliases/DesiredRPM")
     b.value = 5.0
     localhost_wait()
-    a.value = 2 ** b.value
+    a.value = 2**b.value
     return a.value
 
 
 @nivs_rt_sequence
 def exp_binary_unary():
     a = DoubleValue(0)
-    a.value = 2 ** -1
+    a.value = 2**-1
     return a.value
 
 
@@ -197,6 +202,7 @@ def exp_complex_expr():
 
 
 # <editor-fold desc=Augassign tests>
+
 
 @nivs_rt_sequence
 def aug_exp_simple_numbers():
@@ -255,28 +261,30 @@ def aug_exp_unary():
 
 # <editor-fold desc=Invalid tests>
 
+
 @nivs_rt_sequence
 def exp_invalid_variables():
-    return a ** b
+    return a**b
 
 
 @nivs_rt_sequence
 def exp_invalid_variables1():
-    return a.value ** b.value
+    return a.value**b.value
 
 
 @nivs_rt_sequence
 def exp_with_None():
     a = DoubleValue(0)
-    a.value = None ** 1
+    a.value = None**1
     return a
 
 
 @nivs_rt_sequence
 def exp_invalid_rtseq_call():
     a = DoubleValue(0)
-    a.value = _return_constant ** 1
+    a.value = _return_constant**1
     return a
+
 
 # </editor-fold>
 
@@ -299,7 +307,7 @@ run_tests = [
     (aug_exp_simple_numbers, (), 4),
     (aug_exp_variables, (), 32),
     (aug_exp_num_nivsdatatype, (), 9),
-    (aug_exp_with_parentheses, (), float(2 ** 64)),
+    (aug_exp_with_parentheses, (), float(2**64)),
     (aug_exp_unary, (), 0.5),
     (exp_complex_expr, (), 9),
     (exp_variable_rtseq, (), 32),
@@ -353,7 +361,9 @@ def test_run_in_VM(func_name, params, expected_result):
     assert actual == expected_result
 
 
-@pytest.mark.parametrize("func_name, params, expected_result", fail_transform_tests, ids=idfunc)
+@pytest.mark.parametrize(
+    "func_name, params, expected_result", fail_transform_tests, ids=idfunc
+)
 def test_failures(func_name, params, expected_result):
     with pytest.raises(expected_result):
         RealTimeSequence(func_name)

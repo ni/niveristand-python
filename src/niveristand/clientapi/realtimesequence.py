@@ -9,10 +9,17 @@ from niveristand._translation.py2rtseq.utils import Resources
 from niveristand.clientapi import realtimesequencedefinition as rtseqapi
 from niveristand.clientapi import rtsequencedefinitionutils as rtsequtils
 from niveristand.errors import TranslateError, VeristandError
-from NationalInstruments.VeriStand.Data import SystemDefinitionChannelResource  # noqa: E501, I100 We need these C# imports to be out of order.
-from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import ChannelReferenceDeclaration, ChannelSizeType
+from NationalInstruments.VeriStand.Data import (  # noqa: I100 C# imports need to be out of order
+    SystemDefinitionChannelResource,
+)
+from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import (
+    ChannelReferenceDeclaration,
+    ChannelSizeType,
+)
 from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import EvaluationMethod
-from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import ParameterDeclaration
+from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import (
+    ParameterDeclaration,
+)
 from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import Reference
 from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import References
 
@@ -34,7 +41,7 @@ class RealTimeSequence:
 
     def __init__(self, top_level_func, rtseq_pkg=None):
         self._top_level_func = top_level_func
-        self._path = ''
+        self._path = ""
         self._rtseq = None
         self._rtseqpkg = rtseq_pkg
         self._ref = list()
@@ -98,6 +105,7 @@ class RealTimeSequence:
 
     def _transform(self):
         from niveristand._decorators import rt_seq_mode_id
+
         real_obj = getattr(self._top_level_func, rt_seq_mode_id, None)
         if real_obj is None:
             raise TranslateError(_errormessages.invalid_top_level_func)
@@ -132,8 +140,14 @@ class RealTimeSequence:
         self._rtseq.Variables.Parameters.ClearParameters()
         for param in param_list:
             real_default = param.default_value._data_value
-            real_eval_method = EvaluationMethod.ByValue if param.by_value else EvaluationMethod.ByReference
-            real_param = ParameterDeclaration(param.rtseq_name, real_default, real_eval_method)
+            real_eval_method = (
+                EvaluationMethod.ByValue
+                if param.by_value
+                else EvaluationMethod.ByReference
+            )
+            real_param = ParameterDeclaration(
+                param.rtseq_name, real_default, real_eval_method
+            )
             self._rtseq.Variables.Parameters.AddParameter(real_param)
 
     def _update_channel_refs(self, channel_ref_list):
@@ -143,11 +157,17 @@ class RealTimeSequence:
                 size_argument = ChannelSizeType.Vector
             else:
                 size_argument = ChannelSizeType.Scalar
-            system_definition_channel_resource = SystemDefinitionChannelResource(channel_ref_obj.channel_name)
-            channel_reference_declaration = ChannelReferenceDeclaration(channel_ref_obj.rtseq_name,
-                                                                        system_definition_channel_resource,
-                                                                        size_argument)
-            self._rtseq.Variables.ChannelReferences.AddChannelReference(channel_reference_declaration)
+            system_definition_channel_resource = SystemDefinitionChannelResource(
+                channel_ref_obj.channel_name
+            )
+            channel_reference_declaration = ChannelReferenceDeclaration(
+                channel_ref_obj.rtseq_name,
+                system_definition_channel_resource,
+                size_argument,
+            )
+            self._rtseq.Variables.ChannelReferences.AddChannelReference(
+                channel_reference_declaration
+            )
 
     def _build_file_name(self):
         return os.path.join(self._path, str(self) + ".nivsseq")

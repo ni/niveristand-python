@@ -2,7 +2,13 @@ import sys
 
 from niveristand import nivs_rt_sequence
 from niveristand import realtimesequencetools
-from niveristand.clientapi import BooleanValue, ChannelReference, DoubleValue, I32Value, I64Value
+from niveristand.clientapi import (
+    BooleanValue,
+    ChannelReference,
+    DoubleValue,
+    I32Value,
+    I64Value,
+)
 from niveristand.clientapi import RealTimeSequence
 from niveristand.errors import TranslateError, VeristandError
 from niveristand.library.primitives import localhost_wait
@@ -187,7 +193,7 @@ def bitwise_and_to_channel_ref():
 @nivs_rt_sequence
 def bitwise_and_binary_unary():
     a = I32Value(0)
-    a.value = 3 & - 1
+    a.value = 3 & -1
     return a.value
 
 
@@ -199,6 +205,7 @@ def bitwise_and_complex_expr():
 
 
 # <editor-fold desc=Augassign tests>
+
 
 @nivs_rt_sequence
 def aug_bitwise_and_simple_numbers():
@@ -257,6 +264,7 @@ def aug_bitwise_and_unary():
 
 # <editor-fold desc=Invalid tests>
 
+
 @nivs_rt_sequence
 def bitwise_and_invalid_variables():
     return a.value & b
@@ -279,6 +287,7 @@ def bitwise_and_invalid_rtseq_call():
     a = DoubleValue(0)
     a.value = _return_constant & 1
     return a.value
+
 
 # </editor-fold>
 
@@ -328,7 +337,11 @@ py_only_errs = [
     (bitwise_and_num_nivsdatatype, (), 1.0),  # cannot do bitwise and on float
     (bitwise_and_nivsdatatype_nivsdatatype, (), 1.0),  # cannot do bitwise and on float
     (bitwise_and_nivsdatatype_nivsdatatype1, (), 1.0),  # cannot do bitwise and on float
-    (bitwise_and_nivsdatatype_nivsdatatype2, (), True),  # cannot do bitwise and on Boolean
+    (
+        bitwise_and_nivsdatatype_nivsdatatype2,
+        (),
+        True,
+    ),  # cannot do bitwise and on Boolean
     (bitwise_and_with_parentheses1, (), 1.0),  # cannot do bitwise and on float
     (bitwise_and_with_parentheses2, (), 0.0),  # cannot do bitwise and on float
     (bitwise_and_to_channel_ref, (), 1.0),  # cannot do bitwise and on float
@@ -348,7 +361,11 @@ def test_transform(func_name, params, expected_result):
     RealTimeSequence(func_name)
 
 
-@pytest.mark.parametrize("func_name, params, expected_result", list(set(run_tests) - set(py_only_errs)), ids=idfunc)
+@pytest.mark.parametrize(
+    "func_name, params, expected_result",
+    list(set(run_tests) - set(py_only_errs)),
+    ids=idfunc,
+)
 def test_runpy(func_name, params, expected_result):
     actual = func_name(*params)
     assert actual == expected_result
@@ -366,7 +383,9 @@ def test_run_in_VM(func_name, params, expected_result):
     assert actual == expected_result
 
 
-@pytest.mark.parametrize("func_name, params, expected_result", fail_transform_tests, ids=idfunc)
+@pytest.mark.parametrize(
+    "func_name, params, expected_result", fail_transform_tests, ids=idfunc
+)
 def test_failures(func_name, params, expected_result):
     with pytest.raises(expected_result):
         RealTimeSequence(func_name)

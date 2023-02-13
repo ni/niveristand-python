@@ -15,12 +15,16 @@ def custom_generate_error(node, resources):
         raise TranslateError(_errormessages.invalid_error_code_for_generate_error)
     message = node.args[1].s
     action = ErrorAction[node.args[2].attr]
-    realtimesequencedefinition.add_generate_error(resources.get_current_block(), error_code, message, action.value)
+    realtimesequencedefinition.add_generate_error(
+        resources.get_current_block(), error_code, message, action.value
+    )
     return ""
 
 
 def _validate_restrictions(node):
-    if not isinstance(node.args[0], ast.UnaryOp) and not utils.is_node_ast_num(node.args[0]):
+    if not isinstance(node.args[0], ast.UnaryOp) and not utils.is_node_ast_num(
+        node.args[0]
+    ):
         raise TranslateError(_errormessages.invalid_error_code_for_generate_error)
     if not utils.is_node_ast_str(node.args[1]):
         raise TranslateError(_errormessages.invalid_message_for_generate_error)

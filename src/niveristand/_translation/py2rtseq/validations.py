@@ -37,7 +37,10 @@ def raise_if_invalid_bool_operand(node, resources):
 def raise_if_invalid_if_test(node):
     if isinstance(node, ast.UnaryOp):
         node = node.operand
-    if isinstance(node, ast.Call) and utils.get_variable_name_from_node(node.func) in VALID_TYPES:
+    if (
+        isinstance(node, ast.Call)
+        and utils.get_variable_name_from_node(node.func) in VALID_TYPES
+    ):
         raise errors.TranslateError(_errormessages.invalid_type_for_if_test)
 
 
@@ -49,7 +52,9 @@ def raise_if_invalid_invert_operand(node, resources):
     except errors.TranslateError:
         pass
     if invalid_operand:
-        raise errors.TranslateError(_errormessages.invalid_operand_for_unary_invert_operator)
+        raise errors.TranslateError(
+            _errormessages.invalid_operand_for_unary_invert_operator
+        )
 
 
 def raise_if_negative_binary_operator_operand(node, resources):

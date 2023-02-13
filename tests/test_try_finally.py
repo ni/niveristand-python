@@ -9,7 +9,7 @@ import pytest
 from testutilities import rtseqrunner, validation
 
 
-@NivsParam('param', DoubleValue(0), False)
+@NivsParam("param", DoubleValue(0), False)
 @nivs_rt_sequence
 def _sub_rt_seq(param):
     try:
@@ -165,6 +165,7 @@ def try_with_orelse():
 def try_in_task():
     a = DoubleValue(0)
     with multitask() as mt:
+
         @task(mt)
         def f1():
             try:
@@ -175,6 +176,7 @@ def try_in_task():
         @task(mt)
         def f2():
             nivs_yield()
+
     return a.value
 
 
@@ -197,6 +199,7 @@ def try_in_multitask():
         @task(mt)
         def f2():
             nivs_yield()
+
     return a.value
 
 
@@ -205,15 +208,18 @@ def try_in_multitask1():
     a = DoubleValue(0)
     with multitask() as mt:
         try:
+
             @task(mt)
             def f1():
                 pass
+
         finally:
             a.value += 1
 
         @task(mt)
         def f2():
             nivs_yield()
+
     return a.value
 
 
@@ -270,7 +276,9 @@ def test_run_in_VM(func_name, params, expected_result):
     assert actual == expected_result
 
 
-@pytest.mark.parametrize("func_name, params, expected_result", fail_transform_tests, ids=idfunc)
+@pytest.mark.parametrize(
+    "func_name, params, expected_result", fail_transform_tests, ids=idfunc
+)
 def test_failures(func_name, params, expected_result):
     with pytest.raises(expected_result):
         RealTimeSequence(func_name)

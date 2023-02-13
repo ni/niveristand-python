@@ -3,7 +3,13 @@ from niveristand import nivs_rt_sequence
 from niveristand import realtimesequencetools
 from niveristand.clientapi import DoubleValue, I32Value
 from niveristand.clientapi import ErrorAction, RealTimeSequence
-from niveristand.errors import RunAbortedError, RunError, RunFailedError, SequenceError, TranslateError
+from niveristand.errors import (
+    RunAbortedError,
+    RunError,
+    RunFailedError,
+    SequenceError,
+    TranslateError,
+)
 from niveristand.library import multitask, nivs_yield, task
 from niveristand.library.primitives import generate_error
 import pytest
@@ -83,6 +89,7 @@ def generate_abort():
 def generate_continue_mt():
     a = DoubleValue(0)
     with multitask() as mt:
+
         @task(mt)
         def f1():
             generate_error(1, "Continue", ErrorAction.ContinueSequenceExecution)
@@ -91,6 +98,7 @@ def generate_continue_mt():
         def f2():
             nivs_yield()
             a.value = 1
+
     return a.value
 
 
@@ -98,6 +106,7 @@ def generate_continue_mt():
 def generate_stop_mt():
     a = DoubleValue(0)
     with multitask() as mt:
+
         @task(mt)
         def f1():
             generate_error(-100, "Stop", ErrorAction.StopSequence)
@@ -106,6 +115,7 @@ def generate_stop_mt():
         def f2():
             nivs_yield()
             a.value = 1
+
     return a.value
 
 
@@ -113,6 +123,7 @@ def generate_stop_mt():
 def generate_abort_mt():
     a = DoubleValue(0)
     with multitask() as mt:
+
         @task(mt)
         def f1():
             generate_error(-200, "Abort", ErrorAction.AbortSequence)
@@ -121,6 +132,7 @@ def generate_abort_mt():
         def f2():
             nivs_yield()
             a.value = 1
+
     return a.value
 
 
@@ -237,7 +249,11 @@ run_tests = [
     (generate_stop_subroutine1, (), (1, (_stop_err,))),
     (generate_abort_subroutine, (), (1, (_abort_err,))),
     (generate_abort_subroutine1, (), (0, (_abort_err,))),
-    (generate_multiple_errors, (), (None, (_stop_err, _cont_err, _cont_err, _cont_err))),
+    (
+        generate_multiple_errors,
+        (),
+        (None, (_stop_err, _cont_err, _cont_err, _cont_err)),
+    ),
     (generate_multiple_errors1, (), (None, (_cont_err, _stop_err, _cont_err))),
     (generate_multiple_errors2, (), (None, (_abort_err, _cont_err))),
 ]
@@ -288,7 +304,10 @@ def test_runpy(func_name, params, expected_result):
     expected_value, expected_errors = expected_result
     with pytest.raises(RunError) as e:
         func_name(*params)
-    if e.value.error.error_action in (ErrorAction.AbortSequence, ErrorAction.StopSequence):
+    if e.value.error.error_action in (
+        ErrorAction.AbortSequence,
+        ErrorAction.StopSequence,
+    ):
         assert isinstance(e.value, RunAbortedError)
     else:
         assert isinstance(e.value, RunFailedError)
@@ -299,7 +318,9 @@ def test_runpy(func_name, params, expected_result):
         assert error.message == expected_error.message
 
 
-@pytest.mark.parametrize("func_name, params, expected_result", run_as_rts_tests, ids=idfunc)
+@pytest.mark.parametrize(
+    "func_name, params, expected_result", run_as_rts_tests, ids=idfunc
+)
 def test_run_py_as_rts(func_name, params, expected_result):
     with pytest.raises(expected_result):
         realtimesequencetools.run_py_as_rtseq(func_name)
@@ -311,7 +332,9 @@ def test_run_in_VM(func_name, params, expected_result):
     assert actual == expected_result[0]
 
 
-@pytest.mark.parametrize("func_name, params, expected_result", fail_transform_tests, ids=idfunc)
+@pytest.mark.parametrize(
+    "func_name, params, expected_result", fail_transform_tests, ids=idfunc
+)
 def test_failures(func_name, params, expected_result):
     with pytest.raises(expected_result):
         RealTimeSequence(func_name)

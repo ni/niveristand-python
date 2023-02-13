@@ -231,6 +231,7 @@ def invert_double_var():
 
 # <editor-fold desc=Invalid tests>
 
+
 @nivs_rt_sequence
 def invert_invalid_variables():
     return ~a
@@ -253,6 +254,7 @@ def invert_invalid_rtseq_call():
     a = I32Value(0)
     a.value = ~_returns_zero
     return a
+
 
 # </editor-fold>
 
@@ -329,7 +331,9 @@ def test_run_in_VM(func_name, params, expected_result):
     assert actual == expected_result
 
 
-@pytest.mark.parametrize("func_name, params, expected_result", fail_transform_tests, ids=idfunc)
+@pytest.mark.parametrize(
+    "func_name, params, expected_result", fail_transform_tests, ids=idfunc
+)
 def test_failures(func_name, params, expected_result):
     with pytest.raises(expected_result):
         RealTimeSequence(func_name)

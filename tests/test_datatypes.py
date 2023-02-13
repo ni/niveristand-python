@@ -66,7 +66,9 @@ def boolean_type3_run():
 
 @nivs_rt_sequence
 def illegal_boolean_type():
-    a = BooleanValue("Some string")  # noqa: F841 it's ok for this variable to never be used
+    a = BooleanValue(  # noqa: F841 it's ok for this variable to never be used
+        "Some string"
+    )
 
 
 @nivs_rt_sequence
@@ -93,7 +95,9 @@ def double_type1_run():
 
 @nivs_rt_sequence
 def illegal_double_type():
-    a = DoubleValue("Some string")  # noqa: F841 it's ok for this variable to never be used
+    a = DoubleValue(  # noqa: F841 it's ok for this variable to never be used
+        "Some string"
+    )
 
 
 @nivs_rt_sequence
@@ -125,7 +129,9 @@ def illegal_int32_type():
 
 @nivs_rt_sequence
 def int32_overflow_error():
-    a = I32Value(100000000000000000000)  # noqa: F841 it's ok for this variable to never be used
+    a = I32Value(  # noqa: F841 it's ok for this variable to never be used
+        100000000000000000000
+    )
 
 
 @nivs_rt_sequence
@@ -157,7 +163,9 @@ def illegal_int64_type():
 
 @nivs_rt_sequence
 def int64_overflow_error():
-    a = I64Value(100000000000000000000)  # noqa: F841 it's ok for this variable to never be used
+    a = I64Value(  # noqa: F841 it's ok for this variable to never be used
+        100000000000000000000
+    )
 
 
 @nivs_rt_sequence
@@ -189,7 +197,9 @@ def illegal_uint32_type():
 
 @nivs_rt_sequence
 def uint32_overflow_error():
-    a = U32Value(100000000000000000000)  # noqa: F841 it's ok for this variable to never be used
+    a = U32Value(  # noqa: F841 it's ok for this variable to never be used
+        100000000000000000000
+    )
 
 
 @nivs_rt_sequence
@@ -221,7 +231,9 @@ def illegal_uint64_type():
 
 @nivs_rt_sequence
 def uint64_overflow_error():
-    a = U64Value(100000000000000000000)  # noqa: F841 it's ok for this variable to never be used
+    a = U64Value(  # noqa: F841 it's ok for this variable to never be used
+        100000000000000000000
+    )
 
 
 @nivs_rt_sequence
@@ -297,7 +309,9 @@ def boolean_array_one_element():
 
 @nivs_rt_sequence
 def boolean_array_type():
-    a = BooleanValueArray([True, False, 1, 0])  # noqa: F841 it's ok for this variable to never be used
+    a = BooleanValueArray(  # noqa: F841 it's ok for this variable to never be used
+        [True, False, 1, 0]
+    )
 
 
 @nivs_rt_sequence
@@ -319,12 +333,16 @@ def boolean_array_type_run():
 
 @nivs_rt_sequence
 def boolean_array_invalid_type():
-    a = BooleanValueArray([True, 'something'])  # noqa: F841 it's ok for this variable to never be used
+    a = BooleanValueArray(  # noqa: F841 it's ok for this variable to never be used
+        [True, "something"]
+    )
 
 
 @nivs_rt_sequence
 def boolean_array_invalid_type1():
-    a = BooleanValueArray([True, 'False'])  # noqa: F841 it's ok for this variable to never be used
+    a = BooleanValueArray(  # noqa: F841 it's ok for this variable to never be used
+        [True, "False"]
+    )
 
 
 @nivs_rt_sequence
@@ -334,7 +352,9 @@ def double_array_one_element():
 
 @nivs_rt_sequence
 def double_array_type():
-    a = DoubleValueArray([0, 1.0, 5.5])  # noqa: F841 it's ok for this variable to never be used
+    a = DoubleValueArray(  # noqa: F841 it's ok for this variable to never be used
+        [0, 1.0, 5.5]
+    )
 
 
 @nivs_rt_sequence
@@ -356,12 +376,16 @@ def double_array_type_run():
 
 @nivs_rt_sequence
 def double_array_invalid_type():
-    a = DoubleValueArray([5.5, 'something'])  # noqa: F841 it's ok for this variable to never be used
+    a = DoubleValueArray(  # noqa: F841 it's ok for this variable to never be used
+        [5.5, "something"]
+    )
 
 
 @nivs_rt_sequence
 def double_array_invalid_type1():
-    a = DoubleValueArray([5.5, '5.5'])  # noqa: F841 it's ok for this variable to never be used
+    a = DoubleValueArray(  # noqa: F841 it's ok for this variable to never be used
+        [5.5, "5.5"]
+    )
 
 
 @nivs_rt_sequence
@@ -371,7 +395,9 @@ def int32_array_one_element():
 
 @nivs_rt_sequence
 def int32_array_type():
-    a = I32ValueArray([0, 1, 5])  # noqa: F841 it's ok for this variable to never be used
+    a = I32ValueArray(  # noqa: F841 it's ok for this variable to never be used
+        [0, 1, 5]
+    )
 
 
 @nivs_rt_sequence
@@ -393,12 +419,16 @@ def int32_array_type_run():
 
 @nivs_rt_sequence
 def int32_array_invalid_type():
-    a = I32ValueArray([5, 'something'])  # noqa: F841 it's ok for this variable to never be used
+    a = I32ValueArray(  # noqa: F841 it's ok for this variable to never be used
+        [5, "something"]
+    )
 
 
 @nivs_rt_sequence
 def int32_array_invalid_type1():
-    a = I32ValueArray([5, '-5'])  # noqa: F841 it's ok for this variable to never be used
+    a = I32ValueArray(  # noqa: F841 it's ok for this variable to never be used
+        [5, "-5"]
+    )
 
 
 @nivs_rt_sequence
@@ -408,7 +438,9 @@ def int64_array_one_element():
 
 @nivs_rt_sequence
 def int64_array_type():
-    a = I64ValueArray([0, 1, 5])  # noqa: F841 it's ok for this variable to never be used
+    a = I64ValueArray(  # noqa: F841 it's ok for this variable to never be used
+        [0, 1, 5]
+    )
 
 
 @nivs_rt_sequence
@@ -430,12 +462,16 @@ def int64_array_type_run():
 
 @nivs_rt_sequence
 def int64_array_invalid_type():
-    a = I64ValueArray([5, 'something'])  # noqa: F841 it's ok for this variable to never be used
+    a = I64ValueArray(  # noqa: F841 it's ok for this variable to never be used
+        [5, "something"]
+    )
 
 
 @nivs_rt_sequence
 def int64_array_invalid_type1():
-    a = I64ValueArray([5, '-5'])  # noqa: F841 it's ok for this variable to never be used
+    a = I64ValueArray(  # noqa: F841 it's ok for this variable to never be used
+        [5, "-5"]
+    )
 
 
 @nivs_rt_sequence
@@ -445,7 +481,9 @@ def uint32_array_one_element():
 
 @nivs_rt_sequence
 def uint32_array_type():
-    a = U32ValueArray([0, 1, 5])  # noqa: F841 it's ok for this variable to never be used
+    a = U32ValueArray(  # noqa: F841 it's ok for this variable to never be used
+        [0, 1, 5]
+    )
 
 
 @nivs_rt_sequence
@@ -467,12 +505,14 @@ def uint32_array_type_run():
 
 @nivs_rt_sequence
 def uint32_array_invalid_type():
-    a = U32ValueArray([5, 'something'])  # noqa: F841 it's ok for this variable to never be used
+    a = U32ValueArray(  # noqa: F841 it's ok for this variable to never be used
+        [5, "something"]
+    )
 
 
 @nivs_rt_sequence
 def uint32_array_invalid_type1():
-    a = U32ValueArray([5, '5'])  # noqa: F841 it's ok for this variable to never be used
+    a = U32ValueArray([5, "5"])  # noqa: F841 it's ok for this variable to never be used
 
 
 @nivs_rt_sequence
@@ -487,7 +527,9 @@ def uint64_array_one_element():
 
 @nivs_rt_sequence
 def uint64_array_type():
-    a = U64ValueArray([0, 1, 5])  # noqa: F841 it's ok for this variable to never be used
+    a = U64ValueArray(  # noqa: F841 it's ok for this variable to never be used
+        [0, 1, 5]
+    )
 
 
 @nivs_rt_sequence
@@ -509,12 +551,14 @@ def uint64_array_empty():
 
 @nivs_rt_sequence
 def uint64_array_invalid_type():
-    a = U64ValueArray([5, 'something'])  # noqa: F841 it's ok for this variable to never be used
+    a = U64ValueArray(  # noqa: F841 it's ok for this variable to never be used
+        [5, "something"]
+    )
 
 
 @nivs_rt_sequence
 def uint64_array_invalid_type1():
-    a = U64ValueArray([5, '5'])  # noqa: F841 it's ok for this variable to never be used
+    a = U64ValueArray([5, "5"])  # noqa: F841 it's ok for this variable to never be used
 
 
 @nivs_rt_sequence
@@ -768,6 +812,7 @@ def test_python_only_boolean():
 
     def return_string():
         return "string"
+
     # Boolean datatype creation from other boolean forms
     assert BooleanValue(True).value
     assert BooleanValue(return_true()).value
@@ -805,14 +850,14 @@ def test_python_only_boolean():
     assert not BooleanValue(([True, False])[1]).value
 
     # Boolean datatype creation from strings
-    assert BooleanValue('True').value
-    assert not BooleanValue('False').value
-    assert BooleanValue('true').value
-    assert not BooleanValue('false').value
+    assert BooleanValue("True").value
+    assert not BooleanValue("False").value
+    assert BooleanValue("true").value
+    assert not BooleanValue("false").value
 
     # Boolean datatype creation that should fail
     with pytest.raises(TypeError):
-        BooleanValue('string')
+        BooleanValue("string")
     with pytest.raises(TypeError):
         BooleanValue(object())
     with pytest.raises(TypeError):
@@ -833,6 +878,7 @@ def test_python_only_double():
 
     def return_string():
         return "string"
+
     # Double datatype creation from boolean forms
     assert DoubleValue(True).value == 1.0
     assert DoubleValue(return_true()).value == 1.0
@@ -865,9 +911,9 @@ def test_python_only_double():
 
     # Double datatype creation that should fail
     with pytest.raises(TypeError):
-        DoubleValue('3.14')
+        DoubleValue("3.14")
     with pytest.raises(TypeError):
-        DoubleValue('string')
+        DoubleValue("string")
     with pytest.raises(TypeError):
         DoubleValue(object())
     with pytest.raises(TypeError):
@@ -888,6 +934,7 @@ def test_python_only_i32():
 
     def return_string():
         return "string"
+
     # I32 datatype creation from boolean forms
     assert I32Value(True).value == 1
     assert I32Value(return_true()).value == 1
@@ -922,9 +969,9 @@ def test_python_only_i32():
 
     # I32 datatype creation that should fail
     with pytest.raises(TypeError):
-        I32Value('3')
+        I32Value("3")
     with pytest.raises(TypeError):
-        I32Value('string')
+        I32Value("string")
     with pytest.raises(TypeError):
         I32Value(object())
     with pytest.raises(TypeError):
@@ -945,6 +992,7 @@ def test_python_only_i64():
 
     def return_string():
         return "string"
+
     # I64 datatype creation from boolean forms
     assert I64Value(True).value == 1
     assert I64Value(return_true()).value == 1
@@ -979,9 +1027,9 @@ def test_python_only_i64():
 
     # I64 datatype creation that should fail
     with pytest.raises(TypeError):
-        I64Value('3')
+        I64Value("3")
     with pytest.raises(TypeError):
-        I64Value('string')
+        I64Value("string")
     with pytest.raises(TypeError):
         I64Value(object())
     with pytest.raises(TypeError):
@@ -1002,6 +1050,7 @@ def test_python_only_u32():
 
     def return_string():
         return "string"
+
     # U32 datatype creation from boolean forms
     assert U32Value(True).value == 1
     assert U32Value(return_true()).value == 1
@@ -1036,9 +1085,9 @@ def test_python_only_u32():
 
     # U32 datatype creation that should fail
     with pytest.raises(TypeError):
-        U32Value('3')
+        U32Value("3")
     with pytest.raises(TypeError):
-        U32Value('string')
+        U32Value("string")
     with pytest.raises(TypeError):
         U32Value(object())
     with pytest.raises(TypeError):
@@ -1059,6 +1108,7 @@ def test_python_only_u64():
 
     def return_string():
         return "string"
+
     # U64 datatype creation from boolean forms
     assert U64Value(True).value == 1
     assert U64Value(return_true()).value == 1
@@ -1093,9 +1143,9 @@ def test_python_only_u64():
 
     # U64 datatype creation that should fail
     with pytest.raises(TypeError):
-        U64Value('3')
+        U64Value("3")
     with pytest.raises(TypeError):
-        U64Value('string')
+        U64Value("string")
     with pytest.raises(TypeError):
         U64Value(object())
     with pytest.raises(TypeError):

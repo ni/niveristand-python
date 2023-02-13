@@ -17,7 +17,9 @@ def attribute_transformer(node, resources):
     except errors.TranslateError:
         # If we get a TranslateError it's because it wasn't a DataType(x).value, so move on.
         pass
-    built_exp = utils.generic_ast_node_transform(node.value, resources) + '.' + node.attr
+    built_exp = (
+        utils.generic_ast_node_transform(node.value, resources) + "." + node.attr
+    )
     if built_exp in symbols._symbols:
         return symbols._symbols[built_exp]
     else:

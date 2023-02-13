@@ -71,7 +71,9 @@ class RealTimeSequencePkg(collections.abc.MutableMapping):
                     funcs_to_add.append(func)
         else:
             raise VeristandError()
-        for func in [f for f in funcs_to_add if self._obj_to_key(f) not in self._rtseqs]:
+        for func in [
+            f for f in funcs_to_add if self._obj_to_key(f) not in self._rtseqs
+        ]:
             name = func.__name__
             self._rtseqs[name] = func
             if name not in self._dep_graph:

@@ -36,20 +36,20 @@ def two_levels_deep():
 
 def test_rtseqpkg_create_empty():
     pkg = RealTimeSequencePkg()
-    assert (len(pkg) == 0)
+    assert len(pkg) == 0
 
 
 def test_rtseqpkg_append_module():
     mod = sys.modules[__name__]
     pkg = RealTimeSequencePkg()
     pkg.append(mod)
-    assert (len(pkg) == __num_of_valid_rtseqs__)
+    assert len(pkg) == __num_of_valid_rtseqs__
 
 
 def test_rtseqpkg_append_func():
     pkg = RealTimeSequencePkg()
     pkg.append(empty_func)
-    assert (len(pkg) == 1)
+    assert len(pkg) == 1
 
 
 def test_rtseqpkg_index_returns_RealTimeSequence():
@@ -70,7 +70,7 @@ def test_rtseqpkg_append_dup_doesnt_append():
     pkg = RealTimeSequencePkg()
     pkg.append(empty_func)
     pkg.append(empty_func)
-    assert (len(pkg) == 1)
+    assert len(pkg) == 1
 
 
 def test_rtseqpkg_contains():

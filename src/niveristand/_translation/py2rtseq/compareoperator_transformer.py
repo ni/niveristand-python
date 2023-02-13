@@ -19,12 +19,12 @@ def compareoperator_transformer(node, resources):
 
 def _operator(ast_operator):
     return {
-        'Eq': "==",
-        'NotEq': "!=",
-        'Gt': ">",
-        'GtE': ">=",
-        'Lt': "<",
-        'LtE': "<=",
-        'Is': "==",
-        'IsNot': "!=",
+        "Eq": "==",
+        "NotEq": "!=",
+        "Gt": ">",
+        "GtE": ">=",
+        "Lt": "<",
+        "LtE": "<=",
+        "Is": "==",
+        "IsNot": "!=",
     }.get(ast_operator, "unknown")
