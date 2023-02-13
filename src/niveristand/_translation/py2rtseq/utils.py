@@ -7,6 +7,7 @@ from niveristand.clientapi._datatypes.rtprimitives import DoubleValue
 class Resources:
     def __init__(self, rtseq, alias):
         from niveristand.clientapi.realtimesequencepkg import RealTimeSequencePkg
+
         self._rtseq = rtseq
         self._seq_alias = alias
         self._block = None
@@ -35,7 +36,7 @@ class Resources:
         return self._local_variables[variable_name].rtseq_name
 
     def get_variable_py_name(self, rtseq_var_name):
-        result = ''
+        result = ""
         for key in self._local_variables.keys():
             if self._local_variables[key].rtseq_name == rtseq_var_name:
                 result = key
@@ -54,7 +55,9 @@ class Resources:
         self._deps = pkg
 
     def add_channel_ref(self, variable_name, channel_name, rtseq_var_name, channel_is_vector):
-        self._channel_references.append(_ChannelReference(channel_name, rtseq_var_name, channel_is_vector))
+        self._channel_references.append(
+            _ChannelReference(channel_name, rtseq_var_name, channel_is_vector)
+        )
         self.add_variable(variable_name, DoubleValue(0), rtseq_var_name)
         self.add_variable(variable_name + ".value", DoubleValue(0), rtseq_var_name)
 

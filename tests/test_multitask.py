@@ -11,16 +11,17 @@ import pytest
 from testutilities import rtseqrunner, validation
 
 
-@NivsParam('param', I32Value(0), NivsParam.BY_REF)
+@NivsParam("param", I32Value(0), NivsParam.BY_REF)
 @nivs_rt_sequence
 def _increase_param_by_ref(param):
     param.value += 1
 
 
-@NivsParam('param', I32Value(0), NivsParam.BY_REF)
+@NivsParam("param", I32Value(0), NivsParam.BY_REF)
 @nivs_rt_sequence
 def _subseq_with_multitask(param):
     with multitask() as mt:
+
         @task(mt)
         def fa():
             nivs_yield()
@@ -37,6 +38,7 @@ def _subseq_with_multitask(param):
 def multitask_pass():
     a = I32Value(1)
     with multitask() as mt:
+
         @task(mt)
         def f1():
             pass
@@ -44,6 +46,7 @@ def multitask_pass():
         @task(mt)
         def f2():
             pass
+
     return a.value
 
 
@@ -51,6 +54,7 @@ def multitask_pass():
 def multitask_access_local():
     a = I32Value(0)
     with multitask() as mt:
+
         @task(mt)
         def f1():
             a.value = 5
@@ -58,6 +62,7 @@ def multitask_access_local():
         @task(mt)
         def f2():
             a.value *= 7
+
     return a.value
 
 
@@ -65,6 +70,7 @@ def multitask_access_local():
 def multitask_blocks_until_done():
     a = I32Value(0)
     with multitask() as mt:
+
         @task(mt)
         def f1():
             nivs_yield()
@@ -74,6 +80,7 @@ def multitask_blocks_until_done():
         def f2():
             a.value = 2
             nivs_yield()
+
     if a.value != 1:
         a.value = -1
     return a.value
@@ -83,9 +90,11 @@ def multitask_blocks_until_done():
 def multitask_nested():
     a = I32Value(0)
     with multitask() as mt:
+
         @task(mt)
         def f1():
             with multitask() as mt_inside:
+
                 @task(mt_inside)
                 def fa():
                     a.value = 5
@@ -105,6 +114,7 @@ def multitask_nested():
 def multitask_task_with_yield():
     a = I32Value(0)
     with multitask() as mt:
+
         @task(mt)
         def f1():
             nivs_yield()
@@ -114,6 +124,7 @@ def multitask_task_with_yield():
         def f2():
             a.value = 2
             nivs_yield()
+
     return a.value
 
 
@@ -122,6 +133,7 @@ def multitask_tasks_with_different_iter_count():
     a = I32Value(0)
     ret = I32Value(1)
     with multitask() as mt:
+
         @task(mt)
         def f1():
             while a.value < 15:
@@ -139,6 +151,7 @@ def multitask_tasks_with_different_iter_count():
                 if a.value > 10:
                     ret.value -= 100
                 nivs_yield()
+
     ret.value *= a.value
     return ret.value
 
@@ -149,12 +162,15 @@ def multitask_nested_validate_order():
     counter = I32Value(1000)
     ret = I32Value(0)
     with multitask() as mt_top:
+
         @task(mt_top)
         def fa():
             with multitask() as mt_nested:
+
                 @task(mt_nested)
                 def f0():
                     with multitask() as mt_bottom:
+
                         @task(mt_bottom)
                         def fx():
                             if a.value != 0:
@@ -211,6 +227,7 @@ def multitask_nested_validate_order():
 def multitask_multiple_in_sequence_validate_order():
     a = I32Value(0)
     with multitask() as mt:
+
         @task(mt)
         def f1():
             nivs_yield()
@@ -224,6 +241,7 @@ def multitask_multiple_in_sequence_validate_order():
             nivs_yield()
 
     with multitask() as mt2:
+
         @task(mt2)
         def fa():
             nivs_yield()
@@ -244,6 +262,7 @@ def multitask_call_subroutine_params_by_ref():
     a = I32Value(0)
     b = I32Value(1)
     with multitask() as mt:
+
         @task(mt)
         def f1():
             _increase_param_by_ref(a)
@@ -255,6 +274,7 @@ def multitask_call_subroutine_params_by_ref():
         @task(mt)
         def f3():
             a.value += b.value
+
     return a.value
 
 
@@ -263,6 +283,7 @@ def multitask_call_subroutine_with_multitask():
     a = I32Value(0)
 
     with multitask() as mt:
+
         @task(mt)
         def f1():
             _subseq_with_multitask(a)
@@ -287,6 +308,7 @@ def multitask_call_subroutine_with_multitask():
 def multitask_duplicate_name_fails():
     a = I32Value(0)
     with multitask() as mt:
+
         @task(mt)
         def f1():
             a.value = 1
@@ -294,6 +316,7 @@ def multitask_duplicate_name_fails():
         @task(mt)  # noqa: F811 redefinition is exactly what we're testing here.
         def f1():  # noqa: F811 redefinition is exactly what we're testing here.
             a.value = 2
+
     return a.value
 
 
@@ -301,10 +324,12 @@ def multitask_duplicate_name_fails():
 def multitask_redefine_var_fails():
     a = I32Value(0)
     with multitask() as mt:
+
         @task(mt)
         def f1():
             a = I32Value(1)
             a.value = 2
+
     return a.value
 
 
@@ -312,10 +337,12 @@ def multitask_redefine_var_fails():
 def multitask_return_fails():
     a = I32Value(0)
     with multitask() as mt:
+
         @task(mt)
         def f1():
             a = I32Value(1)
             a.value = 2
+
         return a.value
 
 
@@ -323,10 +350,12 @@ def multitask_return_fails():
 def multitask_stmt_fails():
     a = I32Value(0)
     with multitask() as mt:
+
         @task(mt)
         def f1():
             a = I32Value(1)
             a.value = 2
+
         return a.value
 
 
@@ -334,6 +363,7 @@ def multitask_stmt_fails():
 def multitask_with_param_fails():
     a = I32Value(1)
     with multitask(a) as mt:
+
         @task(mt)
         def f1():
             pass
@@ -341,6 +371,7 @@ def multitask_with_param_fails():
         @task(mt)
         def f2():
             pass
+
     return a.value
 
 
@@ -348,6 +379,7 @@ def multitask_with_param_fails():
 def multitask_task_with_param_fails():
     a = I32Value(1)
     with multitask(a) as mt:
+
         @task(mt)
         def f1(x):
             pass
@@ -355,6 +387,7 @@ def multitask_task_with_param_fails():
         @task(mt)
         def f2():
             pass
+
     return a.value
 
 
@@ -362,10 +395,12 @@ def multitask_task_with_param_fails():
 def multitask_return_in_task_fails():
     a = I32Value(0)
     with multitask() as mt:
+
         @task(mt)
         def f1():
             a = I32Value(1)
             return a.value
+
     return a.value
 
 
@@ -373,10 +408,12 @@ def multitask_return_in_task_fails():
 def multitask_funcdef_in_task_fails():
     a = I32Value(0)
     with multitask() as mt:
+
         @task(mt)
         def f1():
             def func():
                 pass
+
     return a.value
 
 
@@ -384,9 +421,11 @@ def multitask_funcdef_in_task_fails():
 def multitask_no_var_name_fails():
     a = I32Value(0)
     with multitask():
+
         @task()
         def f1():
             pass
+
     return a.value
 
 
@@ -394,9 +433,11 @@ def multitask_no_var_name_fails():
 def multitask_wrong_var_name_fails():
     a = I32Value(0)
     with multitask():
+
         @task(a)
         def f1():
             pass
+
     return a.value
 
 
@@ -404,10 +445,12 @@ def multitask_wrong_var_name_fails():
 def multitask_task_multi_dec_fails():
     a = I32Value(0)
     with multitask() as mt:
+
         @task(mt)
         @task(mt)
         def f1():
             pass
+
     return a.value
 
 

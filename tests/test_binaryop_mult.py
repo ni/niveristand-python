@@ -200,7 +200,7 @@ def mult_with_channel_ref():
 @nivs_rt_sequence
 def mult_binary_unary():
     a = DoubleValue(0)
-    a.value = 2 * - 1
+    a.value = 2 * -1
     return a.value
 
 
@@ -212,6 +212,7 @@ def mult_complex_expr():
 
 
 # <editor-fold desc=Augassign tests>
+
 
 @nivs_rt_sequence
 def aug_mult_simple_numbers():
@@ -270,6 +271,7 @@ def aug_mult_unary():
 
 # <editor-fold desc=Augassign tests>
 
+
 @nivs_rt_sequence
 def mult_invalid_variables():
     return a * b
@@ -292,6 +294,7 @@ def mult_invalid_rtseq_call():
     a = DoubleValue(0)
     a.value = _return_constant * 1
     return a
+
 
 # </editor-fold>
 

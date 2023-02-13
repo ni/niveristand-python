@@ -162,8 +162,10 @@ def while_try_finally_fail():
 @nivs_rt_sequence
 def while_funcdef_fail():
     while True:
+
         def f1():
             pass
+
         f1()
 
 

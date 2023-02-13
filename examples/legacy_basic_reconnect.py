@@ -15,8 +15,8 @@ from niveristand.legacy import NIVeriStand
 GATEWAY = "localhost"
 TARGET = "Controller"
 
-SINE_WAVE = 'Aliases/SineWave'
-LOOP_RATE = 'Targets/Controller/System Channels/Actual Loop Rate'
+SINE_WAVE = "Aliases/SineWave"
+LOOP_RATE = "Targets/Controller/System Channels/Actual Loop Rate"
 # channel adresses can be entered as full paths or aliases
 
 
@@ -26,15 +26,18 @@ def sleep():
 
 wks = NIVeriStand.Workspace2(GATEWAY)  # create workspace object
 try:
-    print("Connecting to the gateway %(gateway)s, target %(target)s" % {'gateway': GATEWAY, "target": TARGET})
+    print(
+        "Connecting to the gateway %(gateway)s, target %(target)s"
+        % {"gateway": GATEWAY, "target": TARGET}
+    )
     wks.ReconnectToSystem(TARGET, True, None, 60000)  # reconnect to already deployed system
     print("NI VeriStand Running and Client Connected!")
     input("Press Enter to start printing data values, then you can press Ctrl+C to disconnect.")
 
-    while (1):
+    while 1:
         print("Actual Loop Rate: ", wks.GetSingleChannelValue(LOOP_RATE))
         print("Sine wave:", wks.GetSingleChannelValue(SINE_WAVE))
-        print('')
+        print("")
         sleep()
 
 except RunError as err:
@@ -47,4 +50,4 @@ except Exception:
     print(sys.exc_info())
     time.sleep(10)
 finally:
-    wks.DisconnectFromSystem('', True)  # undeploy project
+    wks.DisconnectFromSystem("", True)  # undeploy project

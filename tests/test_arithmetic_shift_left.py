@@ -2,7 +2,14 @@ import sys
 
 from niveristand import nivs_rt_sequence
 from niveristand import realtimesequencetools
-from niveristand.clientapi import BooleanValue, ChannelReference, DoubleValue, I32Value, I64Value, RealTimeSequence
+from niveristand.clientapi import (
+    BooleanValue,
+    ChannelReference,
+    DoubleValue,
+    I32Value,
+    I64Value,
+    RealTimeSequence,
+)
 from niveristand.errors import TranslateError, VeristandError
 from niveristand.library.primitives import localhost_wait
 import pytest
@@ -341,6 +348,7 @@ def arithmetic_shift_left_complex_expr():
     a.value = 1 << (2 if 2 < 3 else 4)
     return a.value
 
+
 # </editor-fold>
 
 
@@ -381,14 +389,34 @@ fail_transform_tests = [
     (arithmetic_shift_left_invalid_variables, (), TranslateError),
     (arithmetic_shift_left_invalid_variables1, (), TranslateError),
     (arithmetic_shift_left_num_nivsdatatype, (), VeristandError),  # cannot do shift left on Double
-    (arithmetic_shift_left_nivsdatatype_nivsdatatype, (), VeristandError),  # cannot do shift left on Double
-    (arithmetic_shift_left_nivsdatatype_nivsdatatype2, (), VeristandError),  # cannot do shift left on Boolean
+    (
+        arithmetic_shift_left_nivsdatatype_nivsdatatype,
+        (),
+        VeristandError,
+    ),  # cannot do shift left on Double
+    (
+        arithmetic_shift_left_nivsdatatype_nivsdatatype2,
+        (),
+        VeristandError,
+    ),  # cannot do shift left on Boolean
     (arithmetic_shift_left_with_parentheses1, (), VeristandError),  # cannot do shift left on Double
     (arithmetic_shift_left_with_parentheses2, (), VeristandError),  # cannot do shift left on Double
-    (arithmetic_shift_left_augassign_nivsdatatype4, (), VeristandError),  # cannot do shift left on Double
-    (arithmetic_shift_left_augassign_variable4, (), VeristandError),  # cannot do shift left on Double
+    (
+        arithmetic_shift_left_augassign_nivsdatatype4,
+        (),
+        VeristandError,
+    ),  # cannot do shift left on Double
+    (
+        arithmetic_shift_left_augassign_variable4,
+        (),
+        VeristandError,
+    ),  # cannot do shift left on Double
     (arithmetic_shift_left_to_channel_ref, (), VeristandError),  # cannot do shift left on Double
-    (arithmetic_shift_left_augassign_channel_ref, (), VeristandError),  # cannot do shift left on Double
+    (
+        arithmetic_shift_left_augassign_channel_ref,
+        (),
+        VeristandError,
+    ),  # cannot do shift left on Double
     (arithmetic_shift_left_to_None, (), TranslateError),
     (arithmetic_shift_left_invalid_rtseq_call, (), VeristandError),
     (arithmetic_shift_left_binary_unary, (), TranslateError),
@@ -411,7 +439,9 @@ def test_transform(func_name, params, expected_result):
     RealTimeSequence(func_name)
 
 
-@pytest.mark.parametrize("func_name, params, expected_result", list(set(run_tests) - set(py_only_errs)), ids=idfunc)
+@pytest.mark.parametrize(
+    "func_name, params, expected_result", list(set(run_tests) - set(py_only_errs)), ids=idfunc
+)
 def test_runpy(func_name, params, expected_result):
     actual = func_name(*params)
     assert actual == expected_result

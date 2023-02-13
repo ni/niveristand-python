@@ -224,6 +224,7 @@ def sub_complex_expr():
 
 # <editor-fold desc=Augassign tests>
 
+
 @nivs_rt_sequence
 def aug_sub_simple_numbers():
     a = DoubleValue(1)
@@ -281,6 +282,7 @@ def aug_sub_unary():
 
 # <editor-fold desc=Invalid tests>
 
+
 @nivs_rt_sequence
 def sub_invalid_variables():
     return a - b
@@ -303,6 +305,7 @@ def sub_invalid_rtseq_call():
     a = DoubleValue(0)
     a.value = _return_constant - 1
     return a.value
+
 
 # </editor-fold>
 

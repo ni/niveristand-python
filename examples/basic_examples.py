@@ -1,15 +1,38 @@
 from niveristand import nivs_rt_sequence, NivsParam, realtimesequencetools
-from niveristand.clientapi import BooleanValue, ChannelReference, DoubleValue, DoubleValueArray, ErrorAction, \
-    I32Value, I64Value
+from niveristand.clientapi import (
+    BooleanValue,
+    ChannelReference,
+    DoubleValue,
+    DoubleValueArray,
+    ErrorAction,
+    I32Value,
+    I64Value,
+)
 from niveristand.errors import RunError
-from niveristand.library import arraysize, generate_error, iteration, nivs_yield, rand, seqtime, seqtimeus, \
-    tickcountms, tickcountus, wait
-from niveristand.library.waveforms import ramp, sawtooth_wave, sine_wave, square_wave, triangle_wave, \
-    uniform_white_noise_wave
+from niveristand.library import (
+    arraysize,
+    generate_error,
+    iteration,
+    nivs_yield,
+    rand,
+    seqtime,
+    seqtimeus,
+    tickcountms,
+    tickcountus,
+    wait,
+)
+from niveristand.library.waveforms import (
+    ramp,
+    sawtooth_wave,
+    sine_wave,
+    square_wave,
+    triangle_wave,
+    uniform_white_noise_wave,
+)
 
 
-@NivsParam('x', DoubleValue(0), NivsParam.BY_VALUE)
-@NivsParam('y', DoubleValue(0), NivsParam.BY_VALUE)
+@NivsParam("x", DoubleValue(0), NivsParam.BY_VALUE)
+@NivsParam("y", DoubleValue(0), NivsParam.BY_VALUE)
 @nivs_rt_sequence
 def add_two_numbers(x, y):
     result = DoubleValue(0)
@@ -110,9 +133,12 @@ def state_machine_example():
     iters = I32Value(0)
     amplitude = DoubleValue(1000)
     stop = BooleanValue(False)
-    output = ChannelReference('Aliases/DesiredRPM')
+    output = ChannelReference("Aliases/DesiredRPM")
 
-    while stop.value != True and iters.value < 10:  # noqa: E712 NI recommends you use comparison instead of identity.
+    while (
+        stop.value != True  # noqa: E712 NI recommends you use comparison instead of identity.
+        and iters.value < 10
+    ):
         state.value = rand(7)
         if state.value == 0:
             wait(2)
@@ -159,7 +185,7 @@ def run_deterministic(func):
     print("Function " + func.__name__ + "(Deterministic):" + str(result))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     run_non_deterministic(array_operations)
     run_deterministic(array_operations)
     run_non_deterministic(measure_elapsed_time)

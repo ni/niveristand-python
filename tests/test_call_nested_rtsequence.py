@@ -4,7 +4,7 @@ from niveristand.library import wait
 import pytest
 
 
-@ nivs_rt_sequence
+@nivs_rt_sequence
 def nested_sequence():
     wait(DoubleValue(1))
 
@@ -47,7 +47,7 @@ run_tests = [
     call_nested_sequence_after,
     call_nested_sequence_before,
     call_nested_sequence_twice,
-    call_complex_nested_sequences
+    call_complex_nested_sequences,
 ]
 
 

@@ -11,6 +11,7 @@ def custom_nivs_yield(node, resources):
 
 def _validate_node():
     from niveristand._translation.py2rtseq import exp_transformer
+
     # There's only one valid way to call nivs_yield which is this call stack:
     # 0: _validate_node
     # 1: custom_nivs_yield

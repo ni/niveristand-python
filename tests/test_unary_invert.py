@@ -231,6 +231,7 @@ def invert_double_var():
 
 # <editor-fold desc=Invalid tests>
 
+
 @nivs_rt_sequence
 def invert_invalid_variables():
     return ~a
@@ -253,6 +254,7 @@ def invert_invalid_rtseq_call():
     a = I32Value(0)
     a.value = ~_returns_zero
     return a
+
 
 # </editor-fold>
 

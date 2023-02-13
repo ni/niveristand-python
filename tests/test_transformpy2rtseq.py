@@ -31,7 +31,7 @@ def test_transform_empty_with_two_decorators():
 def test_transform_simple_local_assignment():
     testfunc = testfuncs.simple_local_assignment
     rtseq = RealTimeSequence(testfunc)
-    assert (rtseq._rtseq.Variables.LocalVariables.Variables.Length == 1)
+    assert rtseq._rtseq.Variables.LocalVariables.Variables.Length == 1
 
 
 def test_transform_pi_assign_to_local():

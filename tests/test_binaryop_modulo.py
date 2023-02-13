@@ -2,7 +2,13 @@ import sys
 
 from niveristand import nivs_rt_sequence
 from niveristand import realtimesequencetools
-from niveristand.clientapi import ChannelReference, DoubleValue, I32Value, I64Value, RealTimeSequence
+from niveristand.clientapi import (
+    ChannelReference,
+    DoubleValue,
+    I32Value,
+    I64Value,
+    RealTimeSequence,
+)
 from niveristand.errors import TranslateError, VeristandError
 from niveristand.library.primitives import localhost_wait
 import pytest
@@ -249,6 +255,7 @@ def modulo_complex_expr():
 
 # <editor-fold desc=Augassign tests>
 
+
 @nivs_rt_sequence
 def aug_modulo_simple_numbers():
     a = DoubleValue(1)
@@ -306,6 +313,7 @@ def aug_modulo_unary():
 
 # <editor-fold desc=Invalid tests>
 
+
 @nivs_rt_sequence
 def modulo_invalid_variables():
     return a % b
@@ -328,6 +336,7 @@ def modulo_invalid_rtseq_call():
     a = DoubleValue(0)
     a.value = _return_constant % 1
     return a
+
 
 # </editor-fold>
 
@@ -400,7 +409,9 @@ def test_transform(func_name, params, expected_result):
 
 @pytest.mark.parametrize(
     "func_name, params, expected_result",
-    list(set(run_tests) - set(py_only_different_behavior_tests)), ids=idfunc)
+    list(set(run_tests) - set(py_only_different_behavior_tests)),
+    ids=idfunc,
+)
 def test_runpy(func_name, params, expected_result):
     actual = func_name(*params)
     assert actual == expected_result

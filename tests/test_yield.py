@@ -41,6 +41,7 @@ def yield_in_while():
 @nivs_rt_sequence
 def yield_multitask():
     with multitask() as mt:
+
         @task(mt)
         def f1():
             for a in range(5):
@@ -49,6 +50,7 @@ def yield_multitask():
         @task(mt)
         def f2():
             with multitask() as mt_inner:
+
                 @task(mt_inner)
                 def fa():
                     for b in range(7):
@@ -58,6 +60,7 @@ def yield_multitask():
                 def fb():
                     for c in range(13):
                         nivs_yield()
+
     a = I32Value(0)
     a.value = iteration()
     return a.value

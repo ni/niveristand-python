@@ -21,7 +21,9 @@ def functiondef_with_kwargs(**kwargs):
 def functiondef_nested():
     def functiondef_inside():
         pass
+
     pass
+
 
 # def functiondef_with_kwarg_default(*args, kwarg=1):
 #    return kwarg
@@ -77,7 +79,7 @@ def test_functiondef_transformer_fails(func):
 
 
 def _fail_function_helper(func):
-    node = (ast.parse(inspect.getsource(func)))
+    node = ast.parse(inspect.getsource(func))
     node = node.body[0]
     with pytest.raises(errors.TranslateError):
-        functiondef_transformer.functiondef_transformer(node, utils.Resources(None, '<test>'))
+        functiondef_transformer.functiondef_transformer(node, utils.Resources(None, "<test>"))

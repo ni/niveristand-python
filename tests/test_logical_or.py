@@ -115,6 +115,7 @@ def logical_or_unary():
 
 # <editor-fold desc=Invalid tests>
 
+
 @nivs_rt_sequence
 def logical_or_invalid_variables():
     return a.value or b
@@ -137,6 +138,7 @@ def logical_or_invalid_rtseq_call():
     a = BooleanValue(False)
     a.value = True or _return_true
     return a.value
+
 
 # </editor-fold>
 

@@ -5,45 +5,46 @@ from setuptools import find_packages
 from setuptools import setup
 
 
-pypi_name = 'niveristand'
+pypi_name = "niveristand"
 
 
 def get_version(name):
     """Calculate a version number."""
     import os
+
     version = None
     script_dir = os.path.dirname(os.path.realpath(__file__))
     script_dir = os.path.join(script_dir, name)
-    if not os.path.exists(os.path.join(script_dir, 'VERSION')):
-        version = '2.0.2'
+    if not os.path.exists(os.path.join(script_dir, "VERSION")):
+        version = "2.0.2"
     else:
-        with open(os.path.join(script_dir, 'VERSION'), 'r') as version_file:
+        with open(os.path.join(script_dir, "VERSION"), "r") as version_file:
             version = version_file.read().rstrip()
     return version
 
 
 def read_contents(file_to_read):
     """Read a file in this folder."""
-    with open(join(dirname(__file__), file_to_read), 'r') as f:
+    with open(join(dirname(__file__), file_to_read), "r") as f:
         return f.read()
 
 
 setup(
     name=pypi_name,
     version=get_version(pypi_name),
-    description='NI VeriStand Python API',
-    long_description=read_contents('README.rst'),
-    author='National Instruments',
+    description="NI VeriStand Python API",
+    long_description=read_contents("README.rst"),
+    author="National Instruments",
     maintainer="Marcelo Izaguirre",
     maintainer_email="marcelo.izaguirre@ni.com",
     url="https://github.com/ni/niveristand-python",
-    keywords=['niveristand', 'veristand'],
-    license='MIT',
-    packages=find_packages('src'),
-    package_dir={'': 'src'},
+    keywords=["niveristand", "veristand"],
+    license="MIT",
+    packages=find_packages("src"),
+    package_dir={"": "src"},
     include_package_data=True,
-    install_requires=['pythonnet~=3.0.1', 'PyYAML'],
-    tests_require=['pytest', 'numpy'],
+    install_requires=["pythonnet~=3.0.1", "PyYAML"],
+    tests_require=["pytest", "numpy"],
     classifiers=[
         "Development Status :: 5 - Production/Stable",
         "Intended Audience :: Developers",
@@ -54,7 +55,7 @@ setup(
         "Programming Language :: Python :: 3.8",
         "Programming Language :: Python :: Implementation :: CPython",
         "Programming Language :: Python :: Implementation :: PyPy",
-        "Topic :: Software Development :: Testing"
+        "Topic :: Software Development :: Testing",
     ],
-    package_data={pypi_name: ['VERSION']},
+    package_data={pypi_name: ["VERSION"]},
 )

@@ -3,7 +3,13 @@ from niveristand import nivs_rt_sequence
 from niveristand import realtimesequencetools
 from niveristand.clientapi import DoubleValue, I32Value
 from niveristand.clientapi import ErrorAction, RealTimeSequence
-from niveristand.errors import RunAbortedError, RunError, RunFailedError, SequenceError, TranslateError
+from niveristand.errors import (
+    RunAbortedError,
+    RunError,
+    RunFailedError,
+    SequenceError,
+    TranslateError,
+)
 from niveristand.library import multitask, nivs_yield, task
 from niveristand.library.primitives import generate_error
 import pytest
@@ -83,6 +89,7 @@ def generate_abort():
 def generate_continue_mt():
     a = DoubleValue(0)
     with multitask() as mt:
+
         @task(mt)
         def f1():
             generate_error(1, "Continue", ErrorAction.ContinueSequenceExecution)
@@ -91,6 +98,7 @@ def generate_continue_mt():
         def f2():
             nivs_yield()
             a.value = 1
+
     return a.value
 
 
@@ -98,6 +106,7 @@ def generate_continue_mt():
 def generate_stop_mt():
     a = DoubleValue(0)
     with multitask() as mt:
+
         @task(mt)
         def f1():
             generate_error(-100, "Stop", ErrorAction.StopSequence)
@@ -106,6 +115,7 @@ def generate_stop_mt():
         def f2():
             nivs_yield()
             a.value = 1
+
     return a.value
 
 
@@ -113,6 +123,7 @@ def generate_stop_mt():
 def generate_abort_mt():
     a = DoubleValue(0)
     with multitask() as mt:
+
         @task(mt)
         def f1():
             generate_error(-200, "Abort", ErrorAction.AbortSequence)
@@ -121,6 +132,7 @@ def generate_abort_mt():
         def f2():
             nivs_yield()
             a.value = 1
+
     return a.value
 
 

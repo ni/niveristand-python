@@ -45,7 +45,7 @@ class AstPrinter(object):
         self.decrement_indent(") # %s" % node.__class__.__name__)
 
     def print_with_indentation(self, msg):
-        print((' ' * self.__indent) + msg)
+        print((" " * self.__indent) + msg)
 
     def increment_indent(self):
         self.__indent += 4
@@ -67,12 +67,12 @@ class AstGUIPrinter(AstPrinter):
 
     def print_all(self):
         self.print_node(self._topnode)
-        self._topwindow.geometry('300x900')
+        self._topwindow.geometry("300x900")
         self._tree.pack(side=tkinter.LEFT, fill=tkinter.BOTH, expand=tkinter.YES)
         self._topwindow.mainloop()
 
     def print_with_indentation(self, msg):
-        self._lastitem = self._tree.insert(self._curparent, 'end', text=msg)
+        self._lastitem = self._tree.insert(self._curparent, "end", text=msg)
 
     def increment_indent(self):
         self._prevparent = self._curparent
