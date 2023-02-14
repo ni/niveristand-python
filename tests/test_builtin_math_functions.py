@@ -1,9 +1,43 @@
-from math import acos, acosh, asin, asinh, atan, atan2, atanh, ceil, cos, cosh, exp, expm1, floor, fmod, hypot, isnan, \
-    log, log10, log1p, log2, pi, sin, sinh, sqrt, tan, tanh
+from math import (
+    acos,
+    acosh,
+    asin,
+    asinh,
+    atan,
+    atan2,
+    atanh,
+    ceil,
+    cos,
+    cosh,
+    exp,
+    expm1,
+    floor,
+    fmod,
+    hypot,
+    isnan,
+    log,
+    log10,
+    log1p,
+    log2,
+    pi,
+    sin,
+    sinh,
+    sqrt,
+    tan,
+    tanh,
+)
 import sys
 from niveristand import nivs_rt_sequence
 from niveristand import realtimesequencetools
-from niveristand.clientapi import BooleanValue, ChannelReference, DoubleValue, I32Value, I64Value, U32Value, U64Value
+from niveristand.clientapi import (
+    BooleanValue,
+    ChannelReference,
+    DoubleValue,
+    I32Value,
+    I64Value,
+    U32Value,
+    U64Value,
+)
 from niveristand.clientapi import RealTimeSequence
 from niveristand.library.primitives import localhost_wait
 import numpy
@@ -18,6 +52,7 @@ def _return_constant():
 
 
 # <editor-fold desc=Abs tests>
+
 
 @nivs_rt_sequence
 def abs_simple_number():
@@ -166,6 +201,7 @@ def abs_builtin():
     a = DoubleValue(0)
     a.value = abs(abs(-5))
     return a.value
+
 
 # </editor-fold>
 
@@ -490,7 +526,9 @@ def test_transform(func_name, params, expected_result):
 
 @pytest.mark.parametrize(
     "func_name, params, expected_result",
-    list(set(run_tests) - set(py_only_different_behavior_tests)), ids=idfunc)
+    list(set(run_tests) - set(py_only_different_behavior_tests)),
+    ids=idfunc,
+)
 def test_runpy(func_name, params, expected_result):
     actual = func_name(*params)
     assert actual == expected_result

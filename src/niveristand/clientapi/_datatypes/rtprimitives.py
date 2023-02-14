@@ -1,5 +1,7 @@
 from niveristand import _internal
-from NationalInstruments.VeriStand.Data import BooleanValue as ClientApiBooleanValue  # noqa: E501, I100 We need these C# imports to be out of order.
+from NationalInstruments.VeriStand.Data import (  # noqa: I100 .NET imports need to be out of order
+    BooleanValue as ClientApiBooleanValue,
+)
 from NationalInstruments.VeriStand.Data import BooleanValueArray as ClientApiBooleanValueArray
 from NationalInstruments.VeriStand.Data import DataValue
 from NationalInstruments.VeriStand.Data import DoubleValue as ClientApiDoubleValue
@@ -191,17 +193,17 @@ class DataType(object):
 
     def __pow__(self, power, modulo=None):
         if isinstance(power, DataType):
-            return self.value ** power.value
+            return self.value**power.value
         elif isinstance(power, (int, float)):
-            return self.value ** power
+            return self.value**power
         else:
             raise nivsexceptions.VeristandError(_errormessages.invalid_type_for_operator)
 
     def __rpow__(self, other):
         if isinstance(other, DataType):
-            return other.value ** self.value
+            return other.value**self.value
         elif isinstance(other, (int, float)):
-            return other ** self.value
+            return other**self.value
         else:
             raise nivsexceptions.VeristandError(_errormessages.invalid_type_for_operator)
 
@@ -379,12 +381,13 @@ class ChannelReference(DataType):
 
     @property
     def value(self):
-        return \
-            _DefaultGatewayFactory.get_workspace2().get_single_channel_value(self._channel_name)
+        return _DefaultGatewayFactory.get_workspace2().get_single_channel_value(self._channel_name)
 
     @value.setter
     def value(self, newvalue):
-        _DefaultGatewayFactory.get_workspace2().set_single_channel_value(self._channel_name, newvalue)
+        _DefaultGatewayFactory.get_workspace2().set_single_channel_value(
+            self._channel_name, newvalue
+        )
 
     def _to_data_value(self, value):
         # in pythonnet 3.0.0+, strings are no longer coerced to 0 by ClientApiDoubleValue
@@ -420,12 +423,14 @@ class BooleanValue(DataType):
     def _to_data_value(self, value):
         if self._is_valid_assign_type(value):
             value = bool(value)
-        elif type(value) is str and str(value).lower() == 'true':
+        elif type(value) is str and str(value).lower() == "true":
             value = True
-        elif type(value) is str and str(value).lower() == 'false':
+        elif type(value) is str and str(value).lower() == "false":
             value = False
         else:
-            raise TypeError('%s can not be created from value "%s"' % (self.__class__.__name__, str(value)))
+            raise TypeError(
+                '%s can not be created from value "%s"' % (self.__class__.__name__, str(value))
+            )
         return ClientApiBooleanValue(value)
 
 
@@ -448,7 +453,9 @@ class DoubleValue(DataType):
         if self._is_valid_assign_type(value):
             value = float(value)
         else:
-            raise TypeError('%s can not be created from value "%s"' % (self.__class__.__name__, str(value)))
+            raise TypeError(
+                '%s can not be created from value "%s"' % (self.__class__.__name__, str(value))
+            )
         return ClientApiDoubleValue(value)
 
 
@@ -471,7 +478,9 @@ class I32Value(DataType):
         if self._is_valid_assign_type(value):
             value = SystemInt32(int(value))
         else:
-            raise TypeError('%s can not be created from value "%s"' % (self.__class__.__name__, str(value)))
+            raise TypeError(
+                '%s can not be created from value "%s"' % (self.__class__.__name__, str(value))
+            )
         return ClientApiI32Value(value)
 
 
@@ -494,7 +503,9 @@ class I64Value(DataType):
         if self._is_valid_assign_type(value):
             value = SystemInt64(int(value))
         else:
-            raise TypeError('%s can not be created from value "%s"' % (self.__class__.__name__, str(value)))
+            raise TypeError(
+                '%s can not be created from value "%s"' % (self.__class__.__name__, str(value))
+            )
         return ClientApiI64Value(value)
 
 
@@ -517,7 +528,9 @@ class U32Value(DataType):
         if self._is_valid_assign_type(value):
             value = SystemUInt32(int(value))
         else:
-            raise TypeError('%s can not be created from value "%s"' % (self.__class__.__name__, str(value)))
+            raise TypeError(
+                '%s can not be created from value "%s"' % (self.__class__.__name__, str(value))
+            )
         return ClientApiU32Value(value)
 
 
@@ -540,7 +553,9 @@ class U64Value(DataType):
         if self._is_valid_assign_type(value):
             value = SystemUInt64(int(value))
         else:
-            raise TypeError('%s can not be created from value "%s"' % (self.__class__.__name__, str(value)))
+            raise TypeError(
+                '%s can not be created from value "%s"' % (self.__class__.__name__, str(value))
+            )
         return ClientApiU64Value(value)
 
 
@@ -580,7 +595,7 @@ VALID_RETURN_TYPES = {
     I32Value.__name__: I32Value,
     I64Value.__name__: I64Value,
     U32Value.__name__: U32Value,
-    U64Value.__name__: U64Value
+    U64Value.__name__: U64Value,
 }
 
 VALID_ARRAY_TYPES = {
@@ -595,5 +610,5 @@ VALID_ARRAY_TYPES = {
 
 CHANNEL_REF_TYPES = {
     ChannelReference.__name__: ChannelReference,
-    VectorChannelReference.__name__: VectorChannelReference
+    VectorChannelReference.__name__: VectorChannelReference,
 }

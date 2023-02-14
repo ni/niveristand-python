@@ -201,7 +201,7 @@ def div_with_channel_ref():
 @nivs_rt_sequence
 def div_binary_unary():
     a = DoubleValue(0)
-    a.value = 2 / - 1
+    a.value = 2 / -1
     return a.value
 
 
@@ -213,6 +213,7 @@ def div_complex_expr():
 
 
 # <editor-fold desc=Augassign tests>
+
 
 @nivs_rt_sequence
 def aug_div_simple_numbers():
@@ -269,6 +270,7 @@ def aug_div_unary():
 
 # </editor-fold>
 
+
 # <editor-fold desc=Invalid tests>
 @nivs_rt_sequence
 def div_invalid_variables():
@@ -292,6 +294,7 @@ def div_invalid_rtseq_call():
     a = DoubleValue(0)
     a.value = _return_constant / 1
     return a
+
 
 # </editor-fold>
 

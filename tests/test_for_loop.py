@@ -97,7 +97,7 @@ def for_loop_range_with_variable():
 @nivs_rt_sequence
 def for_loop_range_with_channel_ref():
     a = DoubleValue(0)
-    b = ChannelReference('Aliases/DesiredRPM')
+    b = ChannelReference("Aliases/DesiredRPM")
     b.value = 10.0
     localhost_wait(0.2)
     for x in range(b.value):
@@ -181,13 +181,15 @@ def for_try_in_body():
 @nivs_rt_sequence
 def for_funcdef_in_body():
     for i in range(5):
+
         def func():
             pass
+
         pass
 
 
 @nivs_rt_sequence
-@NivsParam('array', DoubleValueArray([0]), NivsParam.BY_REF)
+@NivsParam("array", DoubleValueArray([0]), NivsParam.BY_REF)
 def _average(array):
     average_var = DoubleValue(0)
     for x in array:

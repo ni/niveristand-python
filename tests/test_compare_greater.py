@@ -194,7 +194,7 @@ def greater_to_channel_ref():
 @nivs_rt_sequence
 def greater_binary_unary():
     a = BooleanValue(False)
-    a.value = 2 > - 1
+    a.value = 2 > -1
     return a.value
 
 
@@ -213,6 +213,7 @@ def greater_complex_expr():
 
 
 # <editor-fold desc=Invalid tests>
+
 
 @nivs_rt_sequence
 def greater_invalid_variables():
@@ -236,6 +237,7 @@ def greater_invalid_rtseq_call():
     a = BooleanValue(False)
     a.value = _return_constant > 1
     return a.value
+
 
 # </editor-fold>
 

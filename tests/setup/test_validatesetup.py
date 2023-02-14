@@ -15,8 +15,10 @@ def test_pass():
 
 def test_pythonnetworks():
     import clr
+
     clr.AddReference("System")
     from System import String
+
     s = String("teststring")
     assert "teststring" == str(s)
 
@@ -30,6 +32,7 @@ def test_binariesfound():
 
 def test_getinstalledbinariespath():
     from niveristand._internal import _get_install_path
+
     try:
         bindir = _get_install_path()
         assert bindir is not None

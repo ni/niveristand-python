@@ -6,13 +6,13 @@ from niveristand.errors import VeristandError
 import pytest
 
 
-@NivsParam('p', DoubleValue(1.2), NivsParam.BY_REF)
+@NivsParam("p", DoubleValue(1.2), NivsParam.BY_REF)
 @nivs_rt_sequence
 def func1(p):
     return p.value
 
 
-@NivsParam('p', DoubleValueArray([1.2, 2.3]), NivsParam.BY_VALUE)
+@NivsParam("p", DoubleValueArray([1.2, 2.3]), NivsParam.BY_VALUE)
 @nivs_rt_sequence
 def func2(p):
     return p[0].value
@@ -24,7 +24,7 @@ def test_run_py_as_rtseq_numeric_param():
 
 
 def test_run_py_as_rtseq_channel_reference_param():
-    desired_rpm = ChannelReference('Aliases/DesiredRPM')
+    desired_rpm = ChannelReference("Aliases/DesiredRPM")
     desired_rpm.value = 100.101
     actual = realtimesequencetools.run_py_as_rtseq(func1, {"p": desired_rpm})
     assert actual == 100.101
@@ -32,7 +32,9 @@ def test_run_py_as_rtseq_channel_reference_param():
 
 def test_run_py_as_rtseq_invalid_extra_parameter():
     with pytest.raises(VeristandError):
-        realtimesequencetools.run_py_as_rtseq(func1, {"p": DoubleValue(2.3), "pp": DoubleValue(3.4)})
+        realtimesequencetools.run_py_as_rtseq(
+            func1, {"p": DoubleValue(2.3), "pp": DoubleValue(3.4)}
+        )
 
 
 def test_run_py_as_rtseq_missing_by_ref_parameter():
@@ -58,7 +60,7 @@ def test_realtimesequence_numeric_param():
 
 
 def test_realtimesequence_channel_reference_param():
-    desired_rpm = ChannelReference('Aliases/DesiredRPM')
+    desired_rpm = ChannelReference("Aliases/DesiredRPM")
     desired_rpm.value = 100.101
     rtseq = RealTimeSequence(func1)
     actual = rtseq.run({"p": desired_rpm})

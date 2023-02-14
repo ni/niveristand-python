@@ -243,6 +243,7 @@ def if_elif_return_fails():
 @nivs_rt_sequence
 def if_funcdef_fails():
     if True:
+
         def func():
             pass
 
@@ -252,6 +253,7 @@ def if_else_funcdef_fails():
     if False:
         pass
     else:
+
         def func():
             pass
 
@@ -261,8 +263,10 @@ def if_elif_funcdef_fails():
     if False:
         pass
     elif True:
+
         def func():
             pass
+
     else:
         pass
 

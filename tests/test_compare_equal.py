@@ -239,7 +239,7 @@ def equal_to_channel_ref():
 @nivs_rt_sequence
 def equal_binary_unary():
     a = BooleanValue(0)
-    a.value = -1 == - 1
+    a.value = -1 == -1
     return a.value
 
 
@@ -258,6 +258,7 @@ def equal_complex_expr():
 
 
 # <editor-fold desc=Invalid tests>
+
 
 @nivs_rt_sequence
 def equal_invalid_variables():
@@ -281,6 +282,7 @@ def equal_invalid_rtseq_call():
     a = BooleanValue(0)
     a.value = _return_constant == 1
     return a.value
+
 
 # </editor-fold>
 

@@ -30,5 +30,5 @@ def _save_debug_helper(func):
     rtseq.save_py_as_rtseq(func, tempfolder)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     _save_debug_helper(testfuncs.simple_assign_pi)

@@ -1,7 +1,9 @@
 from niveristand.clientapi._dotnetclasswrapperbase import _DotNetClassWrapperBase
 from niveristand.clientapi._stimulusprofilesession import _StimulusProfileSession
 from niveristand.clientapi._workspace2 import _Workspace2
-from NationalInstruments.VeriStand.ClientAPI import Factory as FactoryDotNet  # noqa: I100
+from NationalInstruments.VeriStand.ClientAPI import (  # noqa: I100 .NET imports need to be out of order
+    Factory as FactoryDotNet,
+)
 
 
 class _Factory(_DotNetClassWrapperBase):
@@ -53,7 +55,9 @@ class _Factory(_DotNetClassWrapperBase):
                 gateway_ip_address,
                 name,
                 [seq_call_info.dot_net_instance for seq_call_info in sequences],
-                description))
+                description,
+            )
+        )
 
     def get_workspace2(self, gateway_ip_address):
         """
@@ -145,8 +149,9 @@ class _DefaultGatewayFactory(object):
             niveristand.clientapi._stimulusprofilesession._StimulusProfileSession : A StimulusProfileSession instance.
 
         """
-        return _Factory().\
-            get_new_stimulus_profile_session(cls._default_gateway_ip_address, name, sequences, description)
+        return _Factory().get_new_stimulus_profile_session(
+            cls._default_gateway_ip_address, name, sequences, description
+        )
 
     @classmethod
     def get_workspace2(cls):
