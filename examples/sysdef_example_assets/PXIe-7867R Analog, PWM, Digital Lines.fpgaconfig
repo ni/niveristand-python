@@ -1,0 +1,659 @@
+<?xml version='1.0' standalone='yes' ?>
+<?xml-stylesheet type="text/xsl" href='NI VeriStand FPGA DMA.xsl'?>
+<FPGADMAChannelData xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation = "NI VeriStand FPGA DMA.xsd">
+
+    <!--This is a sample XML file for specifying the content of the DMA bitstreams.  Comments describe the various elements in the file.
+    Many of the elements are optional.  The comment will specify if an element is optional and any default value that will be used if the
+    tag is left out. -->
+	
+    <Version>2.0</Version>  <!--Version of XML file.  Always 2.0. -->
+	
+    <Bitfile>PXIe-7867R.lvbitx</Bitfile>
+        <!--Optional: Name of bitfile.  The default value is the same name as this file, but with the
+        extension .lvbitx.  The bitfile must be in same directory as this file. -->
+
+    <Categories>    <!--Beginning of defining Categories-->
+        <!--Optional: Categories describes the hierarchy of the channels used in System Explorer.  If Categories is not specified
+        the hierarchy will be inferred based on the Category tags on the individual channels.  Empty descriptions and default symbols will be used
+        for all folders that are not found in the Categories section, but referenced by a channel. -->
+
+        <Category>  <!--Beginning of Inputs Category-->
+            <!--Category is a single level of the hierarchy.  It can specify a description and a symbol to use in the tree, as well
+            as zero or more contained category -->
+
+            <Name>Input</Name>  <!--The name as the category should be displayed in the tree.  The name must be unique with in its set of siblings. -->
+            <Description>This section contains all the inputs from the FPGA Board.</Description>    <!--Optional: Description to be shown in System Explorer -->
+
+            <Category>  <!--Analog Input Category-->
+                <Name>Analog</Name>
+                <Description>This section contains all the analog inputs from the FPGA Board.</Description>
+                <Symbol>AI</Symbol>
+            </Category>
+
+            <Category>  <!--Digital Input Category-->
+                <Name>Digital</Name>
+                <Description>This section contains all the digital inputs from the FPGA Board.</Description>
+                <Symbol>DI</Symbol>
+            </Category>
+
+            <Category>  <!--PWM Input Category-->
+                <Name>PWM</Name>
+                <Description>This section contains all the PWM inputs from the FPGA Board.</Description>
+                <Symbol>PWM In</Symbol>
+            </Category>
+
+        </Category> <!--End of Inputs Category-->
+
+        <Category>  <!--Beginning of Outputs Category-->
+            <Name>Output</Name>
+            <Description>This section contains all the outputs from the FPGA Board.</Description>
+
+            <Category>  <!--Analog Output Category-->
+                <Name>Analog</Name>
+                <Description>This section contains all the analog outputs from the FPGA Board.</Description>
+                <Symbol>AO</Symbol>
+            </Category>
+
+            <Category>  <!--Digital Output Category-->
+                <Name>Digital</Name>
+                <Description>This section contains all the digital outputs from the FPGA Board.</Description>
+                <Symbol>DO</Symbol>
+            </Category>
+
+            <Category>  <!--PWM Output Category-->
+                <Name>PWM</Name>
+                <Description>This section contains all the PWM outputs from the FPGA Board.</Description>
+                <Symbol>PWM Out</Symbol>
+            </Category>
+
+        </Category> <!--End of Outputs Category-->
+
+    </Categories>   <!--End of defining Categories-->
+
+
+    <DMA_Read>  <!--Specifies the content of the DMA_Read DMA channel-->
+        <Packets>8</Packets>
+            <!--Number of U64 packets contained in the DMA stream.  The number of Packet elements specified in XML may be less than this number.
+            If the number of Packet elements is less than the number of packets, then all the packets are read but the last U64 are ignored. -->
+            <!--Number of U64 packets contained in the DMA stream.  The number of Packet elements specified in XML may be less than this number.
+            If the number of Packet elements is less than the number of packets, then all the packets are read but the last U64 are ignored. -->
+
+        <Packet>   <!--Packet 1-->
+            <!--An empty Packet element specifies an element that is to be ignored.  The first bit of the first read packet must contain a
+            Late Status field.  If we do not wish to use this channel you can specify an empty packet.  If you want to make this status bit available 
+            to the user you can specify it as a Boolean channel in the packet. -->
+        	<Void>
+        		<Size>1</Size>  <!-- Late Status bit -->
+        	</Void>
+        </Packet>
+			
+         <Packet> <!--Packet 2-->
+            <FXPI32>
+                <Name>AI0</Name>
+                <Description>Analog input channel AI0 on Connector 0 of PXIe-7867R.</Description>
+                <Category>Input\Analog</Category>
+                <Unit>Volts</Unit>
+                <Symbol>AI</Symbol>
+                <FXPWL>27</FXPWL>
+                <FXPIWL>5</FXPIWL>
+            </FXPI32>
+            <FXPI32>
+                <Name>AI1</Name>
+                <Description>Analog input channel AI1 on Connector 0 of PXIe-7867R .</Description>
+                <Category>Input\Analog</Category>
+                <Unit>Volts</Unit>
+                <Symbol>AI</Symbol>
+                <FXPWL>27</FXPWL>
+                <FXPIWL>5</FXPIWL>
+            </FXPI32>
+        </Packet>
+        <Packet> <!--Packet 3-->
+            <FXPI32>
+                <Name>AI2</Name>
+                <Description>Analog input channel AI2 on Connector 0 of PXIe-7867R.</Description>
+                <Category>Input\Analog</Category>
+                <Unit>Volts</Unit>
+                <Symbol>AI</Symbol>
+                <FXPWL>27</FXPWL>
+                <FXPIWL>5</FXPIWL>
+            </FXPI32>
+            <FXPI32>
+                <Name>AI3</Name>
+                <Description>Analog input channel AI3 on Connector 0 of PXIe-7867R.</Description>
+                <Category>Input\Analog</Category>
+                <Unit>Volts</Unit>
+                <Symbol>AI</Symbol>
+                <FXPWL>27</FXPWL>
+                <FXPIWL>5</FXPIWL>
+            </FXPI32>
+        </Packet>
+        <Packet> <!--Packet 4-->
+            <FXPI32>
+                <Name>AI4</Name>
+                <Description>Analog input channel AI4 on Connector 0 of PXIe-7867R.</Description>
+                <Category>Input\Analog</Category>
+                <Unit>Volts</Unit>
+                <Symbol>AI</Symbol>
+                <FXPWL>27</FXPWL>
+                <FXPIWL>5</FXPIWL>
+            </FXPI32>
+            <FXPI32>
+                <Name>AI5</Name>
+                <Description>Analog input channel AI5 on Connector 0 of PXIe-7867R.</Description>
+                <Category>Input\Analog</Category>
+                <Unit>Volts</Unit>
+                <Symbol>AI</Symbol>
+                <FXPWL>27</FXPWL>
+                <FXPIWL>5</FXPIWL>
+            </FXPI32>
+        </Packet>
+		<Packet> <!-- packet 5 -->
+            <Boolean>
+                <Name>Connector0/DI0</Name>
+                <Description>Digital input channel DI0 on Connector 0 of PXIe-7867R.</Description>
+                <Category>Input\Digital</Category>
+                <Symbol>DI</Symbol>
+            </Boolean>
+            <Boolean>
+                <Name>Connector0/DI1</Name>
+                <Description>Digital input channel DI1 on Connector 0 of PXIe-7867R.</Description>
+                <Category>Input\Digital</Category>
+                <Symbol>DI</Symbol>
+            </Boolean>
+            <Boolean>
+                <Name>Connector0/DI2</Name>
+                <Description>Digital input channel DI2 on Connector 0 of PXIe-7867R.</Description>
+                <Category>Input\Digital</Category>
+                <Symbol>DI</Symbol>
+            </Boolean>
+            <Boolean>
+                <Name>Connector0/DI3</Name>
+                <Description>Digital input channel DI3 on Connector 0 of PXIe-7867R.</Description>
+                <Category>Input\Digital</Category>
+                <Symbol>DI</Symbol>
+            </Boolean>
+        </Packet>
+		<Packet> <!-- packet 6 -->
+            <Boolean>
+                <Name>Connector1/DI0</Name>
+                <Description>Digital input channel DIO0 on Connector 1 of PXIe-7867R. It can be used only as a DI.</Description>
+                <Category>Input\Digital</Category>
+                <Symbol>DI</Symbol>
+            </Boolean>
+            <Boolean>
+                <Name>Connector1/DI1</Name>
+                <Description>Digital input channel DIO1 on Connector 1 of PXIe-7867R. It can be used only as a DI.</Description>
+                <Category>Input\Digital</Category>
+                <Symbol>DI</Symbol>
+            </Boolean>
+            <Boolean>
+                <Name>Connector1/DI2</Name>
+                <Description>Digital input channel DIO2 on Connector 1 of PXIe-7867R. It can be used only as a DI.</Description>
+                <Category>Input\Digital</Category>
+                <Symbol>DI</Symbol>
+            </Boolean>
+            <Boolean>
+                <Name>Connector1/DI3</Name>
+                <Description>Digital input channel DIO3 on Connector 1 of PXIe-7867R. It can be used only as a DI.</Description>
+                <Category>Input\Digital</Category>
+                <Symbol>DI</Symbol>
+            </Boolean>
+            <Boolean>
+                <Name>Connector1/DI4</Name>
+                <Description>Digital input channel DIO4 on Connector 1 of PXIe-7867R. It can be used only as a DI.</Description>
+                <Category>Input\Digital</Category>
+                <Symbol>DI</Symbol>
+            </Boolean>
+            <Boolean>
+                <Name>Connector1/DI5</Name>
+                <Description>Digital input channel DIO5 on Connector 1 of PXIe-7867R. It can be used only as a DI.</Description>
+                <Category>Input\Digital</Category>
+                <Symbol>DI</Symbol>
+            </Boolean>
+            <Boolean>
+                <Name>Connector1/DI6</Name>
+                <Description>Digital input channel DIO6 on Connector 1 of PXIe-7867R. It can be used only as a DI.</Description>
+                <Category>Input\Digital</Category>
+                <Symbol>DI</Symbol>
+            </Boolean>
+            <Boolean>
+                <Name>Connector1/DI7</Name>
+                <Description>Digital input channel DIO7 on Connector 1 of PXIe-7867R. It can be used only as a DI.</Description>
+                <Category>Input\Digital</Category>
+                <Symbol>DI</Symbol>
+            </Boolean>
+			<Boolean>
+                <Name>Connector1/DI8</Name>
+                <Description>Digital input channel DIO8 on Connector 1 of PXIe-7867R. It can be used only as a DI.</Description>
+                <Category>Input\Digital</Category>
+                <Symbol>DI</Symbol>
+            </Boolean>
+			<Boolean>
+                <Name>Connector1/DI9</Name>
+                <Description>Digital input channel DIO9 on Connector 1 of PXIe-7867R. It can be used only as a DI.</Description>
+                <Category>Input\Digital</Category>
+                <Symbol>DI</Symbol>
+            </Boolean>
+			<Boolean>
+                <Name>Connector1/DI10</Name>
+                <Description>Digital input channel DIO10 on Connector 1 of PXIe-7867R. It can be used only as a DI.</Description>
+                <Category>Input\Digital</Category>
+                <Symbol>DI</Symbol>
+            </Boolean>
+			<Boolean>
+                <Name>Connector1/DI11</Name>
+                <Description>Digital input channel DIO11 on Connector 1 of PXIe-7867R. It can be used only as a DI.</Description>
+                <Category>Input\Digital</Category>
+                <Symbol>DI</Symbol>
+            </Boolean>
+			<Boolean>
+                <Name>Connector1/DI12</Name>
+                <Description>Digital input channel DIO12 on Connector 1 of PXIe-7867R. It can be used only as a DI.</Description>
+                <Category>Input\Digital</Category>
+                <Symbol>DI</Symbol>
+            </Boolean>
+			<Boolean>
+                <Name>Connector1/DI13</Name>
+                <Description>Digital input channel DIO13 on Connector 1 of PXIe-7867R. It can be used only as a DI.</Description>
+                <Category>Input\Digital</Category>
+                <Symbol>DI</Symbol>
+            </Boolean>
+			<Boolean>
+                <Name>Connector1/DI14</Name>
+                <Description>Digital input channel DIO14 on Connector 1 of PXIe-7867R. It can be used only as a DI.</Description>
+                <Category>Input\Digital</Category>
+                <Symbol>DI</Symbol>
+            </Boolean>
+			<Boolean>
+                <Name>Connector1/DI15</Name>
+                <Description>Digital input channel DIO15 on Connector 1 of PXIe-7867R. It can be used only as a DI.</Description>
+                <Category>Input\Digital</Category>
+                <Symbol>DI</Symbol>
+            </Boolean>
+        </Packet>
+		<Packet>    <!--Packet 7-->
+            <PWM>
+                <Name>PWM In 0</Name>
+                <Description>PWM input using digital line Connector0/DIO4 on the PXIe-7867R.</Description>
+                <Category>Input\PWM</Category>
+                <Scale>100</Scale>
+                <Unit>%</Unit>
+                <Symbol>PWM In</Symbol>
+                <Parameters>
+                    <U32>
+                        <Name>Time Out (ms)</Name>
+                        <ControlName>PulseMeas 0 Timeout</ControlName>
+                        <InitialValue>10</InitialValue>
+                        <Scale>107374.182375</Scale>    <!--(2^32 - 1)(U32) / 40000 ticks (1ms) = 107374-->
+                    </U32>
+                </Parameters>
+            </PWM>
+        </Packet>
+        <Packet>    <!--Packet 8-->
+            <PWM>
+                <Name>PWM In 1</Name>
+                <Description>PWM input using digital line Connector0/DIO5 on the PXIe-7867R.</Description>
+                <Category>Input\PWM</Category>
+                <Scale>100</Scale>
+                <Unit>%</Unit>
+                <Symbol>PWM In</Symbol>
+                <Parameters>
+                    <U32>
+                        <Name>Time Out (ms)</Name>
+                        <ControlName>PulseMeas 1 Timeout</ControlName>
+                        <InitialValue>10</InitialValue>
+                        <Scale>107374.182375</Scale>    <!--(2^32 - 1)(U32) / 40000 ticks (1ms) = 107374-->
+                    </U32>
+                </Parameters>
+            </PWM>
+        </Packet>
+    </DMA_Read>
+	
+    <DMA_Write>
+		<Packets>15</Packets>
+		<Packet> <!--packet 1-->
+            <FXPI32>
+                <Name>AO0</Name>
+                <Description>Analog output channel AO0 on Connector 0 of PXIe-7867R.</Description>
+                <Category>Output\Analog</Category>
+                <Unit>Volts</Unit>
+                <Symbol>AO</Symbol>
+                <FXPWL>20</FXPWL>
+                <FXPIWL>5</FXPIWL>
+            </FXPI32>
+            <FXPI32>
+                <Name>AO1</Name>
+                <Description>Analog output channel AO1 on Connector 0 of PXIe-7867R.</Description>
+                <Category>Output\Analog</Category>
+                <Unit>Volts</Unit>
+                <Symbol>AO</Symbol>
+                <FXPWL>20</FXPWL>
+                <FXPIWL>5</FXPIWL>
+            </FXPI32>
+        </Packet>
+		<Packet> <!--packet 2-->
+            <FXPI32>
+                <Name>AO2</Name>
+                <Description>Analog output channel AO2 on Connector 0 of PXIe-7867R.</Description>
+                <Category>Output\Analog</Category>
+                <Unit>Volts</Unit>
+                <Symbol>AO</Symbol>
+                <FXPWL>20</FXPWL>
+                <FXPIWL>5</FXPIWL>
+            </FXPI32>
+            <FXPI32>
+                <Name>AO3</Name>
+                <Description>Analog output channel AO3 on Connector 0 of PXIe-7867R.</Description>
+                <Category>Output\Analog</Category>
+                <Unit>Volts</Unit>
+                <Symbol>AO</Symbol>
+                <FXPWL>20</FXPWL>
+                <FXPIWL>5</FXPIWL>
+            </FXPI32>
+        </Packet>
+		<Packet> <!--packet 3-->
+            <FXPI32>
+                <Name>AO4</Name>
+                <Description>Analog output channel AO4 on Connector 0 of PXIe-7867R.</Description>
+                <Category>Output\Analog</Category>
+                <Unit>Volts</Unit>
+                <Symbol>AO</Symbol>
+                <FXPWL>20</FXPWL>
+                <FXPIWL>5</FXPIWL>
+            </FXPI32>
+            <FXPI32>
+                <Name>AO5</Name>
+                <Description>Analog output channel AO5 on Connector 0 of PXIe-7867R.</Description>
+                <Category>Output\Analog</Category>
+                <Unit>Volts</Unit>
+                <Symbol>AO</Symbol>
+                <FXPWL>20</FXPWL>
+                <FXPIWL>5</FXPIWL>
+            </FXPI32>
+        </Packet>
+		<Packet> <!--packet 4-->
+            <FXPI32>
+                <Name>AO6</Name>
+                <Description>Analog output channel AO6 on Connector 0 of PXIe-7867R.</Description>
+                <Category>Output\Analog</Category>
+                <Unit>Volts</Unit>
+                <Symbol>AO</Symbol>
+                <FXPWL>20</FXPWL>
+                <FXPIWL>5</FXPIWL>
+            </FXPI32>
+            <FXPI32>
+                <Name>AO7</Name>
+                <Description>Analog output channel AO7 on Connector 0 of PXIe-7867R.</Description>
+                <Category>Output\Analog</Category>
+                <Unit>Volts</Unit>
+                <Symbol>AO</Symbol>
+                <FXPWL>20</FXPWL>
+                <FXPIWL>5</FXPIWL>
+            </FXPI32>
+        </Packet>
+		<Packet> <!-- packet 5 -->
+            <Boolean>
+                <Name>Connector0/DO0</Name>
+                <Description>Digital output channel DIO0 on Connector 0 of PXIe-7867R. It can be used only as a DO.</Description>
+                <Category>Output\Digital</Category>
+                <Symbol>DO</Symbol>
+            </Boolean>
+            <Boolean>
+                <Name>Connector0/DO1</Name>
+                <Description>Digital output channel DIO1 on Connector 0 of PXIe-7867R. It can be used only as a DO.</Description>
+                <Category>Output\Digital</Category>
+                <Symbol>DO</Symbol>
+            </Boolean>
+            <Boolean>
+                <Name>Connector0/DO2</Name>
+                <Description>Digital output channel DIO2 on Connector 0 of PXIe-7867R. It can be used only as a DO.</Description>
+                <Category>Output\Digital</Category>
+                <Symbol>DO</Symbol>
+            </Boolean>
+            <Boolean>
+                <Name>Connector0/DO3</Name>
+                <Description>Digital output channel DIO3 on Connector 0 of PXIe-7867R. It can be used only as a DO.</Description>
+                <Category>Output\Digital</Category>
+                <Symbol>DO</Symbol>
+            </Boolean>
+        </Packet>
+		<Packet> <!--packet 6-->
+            <FXPI32>
+                <Name>AO8</Name>
+                <Description>Analog output channel AO8 on Connector 2 of PXIe-7867R.</Description>
+                <Category>Output\Analog</Category>
+                <Unit>Volts</Unit>
+                <Symbol>AO</Symbol>
+                <FXPWL>20</FXPWL>
+                <FXPIWL>5</FXPIWL>
+            </FXPI32>
+            <FXPI32>
+                <Name>AO9</Name>
+                <Description>Analog output channel AO9 on Connector 2 of PXIe-7867R.</Description>
+                <Category>Output\Analog</Category>
+                <Unit>Volts</Unit>
+                <Symbol>AO</Symbol>
+                <FXPWL>20</FXPWL>
+                <FXPIWL>5</FXPIWL>
+            </FXPI32>
+        </Packet>
+        <Packet> <!--packet 7-->
+            <FXPI32>
+                <Name>AO10</Name>
+                <Description>Analog output channel AO10 on Connector 2 of PXIe-7867R.</Description>
+                <Category>Output\Analog</Category>
+                <Unit>Volts</Unit>
+                <Symbol>AO</Symbol>
+                <FXPWL>20</FXPWL>
+                <FXPIWL>5</FXPIWL>
+            </FXPI32>
+            <FXPI32>
+                <Name>AO11</Name>
+                <Description>Analog output channel AO11 on Connector 2 of PXIe-7867R.</Description>
+                <Category>Output\Analog</Category>
+                <Unit>Volts</Unit>
+                <Symbol>AO</Symbol>
+                <FXPWL>20</FXPWL>
+                <FXPIWL>5</FXPIWL>
+            </FXPI32>
+        </Packet>
+        <Packet> <!--packet 8-->
+            <FXPI32>
+                <Name>AO12</Name>
+                <Description>Analog output channel AO12 on Connector 2 of PXIe-7867R.</Description>
+                <Category>Output\Analog</Category>
+                <Unit>Volts</Unit>
+                <Symbol>AO</Symbol>
+                <FXPWL>20</FXPWL>
+                <FXPIWL>5</FXPIWL>
+            </FXPI32>
+            <FXPI32>
+                <Name>AO13</Name>
+                <Description>Analog output channel AO13 on Connector 2 of PXIe-7867R.</Description>
+                <Category>Output\Analog</Category>
+                <Unit>Volts</Unit>
+                <Symbol>AO</Symbol>
+                <FXPWL>20</FXPWL>
+                <FXPIWL>5</FXPIWL>
+            </FXPI32>
+        </Packet>
+        <Packet> <!--packet 9-->
+            <FXPI32>
+                <Name>AO14</Name>
+                <Description>Analog output channel AO14 on Connector 2 of PXIe-7867R.</Description>
+                <Category>Output\Analog</Category>
+                <Unit>Volts</Unit>
+                <Symbol>AO</Symbol>
+                <FXPWL>20</FXPWL>
+                <FXPIWL>5</FXPIWL>
+            </FXPI32>
+            <FXPI32>
+                <Name>AO15</Name>
+                <Description>Analog output channel AO15 on Connector 2 of PXIe-7867R.</Description>
+                <Category>Output\Analog</Category>
+                <Unit>Volts</Unit>
+                <Symbol>AO</Symbol>
+                <FXPWL>20</FXPWL>
+                <FXPIWL>5</FXPIWL>
+            </FXPI32>
+        </Packet>
+		<Packet> <!--packet 10-->
+            <FXPI32>
+                <Name>AO16</Name>
+                <Description>Analog output channel AO16 on Connector 2 of PXIe-7867R.</Description>
+                <Category>Output\Analog</Category>
+                <Unit>Volts</Unit>
+                <Symbol>AO</Symbol>
+                <FXPWL>20</FXPWL>
+                <FXPIWL>5</FXPIWL>
+            </FXPI32>
+            <FXPI32>
+                <Name>AO17</Name>
+                <Description>Analog output channel AO17 on Connector 2 of PXIe-7867R.</Description>
+                <Category>Output\Analog</Category>
+                <Unit>Volts</Unit>
+                <Symbol>AO</Symbol>
+                <FXPWL>20</FXPWL>
+                <FXPIWL>5</FXPIWL>
+            </FXPI32>
+        </Packet>
+		<Packet> <!--packet 11-->
+            <Boolean>
+                <Name>Connector1/DO0</Name>
+                <Description>Digital output channel DIO16 on PXIe-7867R/Connector1. It can be used only as a DO.</Description>
+                <Category>Output\Digital</Category>
+                <Symbol>DO</Symbol>
+            </Boolean>
+			<Boolean>
+                <Name>Connector1/DO1</Name>
+                <Description>Digital output channel DIO17 on PXIe-7867R/Connector1. It can be used only as a DO.</Description>
+                <Category>Output\Digital</Category>
+                <Symbol>DO</Symbol>
+            </Boolean>
+			<Boolean>
+                <Name>Connector1/DO2</Name>
+                <Description>Digital output channel DIO18 on PXIe-7867R/Connector1. It can be used only as a DO.</Description>
+                <Category>Output\Digital</Category>
+                <Symbol>DO</Symbol>
+            </Boolean>
+			<Boolean>
+                <Name>Connector1/DO3</Name>
+                <Description>Digital output channel DIO19 on PXIe-7867R/Connector1. It can be used only as a DO.</Description>
+                <Category>Output\Digital</Category>
+                <Symbol>DO</Symbol>
+            </Boolean>
+			<Boolean>
+                <Name>Connector1/DO4</Name>
+                <Description>Digital output channel DIO20 on PXIe-7867R/Connector1. It can be used only as a DO.</Description>
+                <Category>Output\Digital</Category>
+                <Symbol>DO</Symbol>
+            </Boolean>
+            <Boolean>
+                <Name>Connector1/DO5</Name>
+                <Description>Digital output channel DIO21 on PXIe-7867R/Connector1. It can be used only as a DO.</Description>
+                <Category>Output\Digital</Category>
+                <Symbol>DO</Symbol>
+            </Boolean>
+			<Boolean>
+                <Name>Connector1/DO6</Name>
+                <Description>Digital output channel DIO22 on PXIe-7867R/Connector1. It can be used only as a DO.</Description>
+                <Category>Output\Digital</Category>
+                <Symbol>DO</Symbol>
+            </Boolean>
+			<Boolean>
+                <Name>Connector1/DO7</Name>
+                <Description>Digital output channel DIO23 on PXIe-7867R/Connector1. It can be used only as a DO.</Description>
+                <Category>Output\Digital</Category>
+                <Symbol>DO</Symbol>
+            </Boolean>
+			<Boolean>
+                <Name>Connector1/DO8</Name>
+                <Description>Digital output channel DIO24 on PXIe-7867R/Connector1. It can be used only as a DO.</Description>
+                <Category>Output\Digital</Category>
+                <Symbol>DO</Symbol>
+            </Boolean>
+			<Boolean>
+                <Name>Connector1/DO9</Name>
+                <Description>Digital output channel DIO25 on PXIe-7867R/Connector1. It can be used only as a DO.</Description>
+                <Category>Output\Digital</Category>
+                <Symbol>DO</Symbol>
+            </Boolean>
+			<Boolean>
+                <Name>Connector1/DO10</Name>
+                <Description>Digital output channel DIO26 on PXIe-7867R/Connector1. It can be used only as a DO.</Description>
+                <Category>Output\Digital</Category>
+                <Symbol>DO</Symbol>
+            </Boolean>
+			<Boolean>
+                <Name>Connector1/DO11</Name>
+                <Description>Digital output channel DIO27 on PXIe-7867R/Connector1. It can be used only as a DO.</Description>
+                <Category>Output\Digital</Category>
+                <Symbol>DO</Symbol>
+            </Boolean>
+			<Boolean>
+                <Name>Connector1/DO12</Name>
+                <Description>Digital output channel DIO28 on PXIe-7867R/Connector1. It can be used only as a DO.</Description>
+                <Category>Output\Digital</Category>
+                <Symbol>DO</Symbol>
+            </Boolean>
+			<Boolean>
+                <Name>Connector1/DO13</Name>
+                <Description>Digital output channel DIO29 on PXIe-7867R/Connector1. It can be used only as a DO.</Description>
+                <Category>Output\Digital</Category>
+                <Symbol>DO</Symbol>
+            </Boolean>
+			<Boolean>
+                <Name>Connector1/DO14</Name>
+                <Description>Digital output channel DIO30 on PXIe-7867R/Connector1. It can be used only as a DO.</Description>
+                <Category>Output\Digital</Category>
+                <Symbol>DO</Symbol>
+            </Boolean>
+			<Boolean>
+                <Name>Connector1/DO15</Name>
+                <Description>Digital output channel DIO31 on PXIe-7867R/Connector1. It can be used only as a DO.</Description>
+                <Category>Output\Digital</Category>
+                <Symbol>DO</Symbol>
+            </Boolean>
+        </Packet>
+		<Packet>    <!-- packet 12 -->
+            <PWM>
+                <Name>PWM Out 0</Name>
+                <Description>PWM output using digital line Connector0/DIO6 on the PXIe-7867R.</Description>
+                <Category>Output\PWM</Category>
+                <Scale>100</Scale>
+                <Unit>%</Unit>
+                <Symbol>PWM Out</Symbol>
+            </PWM>
+        </Packet>
+        <Packet>    <!-- packet 13-->
+            <PWM>
+                <Name>PWM Out 1</Name>
+                <Description>PWM output using digital line Connector0/DIO7 on the PXIe-7867R.</Description>
+                <Category>Output\PWM</Category>
+                <Scale>100</Scale>
+                <Unit>%</Unit>
+                <Symbol>PWM Out</Symbol>
+            </PWM>
+        </Packet>
+        <Packet>    <!-- packet 14 -->
+            <PWM>
+                <Name>PWM Out 2</Name>
+                <Description>PWM output using digital line Connector0/DIO8 on the PXIe-7867R.</Description>
+                <Category>Output\PWM</Category>
+                <Scale>100</Scale>
+                <Unit>%</Unit>
+                <Symbol>PWM Out</Symbol>
+            </PWM>
+        </Packet>
+        <Packet>    <!-- packet 15 -->
+            <PWM>
+                <Name>PWM Out 3</Name>
+                <Description>PWM output using digital line Connector0/DIO9 on the PXIe-7867R.</Description>
+                <Category>Output\PWM</Category>
+                <Scale>100</Scale>
+                <Unit>%</Unit>
+                <Symbol>PWM Out</Symbol>
+            </PWM>
+        </Packet>
+	</DMA_Write>
+</FPGADMAChannelData>
