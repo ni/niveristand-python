@@ -132,30 +132,37 @@ class FPGACategory(_DotNetBase):
 
     @property
     def name(self) -> str:
-        return _wrap(self._dotnet_instance.Name)
+        dotnet_result = self._dotnet_instance.Name
+        return _wrap(dotnet_result)
 
     @property
     def description(self) -> str:
-        return _wrap(self._dotnet_instance.Description)
+        dotnet_result = self._dotnet_instance.Description
+        return _wrap(dotnet_result)
 
     @property
     def symbol(self) -> str:
-        return _wrap(self._dotnet_instance.Symbol)
+        dotnet_result = self._dotnet_instance.Symbol
+        return _wrap(dotnet_result)
 
     @property
     def categories(self) -> Sequence[FPGACategory]:
-        return _wrap(self._dotnet_instance.Categories)
+        dotnet_result = self._dotnet_instance.Categories
+        return _wrap(dotnet_result)
 
     @property
     def channels(self) -> Sequence[FPGAChannel]:
-        return _wrap(self._dotnet_instance.Channels)
+        dotnet_result = self._dotnet_instance.Channels
+        return _wrap(dotnet_result)
 
     @overload
     def to_string(self) -> str:
         ...
 
     def to_string(self, *args):
-        return _wrap(self._dotnet_instance.ToString(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.ToString(*unwrapped)
+        return _wrap(dotnet_result)
 
     def _custom_repr(self) -> str:
         return f"(name={self.name})"
@@ -172,74 +179,92 @@ class FPGAChannel(_DotNetBase):
 
     @property
     def name(self) -> str:
-        return _wrap(self._dotnet_instance.Name)
+        dotnet_result = self._dotnet_instance.Name
+        return _wrap(dotnet_result)
 
     @property
     def category(self) -> str:
-        return _wrap(self._dotnet_instance.Category)
+        dotnet_result = self._dotnet_instance.Category
+        return _wrap(dotnet_result)
 
     @property
     def symbol(self) -> str:
-        return _wrap(self._dotnet_instance.Symbol)
+        dotnet_result = self._dotnet_instance.Symbol
+        return _wrap(dotnet_result)
 
     @property
     def description(self) -> str:
-        return _wrap(self._dotnet_instance.Description)
+        dotnet_result = self._dotnet_instance.Description
+        return _wrap(dotnet_result)
 
     @property
     def unit(self) -> str:
-        return _wrap(self._dotnet_instance.Unit)
+        dotnet_result = self._dotnet_instance.Unit
+        return _wrap(dotnet_result)
 
     @property
     def initial_value(self) -> float:
-        return _wrap(self._dotnet_instance.InitialValue)
+        dotnet_result = self._dotnet_instance.InitialValue
+        return _wrap(dotnet_result)
 
     @property
     def packet_index(self) -> int:
-        return _wrap(self._dotnet_instance.PacketIndex)
+        dotnet_result = self._dotnet_instance.PacketIndex
+        return _wrap(dotnet_result)
 
     @property
     def bit_offset(self) -> int:
-        return _wrap(self._dotnet_instance.BitOffset)
+        dotnet_result = self._dotnet_instance.BitOffset
+        return _wrap(dotnet_result)
 
     @property
     def representation(self) -> int:
-        return _wrap(self._dotnet_instance.Representation)
+        dotnet_result = self._dotnet_instance.Representation
+        return _wrap(dotnet_result)
 
     @property
     def scaling(self) -> float:
-        return _wrap(self._dotnet_instance.Scaling)
+        dotnet_result = self._dotnet_instance.Scaling
+        return _wrap(dotnet_result)
 
     @property
     def scaling_offset(self) -> float:
-        return _wrap(self._dotnet_instance.ScalingOffset)
+        dotnet_result = self._dotnet_instance.ScalingOffset
+        return _wrap(dotnet_result)
 
     @property
     def fxpwl(self) -> int:
-        return _wrap(self._dotnet_instance.FXPWL)
+        dotnet_result = self._dotnet_instance.FXPWL
+        return _wrap(dotnet_result)
 
     @property
     def fxpiwl(self) -> int:
-        return _wrap(self._dotnet_instance.FXPIWL)
+        dotnet_result = self._dotnet_instance.FXPIWL
+        return _wrap(dotnet_result)
 
     @property
     def period_pwm(self) -> int:
-        return _wrap(self._dotnet_instance.PeriodPWM)
+        dotnet_result = self._dotnet_instance.PeriodPWM
+        return _wrap(dotnet_result)
 
     @property
     def data_offset(self) -> int:
-        return _wrap(self._dotnet_instance.DataOffset)
+        dotnet_result = self._dotnet_instance.DataOffset
+        return _wrap(dotnet_result)
 
     @property
     def is_write(self) -> bool:
-        return _wrap(self._dotnet_instance.IsWrite)
+        dotnet_result = self._dotnet_instance.IsWrite
+        return _wrap(dotnet_result)
 
     @overload
     def to_string(self) -> str:
         ...
 
     def to_string(self, *args):
-        return _wrap(self._dotnet_instance.ToString(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.ToString(*unwrapped)
+        return _wrap(dotnet_result)
 
     def _custom_repr(self) -> str:
         return f"(name={self.name})"
@@ -256,31 +281,39 @@ class FPGALoader(_DotNetBase):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.FPGA_Support.FPGALoader:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.FPGA_Support.FPGALoader(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.FPGA_Support.FPGALoader(*unwrapped)
 
     @property
     def version(self) -> float:
-        return _wrap(self._dotnet_instance.Version)
+        dotnet_result = self._dotnet_instance.Version
+        return _wrap(dotnet_result)
 
     @property
     def bit_file(self) -> str:
-        return _wrap(self._dotnet_instance.BitFile)
+        dotnet_result = self._dotnet_instance.BitFile
+        return _wrap(dotnet_result)
 
     @property
     def read_packets(self) -> int:
-        return _wrap(self._dotnet_instance.ReadPackets)
+        dotnet_result = self._dotnet_instance.ReadPackets
+        return _wrap(dotnet_result)
 
     @property
     def write_packets(self) -> int:
-        return _wrap(self._dotnet_instance.WritePackets)
+        dotnet_result = self._dotnet_instance.WritePackets
+        return _wrap(dotnet_result)
 
     @property
     def categories(self) -> Sequence[FPGACategory]:
-        return _wrap(self._dotnet_instance.Categories)
+        dotnet_result = self._dotnet_instance.Categories
+        return _wrap(dotnet_result)
 
     @overload
     def to_string(self) -> str:
         ...
 
     def to_string(self, *args):
-        return _wrap(self._dotnet_instance.ToString(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.ToString(*unwrapped)
+        return _wrap(dotnet_result)

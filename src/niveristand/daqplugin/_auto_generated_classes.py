@@ -133,40 +133,50 @@ class ValueDataType(_DotNetEnum):
 
     @_staticproperty
     def STRING() -> ValueDataType:
-        return ValueDataType(getattr(NationalInstruments.VeriStand.DAQPlugin.ValueDataType, "String"), "STRING")
+        dotnet_result = getattr(NationalInstruments.VeriStand.DAQPlugin.ValueDataType, "String")
+        return ValueDataType(dotnet_result, "STRING")
 
     @_staticproperty
     def ENUM() -> ValueDataType:
-        return ValueDataType(getattr(NationalInstruments.VeriStand.DAQPlugin.ValueDataType, "Enum"), "ENUM")
+        dotnet_result = getattr(NationalInstruments.VeriStand.DAQPlugin.ValueDataType, "Enum")
+        return ValueDataType(dotnet_result, "ENUM")
 
     @_staticproperty
     def DOUBLE() -> ValueDataType:
-        return ValueDataType(getattr(NationalInstruments.VeriStand.DAQPlugin.ValueDataType, "Double"), "DOUBLE")
+        dotnet_result = getattr(NationalInstruments.VeriStand.DAQPlugin.ValueDataType, "Double")
+        return ValueDataType(dotnet_result, "DOUBLE")
 
     @_staticproperty
     def U64() -> ValueDataType:
-        return ValueDataType(getattr(NationalInstruments.VeriStand.DAQPlugin.ValueDataType, "U64"), "U64")
+        dotnet_result = getattr(NationalInstruments.VeriStand.DAQPlugin.ValueDataType, "U64")
+        return ValueDataType(dotnet_result, "U64")
 
     @_staticproperty
     def U32() -> ValueDataType:
-        return ValueDataType(getattr(NationalInstruments.VeriStand.DAQPlugin.ValueDataType, "U32"), "U32")
+        dotnet_result = getattr(NationalInstruments.VeriStand.DAQPlugin.ValueDataType, "U32")
+        return ValueDataType(dotnet_result, "U32")
 
     @_staticproperty
     def U16() -> ValueDataType:
-        return ValueDataType(getattr(NationalInstruments.VeriStand.DAQPlugin.ValueDataType, "U16"), "U16")
+        dotnet_result = getattr(NationalInstruments.VeriStand.DAQPlugin.ValueDataType, "U16")
+        return ValueDataType(dotnet_result, "U16")
 
     @_staticproperty
     def I64() -> ValueDataType:
-        return ValueDataType(getattr(NationalInstruments.VeriStand.DAQPlugin.ValueDataType, "I64"), "I64")
+        dotnet_result = getattr(NationalInstruments.VeriStand.DAQPlugin.ValueDataType, "I64")
+        return ValueDataType(dotnet_result, "I64")
 
     @_staticproperty
     def I32() -> ValueDataType:
-        return ValueDataType(getattr(NationalInstruments.VeriStand.DAQPlugin.ValueDataType, "I32"), "I32")
+        dotnet_result = getattr(NationalInstruments.VeriStand.DAQPlugin.ValueDataType, "I32")
+        return ValueDataType(dotnet_result, "I32")
 
     @_staticproperty
     def I16() -> ValueDataType:
-        return ValueDataType(getattr(NationalInstruments.VeriStand.DAQPlugin.ValueDataType, "I16"), "I16")
+        dotnet_result = getattr(NationalInstruments.VeriStand.DAQPlugin.ValueDataType, "I16")
+        return ValueDataType(dotnet_result, "I16")
 
     @_staticproperty
     def BOOLEAN() -> ValueDataType:
-        return ValueDataType(getattr(NationalInstruments.VeriStand.DAQPlugin.ValueDataType, "Boolean"), "BOOLEAN")
+        dotnet_result = getattr(NationalInstruments.VeriStand.DAQPlugin.ValueDataType, "Boolean")
+        return ValueDataType(dotnet_result, "BOOLEAN")
