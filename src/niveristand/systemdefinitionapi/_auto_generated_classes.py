@@ -139,11 +139,13 @@ class AcquisitionMode(_DotNetEnum):
 
     @_staticproperty
     def FINITE() -> AcquisitionMode:
-        return AcquisitionMode(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.AcquisitionMode, "Finite"), "FINITE")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.AcquisitionMode, "Finite")
+        return AcquisitionMode(dotnet_result, "FINITE")
 
     @_staticproperty
     def CONTINUOUS() -> AcquisitionMode:
-        return AcquisitionMode(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.AcquisitionMode, "Continuous"), "CONTINUOUS")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.AcquisitionMode, "Continuous")
+        return AcquisitionMode(dotnet_result, "CONTINUOUS")
 
 
 class AcquisitionUnits(_DotNetEnum):
@@ -160,11 +162,13 @@ class AcquisitionUnits(_DotNetEnum):
 
     @_staticproperty
     def SAMPLES() -> AcquisitionUnits:
-        return AcquisitionUnits(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.AcquisitionUnits, "Samples"), "SAMPLES")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.AcquisitionUnits, "Samples")
+        return AcquisitionUnits(dotnet_result, "SAMPLES")
 
     @_staticproperty
     def SECONDS() -> AcquisitionUnits:
-        return AcquisitionUnits(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.AcquisitionUnits, "Seconds"), "SECONDS")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.AcquisitionUnits, "Seconds")
+        return AcquisitionUnits(dotnet_result, "SECONDS")
 
 
 class ActionOnNew(_DotNetEnum):
@@ -181,11 +185,13 @@ class ActionOnNew(_DotNetEnum):
 
     @_staticproperty
     def NEW_GROUP() -> ActionOnNew:
-        return ActionOnNew(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.ActionOnNew, "NewGroup"), "NEW_GROUP")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.ActionOnNew, "NewGroup")
+        return ActionOnNew(dotnet_result, "NEW_GROUP")
 
     @_staticproperty
     def NEW_FILE() -> ActionOnNew:
-        return ActionOnNew(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.ActionOnNew, "NewFile"), "NEW_FILE")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.ActionOnNew, "NewFile")
+        return ActionOnNew(dotnet_result, "NEW_FILE")
 
 
 class AlarmMode(_DotNetEnum):
@@ -202,11 +208,13 @@ class AlarmMode(_DotNetEnum):
 
     @_staticproperty
     def NORMAL() -> AlarmMode:
-        return AlarmMode(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.AlarmMode, "Normal"), "NORMAL")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.AlarmMode, "Normal")
+        return AlarmMode(dotnet_result, "NORMAL")
 
     @_staticproperty
     def INDICATE_ONLY() -> AlarmMode:
-        return AlarmMode(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.AlarmMode, "IndicateOnly"), "INDICATE_ONLY")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.AlarmMode, "IndicateOnly")
+        return AlarmMode(dotnet_result, "INDICATE_ONLY")
 
 
 class AlarmPriority(_DotNetEnum):
@@ -225,15 +233,18 @@ class AlarmPriority(_DotNetEnum):
 
     @_staticproperty
     def LOW() -> AlarmPriority:
-        return AlarmPriority(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.AlarmPriority, "Low"), "LOW")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.AlarmPriority, "Low")
+        return AlarmPriority(dotnet_result, "LOW")
 
     @_staticproperty
     def MEDIUM() -> AlarmPriority:
-        return AlarmPriority(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.AlarmPriority, "Medium"), "MEDIUM")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.AlarmPriority, "Medium")
+        return AlarmPriority(dotnet_result, "MEDIUM")
 
     @_staticproperty
     def HIGH() -> AlarmPriority:
-        return AlarmPriority(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.AlarmPriority, "High"), "HIGH")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.AlarmPriority, "High")
+        return AlarmPriority(dotnet_result, "HIGH")
 
 
 class AlarmState(_DotNetEnum):
@@ -250,11 +261,13 @@ class AlarmState(_DotNetEnum):
 
     @_staticproperty
     def DISABLED() -> AlarmState:
-        return AlarmState(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.AlarmState, "Disabled"), "DISABLED")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.AlarmState, "Disabled")
+        return AlarmState(dotnet_result, "DISABLED")
 
     @_staticproperty
     def ENABLED() -> AlarmState:
-        return AlarmState(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.AlarmState, "Enabled"), "ENABLED")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.AlarmState, "Enabled")
+        return AlarmState(dotnet_result, "ENABLED")
 
 
 class AlarmingStepFunction(_DotNetEnum):
@@ -271,27 +284,33 @@ class AlarmingStepFunction(_DotNetEnum):
 
     @_staticproperty
     def ADJUST_SETTINGS() -> AlarmingStepFunction:
-        return AlarmingStepFunction(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.AlarmingStepFunction, "AdjustSettings"), "ADJUST_SETTINGS")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.AlarmingStepFunction, "AdjustSettings")
+        return AlarmingStepFunction(dotnet_result, "ADJUST_SETTINGS")
 
     @_staticproperty
     def ENABLE_ALARM() -> AlarmingStepFunction:
-        return AlarmingStepFunction(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.AlarmingStepFunction, "EnableAlarm"), "ENABLE_ALARM")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.AlarmingStepFunction, "EnableAlarm")
+        return AlarmingStepFunction(dotnet_result, "ENABLE_ALARM")
 
     @_staticproperty
     def DISABLE_ALARM() -> AlarmingStepFunction:
-        return AlarmingStepFunction(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.AlarmingStepFunction, "DisableAlarm"), "DISABLE_ALARM")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.AlarmingStepFunction, "DisableAlarm")
+        return AlarmingStepFunction(dotnet_result, "DISABLE_ALARM")
 
     @_staticproperty
     def RESET_ALARM_EXIT_SUBROUTINE() -> AlarmingStepFunction:
-        return AlarmingStepFunction(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.AlarmingStepFunction, "ResetAlarmExitSubroutine"), "RESET_ALARM_EXIT_SUBROUTINE")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.AlarmingStepFunction, "ResetAlarmExitSubroutine")
+        return AlarmingStepFunction(dotnet_result, "RESET_ALARM_EXIT_SUBROUTINE")
 
     @_staticproperty
     def DISABLE_ALARM_EXIT_SUBROUTINE() -> AlarmingStepFunction:
-        return AlarmingStepFunction(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.AlarmingStepFunction, "DisableAlarmExitSubroutine"), "DISABLE_ALARM_EXIT_SUBROUTINE")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.AlarmingStepFunction, "DisableAlarmExitSubroutine")
+        return AlarmingStepFunction(dotnet_result, "DISABLE_ALARM_EXIT_SUBROUTINE")
 
     @_staticproperty
     def RESET_ALARM() -> AlarmingStepFunction:
-        return AlarmingStepFunction(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.AlarmingStepFunction, "ResetAlarm"), "RESET_ALARM")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.AlarmingStepFunction, "ResetAlarm")
+        return AlarmingStepFunction(dotnet_result, "RESET_ALARM")
 
 
 class BaseNode(_DotNetBase):
@@ -308,133 +327,166 @@ class BaseNode(_DotNetBase):
     @property
     def base_node_type(self) -> BaseNodeType:
         """Gets a reference to the internal representation of this node."""
-        return _wrap(self._dotnet_instance.BaseNodeType)
+        dotnet_result = self._dotnet_instance.BaseNodeType
+        return _wrap(dotnet_result)
 
     @property
     def name(self) -> str:
         """Gets the name of this node. To rename a node, use the <see cref="M:NationalInstruments.VeriStand.SystemDefinitionAPI.BaseNode.RenameNode(System.String)" crefType="Unqualified" /> method."""
-        return _wrap(self._dotnet_instance.Name)
+        dotnet_result = self._dotnet_instance.Name
+        return _wrap(dotnet_result)
 
     @property
     def node_path(self) -> str:
         """Gets the path to the node within the system definition file."""
-        return _wrap(self._dotnet_instance.NodePath)
+        dotnet_result = self._dotnet_instance.NodePath
+        return _wrap(dotnet_result)
 
     @property
     def node_id(self) -> int:
         """Gets the ID of this node."""
-        return _wrap(self._dotnet_instance.NodeID)
+        dotnet_result = self._dotnet_instance.NodeID
+        return _wrap(dotnet_result)
 
     @property
     def log_file_producer(self) -> bool:
         """Gets a value indicating whether the node is a log file producer"""
-        return _wrap(self._dotnet_instance.LogFileProducer)
+        dotnet_result = self._dotnet_instance.LogFileProducer
+        return _wrap(dotnet_result)
 
     @property
     def description(self) -> str:
         """Gets or sets the description of this node."""
-        return _wrap(self._dotnet_instance.Description)
+        dotnet_result = self._dotnet_instance.Description
+        return _wrap(dotnet_result)
 
     @description.setter
     def description(self, value: str):
         """Gets or sets the description of this node."""
-        self._dotnet_instance.Description = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.Description = next(unwrapped)
 
     @property
     def type_guid(self) -> str:
         """Gets the GUID associated with the node.
             Attempts to set the GUID of a <see cref="T:NationalInstruments.VeriStand.SystemDefinitionAPI.BaseNode" crefType="Unqualified" /> will generate an exception."""
-        return _wrap(self._dotnet_instance.TypeGUID)
+        dotnet_result = self._dotnet_instance.TypeGUID
+        return _wrap(dotnet_result)
 
     @type_guid.setter
     def type_guid(self, value: str):
         """Gets the GUID associated with the node.
             Attempts to set the GUID of a <see cref="T:NationalInstruments.VeriStand.SystemDefinitionAPI.BaseNode" crefType="Unqualified" /> will generate an exception."""
-        self._dotnet_instance.TypeGUID = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.TypeGUID = next(unwrapped)
 
     @overload
     def get_parent(self) -> Tuple[bool, BaseNode]:
         ...
 
     def get_parent(self, *args):
-        return _wrap(self._dotnet_instance.GetParent(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetParent(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_children(self) -> Sequence[BaseNode]:
         ...
 
     def get_children(self, *args):
-        return _wrap(self._dotnet_instance.GetChildren(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetChildren(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def find_children_by_guid(self, type_guid: str) -> Sequence[BaseNode]:
         ...
 
     def find_children_by_guid(self, *args):
-        return _wrap(self._dotnet_instance.FindChildrenByGUID(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.FindChildrenByGUID(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def find_first_child_with_name(self, name: str, deep_hierarchy: bool) -> Tuple[bool, BaseNode]:
         ...
 
     def find_first_child_with_name(self, *args):
-        return _wrap(self._dotnet_instance.FindFirstChildWithName(*_unwrap({None: (1, None)}, *args)))
+        unwrapped = _unwrap({None: (1, None)}, *args)
+        dotnet_result = self._dotnet_instance.FindFirstChildWithName(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def find_node_by_path(self, nodepath: str) -> Tuple[bool, BaseNode]:
         ...
 
     def find_node_by_path(self, *args):
-        return _wrap(self._dotnet_instance.FindNodeByPath(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.FindNodeByPath(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_document_root(self) -> Root:
         ...
 
     def get_document_root(self, *args):
-        return _wrap(self._dotnet_instance.GetDocumentRoot(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetDocumentRoot(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_document_path(self) -> str:
         ...
 
     def get_document_path(self, *args):
-        return _wrap(self._dotnet_instance.GetDocumentPath(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetDocumentPath(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def remove_node(self) -> bool:
         ...
 
     def remove_node(self, *args):
-        return _wrap(self._dotnet_instance.RemoveNode(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.RemoveNode(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def rename_node(self, new_name: str) -> bool:
         ...
 
     def rename_node(self, *args):
-        return _wrap(self._dotnet_instance.RenameNode(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.RenameNode(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_node_errors(self):
         ...
 
     def get_node_errors(self, *args):
-        return _wrap(self._dotnet_instance.GetNodeErrors(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetNodeErrors(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def equals(self, obj: Any) -> bool:
         ...
 
     def equals(self, *args):
-        return _wrap(self._dotnet_instance.Equals(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.Equals(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_hash_code(self) -> int:
         ...
 
     def get_hash_code(self, *args):
-        return _wrap(self._dotnet_instance.GetHashCode(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetHashCode(*unwrapped)
+        return _wrap(dotnet_result)
 
     def _custom_repr(self) -> str:
         return f"(name={self.name}, node_path={self.node_path})"
@@ -454,15 +506,18 @@ class CANTransceiverType(_DotNetEnum):
 
     @_staticproperty
     def HS() -> CANTransceiverType:
-        return CANTransceiverType(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.CANTransceiverType, "HS"), "HS")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.CANTransceiverType, "HS")
+        return CANTransceiverType(dotnet_result, "HS")
 
     @_staticproperty
     def LS() -> CANTransceiverType:
-        return CANTransceiverType(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.CANTransceiverType, "LS"), "LS")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.CANTransceiverType, "LS")
+        return CANTransceiverType(dotnet_result, "LS")
 
     @_staticproperty
     def SW() -> CANTransceiverType:
-        return CANTransceiverType(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.CANTransceiverType, "SW"), "SW")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.CANTransceiverType, "SW")
+        return CANTransceiverType(dotnet_result, "SW")
 
 
 class CANTransmitOrderType(_DotNetEnum):
@@ -479,11 +534,13 @@ class CANTransmitOrderType(_DotNetEnum):
 
     @_staticproperty
     def AS_SUBMITTED() -> CANTransmitOrderType:
-        return CANTransmitOrderType(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.CANTransmitOrderType, "AsSubmitted"), "AS_SUBMITTED")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.CANTransmitOrderType, "AsSubmitted")
+        return CANTransmitOrderType(dotnet_result, "AS_SUBMITTED")
 
     @_staticproperty
     def BY_IDENTIFIER() -> CANTransmitOrderType:
-        return CANTransmitOrderType(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.CANTransmitOrderType, "ByIdentifier"), "BY_IDENTIFIER")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.CANTransmitOrderType, "ByIdentifier")
+        return CANTransmitOrderType(dotnet_result, "BY_IDENTIFIER")
 
 
 class CDChannel_Type(_DotNetEnum):
@@ -500,11 +557,13 @@ class CDChannel_Type(_DotNetEnum):
 
     @_staticproperty
     def INPUT() -> CDChannel_Type:
-        return CDChannel_Type(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.CDChannel_Type, "Input"), "INPUT")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.CDChannel_Type, "Input")
+        return CDChannel_Type(dotnet_result, "INPUT")
 
     @_staticproperty
     def OUTPUT() -> CDChannel_Type:
-        return CDChannel_Type(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.CDChannel_Type, "Output"), "OUTPUT")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.CDChannel_Type, "Output")
+        return CDChannel_Type(dotnet_result, "OUTPUT")
 
 
 class CDDriverExecMode(_DotNetEnum):
@@ -521,23 +580,28 @@ class CDDriverExecMode(_DotNetEnum):
 
     @_staticproperty
     def ASYNCHRONOUS() -> CDDriverExecMode:
-        return CDDriverExecMode(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.CDDriverExecMode, "Asynchronous"), "ASYNCHRONOUS")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.CDDriverExecMode, "Asynchronous")
+        return CDDriverExecMode(dotnet_result, "ASYNCHRONOUS")
 
     @_staticproperty
     def INLINE_HW_INTERFACE() -> CDDriverExecMode:
-        return CDDriverExecMode(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.CDDriverExecMode, "InlineHWInterface"), "INLINE_HW_INTERFACE")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.CDDriverExecMode, "InlineHWInterface")
+        return CDDriverExecMode(dotnet_result, "INLINE_HW_INTERFACE")
 
     @_staticproperty
     def INLINE_MODEL_INTERFACE() -> CDDriverExecMode:
-        return CDDriverExecMode(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.CDDriverExecMode, "InlineModelInterface"), "INLINE_MODEL_INTERFACE")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.CDDriverExecMode, "InlineModelInterface")
+        return CDDriverExecMode(dotnet_result, "INLINE_MODEL_INTERFACE")
 
     @_staticproperty
     def INLINE_TIMING_AND_SYNC() -> CDDriverExecMode:
-        return CDDriverExecMode(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.CDDriverExecMode, "InlineTimingAndSync"), "INLINE_TIMING_AND_SYNC")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.CDDriverExecMode, "InlineTimingAndSync")
+        return CDDriverExecMode(dotnet_result, "INLINE_TIMING_AND_SYNC")
 
     @_staticproperty
     def ASYNCHRONOUS_TIMING_AND_SYNC() -> CDDriverExecMode:
-        return CDDriverExecMode(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.CDDriverExecMode, "AsynchronousTimingAndSync"), "ASYNCHRONOUS_TIMING_AND_SYNC")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.CDDriverExecMode, "AsynchronousTimingAndSync")
+        return CDDriverExecMode(dotnet_result, "ASYNCHRONOUS_TIMING_AND_SYNC")
 
 
 class CDLoopType(_DotNetEnum):
@@ -554,11 +618,13 @@ class CDLoopType(_DotNetEnum):
 
     @_staticproperty
     def WHILE_LOOP() -> CDLoopType:
-        return CDLoopType(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.CDLoopType, "WhileLoop"), "WHILE_LOOP")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.CDLoopType, "WhileLoop")
+        return CDLoopType(dotnet_result, "WHILE_LOOP")
 
     @_staticproperty
     def TIMED_LOOP() -> CDLoopType:
-        return CDLoopType(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.CDLoopType, "TimedLoop"), "TIMED_LOOP")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.CDLoopType, "TimedLoop")
+        return CDLoopType(dotnet_result, "TIMED_LOOP")
 
 
 class CDTimeLoopPriority(_DotNetEnum):
@@ -575,15 +641,18 @@ class CDTimeLoopPriority(_DotNetEnum):
 
     @_staticproperty
     def LOW() -> CDTimeLoopPriority:
-        return CDTimeLoopPriority(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.CDTimeLoopPriority, "Low"), "LOW")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.CDTimeLoopPriority, "Low")
+        return CDTimeLoopPriority(dotnet_result, "LOW")
 
     @_staticproperty
     def MEDIUM() -> CDTimeLoopPriority:
-        return CDTimeLoopPriority(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.CDTimeLoopPriority, "Medium"), "MEDIUM")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.CDTimeLoopPriority, "Medium")
+        return CDTimeLoopPriority(dotnet_result, "MEDIUM")
 
     @_staticproperty
     def HIGH() -> CDTimeLoopPriority:
-        return CDTimeLoopPriority(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.CDTimeLoopPriority, "High"), "HIGH")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.CDTimeLoopPriority, "High")
+        return CDTimeLoopPriority(dotnet_result, "HIGH")
 
 
 class ChannelNames(_DotNetEnum):
@@ -600,11 +669,13 @@ class ChannelNames(_DotNetEnum):
 
     @_staticproperty
     def PHYSICAL_CHANNEL() -> ChannelNames:
-        return ChannelNames(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.ChannelNames, "PhysicalChannel"), "PHYSICAL_CHANNEL")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.ChannelNames, "PhysicalChannel")
+        return ChannelNames(dotnet_result, "PHYSICAL_CHANNEL")
 
     @_staticproperty
     def SYSTEM_DEFINITION() -> ChannelNames:
-        return ChannelNames(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.ChannelNames, "SystemDefinition"), "SYSTEM_DEFINITION")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.ChannelNames, "SystemDefinition")
+        return ChannelNames(dotnet_result, "SYSTEM_DEFINITION")
 
 
 class ConditionStepComparison(_DotNetEnum):
@@ -621,27 +692,33 @@ class ConditionStepComparison(_DotNetEnum):
 
     @_staticproperty
     def GREATER() -> ConditionStepComparison:
-        return ConditionStepComparison(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.ConditionStepComparison, "Greater"), "GREATER")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.ConditionStepComparison, "Greater")
+        return ConditionStepComparison(dotnet_result, "GREATER")
 
     @_staticproperty
     def LESS() -> ConditionStepComparison:
-        return ConditionStepComparison(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.ConditionStepComparison, "Less"), "LESS")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.ConditionStepComparison, "Less")
+        return ConditionStepComparison(dotnet_result, "LESS")
 
     @_staticproperty
     def EQUAL() -> ConditionStepComparison:
-        return ConditionStepComparison(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.ConditionStepComparison, "Equal"), "EQUAL")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.ConditionStepComparison, "Equal")
+        return ConditionStepComparison(dotnet_result, "EQUAL")
 
     @_staticproperty
     def NOT_EQUAL() -> ConditionStepComparison:
-        return ConditionStepComparison(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.ConditionStepComparison, "NotEqual"), "NOT_EQUAL")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.ConditionStepComparison, "NotEqual")
+        return ConditionStepComparison(dotnet_result, "NOT_EQUAL")
 
     @_staticproperty
     def GREATER_OR_EQUAL() -> ConditionStepComparison:
-        return ConditionStepComparison(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.ConditionStepComparison, "GreaterOrEqual"), "GREATER_OR_EQUAL")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.ConditionStepComparison, "GreaterOrEqual")
+        return ConditionStepComparison(dotnet_result, "GREATER_OR_EQUAL")
 
     @_staticproperty
     def LESS_OR_EQUAL() -> ConditionStepComparison:
-        return ConditionStepComparison(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.ConditionStepComparison, "LessOrEqual"), "LESS_OR_EQUAL")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.ConditionStepComparison, "LessOrEqual")
+        return ConditionStepComparison(dotnet_result, "LESS_OR_EQUAL")
 
 
 class CustomDeviceBase(BaseNode):
@@ -660,91 +737,117 @@ class CustomDeviceBase(BaseNode):
         ...
 
     def rename_node(self, *args):
-        return _wrap(self._dotnet_instance.RenameNode(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.RenameNode(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_boolean_property(self, name: str) -> Tuple[bool, bool]:
         ...
 
     def get_boolean_property(self, *args):
-        return _wrap(self._dotnet_instance.GetBooleanProperty(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetBooleanProperty(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_u16_property(self, name: str) -> Tuple[bool, int]:
         ...
 
     def get_u16_property(self, *args):
-        return _wrap(self._dotnet_instance.GetU16Property(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetU16Property(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_u32_property(self, name: str) -> Tuple[bool, int]:
         ...
 
     def get_u32_property(self, *args):
-        return _wrap(self._dotnet_instance.GetU32Property(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetU32Property(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_u32_array_property(self, name: str) -> Tuple[bool, Sequence[int]]:
         ...
 
     def get_u32_array_property(self, *args):
-        return _wrap(self._dotnet_instance.GetU32ArrayProperty(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetU32ArrayProperty(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_u64_property(self, name: str) -> Tuple[bool, int]:
         ...
 
     def get_u64_property(self, *args):
-        return _wrap(self._dotnet_instance.GetU64Property(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetU64Property(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_i32_property(self, name: str) -> Tuple[bool, int]:
         ...
 
     def get_i32_property(self, *args):
-        return _wrap(self._dotnet_instance.GetI32Property(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetI32Property(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_i32_array_property(self, name: str) -> Tuple[bool, Sequence[int]]:
         ...
 
     def get_i32_array_property(self, *args):
-        return _wrap(self._dotnet_instance.GetI32ArrayProperty(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetI32ArrayProperty(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_double_property(self, name: str) -> Tuple[bool, float]:
         ...
 
     def get_double_property(self, *args):
-        return _wrap(self._dotnet_instance.GetDoubleProperty(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetDoubleProperty(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_double_array_property(self, name: str) -> Tuple[bool, Sequence[float]]:
         ...
 
     def get_double_array_property(self, *args):
-        return _wrap(self._dotnet_instance.GetDoubleArrayProperty(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetDoubleArrayProperty(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_string_property(self, name: str) -> Tuple[bool, str]:
         ...
 
     def get_string_property(self, *args):
-        return _wrap(self._dotnet_instance.GetStringProperty(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetStringProperty(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_binary_string_property(self, name: str) -> Tuple[bool, Sequence[int]]:
         ...
 
     def get_binary_string_property(self, *args):
-        return _wrap(self._dotnet_instance.GetBinaryStringProperty(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetBinaryStringProperty(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_string_array_property(self, name: str) -> Tuple[bool, Sequence[str]]:
         ...
 
     def get_string_array_property(self, *args):
-        return _wrap(self._dotnet_instance.GetStringArrayProperty(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetStringArrayProperty(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_dependent_node_property_basenode(self, name: str) -> Tuple[bool, BaseNode]:
@@ -758,8 +861,8 @@ class CustomDeviceBase(BaseNode):
                 params_array = System.Array[System.Object](len(params_tuple))
                 for i, param in enumerate(params_tuple):
                     params_array[i] = param
-                result = method.Invoke(self._dotnet_instance, params_array)
-                return _wrap((result, params_array[1]))
+                dotnet_result = method.Invoke(self._dotnet_instance, params_array)
+                return _wrap((dotnet_result, params_array[1]))
 
     @overload
     def get_dependent_node_property_str(self, name: str) -> Tuple[bool, str]:
@@ -773,120 +876,152 @@ class CustomDeviceBase(BaseNode):
                 params_array = System.Array[System.Object](len(params_tuple))
                 for i, param in enumerate(params_tuple):
                     params_array[i] = param
-                result = method.Invoke(self._dotnet_instance, params_array)
-                return _wrap((result, params_array[1]))
+                dotnet_result = method.Invoke(self._dotnet_instance, params_array)
+                return _wrap((dotnet_result, params_array[1]))
 
     @overload
     def get_dependent_file_property(self, name: str) -> Tuple[bool, DependentFile]:
         ...
 
     def get_dependent_file_property(self, *args):
-        return _wrap(self._dotnet_instance.GetDependentFileProperty(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetDependentFileProperty(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_dictionary_property(self, name: str) -> Tuple[bool, Dictionary]:
         ...
 
     def get_dictionary_property(self, *args):
-        return _wrap(self._dotnet_instance.GetDictionaryProperty(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetDictionaryProperty(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_dictionary_array_property(self, name: str) -> Tuple[bool, Sequence[Dictionary]]:
         ...
 
     def get_dictionary_array_property(self, *args):
-        return _wrap(self._dotnet_instance.GetDictionaryArrayProperty(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetDictionaryArrayProperty(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_variant_property(self, name: str) -> Tuple[bool, Sequence[int], Sequence[int]]:
         ...
 
     def get_variant_property(self, *args):
-        return _wrap(self._dotnet_instance.GetVariantProperty(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetVariantProperty(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def set_boolean_property(self, name: str, value: bool) -> bool:
         ...
 
     def set_boolean_property(self, *args):
-        return _wrap(self._dotnet_instance.SetBooleanProperty(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.SetBooleanProperty(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def set_u16_property(self, name: str, value: int) -> bool:
         ...
 
     def set_u16_property(self, *args):
-        return _wrap(self._dotnet_instance.SetU16Property(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.SetU16Property(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def set_u32_property(self, name: str, value: int) -> bool:
         ...
 
     def set_u32_property(self, *args):
-        return _wrap(self._dotnet_instance.SetU32Property(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.SetU32Property(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def set_u32_array_property(self, name: str, value: Sequence[int]) -> bool:
         ...
 
     def set_u32_array_property(self, *args):
-        return _wrap(self._dotnet_instance.SetU32ArrayProperty(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.SetU32ArrayProperty(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def set_u64_property(self, name: str, value: int) -> bool:
         ...
 
     def set_u64_property(self, *args):
-        return _wrap(self._dotnet_instance.SetU64Property(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.SetU64Property(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def set_i32_property(self, name: str, value: int) -> bool:
         ...
 
     def set_i32_property(self, *args):
-        return _wrap(self._dotnet_instance.SetI32Property(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.SetI32Property(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def set_i32_array_property(self, name: str, value: Sequence[int]) -> bool:
         ...
 
     def set_i32_array_property(self, *args):
-        return _wrap(self._dotnet_instance.SetI32ArrayProperty(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.SetI32ArrayProperty(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def set_double_property(self, name: str, value: float) -> bool:
         ...
 
     def set_double_property(self, *args):
-        return _wrap(self._dotnet_instance.SetDoubleProperty(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.SetDoubleProperty(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def set_double_array_property(self, name: str, value: Sequence[float]) -> bool:
         ...
 
     def set_double_array_property(self, *args):
-        return _wrap(self._dotnet_instance.SetDoubleArrayProperty(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.SetDoubleArrayProperty(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def set_string_property(self, name: str, value: str) -> bool:
         ...
 
     def set_string_property(self, *args):
-        return _wrap(self._dotnet_instance.SetStringProperty(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.SetStringProperty(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def set_binary_string_property(self, name: str, value: Sequence[int]) -> bool:
         ...
 
     def set_binary_string_property(self, *args):
-        return _wrap(self._dotnet_instance.SetBinaryStringProperty(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.SetBinaryStringProperty(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def set_string_array_property(self, name: str, value: Sequence[str]) -> bool:
         ...
 
     def set_string_array_property(self, *args):
-        return _wrap(self._dotnet_instance.SetStringArrayProperty(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.SetStringArrayProperty(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def set_dependent_node_property(self, name: str, value: BaseNode) -> bool:
@@ -897,84 +1032,108 @@ class CustomDeviceBase(BaseNode):
         ...
 
     def set_dependent_node_property(self, *args):
-        return _wrap(self._dotnet_instance.SetDependentNodeProperty(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.SetDependentNodeProperty(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def set_dependent_file_property(self, name: str, value: DependentFile) -> bool:
         ...
 
     def set_dependent_file_property(self, *args):
-        return _wrap(self._dotnet_instance.SetDependentFileProperty(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.SetDependentFileProperty(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def set_dictionary_property(self, name: str, value: Dictionary) -> bool:
         ...
 
     def set_dictionary_property(self, *args):
-        return _wrap(self._dotnet_instance.SetDictionaryProperty(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.SetDictionaryProperty(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def set_dictionary_array_property(self, name: str, value: Sequence[Dictionary]) -> bool:
         ...
 
     def set_dictionary_array_property(self, *args):
-        return _wrap(self._dotnet_instance.SetDictionaryArrayProperty(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.SetDictionaryArrayProperty(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def set_variant_property(self, name: str, type: Sequence[int], value: Sequence[int]) -> bool:
         ...
 
     def set_variant_property(self, *args):
-        return _wrap(self._dotnet_instance.SetVariantProperty(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.SetVariantProperty(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_property_names(self) -> Sequence[str]:
         ...
 
     def get_property_names(self, *args):
-        return _wrap(self._dotnet_instance.GetPropertyNames(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetPropertyNames(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_property_type(self, property_name: str) -> Tuple[bool, PropertyContent]:
         ...
 
     def get_property_type(self, *args):
-        return _wrap(self._dotnet_instance.GetPropertyType(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetPropertyType(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def remove_property(self, name: str) -> bool:
         ...
 
     def remove_property(self, *args):
-        return _wrap(self._dotnet_instance.RemoveProperty(*_unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.RemoveProperty(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def move_node_to(self, parent_type: CustomDeviceBase) -> bool:
         ...
 
     def move_node_to(self, *args):
-        return _wrap(self._dotnet_instance.MoveNodeTo(*_unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.MoveNodeTo(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def remove_error(self, error_id: str):
         ...
 
     def remove_error(self, *args):
-        return _wrap(self._dotnet_instance.RemoveError(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.RemoveError(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def report_error(self, error_id: str, is_error: bool, err_code: int, message: str):
         ...
 
     def report_error(self, *args):
-        return _wrap(self._dotnet_instance.ReportError(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.ReportError(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def set_log_file_producer_flag(self, is_log_file_producer: bool):
         ...
 
     def set_log_file_producer_flag(self, *args):
-        return _wrap(self._dotnet_instance.SetLogFileProducerFlag(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.SetLogFileProducerFlag(*unwrapped)
+        return _wrap(dotnet_result)
 
 
 class CustomDeviceSection(CustomDeviceBase):
@@ -990,49 +1149,62 @@ class CustomDeviceSection(CustomDeviceBase):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.CustomDeviceSection:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.CustomDeviceSection(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.CustomDeviceSection(*unwrapped)
 
     @overload
     def add_custom_device_section_if_not_found(self, name: str, guid: str) -> Tuple[CustomDeviceSection, bool]:
         ...
 
     def add_custom_device_section_if_not_found(self, *args):
-        return _wrap(self._dotnet_instance.AddCustomDeviceSectionIfNotFound(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.AddCustomDeviceSectionIfNotFound(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_custom_device_channel_if_not_found(self, name: str, guid: str) -> Tuple[CustomDeviceChannel, bool]:
         ...
 
     def add_custom_device_channel_if_not_found(self, *args):
-        return _wrap(self._dotnet_instance.AddCustomDeviceChannelIfNotFound(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.AddCustomDeviceChannelIfNotFound(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_custom_device_waveform_if_not_found(self, name: str, guid: str, data_type: WaveformTypeDataType) -> Tuple[CustomDeviceWaveform, bool]:
         ...
 
     def add_custom_device_waveform_if_not_found(self, *args):
-        return _wrap(self._dotnet_instance.AddCustomDeviceWaveformIfNotFound(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.AddCustomDeviceWaveformIfNotFound(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_output_underflow_count_channel(self, name: str) -> CustomDeviceChannel:
         ...
 
     def add_output_underflow_count_channel(self, *args):
-        return _wrap(self._dotnet_instance.AddOutputUnderflowCountChannel(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.AddOutputUnderflowCountChannel(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_input_overflow_count_channel(self, name: str) -> CustomDeviceChannel:
         ...
 
     def add_input_overflow_count_channel(self, *args):
-        return _wrap(self._dotnet_instance.AddInputOverflowCountChannel(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.AddInputOverflowCountChannel(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_error_channel(self, name: str) -> CustomDeviceChannel:
         ...
 
     def add_error_channel(self, *args):
-        return _wrap(self._dotnet_instance.AddErrorChannel(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.AddErrorChannel(*unwrapped)
+        return _wrap(dotnet_result)
 
 
 class CustomDeviceWaveform(CustomDeviceBase):
@@ -1048,27 +1220,32 @@ class CustomDeviceWaveform(CustomDeviceBase):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.CustomDeviceWaveform:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.CustomDeviceWaveform(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.CustomDeviceWaveform(*unwrapped)
 
     @property
     def units(self) -> str:
         """Gets or sets the units associated with a CustomDeviceWaveform. Units can be any string that makes sense for your custom device."""
-        return _wrap(self._dotnet_instance.Units)
+        dotnet_result = self._dotnet_instance.Units
+        return _wrap(dotnet_result)
 
     @units.setter
     def units(self, value: str):
         """Gets or sets the units associated with a CustomDeviceWaveform. Units can be any string that makes sense for your custom device."""
-        self._dotnet_instance.Units = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.Units = next(unwrapped)
 
     @property
     def data_type(self) -> WaveformTypeDataType:
         """Gets or sets the data type associated with the <see cref="T:NationalInstruments.VeriStand.SystemDefinitionAPI.CustomDeviceWaveform" /> class."""
-        return _wrap(self._dotnet_instance.DataType)
+        dotnet_result = self._dotnet_instance.DataType
+        return _wrap(dotnet_result)
 
     @data_type.setter
     def data_type(self, value: WaveformTypeDataType):
         """Gets or sets the data type associated with the <see cref="T:NationalInstruments.VeriStand.SystemDefinitionAPI.CustomDeviceWaveform" /> class."""
-        self._dotnet_instance.DataType = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.DataType = next(unwrapped)
 
 
 class DAQAnalogChannelType(_DotNetEnum):
@@ -1085,15 +1262,18 @@ class DAQAnalogChannelType(_DotNetEnum):
 
     @_staticproperty
     def VOLTAGE() -> DAQAnalogChannelType:
-        return DAQAnalogChannelType(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQAnalogChannelType, "Voltage"), "VOLTAGE")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQAnalogChannelType, "Voltage")
+        return DAQAnalogChannelType(dotnet_result, "VOLTAGE")
 
     @_staticproperty
     def CURRENT() -> DAQAnalogChannelType:
-        return DAQAnalogChannelType(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQAnalogChannelType, "Current"), "CURRENT")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQAnalogChannelType, "Current")
+        return DAQAnalogChannelType(dotnet_result, "CURRENT")
 
     @_staticproperty
     def OTHER() -> DAQAnalogChannelType:
-        return DAQAnalogChannelType(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQAnalogChannelType, "Other"), "OTHER")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQAnalogChannelType, "Other")
+        return DAQAnalogChannelType(dotnet_result, "OTHER")
 
 
 class DAQCM_Active_Edge(_DotNetEnum):
@@ -1110,11 +1290,13 @@ class DAQCM_Active_Edge(_DotNetEnum):
 
     @_staticproperty
     def RISING() -> DAQCM_Active_Edge:
-        return DAQCM_Active_Edge(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Active_Edge, "Rising"), "RISING")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Active_Edge, "Rising")
+        return DAQCM_Active_Edge(dotnet_result, "RISING")
 
     @_staticproperty
     def FALLING() -> DAQCM_Active_Edge:
-        return DAQCM_Active_Edge(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Active_Edge, "Falling"), "FALLING")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Active_Edge, "Falling")
+        return DAQCM_Active_Edge(dotnet_result, "FALLING")
 
 
 class DAQCM_Clock_Source(_DotNetEnum):
@@ -1131,103 +1313,128 @@ class DAQCM_Clock_Source(_DotNetEnum):
 
     @_staticproperty
     def ONBOARD10_M_HZ_CLOCK() -> DAQCM_Clock_Source:
-        return DAQCM_Clock_Source(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Clock_Source, "Onboard10MHzClock"), "ONBOARD10_M_HZ_CLOCK")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Clock_Source, "Onboard10MHzClock")
+        return DAQCM_Clock_Source(dotnet_result, "ONBOARD10_M_HZ_CLOCK")
 
     @_staticproperty
     def PFI_0() -> DAQCM_Clock_Source:
-        return DAQCM_Clock_Source(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Clock_Source, "PFI_0"), "PFI_0")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Clock_Source, "PFI_0")
+        return DAQCM_Clock_Source(dotnet_result, "PFI_0")
 
     @_staticproperty
     def PFI_1() -> DAQCM_Clock_Source:
-        return DAQCM_Clock_Source(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Clock_Source, "PFI_1"), "PFI_1")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Clock_Source, "PFI_1")
+        return DAQCM_Clock_Source(dotnet_result, "PFI_1")
 
     @_staticproperty
     def PFI_2() -> DAQCM_Clock_Source:
-        return DAQCM_Clock_Source(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Clock_Source, "PFI_2"), "PFI_2")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Clock_Source, "PFI_2")
+        return DAQCM_Clock_Source(dotnet_result, "PFI_2")
 
     @_staticproperty
     def PFI_3() -> DAQCM_Clock_Source:
-        return DAQCM_Clock_Source(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Clock_Source, "PFI_3"), "PFI_3")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Clock_Source, "PFI_3")
+        return DAQCM_Clock_Source(dotnet_result, "PFI_3")
 
     @_staticproperty
     def PFI_4() -> DAQCM_Clock_Source:
-        return DAQCM_Clock_Source(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Clock_Source, "PFI_4"), "PFI_4")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Clock_Source, "PFI_4")
+        return DAQCM_Clock_Source(dotnet_result, "PFI_4")
 
     @_staticproperty
     def PFI_5() -> DAQCM_Clock_Source:
-        return DAQCM_Clock_Source(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Clock_Source, "PFI_5"), "PFI_5")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Clock_Source, "PFI_5")
+        return DAQCM_Clock_Source(dotnet_result, "PFI_5")
 
     @_staticproperty
     def PFI_6() -> DAQCM_Clock_Source:
-        return DAQCM_Clock_Source(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Clock_Source, "PFI_6"), "PFI_6")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Clock_Source, "PFI_6")
+        return DAQCM_Clock_Source(dotnet_result, "PFI_6")
 
     @_staticproperty
     def PFI_7() -> DAQCM_Clock_Source:
-        return DAQCM_Clock_Source(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Clock_Source, "PFI_7"), "PFI_7")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Clock_Source, "PFI_7")
+        return DAQCM_Clock_Source(dotnet_result, "PFI_7")
 
     @_staticproperty
     def PFI_8() -> DAQCM_Clock_Source:
-        return DAQCM_Clock_Source(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Clock_Source, "PFI_8"), "PFI_8")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Clock_Source, "PFI_8")
+        return DAQCM_Clock_Source(dotnet_result, "PFI_8")
 
     @_staticproperty
     def PFI_9() -> DAQCM_Clock_Source:
-        return DAQCM_Clock_Source(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Clock_Source, "PFI_9"), "PFI_9")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Clock_Source, "PFI_9")
+        return DAQCM_Clock_Source(dotnet_result, "PFI_9")
 
     @_staticproperty
     def PFI_10() -> DAQCM_Clock_Source:
-        return DAQCM_Clock_Source(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Clock_Source, "PFI_10"), "PFI_10")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Clock_Source, "PFI_10")
+        return DAQCM_Clock_Source(dotnet_result, "PFI_10")
 
     @_staticproperty
     def PFI_11() -> DAQCM_Clock_Source:
-        return DAQCM_Clock_Source(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Clock_Source, "PFI_11"), "PFI_11")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Clock_Source, "PFI_11")
+        return DAQCM_Clock_Source(dotnet_result, "PFI_11")
 
     @_staticproperty
     def PFI_12() -> DAQCM_Clock_Source:
-        return DAQCM_Clock_Source(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Clock_Source, "PFI_12"), "PFI_12")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Clock_Source, "PFI_12")
+        return DAQCM_Clock_Source(dotnet_result, "PFI_12")
 
     @_staticproperty
     def PFI_13() -> DAQCM_Clock_Source:
-        return DAQCM_Clock_Source(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Clock_Source, "PFI_13"), "PFI_13")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Clock_Source, "PFI_13")
+        return DAQCM_Clock_Source(dotnet_result, "PFI_13")
 
     @_staticproperty
     def PFI_14() -> DAQCM_Clock_Source:
-        return DAQCM_Clock_Source(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Clock_Source, "PFI_14"), "PFI_14")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Clock_Source, "PFI_14")
+        return DAQCM_Clock_Source(dotnet_result, "PFI_14")
 
     @_staticproperty
     def PFI_15() -> DAQCM_Clock_Source:
-        return DAQCM_Clock_Source(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Clock_Source, "PFI_15"), "PFI_15")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Clock_Source, "PFI_15")
+        return DAQCM_Clock_Source(dotnet_result, "PFI_15")
 
     @_staticproperty
     def RTSI_PXI_TRIG_0() -> DAQCM_Clock_Source:
-        return DAQCM_Clock_Source(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Clock_Source, "RTSI_PXI_TRIG_0"), "RTSI_PXI_TRIG_0")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Clock_Source, "RTSI_PXI_TRIG_0")
+        return DAQCM_Clock_Source(dotnet_result, "RTSI_PXI_TRIG_0")
 
     @_staticproperty
     def RTSI_PXI_TRIG_1() -> DAQCM_Clock_Source:
-        return DAQCM_Clock_Source(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Clock_Source, "RTSI_PXI_TRIG_1"), "RTSI_PXI_TRIG_1")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Clock_Source, "RTSI_PXI_TRIG_1")
+        return DAQCM_Clock_Source(dotnet_result, "RTSI_PXI_TRIG_1")
 
     @_staticproperty
     def RTSI_PXI_TRIG_2() -> DAQCM_Clock_Source:
-        return DAQCM_Clock_Source(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Clock_Source, "RTSI_PXI_TRIG_2"), "RTSI_PXI_TRIG_2")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Clock_Source, "RTSI_PXI_TRIG_2")
+        return DAQCM_Clock_Source(dotnet_result, "RTSI_PXI_TRIG_2")
 
     @_staticproperty
     def RTSI_PXI_TRIG_3() -> DAQCM_Clock_Source:
-        return DAQCM_Clock_Source(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Clock_Source, "RTSI_PXI_TRIG_3"), "RTSI_PXI_TRIG_3")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Clock_Source, "RTSI_PXI_TRIG_3")
+        return DAQCM_Clock_Source(dotnet_result, "RTSI_PXI_TRIG_3")
 
     @_staticproperty
     def RTSI_PXI_TRIG_4() -> DAQCM_Clock_Source:
-        return DAQCM_Clock_Source(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Clock_Source, "RTSI_PXI_TRIG_4"), "RTSI_PXI_TRIG_4")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Clock_Source, "RTSI_PXI_TRIG_4")
+        return DAQCM_Clock_Source(dotnet_result, "RTSI_PXI_TRIG_4")
 
     @_staticproperty
     def RTSI_PXI_TRIG_5() -> DAQCM_Clock_Source:
-        return DAQCM_Clock_Source(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Clock_Source, "RTSI_PXI_TRIG_5"), "RTSI_PXI_TRIG_5")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Clock_Source, "RTSI_PXI_TRIG_5")
+        return DAQCM_Clock_Source(dotnet_result, "RTSI_PXI_TRIG_5")
 
     @_staticproperty
     def RTSI_PXI_TRIG_6() -> DAQCM_Clock_Source:
-        return DAQCM_Clock_Source(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Clock_Source, "RTSI_PXI_TRIG_6"), "RTSI_PXI_TRIG_6")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Clock_Source, "RTSI_PXI_TRIG_6")
+        return DAQCM_Clock_Source(dotnet_result, "RTSI_PXI_TRIG_6")
 
     @_staticproperty
     def RTSI_PXI_TRIG_7() -> DAQCM_Clock_Source:
-        return DAQCM_Clock_Source(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Clock_Source, "RTSI_PXI_TRIG_7"), "RTSI_PXI_TRIG_7")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Clock_Source, "RTSI_PXI_TRIG_7")
+        return DAQCM_Clock_Source(dotnet_result, "RTSI_PXI_TRIG_7")
 
 
 class DAQCM_Export_Clk_On_Line(_DotNetEnum):
@@ -1244,103 +1451,128 @@ class DAQCM_Export_Clk_On_Line(_DotNetEnum):
 
     @_staticproperty
     def DEFAULT_RTSI_PXI_TRIG_0() -> DAQCM_Export_Clk_On_Line:
-        return DAQCM_Export_Clk_On_Line(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Export_Clk_On_Line, "Default_RTSI_PXI_TRIG_0"), "DEFAULT_RTSI_PXI_TRIG_0")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Export_Clk_On_Line, "Default_RTSI_PXI_TRIG_0")
+        return DAQCM_Export_Clk_On_Line(dotnet_result, "DEFAULT_RTSI_PXI_TRIG_0")
 
     @_staticproperty
     def PFI_0() -> DAQCM_Export_Clk_On_Line:
-        return DAQCM_Export_Clk_On_Line(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Export_Clk_On_Line, "PFI_0"), "PFI_0")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Export_Clk_On_Line, "PFI_0")
+        return DAQCM_Export_Clk_On_Line(dotnet_result, "PFI_0")
 
     @_staticproperty
     def PFI_1() -> DAQCM_Export_Clk_On_Line:
-        return DAQCM_Export_Clk_On_Line(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Export_Clk_On_Line, "PFI_1"), "PFI_1")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Export_Clk_On_Line, "PFI_1")
+        return DAQCM_Export_Clk_On_Line(dotnet_result, "PFI_1")
 
     @_staticproperty
     def PFI_2() -> DAQCM_Export_Clk_On_Line:
-        return DAQCM_Export_Clk_On_Line(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Export_Clk_On_Line, "PFI_2"), "PFI_2")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Export_Clk_On_Line, "PFI_2")
+        return DAQCM_Export_Clk_On_Line(dotnet_result, "PFI_2")
 
     @_staticproperty
     def PFI_3() -> DAQCM_Export_Clk_On_Line:
-        return DAQCM_Export_Clk_On_Line(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Export_Clk_On_Line, "PFI_3"), "PFI_3")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Export_Clk_On_Line, "PFI_3")
+        return DAQCM_Export_Clk_On_Line(dotnet_result, "PFI_3")
 
     @_staticproperty
     def PFI_4() -> DAQCM_Export_Clk_On_Line:
-        return DAQCM_Export_Clk_On_Line(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Export_Clk_On_Line, "PFI_4"), "PFI_4")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Export_Clk_On_Line, "PFI_4")
+        return DAQCM_Export_Clk_On_Line(dotnet_result, "PFI_4")
 
     @_staticproperty
     def PFI_5() -> DAQCM_Export_Clk_On_Line:
-        return DAQCM_Export_Clk_On_Line(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Export_Clk_On_Line, "PFI_5"), "PFI_5")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Export_Clk_On_Line, "PFI_5")
+        return DAQCM_Export_Clk_On_Line(dotnet_result, "PFI_5")
 
     @_staticproperty
     def PFI_6() -> DAQCM_Export_Clk_On_Line:
-        return DAQCM_Export_Clk_On_Line(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Export_Clk_On_Line, "PFI_6"), "PFI_6")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Export_Clk_On_Line, "PFI_6")
+        return DAQCM_Export_Clk_On_Line(dotnet_result, "PFI_6")
 
     @_staticproperty
     def PFI_7() -> DAQCM_Export_Clk_On_Line:
-        return DAQCM_Export_Clk_On_Line(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Export_Clk_On_Line, "PFI_7"), "PFI_7")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Export_Clk_On_Line, "PFI_7")
+        return DAQCM_Export_Clk_On_Line(dotnet_result, "PFI_7")
 
     @_staticproperty
     def PFI_8() -> DAQCM_Export_Clk_On_Line:
-        return DAQCM_Export_Clk_On_Line(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Export_Clk_On_Line, "PFI_8"), "PFI_8")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Export_Clk_On_Line, "PFI_8")
+        return DAQCM_Export_Clk_On_Line(dotnet_result, "PFI_8")
 
     @_staticproperty
     def PFI_9() -> DAQCM_Export_Clk_On_Line:
-        return DAQCM_Export_Clk_On_Line(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Export_Clk_On_Line, "PFI_9"), "PFI_9")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Export_Clk_On_Line, "PFI_9")
+        return DAQCM_Export_Clk_On_Line(dotnet_result, "PFI_9")
 
     @_staticproperty
     def PFI_10() -> DAQCM_Export_Clk_On_Line:
-        return DAQCM_Export_Clk_On_Line(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Export_Clk_On_Line, "PFI_10"), "PFI_10")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Export_Clk_On_Line, "PFI_10")
+        return DAQCM_Export_Clk_On_Line(dotnet_result, "PFI_10")
 
     @_staticproperty
     def PFI_11() -> DAQCM_Export_Clk_On_Line:
-        return DAQCM_Export_Clk_On_Line(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Export_Clk_On_Line, "PFI_11"), "PFI_11")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Export_Clk_On_Line, "PFI_11")
+        return DAQCM_Export_Clk_On_Line(dotnet_result, "PFI_11")
 
     @_staticproperty
     def PFI_12() -> DAQCM_Export_Clk_On_Line:
-        return DAQCM_Export_Clk_On_Line(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Export_Clk_On_Line, "PFI_12"), "PFI_12")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Export_Clk_On_Line, "PFI_12")
+        return DAQCM_Export_Clk_On_Line(dotnet_result, "PFI_12")
 
     @_staticproperty
     def PFI_13() -> DAQCM_Export_Clk_On_Line:
-        return DAQCM_Export_Clk_On_Line(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Export_Clk_On_Line, "PFI_13"), "PFI_13")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Export_Clk_On_Line, "PFI_13")
+        return DAQCM_Export_Clk_On_Line(dotnet_result, "PFI_13")
 
     @_staticproperty
     def PFI_14() -> DAQCM_Export_Clk_On_Line:
-        return DAQCM_Export_Clk_On_Line(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Export_Clk_On_Line, "PFI_14"), "PFI_14")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Export_Clk_On_Line, "PFI_14")
+        return DAQCM_Export_Clk_On_Line(dotnet_result, "PFI_14")
 
     @_staticproperty
     def PFI_15() -> DAQCM_Export_Clk_On_Line:
-        return DAQCM_Export_Clk_On_Line(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Export_Clk_On_Line, "PFI_15"), "PFI_15")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Export_Clk_On_Line, "PFI_15")
+        return DAQCM_Export_Clk_On_Line(dotnet_result, "PFI_15")
 
     @_staticproperty
     def RTSI_PXI_TRIG_0() -> DAQCM_Export_Clk_On_Line:
-        return DAQCM_Export_Clk_On_Line(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Export_Clk_On_Line, "RTSI_PXI_TRIG_0"), "RTSI_PXI_TRIG_0")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Export_Clk_On_Line, "RTSI_PXI_TRIG_0")
+        return DAQCM_Export_Clk_On_Line(dotnet_result, "RTSI_PXI_TRIG_0")
 
     @_staticproperty
     def RTSI_PXI_TRIG_1() -> DAQCM_Export_Clk_On_Line:
-        return DAQCM_Export_Clk_On_Line(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Export_Clk_On_Line, "RTSI_PXI_TRIG_1"), "RTSI_PXI_TRIG_1")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Export_Clk_On_Line, "RTSI_PXI_TRIG_1")
+        return DAQCM_Export_Clk_On_Line(dotnet_result, "RTSI_PXI_TRIG_1")
 
     @_staticproperty
     def RTSI_PXI_TRIG_2() -> DAQCM_Export_Clk_On_Line:
-        return DAQCM_Export_Clk_On_Line(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Export_Clk_On_Line, "RTSI_PXI_TRIG_2"), "RTSI_PXI_TRIG_2")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Export_Clk_On_Line, "RTSI_PXI_TRIG_2")
+        return DAQCM_Export_Clk_On_Line(dotnet_result, "RTSI_PXI_TRIG_2")
 
     @_staticproperty
     def RTSI_PXI_TRIG_3() -> DAQCM_Export_Clk_On_Line:
-        return DAQCM_Export_Clk_On_Line(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Export_Clk_On_Line, "RTSI_PXI_TRIG_3"), "RTSI_PXI_TRIG_3")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Export_Clk_On_Line, "RTSI_PXI_TRIG_3")
+        return DAQCM_Export_Clk_On_Line(dotnet_result, "RTSI_PXI_TRIG_3")
 
     @_staticproperty
     def RTSI_PXI_TRIG_4() -> DAQCM_Export_Clk_On_Line:
-        return DAQCM_Export_Clk_On_Line(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Export_Clk_On_Line, "RTSI_PXI_TRIG_4"), "RTSI_PXI_TRIG_4")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Export_Clk_On_Line, "RTSI_PXI_TRIG_4")
+        return DAQCM_Export_Clk_On_Line(dotnet_result, "RTSI_PXI_TRIG_4")
 
     @_staticproperty
     def RTSI_PXI_TRIG_5() -> DAQCM_Export_Clk_On_Line:
-        return DAQCM_Export_Clk_On_Line(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Export_Clk_On_Line, "RTSI_PXI_TRIG_5"), "RTSI_PXI_TRIG_5")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Export_Clk_On_Line, "RTSI_PXI_TRIG_5")
+        return DAQCM_Export_Clk_On_Line(dotnet_result, "RTSI_PXI_TRIG_5")
 
     @_staticproperty
     def RTSI_PXI_TRIG_6() -> DAQCM_Export_Clk_On_Line:
-        return DAQCM_Export_Clk_On_Line(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Export_Clk_On_Line, "RTSI_PXI_TRIG_6"), "RTSI_PXI_TRIG_6")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Export_Clk_On_Line, "RTSI_PXI_TRIG_6")
+        return DAQCM_Export_Clk_On_Line(dotnet_result, "RTSI_PXI_TRIG_6")
 
     @_staticproperty
     def RTSI_PXI_TRIG_7() -> DAQCM_Export_Clk_On_Line:
-        return DAQCM_Export_Clk_On_Line(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Export_Clk_On_Line, "RTSI_PXI_TRIG_7"), "RTSI_PXI_TRIG_7")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Export_Clk_On_Line, "RTSI_PXI_TRIG_7")
+        return DAQCM_Export_Clk_On_Line(dotnet_result, "RTSI_PXI_TRIG_7")
 
 
 class DAQCM_Export_Sample_Clock(_DotNetEnum):
@@ -1357,11 +1589,13 @@ class DAQCM_Export_Sample_Clock(_DotNetEnum):
 
     @_staticproperty
     def AI_SAMPLE_CLOCK() -> DAQCM_Export_Sample_Clock:
-        return DAQCM_Export_Sample_Clock(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Export_Sample_Clock, "aiSampleClock"), "AI_SAMPLE_CLOCK")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Export_Sample_Clock, "aiSampleClock")
+        return DAQCM_Export_Sample_Clock(dotnet_result, "AI_SAMPLE_CLOCK")
 
     @_staticproperty
     def AO_SAMPLE_CLOCK() -> DAQCM_Export_Sample_Clock:
-        return DAQCM_Export_Sample_Clock(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Export_Sample_Clock, "aoSampleClock"), "AO_SAMPLE_CLOCK")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Export_Sample_Clock, "aoSampleClock")
+        return DAQCM_Export_Sample_Clock(dotnet_result, "AO_SAMPLE_CLOCK")
 
 
 class DAQCM_Export_StartTrigger_On_Line(_DotNetEnum):
@@ -1378,103 +1612,128 @@ class DAQCM_Export_StartTrigger_On_Line(_DotNetEnum):
 
     @_staticproperty
     def NONE() -> DAQCM_Export_StartTrigger_On_Line:
-        return DAQCM_Export_StartTrigger_On_Line(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Export_StartTrigger_On_Line, "None"), "NONE")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Export_StartTrigger_On_Line, "None")
+        return DAQCM_Export_StartTrigger_On_Line(dotnet_result, "NONE")
 
     @_staticproperty
     def PFI_0() -> DAQCM_Export_StartTrigger_On_Line:
-        return DAQCM_Export_StartTrigger_On_Line(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Export_StartTrigger_On_Line, "PFI_0"), "PFI_0")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Export_StartTrigger_On_Line, "PFI_0")
+        return DAQCM_Export_StartTrigger_On_Line(dotnet_result, "PFI_0")
 
     @_staticproperty
     def PFI_1() -> DAQCM_Export_StartTrigger_On_Line:
-        return DAQCM_Export_StartTrigger_On_Line(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Export_StartTrigger_On_Line, "PFI_1"), "PFI_1")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Export_StartTrigger_On_Line, "PFI_1")
+        return DAQCM_Export_StartTrigger_On_Line(dotnet_result, "PFI_1")
 
     @_staticproperty
     def PFI_2() -> DAQCM_Export_StartTrigger_On_Line:
-        return DAQCM_Export_StartTrigger_On_Line(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Export_StartTrigger_On_Line, "PFI_2"), "PFI_2")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Export_StartTrigger_On_Line, "PFI_2")
+        return DAQCM_Export_StartTrigger_On_Line(dotnet_result, "PFI_2")
 
     @_staticproperty
     def PFI_3() -> DAQCM_Export_StartTrigger_On_Line:
-        return DAQCM_Export_StartTrigger_On_Line(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Export_StartTrigger_On_Line, "PFI_3"), "PFI_3")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Export_StartTrigger_On_Line, "PFI_3")
+        return DAQCM_Export_StartTrigger_On_Line(dotnet_result, "PFI_3")
 
     @_staticproperty
     def PFI_4() -> DAQCM_Export_StartTrigger_On_Line:
-        return DAQCM_Export_StartTrigger_On_Line(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Export_StartTrigger_On_Line, "PFI_4"), "PFI_4")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Export_StartTrigger_On_Line, "PFI_4")
+        return DAQCM_Export_StartTrigger_On_Line(dotnet_result, "PFI_4")
 
     @_staticproperty
     def PFI_5() -> DAQCM_Export_StartTrigger_On_Line:
-        return DAQCM_Export_StartTrigger_On_Line(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Export_StartTrigger_On_Line, "PFI_5"), "PFI_5")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Export_StartTrigger_On_Line, "PFI_5")
+        return DAQCM_Export_StartTrigger_On_Line(dotnet_result, "PFI_5")
 
     @_staticproperty
     def PFI_6() -> DAQCM_Export_StartTrigger_On_Line:
-        return DAQCM_Export_StartTrigger_On_Line(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Export_StartTrigger_On_Line, "PFI_6"), "PFI_6")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Export_StartTrigger_On_Line, "PFI_6")
+        return DAQCM_Export_StartTrigger_On_Line(dotnet_result, "PFI_6")
 
     @_staticproperty
     def PFI_7() -> DAQCM_Export_StartTrigger_On_Line:
-        return DAQCM_Export_StartTrigger_On_Line(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Export_StartTrigger_On_Line, "PFI_7"), "PFI_7")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Export_StartTrigger_On_Line, "PFI_7")
+        return DAQCM_Export_StartTrigger_On_Line(dotnet_result, "PFI_7")
 
     @_staticproperty
     def PFI_8() -> DAQCM_Export_StartTrigger_On_Line:
-        return DAQCM_Export_StartTrigger_On_Line(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Export_StartTrigger_On_Line, "PFI_8"), "PFI_8")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Export_StartTrigger_On_Line, "PFI_8")
+        return DAQCM_Export_StartTrigger_On_Line(dotnet_result, "PFI_8")
 
     @_staticproperty
     def PFI_9() -> DAQCM_Export_StartTrigger_On_Line:
-        return DAQCM_Export_StartTrigger_On_Line(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Export_StartTrigger_On_Line, "PFI_9"), "PFI_9")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Export_StartTrigger_On_Line, "PFI_9")
+        return DAQCM_Export_StartTrigger_On_Line(dotnet_result, "PFI_9")
 
     @_staticproperty
     def PFI_10() -> DAQCM_Export_StartTrigger_On_Line:
-        return DAQCM_Export_StartTrigger_On_Line(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Export_StartTrigger_On_Line, "PFI_10"), "PFI_10")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Export_StartTrigger_On_Line, "PFI_10")
+        return DAQCM_Export_StartTrigger_On_Line(dotnet_result, "PFI_10")
 
     @_staticproperty
     def PFI_11() -> DAQCM_Export_StartTrigger_On_Line:
-        return DAQCM_Export_StartTrigger_On_Line(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Export_StartTrigger_On_Line, "PFI_11"), "PFI_11")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Export_StartTrigger_On_Line, "PFI_11")
+        return DAQCM_Export_StartTrigger_On_Line(dotnet_result, "PFI_11")
 
     @_staticproperty
     def PFI_12() -> DAQCM_Export_StartTrigger_On_Line:
-        return DAQCM_Export_StartTrigger_On_Line(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Export_StartTrigger_On_Line, "PFI_12"), "PFI_12")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Export_StartTrigger_On_Line, "PFI_12")
+        return DAQCM_Export_StartTrigger_On_Line(dotnet_result, "PFI_12")
 
     @_staticproperty
     def PFI_13() -> DAQCM_Export_StartTrigger_On_Line:
-        return DAQCM_Export_StartTrigger_On_Line(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Export_StartTrigger_On_Line, "PFI_13"), "PFI_13")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Export_StartTrigger_On_Line, "PFI_13")
+        return DAQCM_Export_StartTrigger_On_Line(dotnet_result, "PFI_13")
 
     @_staticproperty
     def PFI_14() -> DAQCM_Export_StartTrigger_On_Line:
-        return DAQCM_Export_StartTrigger_On_Line(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Export_StartTrigger_On_Line, "PFI_14"), "PFI_14")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Export_StartTrigger_On_Line, "PFI_14")
+        return DAQCM_Export_StartTrigger_On_Line(dotnet_result, "PFI_14")
 
     @_staticproperty
     def PFI_15() -> DAQCM_Export_StartTrigger_On_Line:
-        return DAQCM_Export_StartTrigger_On_Line(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Export_StartTrigger_On_Line, "PFI_15"), "PFI_15")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Export_StartTrigger_On_Line, "PFI_15")
+        return DAQCM_Export_StartTrigger_On_Line(dotnet_result, "PFI_15")
 
     @_staticproperty
     def RTSI_PXI_TRIG_0() -> DAQCM_Export_StartTrigger_On_Line:
-        return DAQCM_Export_StartTrigger_On_Line(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Export_StartTrigger_On_Line, "RTSI_PXI_TRIG_0"), "RTSI_PXI_TRIG_0")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Export_StartTrigger_On_Line, "RTSI_PXI_TRIG_0")
+        return DAQCM_Export_StartTrigger_On_Line(dotnet_result, "RTSI_PXI_TRIG_0")
 
     @_staticproperty
     def RTSI_PXI_TRIG_1() -> DAQCM_Export_StartTrigger_On_Line:
-        return DAQCM_Export_StartTrigger_On_Line(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Export_StartTrigger_On_Line, "RTSI_PXI_TRIG_1"), "RTSI_PXI_TRIG_1")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Export_StartTrigger_On_Line, "RTSI_PXI_TRIG_1")
+        return DAQCM_Export_StartTrigger_On_Line(dotnet_result, "RTSI_PXI_TRIG_1")
 
     @_staticproperty
     def RTSI_PXI_TRIG_2() -> DAQCM_Export_StartTrigger_On_Line:
-        return DAQCM_Export_StartTrigger_On_Line(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Export_StartTrigger_On_Line, "RTSI_PXI_TRIG_2"), "RTSI_PXI_TRIG_2")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Export_StartTrigger_On_Line, "RTSI_PXI_TRIG_2")
+        return DAQCM_Export_StartTrigger_On_Line(dotnet_result, "RTSI_PXI_TRIG_2")
 
     @_staticproperty
     def RTSI_PXI_TRIG_3() -> DAQCM_Export_StartTrigger_On_Line:
-        return DAQCM_Export_StartTrigger_On_Line(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Export_StartTrigger_On_Line, "RTSI_PXI_TRIG_3"), "RTSI_PXI_TRIG_3")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Export_StartTrigger_On_Line, "RTSI_PXI_TRIG_3")
+        return DAQCM_Export_StartTrigger_On_Line(dotnet_result, "RTSI_PXI_TRIG_3")
 
     @_staticproperty
     def RTSI_PXI_TRIG_4() -> DAQCM_Export_StartTrigger_On_Line:
-        return DAQCM_Export_StartTrigger_On_Line(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Export_StartTrigger_On_Line, "RTSI_PXI_TRIG_4"), "RTSI_PXI_TRIG_4")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Export_StartTrigger_On_Line, "RTSI_PXI_TRIG_4")
+        return DAQCM_Export_StartTrigger_On_Line(dotnet_result, "RTSI_PXI_TRIG_4")
 
     @_staticproperty
     def RTSI_PXI_TRIG_5() -> DAQCM_Export_StartTrigger_On_Line:
-        return DAQCM_Export_StartTrigger_On_Line(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Export_StartTrigger_On_Line, "RTSI_PXI_TRIG_5"), "RTSI_PXI_TRIG_5")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Export_StartTrigger_On_Line, "RTSI_PXI_TRIG_5")
+        return DAQCM_Export_StartTrigger_On_Line(dotnet_result, "RTSI_PXI_TRIG_5")
 
     @_staticproperty
     def RTSI_PXI_TRIG_6() -> DAQCM_Export_StartTrigger_On_Line:
-        return DAQCM_Export_StartTrigger_On_Line(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Export_StartTrigger_On_Line, "RTSI_PXI_TRIG_6"), "RTSI_PXI_TRIG_6")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Export_StartTrigger_On_Line, "RTSI_PXI_TRIG_6")
+        return DAQCM_Export_StartTrigger_On_Line(dotnet_result, "RTSI_PXI_TRIG_6")
 
     @_staticproperty
     def RTSI_PXI_TRIG_7() -> DAQCM_Export_StartTrigger_On_Line:
-        return DAQCM_Export_StartTrigger_On_Line(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Export_StartTrigger_On_Line, "RTSI_PXI_TRIG_7"), "RTSI_PXI_TRIG_7")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Export_StartTrigger_On_Line, "RTSI_PXI_TRIG_7")
+        return DAQCM_Export_StartTrigger_On_Line(dotnet_result, "RTSI_PXI_TRIG_7")
 
 
 class DAQCM_Export_Start_Trigger(_DotNetEnum):
@@ -1491,11 +1750,13 @@ class DAQCM_Export_Start_Trigger(_DotNetEnum):
 
     @_staticproperty
     def AI_START_TRIGGER() -> DAQCM_Export_Start_Trigger:
-        return DAQCM_Export_Start_Trigger(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Export_Start_Trigger, "aiStartTrigger"), "AI_START_TRIGGER")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Export_Start_Trigger, "aiStartTrigger")
+        return DAQCM_Export_Start_Trigger(dotnet_result, "AI_START_TRIGGER")
 
     @_staticproperty
     def AO_START_TRIGGER() -> DAQCM_Export_Start_Trigger:
-        return DAQCM_Export_Start_Trigger(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Export_Start_Trigger, "aoStartTrigger"), "AO_START_TRIGGER")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Export_Start_Trigger, "aoStartTrigger")
+        return DAQCM_Export_Start_Trigger(dotnet_result, "AO_START_TRIGGER")
 
 
 class DAQCM_Slope(_DotNetEnum):
@@ -1512,11 +1773,13 @@ class DAQCM_Slope(_DotNetEnum):
 
     @_staticproperty
     def RISING() -> DAQCM_Slope:
-        return DAQCM_Slope(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Slope, "Rising"), "RISING")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Slope, "Rising")
+        return DAQCM_Slope(dotnet_result, "RISING")
 
     @_staticproperty
     def FALLING() -> DAQCM_Slope:
-        return DAQCM_Slope(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Slope, "Falling"), "FALLING")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Slope, "Falling")
+        return DAQCM_Slope(dotnet_result, "FALLING")
 
 
 class DAQCM_Trigger_Line(_DotNetEnum):
@@ -1533,103 +1796,128 @@ class DAQCM_Trigger_Line(_DotNetEnum):
 
     @_staticproperty
     def NONE() -> DAQCM_Trigger_Line:
-        return DAQCM_Trigger_Line(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Trigger_Line, "None"), "NONE")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Trigger_Line, "None")
+        return DAQCM_Trigger_Line(dotnet_result, "NONE")
 
     @_staticproperty
     def PFI_0() -> DAQCM_Trigger_Line:
-        return DAQCM_Trigger_Line(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Trigger_Line, "PFI_0"), "PFI_0")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Trigger_Line, "PFI_0")
+        return DAQCM_Trigger_Line(dotnet_result, "PFI_0")
 
     @_staticproperty
     def PFI_1() -> DAQCM_Trigger_Line:
-        return DAQCM_Trigger_Line(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Trigger_Line, "PFI_1"), "PFI_1")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Trigger_Line, "PFI_1")
+        return DAQCM_Trigger_Line(dotnet_result, "PFI_1")
 
     @_staticproperty
     def PFI_2() -> DAQCM_Trigger_Line:
-        return DAQCM_Trigger_Line(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Trigger_Line, "PFI_2"), "PFI_2")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Trigger_Line, "PFI_2")
+        return DAQCM_Trigger_Line(dotnet_result, "PFI_2")
 
     @_staticproperty
     def PFI_3() -> DAQCM_Trigger_Line:
-        return DAQCM_Trigger_Line(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Trigger_Line, "PFI_3"), "PFI_3")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Trigger_Line, "PFI_3")
+        return DAQCM_Trigger_Line(dotnet_result, "PFI_3")
 
     @_staticproperty
     def PFI_4() -> DAQCM_Trigger_Line:
-        return DAQCM_Trigger_Line(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Trigger_Line, "PFI_4"), "PFI_4")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Trigger_Line, "PFI_4")
+        return DAQCM_Trigger_Line(dotnet_result, "PFI_4")
 
     @_staticproperty
     def PFI_5() -> DAQCM_Trigger_Line:
-        return DAQCM_Trigger_Line(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Trigger_Line, "PFI_5"), "PFI_5")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Trigger_Line, "PFI_5")
+        return DAQCM_Trigger_Line(dotnet_result, "PFI_5")
 
     @_staticproperty
     def PFI_6() -> DAQCM_Trigger_Line:
-        return DAQCM_Trigger_Line(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Trigger_Line, "PFI_6"), "PFI_6")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Trigger_Line, "PFI_6")
+        return DAQCM_Trigger_Line(dotnet_result, "PFI_6")
 
     @_staticproperty
     def PFI_7() -> DAQCM_Trigger_Line:
-        return DAQCM_Trigger_Line(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Trigger_Line, "PFI_7"), "PFI_7")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Trigger_Line, "PFI_7")
+        return DAQCM_Trigger_Line(dotnet_result, "PFI_7")
 
     @_staticproperty
     def PFI_8() -> DAQCM_Trigger_Line:
-        return DAQCM_Trigger_Line(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Trigger_Line, "PFI_8"), "PFI_8")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Trigger_Line, "PFI_8")
+        return DAQCM_Trigger_Line(dotnet_result, "PFI_8")
 
     @_staticproperty
     def PFI_9() -> DAQCM_Trigger_Line:
-        return DAQCM_Trigger_Line(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Trigger_Line, "PFI_9"), "PFI_9")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Trigger_Line, "PFI_9")
+        return DAQCM_Trigger_Line(dotnet_result, "PFI_9")
 
     @_staticproperty
     def PFI_10() -> DAQCM_Trigger_Line:
-        return DAQCM_Trigger_Line(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Trigger_Line, "PFI_10"), "PFI_10")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Trigger_Line, "PFI_10")
+        return DAQCM_Trigger_Line(dotnet_result, "PFI_10")
 
     @_staticproperty
     def PFI_11() -> DAQCM_Trigger_Line:
-        return DAQCM_Trigger_Line(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Trigger_Line, "PFI_11"), "PFI_11")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Trigger_Line, "PFI_11")
+        return DAQCM_Trigger_Line(dotnet_result, "PFI_11")
 
     @_staticproperty
     def PFI_12() -> DAQCM_Trigger_Line:
-        return DAQCM_Trigger_Line(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Trigger_Line, "PFI_12"), "PFI_12")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Trigger_Line, "PFI_12")
+        return DAQCM_Trigger_Line(dotnet_result, "PFI_12")
 
     @_staticproperty
     def PFI_13() -> DAQCM_Trigger_Line:
-        return DAQCM_Trigger_Line(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Trigger_Line, "PFI_13"), "PFI_13")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Trigger_Line, "PFI_13")
+        return DAQCM_Trigger_Line(dotnet_result, "PFI_13")
 
     @_staticproperty
     def PFI_14() -> DAQCM_Trigger_Line:
-        return DAQCM_Trigger_Line(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Trigger_Line, "PFI_14"), "PFI_14")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Trigger_Line, "PFI_14")
+        return DAQCM_Trigger_Line(dotnet_result, "PFI_14")
 
     @_staticproperty
     def PFI_15() -> DAQCM_Trigger_Line:
-        return DAQCM_Trigger_Line(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Trigger_Line, "PFI_15"), "PFI_15")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Trigger_Line, "PFI_15")
+        return DAQCM_Trigger_Line(dotnet_result, "PFI_15")
 
     @_staticproperty
     def RTSI_PXI_TRIG_0() -> DAQCM_Trigger_Line:
-        return DAQCM_Trigger_Line(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Trigger_Line, "RTSI_PXI_TRIG_0"), "RTSI_PXI_TRIG_0")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Trigger_Line, "RTSI_PXI_TRIG_0")
+        return DAQCM_Trigger_Line(dotnet_result, "RTSI_PXI_TRIG_0")
 
     @_staticproperty
     def RTSI_PXI_TRIG_1() -> DAQCM_Trigger_Line:
-        return DAQCM_Trigger_Line(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Trigger_Line, "RTSI_PXI_TRIG_1"), "RTSI_PXI_TRIG_1")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Trigger_Line, "RTSI_PXI_TRIG_1")
+        return DAQCM_Trigger_Line(dotnet_result, "RTSI_PXI_TRIG_1")
 
     @_staticproperty
     def RTSI_PXI_TRIG_2() -> DAQCM_Trigger_Line:
-        return DAQCM_Trigger_Line(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Trigger_Line, "RTSI_PXI_TRIG_2"), "RTSI_PXI_TRIG_2")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Trigger_Line, "RTSI_PXI_TRIG_2")
+        return DAQCM_Trigger_Line(dotnet_result, "RTSI_PXI_TRIG_2")
 
     @_staticproperty
     def RTSI_PXI_TRIG_3() -> DAQCM_Trigger_Line:
-        return DAQCM_Trigger_Line(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Trigger_Line, "RTSI_PXI_TRIG_3"), "RTSI_PXI_TRIG_3")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Trigger_Line, "RTSI_PXI_TRIG_3")
+        return DAQCM_Trigger_Line(dotnet_result, "RTSI_PXI_TRIG_3")
 
     @_staticproperty
     def RTSI_PXI_TRIG_4() -> DAQCM_Trigger_Line:
-        return DAQCM_Trigger_Line(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Trigger_Line, "RTSI_PXI_TRIG_4"), "RTSI_PXI_TRIG_4")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Trigger_Line, "RTSI_PXI_TRIG_4")
+        return DAQCM_Trigger_Line(dotnet_result, "RTSI_PXI_TRIG_4")
 
     @_staticproperty
     def RTSI_PXI_TRIG_5() -> DAQCM_Trigger_Line:
-        return DAQCM_Trigger_Line(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Trigger_Line, "RTSI_PXI_TRIG_5"), "RTSI_PXI_TRIG_5")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Trigger_Line, "RTSI_PXI_TRIG_5")
+        return DAQCM_Trigger_Line(dotnet_result, "RTSI_PXI_TRIG_5")
 
     @_staticproperty
     def RTSI_PXI_TRIG_6() -> DAQCM_Trigger_Line:
-        return DAQCM_Trigger_Line(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Trigger_Line, "RTSI_PXI_TRIG_6"), "RTSI_PXI_TRIG_6")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Trigger_Line, "RTSI_PXI_TRIG_6")
+        return DAQCM_Trigger_Line(dotnet_result, "RTSI_PXI_TRIG_6")
 
     @_staticproperty
     def RTSI_PXI_TRIG_7() -> DAQCM_Trigger_Line:
-        return DAQCM_Trigger_Line(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Trigger_Line, "RTSI_PXI_TRIG_7"), "RTSI_PXI_TRIG_7")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Trigger_Line, "RTSI_PXI_TRIG_7")
+        return DAQCM_Trigger_Line(dotnet_result, "RTSI_PXI_TRIG_7")
 
 
 class DAQConversionRate(_DotNetEnum):
@@ -1646,11 +1934,13 @@ class DAQConversionRate(_DotNetEnum):
 
     @_staticproperty
     def DEFAULT() -> DAQConversionRate:
-        return DAQConversionRate(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQConversionRate, "Default"), "DEFAULT")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQConversionRate, "Default")
+        return DAQConversionRate(dotnet_result, "DEFAULT")
 
     @_staticproperty
     def MAXIMUM() -> DAQConversionRate:
-        return DAQConversionRate(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQConversionRate, "Maximum"), "MAXIMUM")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQConversionRate, "Maximum")
+        return DAQConversionRate(dotnet_result, "MAXIMUM")
 
 
 class DAQCounterCountMode(_DotNetEnum):
@@ -1667,15 +1957,18 @@ class DAQCounterCountMode(_DotNetEnum):
 
     @_staticproperty
     def UP() -> DAQCounterCountMode:
-        return DAQCounterCountMode(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCounterCountMode, "Up"), "UP")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCounterCountMode, "Up")
+        return DAQCounterCountMode(dotnet_result, "UP")
 
     @_staticproperty
     def DOWN() -> DAQCounterCountMode:
-        return DAQCounterCountMode(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCounterCountMode, "Down"), "DOWN")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCounterCountMode, "Down")
+        return DAQCounterCountMode(dotnet_result, "DOWN")
 
     @_staticproperty
     def EXTERNALLY_CONTROLLED() -> DAQCounterCountMode:
-        return DAQCounterCountMode(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCounterCountMode, "ExternallyControlled"), "EXTERNALLY_CONTROLLED")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCounterCountMode, "ExternallyControlled")
+        return DAQCounterCountMode(dotnet_result, "EXTERNALLY_CONTROLLED")
 
 
 class DAQCounterDecoding(_DotNetEnum):
@@ -1692,19 +1985,23 @@ class DAQCounterDecoding(_DotNetEnum):
 
     @_staticproperty
     def DECODING1_X() -> DAQCounterDecoding:
-        return DAQCounterDecoding(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCounterDecoding, "Decoding1X"), "DECODING1_X")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCounterDecoding, "Decoding1X")
+        return DAQCounterDecoding(dotnet_result, "DECODING1_X")
 
     @_staticproperty
     def DECODING2_X() -> DAQCounterDecoding:
-        return DAQCounterDecoding(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCounterDecoding, "Decoding2X"), "DECODING2_X")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCounterDecoding, "Decoding2X")
+        return DAQCounterDecoding(dotnet_result, "DECODING2_X")
 
     @_staticproperty
     def DECODING4_X() -> DAQCounterDecoding:
-        return DAQCounterDecoding(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCounterDecoding, "Decoding4X"), "DECODING4_X")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCounterDecoding, "Decoding4X")
+        return DAQCounterDecoding(dotnet_result, "DECODING4_X")
 
     @_staticproperty
     def DECODING_PULSE_COUNTING() -> DAQCounterDecoding:
-        return DAQCounterDecoding(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCounterDecoding, "DecodingPulseCounting"), "DECODING_PULSE_COUNTING")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCounterDecoding, "DecodingPulseCounting")
+        return DAQCounterDecoding(dotnet_result, "DECODING_PULSE_COUNTING")
 
 
 class DAQCounterEdge(_DotNetEnum):
@@ -1721,11 +2018,13 @@ class DAQCounterEdge(_DotNetEnum):
 
     @_staticproperty
     def FALLING() -> DAQCounterEdge:
-        return DAQCounterEdge(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCounterEdge, "Falling"), "FALLING")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCounterEdge, "Falling")
+        return DAQCounterEdge(dotnet_result, "FALLING")
 
     @_staticproperty
     def RISING() -> DAQCounterEdge:
-        return DAQCounterEdge(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCounterEdge, "Rising"), "RISING")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCounterEdge, "Rising")
+        return DAQCounterEdge(dotnet_result, "RISING")
 
 
 class DAQCounterType(_DotNetEnum):
@@ -1742,23 +2041,28 @@ class DAQCounterType(_DotNetEnum):
 
     @_staticproperty
     def FREQUENCY_MEASUREMENT() -> DAQCounterType:
-        return DAQCounterType(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCounterType, "FrequencyMeasurement"), "FREQUENCY_MEASUREMENT")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCounterType, "FrequencyMeasurement")
+        return DAQCounterType(dotnet_result, "FREQUENCY_MEASUREMENT")
 
     @_staticproperty
     def PERIOD_MEASUREMENT() -> DAQCounterType:
-        return DAQCounterType(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCounterType, "PeriodMeasurement"), "PERIOD_MEASUREMENT")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCounterType, "PeriodMeasurement")
+        return DAQCounterType(dotnet_result, "PERIOD_MEASUREMENT")
 
     @_staticproperty
     def COUNT_UP_DOWN() -> DAQCounterType:
-        return DAQCounterType(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCounterType, "CountUpDown"), "COUNT_UP_DOWN")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCounterType, "CountUpDown")
+        return DAQCounterType(dotnet_result, "COUNT_UP_DOWN")
 
     @_staticproperty
     def POSITION_MEASUREMENT() -> DAQCounterType:
-        return DAQCounterType(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCounterType, "PositionMeasurement"), "POSITION_MEASUREMENT")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCounterType, "PositionMeasurement")
+        return DAQCounterType(dotnet_result, "POSITION_MEASUREMENT")
 
     @_staticproperty
     def OTHER() -> DAQCounterType:
-        return DAQCounterType(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCounterType, "Other"), "OTHER")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCounterType, "Other")
+        return DAQCounterType(dotnet_result, "OTHER")
 
 
 class DAQCounterZIndexMode(_DotNetEnum):
@@ -1775,19 +2079,23 @@ class DAQCounterZIndexMode(_DotNetEnum):
 
     @_staticproperty
     def A_HIGH_B_HIGH() -> DAQCounterZIndexMode:
-        return DAQCounterZIndexMode(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCounterZIndexMode, "AHighBHigh"), "A_HIGH_B_HIGH")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCounterZIndexMode, "AHighBHigh")
+        return DAQCounterZIndexMode(dotnet_result, "A_HIGH_B_HIGH")
 
     @_staticproperty
     def A_HIGH_B_LOW() -> DAQCounterZIndexMode:
-        return DAQCounterZIndexMode(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCounterZIndexMode, "AHighBLow"), "A_HIGH_B_LOW")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCounterZIndexMode, "AHighBLow")
+        return DAQCounterZIndexMode(dotnet_result, "A_HIGH_B_LOW")
 
     @_staticproperty
     def A_LOW_B_HIGH() -> DAQCounterZIndexMode:
-        return DAQCounterZIndexMode(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCounterZIndexMode, "ALowBHigh"), "A_LOW_B_HIGH")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCounterZIndexMode, "ALowBHigh")
+        return DAQCounterZIndexMode(dotnet_result, "A_LOW_B_HIGH")
 
     @_staticproperty
     def A_LOW_B_LOW() -> DAQCounterZIndexMode:
-        return DAQCounterZIndexMode(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCounterZIndexMode, "ALowBLow"), "A_LOW_B_LOW")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCounterZIndexMode, "ALowBLow")
+        return DAQCounterZIndexMode(dotnet_result, "A_LOW_B_LOW")
 
 
 class DAQDataChannelType(_DotNetEnum):
@@ -1804,11 +2112,13 @@ class DAQDataChannelType(_DotNetEnum):
 
     @_staticproperty
     def FREQUENCY() -> DAQDataChannelType:
-        return DAQDataChannelType(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQDataChannelType, "Frequency"), "FREQUENCY")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQDataChannelType, "Frequency")
+        return DAQDataChannelType(dotnet_result, "FREQUENCY")
 
     @_staticproperty
     def DUTY_CYCLE() -> DAQDataChannelType:
-        return DAQDataChannelType(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQDataChannelType, "DutyCycle"), "DUTY_CYCLE")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQDataChannelType, "DutyCycle")
+        return DAQDataChannelType(dotnet_result, "DUTY_CYCLE")
 
 
 class DAQDeviceInputConfiguration(_DotNetEnum):
@@ -1825,23 +2135,28 @@ class DAQDeviceInputConfiguration(_DotNetEnum):
 
     @_staticproperty
     def DEFAULT() -> DAQDeviceInputConfiguration:
-        return DAQDeviceInputConfiguration(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQDeviceInputConfiguration, "Default"), "DEFAULT")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQDeviceInputConfiguration, "Default")
+        return DAQDeviceInputConfiguration(dotnet_result, "DEFAULT")
 
     @_staticproperty
     def RSE() -> DAQDeviceInputConfiguration:
-        return DAQDeviceInputConfiguration(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQDeviceInputConfiguration, "RSE"), "RSE")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQDeviceInputConfiguration, "RSE")
+        return DAQDeviceInputConfiguration(dotnet_result, "RSE")
 
     @_staticproperty
     def NRSE() -> DAQDeviceInputConfiguration:
-        return DAQDeviceInputConfiguration(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQDeviceInputConfiguration, "NRSE"), "NRSE")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQDeviceInputConfiguration, "NRSE")
+        return DAQDeviceInputConfiguration(dotnet_result, "NRSE")
 
     @_staticproperty
     def DIFFERENTIAL() -> DAQDeviceInputConfiguration:
-        return DAQDeviceInputConfiguration(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQDeviceInputConfiguration, "Differential"), "DIFFERENTIAL")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQDeviceInputConfiguration, "Differential")
+        return DAQDeviceInputConfiguration(dotnet_result, "DIFFERENTIAL")
 
     @_staticproperty
     def PSEUDODIFFERENTIAL() -> DAQDeviceInputConfiguration:
-        return DAQDeviceInputConfiguration(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQDeviceInputConfiguration, "Pseudodifferential"), "PSEUDODIFFERENTIAL")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQDeviceInputConfiguration, "Pseudodifferential")
+        return DAQDeviceInputConfiguration(dotnet_result, "PSEUDODIFFERENTIAL")
 
 
 class DAQMeasurementType(_DotNetEnum):
@@ -1858,103 +2173,128 @@ class DAQMeasurementType(_DotNetEnum):
 
     @_staticproperty
     def ANALOG_INPUT_VOLTAGE() -> DAQMeasurementType:
-        return DAQMeasurementType(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQMeasurementType, "AnalogInputVoltage"), "ANALOG_INPUT_VOLTAGE")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQMeasurementType, "AnalogInputVoltage")
+        return DAQMeasurementType(dotnet_result, "ANALOG_INPUT_VOLTAGE")
 
     @_staticproperty
     def ANALOG_INPUT_CURRENT() -> DAQMeasurementType:
-        return DAQMeasurementType(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQMeasurementType, "AnalogInputCurrent"), "ANALOG_INPUT_CURRENT")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQMeasurementType, "AnalogInputCurrent")
+        return DAQMeasurementType(dotnet_result, "ANALOG_INPUT_CURRENT")
 
     @_staticproperty
     def ANALOG_INPUT_TEMPERATURE_THERMOCOUPLE() -> DAQMeasurementType:
-        return DAQMeasurementType(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQMeasurementType, "AnalogInputTemperatureThermocouple"), "ANALOG_INPUT_TEMPERATURE_THERMOCOUPLE")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQMeasurementType, "AnalogInputTemperatureThermocouple")
+        return DAQMeasurementType(dotnet_result, "ANALOG_INPUT_TEMPERATURE_THERMOCOUPLE")
 
     @_staticproperty
     def ANALOG_INPUT_TEMPERATURE_THERMISTOR_VEX() -> DAQMeasurementType:
-        return DAQMeasurementType(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQMeasurementType, "AnalogInputTemperatureThermistorVex"), "ANALOG_INPUT_TEMPERATURE_THERMISTOR_VEX")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQMeasurementType, "AnalogInputTemperatureThermistorVex")
+        return DAQMeasurementType(dotnet_result, "ANALOG_INPUT_TEMPERATURE_THERMISTOR_VEX")
 
     @_staticproperty
     def ANALOG_INPUT_TEMPERATURE_THERMISTOR_IEX() -> DAQMeasurementType:
-        return DAQMeasurementType(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQMeasurementType, "AnalogInputTemperatureThermistorIex"), "ANALOG_INPUT_TEMPERATURE_THERMISTOR_IEX")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQMeasurementType, "AnalogInputTemperatureThermistorIex")
+        return DAQMeasurementType(dotnet_result, "ANALOG_INPUT_TEMPERATURE_THERMISTOR_IEX")
 
     @_staticproperty
     def ANALOG_INPUT_TEMPERATURE_RTD() -> DAQMeasurementType:
-        return DAQMeasurementType(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQMeasurementType, "AnalogInputTemperatureRTD"), "ANALOG_INPUT_TEMPERATURE_RTD")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQMeasurementType, "AnalogInputTemperatureRTD")
+        return DAQMeasurementType(dotnet_result, "ANALOG_INPUT_TEMPERATURE_RTD")
 
     @_staticproperty
     def ANALOG_INPUT_STRAIN_GAGE() -> DAQMeasurementType:
-        return DAQMeasurementType(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQMeasurementType, "AnalogInputStrainGage"), "ANALOG_INPUT_STRAIN_GAGE")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQMeasurementType, "AnalogInputStrainGage")
+        return DAQMeasurementType(dotnet_result, "ANALOG_INPUT_STRAIN_GAGE")
 
     @_staticproperty
     def ANALOG_INPUT_ACCELEROMETER() -> DAQMeasurementType:
-        return DAQMeasurementType(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQMeasurementType, "AnalogInputAccelerometer"), "ANALOG_INPUT_ACCELEROMETER")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQMeasurementType, "AnalogInputAccelerometer")
+        return DAQMeasurementType(dotnet_result, "ANALOG_INPUT_ACCELEROMETER")
 
     @_staticproperty
     def ANALOG_INPUT_BRIDGE() -> DAQMeasurementType:
-        return DAQMeasurementType(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQMeasurementType, "AnalogInputBridge"), "ANALOG_INPUT_BRIDGE")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQMeasurementType, "AnalogInputBridge")
+        return DAQMeasurementType(dotnet_result, "ANALOG_INPUT_BRIDGE")
 
     @_staticproperty
     def ANALOG_INPUT_FORCE() -> DAQMeasurementType:
-        return DAQMeasurementType(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQMeasurementType, "AnalogInputForce"), "ANALOG_INPUT_FORCE")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQMeasurementType, "AnalogInputForce")
+        return DAQMeasurementType(dotnet_result, "ANALOG_INPUT_FORCE")
 
     @_staticproperty
     def ANALOG_INPUT_PRESSURE() -> DAQMeasurementType:
-        return DAQMeasurementType(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQMeasurementType, "AnalogInputPressure"), "ANALOG_INPUT_PRESSURE")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQMeasurementType, "AnalogInputPressure")
+        return DAQMeasurementType(dotnet_result, "ANALOG_INPUT_PRESSURE")
 
     @_staticproperty
     def ANALOG_INPUT_TORQUE() -> DAQMeasurementType:
-        return DAQMeasurementType(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQMeasurementType, "AnalogInputTorque"), "ANALOG_INPUT_TORQUE")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQMeasurementType, "AnalogInputTorque")
+        return DAQMeasurementType(dotnet_result, "ANALOG_INPUT_TORQUE")
 
     @_staticproperty
     def ANALOG_INPUT_POSITION_LVDT() -> DAQMeasurementType:
-        return DAQMeasurementType(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQMeasurementType, "AnalogInputPositionLVDT"), "ANALOG_INPUT_POSITION_LVDT")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQMeasurementType, "AnalogInputPositionLVDT")
+        return DAQMeasurementType(dotnet_result, "ANALOG_INPUT_POSITION_LVDT")
 
     @_staticproperty
     def ANALOG_INPUT_POSITION_RVDT() -> DAQMeasurementType:
-        return DAQMeasurementType(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQMeasurementType, "AnalogInputPositionRVDT"), "ANALOG_INPUT_POSITION_RVDT")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQMeasurementType, "AnalogInputPositionRVDT")
+        return DAQMeasurementType(dotnet_result, "ANALOG_INPUT_POSITION_RVDT")
 
     @_staticproperty
     def ANALOG_OUTPUT_VOLTAGE() -> DAQMeasurementType:
-        return DAQMeasurementType(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQMeasurementType, "AnalogOutputVoltage"), "ANALOG_OUTPUT_VOLTAGE")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQMeasurementType, "AnalogOutputVoltage")
+        return DAQMeasurementType(dotnet_result, "ANALOG_OUTPUT_VOLTAGE")
 
     @_staticproperty
     def ANALOG_OUTPUT_CURRENT() -> DAQMeasurementType:
-        return DAQMeasurementType(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQMeasurementType, "AnalogOutputCurrent"), "ANALOG_OUTPUT_CURRENT")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQMeasurementType, "AnalogOutputCurrent")
+        return DAQMeasurementType(dotnet_result, "ANALOG_OUTPUT_CURRENT")
 
     @_staticproperty
     def DIGITAL_INPUT() -> DAQMeasurementType:
-        return DAQMeasurementType(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQMeasurementType, "DigitalInput"), "DIGITAL_INPUT")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQMeasurementType, "DigitalInput")
+        return DAQMeasurementType(dotnet_result, "DIGITAL_INPUT")
 
     @_staticproperty
     def DIGITAL_OUTPUT() -> DAQMeasurementType:
-        return DAQMeasurementType(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQMeasurementType, "DigitalOutput"), "DIGITAL_OUTPUT")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQMeasurementType, "DigitalOutput")
+        return DAQMeasurementType(dotnet_result, "DIGITAL_OUTPUT")
 
     @_staticproperty
     def COUNTER_INPUT_COUNT_EDGES() -> DAQMeasurementType:
-        return DAQMeasurementType(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQMeasurementType, "CounterInputCountEdges"), "COUNTER_INPUT_COUNT_EDGES")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQMeasurementType, "CounterInputCountEdges")
+        return DAQMeasurementType(dotnet_result, "COUNTER_INPUT_COUNT_EDGES")
 
     @_staticproperty
     def COUNTER_INPUT_FREQUENCY() -> DAQMeasurementType:
-        return DAQMeasurementType(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQMeasurementType, "CounterInputFrequency"), "COUNTER_INPUT_FREQUENCY")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQMeasurementType, "CounterInputFrequency")
+        return DAQMeasurementType(dotnet_result, "COUNTER_INPUT_FREQUENCY")
 
     @_staticproperty
     def COUNTER_INPUT_PERIOD() -> DAQMeasurementType:
-        return DAQMeasurementType(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQMeasurementType, "CounterInputPeriod"), "COUNTER_INPUT_PERIOD")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQMeasurementType, "CounterInputPeriod")
+        return DAQMeasurementType(dotnet_result, "COUNTER_INPUT_PERIOD")
 
     @_staticproperty
     def COUNTER_INPUT_POSITION_LINEAR_ENCODER() -> DAQMeasurementType:
-        return DAQMeasurementType(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQMeasurementType, "CounterInputPositionLinearEncoder"), "COUNTER_INPUT_POSITION_LINEAR_ENCODER")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQMeasurementType, "CounterInputPositionLinearEncoder")
+        return DAQMeasurementType(dotnet_result, "COUNTER_INPUT_POSITION_LINEAR_ENCODER")
 
     @_staticproperty
     def COUNTER_INPUT_PULSE_MEASUREMENT() -> DAQMeasurementType:
-        return DAQMeasurementType(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQMeasurementType, "CounterInputPulseMeasurement"), "COUNTER_INPUT_PULSE_MEASUREMENT")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQMeasurementType, "CounterInputPulseMeasurement")
+        return DAQMeasurementType(dotnet_result, "COUNTER_INPUT_PULSE_MEASUREMENT")
 
     @_staticproperty
     def COUNTER_OUTPUT_PULSE_GENERATION() -> DAQMeasurementType:
-        return DAQMeasurementType(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQMeasurementType, "CounterOutputPulseGeneration"), "COUNTER_OUTPUT_PULSE_GENERATION")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQMeasurementType, "CounterOutputPulseGeneration")
+        return DAQMeasurementType(dotnet_result, "COUNTER_OUTPUT_PULSE_GENERATION")
 
     @_staticproperty
     def USER_DEFINED() -> DAQMeasurementType:
-        return DAQMeasurementType(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQMeasurementType, "UserDefined"), "USER_DEFINED")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQMeasurementType, "UserDefined")
+        return DAQMeasurementType(dotnet_result, "USER_DEFINED")
 
 
 class DAQTrigger(_DotNetBase):
@@ -1971,7 +2311,8 @@ class DAQTrigger(_DotNetBase):
     @property
     def trigger_type(self) -> TriggerType:
         """Gets the type of the <see cref="T:NationalInstruments.VeriStand.SystemDefinitionAPI.DAQTrigger" />."""
-        return _wrap(self._dotnet_instance.TriggerType)
+        dotnet_result = self._dotnet_instance.TriggerType
+        return _wrap(dotnet_result)
 
 
 class DAQTriggerAnalogEdge(DAQTrigger):
@@ -1987,37 +2328,44 @@ class DAQTriggerAnalogEdge(DAQTrigger):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.DAQTriggerAnalogEdge:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.DAQTriggerAnalogEdge(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.DAQTriggerAnalogEdge(*unwrapped)
 
     @property
     def source(self) -> str:
         """Gets or sets the name of a virtual channel or terminal that is the source of the analog signal used as the trigger."""
-        return _wrap(self._dotnet_instance.Source)
+        dotnet_result = self._dotnet_instance.Source
+        return _wrap(dotnet_result)
 
     @source.setter
     def source(self, value: str):
         """Gets or sets the name of a virtual channel or terminal that is the source of the analog signal used as the trigger."""
-        self._dotnet_instance.Source = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.Source = next(unwrapped)
 
     @property
     def slope(self) -> DirectionType:
         """Gets or sets the direction of a signal slope that causes a trigger when the signal crosses the threshold <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.DAQTriggerAnalogEdge.Level" />."""
-        return _wrap(self._dotnet_instance.Slope)
+        dotnet_result = self._dotnet_instance.Slope
+        return _wrap(dotnet_result)
 
     @slope.setter
     def slope(self, value: DirectionType):
         """Gets or sets the direction of a signal slope that causes a trigger when the signal crosses the threshold <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.DAQTriggerAnalogEdge.Level" />."""
-        self._dotnet_instance.Slope = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.Slope = next(unwrapped)
 
     @property
     def level(self) -> float:
         """Gets or sets the threshold value, in the units of the measurement, at which to start acquiring samples. Set the <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.DAQTriggerAnalogEdge.Slope" /> to specify on which type of slope this level causes the task to start acquiring data."""
-        return _wrap(self._dotnet_instance.Level)
+        dotnet_result = self._dotnet_instance.Level
+        return _wrap(dotnet_result)
 
     @level.setter
     def level(self, value: float):
         """Gets or sets the threshold value, in the units of the measurement, at which to start acquiring samples. Set the <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.DAQTriggerAnalogEdge.Slope" /> to specify on which type of slope this level causes the task to start acquiring data."""
-        self._dotnet_instance.Level = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.Level = next(unwrapped)
 
 
 class DAQTriggerAnalogWindow(DAQTrigger):
@@ -2033,47 +2381,56 @@ class DAQTriggerAnalogWindow(DAQTrigger):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.DAQTriggerAnalogWindow:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.DAQTriggerAnalogWindow(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.DAQTriggerAnalogWindow(*unwrapped)
 
     @property
     def source(self) -> str:
         """Gets or sets the name of a virtual channel or terminal that is the source of the analog signal used as the trigger."""
-        return _wrap(self._dotnet_instance.Source)
+        dotnet_result = self._dotnet_instance.Source
+        return _wrap(dotnet_result)
 
     @source.setter
     def source(self, value: str):
         """Gets or sets the name of a virtual channel or terminal that is the source of the analog signal used as the trigger."""
-        self._dotnet_instance.Source = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.Source = next(unwrapped)
 
     @property
     def window_condition(self) -> WindowConditionType:
         """Gets or sets whether the task starts acquiring samples when the signal enters the window between <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.DAQTriggerAnalogWindow.WindowBottom" /> and <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.DAQTriggerAnalogWindow.WindowTop" /> or when it leaves the window."""
-        return _wrap(self._dotnet_instance.WindowCondition)
+        dotnet_result = self._dotnet_instance.WindowCondition
+        return _wrap(dotnet_result)
 
     @window_condition.setter
     def window_condition(self, value: WindowConditionType):
         """Gets or sets whether the task starts acquiring samples when the signal enters the window between <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.DAQTriggerAnalogWindow.WindowBottom" /> and <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.DAQTriggerAnalogWindow.WindowTop" /> or when it leaves the window."""
-        self._dotnet_instance.WindowCondition = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.WindowCondition = next(unwrapped)
 
     @property
     def window_top(self) -> float:
         """Gets or sets the upper limit of the window, in the units of the measurement."""
-        return _wrap(self._dotnet_instance.WindowTop)
+        dotnet_result = self._dotnet_instance.WindowTop
+        return _wrap(dotnet_result)
 
     @window_top.setter
     def window_top(self, value: float):
         """Gets or sets the upper limit of the window, in the units of the measurement."""
-        self._dotnet_instance.WindowTop = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.WindowTop = next(unwrapped)
 
     @property
     def window_bottom(self) -> float:
         """Gets or sets the lower limit of the window, in the units of the measurement."""
-        return _wrap(self._dotnet_instance.WindowBottom)
+        dotnet_result = self._dotnet_instance.WindowBottom
+        return _wrap(dotnet_result)
 
     @window_bottom.setter
     def window_bottom(self, value: float):
         """Gets or sets the lower limit of the window, in the units of the measurement."""
-        self._dotnet_instance.WindowBottom = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.WindowBottom = next(unwrapped)
 
 
 class DAQTriggerDigitalEdge(DAQTrigger):
@@ -2089,27 +2446,32 @@ class DAQTriggerDigitalEdge(DAQTrigger):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.DAQTriggerDigitalEdge:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.DAQTriggerDigitalEdge(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.DAQTriggerDigitalEdge(*unwrapped)
 
     @property
     def source(self) -> str:
         """Gets or sets the name of a terminal that is the source of the digital signal used as the trigger."""
-        return _wrap(self._dotnet_instance.Source)
+        dotnet_result = self._dotnet_instance.Source
+        return _wrap(dotnet_result)
 
     @source.setter
     def source(self, value: str):
         """Gets or sets the name of a terminal that is the source of the digital signal used as the trigger."""
-        self._dotnet_instance.Source = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.Source = next(unwrapped)
 
     @property
     def edge(self) -> DirectionType:
         """Gets or sets on which type of edge of the digital signal to start acquiring samples."""
-        return _wrap(self._dotnet_instance.Edge)
+        dotnet_result = self._dotnet_instance.Edge
+        return _wrap(dotnet_result)
 
     @edge.setter
     def edge(self, value: DirectionType):
         """Gets or sets on which type of edge of the digital signal to start acquiring samples."""
-        self._dotnet_instance.Edge = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.Edge = next(unwrapped)
 
 
 class DAQTriggerNone(DAQTrigger):
@@ -2125,7 +2487,8 @@ class DAQTriggerNone(DAQTrigger):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.DAQTriggerNone:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.DAQTriggerNone(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.DAQTriggerNone(*unwrapped)
 
 
 class DAQTriggerSoftware(DAQTrigger):
@@ -2141,7 +2504,8 @@ class DAQTriggerSoftware(DAQTrigger):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.DAQTriggerSoftware:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.DAQTriggerSoftware(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.DAQTriggerSoftware(*unwrapped)
 
 
 class DataLoggingFilterType(_DotNetEnum):
@@ -2158,15 +2522,18 @@ class DataLoggingFilterType(_DotNetEnum):
 
     @_staticproperty
     def LOG_ENTIRE_BUS_TRAFFIC() -> DataLoggingFilterType:
-        return DataLoggingFilterType(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DataLoggingFilterType, "LogEntireBusTraffic"), "LOG_ENTIRE_BUS_TRAFFIC")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DataLoggingFilterType, "LogEntireBusTraffic")
+        return DataLoggingFilterType(dotnet_result, "LOG_ENTIRE_BUS_TRAFFIC")
 
     @_staticproperty
     def EXCLUDE_FRAME_I_DS() -> DataLoggingFilterType:
-        return DataLoggingFilterType(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DataLoggingFilterType, "ExcludeFrameIDs"), "EXCLUDE_FRAME_I_DS")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DataLoggingFilterType, "ExcludeFrameIDs")
+        return DataLoggingFilterType(dotnet_result, "EXCLUDE_FRAME_I_DS")
 
     @_staticproperty
     def INCLUDE_FRAME_I_DS() -> DataLoggingFilterType:
-        return DataLoggingFilterType(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DataLoggingFilterType, "IncludeFrameIDs"), "INCLUDE_FRAME_I_DS")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DataLoggingFilterType, "IncludeFrameIDs")
+        return DataLoggingFilterType(dotnet_result, "INCLUDE_FRAME_I_DS")
 
 
 class DataLoggingOperationType(_DotNetEnum):
@@ -2183,11 +2550,13 @@ class DataLoggingOperationType(_DotNetEnum):
 
     @_staticproperty
     def CONTINUE_LOGGING_IN_NEW_FILE() -> DataLoggingOperationType:
-        return DataLoggingOperationType(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DataLoggingOperationType, "ContinueLoggingInNewFile"), "CONTINUE_LOGGING_IN_NEW_FILE")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DataLoggingOperationType, "ContinueLoggingInNewFile")
+        return DataLoggingOperationType(dotnet_result, "CONTINUE_LOGGING_IN_NEW_FILE")
 
     @_staticproperty
     def STOP_LOGGING() -> DataLoggingOperationType:
-        return DataLoggingOperationType(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DataLoggingOperationType, "StopLogging"), "STOP_LOGGING")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DataLoggingOperationType, "StopLogging")
+        return DataLoggingOperationType(dotnet_result, "STOP_LOGGING")
 
 
 class DataLoggingTriggerType(_DotNetEnum):
@@ -2204,19 +2573,23 @@ class DataLoggingTriggerType(_DotNetEnum):
 
     @_staticproperty
     def START_LOGGING_ON_NON_ZERO() -> DataLoggingTriggerType:
-        return DataLoggingTriggerType(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DataLoggingTriggerType, "StartLoggingOnNonZero"), "START_LOGGING_ON_NON_ZERO")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DataLoggingTriggerType, "StartLoggingOnNonZero")
+        return DataLoggingTriggerType(dotnet_result, "START_LOGGING_ON_NON_ZERO")
 
     @_staticproperty
     def START_LOGGING_ON_ZERO() -> DataLoggingTriggerType:
-        return DataLoggingTriggerType(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DataLoggingTriggerType, "StartLoggingOnZero"), "START_LOGGING_ON_ZERO")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DataLoggingTriggerType, "StartLoggingOnZero")
+        return DataLoggingTriggerType(dotnet_result, "START_LOGGING_ON_ZERO")
 
     @_staticproperty
     def ENABLE_LOGGING_WHEN_TRIGGER_IS_ZERO() -> DataLoggingTriggerType:
-        return DataLoggingTriggerType(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DataLoggingTriggerType, "EnableLoggingWhenTriggerIsZero"), "ENABLE_LOGGING_WHEN_TRIGGER_IS_ZERO")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DataLoggingTriggerType, "EnableLoggingWhenTriggerIsZero")
+        return DataLoggingTriggerType(dotnet_result, "ENABLE_LOGGING_WHEN_TRIGGER_IS_ZERO")
 
     @_staticproperty
     def ENABLE_LOGGING_WHEN_TRIGGER_IS_NON_ZERO() -> DataLoggingTriggerType:
-        return DataLoggingTriggerType(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DataLoggingTriggerType, "EnableLoggingWhenTriggerIsNonZero"), "ENABLE_LOGGING_WHEN_TRIGGER_IS_NON_ZERO")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DataLoggingTriggerType, "EnableLoggingWhenTriggerIsNonZero")
+        return DataLoggingTriggerType(dotnet_result, "ENABLE_LOGGING_WHEN_TRIGGER_IS_NON_ZERO")
 
 
 class Delimiter(_DotNetEnum):
@@ -2233,15 +2606,18 @@ class Delimiter(_DotNetEnum):
 
     @_staticproperty
     def TAB() -> Delimiter:
-        return Delimiter(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.Delimiter, "Tab"), "TAB")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.Delimiter, "Tab")
+        return Delimiter(dotnet_result, "TAB")
 
     @_staticproperty
     def EQUALS() -> Delimiter:
-        return Delimiter(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.Delimiter, "Equals"), "EQUALS")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.Delimiter, "Equals")
+        return Delimiter(dotnet_result, "EQUALS")
 
     @_staticproperty
     def COMMA() -> Delimiter:
-        return Delimiter(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.Delimiter, "Comma"), "COMMA")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.Delimiter, "Comma")
+        return Delimiter(dotnet_result, "COMMA")
 
 
 class DependentFile(_DotNetBase):
@@ -2261,81 +2637,98 @@ class DependentFile(_DotNetBase):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.DependentFile:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.DependentFile(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.DependentFile(*unwrapped)
 
     @property
     def path(self) -> str:
         """Gets the path to the file on the host computer."""
-        return _wrap(self._dotnet_instance.Path)
+        dotnet_result = self._dotnet_instance.Path
+        return _wrap(dotnet_result)
 
     @property
     def type(self) -> DependentFileType:
         """Gets whether the <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.DependentFile.Path" crefType="Unqualified" /> to the dependent file is absolute or relative to another directory."""
-        return _wrap(self._dotnet_instance.Type)
+        dotnet_result = self._dotnet_instance.Type
+        return _wrap(dotnet_result)
 
     @property
     def version(self) -> str:
         """Gets or sets version information for the dependent file."""
-        return _wrap(self._dotnet_instance.Version)
+        dotnet_result = self._dotnet_instance.Version
+        return _wrap(dotnet_result)
 
     @version.setter
     def version(self, value: str):
         """Gets or sets version information for the dependent file."""
-        self._dotnet_instance.Version = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.Version = next(unwrapped)
 
     @property
     def force_download(self) -> bool:
         """Gets or sets whether the file is set to force-download to the target."""
-        return _wrap(self._dotnet_instance.ForceDownload)
+        dotnet_result = self._dotnet_instance.ForceDownload
+        return _wrap(dotnet_result)
 
     @force_download.setter
     def force_download(self, value: bool):
         """Gets or sets whether the file is set to force-download to the target."""
-        self._dotnet_instance.ForceDownload = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.ForceDownload = next(unwrapped)
 
     @property
     def rt_destination(self) -> str:
         """Gets or sets the destination path, including the filename, for the file on the target. This property must be an absolute path."""
-        return _wrap(self._dotnet_instance.RTDestination)
+        dotnet_result = self._dotnet_instance.RTDestination
+        return _wrap(dotnet_result)
 
     @rt_destination.setter
     def rt_destination(self, value: str):
         """Gets or sets the destination path, including the filename, for the file on the target. This property must be an absolute path."""
-        self._dotnet_instance.RTDestination = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.RTDestination = next(unwrapped)
 
     @property
     def supported_target(self) -> str:
         """Gets or sets the target operating system(s) to which the file is deployed."""
-        return _wrap(self._dotnet_instance.SupportedTarget)
+        dotnet_result = self._dotnet_instance.SupportedTarget
+        return _wrap(dotnet_result)
 
     @supported_target.setter
     def supported_target(self, value: str):
         """Gets or sets the target operating system(s) to which the file is deployed."""
-        self._dotnet_instance.SupportedTarget = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.SupportedTarget = next(unwrapped)
 
     @property
     def md5(self) -> str:
         """Gets or sets the MD5 message-digest for the file."""
-        return _wrap(self._dotnet_instance.MD5)
+        dotnet_result = self._dotnet_instance.MD5
+        return _wrap(dotnet_result)
 
     @md5.setter
     def md5(self, value: str):
         """Gets or sets the MD5 message-digest for the file."""
-        self._dotnet_instance.MD5 = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.MD5 = next(unwrapped)
 
     @overload
     def set_path(self, file_path: str, sdf_path: str):
         ...
 
     def set_path(self, *args):
-        return _wrap(self._dotnet_instance.SetPath(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.SetPath(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_absolute_path(self, base_absolute_path: str) -> str:
         ...
 
     def get_absolute_path(self, *args):
-        return _wrap(self._dotnet_instance.GetAbsolutePath(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetAbsolutePath(*unwrapped)
+        return _wrap(dotnet_result)
 
 
 class DependentFileType(_DotNetEnum):
@@ -2352,19 +2745,23 @@ class DependentFileType(_DotNetEnum):
 
     @_staticproperty
     def ABSOLUTE() -> DependentFileType:
-        return DependentFileType(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DependentFileType, "Absolute"), "ABSOLUTE")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DependentFileType, "Absolute")
+        return DependentFileType(dotnet_result, "ABSOLUTE")
 
     @_staticproperty
     def RELATIVE() -> DependentFileType:
-        return DependentFileType(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DependentFileType, "Relative"), "RELATIVE")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DependentFileType, "Relative")
+        return DependentFileType(dotnet_result, "RELATIVE")
 
     @_staticproperty
     def TO_COMMON_DOC_DIR() -> DependentFileType:
-        return DependentFileType(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DependentFileType, "ToCommonDocDir"), "TO_COMMON_DOC_DIR")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DependentFileType, "ToCommonDocDir")
+        return DependentFileType(dotnet_result, "TO_COMMON_DOC_DIR")
 
     @_staticproperty
     def TO_APP_DATA_DIR() -> DependentFileType:
-        return DependentFileType(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DependentFileType, "ToAppDataDir"), "TO_APP_DATA_DIR")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DependentFileType, "ToAppDataDir")
+        return DependentFileType(dotnet_result, "TO_APP_DATA_DIR")
 
 
 class Dictionary(_DotNetBase):
@@ -2384,283 +2781,362 @@ class Dictionary(_DotNetBase):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.Dictionary:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.Dictionary(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.Dictionary(*unwrapped)
 
     @property
     def count(self) -> int:
         """Gets the total number of key/value pairs in a <see cref="T:NationalInstruments.VeriStand.SystemDefinitionAPI.Dictionary" crefType="Unqualified" />."""
-        return _wrap(self._dotnet_instance.Count)
+        dotnet_result = self._dotnet_instance.Count
+        return _wrap(dotnet_result)
 
     @property
     def elem(self) -> Sequence[DictionaryElement]:
         """Gets all the elements in the <see cref="T:NationalInstruments.VeriStand.SystemDefinitionAPI.Dictionary" crefType="Unqualified" />."""
-        return _wrap(self._dotnet_instance.Elem)
+        dotnet_result = self._dotnet_instance.Elem
+        return _wrap(dotnet_result)
 
     @overload
     def add_boolean(self, name: str, value: bool) -> bool:
         ...
 
     def add_boolean(self, *args):
-        return _wrap(self._dotnet_instance.AddBoolean(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.AddBoolean(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_boolean_array(self, name: str, value: Sequence[bool]) -> bool:
         ...
 
     def add_boolean_array(self, *args):
-        return _wrap(self._dotnet_instance.AddBooleanArray(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.AddBooleanArray(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_u16(self, name: str, value: int) -> bool:
         ...
 
     def add_u16(self, *args):
-        return _wrap(self._dotnet_instance.AddU16(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.AddU16(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_u16_array(self, name: str, value: Sequence[int]) -> bool:
         ...
 
     def add_u16_array(self, *args):
-        return _wrap(self._dotnet_instance.AddU16Array(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.AddU16Array(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_u32(self, name: str, value: int) -> bool:
         ...
 
     def add_u32(self, *args):
-        return _wrap(self._dotnet_instance.AddU32(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.AddU32(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_u32_array(self, name: str, value: Sequence[int]) -> bool:
         ...
 
     def add_u32_array(self, *args):
-        return _wrap(self._dotnet_instance.AddU32Array(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.AddU32Array(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_u64(self, name: str, value: int) -> bool:
         ...
 
     def add_u64(self, *args):
-        return _wrap(self._dotnet_instance.AddU64(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.AddU64(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_u64_array(self, name: str, value: Sequence[int]) -> bool:
         ...
 
     def add_u64_array(self, *args):
-        return _wrap(self._dotnet_instance.AddU64Array(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.AddU64Array(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_i16(self, name: str, value: int) -> bool:
         ...
 
     def add_i16(self, *args):
-        return _wrap(self._dotnet_instance.AddI16(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.AddI16(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_i16_array(self, name: str, value: Sequence[int]) -> bool:
         ...
 
     def add_i16_array(self, *args):
-        return _wrap(self._dotnet_instance.AddI16Array(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.AddI16Array(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_i32(self, name: str, value: int) -> bool:
         ...
 
     def add_i32(self, *args):
-        return _wrap(self._dotnet_instance.AddI32(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.AddI32(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_i32_array(self, name: str, value: Sequence[int]) -> bool:
         ...
 
     def add_i32_array(self, *args):
-        return _wrap(self._dotnet_instance.AddI32Array(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.AddI32Array(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_i64(self, name: str, value: int) -> bool:
         ...
 
     def add_i64(self, *args):
-        return _wrap(self._dotnet_instance.AddI64(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.AddI64(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_i64_array(self, name: str, value: Sequence[int]) -> bool:
         ...
 
     def add_i64_array(self, *args):
-        return _wrap(self._dotnet_instance.AddI64Array(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.AddI64Array(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_double(self, name: str, value: float) -> bool:
         ...
 
     def add_double(self, *args):
-        return _wrap(self._dotnet_instance.AddDouble(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.AddDouble(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_double_array(self, name: str, value: Sequence[float]) -> bool:
         ...
 
     def add_double_array(self, *args):
-        return _wrap(self._dotnet_instance.AddDoubleArray(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.AddDoubleArray(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_string(self, name: str, value: str) -> bool:
         ...
 
     def add_string(self, *args):
-        return _wrap(self._dotnet_instance.AddString(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.AddString(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_string_array(self, name: str, value: Sequence[str]) -> bool:
         ...
 
     def add_string_array(self, *args):
-        return _wrap(self._dotnet_instance.AddStringArray(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.AddStringArray(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def clear(self):
         ...
 
     def clear(self, *args):
-        return _wrap(self._dotnet_instance.Clear(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.Clear(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_boolean(self, name: str) -> Tuple[bool, bool]:
         ...
 
     def get_boolean(self, *args):
-        return _wrap(self._dotnet_instance.GetBoolean(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetBoolean(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_boolean_array(self, name: str) -> Tuple[bool, Sequence[bool]]:
         ...
 
     def get_boolean_array(self, *args):
-        return _wrap(self._dotnet_instance.GetBooleanArray(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetBooleanArray(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_u16(self, name: str) -> Tuple[bool, int]:
         ...
 
     def get_u16(self, *args):
-        return _wrap(self._dotnet_instance.GetU16(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetU16(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_u16_array(self, name: str) -> Tuple[bool, Sequence[int]]:
         ...
 
     def get_u16_array(self, *args):
-        return _wrap(self._dotnet_instance.GetU16Array(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetU16Array(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_u32(self, name: str) -> Tuple[bool, int]:
         ...
 
     def get_u32(self, *args):
-        return _wrap(self._dotnet_instance.GetU32(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetU32(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_u32_array(self, name: str) -> Tuple[bool, Sequence[int]]:
         ...
 
     def get_u32_array(self, *args):
-        return _wrap(self._dotnet_instance.GetU32Array(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetU32Array(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_u64(self, name: str) -> Tuple[bool, int]:
         ...
 
     def get_u64(self, *args):
-        return _wrap(self._dotnet_instance.GetU64(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetU64(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_u64_array(self, name: str) -> Tuple[bool, Sequence[int]]:
         ...
 
     def get_u64_array(self, *args):
-        return _wrap(self._dotnet_instance.GetU64Array(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetU64Array(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_i16(self, name: str) -> Tuple[bool, int]:
         ...
 
     def get_i16(self, *args):
-        return _wrap(self._dotnet_instance.GetI16(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetI16(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_i16_array(self, name: str) -> Tuple[bool, Sequence[int]]:
         ...
 
     def get_i16_array(self, *args):
-        return _wrap(self._dotnet_instance.GetI16Array(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetI16Array(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_i32(self, name: str) -> Tuple[bool, int]:
         ...
 
     def get_i32(self, *args):
-        return _wrap(self._dotnet_instance.GetI32(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetI32(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_i32_array(self, name: str) -> Tuple[bool, Sequence[int]]:
         ...
 
     def get_i32_array(self, *args):
-        return _wrap(self._dotnet_instance.GetI32Array(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetI32Array(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_i64(self, name: str) -> Tuple[bool, int]:
         ...
 
     def get_i64(self, *args):
-        return _wrap(self._dotnet_instance.GetI64(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetI64(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_i64_array(self, name: str) -> Tuple[bool, Sequence[int]]:
         ...
 
     def get_i64_array(self, *args):
-        return _wrap(self._dotnet_instance.GetI64Array(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetI64Array(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_double(self, name: str) -> Tuple[bool, float]:
         ...
 
     def get_double(self, *args):
-        return _wrap(self._dotnet_instance.GetDouble(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetDouble(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_double_array(self, name: str) -> Tuple[bool, Sequence[float]]:
         ...
 
     def get_double_array(self, *args):
-        return _wrap(self._dotnet_instance.GetDoubleArray(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetDoubleArray(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_string(self, name: str) -> Tuple[bool, str]:
         ...
 
     def get_string(self, *args):
-        return _wrap(self._dotnet_instance.GetString(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetString(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_string_array(self, name: str) -> Tuple[bool, Sequence[str]]:
         ...
 
     def get_string_array(self, *args):
-        return _wrap(self._dotnet_instance.GetStringArray(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetStringArray(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def remove_element(self, key: str) -> bool:
         ...
 
     def remove_element(self, *args):
-        return _wrap(self._dotnet_instance.RemoveElement(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.RemoveElement(*unwrapped)
+        return _wrap(dotnet_result)
 
 
 class DictionaryElement(_DotNetBase):
@@ -2676,27 +3152,32 @@ class DictionaryElement(_DotNetBase):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.DictionaryElement:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.DictionaryElement(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.DictionaryElement(*unwrapped)
 
     @property
     def item(self) -> Any:
         """Gets or sets a reference to a value of a dictionary element."""
-        return _wrap(self._dotnet_instance.Item)
+        dotnet_result = self._dotnet_instance.Item
+        return _wrap(dotnet_result)
 
     @item.setter
     def item(self, value: Any):
         """Gets or sets a reference to a value of a dictionary element."""
-        self._dotnet_instance.Item = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.Item = next(unwrapped)
 
     @property
     def key(self) -> str:
         """Gets or sets the key, or name, of a dictionary element."""
-        return _wrap(self._dotnet_instance.Key)
+        dotnet_result = self._dotnet_instance.Key
+        return _wrap(dotnet_result)
 
     @key.setter
     def key(self, value: str):
         """Gets or sets the key, or name, of a dictionary element."""
-        self._dotnet_instance.Key = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.Key = next(unwrapped)
 
 
 class DirectionType(_DotNetEnum):
@@ -2713,11 +3194,13 @@ class DirectionType(_DotNetEnum):
 
     @_staticproperty
     def RISING() -> DirectionType:
-        return DirectionType(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DirectionType, "Rising"), "RISING")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DirectionType, "Rising")
+        return DirectionType(dotnet_result, "RISING")
 
     @_staticproperty
     def FALLING() -> DirectionType:
-        return DirectionType(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DirectionType, "Falling"), "FALLING")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.DirectionType, "Falling")
+        return DirectionType(dotnet_result, "FALLING")
 
 
 class EdgeType(_DotNetEnum):
@@ -2734,11 +3217,13 @@ class EdgeType(_DotNetEnum):
 
     @_staticproperty
     def RISING() -> EdgeType:
-        return EdgeType(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.EdgeType, "Rising"), "RISING")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.EdgeType, "Rising")
+        return EdgeType(dotnet_result, "RISING")
 
     @_staticproperty
     def FALLING() -> EdgeType:
-        return EdgeType(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.EdgeType, "Falling"), "FALLING")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.EdgeType, "Falling")
+        return EdgeType(dotnet_result, "FALLING")
 
 
 class FDISOMode(_DotNetEnum):
@@ -2757,15 +3242,18 @@ class FDISOMode(_DotNetEnum):
 
     @_staticproperty
     def ISO() -> FDISOMode:
-        return FDISOMode(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.FDISOMode, "ISO"), "ISO")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.FDISOMode, "ISO")
+        return FDISOMode(dotnet_result, "ISO")
 
     @_staticproperty
     def NON_ISO() -> FDISOMode:
-        return FDISOMode(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.FDISOMode, "NonISO"), "NON_ISO")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.FDISOMode, "NonISO")
+        return FDISOMode(dotnet_result, "NON_ISO")
 
     @_staticproperty
     def ISO_LEGACY() -> FDISOMode:
-        return FDISOMode(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.FDISOMode, "ISOLegacy"), "ISO_LEGACY")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.FDISOMode, "ISOLegacy")
+        return FDISOMode(dotnet_result, "ISO_LEGACY")
 
 
 class FileLimitationType(_DotNetEnum):
@@ -2782,11 +3270,13 @@ class FileLimitationType(_DotNetEnum):
 
     @_staticproperty
     def FOOTPRINT() -> FileLimitationType:
-        return FileLimitationType(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.FileLimitationType, "Footprint"), "FOOTPRINT")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.FileLimitationType, "Footprint")
+        return FileLimitationType(dotnet_result, "FOOTPRINT")
 
     @_staticproperty
     def TIME() -> FileLimitationType:
-        return FileLimitationType(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.FileLimitationType, "Time"), "TIME")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.FileLimitationType, "Time")
+        return FileLimitationType(dotnet_result, "TIME")
 
 
 class FileType(_DotNetEnum):
@@ -2803,11 +3293,13 @@ class FileType(_DotNetEnum):
 
     @_staticproperty
     def TDMS() -> FileType:
-        return FileType(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.FileType, "TDMS"), "TDMS")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.FileType, "TDMS")
+        return FileType(dotnet_result, "TDMS")
 
     @_staticproperty
     def NCL() -> FileType:
-        return FileType(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.FileType, "NCL"), "NCL")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.FileType, "NCL")
+        return FileType(dotnet_result, "NCL")
 
 
 class FramePhaseType(_DotNetEnum):
@@ -2824,11 +3316,13 @@ class FramePhaseType(_DotNetEnum):
 
     @_staticproperty
     def UNCHANGED() -> FramePhaseType:
-        return FramePhaseType(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.FramePhaseType, "Unchanged"), "UNCHANGED")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.FramePhaseType, "Unchanged")
+        return FramePhaseType(dotnet_result, "UNCHANGED")
 
     @_staticproperty
     def RESET() -> FramePhaseType:
-        return FramePhaseType(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.FramePhaseType, "Reset"), "RESET")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.FramePhaseType, "Reset")
+        return FramePhaseType(dotnet_result, "RESET")
 
 
 class FrameTriggerType(_DotNetEnum):
@@ -2845,23 +3339,28 @@ class FrameTriggerType(_DotNetEnum):
 
     @_staticproperty
     def CHANNEL_VALUE_CHANGE() -> FrameTriggerType:
-        return FrameTriggerType(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.FrameTriggerType, "ChannelValueChange"), "CHANNEL_VALUE_CHANGE")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.FrameTriggerType, "ChannelValueChange")
+        return FrameTriggerType(dotnet_result, "CHANNEL_VALUE_CHANGE")
 
     @_staticproperty
     def TRIGGER_CHANNEL_NOT_ZERO() -> FrameTriggerType:
-        return FrameTriggerType(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.FrameTriggerType, "TriggerChannelNotZero"), "TRIGGER_CHANNEL_NOT_ZERO")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.FrameTriggerType, "TriggerChannelNotZero")
+        return FrameTriggerType(dotnet_result, "TRIGGER_CHANNEL_NOT_ZERO")
 
     @_staticproperty
     def CHANNEL_VALUE_CHANGE_OR_TRIGGER_CHANNEL_NOT_ZERO() -> FrameTriggerType:
-        return FrameTriggerType(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.FrameTriggerType, "ChannelValueChangeOrTriggerChannelNotZero"), "CHANNEL_VALUE_CHANGE_OR_TRIGGER_CHANNEL_NOT_ZERO")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.FrameTriggerType, "ChannelValueChangeOrTriggerChannelNotZero")
+        return FrameTriggerType(dotnet_result, "CHANNEL_VALUE_CHANGE_OR_TRIGGER_CHANNEL_NOT_ZERO")
 
     @_staticproperty
     def TRIGGER_CHANNEL_ANY_VALUE_CHANGE() -> FrameTriggerType:
-        return FrameTriggerType(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.FrameTriggerType, "TriggerChannelAnyValueChange"), "TRIGGER_CHANNEL_ANY_VALUE_CHANGE")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.FrameTriggerType, "TriggerChannelAnyValueChange")
+        return FrameTriggerType(dotnet_result, "TRIGGER_CHANNEL_ANY_VALUE_CHANGE")
 
     @_staticproperty
     def CHANNEL_VALUE_CHANGE_OR_TRIGGER_CHANNEL_ANY_VALUE_CHANGE() -> FrameTriggerType:
-        return FrameTriggerType(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.FrameTriggerType, "ChannelValueChangeOrTriggerChannelAnyValueChange"), "CHANNEL_VALUE_CHANGE_OR_TRIGGER_CHANNEL_ANY_VALUE_CHANGE")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.FrameTriggerType, "ChannelValueChangeOrTriggerChannelAnyValueChange")
+        return FrameTriggerType(dotnet_result, "CHANNEL_VALUE_CHANGE_OR_TRIGGER_CHANNEL_ANY_VALUE_CHANGE")
 
 
 class FrameType(_DotNetEnum):
@@ -2878,19 +3377,23 @@ class FrameType(_DotNetEnum):
 
     @_staticproperty
     def CAN_DATA_FRAME() -> FrameType:
-        return FrameType(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.FrameType, "CANDataFrame"), "CAN_DATA_FRAME")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.FrameType, "CANDataFrame")
+        return FrameType(dotnet_result, "CAN_DATA_FRAME")
 
     @_staticproperty
     def CAN_REMOTE_FRAME() -> FrameType:
-        return FrameType(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.FrameType, "CANRemoteFrame"), "CAN_REMOTE_FRAME")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.FrameType, "CANRemoteFrame")
+        return FrameType(dotnet_result, "CAN_REMOTE_FRAME")
 
     @_staticproperty
     def FLEX_RAY_DATA_FRAME() -> FrameType:
-        return FrameType(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.FrameType, "FlexRayDataFrame"), "FLEX_RAY_DATA_FRAME")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.FrameType, "FlexRayDataFrame")
+        return FrameType(dotnet_result, "FLEX_RAY_DATA_FRAME")
 
     @_staticproperty
     def FLEX_RAY_NULL_FRAME() -> FrameType:
-        return FrameType(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.FrameType, "FlexRayNullFrame"), "FLEX_RAY_NULL_FRAME")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.FrameType, "FlexRayNullFrame")
+        return FrameType(dotnet_result, "FLEX_RAY_NULL_FRAME")
 
 
 class GlobalParameterScopes(_DotNetEnum):
@@ -2907,11 +3410,13 @@ class GlobalParameterScopes(_DotNetEnum):
 
     @_staticproperty
     def TARGET() -> GlobalParameterScopes:
-        return GlobalParameterScopes(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.GlobalParameterScopes, "Target"), "TARGET")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.GlobalParameterScopes, "Target")
+        return GlobalParameterScopes(dotnet_result, "TARGET")
 
     @_staticproperty
     def MODEL() -> GlobalParameterScopes:
-        return GlobalParameterScopes(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.GlobalParameterScopes, "Model"), "MODEL")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.GlobalParameterScopes, "Model")
+        return GlobalParameterScopes(dotnet_result, "MODEL")
 
 
 class GlobalSequenceCommand(_DotNetEnum):
@@ -2928,15 +3433,18 @@ class GlobalSequenceCommand(_DotNetEnum):
 
     @_staticproperty
     def STOP_ALL() -> GlobalSequenceCommand:
-        return GlobalSequenceCommand(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.GlobalSequenceCommand, "StopAll"), "STOP_ALL")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.GlobalSequenceCommand, "StopAll")
+        return GlobalSequenceCommand(dotnet_result, "STOP_ALL")
 
     @_staticproperty
     def ABORT_ALL() -> GlobalSequenceCommand:
-        return GlobalSequenceCommand(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.GlobalSequenceCommand, "AbortAll"), "ABORT_ALL")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.GlobalSequenceCommand, "AbortAll")
+        return GlobalSequenceCommand(dotnet_result, "ABORT_ALL")
 
     @_staticproperty
     def STOP_GROUP() -> GlobalSequenceCommand:
-        return GlobalSequenceCommand(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.GlobalSequenceCommand, "StopGroup"), "STOP_GROUP")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.GlobalSequenceCommand, "StopGroup")
+        return GlobalSequenceCommand(dotnet_result, "STOP_GROUP")
 
 
 class IChannel(_DotNetBase):
@@ -2953,61 +3461,74 @@ class IChannel(_DotNetBase):
     @property
     def data_source(self) -> BaseNode:
         """Gets or sets the source channel that maps to the current channel and provides it data."""
-        return _wrap(self._dotnet_instance.DataSource)
+        dotnet_result = self._dotnet_instance.DataSource
+        return _wrap(dotnet_result)
 
     @data_source.setter
     def data_source(self, value: BaseNode):
         """Gets or sets the source channel that maps to the current channel and provides it data."""
-        self._dotnet_instance.DataSource = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.DataSource = next(unwrapped)
 
     @property
     def column_dimensions(self) -> int:
         """Gets the number of columns in the channel value."""
-        return _wrap(self._dotnet_instance.ColumnDimensions)
+        dotnet_result = self._dotnet_instance.ColumnDimensions
+        return _wrap(dotnet_result)
 
     @property
     def row_dimensions(self) -> int:
         """Gets the number of rows in the channel value."""
-        return _wrap(self._dotnet_instance.RowDimensions)
+        dotnet_result = self._dotnet_instance.RowDimensions
+        return _wrap(dotnet_result)
 
     @property
     def units(self) -> str:
         """Gets or sets the units associated with the channel. This can be any arbitrary string."""
-        return _wrap(self._dotnet_instance.Units)
+        dotnet_result = self._dotnet_instance.Units
+        return _wrap(dotnet_result)
 
     @units.setter
     def units(self, value: str):
         """Gets or sets the units associated with the channel. This can be any arbitrary string."""
-        self._dotnet_instance.Units = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.Units = next(unwrapped)
 
     @property
     def is_readable(self) -> bool:
         """Gets a value indicating whether the channel is readable."""
-        return _wrap(self._dotnet_instance.IsReadable)
+        dotnet_result = self._dotnet_instance.IsReadable
+        return _wrap(dotnet_result)
 
     @property
     def is_writable(self) -> bool:
         """Gets a value indicating whether the channel is writable."""
-        return _wrap(self._dotnet_instance.IsWritable)
+        dotnet_result = self._dotnet_instance.IsWritable
+        return _wrap(dotnet_result)
 
     @property
     def scale_units(self) -> str:
         """Gets the units of the scale associated with the channel."""
-        return _wrap(self._dotnet_instance.ScaleUnits)
+        dotnet_result = self._dotnet_instance.ScaleUnits
+        return _wrap(dotnet_result)
 
     @overload
     def remove_data_source(self):
         ...
 
     def remove_data_source(self, *args):
-        return _wrap(self._dotnet_instance.RemoveDataSource(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.RemoveDataSource(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_value_table(self) -> Tuple[bool, Sequence[str], Sequence[float]]:
         ...
 
     def get_value_table(self, *args):
-        return _wrap(self._dotnet_instance.GetValueTable(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetValueTable(*unwrapped)
+        return _wrap(dotnet_result)
 
 
 class LUTValue(_DotNetBase):
@@ -3023,27 +3544,32 @@ class LUTValue(_DotNetBase):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.LUTValue:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.LUTValue(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.LUTValue(*unwrapped)
 
     @property
     def pre_scaled(self) -> float:
         """Gets or sets the pre-scaled LUTValue."""
-        return _wrap(self._dotnet_instance.PreScaled)
+        dotnet_result = self._dotnet_instance.PreScaled
+        return _wrap(dotnet_result)
 
     @pre_scaled.setter
     def pre_scaled(self, value: float):
         """Gets or sets the pre-scaled LUTValue."""
-        self._dotnet_instance.PreScaled = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.PreScaled = next(unwrapped)
 
     @property
     def scaled(self) -> float:
         """Gets or sets the scaled LUTValue."""
-        return _wrap(self._dotnet_instance.Scaled)
+        dotnet_result = self._dotnet_instance.Scaled
+        return _wrap(dotnet_result)
 
     @scaled.setter
     def scaled(self, value: float):
         """Gets or sets the scaled LUTValue."""
-        self._dotnet_instance.Scaled = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.Scaled = next(unwrapped)
 
 
 class LogMode(_DotNetEnum):
@@ -3060,11 +3586,13 @@ class LogMode(_DotNetEnum):
 
     @_staticproperty
     def LOG() -> LogMode:
-        return LogMode(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.LogMode, "Log"), "LOG")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.LogMode, "Log")
+        return LogMode(dotnet_result, "LOG")
 
     @_staticproperty
     def LOG_AND_READ() -> LogMode:
-        return LogMode(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.LogMode, "LogAndRead"), "LOG_AND_READ")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.LogMode, "LogAndRead")
+        return LogMode(dotnet_result, "LOG_AND_READ")
 
 
 class ModelCommandState(_DotNetEnum):
@@ -3081,23 +3609,28 @@ class ModelCommandState(_DotNetEnum):
 
     @_staticproperty
     def START() -> ModelCommandState:
-        return ModelCommandState(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.ModelCommandState, "Start"), "START")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.ModelCommandState, "Start")
+        return ModelCommandState(dotnet_result, "START")
 
     @_staticproperty
     def PAUSE() -> ModelCommandState:
-        return ModelCommandState(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.ModelCommandState, "Pause"), "PAUSE")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.ModelCommandState, "Pause")
+        return ModelCommandState(dotnet_result, "PAUSE")
 
     @_staticproperty
     def RESET() -> ModelCommandState:
-        return ModelCommandState(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.ModelCommandState, "Reset"), "RESET")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.ModelCommandState, "Reset")
+        return ModelCommandState(dotnet_result, "RESET")
 
     @_staticproperty
     def SAVE() -> ModelCommandState:
-        return ModelCommandState(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.ModelCommandState, "Save"), "SAVE")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.ModelCommandState, "Save")
+        return ModelCommandState(dotnet_result, "SAVE")
 
     @_staticproperty
     def RESTORE() -> ModelCommandState:
-        return ModelCommandState(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.ModelCommandState, "Restore"), "RESTORE")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.ModelCommandState, "Restore")
+        return ModelCommandState(dotnet_result, "RESTORE")
 
 
 class NodeIDUtil(_DotNetBase):
@@ -3113,7 +3646,8 @@ class NodeIDUtil(_DotNetBase):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.NodeIDUtil:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.NodeIDUtil(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.NodeIDUtil(*unwrapped)
 
     @staticmethod
     @overload
@@ -3121,7 +3655,9 @@ class NodeIDUtil(_DotNetBase):
         ...
 
     def id_to_base_node(*args):
-        return _wrap(NationalInstruments.VeriStand.SystemDefinitionAPI.NodeIDUtil.IDToBaseNode(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = NationalInstruments.VeriStand.SystemDefinitionAPI.NodeIDUtil.IDToBaseNode(*unwrapped)
+        return _wrap(dotnet_result)
 
     @staticmethod
     @overload
@@ -3129,7 +3665,9 @@ class NodeIDUtil(_DotNetBase):
         ...
 
     def id_to_custom_device_base(*args):
-        return _wrap(NationalInstruments.VeriStand.SystemDefinitionAPI.NodeIDUtil.IDToCustomDeviceBase(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = NationalInstruments.VeriStand.SystemDefinitionAPI.NodeIDUtil.IDToCustomDeviceBase(*unwrapped)
+        return _wrap(dotnet_result)
 
     @staticmethod
     @overload
@@ -3137,7 +3675,9 @@ class NodeIDUtil(_DotNetBase):
         ...
 
     def id_to_custom_device_channel(*args):
-        return _wrap(NationalInstruments.VeriStand.SystemDefinitionAPI.NodeIDUtil.IDToCustomDeviceChannel(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = NationalInstruments.VeriStand.SystemDefinitionAPI.NodeIDUtil.IDToCustomDeviceChannel(*unwrapped)
+        return _wrap(dotnet_result)
 
     @staticmethod
     @overload
@@ -3145,7 +3685,9 @@ class NodeIDUtil(_DotNetBase):
         ...
 
     def id_to_custom_device_waveform(*args):
-        return _wrap(NationalInstruments.VeriStand.SystemDefinitionAPI.NodeIDUtil.IDToCustomDeviceWaveform(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = NationalInstruments.VeriStand.SystemDefinitionAPI.NodeIDUtil.IDToCustomDeviceWaveform(*unwrapped)
+        return _wrap(dotnet_result)
 
     @staticmethod
     @overload
@@ -3153,7 +3695,9 @@ class NodeIDUtil(_DotNetBase):
         ...
 
     def id_to_custom_device_section(*args):
-        return _wrap(NationalInstruments.VeriStand.SystemDefinitionAPI.NodeIDUtil.IDToCustomDeviceSection(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = NationalInstruments.VeriStand.SystemDefinitionAPI.NodeIDUtil.IDToCustomDeviceSection(*unwrapped)
+        return _wrap(dotnet_result)
 
     @staticmethod
     @overload
@@ -3161,7 +3705,9 @@ class NodeIDUtil(_DotNetBase):
         ...
 
     def id_to_custom_device(*args):
-        return _wrap(NationalInstruments.VeriStand.SystemDefinitionAPI.NodeIDUtil.IDToCustomDevice(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = NationalInstruments.VeriStand.SystemDefinitionAPI.NodeIDUtil.IDToCustomDevice(*unwrapped)
+        return _wrap(dotnet_result)
 
     @staticmethod
     @overload
@@ -3169,7 +3715,9 @@ class NodeIDUtil(_DotNetBase):
         ...
 
     def id_to_timing_sync_device(*args):
-        return _wrap(NationalInstruments.VeriStand.SystemDefinitionAPI.NodeIDUtil.IDToTimingSyncDevice(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = NationalInstruments.VeriStand.SystemDefinitionAPI.NodeIDUtil.IDToTimingSyncDevice(*unwrapped)
+        return _wrap(dotnet_result)
 
 
 class PXIBackplaneReferenceClock(_DotNetEnum):
@@ -3186,19 +3734,23 @@ class PXIBackplaneReferenceClock(_DotNetEnum):
 
     @_staticproperty
     def AUTOMATIC() -> PXIBackplaneReferenceClock:
-        return PXIBackplaneReferenceClock(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.PXIBackplaneReferenceClock, "Automatic"), "AUTOMATIC")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.PXIBackplaneReferenceClock, "Automatic")
+        return PXIBackplaneReferenceClock(dotnet_result, "AUTOMATIC")
 
     @_staticproperty
     def NONE() -> PXIBackplaneReferenceClock:
-        return PXIBackplaneReferenceClock(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.PXIBackplaneReferenceClock, "None"), "NONE")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.PXIBackplaneReferenceClock, "None")
+        return PXIBackplaneReferenceClock(dotnet_result, "NONE")
 
     @_staticproperty
     def CLK10() -> PXIBackplaneReferenceClock:
-        return PXIBackplaneReferenceClock(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.PXIBackplaneReferenceClock, "Clk10"), "CLK10")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.PXIBackplaneReferenceClock, "Clk10")
+        return PXIBackplaneReferenceClock(dotnet_result, "CLK10")
 
     @_staticproperty
     def CLK100() -> PXIBackplaneReferenceClock:
-        return PXIBackplaneReferenceClock(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.PXIBackplaneReferenceClock, "Clk100"), "CLK100")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.PXIBackplaneReferenceClock, "Clk100")
+        return PXIBackplaneReferenceClock(dotnet_result, "CLK100")
 
 
 class ParameterAccess(_DotNetEnum):
@@ -3215,11 +3767,13 @@ class ParameterAccess(_DotNetEnum):
 
     @_staticproperty
     def ONLY_IMPORTED_PARAMETERS() -> ParameterAccess:
-        return ParameterAccess(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.ParameterAccess, "OnlyImportedParameters"), "ONLY_IMPORTED_PARAMETERS")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.ParameterAccess, "OnlyImportedParameters")
+        return ParameterAccess(dotnet_result, "ONLY_IMPORTED_PARAMETERS")
 
     @_staticproperty
     def ANY_PARAMETER() -> ParameterAccess:
-        return ParameterAccess(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.ParameterAccess, "AnyParameter"), "ANY_PARAMETER")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.ParameterAccess, "AnyParameter")
+        return ParameterAccess(dotnet_result, "ANY_PARAMETER")
 
 
 class ReflectiveMemoryDataChannelAccessType(_DotNetEnum):
@@ -3236,11 +3790,13 @@ class ReflectiveMemoryDataChannelAccessType(_DotNetEnum):
 
     @_staticproperty
     def READ() -> ReflectiveMemoryDataChannelAccessType:
-        return ReflectiveMemoryDataChannelAccessType(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.ReflectiveMemoryDataChannelAccessType, "Read"), "READ")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.ReflectiveMemoryDataChannelAccessType, "Read")
+        return ReflectiveMemoryDataChannelAccessType(dotnet_result, "READ")
 
     @_staticproperty
     def WRITE() -> ReflectiveMemoryDataChannelAccessType:
-        return ReflectiveMemoryDataChannelAccessType(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.ReflectiveMemoryDataChannelAccessType, "Write"), "WRITE")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.ReflectiveMemoryDataChannelAccessType, "Write")
+        return ReflectiveMemoryDataChannelAccessType(dotnet_result, "WRITE")
 
 
 class ReflectiveMemoryDataChannelDataType(_DotNetEnum):
@@ -3257,39 +3813,48 @@ class ReflectiveMemoryDataChannelDataType(_DotNetEnum):
 
     @_staticproperty
     def U_INT8() -> ReflectiveMemoryDataChannelDataType:
-        return ReflectiveMemoryDataChannelDataType(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.ReflectiveMemoryDataChannelDataType, "UInt8"), "U_INT8")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.ReflectiveMemoryDataChannelDataType, "UInt8")
+        return ReflectiveMemoryDataChannelDataType(dotnet_result, "U_INT8")
 
     @_staticproperty
     def INT8() -> ReflectiveMemoryDataChannelDataType:
-        return ReflectiveMemoryDataChannelDataType(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.ReflectiveMemoryDataChannelDataType, "Int8"), "INT8")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.ReflectiveMemoryDataChannelDataType, "Int8")
+        return ReflectiveMemoryDataChannelDataType(dotnet_result, "INT8")
 
     @_staticproperty
     def U_INT16() -> ReflectiveMemoryDataChannelDataType:
-        return ReflectiveMemoryDataChannelDataType(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.ReflectiveMemoryDataChannelDataType, "UInt16"), "U_INT16")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.ReflectiveMemoryDataChannelDataType, "UInt16")
+        return ReflectiveMemoryDataChannelDataType(dotnet_result, "U_INT16")
 
     @_staticproperty
     def INT16() -> ReflectiveMemoryDataChannelDataType:
-        return ReflectiveMemoryDataChannelDataType(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.ReflectiveMemoryDataChannelDataType, "Int16"), "INT16")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.ReflectiveMemoryDataChannelDataType, "Int16")
+        return ReflectiveMemoryDataChannelDataType(dotnet_result, "INT16")
 
     @_staticproperty
     def U_INT32() -> ReflectiveMemoryDataChannelDataType:
-        return ReflectiveMemoryDataChannelDataType(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.ReflectiveMemoryDataChannelDataType, "UInt32"), "U_INT32")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.ReflectiveMemoryDataChannelDataType, "UInt32")
+        return ReflectiveMemoryDataChannelDataType(dotnet_result, "U_INT32")
 
     @_staticproperty
     def INT32() -> ReflectiveMemoryDataChannelDataType:
-        return ReflectiveMemoryDataChannelDataType(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.ReflectiveMemoryDataChannelDataType, "Int32"), "INT32")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.ReflectiveMemoryDataChannelDataType, "Int32")
+        return ReflectiveMemoryDataChannelDataType(dotnet_result, "INT32")
 
     @_staticproperty
     def U_INT64() -> ReflectiveMemoryDataChannelDataType:
-        return ReflectiveMemoryDataChannelDataType(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.ReflectiveMemoryDataChannelDataType, "UInt64"), "U_INT64")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.ReflectiveMemoryDataChannelDataType, "UInt64")
+        return ReflectiveMemoryDataChannelDataType(dotnet_result, "U_INT64")
 
     @_staticproperty
     def INT64() -> ReflectiveMemoryDataChannelDataType:
-        return ReflectiveMemoryDataChannelDataType(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.ReflectiveMemoryDataChannelDataType, "Int64"), "INT64")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.ReflectiveMemoryDataChannelDataType, "Int64")
+        return ReflectiveMemoryDataChannelDataType(dotnet_result, "INT64")
 
     @_staticproperty
     def DOUBLE() -> ReflectiveMemoryDataChannelDataType:
-        return ReflectiveMemoryDataChannelDataType(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.ReflectiveMemoryDataChannelDataType, "Double"), "DOUBLE")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.ReflectiveMemoryDataChannelDataType, "Double")
+        return ReflectiveMemoryDataChannelDataType(dotnet_result, "DOUBLE")
 
 
 class ReflectiveMemoryInterruptType(_DotNetEnum):
@@ -3306,23 +3871,28 @@ class ReflectiveMemoryInterruptType(_DotNetEnum):
 
     @_staticproperty
     def LINK_RESET_INTERRUPT() -> ReflectiveMemoryInterruptType:
-        return ReflectiveMemoryInterruptType(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.ReflectiveMemoryInterruptType, "LinkResetInterrupt"), "LINK_RESET_INTERRUPT")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.ReflectiveMemoryInterruptType, "LinkResetInterrupt")
+        return ReflectiveMemoryInterruptType(dotnet_result, "LINK_RESET_INTERRUPT")
 
     @_staticproperty
     def NETWORK_INTERRUPT1() -> ReflectiveMemoryInterruptType:
-        return ReflectiveMemoryInterruptType(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.ReflectiveMemoryInterruptType, "NetworkInterrupt1"), "NETWORK_INTERRUPT1")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.ReflectiveMemoryInterruptType, "NetworkInterrupt1")
+        return ReflectiveMemoryInterruptType(dotnet_result, "NETWORK_INTERRUPT1")
 
     @_staticproperty
     def NETWORK_INTERRUPT2() -> ReflectiveMemoryInterruptType:
-        return ReflectiveMemoryInterruptType(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.ReflectiveMemoryInterruptType, "NetworkInterrupt2"), "NETWORK_INTERRUPT2")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.ReflectiveMemoryInterruptType, "NetworkInterrupt2")
+        return ReflectiveMemoryInterruptType(dotnet_result, "NETWORK_INTERRUPT2")
 
     @_staticproperty
     def NETWORK_INTERRUPT3() -> ReflectiveMemoryInterruptType:
-        return ReflectiveMemoryInterruptType(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.ReflectiveMemoryInterruptType, "NetworkInterrupt3"), "NETWORK_INTERRUPT3")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.ReflectiveMemoryInterruptType, "NetworkInterrupt3")
+        return ReflectiveMemoryInterruptType(dotnet_result, "NETWORK_INTERRUPT3")
 
     @_staticproperty
     def NETWORK_INIT_INTERRUPT() -> ReflectiveMemoryInterruptType:
-        return ReflectiveMemoryInterruptType(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.ReflectiveMemoryInterruptType, "NetworkInitInterrupt"), "NETWORK_INIT_INTERRUPT")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.ReflectiveMemoryInterruptType, "NetworkInitInterrupt")
+        return ReflectiveMemoryInterruptType(dotnet_result, "NETWORK_INIT_INTERRUPT")
 
 
 class ReplayBehavior(_DotNetEnum):
@@ -3339,15 +3909,18 @@ class ReplayBehavior(_DotNetEnum):
 
     @_staticproperty
     def REPLAY_ENTIRE_FILE() -> ReplayBehavior:
-        return ReplayBehavior(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.ReplayBehavior, "ReplayEntireFile"), "REPLAY_ENTIRE_FILE")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.ReplayBehavior, "ReplayEntireFile")
+        return ReplayBehavior(dotnet_result, "REPLAY_ENTIRE_FILE")
 
     @_staticproperty
     def EXCLUDE_FRAME_I_DS() -> ReplayBehavior:
-        return ReplayBehavior(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.ReplayBehavior, "ExcludeFrameIDs"), "EXCLUDE_FRAME_I_DS")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.ReplayBehavior, "ExcludeFrameIDs")
+        return ReplayBehavior(dotnet_result, "EXCLUDE_FRAME_I_DS")
 
     @_staticproperty
     def INCLUDE_FRAME_I_DS() -> ReplayBehavior:
-        return ReplayBehavior(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.ReplayBehavior, "IncludeFrameIDs"), "INCLUDE_FRAME_I_DS")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.ReplayBehavior, "IncludeFrameIDs")
+        return ReplayBehavior(dotnet_result, "INCLUDE_FRAME_I_DS")
 
 
 class Root(BaseNode):
@@ -3364,109 +3937,137 @@ class Root(BaseNode):
     @property
     def version(self) -> str:
         """Gets or sets the system definition file version number."""
-        return _wrap(self._dotnet_instance.Version)
+        dotnet_result = self._dotnet_instance.Version
+        return _wrap(dotnet_result)
 
     @version.setter
     def version(self, value: str):
         """Gets or sets the system definition file version number."""
-        self._dotnet_instance.Version = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.Version = next(unwrapped)
 
     @property
     def creator(self) -> str:
         """Gets or sets the user account name of the system definition file creator."""
-        return _wrap(self._dotnet_instance.Creator)
+        dotnet_result = self._dotnet_instance.Creator
+        return _wrap(dotnet_result)
 
     @creator.setter
     def creator(self, value: str):
         """Gets or sets the user account name of the system definition file creator."""
-        self._dotnet_instance.Creator = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.Creator = next(unwrapped)
 
     @property
     def creation_date(self) -> float:
         """Gets or sets the creation date of the system definition file."""
-        return _wrap(self._dotnet_instance.CreationDate)
+        dotnet_result = self._dotnet_instance.CreationDate
+        return _wrap(dotnet_result)
 
     @creation_date.setter
     def creation_date(self, value: float):
         """Gets or sets the creation date of the system definition file."""
-        self._dotnet_instance.CreationDate = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.CreationDate = next(unwrapped)
 
     @overload
     def delete_channel_mappings(self, channel_path_destinations: Sequence[str]):
         ...
 
     def delete_channel_mappings(self, *args):
-        return _wrap(self._dotnet_instance.DeleteChannelMappings(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.DeleteChannelMappings(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_channel_mappings(self, channel_path_sources: Sequence[str], channel_path_destinations: Sequence[str]) -> bool:
         ...
 
     def add_channel_mappings(self, *args):
-        return _wrap(self._dotnet_instance.AddChannelMappings(*_unwrap({None: (2, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (2, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.AddChannelMappings(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_channel_mappings(self) -> Tuple[Sequence[str], Sequence[str]]:
         ...
 
     def get_channel_mappings(self, *args):
-        return _wrap(self._dotnet_instance.GetChannelMappings(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetChannelMappings(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def clear_channel_mappings(self):
         ...
 
     def clear_channel_mappings(self, *args):
-        return _wrap(self._dotnet_instance.ClearChannelMappings(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.ClearChannelMappings(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_targets(self) -> Targets:
         ...
 
     def get_targets(self, *args):
-        return _wrap(self._dotnet_instance.GetTargets(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetTargets(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def refresh_node_dependencies(self):
         ...
 
     def refresh_node_dependencies(self, *args):
-        return _wrap(self._dotnet_instance.RefreshNodeDependencies(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.RefreshNodeDependencies(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_aliases(self) -> Aliases:
         ...
 
     def get_aliases(self, *args):
-        return _wrap(self._dotnet_instance.GetAliases(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetAliases(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_scales(self) -> Scales:
         ...
 
     def get_scales(self, *args):
-        return _wrap(self._dotnet_instance.GetScales(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetScales(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_system_mappings(self) -> SystemMappings:
         ...
 
     def get_system_mappings(self, *args):
-        return _wrap(self._dotnet_instance.GetSystemMappings(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetSystemMappings(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_data_sharing_network(self) -> DataSharingNetwork:
         ...
 
     def get_data_sharing_network(self, *args):
-        return _wrap(self._dotnet_instance.GetDataSharingNetwork(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetDataSharingNetwork(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_system_initialization(self) -> SystemInitialization:
         ...
 
     def get_system_initialization(self, *args):
-        return _wrap(self._dotnet_instance.GetSystemInitialization(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetSystemInitialization(*unwrapped)
+        return _wrap(dotnet_result)
 
 
 class SampleMode(_DotNetEnum):
@@ -3483,11 +4084,13 @@ class SampleMode(_DotNetEnum):
 
     @_staticproperty
     def SINGLE_POINT() -> SampleMode:
-        return SampleMode(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.SampleMode, "SinglePoint"), "SINGLE_POINT")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.SampleMode, "SinglePoint")
+        return SampleMode(dotnet_result, "SINGLE_POINT")
 
     @_staticproperty
     def WAVEFORM() -> SampleMode:
-        return SampleMode(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.SampleMode, "Waveform"), "WAVEFORM")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.SampleMode, "Waveform")
+        return SampleMode(dotnet_result, "WAVEFORM")
 
 
 class ScaleType(_DotNetEnum):
@@ -3504,15 +4107,18 @@ class ScaleType(_DotNetEnum):
 
     @_staticproperty
     def POLYNOMIAL() -> ScaleType:
-        return ScaleType(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.ScaleType, "Polynomial"), "POLYNOMIAL")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.ScaleType, "Polynomial")
+        return ScaleType(dotnet_result, "POLYNOMIAL")
 
     @_staticproperty
     def THERMOCOUPLE() -> ScaleType:
-        return ScaleType(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.ScaleType, "Thermocouple"), "THERMOCOUPLE")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.ScaleType, "Thermocouple")
+        return ScaleType(dotnet_result, "THERMOCOUPLE")
 
     @_staticproperty
     def LOOKUP_TABLE() -> ScaleType:
-        return ScaleType(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.ScaleType, "LookupTable"), "LOOKUP_TABLE")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.ScaleType, "LookupTable")
+        return ScaleType(dotnet_result, "LOOKUP_TABLE")
 
 
 class Section(BaseNode):
@@ -3541,23 +4147,28 @@ class SetVariableStepFunction(_DotNetEnum):
 
     @_staticproperty
     def NONE() -> SetVariableStepFunction:
-        return SetVariableStepFunction(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.SetVariableStepFunction, "None"), "NONE")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.SetVariableStepFunction, "None")
+        return SetVariableStepFunction(dotnet_result, "NONE")
 
     @_staticproperty
     def ADD() -> SetVariableStepFunction:
-        return SetVariableStepFunction(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.SetVariableStepFunction, "Add"), "ADD")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.SetVariableStepFunction, "Add")
+        return SetVariableStepFunction(dotnet_result, "ADD")
 
     @_staticproperty
     def SUBTRACT() -> SetVariableStepFunction:
-        return SetVariableStepFunction(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.SetVariableStepFunction, "Subtract"), "SUBTRACT")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.SetVariableStepFunction, "Subtract")
+        return SetVariableStepFunction(dotnet_result, "SUBTRACT")
 
     @_staticproperty
     def MULTIPLY() -> SetVariableStepFunction:
-        return SetVariableStepFunction(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.SetVariableStepFunction, "Multiply"), "MULTIPLY")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.SetVariableStepFunction, "Multiply")
+        return SetVariableStepFunction(dotnet_result, "MULTIPLY")
 
     @_staticproperty
     def DIVIDE() -> SetVariableStepFunction:
-        return SetVariableStepFunction(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.SetVariableStepFunction, "Divide"), "DIVIDE")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.SetVariableStepFunction, "Divide")
+        return SetVariableStepFunction(dotnet_result, "DIVIDE")
 
 
 class SignalBasedFrame(Section):
@@ -3573,152 +4184,182 @@ class SignalBasedFrame(Section):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.SignalBasedFrame:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.SignalBasedFrame(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.SignalBasedFrame(*unwrapped)
 
     @property
     def transmit_trigger(self) -> FrameTriggerType:
         """Gets the trigger type (channel value change, trigger channel not zero, and so on) specified for an event-triggered frame."""
-        return _wrap(self._dotnet_instance.TransmitTrigger)
+        dotnet_result = self._dotnet_instance.TransmitTrigger
+        return _wrap(dotnet_result)
 
     @property
     def phase(self) -> FramePhaseType:
         """Gets or sets whether to reset the timer after <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.SignalBasedFrame.TransmitTime" crefType="Unqualified" /> elapses when <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.SignalBasedFrame.EnableSoftwareCyclicTrigger" crefType="Unqualified" /> is <see langword="true" />."""
-        return _wrap(self._dotnet_instance.Phase)
+        dotnet_result = self._dotnet_instance.Phase
+        return _wrap(dotnet_result)
 
     @phase.setter
     def phase(self, value: FramePhaseType):
         """Gets or sets whether to reset the timer after <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.SignalBasedFrame.TransmitTime" crefType="Unqualified" /> elapses when <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.SignalBasedFrame.EnableSoftwareCyclicTrigger" crefType="Unqualified" /> is <see langword="true" />."""
-        self._dotnet_instance.Phase = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.Phase = next(unwrapped)
 
     @property
     def frame_type(self) -> FrameType:
         """Gets or sets the frame type (CAN data, CAN remote, FlexRay data, or FlexRay null) of a frame under a CAN or FlexRay port."""
-        return _wrap(self._dotnet_instance.FrameType)
+        dotnet_result = self._dotnet_instance.FrameType
+        return _wrap(dotnet_result)
 
     @frame_type.setter
     def frame_type(self, value: FrameType):
         """Gets or sets the frame type (CAN data, CAN remote, FlexRay data, or FlexRay null) of a frame under a CAN or FlexRay port."""
-        self._dotnet_instance.FrameType = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.FrameType = next(unwrapped)
 
     @property
     def id(self) -> int:
         """Gets or sets the identifier number for the frame. For LIN frames, this is the frame ID. For CAN frames, this is the Arbitration ID. For FlexRay frames, this is the Slot ID in which the frame is sent."""
-        return _wrap(self._dotnet_instance.ID)
+        dotnet_result = self._dotnet_instance.ID
+        return _wrap(dotnet_result)
 
     @id.setter
     def id(self, value: int):
         """Gets or sets the identifier number for the frame. For LIN frames, this is the frame ID. For CAN frames, this is the Arbitration ID. For FlexRay frames, this is the Slot ID in which the frame is sent."""
-        self._dotnet_instance.ID = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.ID = next(unwrapped)
 
     @property
     def payload_length(self) -> int:
         """Gets or sets the number of bytes in the payload of the frame."""
-        return _wrap(self._dotnet_instance.PayloadLength)
+        dotnet_result = self._dotnet_instance.PayloadLength
+        return _wrap(dotnet_result)
 
     @payload_length.setter
     def payload_length(self, value: int):
         """Gets or sets the number of bytes in the payload of the frame."""
-        self._dotnet_instance.PayloadLength = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.PayloadLength = next(unwrapped)
 
     @property
     def md5(self) -> Sequence[int]:
         """Gets the MD5 message digest for the frame."""
-        return _wrap(self._dotnet_instance.MD5)
+        dotnet_result = self._dotnet_instance.MD5
+        return _wrap(dotnet_result)
 
     @property
     def start_time_offset(self) -> float:
         """Gets or sets the amount of time that elapses between the session start and the transmission of the first frame."""
-        return _wrap(self._dotnet_instance.StartTimeOffset)
+        dotnet_result = self._dotnet_instance.StartTimeOffset
+        return _wrap(dotnet_result)
 
     @start_time_offset.setter
     def start_time_offset(self, value: float):
         """Gets or sets the amount of time that elapses between the session start and the transmission of the first frame."""
-        self._dotnet_instance.StartTimeOffset = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.StartTimeOffset = next(unwrapped)
 
     @property
     def enable64_bit(self) -> bool:
         """Gets or sets whether U64 bitfield representation is enabled for the frame."""
-        return _wrap(self._dotnet_instance.Enable64Bit)
+        dotnet_result = self._dotnet_instance.Enable64Bit
+        return _wrap(dotnet_result)
 
     @enable64_bit.setter
     def enable64_bit(self, value: bool):
         """Gets or sets whether U64 bitfield representation is enabled for the frame."""
-        self._dotnet_instance.Enable64Bit = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.Enable64Bit = next(unwrapped)
 
     @property
     def owning_database(self) -> BaseNode:
         """Gets or sets a reference to the XNET database that contains the frame."""
-        return _wrap(self._dotnet_instance.OwningDatabase)
+        dotnet_result = self._dotnet_instance.OwningDatabase
+        return _wrap(dotnet_result)
 
     @owning_database.setter
     def owning_database(self, value: BaseNode):
         """Gets or sets a reference to the XNET database that contains the frame."""
-        self._dotnet_instance.OwningDatabase = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.OwningDatabase = next(unwrapped)
 
     @property
     def cluster_name(self) -> str:
         """Gets or sets the name of the cluster in the XNET database that contains the frame."""
-        return _wrap(self._dotnet_instance.ClusterName)
+        dotnet_result = self._dotnet_instance.ClusterName
+        return _wrap(dotnet_result)
 
     @cluster_name.setter
     def cluster_name(self, value: str):
         """Gets or sets the name of the cluster in the XNET database that contains the frame."""
-        self._dotnet_instance.ClusterName = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.ClusterName = next(unwrapped)
 
     @property
     def database_alias(self) -> str:
         """Gets or sets the alias for the XNET database that contains the frame."""
-        return _wrap(self._dotnet_instance.DatabaseAlias)
+        dotnet_result = self._dotnet_instance.DatabaseAlias
+        return _wrap(dotnet_result)
 
     @database_alias.setter
     def database_alias(self, value: str):
         """Gets or sets the alias for the XNET database that contains the frame."""
-        self._dotnet_instance.DatabaseAlias = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.DatabaseAlias = next(unwrapped)
 
     @property
     def disabled(self) -> bool:
         """Gets whether transmission of the outgoing frame is disabled."""
-        return _wrap(self._dotnet_instance.Disabled)
+        dotnet_result = self._dotnet_instance.Disabled
+        return _wrap(dotnet_result)
 
     @property
     def disable_channel(self) -> BaseNode:
         """Gets a reference to the disable channel for the frame. A disable channel disables transmission of an outgoing frame when the value of the disable channel is non-zero."""
-        return _wrap(self._dotnet_instance.DisableChannel)
+        dotnet_result = self._dotnet_instance.DisableChannel
+        return _wrap(dotnet_result)
 
     @property
     def trigger_channel(self) -> BaseNode:
         """Gets a reference to the channel that is checked for a non-zero value when <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.SignalBasedFrame.EnableFrameCyclicTrigger" crefType="Unqualified" /> is <see langword="true" />."""
-        return _wrap(self._dotnet_instance.TriggerChannel)
+        dotnet_result = self._dotnet_instance.TriggerChannel
+        return _wrap(dotnet_result)
 
     @property
     def enable_software_cyclic_trigger(self) -> bool:
         """Gets or sets whether a software cyclic trigger, which transmits outgoing frames at regular intervals specified by <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.SignalBasedFrame.TransmitTime" crefType="Unqualified" />, is enabled for the frame."""
-        return _wrap(self._dotnet_instance.EnableSoftwareCyclicTrigger)
+        dotnet_result = self._dotnet_instance.EnableSoftwareCyclicTrigger
+        return _wrap(dotnet_result)
 
     @enable_software_cyclic_trigger.setter
     def enable_software_cyclic_trigger(self, value: bool):
         """Gets or sets whether a software cyclic trigger, which transmits outgoing frames at regular intervals specified by <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.SignalBasedFrame.TransmitTime" crefType="Unqualified" />, is enabled for the frame."""
-        self._dotnet_instance.EnableSoftwareCyclicTrigger = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.EnableSoftwareCyclicTrigger = next(unwrapped)
 
     @property
     def enable_frame_cyclic_trigger(self) -> bool:
         """Gets or sets whether a frame cyclic trigger, which transmits outgoing frames when <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.SignalBasedFrame.TriggerChannel" crefType="Unqualified" /> has a non-zero value, is enabled for the frame."""
-        return _wrap(self._dotnet_instance.EnableFrameCyclicTrigger)
+        dotnet_result = self._dotnet_instance.EnableFrameCyclicTrigger
+        return _wrap(dotnet_result)
 
     @enable_frame_cyclic_trigger.setter
     def enable_frame_cyclic_trigger(self, value: bool):
         """Gets or sets whether a frame cyclic trigger, which transmits outgoing frames when <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.SignalBasedFrame.TriggerChannel" crefType="Unqualified" /> has a non-zero value, is enabled for the frame."""
-        self._dotnet_instance.EnableFrameCyclicTrigger = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.EnableFrameCyclicTrigger = next(unwrapped)
 
     @property
     def transmit_time(self) -> float:
         """Gets or sets the interval, in seconds, at which a software cyclic trigger transmits outgoing frames when <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.SignalBasedFrame.EnableSoftwareCyclicTrigger" crefType="Unqualified" /> is <see langword="true" />."""
-        return _wrap(self._dotnet_instance.TransmitTime)
+        dotnet_result = self._dotnet_instance.TransmitTime
+        return _wrap(dotnet_result)
 
     @transmit_time.setter
     def transmit_time(self, value: float):
         """Gets or sets the interval, in seconds, at which a software cyclic trigger transmits outgoing frames when <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.SignalBasedFrame.EnableSoftwareCyclicTrigger" crefType="Unqualified" /> is <see langword="true" />."""
-        self._dotnet_instance.TransmitTime = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.TransmitTime = next(unwrapped)
 
     @overload
     def create_multiplexer(self, multiplexer_value: int) -> Multiplexer:
@@ -3729,105 +4370,135 @@ class SignalBasedFrame(Section):
         ...
 
     def create_multiplexer(self, *args):
-        return _wrap(self._dotnet_instance.CreateMultiplexer(*_unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.CreateMultiplexer(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def create_mode(self, multiplexer_value: int, signal_name: str, description: str, units: str, default_value: float) -> Mode:
         ...
 
     def create_mode(self, *args):
-        return _wrap(self._dotnet_instance.CreateMode(*_unwrap({None: (5, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (5, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.CreateMode(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def create_signal_based_signal(self, name: str, description: str, units: str, default_value: float) -> SignalBasedSignal:
         ...
 
     def create_signal_based_signal(self, *args):
-        return _wrap(self._dotnet_instance.CreateSignalBasedSignal(*_unwrap({None: (4, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (4, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.CreateSignalBasedSignal(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def create_frame_information(self) -> FrameInformation:
         ...
 
     def create_frame_information(self, *args):
-        return _wrap(self._dotnet_instance.CreateFrameInformation(*_unwrap({None: (0, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (0, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.CreateFrameInformation(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def create_frame_faulting(self, create_skip_cyclic_frames: bool, create_transmit_time: bool) -> FrameFaulting:
         ...
 
     def create_frame_faulting(self, *args):
-        return _wrap(self._dotnet_instance.CreateFrameFaulting(*_unwrap({None: (2, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (2, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.CreateFrameFaulting(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def create_automatic_frame_processing(self) -> AutomaticFrameProcessing:
         ...
 
     def create_automatic_frame_processing(self, *args):
-        return _wrap(self._dotnet_instance.CreateAutomaticFrameProcessing(*_unwrap({None: (0, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (0, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.CreateAutomaticFrameProcessing(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def enable_transmission(self):
         ...
 
     def enable_transmission(self, *args):
-        return _wrap(self._dotnet_instance.EnableTransmission(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.EnableTransmission(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def disable_transmission(self, disable_channel: BaseNode):
         ...
 
     def disable_transmission(self, *args):
-        return _wrap(self._dotnet_instance.DisableTransmission(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.DisableTransmission(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def set_transmit_trigger(self, trigger_type: FrameTriggerType, trigger_channel: BaseNode):
         ...
 
     def set_transmit_trigger(self, *args):
-        return _wrap(self._dotnet_instance.SetTransmitTrigger(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.SetTransmitTrigger(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_multiplexer(self) -> Multiplexer:
         ...
 
     def get_multiplexer(self, *args):
-        return _wrap(self._dotnet_instance.GetMultiplexer(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetMultiplexer(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_mode_list(self) -> Sequence[Mode]:
         ...
 
     def get_mode_list(self, *args):
-        return _wrap(self._dotnet_instance.GetModeList(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetModeList(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_signal_based_signal_list(self) -> Sequence[SignalBasedSignal]:
         ...
 
     def get_signal_based_signal_list(self, *args):
-        return _wrap(self._dotnet_instance.GetSignalBasedSignalList(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetSignalBasedSignalList(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_frame_information(self) -> FrameInformation:
         ...
 
     def get_frame_information(self, *args):
-        return _wrap(self._dotnet_instance.GetFrameInformation(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetFrameInformation(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_frame_faulting(self) -> FrameFaulting:
         ...
 
     def get_frame_faulting(self, *args):
-        return _wrap(self._dotnet_instance.GetFrameFaulting(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetFrameFaulting(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_automatic_frame_processing(self) -> AutomaticFrameProcessing:
         ...
 
     def get_automatic_frame_processing(self, *args):
-        return _wrap(self._dotnet_instance.GetAutomaticFrameProcessing(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetAutomaticFrameProcessing(*unwrapped)
+        return _wrap(dotnet_result)
 
 
 class SimulationModels(Section):
@@ -3844,83 +4515,101 @@ class SimulationModels(Section):
     @property
     def apply_parameter_file(self) -> bool:
         """Gets or sets a value indicating whether to apply the parameter values defined in the <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.SimulationModels.ParameterFile" /> when you deploy a system definition file."""
-        return _wrap(self._dotnet_instance.ApplyParameterFile)
+        dotnet_result = self._dotnet_instance.ApplyParameterFile
+        return _wrap(dotnet_result)
 
     @apply_parameter_file.setter
     def apply_parameter_file(self, value: bool):
         """Gets or sets a value indicating whether to apply the parameter values defined in the <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.SimulationModels.ParameterFile" /> when you deploy a system definition file."""
-        self._dotnet_instance.ApplyParameterFile = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.ApplyParameterFile = next(unwrapped)
 
     @property
     def parameter_file_delimiter(self) -> Delimiter:
         """Gets or sets the delimiter used to separate parameter-value pairs in the <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.SimulationModels.ParameterFile" />."""
-        return _wrap(self._dotnet_instance.ParameterFileDelimiter)
+        dotnet_result = self._dotnet_instance.ParameterFileDelimiter
+        return _wrap(dotnet_result)
 
     @parameter_file_delimiter.setter
     def parameter_file_delimiter(self, value: Delimiter):
         """Gets or sets the delimiter used to separate parameter-value pairs in the <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.SimulationModels.ParameterFile" />."""
-        self._dotnet_instance.ParameterFileDelimiter = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.ParameterFileDelimiter = next(unwrapped)
 
     @property
     def parameter_access(self) -> ParameterAccess:
         """Gets or sets the flag used to allow or deny reading and writing non-imported parameters."""
-        return _wrap(self._dotnet_instance.ParameterAccess)
+        dotnet_result = self._dotnet_instance.ParameterAccess
+        return _wrap(dotnet_result)
 
     @parameter_access.setter
     def parameter_access(self, value: ParameterAccess):
         """Gets or sets the flag used to allow or deny reading and writing non-imported parameters."""
-        self._dotnet_instance.ParameterAccess = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.ParameterAccess = next(unwrapped)
 
     @property
     def parameter_file_allow_temp_variable(self) -> bool:
         """Gets or sets a value indicating whether the <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.SimulationModels.ParameterFile" /> allows temporary variables. Temporary variables are always local to the file in which you define them."""
-        return _wrap(self._dotnet_instance.ParameterFileAllowTempVariable)
+        dotnet_result = self._dotnet_instance.ParameterFileAllowTempVariable
+        return _wrap(dotnet_result)
 
     @parameter_file_allow_temp_variable.setter
     def parameter_file_allow_temp_variable(self, value: bool):
         """Gets or sets a value indicating whether the <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.SimulationModels.ParameterFile" /> allows temporary variables. Temporary variables are always local to the file in which you define them."""
-        self._dotnet_instance.ParameterFileAllowTempVariable = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.ParameterFileAllowTempVariable = next(unwrapped)
 
     @property
     def parameter_file(self) -> str:
         """Gets or sets the parameter calibration <format type="monospace">.txt</format> file to apply when you deploy a system definition file."""
-        return _wrap(self._dotnet_instance.ParameterFile)
+        dotnet_result = self._dotnet_instance.ParameterFile
+        return _wrap(dotnet_result)
 
     @parameter_file.setter
     def parameter_file(self, value: str):
         """Gets or sets the parameter calibration <format type="monospace">.txt</format> file to apply when you deploy a system definition file."""
-        self._dotnet_instance.ParameterFile = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.ParameterFile = next(unwrapped)
 
     @property
     def parameter_alias_file(self) -> str:
         """Gets or sets the parameter alias file to use with the <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.SimulationModels.ParameterFile" />."""
-        return _wrap(self._dotnet_instance.ParameterAliasFile)
+        dotnet_result = self._dotnet_instance.ParameterAliasFile
+        return _wrap(dotnet_result)
 
     @parameter_alias_file.setter
     def parameter_alias_file(self, value: str):
         """Gets or sets the parameter alias file to use with the <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.SimulationModels.ParameterFile" />."""
-        self._dotnet_instance.ParameterAliasFile = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.ParameterAliasFile = next(unwrapped)
 
     @overload
     def remove_parameter_alias_file(self):
         ...
 
     def remove_parameter_alias_file(self, *args):
-        return _wrap(self._dotnet_instance.RemoveParameterAliasFile(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.RemoveParameterAliasFile(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_models(self) -> Models:
         ...
 
     def get_models(self, *args):
-        return _wrap(self._dotnet_instance.GetModels(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetModels(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_execution_order(self) -> ExecutionOrder:
         ...
 
     def get_execution_order(self, *args):
-        return _wrap(self._dotnet_instance.GetExecutionOrder(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetExecutionOrder(*unwrapped)
+        return _wrap(dotnet_result)
 
 
 class SinglePoint(Section):
@@ -3939,28 +4628,36 @@ class SinglePoint(Section):
         ...
 
     def get_signal_based_frame_list(self, *args):
-        return _wrap(self._dotnet_instance.GetSignalBasedFrameList(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetSignalBasedFrameList(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_raw_data_based_frame_list(self) -> Sequence[RawDataBasedFrame]:
         ...
 
     def get_raw_data_based_frame_list(self, *args):
-        return _wrap(self._dotnet_instance.GetRawDataBasedFrameList(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetRawDataBasedFrameList(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_signal_based_frame(self, signal_based_frame: SignalBasedFrame) -> bool:
         ...
 
     def add_signal_based_frame(self, *args):
-        return _wrap(self._dotnet_instance.AddSignalBasedFrame(*_unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.AddSignalBasedFrame(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_raw_data_based_frame(self, raw_data_based_frame: RawDataBasedFrame) -> bool:
         ...
 
     def add_raw_data_based_frame(self, *args):
-        return _wrap(self._dotnet_instance.AddRawDataBasedFrame(*_unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.AddRawDataBasedFrame(*unwrapped)
+        return _wrap(dotnet_result)
 
 
 class Sporadic(Section):
@@ -3979,28 +4676,36 @@ class Sporadic(Section):
         ...
 
     def get_signal_based_frame_list(self, *args):
-        return _wrap(self._dotnet_instance.GetSignalBasedFrameList(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetSignalBasedFrameList(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_raw_data_based_frame_list(self) -> Sequence[RawDataBasedFrame]:
         ...
 
     def get_raw_data_based_frame_list(self, *args):
-        return _wrap(self._dotnet_instance.GetRawDataBasedFrameList(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetRawDataBasedFrameList(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_signal_based_frame(self, signal_based_frame: SignalBasedFrame) -> bool:
         ...
 
     def add_signal_based_frame(self, *args):
-        return _wrap(self._dotnet_instance.AddSignalBasedFrame(*_unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.AddSignalBasedFrame(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_raw_data_based_frame(self, raw_data_based_frame: RawDataBasedFrame) -> bool:
         ...
 
     def add_raw_data_based_frame(self, *args):
-        return _wrap(self._dotnet_instance.AddRawDataBasedFrame(*_unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.AddRawDataBasedFrame(*unwrapped)
+        return _wrap(dotnet_result)
 
 
 class Stimulus(Section):
@@ -4017,66 +4722,80 @@ class Stimulus(Section):
     @property
     def max_gen_maps(self) -> int:
         """Gets or sets the maximum number of stimulus generator mappings across the entire system."""
-        return _wrap(self._dotnet_instance.MaxGenMaps)
+        dotnet_result = self._dotnet_instance.MaxGenMaps
+        return _wrap(dotnet_result)
 
     @max_gen_maps.setter
     def max_gen_maps(self, value: int):
         """Gets or sets the maximum number of stimulus generator mappings across the entire system."""
-        self._dotnet_instance.MaxGenMaps = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.MaxGenMaps = next(unwrapped)
 
     @property
     def max_steps(self) -> int:
         """Gets or sets the maximum number of steps a stimulus generator can contain. Set this value to a number that is larger than the number of steps in the longest generator script."""
-        return _wrap(self._dotnet_instance.MaxSteps)
+        dotnet_result = self._dotnet_instance.MaxSteps
+        return _wrap(dotnet_result)
 
     @max_steps.setter
     def max_steps(self, value: int):
         """Gets or sets the maximum number of steps a stimulus generator can contain. Set this value to a number that is larger than the number of steps in the longest generator script."""
-        self._dotnet_instance.MaxSteps = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.MaxSteps = next(unwrapped)
 
     @property
     def auxilliary_buffer_size(self) -> int:
         """Gets or sets the size of the auxiliary buffer. The auxiliary buffer stores multi-point playback data in comma-separated value (CSV), files. Set this buffer size to a number that matches or exceeds the number of data points in the CSV file you want to play back. The auxiliary buffer size is shared by all active stimulus generators, so all generators can have up to Auxiliary Buffer Size total in data points for playback."""
-        return _wrap(self._dotnet_instance.AuxilliaryBufferSize)
+        dotnet_result = self._dotnet_instance.AuxilliaryBufferSize
+        return _wrap(dotnet_result)
 
     @auxilliary_buffer_size.setter
     def auxilliary_buffer_size(self, value: int):
         """Gets or sets the size of the auxiliary buffer. The auxiliary buffer stores multi-point playback data in comma-separated value (CSV), files. Set this buffer size to a number that matches or exceeds the number of data points in the CSV file you want to play back. The auxiliary buffer size is shared by all active stimulus generators, so all generators can have up to Auxiliary Buffer Size total in data points for playback."""
-        self._dotnet_instance.AuxilliaryBufferSize = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.AuxilliaryBufferSize = next(unwrapped)
 
     @property
     def analysis_buffer_size(self) -> int:
         """Gets or sets the size of the analysis buffer. The analysis buffer stores the expected result values for a table test. Set this value to a number that matches or exceeds the number of expected result values in a given table test."""
-        return _wrap(self._dotnet_instance.AnalysisBufferSize)
+        dotnet_result = self._dotnet_instance.AnalysisBufferSize
+        return _wrap(dotnet_result)
 
     @analysis_buffer_size.setter
     def analysis_buffer_size(self, value: int):
         """Gets or sets the size of the analysis buffer. The analysis buffer stores the expected result values for a table test. Set this value to a number that matches or exceeds the number of expected result values in a given table test."""
-        self._dotnet_instance.AnalysisBufferSize = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.AnalysisBufferSize = next(unwrapped)
 
     @property
     def analysis_result_size(self) -> int:
         """Gets or sets the size of the analysis failure result buffer. The analysis failure result buffer stores the failure results for a table test. Set this value to a number that meets or exceeds the maximum number of failures you expect to occur in the table test."""
-        return _wrap(self._dotnet_instance.AnalysisResultSize)
+        dotnet_result = self._dotnet_instance.AnalysisResultSize
+        return _wrap(dotnet_result)
 
     @analysis_result_size.setter
     def analysis_result_size(self, value: int):
         """Gets or sets the size of the analysis failure result buffer. The analysis failure result buffer stores the failure results for a table test. Set this value to a number that meets or exceeds the maximum number of failures you expect to occur in the table test."""
-        self._dotnet_instance.AnalysisResultSize = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.AnalysisResultSize = next(unwrapped)
 
     @overload
     def set_generator_count(self, count: int) -> bool:
         ...
 
     def set_generator_count(self, *args):
-        return _wrap(self._dotnet_instance.SetGeneratorCount(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.SetGeneratorCount(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_generator_list(self) -> Sequence[Generator]:
         ...
 
     def get_generator_list(self, *args):
-        return _wrap(self._dotnet_instance.GetGeneratorList(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetGeneratorList(*unwrapped)
+        return _wrap(dotnet_result)
 
 
 class SystemChannels(Section):
@@ -4095,7 +4814,9 @@ class SystemChannels(Section):
         ...
 
     def get_system_channels(self, *args):
-        return _wrap(self._dotnet_instance.GetSystemChannels(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetSystemChannels(*unwrapped)
+        return _wrap(dotnet_result)
 
 
 class SystemDefinition(_DotNetBase):
@@ -4115,22 +4836,26 @@ class SystemDefinition(_DotNetBase):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.SystemDefinition:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.SystemDefinition(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.SystemDefinition(*unwrapped)
 
     @property
     def version(self) -> Tuple[int, int, int, int]:
         """Gets the version number of the system definition file."""
-        return _wrap(self._dotnet_instance.Version)
+        dotnet_result = self._dotnet_instance.Version
+        return _wrap(dotnet_result)
 
     @property
     def document_type(self) -> DocumentType:
         """The DocumentType for this SystemDefinition"""
-        return _wrap(self._dotnet_instance.DocumentType)
+        dotnet_result = self._dotnet_instance.DocumentType
+        return _wrap(dotnet_result)
 
     @property
     def root(self) -> Root:
         """Gets the <see cref="T:NationalInstruments.VeriStand.SystemDefinitionAPI.Root" crefType="Unqualified" /> node of the system definition file."""
-        return _wrap(self._dotnet_instance.Root)
+        dotnet_result = self._dotnet_instance.Root
+        return _wrap(dotnet_result)
 
     @overload
     def save_system_definition_file(self, filepath: str) -> Tuple[bool, str]:
@@ -4141,7 +4866,9 @@ class SystemDefinition(_DotNetBase):
         ...
 
     def save_system_definition_file(self, *args):
-        return _wrap(self._dotnet_instance.SaveSystemDefinitionFile(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.SaveSystemDefinitionFile(*unwrapped)
+        return _wrap(dotnet_result)
 
 
 class SystemDefinitionExtensions(_DotNetBase):
@@ -4166,7 +4893,9 @@ class SystemDefinitionExtensions(_DotNetBase):
         ...
 
     def get_parent(*args):
-        return _wrap(NationalInstruments.VeriStand.SystemDefinitionAPI.SystemDefinitionExtensions.GetParent(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = NationalInstruments.VeriStand.SystemDefinitionAPI.SystemDefinitionExtensions.GetParent(*unwrapped)
+        return _wrap(dotnet_result)
 
     @staticmethod
     @overload
@@ -4179,7 +4908,9 @@ class SystemDefinitionExtensions(_DotNetBase):
         ...
 
     def is_self_or_ancestor_of(*args):
-        return _wrap(NationalInstruments.VeriStand.SystemDefinitionAPI.SystemDefinitionExtensions.IsSelfOrAncestorOf(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = NationalInstruments.VeriStand.SystemDefinitionAPI.SystemDefinitionExtensions.IsSelfOrAncestorOf(*unwrapped)
+        return _wrap(dotnet_result)
 
     @staticmethod
     @overload
@@ -4212,7 +4943,9 @@ class SystemDefinitionExtensions(_DotNetBase):
         ...
 
     def get_descendant_channels(*args):
-        return _wrap(NationalInstruments.VeriStand.SystemDefinitionAPI.SystemDefinitionExtensions.GetDescendantChannels(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = NationalInstruments.VeriStand.SystemDefinitionAPI.SystemDefinitionExtensions.GetDescendantChannels(*unwrapped)
+        return _wrap(dotnet_result)
 
     @staticmethod
     @overload
@@ -4225,7 +4958,9 @@ class SystemDefinitionExtensions(_DotNetBase):
         ...
 
     def is_deprecated(*args):
-        return _wrap(NationalInstruments.VeriStand.SystemDefinitionAPI.SystemDefinitionExtensions.IsDeprecated(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = NationalInstruments.VeriStand.SystemDefinitionAPI.SystemDefinitionExtensions.IsDeprecated(*unwrapped)
+        return _wrap(dotnet_result)
 
 
 class SystemInitialization(Section):
@@ -4242,12 +4977,14 @@ class SystemInitialization(Section):
     @property
     def auto_start(self) -> bool:
         """Gets or sets whether the system runs the system definition file automatically after a target reboots or waits for a user to redeploy the file."""
-        return _wrap(self._dotnet_instance.AutoStart)
+        dotnet_result = self._dotnet_instance.AutoStart
+        return _wrap(dotnet_result)
 
     @auto_start.setter
     def auto_start(self, value: bool):
         """Gets or sets whether the system runs the system definition file automatically after a target reboots or waits for a user to redeploy the file."""
-        self._dotnet_instance.AutoStart = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.AutoStart = next(unwrapped)
 
 
 class SystemMappings(Section):
@@ -4275,353 +5012,431 @@ class Target(BaseNode):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.Target:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.Target(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.Target(*unwrapped)
 
     @_staticproperty
     def username_property_string() -> str:
-        return _wrap(NationalInstruments.VeriStand.SystemDefinitionAPI.Target.UsernamePropertyString)
+        dotnet_result = NationalInstruments.VeriStand.SystemDefinitionAPI.Target.UsernamePropertyString
+        return _wrap(dotnet_result)
 
     @_staticproperty
     def password_property_string() -> str:
-        return _wrap(NationalInstruments.VeriStand.SystemDefinitionAPI.Target.PasswordPropertyString)
+        dotnet_result = NationalInstruments.VeriStand.SystemDefinitionAPI.Target.PasswordPropertyString
+        return _wrap(dotnet_result)
 
     @property
     def timing_source_daq_settings(self) -> TimingSourceSettingsOptions:
         """Gets or sets the timing source setting for the DAQ device that is timing the Primary Control Loop. This property is only valid if <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.Target.ControlLoopTimingSource" crefType="Unqualified" /> is <see cref="F:NationalInstruments.VeriStand.SystemDefinitionAPI.TargetControlLoopTimingSource.DAQTiming" crefType="Unqualified" />."""
-        return _wrap(self._dotnet_instance.TimingSourceDAQSettings)
+        dotnet_result = self._dotnet_instance.TimingSourceDAQSettings
+        return _wrap(dotnet_result)
 
     @timing_source_daq_settings.setter
     def timing_source_daq_settings(self, value: TimingSourceSettingsOptions):
         """Gets or sets the timing source setting for the DAQ device that is timing the Primary Control Loop. This property is only valid if <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.Target.ControlLoopTimingSource" crefType="Unqualified" /> is <see cref="F:NationalInstruments.VeriStand.SystemDefinitionAPI.TargetControlLoopTimingSource.DAQTiming" crefType="Unqualified" />."""
-        self._dotnet_instance.TimingSourceDAQSettings = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.TimingSourceDAQSettings = next(unwrapped)
 
     @property
     def execution_mode(self) -> TargetExecutionMode:
         """Gets or sets the execution mode (parallel or low latency) of the loops of the VeriStand Engine."""
-        return _wrap(self._dotnet_instance.ExecutionMode)
+        dotnet_result = self._dotnet_instance.ExecutionMode
+        return _wrap(dotnet_result)
 
     @execution_mode.setter
     def execution_mode(self, value: TargetExecutionMode):
         """Gets or sets the execution mode (parallel or low latency) of the loops of the VeriStand Engine."""
-        self._dotnet_instance.ExecutionMode = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.ExecutionMode = next(unwrapped)
 
     @property
     def control_loop_timing_source(self) -> TargetControlLoopTimingSource:
         """Gets the timing source for the Primary Control Loop."""
-        return _wrap(self._dotnet_instance.ControlLoopTimingSource)
+        dotnet_result = self._dotnet_instance.ControlLoopTimingSource
+        return _wrap(dotnet_result)
 
     @property
     def daq_timing_device(self) -> DAQDevice:
         """Gets or sets the DAQ device that serves as the timing source for the Primary Control Loop (PCL). This property is only valid if <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.Target.ControlLoopTimingSource" crefType="Unqualified" /> is <see cref="F:NationalInstruments.VeriStand.SystemDefinitionAPI.TargetControlLoopTimingSource.DAQTiming" crefType="Unqualified" />."""
-        return _wrap(self._dotnet_instance.DAQTimingDevice)
+        dotnet_result = self._dotnet_instance.DAQTimingDevice
+        return _wrap(dotnet_result)
 
     @property
     def custom_timing_device(self) -> CustomDevice:
         """Gets or sets the custom device that serves as the timing source for the Primary Control Loop (PCL). This property is only valid if <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.Target.ControlLoopTimingSource" crefType="Unqualified" /> is <see cref="F:NationalInstruments.VeriStand.SystemDefinitionAPI.TargetControlLoopTimingSource.CustomDeviceTiming" crefType="Unqualified" />."""
-        return _wrap(self._dotnet_instance.CustomTimingDevice)
+        dotnet_result = self._dotnet_instance.CustomTimingDevice
+        return _wrap(dotnet_result)
 
     @property
     def daq_digital_lines_decimation(self) -> int:
         """Gets or sets how frequently the Primary Control Loop (PCL) reads and writes DAQ digital line values. The DIO Loop, which receives and sends these values from and to the PCL, executes at a rate of 100Hz. If you set the PCL to execute at a rate faster than 100Hz, use this property to specify a higher decimation value and reduce the frequency with which the PCL reads and writes the digital line values."""
-        return _wrap(self._dotnet_instance.DAQDigitalLinesDecimation)
+        dotnet_result = self._dotnet_instance.DAQDigitalLinesDecimation
+        return _wrap(dotnet_result)
 
     @daq_digital_lines_decimation.setter
     def daq_digital_lines_decimation(self, value: int):
         """Gets or sets how frequently the Primary Control Loop (PCL) reads and writes DAQ digital line values. The DIO Loop, which receives and sends these values from and to the PCL, executes at a rate of 100Hz. If you set the PCL to execute at a rate faster than 100Hz, use this property to specify a higher decimation value and reduce the frequency with which the PCL reads and writes the digital line values."""
-        self._dotnet_instance.DAQDigitalLinesDecimation = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.DAQDigitalLinesDecimation = next(unwrapped)
 
     @property
     def daq_digital_lines_rate(self) -> float:
         """Gets or sets how frequently the Primary Control Loop (PCL) reads and writes DAQ digital line values.
             The DIO Loop, which receives and sends these values from and to the PCL, executes at this rate and cannot be faster than the PCL loop."""
-        return _wrap(self._dotnet_instance.DAQDigitalLinesRate)
+        dotnet_result = self._dotnet_instance.DAQDigitalLinesRate
+        return _wrap(dotnet_result)
 
     @daq_digital_lines_rate.setter
     def daq_digital_lines_rate(self, value: float):
         """Gets or sets how frequently the Primary Control Loop (PCL) reads and writes DAQ digital line values.
             The DIO Loop, which receives and sends these values from and to the PCL, executes at this rate and cannot be faster than the PCL loop."""
-        self._dotnet_instance.DAQDigitalLinesRate = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.DAQDigitalLinesRate = next(unwrapped)
 
     @property
     def disable_target(self) -> bool:
         """Gets or sets the Boolean flag indicating whether a target is disabled."""
-        return _wrap(self._dotnet_instance.DisableTarget)
+        dotnet_result = self._dotnet_instance.DisableTarget
+        return _wrap(dotnet_result)
 
     @disable_target.setter
     def disable_target(self, value: bool):
         """Gets or sets the Boolean flag indicating whether a target is disabled."""
-        self._dotnet_instance.DisableTarget = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.DisableTarget = next(unwrapped)
 
     @property
     def operating_system(self) -> str:
         """Gets or sets the operating system of the target."""
-        return _wrap(self._dotnet_instance.OperatingSystem)
+        dotnet_result = self._dotnet_instance.OperatingSystem
+        return _wrap(dotnet_result)
 
     @operating_system.setter
     def operating_system(self, value: str):
         """Gets or sets the operating system of the target."""
-        self._dotnet_instance.OperatingSystem = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.OperatingSystem = next(unwrapped)
 
     @property
     def ip_address(self) -> str:
         """Gets or sets the IP address of the target."""
-        return _wrap(self._dotnet_instance.IPAddress)
+        dotnet_result = self._dotnet_instance.IPAddress
+        return _wrap(dotnet_result)
 
     @ip_address.setter
     def ip_address(self, value: str):
         """Gets or sets the IP address of the target."""
-        self._dotnet_instance.IPAddress = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.IPAddress = next(unwrapped)
 
     @property
     def username(self) -> str:
         """Gets or sets the username for the target."""
-        return _wrap(self._dotnet_instance.Username)
+        dotnet_result = self._dotnet_instance.Username
+        return _wrap(dotnet_result)
 
     @username.setter
     def username(self, value: str):
         """Gets or sets the username for the target."""
-        self._dotnet_instance.Username = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.Username = next(unwrapped)
 
     @property
     def password(self) -> str:
         """Gets or sets the password for the target."""
-        return _wrap(self._dotnet_instance.Password)
+        dotnet_result = self._dotnet_instance.Password
+        return _wrap(dotnet_result)
 
     @password.setter
     def password(self, value: str):
         """Gets or sets the password for the target."""
-        self._dotnet_instance.Password = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.Password = next(unwrapped)
 
     @property
     def fpga_scan_interface_mode(self) -> int:
         """Gets or sets the interface mode for the NI Scan Engine on RT targets. You can use this property to override the current settings of the NI Scan Engine, which can be useful for certain C Series modules, such as NI 986x series devices. <format type="bold">(Windows)</format> This setting has no effect on Windows targets."""
-        return _wrap(self._dotnet_instance.FPGAScanInterfaceMode)
+        dotnet_result = self._dotnet_instance.FPGAScanInterfaceMode
+        return _wrap(dotnet_result)
 
     @fpga_scan_interface_mode.setter
     def fpga_scan_interface_mode(self, value: int):
         """Gets or sets the interface mode for the NI Scan Engine on RT targets. You can use this property to override the current settings of the NI Scan Engine, which can be useful for certain C Series modules, such as NI 986x series devices. <format type="bold">(Windows)</format> This setting has no effect on Windows targets."""
-        self._dotnet_instance.FPGAScanInterfaceMode = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.FPGAScanInterfaceMode = next(unwrapped)
 
     @property
     def target_timing_mode(self) -> TargetTimingMode:
         """Gets or sets the timing mode for the target.  When an FPGA serves as the Primary Control Loop timing source, the mode affects certain performance characteristics of the system."""
-        return _wrap(self._dotnet_instance.TargetTimingMode)
+        dotnet_result = self._dotnet_instance.TargetTimingMode
+        return _wrap(dotnet_result)
 
     @target_timing_mode.setter
     def target_timing_mode(self, value: TargetTimingMode):
         """Gets or sets the timing mode for the target.  When an FPGA serves as the Primary Control Loop timing source, the mode affects certain performance characteristics of the system."""
-        self._dotnet_instance.TargetTimingMode = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.TargetTimingMode = next(unwrapped)
 
     @property
     def primary_control_loop_processor(self) -> int:
         """Gets or sets the processor on which to execute the Primary Control Loop (PCL)."""
-        return _wrap(self._dotnet_instance.PrimaryControlLoopProcessor)
+        dotnet_result = self._dotnet_instance.PrimaryControlLoopProcessor
+        return _wrap(dotnet_result)
 
     @primary_control_loop_processor.setter
     def primary_control_loop_processor(self, value: int):
         """Gets or sets the processor on which to execute the Primary Control Loop (PCL)."""
-        self._dotnet_instance.PrimaryControlLoopProcessor = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.PrimaryControlLoopProcessor = next(unwrapped)
 
     @property
     def data_processing_loop_processor(self) -> int:
         """Gets or sets the processor on which to execute the Data Processing Loop. -2 is any available processor. If you specify an invalid processor, the loop executes on the first available processor."""
-        return _wrap(self._dotnet_instance.DataProcessingLoopProcessor)
+        dotnet_result = self._dotnet_instance.DataProcessingLoopProcessor
+        return _wrap(dotnet_result)
 
     @data_processing_loop_processor.setter
     def data_processing_loop_processor(self, value: int):
         """Gets or sets the processor on which to execute the Data Processing Loop. -2 is any available processor. If you specify an invalid processor, the loop executes on the first available processor."""
-        self._dotnet_instance.DataProcessingLoopProcessor = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.DataProcessingLoopProcessor = next(unwrapped)
 
     @property
     def data_processing_loop_decimation(self) -> int:
         """Gets or sets the execution rate of the Data Processing Loop (DPL). A value of 1 specifies that the DPL reads values on every iteration of the Primary Control Loop (PCL). You can specify a value higher than 1 to read PCL values less frequently and increase system execution."""
-        return _wrap(self._dotnet_instance.DataProcessingLoopDecimation)
+        dotnet_result = self._dotnet_instance.DataProcessingLoopDecimation
+        return _wrap(dotnet_result)
 
     @data_processing_loop_decimation.setter
     def data_processing_loop_decimation(self, value: int):
         """Gets or sets the execution rate of the Data Processing Loop (DPL). A value of 1 specifies that the DPL reads values on every iteration of the Primary Control Loop (PCL). You can specify a value higher than 1 to read PCL values less frequently and increase system execution."""
-        self._dotnet_instance.DataProcessingLoopDecimation = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.DataProcessingLoopDecimation = next(unwrapped)
 
     @property
     def maximum_streamed_channels(self) -> int:
         """Gets or sets the maximum number of channels that the VeriStand Engine can stream to the host."""
-        return _wrap(self._dotnet_instance.MaximumStreamedChannels)
+        dotnet_result = self._dotnet_instance.MaximumStreamedChannels
+        return _wrap(dotnet_result)
 
     @maximum_streamed_channels.setter
     def maximum_streamed_channels(self, value: int):
         """Gets or sets the maximum number of channels that the VeriStand Engine can stream to the host."""
-        self._dotnet_instance.MaximumStreamedChannels = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.MaximumStreamedChannels = next(unwrapped)
 
     @property
     def filter_daq_errors(self) -> bool:
         """Gets or sets whether to filter errors from NI-DAQmx function calls. Set this property to <see langword="true" /> if you do not want the system to shut down when an NI-DAQ device reports an error."""
-        return _wrap(self._dotnet_instance.FilterDAQErrors)
+        dotnet_result = self._dotnet_instance.FilterDAQErrors
+        return _wrap(dotnet_result)
 
     @filter_daq_errors.setter
     def filter_daq_errors(self, value: bool):
         """Gets or sets whether to filter errors from NI-DAQmx function calls. Set this property to <see langword="true" /> if you do not want the system to shut down when an NI-DAQ device reports an error."""
-        self._dotnet_instance.FilterDAQErrors = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.FilterDAQErrors = next(unwrapped)
 
     @property
     def filter_watchdog_errors(self) -> bool:
         """Gets or sets whether to filter errors reported by the timing watchdog. For example, if you set the Primary Control Loop to execute at a high rate and your system contains large or complex models, the watchdog reports an error if the models cannot execute quickly enough to keep up with the Primary Control Loop. Set this property to <see langword="true" /> if you want NI VeriStand to ignore these errors."""
-        return _wrap(self._dotnet_instance.FilterWatchdogErrors)
+        dotnet_result = self._dotnet_instance.FilterWatchdogErrors
+        return _wrap(dotnet_result)
 
     @filter_watchdog_errors.setter
     def filter_watchdog_errors(self, value: bool):
         """Gets or sets whether to filter errors reported by the timing watchdog. For example, if you set the Primary Control Loop to execute at a high rate and your system contains large or complex models, the watchdog reports an error if the models cannot execute quickly enough to keep up with the Primary Control Loop. Set this property to <see langword="true" /> if you want NI VeriStand to ignore these errors."""
-        self._dotnet_instance.FilterWatchdogErrors = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.FilterWatchdogErrors = next(unwrapped)
 
     @property
     def target_rate(self) -> float:
         """Gets or sets the execution rate of the target in hertz."""
-        return _wrap(self._dotnet_instance.TargetRate)
+        dotnet_result = self._dotnet_instance.TargetRate
+        return _wrap(dotnet_result)
 
     @target_rate.setter
     def target_rate(self, value: float):
         """Gets or sets the execution rate of the target in hertz."""
-        self._dotnet_instance.TargetRate = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.TargetRate = next(unwrapped)
 
     @property
     def timeout(self) -> float:
         """Gets or sets the amount of time to wait for a start trigger from the DAQ device before timing out. This property is only valid if the <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.Target.ControlLoopTimingSource" crefType="Unqualified" /> is <see cref="F:NationalInstruments.VeriStand.SystemDefinitionAPI.TargetControlLoopTimingSource.DAQTiming" crefType="Unqualified" />."""
-        return _wrap(self._dotnet_instance.Timeout)
+        dotnet_result = self._dotnet_instance.Timeout
+        return _wrap(dotnet_result)
 
     @timeout.setter
     def timeout(self, value: float):
         """Gets or sets the amount of time to wait for a start trigger from the DAQ device before timing out. This property is only valid if the <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.Target.ControlLoopTimingSource" crefType="Unqualified" /> is <see cref="F:NationalInstruments.VeriStand.SystemDefinitionAPI.TargetControlLoopTimingSource.DAQTiming" crefType="Unqualified" />."""
-        self._dotnet_instance.Timeout = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.Timeout = next(unwrapped)
 
     @property
     def daq_timeout(self) -> int:
         """Gets the amount of time to wait for a DAQ device to transfer data before timing out. This property is only valid of the <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.Target.ControlLoopTimingSource" crefType="Unqualified" /> is <see cref="F:NationalInstruments.VeriStand.SystemDefinitionAPI.TargetControlLoopTimingSource.DAQTiming" crefType="Unqualified" />."""
-        return _wrap(self._dotnet_instance.DAQTimeout)
+        dotnet_result = self._dotnet_instance.DAQTimeout
+        return _wrap(dotnet_result)
 
     @property
     def timed_loop_sleep_time(self) -> int:
         """Gets the amount of time in microseconds the Primary Control Loop (PCL) sleeps after each tick. NI VeriStand ignores this value if the master timing device has an external timing source."""
-        return _wrap(self._dotnet_instance.TimedLoopSleepTime)
+        dotnet_result = self._dotnet_instance.TimedLoopSleepTime
+        return _wrap(dotnet_result)
 
     @property
     def deployment_group(self) -> int:
         """Gets or sets the deployment group to which a target belongs."""
-        return _wrap(self._dotnet_instance.DeploymentGroup)
+        dotnet_result = self._dotnet_instance.DeploymentGroup
+        return _wrap(dotnet_result)
 
     @deployment_group.setter
     def deployment_group(self, value: int):
         """Gets or sets the deployment group to which a target belongs."""
-        self._dotnet_instance.DeploymentGroup = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.DeploymentGroup = next(unwrapped)
 
     @property
     def warmup_time_ms(self) -> int:
         """Gets or sets the amount of time the system waits before considering late flags. You can set a warm-up time to give the system time to allocate and manage resources."""
-        return _wrap(self._dotnet_instance.WarmupTime_ms)
+        dotnet_result = self._dotnet_instance.WarmupTime_ms
+        return _wrap(dotnet_result)
 
     @warmup_time_ms.setter
     def warmup_time_ms(self, value: int):
         """Gets or sets the amount of time the system waits before considering late flags. You can set a warm-up time to give the system time to allocate and manage resources."""
-        self._dotnet_instance.WarmupTime_ms = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.WarmupTime_ms = next(unwrapped)
 
     @property
     def data_rate(self) -> float:
         """Gets or sets the rate for updating channel values in the Send Communication Loop."""
-        return _wrap(self._dotnet_instance.DataRate)
+        dotnet_result = self._dotnet_instance.DataRate
+        return _wrap(dotnet_result)
 
     @data_rate.setter
     def data_rate(self, value: float):
         """Gets or sets the rate for updating channel values in the Send Communication Loop."""
-        self._dotnet_instance.DataRate = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.DataRate = next(unwrapped)
 
     @overload
     def set_control_loop_timing_source_to_automatic(self) -> bool:
         ...
 
     def set_control_loop_timing_source_to_automatic(self, *args):
-        return _wrap(self._dotnet_instance.SetControlLoopTimingSourceToAutomatic(*_unwrap({None: (0, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (0, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.SetControlLoopTimingSourceToAutomatic(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def set_control_loop_timing_source_to_daq(self, daq_device_name: str, daq_timeout: int, timed_loop_sleep_time: int) -> bool:
         ...
 
     def set_control_loop_timing_source_to_daq(self, *args):
-        return _wrap(self._dotnet_instance.SetControlLoopTimingSourceToDAQ(*_unwrap({None: (3, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (3, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.SetControlLoopTimingSourceToDAQ(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def set_control_loop_timing_source_to_custom_device(self, custom_device_name: str) -> bool:
         ...
 
     def set_control_loop_timing_source_to_custom_device(self, *args):
-        return _wrap(self._dotnet_instance.SetControlLoopTimingSourceToCustomDevice(*_unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.SetControlLoopTimingSourceToCustomDevice(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_system_channels(self) -> SystemChannels:
         ...
 
     def get_system_channels(self, *args):
-        return _wrap(self._dotnet_instance.GetSystemChannels(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetSystemChannels(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_hardware(self) -> Hardware:
         ...
 
     def get_hardware(self, *args):
-        return _wrap(self._dotnet_instance.GetHardware(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetHardware(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_stimulus(self) -> Stimulus:
         ...
 
     def get_stimulus(self, *args):
-        return _wrap(self._dotnet_instance.GetStimulus(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetStimulus(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_simulation_models(self) -> SimulationModels:
         ...
 
     def get_simulation_models(self, *args):
-        return _wrap(self._dotnet_instance.GetSimulationModels(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetSimulationModels(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_alarms(self) -> Alarms:
         ...
 
     def get_alarms(self, *args):
-        return _wrap(self._dotnet_instance.GetAlarms(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetAlarms(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_procedures(self) -> Procedures:
         ...
 
     def get_procedures(self, *args):
-        return _wrap(self._dotnet_instance.GetProcedures(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetProcedures(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_custom_devices(self) -> CustomDevices:
         ...
 
     def get_custom_devices(self, *args):
-        return _wrap(self._dotnet_instance.GetCustomDevices(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetCustomDevices(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_user_channels(self) -> UserChannels:
         ...
 
     def get_user_channels(self, *args):
-        return _wrap(self._dotnet_instance.GetUserChannels(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetUserChannels(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_calculated_channels(self) -> CalculatedChannels:
         ...
 
     def get_calculated_channels(self, *args):
-        return _wrap(self._dotnet_instance.GetCalculatedChannels(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetCalculatedChannels(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_xnet_databases(self) -> XNETDatabases:
         ...
 
     def get_xnet_databases(self, *args):
-        return _wrap(self._dotnet_instance.GetXNETDatabases(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetXNETDatabases(*unwrapped)
+        return _wrap(dotnet_result)
 
 
 class TargetControlLoopTimingSource(_DotNetEnum):
@@ -4638,15 +5453,18 @@ class TargetControlLoopTimingSource(_DotNetEnum):
 
     @_staticproperty
     def AUTOMATIC_TIMING() -> TargetControlLoopTimingSource:
-        return TargetControlLoopTimingSource(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.TargetControlLoopTimingSource, "AutomaticTiming"), "AUTOMATIC_TIMING")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.TargetControlLoopTimingSource, "AutomaticTiming")
+        return TargetControlLoopTimingSource(dotnet_result, "AUTOMATIC_TIMING")
 
     @_staticproperty
     def DAQ_TIMING() -> TargetControlLoopTimingSource:
-        return TargetControlLoopTimingSource(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.TargetControlLoopTimingSource, "DAQTiming"), "DAQ_TIMING")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.TargetControlLoopTimingSource, "DAQTiming")
+        return TargetControlLoopTimingSource(dotnet_result, "DAQ_TIMING")
 
     @_staticproperty
     def CUSTOM_DEVICE_TIMING() -> TargetControlLoopTimingSource:
-        return TargetControlLoopTimingSource(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.TargetControlLoopTimingSource, "CustomDeviceTiming"), "CUSTOM_DEVICE_TIMING")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.TargetControlLoopTimingSource, "CustomDeviceTiming")
+        return TargetControlLoopTimingSource(dotnet_result, "CUSTOM_DEVICE_TIMING")
 
 
 class TargetExecutionMode(_DotNetEnum):
@@ -4663,11 +5481,13 @@ class TargetExecutionMode(_DotNetEnum):
 
     @_staticproperty
     def PARALLEL() -> TargetExecutionMode:
-        return TargetExecutionMode(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.TargetExecutionMode, "Parallel"), "PARALLEL")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.TargetExecutionMode, "Parallel")
+        return TargetExecutionMode(dotnet_result, "PARALLEL")
 
     @_staticproperty
     def LOW_LATENCY() -> TargetExecutionMode:
-        return TargetExecutionMode(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.TargetExecutionMode, "LowLatency"), "LOW_LATENCY")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.TargetExecutionMode, "LowLatency")
+        return TargetExecutionMode(dotnet_result, "LOW_LATENCY")
 
 
 class TargetTimingMode(_DotNetEnum):
@@ -4684,15 +5504,18 @@ class TargetTimingMode(_DotNetEnum):
 
     @_staticproperty
     def AUTO() -> TargetTimingMode:
-        return TargetTimingMode(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.TargetTimingMode, "Auto"), "AUTO")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.TargetTimingMode, "Auto")
+        return TargetTimingMode(dotnet_result, "AUTO")
 
     @_staticproperty
     def WAIT_ON_INTERRUPT() -> TargetTimingMode:
-        return TargetTimingMode(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.TargetTimingMode, "WaitOnInterrupt"), "WAIT_ON_INTERRUPT")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.TargetTimingMode, "WaitOnInterrupt")
+        return TargetTimingMode(dotnet_result, "WAIT_ON_INTERRUPT")
 
     @_staticproperty
     def WAIT_ON_DMA_READ() -> TargetTimingMode:
-        return TargetTimingMode(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.TargetTimingMode, "WaitOnDmaRead"), "WAIT_ON_DMA_READ")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.TargetTimingMode, "WaitOnDmaRead")
+        return TargetTimingMode(dotnet_result, "WAIT_ON_DMA_READ")
 
 
 class Targets(BaseNode):
@@ -4711,14 +5534,18 @@ class Targets(BaseNode):
         ...
 
     def get_target_list(self, *args):
-        return _wrap(self._dotnet_instance.GetTargetList(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetTargetList(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_target(self, target: Target) -> bool:
         ...
 
     def add_target(self, *args):
-        return _wrap(self._dotnet_instance.AddTarget(*_unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.AddTarget(*unwrapped)
+        return _wrap(dotnet_result)
 
 
 class TaskType(_DotNetEnum):
@@ -4735,7 +5562,8 @@ class TaskType(_DotNetEnum):
 
     @_staticproperty
     def ANALOG_INPUT() -> TaskType:
-        return TaskType(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.TaskType, "AnalogInput"), "ANALOG_INPUT")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.TaskType, "AnalogInput")
+        return TaskType(dotnet_result, "ANALOG_INPUT")
 
 
 class TemperatureUnit(_DotNetEnum):
@@ -4752,19 +5580,23 @@ class TemperatureUnit(_DotNetEnum):
 
     @_staticproperty
     def CELSIUS() -> TemperatureUnit:
-        return TemperatureUnit(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.TemperatureUnit, "Celsius"), "CELSIUS")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.TemperatureUnit, "Celsius")
+        return TemperatureUnit(dotnet_result, "CELSIUS")
 
     @_staticproperty
     def FAHRENHEIT() -> TemperatureUnit:
-        return TemperatureUnit(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.TemperatureUnit, "Fahrenheit"), "FAHRENHEIT")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.TemperatureUnit, "Fahrenheit")
+        return TemperatureUnit(dotnet_result, "FAHRENHEIT")
 
     @_staticproperty
     def KELVIN() -> TemperatureUnit:
-        return TemperatureUnit(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.TemperatureUnit, "Kelvin"), "KELVIN")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.TemperatureUnit, "Kelvin")
+        return TemperatureUnit(dotnet_result, "KELVIN")
 
     @_staticproperty
     def RANKINE() -> TemperatureUnit:
-        return TemperatureUnit(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.TemperatureUnit, "Rankine"), "RANKINE")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.TemperatureUnit, "Rankine")
+        return TemperatureUnit(dotnet_result, "RANKINE")
 
 
 class ThermocoupleCJCType(_DotNetEnum):
@@ -4781,31 +5613,38 @@ class ThermocoupleCJCType(_DotNetEnum):
 
     @_staticproperty
     def IC_SENSOR() -> ThermocoupleCJCType:
-        return ThermocoupleCJCType(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.ThermocoupleCJCType, "ICSensor"), "IC_SENSOR")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.ThermocoupleCJCType, "ICSensor")
+        return ThermocoupleCJCType(dotnet_result, "IC_SENSOR")
 
     @_staticproperty
     def THERMISTOR() -> ThermocoupleCJCType:
-        return ThermocoupleCJCType(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.ThermocoupleCJCType, "Thermistor"), "THERMISTOR")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.ThermocoupleCJCType, "Thermistor")
+        return ThermocoupleCJCType(dotnet_result, "THERMISTOR")
 
     @_staticproperty
     def TEMPERATURE() -> ThermocoupleCJCType:
-        return ThermocoupleCJCType(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.ThermocoupleCJCType, "Temperature"), "TEMPERATURE")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.ThermocoupleCJCType, "Temperature")
+        return ThermocoupleCJCType(dotnet_result, "TEMPERATURE")
 
     @_staticproperty
     def NI9211() -> ThermocoupleCJCType:
-        return ThermocoupleCJCType(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.ThermocoupleCJCType, "NI9211"), "NI9211")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.ThermocoupleCJCType, "NI9211")
+        return ThermocoupleCJCType(dotnet_result, "NI9211")
 
     @_staticproperty
     def NI9213() -> ThermocoupleCJCType:
-        return ThermocoupleCJCType(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.ThermocoupleCJCType, "NI9213"), "NI9213")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.ThermocoupleCJCType, "NI9213")
+        return ThermocoupleCJCType(dotnet_result, "NI9213")
 
     @_staticproperty
     def NI9219() -> ThermocoupleCJCType:
-        return ThermocoupleCJCType(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.ThermocoupleCJCType, "NI9219"), "NI9219")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.ThermocoupleCJCType, "NI9219")
+        return ThermocoupleCJCType(dotnet_result, "NI9219")
 
     @_staticproperty
     def NI9214() -> ThermocoupleCJCType:
-        return ThermocoupleCJCType(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.ThermocoupleCJCType, "NI9214"), "NI9214")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.ThermocoupleCJCType, "NI9214")
+        return ThermocoupleCJCType(dotnet_result, "NI9214")
 
 
 class ThermocoupleType(_DotNetEnum):
@@ -4822,35 +5661,43 @@ class ThermocoupleType(_DotNetEnum):
 
     @_staticproperty
     def B() -> ThermocoupleType:
-        return ThermocoupleType(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.ThermocoupleType, "B"), "B")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.ThermocoupleType, "B")
+        return ThermocoupleType(dotnet_result, "B")
 
     @_staticproperty
     def E() -> ThermocoupleType:
-        return ThermocoupleType(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.ThermocoupleType, "E"), "E")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.ThermocoupleType, "E")
+        return ThermocoupleType(dotnet_result, "E")
 
     @_staticproperty
     def J() -> ThermocoupleType:
-        return ThermocoupleType(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.ThermocoupleType, "J"), "J")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.ThermocoupleType, "J")
+        return ThermocoupleType(dotnet_result, "J")
 
     @_staticproperty
     def K() -> ThermocoupleType:
-        return ThermocoupleType(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.ThermocoupleType, "K"), "K")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.ThermocoupleType, "K")
+        return ThermocoupleType(dotnet_result, "K")
 
     @_staticproperty
     def R() -> ThermocoupleType:
-        return ThermocoupleType(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.ThermocoupleType, "R"), "R")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.ThermocoupleType, "R")
+        return ThermocoupleType(dotnet_result, "R")
 
     @_staticproperty
     def S() -> ThermocoupleType:
-        return ThermocoupleType(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.ThermocoupleType, "S"), "S")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.ThermocoupleType, "S")
+        return ThermocoupleType(dotnet_result, "S")
 
     @_staticproperty
     def T() -> ThermocoupleType:
-        return ThermocoupleType(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.ThermocoupleType, "T"), "T")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.ThermocoupleType, "T")
+        return ThermocoupleType(dotnet_result, "T")
 
     @_staticproperty
     def N() -> ThermocoupleType:
-        return ThermocoupleType(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.ThermocoupleType, "N"), "N")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.ThermocoupleType, "N")
+        return ThermocoupleType(dotnet_result, "N")
 
 
 class TimingAndSync(Section):
@@ -4869,14 +5716,18 @@ class TimingAndSync(Section):
         ...
 
     def get_timing_and_sync_device_list(self, *args):
-        return _wrap(self._dotnet_instance.GetTimingAndSyncDeviceList(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetTimingAndSyncDeviceList(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_timing_and_sync_device(self, timing_and_sync_device: TimingAndSyncDevice) -> bool:
         ...
 
     def add_timing_and_sync_device(self, *args):
-        return _wrap(self._dotnet_instance.AddTimingAndSyncDevice(*_unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.AddTimingAndSyncDevice(*unwrapped)
+        return _wrap(dotnet_result)
 
 
 class TimingSourceSettingsOptions(_DotNetEnum):
@@ -4893,11 +5744,13 @@ class TimingSourceSettingsOptions(_DotNetEnum):
 
     @_staticproperty
     def CONTROL_LOOP_FROM_TASK() -> TimingSourceSettingsOptions:
-        return TimingSourceSettingsOptions(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.TimingSourceSettingsOptions, "ControlLoopFromTask"), "CONTROL_LOOP_FROM_TASK")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.TimingSourceSettingsOptions, "ControlLoopFromTask")
+        return TimingSourceSettingsOptions(dotnet_result, "CONTROL_LOOP_FROM_TASK")
 
     @_staticproperty
     def SIGNAL_FROM_TASK__SAMPLE_COMPLETE() -> TimingSourceSettingsOptions:
-        return TimingSourceSettingsOptions(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.TimingSourceSettingsOptions, "SignalFromTask_SampleComplete"), "SIGNAL_FROM_TASK__SAMPLE_COMPLETE")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.TimingSourceSettingsOptions, "SignalFromTask_SampleComplete")
+        return TimingSourceSettingsOptions(dotnet_result, "SIGNAL_FROM_TASK__SAMPLE_COMPLETE")
 
 
 class TriggerType(_DotNetEnum):
@@ -4914,23 +5767,28 @@ class TriggerType(_DotNetEnum):
 
     @_staticproperty
     def NONE() -> TriggerType:
-        return TriggerType(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.TriggerType, "None"), "NONE")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.TriggerType, "None")
+        return TriggerType(dotnet_result, "NONE")
 
     @_staticproperty
     def ANALOG_EDGE() -> TriggerType:
-        return TriggerType(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.TriggerType, "AnalogEdge"), "ANALOG_EDGE")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.TriggerType, "AnalogEdge")
+        return TriggerType(dotnet_result, "ANALOG_EDGE")
 
     @_staticproperty
     def ANALOG_WINDOW() -> TriggerType:
-        return TriggerType(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.TriggerType, "AnalogWindow"), "ANALOG_WINDOW")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.TriggerType, "AnalogWindow")
+        return TriggerType(dotnet_result, "ANALOG_WINDOW")
 
     @_staticproperty
     def DIGITAL_EDGE() -> TriggerType:
-        return TriggerType(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.TriggerType, "DigitalEdge"), "DIGITAL_EDGE")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.TriggerType, "DigitalEdge")
+        return TriggerType(dotnet_result, "DIGITAL_EDGE")
 
     @_staticproperty
     def SOFTWARE() -> TriggerType:
-        return TriggerType(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.TriggerType, "Software"), "SOFTWARE")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.TriggerType, "Software")
+        return TriggerType(dotnet_result, "SOFTWARE")
 
 
 class Unconditional(Section):
@@ -4949,28 +5807,36 @@ class Unconditional(Section):
         ...
 
     def get_signal_based_frame_list(self, *args):
-        return _wrap(self._dotnet_instance.GetSignalBasedFrameList(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetSignalBasedFrameList(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_raw_data_based_frame_list(self) -> Sequence[RawDataBasedFrame]:
         ...
 
     def get_raw_data_based_frame_list(self, *args):
-        return _wrap(self._dotnet_instance.GetRawDataBasedFrameList(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetRawDataBasedFrameList(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_signal_based_frame(self, signal_based_frame: SignalBasedFrame) -> bool:
         ...
 
     def add_signal_based_frame(self, *args):
-        return _wrap(self._dotnet_instance.AddSignalBasedFrame(*_unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.AddSignalBasedFrame(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_raw_data_based_frame(self, raw_data_based_frame: RawDataBasedFrame) -> bool:
         ...
 
     def add_raw_data_based_frame(self, *args):
-        return _wrap(self._dotnet_instance.AddRawDataBasedFrame(*_unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.AddRawDataBasedFrame(*unwrapped)
+        return _wrap(dotnet_result)
 
 
 class UserChannels(Section):
@@ -4993,7 +5859,9 @@ class UserChannels(Section):
         ...
 
     def get_user_channel_list(self, *args):
-        return _wrap(self._dotnet_instance.GetUserChannelList(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetUserChannelList(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_user_channel_folder_list(self) -> Sequence[UserChannelsFolder]:
@@ -5004,35 +5872,45 @@ class UserChannels(Section):
         ...
 
     def get_user_channel_folder_list(self, *args):
-        return _wrap(self._dotnet_instance.GetUserChannelFolderList(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetUserChannelFolderList(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_user_channel(self, channel: UserChannel) -> bool:
         ...
 
     def add_user_channel(self, *args):
-        return _wrap(self._dotnet_instance.AddUserChannel(*_unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.AddUserChannel(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_user_channels_folder(self, folder: UserChannelsFolder) -> bool:
         ...
 
     def add_user_channels_folder(self, *args):
-        return _wrap(self._dotnet_instance.AddUserChannelsFolder(*_unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.AddUserChannelsFolder(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_new_user_channel(self, name: str, description: str, units: str, default_value: float) -> UserChannel:
         ...
 
     def add_new_user_channel(self, *args):
-        return _wrap(self._dotnet_instance.AddNewUserChannel(*_unwrap({None: (4, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (4, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.AddNewUserChannel(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_new_user_channels_folder(self, name: str, description: str) -> UserChannelsFolder:
         ...
 
     def add_new_user_channels_folder(self, *args):
-        return _wrap(self._dotnet_instance.AddNewUserChannelsFolder(*_unwrap({None: (2, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (2, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.AddNewUserChannelsFolder(*unwrapped)
+        return _wrap(dotnet_result)
 
 
 class UserChannelsFolder(Section):
@@ -5048,7 +5926,8 @@ class UserChannelsFolder(Section):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.UserChannelsFolder:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.UserChannelsFolder(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.UserChannelsFolder(*unwrapped)
 
     @overload
     def get_user_channel_list(self) -> Sequence[UserChannel]:
@@ -5059,7 +5938,9 @@ class UserChannelsFolder(Section):
         ...
 
     def get_user_channel_list(self, *args):
-        return _wrap(self._dotnet_instance.GetUserChannelList(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetUserChannelList(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_user_channel_folder_list(self) -> Sequence[UserChannelsFolder]:
@@ -5070,35 +5951,45 @@ class UserChannelsFolder(Section):
         ...
 
     def get_user_channel_folder_list(self, *args):
-        return _wrap(self._dotnet_instance.GetUserChannelFolderList(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetUserChannelFolderList(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_user_channel(self, channel: UserChannel) -> bool:
         ...
 
     def add_user_channel(self, *args):
-        return _wrap(self._dotnet_instance.AddUserChannel(*_unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.AddUserChannel(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_user_channels_folder(self, folder: UserChannelsFolder) -> bool:
         ...
 
     def add_user_channels_folder(self, *args):
-        return _wrap(self._dotnet_instance.AddUserChannelsFolder(*_unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.AddUserChannelsFolder(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_new_user_channel(self, name: str, description: str, units: str, default_value: float) -> UserChannel:
         ...
 
     def add_new_user_channel(self, *args):
-        return _wrap(self._dotnet_instance.AddNewUserChannel(*_unwrap({None: (4, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (4, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.AddNewUserChannel(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_new_user_channels_folder(self, name: str, description: str) -> UserChannelsFolder:
         ...
 
     def add_new_user_channels_folder(self, *args):
-        return _wrap(self._dotnet_instance.AddNewUserChannelsFolder(*_unwrap({None: (2, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (2, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.AddNewUserChannelsFolder(*unwrapped)
+        return _wrap(dotnet_result)
 
 
 class Utilities(_DotNetBase):
@@ -5114,12 +6005,14 @@ class Utilities(_DotNetBase):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.Utilities:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.Utilities(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.Utilities(*unwrapped)
 
     @_staticproperty
     def current_version() -> VersionType:
         """Gets the current version information for the system definition file."""
-        return _wrap(NationalInstruments.VeriStand.SystemDefinitionAPI.Utilities.CurrentVersion)
+        dotnet_result = NationalInstruments.VeriStand.SystemDefinitionAPI.Utilities.CurrentVersion
+        return _wrap(dotnet_result)
 
     @staticmethod
     @overload
@@ -5127,7 +6020,9 @@ class Utilities(_DotNetBase):
         ...
 
     def serialize_slsc(*args):
-        return _wrap(NationalInstruments.VeriStand.SystemDefinitionAPI.Utilities.SerializeSLSC(*_unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = NationalInstruments.VeriStand.SystemDefinitionAPI.Utilities.SerializeSLSC(*unwrapped)
+        return _wrap(dotnet_result)
 
     @staticmethod
     @overload
@@ -5135,7 +6030,9 @@ class Utilities(_DotNetBase):
         ...
 
     def deserialize_slsc(*args):
-        return _wrap(NationalInstruments.VeriStand.SystemDefinitionAPI.Utilities.DeserializeSLSC(*_unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = NationalInstruments.VeriStand.SystemDefinitionAPI.Utilities.DeserializeSLSC(*unwrapped)
+        return _wrap(dotnet_result)
 
     @staticmethod
     @overload
@@ -5143,7 +6040,9 @@ class Utilities(_DotNetBase):
         ...
 
     def reset_all_identifiers(*args):
-        return _wrap(NationalInstruments.VeriStand.SystemDefinitionAPI.Utilities.ResetAllIdentifiers(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = NationalInstruments.VeriStand.SystemDefinitionAPI.Utilities.ResetAllIdentifiers(*unwrapped)
+        return _wrap(dotnet_result)
 
     @staticmethod
     @overload
@@ -5151,7 +6050,9 @@ class Utilities(_DotNetBase):
         ...
 
     def date_time_to_double(*args):
-        return _wrap(NationalInstruments.VeriStand.SystemDefinitionAPI.Utilities.DateTimeToDouble(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = NationalInstruments.VeriStand.SystemDefinitionAPI.Utilities.DateTimeToDouble(*unwrapped)
+        return _wrap(dotnet_result)
 
     @staticmethod
     @overload
@@ -5159,7 +6060,9 @@ class Utilities(_DotNetBase):
         ...
 
     def double_to_date_time(*args):
-        return _wrap(NationalInstruments.VeriStand.SystemDefinitionAPI.Utilities.DoubleToDateTime(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = NationalInstruments.VeriStand.SystemDefinitionAPI.Utilities.DoubleToDateTime(*unwrapped)
+        return _wrap(dotnet_result)
 
     @staticmethod
     @overload
@@ -5167,7 +6070,9 @@ class Utilities(_DotNetBase):
         ...
 
     def version_type_to_version(*args):
-        return _wrap(NationalInstruments.VeriStand.SystemDefinitionAPI.Utilities.VersionTypeToVersion(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = NationalInstruments.VeriStand.SystemDefinitionAPI.Utilities.VersionTypeToVersion(*unwrapped)
+        return _wrap(dotnet_result)
 
     @staticmethod
     @overload
@@ -5175,7 +6080,9 @@ class Utilities(_DotNetBase):
         ...
 
     def get_localized_name_by_guid(*args):
-        return _wrap(NationalInstruments.VeriStand.SystemDefinitionAPI.Utilities.GetLocalizedNameByGUID(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = NationalInstruments.VeriStand.SystemDefinitionAPI.Utilities.GetLocalizedNameByGUID(*unwrapped)
+        return _wrap(dotnet_result)
 
     @staticmethod
     @overload
@@ -5183,7 +6090,9 @@ class Utilities(_DotNetBase):
         ...
 
     def resolve_path_type(*args):
-        return _wrap(NationalInstruments.VeriStand.SystemDefinitionAPI.Utilities.ResolvePathType(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = NationalInstruments.VeriStand.SystemDefinitionAPI.Utilities.ResolvePathType(*unwrapped)
+        return _wrap(dotnet_result)
 
     @staticmethod
     @overload
@@ -5191,7 +6100,9 @@ class Utilities(_DotNetBase):
         ...
 
     def strip_path(*args):
-        return _wrap(NationalInstruments.VeriStand.SystemDefinitionAPI.Utilities.StripPath(*_unwrap({None: (1, "")}, *args)))
+        unwrapped = _unwrap({None: (1, "")}, *args)
+        dotnet_result = NationalInstruments.VeriStand.SystemDefinitionAPI.Utilities.StripPath(*unwrapped)
+        return _wrap(dotnet_result)
 
     @staticmethod
     @overload
@@ -5199,7 +6110,9 @@ class Utilities(_DotNetBase):
         ...
 
     def get_filename(*args):
-        return _wrap(NationalInstruments.VeriStand.SystemDefinitionAPI.Utilities.GetFilename(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = NationalInstruments.VeriStand.SystemDefinitionAPI.Utilities.GetFilename(*unwrapped)
+        return _wrap(dotnet_result)
 
     @staticmethod
     @overload
@@ -5207,7 +6120,9 @@ class Utilities(_DotNetBase):
         ...
 
     def build_path(*args):
-        return _wrap(NationalInstruments.VeriStand.SystemDefinitionAPI.Utilities.BuildPath(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = NationalInstruments.VeriStand.SystemDefinitionAPI.Utilities.BuildPath(*unwrapped)
+        return _wrap(dotnet_result)
 
     @staticmethod
     @overload
@@ -5215,7 +6130,9 @@ class Utilities(_DotNetBase):
         ...
 
     def rt_main_path(*args):
-        return _wrap(NationalInstruments.VeriStand.SystemDefinitionAPI.Utilities.RtMainPath(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = NationalInstruments.VeriStand.SystemDefinitionAPI.Utilities.RtMainPath(*unwrapped)
+        return _wrap(dotnet_result)
 
     @staticmethod
     @overload
@@ -5223,7 +6140,9 @@ class Utilities(_DotNetBase):
         ...
 
     def data_replay_rt_path(*args):
-        return _wrap(NationalInstruments.VeriStand.SystemDefinitionAPI.Utilities.DataReplayRTPath(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = NationalInstruments.VeriStand.SystemDefinitionAPI.Utilities.DataReplayRTPath(*unwrapped)
+        return _wrap(dotnet_result)
 
     @staticmethod
     @overload
@@ -5231,7 +6150,9 @@ class Utilities(_DotNetBase):
         ...
 
     def relative_afp_ini_path(*args):
-        return _wrap(NationalInstruments.VeriStand.SystemDefinitionAPI.Utilities.RelativeAfpIniPath(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = NationalInstruments.VeriStand.SystemDefinitionAPI.Utilities.RelativeAfpIniPath(*unwrapped)
+        return _wrap(dotnet_result)
 
     @staticmethod
     @overload
@@ -5239,7 +6160,9 @@ class Utilities(_DotNetBase):
         ...
 
     def afp_rt_path(*args):
-        return _wrap(NationalInstruments.VeriStand.SystemDefinitionAPI.Utilities.AfpRtPath(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = NationalInstruments.VeriStand.SystemDefinitionAPI.Utilities.AfpRtPath(*unwrapped)
+        return _wrap(dotnet_result)
 
     @staticmethod
     @overload
@@ -5252,7 +6175,9 @@ class Utilities(_DotNetBase):
         ...
 
     def path_type_pair_to_absolute_path(*args):
-        return _wrap(NationalInstruments.VeriStand.SystemDefinitionAPI.Utilities.PathTypePairToAbsolutePath(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = NationalInstruments.VeriStand.SystemDefinitionAPI.Utilities.PathTypePairToAbsolutePath(*unwrapped)
+        return _wrap(dotnet_result)
 
     @staticmethod
     @overload
@@ -5260,7 +6185,9 @@ class Utilities(_DotNetBase):
         ...
 
     def strip_path_if_in_llb(*args):
-        return _wrap(NationalInstruments.VeriStand.SystemDefinitionAPI.Utilities.StripPathIfInLLB(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = NationalInstruments.VeriStand.SystemDefinitionAPI.Utilities.StripPathIfInLLB(*unwrapped)
+        return _wrap(dotnet_result)
 
     @staticmethod
     @overload
@@ -5268,7 +6195,9 @@ class Utilities(_DotNetBase):
         ...
 
     def add_mapping(*args):
-        return _wrap(NationalInstruments.VeriStand.SystemDefinitionAPI.Utilities.AddMapping(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = NationalInstruments.VeriStand.SystemDefinitionAPI.Utilities.AddMapping(*unwrapped)
+        return _wrap(dotnet_result)
 
     @staticmethod
     @overload
@@ -5276,7 +6205,9 @@ class Utilities(_DotNetBase):
         ...
 
     def clear_mapping(*args):
-        return _wrap(NationalInstruments.VeriStand.SystemDefinitionAPI.Utilities.ClearMapping(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = NationalInstruments.VeriStand.SystemDefinitionAPI.Utilities.ClearMapping(*unwrapped)
+        return _wrap(dotnet_result)
 
     @staticmethod
     @overload
@@ -5299,7 +6230,9 @@ class Utilities(_DotNetBase):
         ...
 
     def auto_map_channels(*args):
-        return _wrap(NationalInstruments.VeriStand.SystemDefinitionAPI.Utilities.AutoMapChannels(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = NationalInstruments.VeriStand.SystemDefinitionAPI.Utilities.AutoMapChannels(*unwrapped)
+        return _wrap(dotnet_result)
 
     @staticmethod
     @overload
@@ -5307,7 +6240,9 @@ class Utilities(_DotNetBase):
         ...
 
     def default_auto_map_recursion_filter(*args):
-        return _wrap(NationalInstruments.VeriStand.SystemDefinitionAPI.Utilities.DefaultAutoMapRecursionFilter(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = NationalInstruments.VeriStand.SystemDefinitionAPI.Utilities.DefaultAutoMapRecursionFilter(*unwrapped)
+        return _wrap(dotnet_result)
 
     @staticmethod
     @overload
@@ -5315,7 +6250,9 @@ class Utilities(_DotNetBase):
         ...
 
     def find_name_matches(*args):
-        return _wrap(NationalInstruments.VeriStand.SystemDefinitionAPI.Utilities.FindNameMatches(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = NationalInstruments.VeriStand.SystemDefinitionAPI.Utilities.FindNameMatches(*unwrapped)
+        return _wrap(dotnet_result)
 
     @staticmethod
     @overload
@@ -5323,7 +6260,9 @@ class Utilities(_DotNetBase):
         ...
 
     def create_base_node_from_system_storage_node(*args):
-        return _wrap(NationalInstruments.VeriStand.SystemDefinitionAPI.Utilities.CreateBaseNodeFromSystemStorageNode(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = NationalInstruments.VeriStand.SystemDefinitionAPI.Utilities.CreateBaseNodeFromSystemStorageNode(*unwrapped)
+        return _wrap(dotnet_result)
 
 
 class ValueSource(_DotNetBase):
@@ -5343,19 +6282,23 @@ class ValueSource(_DotNetBase):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.ValueSource:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.ValueSource(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.ValueSource(*unwrapped)
 
     @property
     def is_constant(self) -> bool:
-        return _wrap(self._dotnet_instance.isConstant)
+        dotnet_result = self._dotnet_instance.isConstant
+        return _wrap(dotnet_result)
 
     @property
     def channel(self) -> BaseNode:
-        return _wrap(self._dotnet_instance.Channel)
+        dotnet_result = self._dotnet_instance.Channel
+        return _wrap(dotnet_result)
 
     @property
     def constant(self) -> float:
-        return _wrap(self._dotnet_instance.Constant)
+        dotnet_result = self._dotnet_instance.Constant
+        return _wrap(dotnet_result)
 
 
 class Waveform(BaseNode):
@@ -5372,22 +6315,26 @@ class Waveform(BaseNode):
     @property
     def units(self) -> str:
         """Gets or sets the units associated with the waveform. This can be any arbitrary string."""
-        return _wrap(self._dotnet_instance.Units)
+        dotnet_result = self._dotnet_instance.Units
+        return _wrap(dotnet_result)
 
     @units.setter
     def units(self, value: str):
         """Gets or sets the units associated with the waveform. This can be any arbitrary string."""
-        self._dotnet_instance.Units = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.Units = next(unwrapped)
 
     @property
     def data_type(self) -> WaveformTypeDataType:
         """Gets or sets the data type associated with the waveform."""
-        return _wrap(self._dotnet_instance.DataType)
+        dotnet_result = self._dotnet_instance.DataType
+        return _wrap(dotnet_result)
 
     @data_type.setter
     def data_type(self, value: WaveformTypeDataType):
         """Gets or sets the data type associated with the waveform."""
-        self._dotnet_instance.DataType = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.DataType = next(unwrapped)
 
 
 class WindowConditionType(_DotNetEnum):
@@ -5404,11 +6351,13 @@ class WindowConditionType(_DotNetEnum):
 
     @_staticproperty
     def ENTERING_WINDOW() -> WindowConditionType:
-        return WindowConditionType(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.WindowConditionType, "EnteringWindow"), "ENTERING_WINDOW")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.WindowConditionType, "EnteringWindow")
+        return WindowConditionType(dotnet_result, "ENTERING_WINDOW")
 
     @_staticproperty
     def LEAVING_WINDOW() -> WindowConditionType:
-        return WindowConditionType(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.WindowConditionType, "LeavingWindow"), "LEAVING_WINDOW")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.WindowConditionType, "LeavingWindow")
+        return WindowConditionType(dotnet_result, "LEAVING_WINDOW")
 
 
 class XNET(Section):
@@ -5425,47 +6374,59 @@ class XNET(Section):
     @property
     def decimation(self) -> int:
         """Gets or sets the processing rate for inline incoming and outgoing frames of an <see cref="T:NationalInstruments.VeriStand.SystemDefinitionAPI.XNET" crefType="Unqualified" /> device, which NI VeriStand uses to calculate the decimation factor (decimation factor = Primary Control Loop rate/processing rate). This value determines how many iterations of the Primary Control Loop occur between calls to the device."""
-        return _wrap(self._dotnet_instance.Decimation)
+        dotnet_result = self._dotnet_instance.Decimation
+        return _wrap(dotnet_result)
 
     @decimation.setter
     def decimation(self, value: int):
         """Gets or sets the processing rate for inline incoming and outgoing frames of an <see cref="T:NationalInstruments.VeriStand.SystemDefinitionAPI.XNET" crefType="Unqualified" /> device, which NI VeriStand uses to calculate the decimation factor (decimation factor = Primary Control Loop rate/processing rate). This value determines how many iterations of the Primary Control Loop occur between calls to the device."""
-        self._dotnet_instance.Decimation = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.Decimation = next(unwrapped)
 
     @overload
     def enable_xnet(self):
         ...
 
     def enable_xnet(self, *args):
-        return _wrap(self._dotnet_instance.EnableXNET(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.EnableXNET(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def disable_xnet(self):
         ...
 
     def disable_xnet(self, *args):
-        return _wrap(self._dotnet_instance.DisableXNET(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.DisableXNET(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_can(self) -> CAN:
         ...
 
     def get_can(self, *args):
-        return _wrap(self._dotnet_instance.GetCAN(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetCAN(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_flex_ray(self) -> FlexRay:
         ...
 
     def get_flex_ray(self, *args):
-        return _wrap(self._dotnet_instance.GetFlexRay(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetFlexRay(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_lin(self) -> LIN:
         ...
 
     def get_lin(self, *args):
-        return _wrap(self._dotnet_instance.GetLIN(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetLIN(*unwrapped)
+        return _wrap(dotnet_result)
 
 
 class XNETDatabases(Section):
@@ -5484,14 +6445,18 @@ class XNETDatabases(Section):
         ...
 
     def get_database_list(self, *args):
-        return _wrap(self._dotnet_instance.GetDatabaseList(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetDatabaseList(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_database(self, database: Database) -> bool:
         ...
 
     def add_database(self, *args):
-        return _wrap(self._dotnet_instance.AddDatabase(*_unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.AddDatabase(*unwrapped)
+        return _wrap(dotnet_result)
 
 
 class XNETTermination(_DotNetEnum):
@@ -5508,11 +6473,13 @@ class XNETTermination(_DotNetEnum):
 
     @_staticproperty
     def OFF() -> XNETTermination:
-        return XNETTermination(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.XNETTermination, "Off"), "OFF")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.XNETTermination, "Off")
+        return XNETTermination(dotnet_result, "OFF")
 
     @_staticproperty
     def ON() -> XNETTermination:
-        return XNETTermination(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.XNETTermination, "On"), "ON")
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.XNETTermination, "On")
+        return XNETTermination(dotnet_result, "ON")
 
 
 class Alarm(Section):
@@ -5548,151 +6515,180 @@ class Alarm(Section):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.Alarm:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.Alarm(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.Alarm(*unwrapped)
 
     @property
     def mode(self) -> AlarmMode:
         """Gets or sets the mode of the alarm (<format type="monospace">Normal</format> or <format type="monospace">IndicateOnly</format>)."""
-        return _wrap(self._dotnet_instance.Mode)
+        dotnet_result = self._dotnet_instance.Mode
+        return _wrap(dotnet_result)
 
     @mode.setter
     def mode(self, value: AlarmMode):
         """Gets or sets the mode of the alarm (<format type="monospace">Normal</format> or <format type="monospace">IndicateOnly</format>)."""
-        self._dotnet_instance.Mode = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.Mode = next(unwrapped)
 
     @property
     def priority_number(self) -> int:
         """Gets or sets the priority of an alarm running on the target. Lower numbers specify a higher alarm priority. For example, 4 is higher priority than 31."""
-        return _wrap(self._dotnet_instance.PriorityNumber)
+        dotnet_result = self._dotnet_instance.PriorityNumber
+        return _wrap(dotnet_result)
 
     @priority_number.setter
     def priority_number(self, value: int):
         """Gets or sets the priority of an alarm running on the target. Lower numbers specify a higher alarm priority. For example, 4 is higher priority than 31."""
-        self._dotnet_instance.PriorityNumber = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.PriorityNumber = next(unwrapped)
 
     @property
     def group_number(self) -> int:
         """Gets or sets the number of the group to which an alarm belongs."""
-        return _wrap(self._dotnet_instance.GroupNumber)
+        dotnet_result = self._dotnet_instance.GroupNumber
+        return _wrap(dotnet_result)
 
     @group_number.setter
     def group_number(self, value: int):
         """Gets or sets the number of the group to which an alarm belongs."""
-        self._dotnet_instance.GroupNumber = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.GroupNumber = next(unwrapped)
 
     @property
     def priority(self) -> AlarmPriority:
         """This property is deprecated in NI VeriStand 2011 and later. Use the <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.Alarm.PriorityNumber" crefType="Unqualified" /> property instead.
             <para>
             Setting this property to <format type="monospace">Low</format>, <format type="monospace">Medium</format>, or <format type="monospace">High</format> automatically sets the <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.Alarm.PriorityNumber" crefType="Unqualified" /> to 25, 15, or 5, respectively.</para>"""
-        return _wrap(self._dotnet_instance.Priority)
+        dotnet_result = self._dotnet_instance.Priority
+        return _wrap(dotnet_result)
 
     @priority.setter
     def priority(self, value: AlarmPriority):
         """This property is deprecated in NI VeriStand 2011 and later. Use the <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.Alarm.PriorityNumber" crefType="Unqualified" /> property instead.
             <para>
             Setting this property to <format type="monospace">Low</format>, <format type="monospace">Medium</format>, or <format type="monospace">High</format> automatically sets the <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.Alarm.PriorityNumber" crefType="Unqualified" /> to 25, 15, or 5, respectively.</para>"""
-        self._dotnet_instance.Priority = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.Priority = next(unwrapped)
 
     @property
     def default_state(self) -> AlarmState:
         """Gets or sets the default state (<format type="monospace">Disabled</format> or <format type="monospace">Enabled</format>) of the alarm."""
-        return _wrap(self._dotnet_instance.DefaultState)
+        dotnet_result = self._dotnet_instance.DefaultState
+        return _wrap(dotnet_result)
 
     @default_state.setter
     def default_state(self, value: AlarmState):
         """Gets or sets the default state (<format type="monospace">Disabled</format> or <format type="monospace">Enabled</format>) of the alarm."""
-        self._dotnet_instance.DefaultState = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.DefaultState = next(unwrapped)
 
     @property
     def auto_reset_alarm(self) -> bool:
         """Gets or sets the reset behavior of the alarm. This property defines whether the alarm automatically resets when the channel is back in range, as opposed to being reset by a procedure."""
-        return _wrap(self._dotnet_instance.AutoResetAlarm)
+        dotnet_result = self._dotnet_instance.AutoResetAlarm
+        return _wrap(dotnet_result)
 
     @auto_reset_alarm.setter
     def auto_reset_alarm(self, value: bool):
         """Gets or sets the reset behavior of the alarm. This property defines whether the alarm automatically resets when the channel is back in range, as opposed to being reset by a procedure."""
-        self._dotnet_instance.AutoResetAlarm = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.AutoResetAlarm = next(unwrapped)
 
     @property
     def require_alarm_acknowledgement(self) -> bool:
         """Gets or sets the acknowledgement behavior of the alarm. This property defines whether the alarm must be manually acknowledged before it can reset. Otherwise, alarm is automatically acknowledged when the channel is back in range."""
-        return _wrap(self._dotnet_instance.RequireAlarmAcknowledgement)
+        dotnet_result = self._dotnet_instance.RequireAlarmAcknowledgement
+        return _wrap(dotnet_result)
 
     @require_alarm_acknowledgement.setter
     def require_alarm_acknowledgement(self, value: bool):
         """Gets or sets the acknowledgement behavior of the alarm. This property defines whether the alarm must be manually acknowledged before it can reset. Otherwise, alarm is automatically acknowledged when the channel is back in range."""
-        self._dotnet_instance.RequireAlarmAcknowledgement = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.RequireAlarmAcknowledgement = next(unwrapped)
 
     @property
     def delay(self) -> float:
         """Gets or sets the amount of time to wait before triggering the alarm."""
-        return _wrap(self._dotnet_instance.Delay)
+        dotnet_result = self._dotnet_instance.Delay
+        return _wrap(dotnet_result)
 
     @delay.setter
     def delay(self, value: float):
         """Gets or sets the amount of time to wait before triggering the alarm."""
-        self._dotnet_instance.Delay = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.Delay = next(unwrapped)
 
     @property
     def alarm_source(self) -> BaseNode:
         """Gets or sets the channel to monitor for alarm conditions."""
-        return _wrap(self._dotnet_instance.AlarmSource)
+        dotnet_result = self._dotnet_instance.AlarmSource
+        return _wrap(dotnet_result)
 
     @alarm_source.setter
     def alarm_source(self, value: BaseNode):
         """Gets or sets the channel to monitor for alarm conditions."""
-        self._dotnet_instance.AlarmSource = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.AlarmSource = next(unwrapped)
 
     @property
     def upper_limit_is_constant(self) -> int:
         """Gets whether the upper limit value of the alarm is specified by a constant or a channel."""
-        return _wrap(self._dotnet_instance.UpperLimitIsConstant)
+        dotnet_result = self._dotnet_instance.UpperLimitIsConstant
+        return _wrap(dotnet_result)
 
     @property
     def upper_limit_constant(self) -> float:
         """Gets the constant that determines the upper limit value of the alarm. If the value of <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.Alarm.AlarmSource" crefType="Unqualified" /> exceeds this limit, the alarm is triggered."""
-        return _wrap(self._dotnet_instance.UpperLimitConstant)
+        dotnet_result = self._dotnet_instance.UpperLimitConstant
+        return _wrap(dotnet_result)
 
     @property
     def lower_limit_is_constant(self) -> int:
         """Gets whether the lower limit value of the alarm is specified by a constant or a channel."""
-        return _wrap(self._dotnet_instance.LowerLimitIsConstant)
+        dotnet_result = self._dotnet_instance.LowerLimitIsConstant
+        return _wrap(dotnet_result)
 
     @property
     def lower_limit_constant(self) -> float:
         """Gets the constant value that determines the lower limit value of the alarm. If the value of <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.Alarm.AlarmSource" crefType="Unqualified" /> falls below this limit, the alarm is triggered."""
-        return _wrap(self._dotnet_instance.LowerLimitConstant)
+        dotnet_result = self._dotnet_instance.LowerLimitConstant
+        return _wrap(dotnet_result)
 
     @property
     def upper_limit_channel(self) -> BaseNode:
         """Gets the channel that determines the upper limit value of the alarm. If the value of <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.Alarm.AlarmSource" crefType="Unqualified" /> exceeds this limit, the alarm is triggered."""
-        return _wrap(self._dotnet_instance.UpperLimitChannel)
+        dotnet_result = self._dotnet_instance.UpperLimitChannel
+        return _wrap(dotnet_result)
 
     @property
     def lower_limit_channel(self) -> BaseNode:
         """Gets the channel that determines the lower limit value of the alarm. If the value of <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.Alarm.AlarmSource" crefType="Unqualified" /> falls below this limit, the alarm is triggered."""
-        return _wrap(self._dotnet_instance.LowerLimitChannel)
+        dotnet_result = self._dotnet_instance.LowerLimitChannel
+        return _wrap(dotnet_result)
 
     @property
     def alarm_action(self) -> BaseNode:
         """Gets or sets the procedure to initiate when the alarm conditions are met."""
-        return _wrap(self._dotnet_instance.AlarmAction)
+        dotnet_result = self._dotnet_instance.AlarmAction
+        return _wrap(dotnet_result)
 
     @alarm_action.setter
     def alarm_action(self, value: BaseNode):
         """Gets or sets the procedure to initiate when the alarm conditions are met."""
-        self._dotnet_instance.AlarmAction = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.AlarmAction = next(unwrapped)
 
     @property
     def trip_message(self) -> str:
         """Gets or sets the message to display when the alarm is tripped."""
-        return _wrap(self._dotnet_instance.TripMessage)
+        dotnet_result = self._dotnet_instance.TripMessage
+        return _wrap(dotnet_result)
 
     @trip_message.setter
     def trip_message(self, value: str):
         """Gets or sets the message to display when the alarm is tripped."""
-        self._dotnet_instance.TripMessage = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.TripMessage = next(unwrapped)
 
     @overload
     def set_upper_limit(self, upper_limit: float):
@@ -5707,7 +6703,9 @@ class Alarm(Section):
         ...
 
     def set_upper_limit(self, *args):
-        return _wrap(self._dotnet_instance.SetUpperLimit(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.SetUpperLimit(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def set_lower_limit(self, lower_limit: float):
@@ -5722,21 +6720,27 @@ class Alarm(Section):
         ...
 
     def set_lower_limit(self, *args):
-        return _wrap(self._dotnet_instance.SetLowerLimit(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.SetLowerLimit(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_alarm_status_channel(self) -> bool:
         ...
 
     def add_alarm_status_channel(self, *args):
-        return _wrap(self._dotnet_instance.AddAlarmStatusChannel(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.AddAlarmStatusChannel(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_alarm_status_channel(self) -> AlarmStatus:
         ...
 
     def get_alarm_status_channel(self, *args):
-        return _wrap(self._dotnet_instance.GetAlarmStatusChannel(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetAlarmStatusChannel(*unwrapped)
+        return _wrap(dotnet_result)
 
 
 class AlarmFolder(Section):
@@ -5752,7 +6756,8 @@ class AlarmFolder(Section):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.AlarmFolder:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.AlarmFolder(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.AlarmFolder(*unwrapped)
 
     @overload
     def get_alarm_list(self) -> Sequence[Alarm]:
@@ -5763,7 +6768,9 @@ class AlarmFolder(Section):
         ...
 
     def get_alarm_list(self, *args):
-        return _wrap(self._dotnet_instance.GetAlarmList(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetAlarmList(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_alarm_folder_list(self) -> Sequence[AlarmFolder]:
@@ -5774,35 +6781,45 @@ class AlarmFolder(Section):
         ...
 
     def get_alarm_folder_list(self, *args):
-        return _wrap(self._dotnet_instance.GetAlarmFolderList(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetAlarmFolderList(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_alarm(self, alarm: Alarm) -> bool:
         ...
 
     def add_alarm(self, *args):
-        return _wrap(self._dotnet_instance.AddAlarm(*_unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.AddAlarm(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_alarm_folder(self, folder: AlarmFolder) -> bool:
         ...
 
     def add_alarm_folder(self, *args):
-        return _wrap(self._dotnet_instance.AddAlarmFolder(*_unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.AddAlarmFolder(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_new_alarm(self, name: str, description: str, alarm_source: Channel, upper_limit: ValueSource, lower_limit: ValueSource, alarm_action: Procedure, mode: AlarmMode, default_state: AlarmState, group_number: int, priority_number: int, delay: float, trip_message: str) -> Alarm:
         ...
 
     def add_new_alarm(self, *args):
-        return _wrap(self._dotnet_instance.AddNewAlarm(*_unwrap({None: (12, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (12, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.AddNewAlarm(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_new_alarm_folder(self, name: str, description: str) -> AlarmFolder:
         ...
 
     def add_new_alarm_folder(self, *args):
-        return _wrap(self._dotnet_instance.AddNewAlarmFolder(*_unwrap({None: (2, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (2, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.AddNewAlarmFolder(*unwrapped)
+        return _wrap(dotnet_result)
 
 
 class Alarms(Section):
@@ -5825,7 +6842,9 @@ class Alarms(Section):
         ...
 
     def get_alarm_list(self, *args):
-        return _wrap(self._dotnet_instance.GetAlarmList(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetAlarmList(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_alarm_folder_list(self) -> Sequence[AlarmFolder]:
@@ -5836,21 +6855,27 @@ class Alarms(Section):
         ...
 
     def get_alarm_folder_list(self, *args):
-        return _wrap(self._dotnet_instance.GetAlarmFolderList(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetAlarmFolderList(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_alarm(self, alarm: Alarm) -> bool:
         ...
 
     def add_alarm(self, *args):
-        return _wrap(self._dotnet_instance.AddAlarm(*_unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.AddAlarm(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_alarm_folder(self, folder: AlarmFolder) -> bool:
         ...
 
     def add_alarm_folder(self, *args):
-        return _wrap(self._dotnet_instance.AddAlarmFolder(*_unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.AddAlarmFolder(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_new_alarm(self, name: str, description: str, alarm_source: Channel, upper_limit: float, lower_limit: float, alarm_action: Procedure, mode: AlarmMode, default_state: AlarmState, priority: AlarmPriority, delay: float, trip_message: str) -> Alarm:
@@ -5873,14 +6898,18 @@ class Alarms(Section):
         ...
 
     def add_new_alarm(self, *args):
-        return _wrap(self._dotnet_instance.AddNewAlarm(*_unwrap({(str, str, Channel, (float, int), (float, int), Procedure, AlarmMode, AlarmState, AlarmPriority, (float, int), str): (11, NationalInstruments.VeriStand.Error.NoError), (str, str, Channel, (float, int), BaseNode, Procedure, AlarmMode, AlarmState, AlarmPriority, (float, int), str): (11, NationalInstruments.VeriStand.Error.NoError), (str, str, Channel, BaseNode, (float, int), Procedure, AlarmMode, AlarmState, AlarmPriority, (float, int), str): (11, NationalInstruments.VeriStand.Error.NoError), (str, str, Channel, BaseNode, BaseNode, Procedure, AlarmMode, AlarmState, AlarmPriority, (float, int), str): (11, NationalInstruments.VeriStand.Error.NoError), (str, str, Channel, ValueSource, ValueSource, Procedure, AlarmMode, AlarmState, int, int, (float, int), str): (12, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({(str, str, Channel, (float, int), (float, int), Procedure, AlarmMode, AlarmState, AlarmPriority, (float, int), str): (11, NationalInstruments.VeriStand.Error.NoError), (str, str, Channel, (float, int), BaseNode, Procedure, AlarmMode, AlarmState, AlarmPriority, (float, int), str): (11, NationalInstruments.VeriStand.Error.NoError), (str, str, Channel, BaseNode, (float, int), Procedure, AlarmMode, AlarmState, AlarmPriority, (float, int), str): (11, NationalInstruments.VeriStand.Error.NoError), (str, str, Channel, BaseNode, BaseNode, Procedure, AlarmMode, AlarmState, AlarmPriority, (float, int), str): (11, NationalInstruments.VeriStand.Error.NoError), (str, str, Channel, ValueSource, ValueSource, Procedure, AlarmMode, AlarmState, int, int, (float, int), str): (12, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.AddNewAlarm(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_new_alarm_folder(self, name: str, description: str) -> AlarmFolder:
         ...
 
     def add_new_alarm_folder(self, *args):
-        return _wrap(self._dotnet_instance.AddNewAlarmFolder(*_unwrap({None: (2, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (2, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.AddNewAlarmFolder(*unwrapped)
+        return _wrap(dotnet_result)
 
 
 class Alias(BaseNode, IChannel):
@@ -5900,17 +6929,20 @@ class Alias(BaseNode, IChannel):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.Alias:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.Alias(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.Alias(*unwrapped)
 
     @property
     def linked_channel(self) -> BaseNode:
         """Gets or sets the channel that the alias represents."""
-        return _wrap(self._dotnet_instance.LinkedChannel)
+        dotnet_result = self._dotnet_instance.LinkedChannel
+        return _wrap(dotnet_result)
 
     @linked_channel.setter
     def linked_channel(self, value: BaseNode):
         """Gets or sets the channel that the alias represents."""
-        self._dotnet_instance.LinkedChannel = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.LinkedChannel = next(unwrapped)
 
 
 class AliasFolder(Section):
@@ -5926,7 +6958,8 @@ class AliasFolder(Section):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.AliasFolder:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.AliasFolder(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.AliasFolder(*unwrapped)
 
     @overload
     def get_aliases_list(self) -> Sequence[Alias]:
@@ -5937,7 +6970,9 @@ class AliasFolder(Section):
         ...
 
     def get_aliases_list(self, *args):
-        return _wrap(self._dotnet_instance.GetAliasesList(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetAliasesList(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_alias_folder_list(self) -> Sequence[AliasFolder]:
@@ -5948,42 +6983,54 @@ class AliasFolder(Section):
         ...
 
     def get_alias_folder_list(self, *args):
-        return _wrap(self._dotnet_instance.GetAliasFolderList(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetAliasFolderList(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_alias(self, alias: Alias) -> bool:
         ...
 
     def add_alias(self, *args):
-        return _wrap(self._dotnet_instance.AddAlias(*_unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.AddAlias(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_alias_folder(self, folder: AliasFolder) -> bool:
         ...
 
     def add_alias_folder(self, *args):
-        return _wrap(self._dotnet_instance.AddAliasFolder(*_unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.AddAliasFolder(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_new_alias_by_path(self, name: str, description: str, linked_channel_path: str) -> Alias:
         ...
 
     def add_new_alias_by_path(self, *args):
-        return _wrap(self._dotnet_instance.AddNewAliasByPath(*_unwrap({None: (3, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (3, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.AddNewAliasByPath(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_new_alias_by_reference(self, name: str, description: str, linked_channel_reference: Channel) -> Alias:
         ...
 
     def add_new_alias_by_reference(self, *args):
-        return _wrap(self._dotnet_instance.AddNewAliasByReference(*_unwrap({None: (3, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (3, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.AddNewAliasByReference(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_new_alias_folder(self, name: str, description: str) -> AliasFolder:
         ...
 
     def add_new_alias_folder(self, *args):
-        return _wrap(self._dotnet_instance.AddNewAliasFolder(*_unwrap({None: (2, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (2, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.AddNewAliasFolder(*unwrapped)
+        return _wrap(dotnet_result)
 
 
 class Aliases(Section):
@@ -6002,21 +7049,27 @@ class Aliases(Section):
         ...
 
     def delete_unmapped_aliases(self, *args):
-        return _wrap(self._dotnet_instance.DeleteUnmappedAliases(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.DeleteUnmappedAliases(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def import_aliases_from_file(self, file_path: str, inclusion_filter: Callable[[str], bool]):
         ...
 
     def import_aliases_from_file(self, *args):
-        return _wrap(self._dotnet_instance.ImportAliasesFromFile(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.ImportAliasesFromFile(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def export_aliases_to_file(self, file_path: str, inclusion_filter: Callable[[IChannel], bool], recurse_predicate: Callable[[BaseNode], bool]):
         ...
 
     def export_aliases_to_file(self, *args):
-        return _wrap(self._dotnet_instance.ExportAliasesToFile(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.ExportAliasesToFile(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_aliases_list(self) -> Sequence[Alias]:
@@ -6027,7 +7080,9 @@ class Aliases(Section):
         ...
 
     def get_aliases_list(self, *args):
-        return _wrap(self._dotnet_instance.GetAliasesList(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetAliasesList(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_alias_folder_list(self) -> Sequence[AliasFolder]:
@@ -6038,42 +7093,54 @@ class Aliases(Section):
         ...
 
     def get_alias_folder_list(self, *args):
-        return _wrap(self._dotnet_instance.GetAliasFolderList(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetAliasFolderList(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_alias(self, alias: Alias) -> bool:
         ...
 
     def add_alias(self, *args):
-        return _wrap(self._dotnet_instance.AddAlias(*_unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.AddAlias(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_alias_folder(self, folder: AliasFolder) -> bool:
         ...
 
     def add_alias_folder(self, *args):
-        return _wrap(self._dotnet_instance.AddAliasFolder(*_unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.AddAliasFolder(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_new_alias_by_path(self, name: str, description: str, linked_channel_path: str) -> Alias:
         ...
 
     def add_new_alias_by_path(self, *args):
-        return _wrap(self._dotnet_instance.AddNewAliasByPath(*_unwrap({None: (3, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (3, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.AddNewAliasByPath(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_new_alias_by_reference(self, name: str, description: str, linked_channel_reference: Channel) -> Alias:
         ...
 
     def add_new_alias_by_reference(self, *args):
-        return _wrap(self._dotnet_instance.AddNewAliasByReference(*_unwrap({None: (3, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (3, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.AddNewAliasByReference(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_new_alias_folder(self, name: str, description: str) -> AliasFolder:
         ...
 
     def add_new_alias_folder(self, *args):
-        return _wrap(self._dotnet_instance.AddNewAliasFolder(*_unwrap({None: (2, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (2, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.AddNewAliasFolder(*unwrapped)
+        return _wrap(dotnet_result)
 
 
 class AutomaticFrameProcessing(Section):
@@ -6092,14 +7159,18 @@ class AutomaticFrameProcessing(Section):
         ...
 
     def get_crc(self, *args):
-        return _wrap(self._dotnet_instance.GetCRC(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetCRC(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_counter(self) -> Counter:
         ...
 
     def get_counter(self, *args):
-        return _wrap(self._dotnet_instance.GetCounter(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetCounter(*unwrapped)
+        return _wrap(dotnet_result)
 
 
 class CAN(Section):
@@ -6118,14 +7189,18 @@ class CAN(Section):
         ...
 
     def get_can_port_list(self, *args):
-        return _wrap(self._dotnet_instance.GetCANPortList(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetCANPortList(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_can_port(self, can_port: CANPort) -> bool:
         ...
 
     def add_can_port(self, *args):
-        return _wrap(self._dotnet_instance.AddCANPort(*_unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.AddCANPort(*unwrapped)
+        return _wrap(dotnet_result)
 
 
 class CANInterfaceChannels(Section):
@@ -6144,112 +7219,144 @@ class CANInterfaceChannels(Section):
         ...
 
     def get_communication_state_channel(self, *args):
-        return _wrap(self._dotnet_instance.GetCommunicationStateChannel(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetCommunicationStateChannel(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_fault_channel(self) -> Channel:
         ...
 
     def get_fault_channel(self, *args):
-        return _wrap(self._dotnet_instance.GetFaultChannel(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetFaultChannel(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_last_error_channel(self) -> Channel:
         ...
 
     def get_last_error_channel(self, *args):
-        return _wrap(self._dotnet_instance.GetLastErrorChannel(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetLastErrorChannel(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_last_error_timestamp_channel(self) -> Channel:
         ...
 
     def get_last_error_timestamp_channel(self, *args):
-        return _wrap(self._dotnet_instance.GetLastErrorTimestampChannel(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetLastErrorTimestampChannel(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_receive_error_counter_channel(self) -> Channel:
         ...
 
     def get_receive_error_counter_channel(self, *args):
-        return _wrap(self._dotnet_instance.GetReceiveErrorCounterChannel(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetReceiveErrorCounterChannel(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_sleep_mode_channel(self) -> SleepMode:
         ...
 
     def get_sleep_mode_channel(self, *args):
-        return _wrap(self._dotnet_instance.GetSleepModeChannel(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetSleepModeChannel(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_transceiver_error_channel(self) -> Channel:
         ...
 
     def get_transceiver_error_channel(self, *args):
-        return _wrap(self._dotnet_instance.GetTransceiverErrorChannel(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetTransceiverErrorChannel(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_transmit_error_counter_channel(self) -> Channel:
         ...
 
     def get_transmit_error_counter_channel(self, *args):
-        return _wrap(self._dotnet_instance.GetTransmitErrorCounterChannel(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetTransmitErrorCounterChannel(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_sleep_mode_channel(self, sleep_mode: SleepMode) -> bool:
         ...
 
     def add_sleep_mode_channel(self, *args):
-        return _wrap(self._dotnet_instance.AddSleepModeChannel(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.AddSleepModeChannel(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def create_communication_state_channel(self) -> Channel:
         ...
 
     def create_communication_state_channel(self, *args):
-        return _wrap(self._dotnet_instance.CreateCommunicationStateChannel(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.CreateCommunicationStateChannel(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def create_fault_channel(self) -> Channel:
         ...
 
     def create_fault_channel(self, *args):
-        return _wrap(self._dotnet_instance.CreateFaultChannel(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.CreateFaultChannel(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def create_last_error_channel(self) -> Channel:
         ...
 
     def create_last_error_channel(self, *args):
-        return _wrap(self._dotnet_instance.CreateLastErrorChannel(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.CreateLastErrorChannel(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def create_last_error_timestamp_channel(self) -> Channel:
         ...
 
     def create_last_error_timestamp_channel(self, *args):
-        return _wrap(self._dotnet_instance.CreateLastErrorTimestampChannel(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.CreateLastErrorTimestampChannel(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def create_receive_error_counter_channel(self) -> Channel:
         ...
 
     def create_receive_error_counter_channel(self, *args):
-        return _wrap(self._dotnet_instance.CreateReceiveErrorCounterChannel(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.CreateReceiveErrorCounterChannel(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def create_transceiver_error_channel(self) -> Channel:
         ...
 
     def create_transceiver_error_channel(self, *args):
-        return _wrap(self._dotnet_instance.CreateTransceiverErrorChannel(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.CreateTransceiverErrorChannel(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def create_transmit_error_counter_channel(self) -> Channel:
         ...
 
     def create_transmit_error_counter_channel(self, *args):
-        return _wrap(self._dotnet_instance.CreateTransmitErrorCounterChannel(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.CreateTransmitErrorCounterChannel(*unwrapped)
+        return _wrap(dotnet_result)
 
 
 class CANPort(Section):
@@ -6269,288 +7376,350 @@ class CANPort(Section):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.CANPort:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.CANPort(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.CANPort(*unwrapped)
 
     @property
     def port_number(self) -> int:
         """Gets or sets the physical address of the CAN port."""
-        return _wrap(self._dotnet_instance.PortNumber)
+        dotnet_result = self._dotnet_instance.PortNumber
+        return _wrap(dotnet_result)
 
     @port_number.setter
     def port_number(self, value: int):
         """Gets or sets the physical address of the CAN port."""
-        self._dotnet_instance.PortNumber = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.PortNumber = next(unwrapped)
 
     @property
     def linked_database(self) -> BaseNode:
         """Gets or sets the XNET database associated with the <see cref="T:NationalInstruments.VeriStand.SystemDefinitionAPI.CANPort" crefType="Unqualified" />."""
-        return _wrap(self._dotnet_instance.LinkedDatabase)
+        dotnet_result = self._dotnet_instance.LinkedDatabase
+        return _wrap(dotnet_result)
 
     @linked_database.setter
     def linked_database(self, value: BaseNode):
         """Gets or sets the XNET database associated with the <see cref="T:NationalInstruments.VeriStand.SystemDefinitionAPI.CANPort" crefType="Unqualified" />."""
-        self._dotnet_instance.LinkedDatabase = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.LinkedDatabase = next(unwrapped)
 
     @property
     def baud_rate_bitfield(self) -> int:
         """Gets or sets the baud rate bitfield of the CAN port."""
-        return _wrap(self._dotnet_instance.BaudRateBitfield)
+        dotnet_result = self._dotnet_instance.BaudRateBitfield
+        return _wrap(dotnet_result)
 
     @baud_rate_bitfield.setter
     def baud_rate_bitfield(self, value: int):
         """Gets or sets the baud rate bitfield of the CAN port."""
-        self._dotnet_instance.BaudRateBitfield = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.BaudRateBitfield = next(unwrapped)
 
     @property
     def baud_rate(self) -> int:
         """Gets or sets the baud rate of the CAN port."""
-        return _wrap(self._dotnet_instance.BaudRate)
+        dotnet_result = self._dotnet_instance.BaudRate
+        return _wrap(dotnet_result)
 
     @baud_rate.setter
     def baud_rate(self, value: int):
         """Gets or sets the baud rate of the CAN port."""
-        self._dotnet_instance.BaudRate = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.BaudRate = next(unwrapped)
 
     @property
     def fd_baud_rate_bitfield(self) -> int:
         """Gets or sets the FD baud rate bitfield of the CAN port."""
-        return _wrap(self._dotnet_instance.FDBaudRateBitfield)
+        dotnet_result = self._dotnet_instance.FDBaudRateBitfield
+        return _wrap(dotnet_result)
 
     @fd_baud_rate_bitfield.setter
     def fd_baud_rate_bitfield(self, value: int):
         """Gets or sets the FD baud rate bitfield of the CAN port."""
-        self._dotnet_instance.FDBaudRateBitfield = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.FDBaudRateBitfield = next(unwrapped)
 
     @property
     def fd_baud_rate(self) -> int:
         """Gets or sets the FD baud rate of the CAN port."""
-        return _wrap(self._dotnet_instance.FDBaudRate)
+        dotnet_result = self._dotnet_instance.FDBaudRate
+        return _wrap(dotnet_result)
 
     @fd_baud_rate.setter
     def fd_baud_rate(self, value: int):
         """Gets or sets the FD baud rate of the CAN port."""
-        self._dotnet_instance.FDBaudRate = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.FDBaudRate = next(unwrapped)
 
     @property
     def fdiso_mode(self) -> FDISOMode:
         """Gets or sets the FD ISO mode of the CAN port."""
-        return _wrap(self._dotnet_instance.FDISOMode)
+        dotnet_result = self._dotnet_instance.FDISOMode
+        return _wrap(dotnet_result)
 
     @fdiso_mode.setter
     def fdiso_mode(self, value: FDISOMode):
         """Gets or sets the FD ISO mode of the CAN port."""
-        self._dotnet_instance.FDISOMode = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.FDISOMode = next(unwrapped)
 
     @property
     def cluster_name(self) -> str:
         """Gets or sets the name of the cluster in <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.CANPort.LinkedDatabase" crefType="Unqualified" /> that is associated with the <see cref="T:NationalInstruments.VeriStand.SystemDefinitionAPI.CANPort" crefType="Unqualified" />."""
-        return _wrap(self._dotnet_instance.ClusterName)
+        dotnet_result = self._dotnet_instance.ClusterName
+        return _wrap(dotnet_result)
 
     @cluster_name.setter
     def cluster_name(self, value: str):
         """Gets or sets the name of the cluster in <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.CANPort.LinkedDatabase" crefType="Unqualified" /> that is associated with the <see cref="T:NationalInstruments.VeriStand.SystemDefinitionAPI.CANPort" crefType="Unqualified" />."""
-        self._dotnet_instance.ClusterName = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.ClusterName = next(unwrapped)
 
     @property
     def incoming_rate(self) -> int:
         """Gets or sets the processing rate for incoming frames in hertz."""
-        return _wrap(self._dotnet_instance.IncomingRate)
+        dotnet_result = self._dotnet_instance.IncomingRate
+        return _wrap(dotnet_result)
 
     @incoming_rate.setter
     def incoming_rate(self, value: int):
         """Gets or sets the processing rate for incoming frames in hertz."""
-        self._dotnet_instance.IncomingRate = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.IncomingRate = next(unwrapped)
 
     @property
     def outgoing_rate(self) -> int:
         """Gets or sets the processing rate for outgoing frames in hertz."""
-        return _wrap(self._dotnet_instance.OutgoingRate)
+        dotnet_result = self._dotnet_instance.OutgoingRate
+        return _wrap(dotnet_result)
 
     @outgoing_rate.setter
     def outgoing_rate(self, value: int):
         """Gets or sets the processing rate for outgoing frames in hertz."""
-        self._dotnet_instance.OutgoingRate = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.OutgoingRate = next(unwrapped)
 
     @property
     def echo(self) -> bool:
         """Gets or sets whether sessions contain frames that the interface transmits. If <see langword="true" />, when frame transmission is complete for an output (outgoing) session, the frame is echoed to the input (incoming) session."""
-        return _wrap(self._dotnet_instance.Echo)
+        dotnet_result = self._dotnet_instance.Echo
+        return _wrap(dotnet_result)
 
     @echo.setter
     def echo(self, value: bool):
         """Gets or sets whether sessions contain frames that the interface transmits. If <see langword="true" />, when frame transmission is complete for an output (outgoing) session, the frame is echoed to the input (incoming) session."""
-        self._dotnet_instance.Echo = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.Echo = next(unwrapped)
 
     @property
     def input_stream_queue_size(self) -> int:
         """Gets or sets the queue size for the input stream. For signal I/O sessions, this is the number of signal values stored. For frame I/O sessions, this is the number of bytes of frame data stored."""
-        return _wrap(self._dotnet_instance.InputStreamQueueSize)
+        dotnet_result = self._dotnet_instance.InputStreamQueueSize
+        return _wrap(dotnet_result)
 
     @input_stream_queue_size.setter
     def input_stream_queue_size(self, value: int):
         """Gets or sets the queue size for the input stream. For signal I/O sessions, this is the number of signal values stored. For frame I/O sessions, this is the number of bytes of frame data stored."""
-        self._dotnet_instance.InputStreamQueueSize = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.InputStreamQueueSize = next(unwrapped)
 
     @property
     def can_bus_off(self) -> bool:
         """Gets or sets whether the CAN bus is recovered if it switches off due to a physical fault on the bus."""
-        return _wrap(self._dotnet_instance.CANBusOff)
+        dotnet_result = self._dotnet_instance.CANBusOff
+        return _wrap(dotnet_result)
 
     @can_bus_off.setter
     def can_bus_off(self, value: bool):
         """Gets or sets whether the CAN bus is recovered if it switches off due to a physical fault on the bus."""
-        self._dotnet_instance.CANBusOff = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.CANBusOff = next(unwrapped)
 
     @property
     def can_bus_off_rate(self) -> int:
         """Gets or sets the bit rate at which to check the state of the CAN bus (active or off)."""
-        return _wrap(self._dotnet_instance.CANBusOffRate)
+        dotnet_result = self._dotnet_instance.CANBusOffRate
+        return _wrap(dotnet_result)
 
     @can_bus_off_rate.setter
     def can_bus_off_rate(self, value: int):
         """Gets or sets the bit rate at which to check the state of the CAN bus (active or off)."""
-        self._dotnet_instance.CANBusOffRate = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.CANBusOffRate = next(unwrapped)
 
     @property
     def afpini_file(self) -> str:
         """Gets the name of the <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.CANPort.AFPBinaryFile" crefType="Unqualified" /> used for automatic frame processing."""
-        return _wrap(self._dotnet_instance.AFPINIFile)
+        dotnet_result = self._dotnet_instance.AFPINIFile
+        return _wrap(dotnet_result)
 
     @property
     def afp_binary_file(self) -> DependentFile:
         """Gets the binary (<format type="monospace">.ini</format>) file used for automatic frame processing."""
-        return _wrap(self._dotnet_instance.AFPBinaryFile)
+        dotnet_result = self._dotnet_instance.AFPBinaryFile
+        return _wrap(dotnet_result)
 
     @property
     def afp_global_data(self) -> Sequence[int]:
         """Gets the global data used for automatic frame processing."""
-        return _wrap(self._dotnet_instance.AFPGlobalData)
+        dotnet_result = self._dotnet_instance.AFPGlobalData
+        return _wrap(dotnet_result)
 
     @property
     def inline_incoming(self) -> bool:
         """Gets or sets whether to process incoming frames inline with the VeriStand Engine's Primary Control Loop (PCL). By default, NI VeriStand runs incoming and outgoing frame sessions asynchronously, or in a parallel loop to the PCL."""
-        return _wrap(self._dotnet_instance.InlineIncoming)
+        dotnet_result = self._dotnet_instance.InlineIncoming
+        return _wrap(dotnet_result)
 
     @inline_incoming.setter
     def inline_incoming(self, value: bool):
         """Gets or sets whether to process incoming frames inline with the VeriStand Engine's Primary Control Loop (PCL). By default, NI VeriStand runs incoming and outgoing frame sessions asynchronously, or in a parallel loop to the PCL."""
-        self._dotnet_instance.InlineIncoming = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.InlineIncoming = next(unwrapped)
 
     @property
     def inline_outgoing(self) -> bool:
         """Gets or sets whether to process outgoing frames inline with the VeriStand Engine's Primary Control Loop (PCL). By default, NI VeriStand runs incoming and outgoing frame sessions asynchronously, or in a parallel loop to the PCL."""
-        return _wrap(self._dotnet_instance.InlineOutgoing)
+        dotnet_result = self._dotnet_instance.InlineOutgoing
+        return _wrap(dotnet_result)
 
     @inline_outgoing.setter
     def inline_outgoing(self, value: bool):
         """Gets or sets whether to process outgoing frames inline with the VeriStand Engine's Primary Control Loop (PCL). By default, NI VeriStand runs incoming and outgoing frame sessions asynchronously, or in a parallel loop to the PCL."""
-        self._dotnet_instance.InlineOutgoing = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.InlineOutgoing = next(unwrapped)
 
     @property
     def disabled(self) -> bool:
         """Gets or sets whether the port is disabled."""
-        return _wrap(self._dotnet_instance.Disabled)
+        dotnet_result = self._dotnet_instance.Disabled
+        return _wrap(dotnet_result)
 
     @disabled.setter
     def disabled(self, value: bool):
         """Gets or sets whether the port is disabled."""
-        self._dotnet_instance.Disabled = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.Disabled = next(unwrapped)
 
     @property
     def termination(self) -> XNETTermination:
         """Gets or sets the onboard <see cref="T:NationalInstruments.VeriStand.SystemDefinitionAPI.XNETTermination" crefType="Unqualified" />."""
-        return _wrap(self._dotnet_instance.Termination)
+        dotnet_result = self._dotnet_instance.Termination
+        return _wrap(dotnet_result)
 
     @termination.setter
     def termination(self, value: XNETTermination):
         """Gets or sets the onboard <see cref="T:NationalInstruments.VeriStand.SystemDefinitionAPI.XNETTermination" crefType="Unqualified" />."""
-        self._dotnet_instance.Termination = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.Termination = next(unwrapped)
 
     @property
     def transceiver_type(self) -> CANTransceiverType:
         """Gets or sets the <see cref="T:NationalInstruments.VeriStand.SystemDefinitionAPI.CANTransceiverType" crefType="Unqualified" /> for the port. Transceivers can be high-speed (<format type="monospace">HS</format>), low-speed (<format type="monospace">LS</format>), or single wire (<format type="monospace">SW</format>)."""
-        return _wrap(self._dotnet_instance.TransceiverType)
+        dotnet_result = self._dotnet_instance.TransceiverType
+        return _wrap(dotnet_result)
 
     @transceiver_type.setter
     def transceiver_type(self, value: CANTransceiverType):
         """Gets or sets the <see cref="T:NationalInstruments.VeriStand.SystemDefinitionAPI.CANTransceiverType" crefType="Unqualified" /> for the port. Transceivers can be high-speed (<format type="monospace">HS</format>), low-speed (<format type="monospace">LS</format>), or single wire (<format type="monospace">SW</format>)."""
-        self._dotnet_instance.TransceiverType = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.TransceiverType = next(unwrapped)
 
     @property
     def transmit_order_type(self) -> CANTransmitOrderType:
         """Gets or sets the <see cref="T:NationalInstruments.VeriStand.SystemDefinitionAPI.CANTransmitOrderType" crefType="Unqualified" /> for the port. You can transmit frames to the CAN bus <format type="monospace">AsSubmitted</format> or <format type="monospace">ByIdentifier</format>."""
-        return _wrap(self._dotnet_instance.TransmitOrderType)
+        dotnet_result = self._dotnet_instance.TransmitOrderType
+        return _wrap(dotnet_result)
 
     @transmit_order_type.setter
     def transmit_order_type(self, value: CANTransmitOrderType):
         """Gets or sets the <see cref="T:NationalInstruments.VeriStand.SystemDefinitionAPI.CANTransmitOrderType" crefType="Unqualified" /> for the port. You can transmit frames to the CAN bus <format type="monospace">AsSubmitted</format> or <format type="monospace">ByIdentifier</format>."""
-        self._dotnet_instance.TransmitOrderType = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.TransmitOrderType = next(unwrapped)
 
     @property
     def input_stream_read_time(self) -> float:
         """Gets or sets the read time for the input stream. For signal I/O sessions, this is the timeout for the raw frame read.  After this amount of time has elapsed, any frames available from the hardware will be read."""
-        return _wrap(self._dotnet_instance.InputStreamReadTime)
+        dotnet_result = self._dotnet_instance.InputStreamReadTime
+        return _wrap(dotnet_result)
 
     @input_stream_read_time.setter
     def input_stream_read_time(self, value: float):
         """Gets or sets the read time for the input stream. For signal I/O sessions, this is the timeout for the raw frame read.  After this amount of time has elapsed, any frames available from the hardware will be read."""
-        self._dotnet_instance.InputStreamReadTime = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.InputStreamReadTime = next(unwrapped)
 
     @overload
     def get_incoming(self) -> Incoming:
         ...
 
     def get_incoming(self, *args):
-        return _wrap(self._dotnet_instance.GetIncoming(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetIncoming(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_outgoing(self) -> Outgoing:
         ...
 
     def get_outgoing(self, *args):
-        return _wrap(self._dotnet_instance.GetOutgoing(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetOutgoing(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_interface_section(self) -> CANInterfaceChannels:
         ...
 
     def get_interface_section(self, *args):
-        return _wrap(self._dotnet_instance.GetInterfaceSection(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetInterfaceSection(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def create_interface_section(self) -> CANInterfaceChannels:
         ...
 
     def create_interface_section(self, *args):
-        return _wrap(self._dotnet_instance.CreateInterfaceSection(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.CreateInterfaceSection(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def remove_automatic_frame_processing(self):
         ...
 
     def remove_automatic_frame_processing(self, *args):
-        return _wrap(self._dotnet_instance.RemoveAutomaticFrameProcessing(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.RemoveAutomaticFrameProcessing(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def remove986x_support(self):
         ...
 
     def remove986x_support(self, *args):
-        return _wrap(self._dotnet_instance.Remove986xSupport(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.Remove986xSupport(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def set986x_support(self, file: DependentFile, rio_port_number: int):
         ...
 
     def set986x_support(self, *args):
-        return _wrap(self._dotnet_instance.Set986xSupport(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.Set986xSupport(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def set_automatic_frame_processing(self, ini_file_name: str, binary_file_path: str, global_data: Sequence[int]):
         ...
 
     def set_automatic_frame_processing(self, *args):
-        return _wrap(self._dotnet_instance.SetAutomaticFrameProcessing(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.SetAutomaticFrameProcessing(*unwrapped)
+        return _wrap(dotnet_result)
 
 
 class CRC(Section):
@@ -6567,56 +7736,68 @@ class CRC(Section):
     @property
     def max_afp_length(self) -> int:
         """Gets or sets the maximum AFP (automatic frame processing) length, which corresponds to the order of the generator polynomial for CRC."""
-        return _wrap(self._dotnet_instance.MaxAFPLength)
+        dotnet_result = self._dotnet_instance.MaxAFPLength
+        return _wrap(dotnet_result)
 
     @max_afp_length.setter
     def max_afp_length(self, value: int):
         """Gets or sets the maximum AFP (automatic frame processing) length, which corresponds to the order of the generator polynomial for CRC."""
-        self._dotnet_instance.MaxAFPLength = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.MaxAFPLength = next(unwrapped)
 
     @property
     def index_crc(self) -> int:
         """Gets or sets the index of the CRC within the frame."""
-        return _wrap(self._dotnet_instance.IndexCRC)
+        dotnet_result = self._dotnet_instance.IndexCRC
+        return _wrap(dotnet_result)
 
     @index_crc.setter
     def index_crc(self, value: int):
         """Gets or sets the index of the CRC within the frame."""
-        self._dotnet_instance.IndexCRC = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.IndexCRC = next(unwrapped)
 
     @property
     def afp_data(self) -> Sequence[int]:
         """Gets or sets an array of data used to configure the <see cref="T:NationalInstruments.VeriStand.SystemDefinitionAPI.CRC" crefType="Unqualified" /> feature of <see cref="T:NationalInstruments.VeriStand.SystemDefinitionAPI.AutomaticFrameProcessing" crefType="Unqualified" />."""
-        return _wrap(self._dotnet_instance.AFPData)
+        dotnet_result = self._dotnet_instance.AFPData
+        return _wrap(dotnet_result)
 
     @afp_data.setter
     def afp_data(self, value: Sequence[int]):
         """Gets or sets an array of data used to configure the <see cref="T:NationalInstruments.VeriStand.SystemDefinitionAPI.CRC" crefType="Unqualified" /> feature of <see cref="T:NationalInstruments.VeriStand.SystemDefinitionAPI.AutomaticFrameProcessing" crefType="Unqualified" />."""
-        self._dotnet_instance.AFPData = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.AFPData = next(unwrapped)
 
     @property
     def use_alternate_channel(self) -> bool:
         """Gets whether the <format type="italics">AlternateChannel</format> specified by <see cref="M:NationalInstruments.VeriStand.SystemDefinitionAPI.CRC.SetAlternateChannel(NationalInstruments.VeriStand.SystemDefinitionAPI.BaseNode)" crefType="Unqualified" /> is used to trigger writing data."""
-        return _wrap(self._dotnet_instance.UseAlternateChannel)
+        dotnet_result = self._dotnet_instance.UseAlternateChannel
+        return _wrap(dotnet_result)
 
     @property
     def alternate_channel(self) -> BaseNode:
         """Gets the channel used to trigger writing data when <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.CRC.UseAlternateChannel" crefType="Unqualified" /> is <see langword="true" />."""
-        return _wrap(self._dotnet_instance.AlternateChannel)
+        dotnet_result = self._dotnet_instance.AlternateChannel
+        return _wrap(dotnet_result)
 
     @overload
     def remove_alternate_channel(self):
         ...
 
     def remove_alternate_channel(self, *args):
-        return _wrap(self._dotnet_instance.RemoveAlternateChannel(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.RemoveAlternateChannel(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def set_alternate_channel(self, alternate_channel: BaseNode):
         ...
 
     def set_alternate_channel(self, *args):
-        return _wrap(self._dotnet_instance.SetAlternateChannel(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.SetAlternateChannel(*unwrapped)
+        return _wrap(dotnet_result)
 
 
 class CalculatedChannelFolder(Section):
@@ -6632,7 +7813,8 @@ class CalculatedChannelFolder(Section):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.CalculatedChannelFolder:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.CalculatedChannelFolder(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.CalculatedChannelFolder(*unwrapped)
 
     @overload
     def get_calculated_channels_list(self) -> Sequence[CalculatedChannel]:
@@ -6643,7 +7825,9 @@ class CalculatedChannelFolder(Section):
         ...
 
     def get_calculated_channels_list(self, *args):
-        return _wrap(self._dotnet_instance.GetCalculatedChannelsList(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetCalculatedChannelsList(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_calculated_channel_folder_list(self) -> Sequence[CalculatedChannelFolder]:
@@ -6654,21 +7838,27 @@ class CalculatedChannelFolder(Section):
         ...
 
     def get_calculated_channel_folder_list(self, *args):
-        return _wrap(self._dotnet_instance.GetCalculatedChannelFolderList(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetCalculatedChannelFolderList(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_calculated_channel(self, calculated_channel: CalculatedChannel) -> bool:
         ...
 
     def add_calculated_channel(self, *args):
-        return _wrap(self._dotnet_instance.AddCalculatedChannel(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.AddCalculatedChannel(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_calculated_channel_folder(self, folder: CalculatedChannelFolder) -> bool:
         ...
 
     def add_calculated_channel_folder(self, *args):
-        return _wrap(self._dotnet_instance.AddCalculatedChannelFolder(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.AddCalculatedChannelFolder(*unwrapped)
+        return _wrap(dotnet_result)
 
 
 class CalculatedChannels(Section):
@@ -6687,14 +7877,18 @@ class CalculatedChannels(Section):
         ...
 
     def reorder_channel_list(self, *args):
-        return _wrap(self._dotnet_instance.ReorderChannelList(*_unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.ReorderChannelList(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_ordered_channel_list(self) -> Sequence[CalculatedChannel]:
         ...
 
     def get_ordered_channel_list(self, *args):
-        return _wrap(self._dotnet_instance.GetOrderedChannelList(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetOrderedChannelList(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_calculated_channel_folder_list(self) -> Sequence[CalculatedChannelFolder]:
@@ -6705,84 +7899,108 @@ class CalculatedChannels(Section):
         ...
 
     def get_calculated_channel_folder_list(self, *args):
-        return _wrap(self._dotnet_instance.GetCalculatedChannelFolderList(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetCalculatedChannelFolderList(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_calculated_channel_folder(self, folder: CalculatedChannelFolder) -> bool:
         ...
 
     def add_calculated_channel_folder(self, *args):
-        return _wrap(self._dotnet_instance.AddCalculatedChannelFolder(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.AddCalculatedChannelFolder(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_calculated_channel_list(self) -> Sequence[CalculatedChannel]:
         ...
 
     def get_calculated_channel_list(self, *args):
-        return _wrap(self._dotnet_instance.GetCalculatedChannelList(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetCalculatedChannelList(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_calculated_channel(self, calculated_channel: CalculatedChannel) -> bool:
         ...
 
     def add_calculated_channel(self, *args):
-        return _wrap(self._dotnet_instance.AddCalculatedChannel(*_unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.AddCalculatedChannel(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_formula(self, formula: Formula) -> bool:
         ...
 
     def add_formula(self, *args):
-        return _wrap(self._dotnet_instance.AddFormula(*_unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.AddFormula(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_maximum(self, maximum: Maximum) -> bool:
         ...
 
     def add_maximum(self, *args):
-        return _wrap(self._dotnet_instance.AddMaximum(*_unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.AddMaximum(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_minimum(self, minimum: Minimum) -> bool:
         ...
 
     def add_minimum(self, *args):
-        return _wrap(self._dotnet_instance.AddMinimum(*_unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.AddMinimum(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_lowpass_filter(self, lowpass_filter: LowpassFilter) -> bool:
         ...
 
     def add_lowpass_filter(self, *args):
-        return _wrap(self._dotnet_instance.AddLowpassFilter(*_unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.AddLowpassFilter(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_peak_and_valley(self, peak_and_valley: PeakAndValley) -> bool:
         ...
 
     def add_peak_and_valley(self, *args):
-        return _wrap(self._dotnet_instance.AddPeakAndValley(*_unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.AddPeakAndValley(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_acceleration(self, acceleration: Acceleration) -> bool:
         ...
 
     def add_acceleration(self, *args):
-        return _wrap(self._dotnet_instance.AddAcceleration(*_unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.AddAcceleration(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_average(self, average: Average) -> bool:
         ...
 
     def add_average(self, *args):
-        return _wrap(self._dotnet_instance.AddAverage(*_unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.AddAverage(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_conditional(self, conditional: Conditional) -> bool:
         ...
 
     def add_conditional(self, *args):
-        return _wrap(self._dotnet_instance.AddConditional(*_unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.AddConditional(*unwrapped)
+        return _wrap(dotnet_result)
 
 
 class Channel(BaseNode, IChannel):
@@ -6802,43 +8020,52 @@ class Channel(BaseNode, IChannel):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.Channel:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.Channel(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.Channel(*unwrapped)
 
     @_staticproperty
     def k_readable() -> int:
-        return _wrap(NationalInstruments.VeriStand.SystemDefinitionAPI.Channel.K_READABLE)
+        dotnet_result = NationalInstruments.VeriStand.SystemDefinitionAPI.Channel.K_READABLE
+        return _wrap(dotnet_result)
 
     @_staticproperty
     def k_writable() -> int:
-        return _wrap(NationalInstruments.VeriStand.SystemDefinitionAPI.Channel.K_WRITABLE)
+        dotnet_result = NationalInstruments.VeriStand.SystemDefinitionAPI.Channel.K_WRITABLE
+        return _wrap(dotnet_result)
 
     @_staticproperty
     def k_faultable() -> int:
-        return _wrap(NationalInstruments.VeriStand.SystemDefinitionAPI.Channel.K_FAULTABLE)
+        dotnet_result = NationalInstruments.VeriStand.SystemDefinitionAPI.Channel.K_FAULTABLE
+        return _wrap(dotnet_result)
 
     @_staticproperty
     def k_scalable() -> int:
-        return _wrap(NationalInstruments.VeriStand.SystemDefinitionAPI.Channel.K_SCALABLE)
+        dotnet_result = NationalInstruments.VeriStand.SystemDefinitionAPI.Channel.K_SCALABLE
+        return _wrap(dotnet_result)
 
     @property
     def scale(self) -> Scale:
         """Gets or sets the value of the scale property on the channel."""
-        return _wrap(self._dotnet_instance.Scale)
+        dotnet_result = self._dotnet_instance.Scale
+        return _wrap(dotnet_result)
 
     @scale.setter
     def scale(self, value: Scale):
         """Gets or sets the value of the scale property on the channel."""
-        self._dotnet_instance.Scale = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.Scale = next(unwrapped)
 
     @property
     def bit_fields(self) -> int:
         """Gets a bitfield mask that is set on the channel."""
-        return _wrap(self._dotnet_instance.BitFields)
+        dotnet_result = self._dotnet_instance.BitFields
+        return _wrap(dotnet_result)
 
     @property
     def default_value(self) -> Sequence[float]:
         """Gets the default value of the channel."""
-        return _wrap(self._dotnet_instance.DefaultValue)
+        dotnet_result = self._dotnet_instance.DefaultValue
+        return _wrap(dotnet_result)
 
 
 class Chassis(Section):
@@ -6854,70 +8081,89 @@ class Chassis(Section):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.Chassis:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.Chassis(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.Chassis(*unwrapped)
 
     @overload
     def clear_chassis_master_device(self):
         ...
 
     def clear_chassis_master_device(self, *args):
-        return _wrap(self._dotnet_instance.ClearChassisMasterDevice(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.ClearChassisMasterDevice(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def set_chassis_master_to_daq(self, daq_name: str, clk_src: DAQCM_Clock_Source, active_edge: DAQCM_Active_Edge, export_clk: DAQCM_Export_Sample_Clock, export_clk_to_line: DAQCM_Export_Clk_On_Line, trigger_line: DAQCM_Trigger_Line, trigger_slope: DAQCM_Slope, start_trigger: DAQCM_Export_Start_Trigger, start_trigger_line: DAQCM_Export_StartTrigger_On_Line) -> bool:
         ...
 
     def set_chassis_master_to_daq(self, *args):
-        return _wrap(self._dotnet_instance.SetChassisMasterToDAQ(*_unwrap({None: (9, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (9, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.SetChassisMasterToDAQ(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def set_chassis_master_to_fpga(self, fpga_name: str) -> bool:
         ...
 
     def set_chassis_master_to_fpga(self, *args):
-        return _wrap(self._dotnet_instance.SetChassisMasterToFPGA(*_unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.SetChassisMasterToFPGA(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def set_chassis_master_to_timing_and_sync(self, timing_and_sync_name: str) -> bool:
         ...
 
     def set_chassis_master_to_timing_and_sync(self, *args):
-        return _wrap(self._dotnet_instance.SetChassisMasterToTimingAndSync(*_unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.SetChassisMasterToTimingAndSync(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_timing_and_sync(self) -> TimingAndSync:
         ...
 
     def get_timing_and_sync(self, *args):
-        return _wrap(self._dotnet_instance.GetTimingAndSync(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetTimingAndSync(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_daq(self) -> DAQ:
         ...
 
     def get_daq(self, *args):
-        return _wrap(self._dotnet_instance.GetDAQ(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetDAQ(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_fpga(self) -> FPGA:
         ...
 
     def get_fpga(self, *args):
-        return _wrap(self._dotnet_instance.GetFPGA(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetFPGA(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_xnet(self) -> XNET:
         ...
 
     def get_xnet(self, *args):
-        return _wrap(self._dotnet_instance.GetXNET(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetXNET(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_data_sharing(self) -> DataSharing:
         ...
 
     def get_data_sharing(self, *args):
-        return _wrap(self._dotnet_instance.GetDataSharing(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetDataSharing(*unwrapped)
+        return _wrap(dotnet_result)
 
 
 class Command(Section):
@@ -6949,52 +8195,62 @@ class Condition(Command):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.Condition:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.Condition(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.Condition(*unwrapped)
 
     @property
     def comparison(self) -> ConditionStepComparison:
         """Gets or sets the condition to use when comparing <format type="italics">Variable</format> and <format type="italics">Value</format>."""
-        return _wrap(self._dotnet_instance.Comparison)
+        dotnet_result = self._dotnet_instance.Comparison
+        return _wrap(dotnet_result)
 
     @comparison.setter
     def comparison(self, value: ConditionStepComparison):
         """Gets or sets the condition to use when comparing <format type="italics">Variable</format> and <format type="italics">Value</format>."""
-        self._dotnet_instance.Comparison = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.Comparison = next(unwrapped)
 
     @property
     def value_constant(self) -> float:
         """Gets the constant value that is compared to <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.Condition.Variable" crefType="Unqualified" />."""
-        return _wrap(self._dotnet_instance.ValueConstant)
+        dotnet_result = self._dotnet_instance.ValueConstant
+        return _wrap(dotnet_result)
 
     @property
     def value_is_constant(self) -> bool:
         """Gets whether the value compared to <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.Condition.Variable" crefType="Unqualified" /> is determined by a channel or by a constant."""
-        return _wrap(self._dotnet_instance.ValueIsConstant)
+        dotnet_result = self._dotnet_instance.ValueIsConstant
+        return _wrap(dotnet_result)
 
     @property
     def goto_label(self) -> BaseNode:
         """Gets or sets the procedure step to go to if the condition is met."""
-        return _wrap(self._dotnet_instance.GotoLabel)
+        dotnet_result = self._dotnet_instance.GotoLabel
+        return _wrap(dotnet_result)
 
     @goto_label.setter
     def goto_label(self, value: BaseNode):
         """Gets or sets the procedure step to go to if the condition is met."""
-        self._dotnet_instance.GotoLabel = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.GotoLabel = next(unwrapped)
 
     @property
     def variable(self) -> BaseNode:
         """Gets or sets the channel against which to test the condition."""
-        return _wrap(self._dotnet_instance.Variable)
+        dotnet_result = self._dotnet_instance.Variable
+        return _wrap(dotnet_result)
 
     @variable.setter
     def variable(self, value: BaseNode):
         """Gets or sets the channel against which to test the condition."""
-        self._dotnet_instance.Variable = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.Variable = next(unwrapped)
 
     @property
     def value_channel(self) -> BaseNode:
         """Gets the channel that specifies the value that is compared to <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.Condition.Variable" crefType="Unqualified" />."""
-        return _wrap(self._dotnet_instance.ValueChannel)
+        dotnet_result = self._dotnet_instance.ValueChannel
+        return _wrap(dotnet_result)
 
     @overload
     def set_value(self, value: float):
@@ -7005,7 +8261,9 @@ class Condition(Command):
         ...
 
     def set_value(self, *args):
-        return _wrap(self._dotnet_instance.SetValue(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.SetValue(*unwrapped)
+        return _wrap(dotnet_result)
 
 
 class Counter(Section):
@@ -7022,56 +8280,68 @@ class Counter(Section):
     @property
     def max_afp_length(self) -> int:
         """Gets or sets the maximum AFP (automatic frame processing) length, which corresponds to the order of the generator polynomial for CRC."""
-        return _wrap(self._dotnet_instance.MaxAFPLength)
+        dotnet_result = self._dotnet_instance.MaxAFPLength
+        return _wrap(dotnet_result)
 
     @max_afp_length.setter
     def max_afp_length(self, value: int):
         """Gets or sets the maximum AFP (automatic frame processing) length, which corresponds to the order of the generator polynomial for CRC."""
-        self._dotnet_instance.MaxAFPLength = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.MaxAFPLength = next(unwrapped)
 
     @property
     def index_counter(self) -> int:
         """Gets or sets the index of the counter within the frame."""
-        return _wrap(self._dotnet_instance.IndexCounter)
+        dotnet_result = self._dotnet_instance.IndexCounter
+        return _wrap(dotnet_result)
 
     @index_counter.setter
     def index_counter(self, value: int):
         """Gets or sets the index of the counter within the frame."""
-        self._dotnet_instance.IndexCounter = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.IndexCounter = next(unwrapped)
 
     @property
     def afp_data(self) -> Sequence[int]:
         """Gets or sets an array of data used to configure the <see cref="T:NationalInstruments.VeriStand.SystemDefinitionAPI.Counter" crefType="Unqualified" /> feature of <see cref="T:NationalInstruments.VeriStand.SystemDefinitionAPI.AutomaticFrameProcessing" crefType="Unqualified" />."""
-        return _wrap(self._dotnet_instance.AFPData)
+        dotnet_result = self._dotnet_instance.AFPData
+        return _wrap(dotnet_result)
 
     @afp_data.setter
     def afp_data(self, value: Sequence[int]):
         """Gets or sets an array of data used to configure the <see cref="T:NationalInstruments.VeriStand.SystemDefinitionAPI.Counter" crefType="Unqualified" /> feature of <see cref="T:NationalInstruments.VeriStand.SystemDefinitionAPI.AutomaticFrameProcessing" crefType="Unqualified" />."""
-        self._dotnet_instance.AFPData = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.AFPData = next(unwrapped)
 
     @property
     def use_alternate_channel(self) -> bool:
         """Gets whether the <format type="italics">AlternateChannel</format> specified by <see cref="M:NationalInstruments.VeriStand.SystemDefinitionAPI.Counter.SetAlternateChannel(NationalInstruments.VeriStand.SystemDefinitionAPI.BaseNode)" crefType="Unqualified" /> is used to trigger writing data."""
-        return _wrap(self._dotnet_instance.UseAlternateChannel)
+        dotnet_result = self._dotnet_instance.UseAlternateChannel
+        return _wrap(dotnet_result)
 
     @property
     def alternate_channel(self) -> BaseNode:
         """Gets the channel used to trigger writing data when <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.Counter.UseAlternateChannel" crefType="Unqualified" /> is <see langword="true" />."""
-        return _wrap(self._dotnet_instance.AlternateChannel)
+        dotnet_result = self._dotnet_instance.AlternateChannel
+        return _wrap(dotnet_result)
 
     @overload
     def remove_alternate_channel(self):
         ...
 
     def remove_alternate_channel(self, *args):
-        return _wrap(self._dotnet_instance.RemoveAlternateChannel(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.RemoveAlternateChannel(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def set_alternate_channel(self, alternate_channel: BaseNode):
         ...
 
     def set_alternate_channel(self, *args):
-        return _wrap(self._dotnet_instance.SetAlternateChannel(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.SetAlternateChannel(*unwrapped)
+        return _wrap(dotnet_result)
 
 
 class CustomDevice(CustomDeviceSection):
@@ -7087,178 +8357,219 @@ class CustomDevice(CustomDeviceSection):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.CustomDevice:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.CustomDevice(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.CustomDevice(*unwrapped)
 
     @property
     def timed_loop_priority(self) -> CDTimeLoopPriority:
         """Gets or sets the priority (<format type="monospace">High</format>, <format type="monospace">Low</format>, or <format type="monospace">Medium</format>) of the Timed Loop in which an asynchronous custom device runs. This property only applies to asynchronous custom devices that run in Timed Loops."""
-        return _wrap(self._dotnet_instance.TimedLoopPriority)
+        dotnet_result = self._dotnet_instance.TimedLoopPriority
+        return _wrap(dotnet_result)
 
     @timed_loop_priority.setter
     def timed_loop_priority(self, value: CDTimeLoopPriority):
         """Gets or sets the priority (<format type="monospace">High</format>, <format type="monospace">Low</format>, or <format type="monospace">Medium</format>) of the Timed Loop in which an asynchronous custom device runs. This property only applies to asynchronous custom devices that run in Timed Loops."""
-        self._dotnet_instance.TimedLoopPriority = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.TimedLoopPriority = next(unwrapped)
 
     @property
     def loop_type(self) -> CDLoopType:
         """Gets or sets the type of loop (<format type="monospace">TimedLoop</format> or <format type="monospace">WhileLoop</format>) in which the custom device runs. This property only applies to asynchronous custom devices."""
-        return _wrap(self._dotnet_instance.LoopType)
+        dotnet_result = self._dotnet_instance.LoopType
+        return _wrap(dotnet_result)
 
     @loop_type.setter
     def loop_type(self, value: CDLoopType):
         """Gets or sets the type of loop (<format type="monospace">TimedLoop</format> or <format type="monospace">WhileLoop</format>) in which the custom device runs. This property only applies to asynchronous custom devices."""
-        self._dotnet_instance.LoopType = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.LoopType = next(unwrapped)
 
     @property
     def driver_vi_execution_mode(self) -> CDDriverExecMode:
         """Gets or sets the execution mode of the custom device, such as if it runs inline with the Primary Control Loop or asynchronously."""
-        return _wrap(self._dotnet_instance.DriverVIExecutionMode)
+        dotnet_result = self._dotnet_instance.DriverVIExecutionMode
+        return _wrap(dotnet_result)
 
     @driver_vi_execution_mode.setter
     def driver_vi_execution_mode(self, value: CDDriverExecMode):
         """Gets or sets the execution mode of the custom device, such as if it runs inline with the Primary Control Loop or asynchronously."""
-        self._dotnet_instance.DriverVIExecutionMode = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.DriverVIExecutionMode = next(unwrapped)
 
     @property
     def device_enabled_state(self) -> bool:
         """Gets or sets the state (enabled or disabled) of the custom device.
             
              The effect of setting this property will not be visible in System Explorer. Many custom devices provide an alternate TypeGUID and associated glyph to indicate whether the custom device is disabled."""
-        return _wrap(self._dotnet_instance.DeviceEnabledState)
+        dotnet_result = self._dotnet_instance.DeviceEnabledState
+        return _wrap(dotnet_result)
 
     @device_enabled_state.setter
     def device_enabled_state(self, value: bool):
         """Gets or sets the state (enabled or disabled) of the custom device.
             
              The effect of setting this property will not be visible in System Explorer. Many custom devices provide an alternate TypeGUID and associated glyph to indicate whether the custom device is disabled."""
-        self._dotnet_instance.DeviceEnabledState = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.DeviceEnabledState = next(unwrapped)
 
     @property
     def version(self) -> str:
         """Gets or sets information stored with a custom device, such as version information. You can read this string to determine whether to update device dependencies or, if you are migrating a custom device to a new version of NI VeriStand, to determine whether to run mutation code."""
-        return _wrap(self._dotnet_instance.Version)
+        dotnet_result = self._dotnet_instance.Version
+        return _wrap(dotnet_result)
 
     @version.setter
     def version(self, value: str):
         """Gets or sets information stored with a custom device, such as version information. You can read this string to determine whether to update device dependencies or, if you are migrating a custom device to a new version of NI VeriStand, to determine whether to run mutation code."""
-        self._dotnet_instance.Version = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.Version = next(unwrapped)
 
     @property
     def use_device_clock(self) -> bool:
         """Gets or sets whether the Timed Loop in which an asynchronous custom device runs is synchronized with the Primary Control Loop (PCL) timing source. This property only applies to asynchronous custom devices that run in Timed Loops."""
-        return _wrap(self._dotnet_instance.UseDeviceClock)
+        dotnet_result = self._dotnet_instance.UseDeviceClock
+        return _wrap(dotnet_result)
 
     @use_device_clock.setter
     def use_device_clock(self, value: bool):
         """Gets or sets whether the Timed Loop in which an asynchronous custom device runs is synchronized with the Primary Control Loop (PCL) timing source. This property only applies to asynchronous custom devices that run in Timed Loops."""
-        self._dotnet_instance.UseDeviceClock = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.UseDeviceClock = next(unwrapped)
 
     @property
     def decimation(self) -> int:
         """Gets or sets the decimation factor for the custom device, which determines how many iterations of the Primary Control Loop (PCL) occur between calls to the custom device."""
-        return _wrap(self._dotnet_instance.Decimation)
+        dotnet_result = self._dotnet_instance.Decimation
+        return _wrap(dotnet_result)
 
     @decimation.setter
     def decimation(self, value: int):
         """Gets or sets the decimation factor for the custom device, which determines how many iterations of the Primary Control Loop (PCL) occur between calls to the custom device."""
-        self._dotnet_instance.Decimation = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.Decimation = next(unwrapped)
 
     @property
     def fifo_source_depth(self) -> int:
         """Gets or sets the depth of the FIFO at the source. This property defines the size of the buffer for incoming data. This property only applies to asynchronous custom devices."""
-        return _wrap(self._dotnet_instance.FIFOSourceDepth)
+        dotnet_result = self._dotnet_instance.FIFOSourceDepth
+        return _wrap(dotnet_result)
 
     @fifo_source_depth.setter
     def fifo_source_depth(self, value: int):
         """Gets or sets the depth of the FIFO at the source. This property defines the size of the buffer for incoming data. This property only applies to asynchronous custom devices."""
-        self._dotnet_instance.FIFOSourceDepth = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.FIFOSourceDepth = next(unwrapped)
 
     @property
     def fifo_sink_depth(self) -> int:
         """Gets or sets the depth of the FIFO at the sink. This property defines the size of the buffer for outgoing data. This property only applies to asynchronous custom devices."""
-        return _wrap(self._dotnet_instance.FIFOSinkDepth)
+        dotnet_result = self._dotnet_instance.FIFOSinkDepth
+        return _wrap(dotnet_result)
 
     @fifo_sink_depth.setter
     def fifo_sink_depth(self, value: int):
         """Gets or sets the depth of the FIFO at the sink. This property defines the size of the buffer for outgoing data. This property only applies to asynchronous custom devices."""
-        self._dotnet_instance.FIFOSinkDepth = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.FIFOSinkDepth = next(unwrapped)
 
     @overload
     def get_custom_device_channel_list(self) -> Sequence[CustomDeviceChannel]:
         ...
 
     def get_custom_device_channel_list(self, *args):
-        return _wrap(self._dotnet_instance.GetCustomDeviceChannelList(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetCustomDeviceChannelList(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_custom_device_waveform_list(self) -> Sequence[CustomDeviceWaveform]:
         ...
 
     def get_custom_device_waveform_list(self, *args):
-        return _wrap(self._dotnet_instance.GetCustomDeviceWaveformList(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetCustomDeviceWaveformList(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_custom_device_section_list(self) -> Sequence[CustomDeviceSection]:
         ...
 
     def get_custom_device_section_list(self, *args):
-        return _wrap(self._dotnet_instance.GetCustomDeviceSectionList(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetCustomDeviceSectionList(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_dependencies(self) -> Sequence[DependentFile]:
         ...
 
     def get_dependencies(self, *args):
-        return _wrap(self._dotnet_instance.GetDependencies(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetDependencies(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_driver_vi_for_owner_target_type(self) -> DependentFile:
         ...
 
     def get_driver_vi_for_owner_target_type(self, *args):
-        return _wrap(self._dotnet_instance.GetDriverVIForOwnerTargetType(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetDriverVIForOwnerTargetType(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_driver_v_is(self) -> Sequence[DependentFile]:
         ...
 
     def get_driver_v_is(self, *args):
-        return _wrap(self._dotnet_instance.GetDriverVIs(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetDriverVIs(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_timing_source_init_v_is(self) -> Sequence[DependentFile]:
         ...
 
     def get_timing_source_init_v_is(self, *args):
-        return _wrap(self._dotnet_instance.GetTimingSourceInitVIs(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetTimingSourceInitVIs(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_dependencies(self, dependencies: Sequence[DependentFile]):
         ...
 
     def add_dependencies(self, *args):
-        return _wrap(self._dotnet_instance.AddDependencies(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.AddDependencies(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def set_driver_v_is(self, driver_v_is: Sequence[DependentFile]):
         ...
 
     def set_driver_v_is(self, *args):
-        return _wrap(self._dotnet_instance.SetDriverVIs(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.SetDriverVIs(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def set_timing_source_init_v_is(self, timing_source_init_v_is: Sequence[DependentFile]):
         ...
 
     def set_timing_source_init_v_is(self, *args):
-        return _wrap(self._dotnet_instance.SetTimingSourceInitVIs(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.SetTimingSourceInitVIs(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def reset_dependencies(self):
         ...
 
     def reset_dependencies(self, *args):
-        return _wrap(self._dotnet_instance.ResetDependencies(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.ResetDependencies(*unwrapped)
+        return _wrap(dotnet_result)
 
 
 class CustomDeviceChannel(CustomDeviceBase, IChannel):
@@ -7274,69 +8585,83 @@ class CustomDeviceChannel(CustomDeviceBase, IChannel):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.CustomDeviceChannel:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.CustomDeviceChannel(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.CustomDeviceChannel(*unwrapped)
 
     @property
     def type(self) -> CDChannel_Type:
         """Gets or sets whether a custom device channel is an input or output channel. Only input channels are writable."""
-        return _wrap(self._dotnet_instance.Type)
+        dotnet_result = self._dotnet_instance.Type
+        return _wrap(dotnet_result)
 
     @type.setter
     def type(self, value: CDChannel_Type):
         """Gets or sets whether a custom device channel is an input or output channel. Only input channels are writable."""
-        self._dotnet_instance.Type = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.Type = next(unwrapped)
 
     @property
     def faultable(self) -> bool:
         """Gets or sets whether a custom device channel is faultable, meaning the VeriStand Engine can fault the channel using software fault insertion."""
-        return _wrap(self._dotnet_instance.Faultable)
+        dotnet_result = self._dotnet_instance.Faultable
+        return _wrap(dotnet_result)
 
     @faultable.setter
     def faultable(self, value: bool):
         """Gets or sets whether a custom device channel is faultable, meaning the VeriStand Engine can fault the channel using software fault insertion."""
-        self._dotnet_instance.Faultable = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.Faultable = next(unwrapped)
 
     @property
     def scalable(self) -> bool:
         """Gets or sets whether a custom device channel can be calibrated or scaled into specific engineering units."""
-        return _wrap(self._dotnet_instance.Scalable)
+        dotnet_result = self._dotnet_instance.Scalable
+        return _wrap(dotnet_result)
 
     @scalable.setter
     def scalable(self, value: bool):
         """Gets or sets whether a custom device channel can be calibrated or scaled into specific engineering units."""
-        self._dotnet_instance.Scalable = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.Scalable = next(unwrapped)
 
     @property
     def default_value(self) -> float:
         """Gets or sets the default value for a custom device channel."""
-        return _wrap(self._dotnet_instance.DefaultValue)
+        dotnet_result = self._dotnet_instance.DefaultValue
+        return _wrap(dotnet_result)
 
     @default_value.setter
     def default_value(self, value: float):
         """Gets or sets the default value for a custom device channel."""
-        self._dotnet_instance.DefaultValue = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.DefaultValue = next(unwrapped)
 
     @property
     def scale(self) -> Scale:
         """Gets or sets the value of the scale property on the channel."""
-        return _wrap(self._dotnet_instance.Scale)
+        dotnet_result = self._dotnet_instance.Scale
+        return _wrap(dotnet_result)
 
     @scale.setter
     def scale(self, value: Scale):
         """Gets or sets the value of the scale property on the channel."""
-        self._dotnet_instance.Scale = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.Scale = next(unwrapped)
 
     @property
     def bit_fields(self) -> int:
         """For internal use only. Stores various channel settings, such as its type, default value, whether it is faultable or scalable, and so on. Use the <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.CustomDeviceChannel.DefaultValue" crefType="Unqualified" />, <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.CustomDeviceChannel.Faultable" crefType="Unqualified" />, <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.CustomDeviceChannel.Scalable" crefType="Unqualified" />, and <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.CustomDeviceChannel.Type" crefType="Unqualified" /> properties to get the information the bit field contains."""
-        return _wrap(self._dotnet_instance.BitFields)
+        dotnet_result = self._dotnet_instance.BitFields
+        return _wrap(dotnet_result)
 
     @overload
     def set_value_table(self, names: Sequence[str], values: Sequence[float]):
         ...
 
     def set_value_table(self, *args):
-        return _wrap(self._dotnet_instance.SetValueTable(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.SetValueTable(*unwrapped)
+        return _wrap(dotnet_result)
 
 
 class CustomDevices(Section):
@@ -7355,14 +8680,18 @@ class CustomDevices(Section):
         ...
 
     def get_custom_device_list(self, *args):
-        return _wrap(self._dotnet_instance.GetCustomDeviceList(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetCustomDeviceList(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_custom_device(self, custom_device: CustomDevice) -> bool:
         ...
 
     def add_custom_device(self, *args):
-        return _wrap(self._dotnet_instance.AddCustomDevice(*_unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.AddCustomDevice(*unwrapped)
+        return _wrap(dotnet_result)
 
 
 class Cyclic(Section):
@@ -7381,28 +8710,36 @@ class Cyclic(Section):
         ...
 
     def get_signal_based_frame_list(self, *args):
-        return _wrap(self._dotnet_instance.GetSignalBasedFrameList(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetSignalBasedFrameList(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_raw_data_based_frame_list(self) -> Sequence[RawDataBasedFrame]:
         ...
 
     def get_raw_data_based_frame_list(self, *args):
-        return _wrap(self._dotnet_instance.GetRawDataBasedFrameList(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetRawDataBasedFrameList(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_signal_based_frame(self, signal_based_frame: SignalBasedFrame) -> bool:
         ...
 
     def add_signal_based_frame(self, *args):
-        return _wrap(self._dotnet_instance.AddSignalBasedFrame(*_unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.AddSignalBasedFrame(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_raw_data_based_frame(self, raw_data_based_frame: RawDataBasedFrame) -> bool:
         ...
 
     def add_raw_data_based_frame(self, *args):
-        return _wrap(self._dotnet_instance.AddRawDataBasedFrame(*_unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.AddRawDataBasedFrame(*unwrapped)
+        return _wrap(dotnet_result)
 
 
 class CyclicEvent(Section):
@@ -7421,28 +8758,36 @@ class CyclicEvent(Section):
         ...
 
     def get_signal_based_frame_list(self, *args):
-        return _wrap(self._dotnet_instance.GetSignalBasedFrameList(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetSignalBasedFrameList(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_raw_data_based_frame_list(self) -> Sequence[RawDataBasedFrame]:
         ...
 
     def get_raw_data_based_frame_list(self, *args):
-        return _wrap(self._dotnet_instance.GetRawDataBasedFrameList(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetRawDataBasedFrameList(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_signal_based_frame(self, signal_based_frame: SignalBasedFrame) -> bool:
         ...
 
     def add_signal_based_frame(self, *args):
-        return _wrap(self._dotnet_instance.AddSignalBasedFrame(*_unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.AddSignalBasedFrame(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_raw_data_based_frame(self, raw_data_based_frame: RawDataBasedFrame) -> bool:
         ...
 
     def add_raw_data_based_frame(self, *args):
-        return _wrap(self._dotnet_instance.AddRawDataBasedFrame(*_unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.AddRawDataBasedFrame(*unwrapped)
+        return _wrap(dotnet_result)
 
 
 class DAQ(Section):
@@ -7461,21 +8806,27 @@ class DAQ(Section):
         ...
 
     def get_device_list(self, *args):
-        return _wrap(self._dotnet_instance.GetDeviceList(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetDeviceList(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_tasks(self) -> DAQTasks:
         ...
 
     def get_tasks(self, *args):
-        return _wrap(self._dotnet_instance.GetTasks(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetTasks(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_device(self, device: DAQDevice) -> bool:
         ...
 
     def add_device(self, *args):
-        return _wrap(self._dotnet_instance.AddDevice(*_unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.AddDevice(*unwrapped)
+        return _wrap(dotnet_result)
 
 
 class DAQAnalogInputs(Section):
@@ -7492,67 +8843,83 @@ class DAQAnalogInputs(Section):
     @property
     def sample_mode(self) -> SampleMode:
         """Gets or sets whether the acquisition is single-point or buffered."""
-        return _wrap(self._dotnet_instance.SampleMode)
+        dotnet_result = self._dotnet_instance.SampleMode
+        return _wrap(dotnet_result)
 
     @sample_mode.setter
     def sample_mode(self, value: SampleMode):
         """Gets or sets whether the acquisition is single-point or buffered."""
-        self._dotnet_instance.SampleMode = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.SampleMode = next(unwrapped)
 
     @property
     def waveform_analog_input_task(self) -> DAQTaskAI:
         """Gets or sets the <see cref="T:NationalInstruments.VeriStand.SystemDefinitionAPI.DAQTaskAI" /> associated with the buffered acquisition."""
-        return _wrap(self._dotnet_instance.WaveformAnalogInputTask)
+        dotnet_result = self._dotnet_instance.WaveformAnalogInputTask
+        return _wrap(dotnet_result)
 
     @waveform_analog_input_task.setter
     def waveform_analog_input_task(self, value: DAQTaskAI):
         """Gets or sets the <see cref="T:NationalInstruments.VeriStand.SystemDefinitionAPI.DAQTaskAI" /> associated with the buffered acquisition."""
-        self._dotnet_instance.WaveformAnalogInputTask = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.WaveformAnalogInputTask = next(unwrapped)
 
     @property
     def is_slow_background_convert_enabled(self) -> bool:
         """Gets whether the Slow Background Convert configuration is enabled."""
-        return _wrap(self._dotnet_instance.IsSlowBackgroundConvertEnabled)
+        dotnet_result = self._dotnet_instance.IsSlowBackgroundConvertEnabled
+        return _wrap(dotnet_result)
 
     @property
     def slow_background_convert_rate(self) -> float:
         """Gets the Slow Background Convert sample rate."""
-        return _wrap(self._dotnet_instance.SlowBackgroundConvertRate)
+        dotnet_result = self._dotnet_instance.SlowBackgroundConvertRate
+        return _wrap(dotnet_result)
 
     @overload
     def get_analog_input_list(self) -> Sequence[DAQAnalogInput]:
         ...
 
     def get_analog_input_list(self, *args):
-        return _wrap(self._dotnet_instance.GetAnalogInputList(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetAnalogInputList(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_waveform_analog_input_list(self) -> Sequence[DAQWaveformAnalogInput]:
         ...
 
     def get_waveform_analog_input_list(self, *args):
-        return _wrap(self._dotnet_instance.GetWaveformAnalogInputList(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetWaveformAnalogInputList(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_analog_input(self, analog_input: DAQAnalogInput) -> bool:
         ...
 
     def add_analog_input(self, *args):
-        return _wrap(self._dotnet_instance.AddAnalogInput(*_unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.AddAnalogInput(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_waveform_analog_input(self, waveform_analog_input: DAQWaveformAnalogInput) -> bool:
         ...
 
     def add_waveform_analog_input(self, *args):
-        return _wrap(self._dotnet_instance.AddWaveformAnalogInput(*_unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.AddWaveformAnalogInput(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def slow_background_convert_mode(self, enable: bool, rate: float):
         ...
 
     def slow_background_convert_mode(self, *args):
-        return _wrap(self._dotnet_instance.SlowBackgroundConvertMode(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.SlowBackgroundConvertMode(*unwrapped)
+        return _wrap(dotnet_result)
 
 
 class DAQAnalogOutputs(Section):
@@ -7571,14 +8938,18 @@ class DAQAnalogOutputs(Section):
         ...
 
     def get_analog_output_list(self, *args):
-        return _wrap(self._dotnet_instance.GetAnalogOutputList(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetAnalogOutputList(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_analog_output(self, analog_output: DAQAnalogOutput) -> bool:
         ...
 
     def add_analog_output(self, *args):
-        return _wrap(self._dotnet_instance.AddAnalogOutput(*_unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.AddAnalogOutput(*unwrapped)
+        return _wrap(dotnet_result)
 
 
 class DAQChannel(Channel, IChannel):
@@ -7595,159 +8966,203 @@ class DAQChannel(Channel, IChannel):
     @property
     def plugin_guid(self) -> str:
         """Gets the GUID that corresponds to the type of measurement or generation the channel performs."""
-        return _wrap(self._dotnet_instance.PluginGUID)
+        dotnet_result = self._dotnet_instance.PluginGUID
+        return _wrap(dotnet_result)
 
     @property
     def measurement_type(self) -> DAQMeasurementType:
         """Gets the type of measurement or generation the DAQ channel performs."""
-        return _wrap(self._dotnet_instance.MeasurementType)
+        dotnet_result = self._dotnet_instance.MeasurementType
+        return _wrap(dotnet_result)
 
     @overload
     def get_double_property(self, property_name: str) -> float:
         ...
 
     def get_double_property(self, *args):
-        return _wrap(self._dotnet_instance.GetDoubleProperty(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetDoubleProperty(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_u64_property(self, property_name: str) -> int:
         ...
 
     def get_u64_property(self, *args):
-        return _wrap(self._dotnet_instance.GetU64Property(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetU64Property(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_u32_property(self, property_name: str) -> int:
         ...
 
     def get_u32_property(self, *args):
-        return _wrap(self._dotnet_instance.GetU32Property(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetU32Property(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_u16_property(self, property_name: str) -> int:
         ...
 
     def get_u16_property(self, *args):
-        return _wrap(self._dotnet_instance.GetU16Property(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetU16Property(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_i64_property(self, property_name: str) -> int:
         ...
 
     def get_i64_property(self, *args):
-        return _wrap(self._dotnet_instance.GetI64Property(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetI64Property(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_i32_property(self, property_name: str) -> int:
         ...
 
     def get_i32_property(self, *args):
-        return _wrap(self._dotnet_instance.GetI32Property(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetI32Property(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_i16_property(self, property_name: str) -> int:
         ...
 
     def get_i16_property(self, *args):
-        return _wrap(self._dotnet_instance.GetI16Property(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetI16Property(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_boolean_property(self, property_name: str) -> bool:
         ...
 
     def get_boolean_property(self, *args):
-        return _wrap(self._dotnet_instance.GetBooleanProperty(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetBooleanProperty(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_string_property(self, property_name: str) -> str:
         ...
 
     def get_string_property(self, *args):
-        return _wrap(self._dotnet_instance.GetStringProperty(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetStringProperty(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_enum_property(self, property_name: str) -> Tuple[str, int]:
         ...
 
     def get_enum_property(self, *args):
-        return _wrap(self._dotnet_instance.GetEnumProperty(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetEnumProperty(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_properties(self) -> Tuple[Sequence[str], Sequence[ValueDataType]]:
         ...
 
     def get_properties(self, *args):
-        return _wrap(self._dotnet_instance.GetProperties(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetProperties(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def reset_property_values(self):
         ...
 
     def reset_property_values(self, *args):
-        return _wrap(self._dotnet_instance.ResetPropertyValues(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.ResetPropertyValues(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def set_double_property(self, property_name: str, value: float):
         ...
 
     def set_double_property(self, *args):
-        return _wrap(self._dotnet_instance.SetDoubleProperty(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.SetDoubleProperty(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def set_u64_property(self, property_name: str, value: int):
         ...
 
     def set_u64_property(self, *args):
-        return _wrap(self._dotnet_instance.SetU64Property(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.SetU64Property(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def set_u32_property(self, property_name: str, value: int):
         ...
 
     def set_u32_property(self, *args):
-        return _wrap(self._dotnet_instance.SetU32Property(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.SetU32Property(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def set_u16_property(self, property_name: str, value: int):
         ...
 
     def set_u16_property(self, *args):
-        return _wrap(self._dotnet_instance.SetU16Property(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.SetU16Property(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def set_i64_property(self, property_name: str, value: int):
         ...
 
     def set_i64_property(self, *args):
-        return _wrap(self._dotnet_instance.SetI64Property(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.SetI64Property(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def set_i32_property(self, property_name: str, value: int):
         ...
 
     def set_i32_property(self, *args):
-        return _wrap(self._dotnet_instance.SetI32Property(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.SetI32Property(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def set_i16_property(self, property_name: str, value: int):
         ...
 
     def set_i16_property(self, *args):
-        return _wrap(self._dotnet_instance.SetI16Property(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.SetI16Property(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def set_boolean_property(self, property_name: str, value: bool):
         ...
 
     def set_boolean_property(self, *args):
-        return _wrap(self._dotnet_instance.SetBooleanProperty(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.SetBooleanProperty(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def set_string_property(self, property_name: str, value: str):
         ...
 
     def set_string_property(self, *args):
-        return _wrap(self._dotnet_instance.SetStringProperty(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.SetStringProperty(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def set_enum_property(self, property_name: str, enum_string: str):
@@ -7758,7 +9173,9 @@ class DAQChannel(Channel, IChannel):
         ...
 
     def set_enum_property(self, *args):
-        return _wrap(self._dotnet_instance.SetEnumProperty(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.SetEnumProperty(*unwrapped)
+        return _wrap(dotnet_result)
 
 
 class DAQCounter(DAQChannel, IChannel):
@@ -7786,45 +9203,55 @@ class DAQCounter(DAQChannel, IChannel):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCounter:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCounter(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCounter(*unwrapped)
 
     @_staticproperty
     def default_terminal() -> str:
-        return _wrap(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCounter.DefaultTerminal)
+        dotnet_result = NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCounter.DefaultTerminal
+        return _wrap(dotnet_result)
 
     @property
     def initial_value(self) -> float:
         """Gets or sets the initial value of the counter channel."""
-        return _wrap(self._dotnet_instance.InitialValue)
+        dotnet_result = self._dotnet_instance.InitialValue
+        return _wrap(dotnet_result)
 
     @initial_value.setter
     def initial_value(self, value: float):
         """Gets or sets the initial value of the counter channel."""
-        self._dotnet_instance.InitialValue = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.InitialValue = next(unwrapped)
 
     @property
     def data_task(self) -> DAQCounterType:
         """Gets the type of task the counter performs (frequency measurement, period measurement, count up/down, or position measurement)."""
-        return _wrap(self._dotnet_instance.DataTask)
+        dotnet_result = self._dotnet_instance.DataTask
+        return _wrap(dotnet_result)
 
     @property
     def counter(self) -> str:
         """Gets the counter channel number."""
-        return _wrap(self._dotnet_instance.Counter)
+        dotnet_result = self._dotnet_instance.Counter
+        return _wrap(dotnet_result)
 
     @overload
     def downcast(self) -> DAQCounter:
         ...
 
     def downcast(self, *args):
-        return _wrap(self._dotnet_instance.Downcast(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.Downcast(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def set_counter_index(self, index: int) -> bool:
         ...
 
     def set_counter_index(self, *args):
-        return _wrap(self._dotnet_instance.SetCounterIndex(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.SetCounterIndex(*unwrapped)
+        return _wrap(dotnet_result)
 
 
 class DAQCounters(Section):
@@ -7843,42 +9270,54 @@ class DAQCounters(Section):
         ...
 
     def get_counter_list(self, *args):
-        return _wrap(self._dotnet_instance.GetCounterList(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetCounterList(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_counter_outputs(self) -> Sequence[DAQCounterOutput]:
         ...
 
     def get_counter_outputs(self, *args):
-        return _wrap(self._dotnet_instance.GetCounterOutputs(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetCounterOutputs(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_counter_inputs(self) -> Sequence[DAQCounterInput]:
         ...
 
     def get_counter_inputs(self, *args):
-        return _wrap(self._dotnet_instance.GetCounterInputs(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetCounterInputs(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_counter(self, counter: DAQCounter) -> bool:
         ...
 
     def add_counter(self, *args):
-        return _wrap(self._dotnet_instance.AddCounter(*_unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.AddCounter(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_counter_input(self, counter: DAQCounterInput) -> bool:
         ...
 
     def add_counter_input(self, *args):
-        return _wrap(self._dotnet_instance.AddCounterInput(*_unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.AddCounterInput(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_counter_output(self, counter: DAQCounterOutput) -> bool:
         ...
 
     def add_counter_output(self, *args):
-        return _wrap(self._dotnet_instance.AddCounterOutput(*_unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.AddCounterOutput(*unwrapped)
+        return _wrap(dotnet_result)
 
 
 class DAQDIOPort(Section):
@@ -7894,45 +9333,56 @@ class DAQDIOPort(Section):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.DAQDIOPort:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.DAQDIOPort(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.DAQDIOPort(*unwrapped)
 
     @property
     def inverted(self) -> bool:
         """Gets or sets whether the digital lines are inverted."""
-        return _wrap(self._dotnet_instance.Inverted)
+        dotnet_result = self._dotnet_instance.Inverted
+        return _wrap(dotnet_result)
 
     @inverted.setter
     def inverted(self, value: bool):
         """Gets or sets whether the digital lines are inverted."""
-        self._dotnet_instance.Inverted = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.Inverted = next(unwrapped)
 
     @overload
     def get_digital_inputs(self) -> Sequence[DAQDigitalInput]:
         ...
 
     def get_digital_inputs(self, *args):
-        return _wrap(self._dotnet_instance.GetDigitalInputs(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetDigitalInputs(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_digital_outputs(self) -> Sequence[DAQDigitalOutput]:
         ...
 
     def get_digital_outputs(self, *args):
-        return _wrap(self._dotnet_instance.GetDigitalOutputs(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetDigitalOutputs(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_digital_input(self, digital_input: DAQDigitalInput) -> bool:
         ...
 
     def add_digital_input(self, *args):
-        return _wrap(self._dotnet_instance.AddDigitalInput(*_unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.AddDigitalInput(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_digital_output(self, digital_output: DAQDigitalOutput) -> bool:
         ...
 
     def add_digital_output(self, *args):
-        return _wrap(self._dotnet_instance.AddDigitalOutput(*_unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.AddDigitalOutput(*unwrapped)
+        return _wrap(dotnet_result)
 
 
 class DAQDevice(Section):
@@ -7956,101 +9406,120 @@ class DAQDevice(Section):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.DAQDevice:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.DAQDevice(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.DAQDevice(*unwrapped)
 
     @property
     def backplane_reference_clock(self) -> PXIBackplaneReferenceClock:
         """Sets or gets the reference clock on the PXI/PXIe chassis backplane to which the <see cref="T:NationalInstruments.VeriStand.SystemDefinitionAPI.DAQDevice" /> synchronizes its timing."""
-        return _wrap(self._dotnet_instance.BackplaneReferenceClock)
+        dotnet_result = self._dotnet_instance.BackplaneReferenceClock
+        return _wrap(dotnet_result)
 
     @backplane_reference_clock.setter
     def backplane_reference_clock(self, value: PXIBackplaneReferenceClock):
         """Sets or gets the reference clock on the PXI/PXIe chassis backplane to which the <see cref="T:NationalInstruments.VeriStand.SystemDefinitionAPI.DAQDevice" /> synchronizes its timing."""
-        self._dotnet_instance.BackplaneReferenceClock = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.BackplaneReferenceClock = next(unwrapped)
 
     @property
     def product_id(self) -> int:
         """Public, always writable version of DAQ Product ID
             DAQ Product ID is the unique numeric identifier for a DAQ device."""
-        return _wrap(self._dotnet_instance.ProductID)
+        dotnet_result = self._dotnet_instance.ProductID
+        return _wrap(dotnet_result)
 
     @product_id.setter
     def product_id(self, value: int):
         """Public, always writable version of DAQ Product ID
             DAQ Product ID is the unique numeric identifier for a DAQ device."""
-        self._dotnet_instance.ProductID = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.ProductID = next(unwrapped)
 
     @property
     def product_category(self) -> int:
         """Public, always writable version of DAQ Product Category.
             Unique identifier for each DAQ Product category."""
-        return _wrap(self._dotnet_instance.ProductCategory)
+        dotnet_result = self._dotnet_instance.ProductCategory
+        return _wrap(dotnet_result)
 
     @product_category.setter
     def product_category(self, value: int):
         """Public, always writable version of DAQ Product Category.
             Unique identifier for each DAQ Product category."""
-        self._dotnet_instance.ProductCategory = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.ProductCategory = next(unwrapped)
 
     @property
     def product_name(self) -> str:
         """Public, always writable version of DAQ Product Name."""
-        return _wrap(self._dotnet_instance.ProductName)
+        dotnet_result = self._dotnet_instance.ProductName
+        return _wrap(dotnet_result)
 
     @product_name.setter
     def product_name(self, value: str):
         """Public, always writable version of DAQ Product Name."""
-        self._dotnet_instance.ProductName = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.ProductName = next(unwrapped)
 
     @property
     def input_configuration(self) -> DAQDeviceInputConfiguration:
         """Gets or sets the input terminal configuration applied to device channels."""
-        return _wrap(self._dotnet_instance.InputConfiguration)
+        dotnet_result = self._dotnet_instance.InputConfiguration
+        return _wrap(dotnet_result)
 
     @input_configuration.setter
     def input_configuration(self, value: DAQDeviceInputConfiguration):
         """Gets or sets the input terminal configuration applied to device channels."""
-        self._dotnet_instance.InputConfiguration = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.InputConfiguration = next(unwrapped)
 
     @property
     def daq_conversion_rate_option(self) -> DAQConversionRate:
         """Gets or sets the rate used to run the analog-digital converters on the DAQ device."""
-        return _wrap(self._dotnet_instance.DAQConversionRateOption)
+        dotnet_result = self._dotnet_instance.DAQConversionRateOption
+        return _wrap(dotnet_result)
 
     @daq_conversion_rate_option.setter
     def daq_conversion_rate_option(self, value: DAQConversionRate):
         """Gets or sets the rate used to run the analog-digital converters on the DAQ device."""
-        self._dotnet_instance.DAQConversionRateOption = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.DAQConversionRateOption = next(unwrapped)
 
     @property
     def turn_off_hw_timed_single_point_ai(self) -> bool:
         """Gets or sets whether hardware-timed single-point support is disabled for analog input tasks."""
-        return _wrap(self._dotnet_instance.TurnOffHWTimedSinglePointAI)
+        dotnet_result = self._dotnet_instance.TurnOffHWTimedSinglePointAI
+        return _wrap(dotnet_result)
 
     @turn_off_hw_timed_single_point_ai.setter
     def turn_off_hw_timed_single_point_ai(self, value: bool):
         """Gets or sets whether hardware-timed single-point support is disabled for analog input tasks."""
-        self._dotnet_instance.TurnOffHWTimedSinglePointAI = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.TurnOffHWTimedSinglePointAI = next(unwrapped)
 
     @property
     def port_width(self) -> int:
         """Gets or sets the total number of lines per port."""
-        return _wrap(self._dotnet_instance.PortWidth)
+        dotnet_result = self._dotnet_instance.PortWidth
+        return _wrap(dotnet_result)
 
     @port_width.setter
     def port_width(self, value: int):
         """Gets or sets the total number of lines per port."""
-        self._dotnet_instance.PortWidth = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.PortWidth = next(unwrapped)
 
     @property
     def turn_off_hw_timed_single_point_ao(self) -> bool:
         """Gets or sets whether hardware-timed single-point support is disabled for analog output tasks."""
-        return _wrap(self._dotnet_instance.TurnOffHWTimedSinglePointAO)
+        dotnet_result = self._dotnet_instance.TurnOffHWTimedSinglePointAO
+        return _wrap(dotnet_result)
 
     @turn_off_hw_timed_single_point_ao.setter
     def turn_off_hw_timed_single_point_ao(self, value: bool):
         """Gets or sets whether hardware-timed single-point support is disabled for analog output tasks."""
-        self._dotnet_instance.TurnOffHWTimedSinglePointAO = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.TurnOffHWTimedSinglePointAO = next(unwrapped)
 
     @overload
     def create_analog_inputs(self) -> DAQAnalogInputs:
@@ -8061,49 +9530,63 @@ class DAQDevice(Section):
         ...
 
     def create_analog_inputs(self, *args):
-        return _wrap(self._dotnet_instance.CreateAnalogInputs(*_unwrap({(): (0, NationalInstruments.VeriStand.Error.NoError), (SampleMode,): (1, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({(): (0, NationalInstruments.VeriStand.Error.NoError), (SampleMode,): (1, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.CreateAnalogInputs(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def create_analog_outputs(self) -> DAQAnalogOutputs:
         ...
 
     def create_analog_outputs(self, *args):
-        return _wrap(self._dotnet_instance.CreateAnalogOutputs(*_unwrap({None: (0, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (0, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.CreateAnalogOutputs(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def create_counters(self) -> DAQCounters:
         ...
 
     def create_counters(self, *args):
-        return _wrap(self._dotnet_instance.CreateCounters(*_unwrap({None: (0, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (0, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.CreateCounters(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def create_digital_inputs(self) -> DAQDigitalInputs:
         ...
 
     def create_digital_inputs(self, *args):
-        return _wrap(self._dotnet_instance.CreateDigitalInputs(*_unwrap({None: (0, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (0, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.CreateDigitalInputs(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def create_digital_outputs(self) -> DAQDigitalOutputs:
         ...
 
     def create_digital_outputs(self, *args):
-        return _wrap(self._dotnet_instance.CreateDigitalOutputs(*_unwrap({None: (0, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (0, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.CreateDigitalOutputs(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def create_scxi_chassis(self) -> SCXIChassis:
         ...
 
     def create_scxi_chassis(self, *args):
-        return _wrap(self._dotnet_instance.CreateSCXIChassis(*_unwrap({None: (0, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (0, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.CreateSCXIChassis(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def create_internal_channels(self) -> DAQInternalChannels:
         ...
 
     def create_internal_channels(self, *args):
-        return _wrap(self._dotnet_instance.CreateInternalChannels(*_unwrap({None: (0, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (0, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.CreateInternalChannels(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def populate_device(self, num_ai_channels: int, num_ao_channels: int, num_di_channels: int, num_do_channels: int, port_width: int):
@@ -8114,56 +9597,72 @@ class DAQDevice(Section):
         ...
 
     def populate_device(self, *args):
-        return _wrap(self._dotnet_instance.PopulateDevice(*_unwrap({None: (7, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (7, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.PopulateDevice(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_analog_input_section(self) -> DAQAnalogInputs:
         ...
 
     def get_analog_input_section(self, *args):
-        return _wrap(self._dotnet_instance.GetAnalogInputSection(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetAnalogInputSection(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_analog_output_section(self) -> DAQAnalogOutputs:
         ...
 
     def get_analog_output_section(self, *args):
-        return _wrap(self._dotnet_instance.GetAnalogOutputSection(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetAnalogOutputSection(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_counter_section(self) -> DAQCounters:
         ...
 
     def get_counter_section(self, *args):
-        return _wrap(self._dotnet_instance.GetCounterSection(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetCounterSection(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_digital_input_section(self) -> DAQDigitalInputs:
         ...
 
     def get_digital_input_section(self, *args):
-        return _wrap(self._dotnet_instance.GetDigitalInputSection(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetDigitalInputSection(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_digital_output_section(self) -> DAQDigitalOutputs:
         ...
 
     def get_digital_output_section(self, *args):
-        return _wrap(self._dotnet_instance.GetDigitalOutputSection(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetDigitalOutputSection(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_scxi_chassis_section(self) -> SCXIChassis:
         ...
 
     def get_scxi_chassis_section(self, *args):
-        return _wrap(self._dotnet_instance.GetSCXIChassisSection(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetSCXIChassisSection(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_internal_channels_section(self) -> DAQInternalChannels:
         ...
 
     def get_internal_channels_section(self, *args):
-        return _wrap(self._dotnet_instance.GetInternalChannelsSection(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetInternalChannelsSection(*unwrapped)
+        return _wrap(dotnet_result)
 
 
 class DAQDigitalInput(DAQChannel, IChannel):
@@ -8195,42 +9694,50 @@ class DAQDigitalInput(DAQChannel, IChannel):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.DAQDigitalInput:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.DAQDigitalInput(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.DAQDigitalInput(*unwrapped)
 
     @property
     def inital_value(self) -> bool:
         """Gets or sets the initial value of the digital input channel."""
-        return _wrap(self._dotnet_instance.InitalValue)
+        dotnet_result = self._dotnet_instance.InitalValue
+        return _wrap(dotnet_result)
 
     @inital_value.setter
     def inital_value(self, value: bool):
         """Gets or sets the initial value of the digital input channel."""
-        self._dotnet_instance.InitalValue = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.InitalValue = next(unwrapped)
 
     @property
     def digital_line(self) -> int:
         """Gets or sets the digital line for the channel."""
-        return _wrap(self._dotnet_instance.DigitalLine)
+        dotnet_result = self._dotnet_instance.DigitalLine
+        return _wrap(dotnet_result)
 
     @digital_line.setter
     def digital_line(self, value: int):
         """Gets or sets the digital line for the channel."""
-        self._dotnet_instance.DigitalLine = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.DigitalLine = next(unwrapped)
 
     @property
     def port_number(self) -> int:
         """Gets or sets the port to which the channel belongs."""
-        return _wrap(self._dotnet_instance.PortNumber)
+        dotnet_result = self._dotnet_instance.PortNumber
+        return _wrap(dotnet_result)
 
     @port_number.setter
     def port_number(self, value: int):
         """Gets or sets the port to which the channel belongs."""
-        self._dotnet_instance.PortNumber = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.PortNumber = next(unwrapped)
 
     @property
     def is_scxi(self) -> bool:
         """Gets whether the channel belongs to an SCXI module."""
-        return _wrap(self._dotnet_instance.IsSCXI)
+        dotnet_result = self._dotnet_instance.IsSCXI
+        return _wrap(dotnet_result)
 
 
 class DAQDigitalInputs(Section):
@@ -8249,14 +9756,18 @@ class DAQDigitalInputs(Section):
         ...
 
     def get_dio_ports(self, *args):
-        return _wrap(self._dotnet_instance.GetDIOPorts(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetDIOPorts(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_dio_port(self, dio_port: DAQDIOPort) -> bool:
         ...
 
     def add_dio_port(self, *args):
-        return _wrap(self._dotnet_instance.AddDIOPort(*_unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.AddDIOPort(*unwrapped)
+        return _wrap(dotnet_result)
 
 
 class DAQDigitalOutput(DAQChannel, IChannel):
@@ -8288,42 +9799,50 @@ class DAQDigitalOutput(DAQChannel, IChannel):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.DAQDigitalOutput:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.DAQDigitalOutput(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.DAQDigitalOutput(*unwrapped)
 
     @property
     def inital_value(self) -> bool:
         """Gets or sets the initial value of the digital output channel."""
-        return _wrap(self._dotnet_instance.InitalValue)
+        dotnet_result = self._dotnet_instance.InitalValue
+        return _wrap(dotnet_result)
 
     @inital_value.setter
     def inital_value(self, value: bool):
         """Gets or sets the initial value of the digital output channel."""
-        self._dotnet_instance.InitalValue = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.InitalValue = next(unwrapped)
 
     @property
     def digital_line(self) -> int:
         """Gets or sets the digital line for the channel."""
-        return _wrap(self._dotnet_instance.DigitalLine)
+        dotnet_result = self._dotnet_instance.DigitalLine
+        return _wrap(dotnet_result)
 
     @digital_line.setter
     def digital_line(self, value: int):
         """Gets or sets the digital line for the channel."""
-        self._dotnet_instance.DigitalLine = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.DigitalLine = next(unwrapped)
 
     @property
     def port_number(self) -> int:
         """Gets or sets the port to which the channel belongs."""
-        return _wrap(self._dotnet_instance.PortNumber)
+        dotnet_result = self._dotnet_instance.PortNumber
+        return _wrap(dotnet_result)
 
     @port_number.setter
     def port_number(self, value: int):
         """Gets or sets the port to which the channel belongs."""
-        self._dotnet_instance.PortNumber = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.PortNumber = next(unwrapped)
 
     @property
     def is_scxi(self) -> bool:
         """Gets whether the channel belongs to an SCXI module."""
-        return _wrap(self._dotnet_instance.IsSCXI)
+        dotnet_result = self._dotnet_instance.IsSCXI
+        return _wrap(dotnet_result)
 
 
 class DAQDigitalOutputs(Section):
@@ -8342,14 +9861,18 @@ class DAQDigitalOutputs(Section):
         ...
 
     def get_dio_ports(self, *args):
-        return _wrap(self._dotnet_instance.GetDIOPorts(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetDIOPorts(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_dio_port(self, dio_port: DAQDIOPort) -> bool:
         ...
 
     def add_dio_port(self, *args):
-        return _wrap(self._dotnet_instance.AddDIOPort(*_unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.AddDIOPort(*unwrapped)
+        return _wrap(dotnet_result)
 
 
 class DAQFrequencyMeasurement(DAQCounter, IChannel):
@@ -8365,51 +9888,60 @@ class DAQFrequencyMeasurement(DAQCounter, IChannel):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.DAQFrequencyMeasurement:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.DAQFrequencyMeasurement(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.DAQFrequencyMeasurement(*unwrapped)
 
     @property
     def edge(self) -> DAQCounterEdge:
         """Gets or sets the edge on which to count (rising or falling)."""
-        return _wrap(self._dotnet_instance.Edge)
+        dotnet_result = self._dotnet_instance.Edge
+        return _wrap(dotnet_result)
 
     @edge.setter
     def edge(self, value: DAQCounterEdge):
         """Gets or sets the edge on which to count (rising or falling)."""
-        self._dotnet_instance.Edge = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.Edge = next(unwrapped)
 
     @property
     def input_terminal(self) -> str:
         """Gets or sets the input terminal for the counter.
             A value of <see cref="F:NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCounter.DefaultTerminal" />
             indicates the default terminal will be used."""
-        return _wrap(self._dotnet_instance.InputTerminal)
+        dotnet_result = self._dotnet_instance.InputTerminal
+        return _wrap(dotnet_result)
 
     @input_terminal.setter
     def input_terminal(self, value: str):
         """Gets or sets the input terminal for the counter.
             A value of <see cref="F:NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCounter.DefaultTerminal" />
             indicates the default terminal will be used."""
-        self._dotnet_instance.InputTerminal = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.InputTerminal = next(unwrapped)
 
     @property
     def max(self) -> float:
         """Gets or sets the maximum value of the channel in hertz."""
-        return _wrap(self._dotnet_instance.Max)
+        dotnet_result = self._dotnet_instance.Max
+        return _wrap(dotnet_result)
 
     @max.setter
     def max(self, value: float):
         """Gets or sets the maximum value of the channel in hertz."""
-        self._dotnet_instance.Max = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.Max = next(unwrapped)
 
     @property
     def min(self) -> float:
         """Gets or sets the minimum value of the channel in hertz."""
-        return _wrap(self._dotnet_instance.Min)
+        dotnet_result = self._dotnet_instance.Min
+        return _wrap(dotnet_result)
 
     @min.setter
     def min(self, value: float):
         """Gets or sets the minimum value of the channel in hertz."""
-        self._dotnet_instance.Min = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.Min = next(unwrapped)
 
 
 class DAQInternalChannel(Channel, IChannel):
@@ -8425,37 +9957,44 @@ class DAQInternalChannel(Channel, IChannel):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.DAQInternalChannel:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.DAQInternalChannel(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.DAQInternalChannel(*unwrapped)
 
     @property
     def low_level(self) -> float:
         """Gets or sets the minimum value of the channel."""
-        return _wrap(self._dotnet_instance.LowLevel)
+        dotnet_result = self._dotnet_instance.LowLevel
+        return _wrap(dotnet_result)
 
     @low_level.setter
     def low_level(self, value: float):
         """Gets or sets the minimum value of the channel."""
-        self._dotnet_instance.LowLevel = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.LowLevel = next(unwrapped)
 
     @property
     def high_level(self) -> float:
         """Gets or sets the maximum value of the channel."""
-        return _wrap(self._dotnet_instance.HighLevel)
+        dotnet_result = self._dotnet_instance.HighLevel
+        return _wrap(dotnet_result)
 
     @high_level.setter
     def high_level(self, value: float):
         """Gets or sets the maximum value of the channel."""
-        self._dotnet_instance.HighLevel = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.HighLevel = next(unwrapped)
 
     @property
     def channel(self) -> str:
         """Gets or sets the physical name for the channel."""
-        return _wrap(self._dotnet_instance.Channel)
+        dotnet_result = self._dotnet_instance.Channel
+        return _wrap(dotnet_result)
 
     @channel.setter
     def channel(self, value: str):
         """Gets or sets the physical name for the channel."""
-        self._dotnet_instance.Channel = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.Channel = next(unwrapped)
 
 
 class DAQInternalChannels(Section):
@@ -8474,14 +10013,18 @@ class DAQInternalChannels(Section):
         ...
 
     def get_internal_channel_list(self, *args):
-        return _wrap(self._dotnet_instance.GetInternalChannelList(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetInternalChannelList(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_internal_channel(self, internal_channel: DAQInternalChannel) -> bool:
         ...
 
     def add_internal_channel(self, *args):
-        return _wrap(self._dotnet_instance.AddInternalChannel(*_unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.AddInternalChannel(*unwrapped)
+        return _wrap(dotnet_result)
 
 
 class DAQLogging(Section):
@@ -8498,126 +10041,152 @@ class DAQLogging(Section):
     @property
     def use_task_as_filename(self) -> bool:
         """Gets or sets a value indicating whether to use the <see cref="T:NationalInstruments.VeriStand.SystemDefinitionAPI.DAQTask" /> name from the system definition as the base of log filenames."""
-        return _wrap(self._dotnet_instance.UseTaskAsFilename)
+        dotnet_result = self._dotnet_instance.UseTaskAsFilename
+        return _wrap(dotnet_result)
 
     @use_task_as_filename.setter
     def use_task_as_filename(self, value: bool):
         """Gets or sets a value indicating whether to use the <see cref="T:NationalInstruments.VeriStand.SystemDefinitionAPI.DAQTask" /> name from the system definition as the base of log filenames."""
-        self._dotnet_instance.UseTaskAsFilename = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.UseTaskAsFilename = next(unwrapped)
 
     @property
     def filename_base(self) -> str:
         """Gets or sets the base string used in log filenames. Use this property when <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.DAQLogging.UseTaskAsFilename" /> is <see langword="false" /> to specify a filename base other than the task name."""
-        return _wrap(self._dotnet_instance.FilenameBase)
+        dotnet_result = self._dotnet_instance.FilenameBase
+        return _wrap(dotnet_result)
 
     @filename_base.setter
     def filename_base(self, value: str):
         """Gets or sets the base string used in log filenames. Use this property when <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.DAQLogging.UseTaskAsFilename" /> is <see langword="false" /> to specify a filename base other than the task name."""
-        self._dotnet_instance.FilenameBase = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.FilenameBase = next(unwrapped)
 
     @property
     def log_directory(self) -> str:
         """Gets or sets the directory in which to save log files on the target."""
-        return _wrap(self._dotnet_instance.LogDirectory)
+        dotnet_result = self._dotnet_instance.LogDirectory
+        return _wrap(dotnet_result)
 
     @log_directory.setter
     def log_directory(self, value: str):
         """Gets or sets the directory in which to save log files on the target."""
-        self._dotnet_instance.LogDirectory = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.LogDirectory = next(unwrapped)
 
     @property
     def timestamp_filename(self) -> bool:
         """Gets or sets a value indicating whether to append timestamps to the log filenames."""
-        return _wrap(self._dotnet_instance.TimestampFilename)
+        dotnet_result = self._dotnet_instance.TimestampFilename
+        return _wrap(dotnet_result)
 
     @timestamp_filename.setter
     def timestamp_filename(self, value: bool):
         """Gets or sets a value indicating whether to append timestamps to the log filenames."""
-        self._dotnet_instance.TimestampFilename = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.TimestampFilename = next(unwrapped)
 
     @property
     def action_on_new(self) -> ActionOnNew:
         """Gets or sets the location to log data when the <see cref="T:NationalInstruments.VeriStand.SystemDefinitionAPI.DAQTaskAI" /> begins a new acquisition."""
-        return _wrap(self._dotnet_instance.ActionOnNew)
+        dotnet_result = self._dotnet_instance.ActionOnNew
+        return _wrap(dotnet_result)
 
     @action_on_new.setter
     def action_on_new(self, value: ActionOnNew):
         """Gets or sets the location to log data when the <see cref="T:NationalInstruments.VeriStand.SystemDefinitionAPI.DAQTaskAI" /> begins a new acquisition."""
-        self._dotnet_instance.ActionOnNew = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.ActionOnNew = next(unwrapped)
 
     @property
     def use_task_as_group_name(self) -> bool:
         """Gets or sets a value indicating whether to use the <see cref="T:NationalInstruments.VeriStand.SystemDefinitionAPI.DAQTask" /> name from the system definition as the group name under which data is logged in the TDMS file."""
-        return _wrap(self._dotnet_instance.UseTaskAsGroupName)
+        dotnet_result = self._dotnet_instance.UseTaskAsGroupName
+        return _wrap(dotnet_result)
 
     @use_task_as_group_name.setter
     def use_task_as_group_name(self, value: bool):
         """Gets or sets a value indicating whether to use the <see cref="T:NationalInstruments.VeriStand.SystemDefinitionAPI.DAQTask" /> name from the system definition as the group name under which data is logged in the TDMS file."""
-        self._dotnet_instance.UseTaskAsGroupName = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.UseTaskAsGroupName = next(unwrapped)
 
     @property
     def group_name(self) -> str:
         """Gets or sets the group name to which the task logs data in the TDMS file. Use this property when <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.DAQLogging.UseTaskAsGroupName" /> is <see langword="false" /> to specify a group name other than the task name."""
-        return _wrap(self._dotnet_instance.GroupName)
+        dotnet_result = self._dotnet_instance.GroupName
+        return _wrap(dotnet_result)
 
     @group_name.setter
     def group_name(self, value: str):
         """Gets or sets the group name to which the task logs data in the TDMS file. Use this property when <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.DAQLogging.UseTaskAsGroupName" /> is <see langword="false" /> to specify a group name other than the task name."""
-        self._dotnet_instance.GroupName = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.GroupName = next(unwrapped)
 
     @property
     def logging_enabled(self) -> bool:
         """Gets or sets a value indicating whether the Logging Enabled <see cref="T:NationalInstruments.VeriStand.SystemDefinitionAPI.DAQTaskCommand" /> channel is allowed to start and stop logging. Note that this property does not toggle logging; the Logging Enabled channel toggles logging."""
-        return _wrap(self._dotnet_instance.LoggingEnabled)
+        dotnet_result = self._dotnet_instance.LoggingEnabled
+        return _wrap(dotnet_result)
 
     @logging_enabled.setter
     def logging_enabled(self, value: bool):
         """Gets or sets a value indicating whether the Logging Enabled <see cref="T:NationalInstruments.VeriStand.SystemDefinitionAPI.DAQTaskCommand" /> channel is allowed to start and stop logging. Note that this property does not toggle logging; the Logging Enabled channel toggles logging."""
-        self._dotnet_instance.LoggingEnabled = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.LoggingEnabled = next(unwrapped)
 
     @property
     def logging_mode(self) -> LogMode:
         """Gets or sets whether data is available to components in the NI VeriStand system while you log it.  This property valid only if <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.DAQLogging.LoggingEnabled" /> is <see langword="true" />."""
-        return _wrap(self._dotnet_instance.LoggingMode)
+        dotnet_result = self._dotnet_instance.LoggingMode
+        return _wrap(dotnet_result)
 
     @logging_mode.setter
     def logging_mode(self, value: LogMode):
         """Gets or sets whether data is available to components in the NI VeriStand system while you log it.  This property valid only if <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.DAQLogging.LoggingEnabled" /> is <see langword="true" />."""
-        self._dotnet_instance.LoggingMode = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.LoggingMode = next(unwrapped)
 
     @property
     def span_multiple_files(self) -> bool:
         """Gets or sets a value indicating whether to create a new log file when you reach the <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.DAQLogging.SamplesPerFile" /> limit."""
-        return _wrap(self._dotnet_instance.SpanMultipleFiles)
+        dotnet_result = self._dotnet_instance.SpanMultipleFiles
+        return _wrap(dotnet_result)
 
     @span_multiple_files.setter
     def span_multiple_files(self, value: bool):
         """Gets or sets a value indicating whether to create a new log file when you reach the <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.DAQLogging.SamplesPerFile" /> limit."""
-        self._dotnet_instance.SpanMultipleFiles = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.SpanMultipleFiles = next(unwrapped)
 
     @property
     def samples_per_file(self) -> int:
         """Gets or sets a limit to the number of samples per channel to log to the current file when <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.DAQLogging.SpanMultipleFiles" /> is <see langword="true" />. This property not active if <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.DAQLogging.SpanMultipleFiles" /> is <see langword="false" /> because NI VeriStand logs to the current file without limiting the number of samples."""
-        return _wrap(self._dotnet_instance.SamplesPerFile)
+        dotnet_result = self._dotnet_instance.SamplesPerFile
+        return _wrap(dotnet_result)
 
     @samples_per_file.setter
     def samples_per_file(self, value: int):
         """Gets or sets a limit to the number of samples per channel to log to the current file when <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.DAQLogging.SpanMultipleFiles" /> is <see langword="true" />. This property not active if <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.DAQLogging.SpanMultipleFiles" /> is <see langword="false" /> because NI VeriStand logs to the current file without limiting the number of samples."""
-        self._dotnet_instance.SamplesPerFile = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.SamplesPerFile = next(unwrapped)
 
     @overload
     def get_logging_enabled_channel(self) -> DAQTaskCommand:
         ...
 
     def get_logging_enabled_channel(self, *args):
-        return _wrap(self._dotnet_instance.GetLoggingEnabledChannel(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetLoggingEnabledChannel(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_start_new_file_channel(self) -> DAQTaskCommand:
         ...
 
     def get_start_new_file_channel(self, *args):
-        return _wrap(self._dotnet_instance.GetStartNewFileChannel(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetStartNewFileChannel(*unwrapped)
+        return _wrap(dotnet_result)
 
 
 class DAQPeriodMeasurement(DAQCounter, IChannel):
@@ -8633,51 +10202,60 @@ class DAQPeriodMeasurement(DAQCounter, IChannel):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.DAQPeriodMeasurement:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.DAQPeriodMeasurement(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.DAQPeriodMeasurement(*unwrapped)
 
     @property
     def edge(self) -> DAQCounterEdge:
         """Gets or sets the edge on which to count (rising or falling)."""
-        return _wrap(self._dotnet_instance.Edge)
+        dotnet_result = self._dotnet_instance.Edge
+        return _wrap(dotnet_result)
 
     @edge.setter
     def edge(self, value: DAQCounterEdge):
         """Gets or sets the edge on which to count (rising or falling)."""
-        self._dotnet_instance.Edge = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.Edge = next(unwrapped)
 
     @property
     def input_terminal(self) -> str:
         """Gets or sets the input terminal for the counter.
             A value of <see cref="F:NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCounter.DefaultTerminal" />
             indicates the default terminal will be used."""
-        return _wrap(self._dotnet_instance.InputTerminal)
+        dotnet_result = self._dotnet_instance.InputTerminal
+        return _wrap(dotnet_result)
 
     @input_terminal.setter
     def input_terminal(self, value: str):
         """Gets or sets the input terminal for the counter.
             A value of <see cref="F:NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCounter.DefaultTerminal" />
             indicates the default terminal will be used."""
-        self._dotnet_instance.InputTerminal = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.InputTerminal = next(unwrapped)
 
     @property
     def max(self) -> float:
         """Gets or sets the maximum value of the channel in seconds."""
-        return _wrap(self._dotnet_instance.Max)
+        dotnet_result = self._dotnet_instance.Max
+        return _wrap(dotnet_result)
 
     @max.setter
     def max(self, value: float):
         """Gets or sets the maximum value of the channel in seconds."""
-        self._dotnet_instance.Max = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.Max = next(unwrapped)
 
     @property
     def min(self) -> float:
         """Gets or sets the minimum value of the channel in seconds."""
-        return _wrap(self._dotnet_instance.Min)
+        dotnet_result = self._dotnet_instance.Min
+        return _wrap(dotnet_result)
 
     @min.setter
     def min(self, value: float):
         """Gets or sets the minimum value of the channel in seconds."""
-        self._dotnet_instance.Min = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.Min = next(unwrapped)
 
 
 class DAQPositionMeasurement(DAQCounter, IChannel):
@@ -8693,69 +10271,80 @@ class DAQPositionMeasurement(DAQCounter, IChannel):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.DAQPositionMeasurement:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.DAQPositionMeasurement(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.DAQPositionMeasurement(*unwrapped)
 
     @property
     def decoding(self) -> DAQCounterDecoding:
         """Gets or sets the method used to count and interpret the pulses the encoder generates on signal A and signal B."""
-        return _wrap(self._dotnet_instance.Decoding)
+        dotnet_result = self._dotnet_instance.Decoding
+        return _wrap(dotnet_result)
 
     @decoding.setter
     def decoding(self, value: DAQCounterDecoding):
         """Gets or sets the method used to count and interpret the pulses the encoder generates on signal A and signal B."""
-        self._dotnet_instance.Decoding = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.Decoding = next(unwrapped)
 
     @property
     def z_index_mode(self) -> DAQCounterZIndexMode:
         """Gets or sets the states at which signal A and signal B must be while signal Z is high for the device to reset the measurement."""
-        return _wrap(self._dotnet_instance.ZIndexMode)
+        dotnet_result = self._dotnet_instance.ZIndexMode
+        return _wrap(dotnet_result)
 
     @z_index_mode.setter
     def z_index_mode(self, value: DAQCounterZIndexMode):
         """Gets or sets the states at which signal A and signal B must be while signal Z is high for the device to reset the measurement."""
-        self._dotnet_instance.ZIndexMode = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.ZIndexMode = next(unwrapped)
 
     @property
     def a_input_terminal(self) -> str:
         """Gets or sets the A input terminal for the counter.
             A value of <see cref="F:NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCounter.DefaultTerminal" />
             indicates the default terminal will be used."""
-        return _wrap(self._dotnet_instance.AInputTerminal)
+        dotnet_result = self._dotnet_instance.AInputTerminal
+        return _wrap(dotnet_result)
 
     @a_input_terminal.setter
     def a_input_terminal(self, value: str):
         """Gets or sets the A input terminal for the counter.
             A value of <see cref="F:NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCounter.DefaultTerminal" />
             indicates the default terminal will be used."""
-        self._dotnet_instance.AInputTerminal = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.AInputTerminal = next(unwrapped)
 
     @property
     def b_input_terminal(self) -> str:
         """Gets or sets the B input terminal for the counter.
             A value of <see cref="F:NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCounter.DefaultTerminal" />
             indicates the default terminal will be used."""
-        return _wrap(self._dotnet_instance.BInputTerminal)
+        dotnet_result = self._dotnet_instance.BInputTerminal
+        return _wrap(dotnet_result)
 
     @b_input_terminal.setter
     def b_input_terminal(self, value: str):
         """Gets or sets the B input terminal for the counter.
             A value of <see cref="F:NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCounter.DefaultTerminal" />
             indicates the default terminal will be used."""
-        self._dotnet_instance.BInputTerminal = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.BInputTerminal = next(unwrapped)
 
     @property
     def z_input_terminal(self) -> str:
         """Gets or sets the Z input terminal for the counter.
             A value of <see cref="F:NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCounter.DefaultTerminal" />
             indicates the default terminal will be used."""
-        return _wrap(self._dotnet_instance.ZInputTerminal)
+        dotnet_result = self._dotnet_instance.ZInputTerminal
+        return _wrap(dotnet_result)
 
     @z_input_terminal.setter
     def z_input_terminal(self, value: str):
         """Gets or sets the Z input terminal for the counter.
             A value of <see cref="F:NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCounter.DefaultTerminal" />
             indicates the default terminal will be used."""
-        self._dotnet_instance.ZInputTerminal = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.ZInputTerminal = next(unwrapped)
 
 
 class DAQSectionType(Section):
@@ -8772,164 +10361,209 @@ class DAQSectionType(Section):
     @property
     def plugin_guid(self) -> str:
         """Gets the GUID specifying DAQPlugin XML/Measurement Type."""
-        return _wrap(self._dotnet_instance.PluginGUID)
+        dotnet_result = self._dotnet_instance.PluginGUID
+        return _wrap(dotnet_result)
 
     @property
     def measurement_type(self) -> DAQMeasurementType:
         """Gets the enum specifying DAQ Measurement Type."""
-        return _wrap(self._dotnet_instance.MeasurementType)
+        dotnet_result = self._dotnet_instance.MeasurementType
+        return _wrap(dotnet_result)
 
     @property
     def data_channels(self) -> Sequence[Channel]:
         """Gets all registered data channels for a measurement type."""
-        return _wrap(self._dotnet_instance.DataChannels)
+        dotnet_result = self._dotnet_instance.DataChannels
+        return _wrap(dotnet_result)
 
     @overload
     def get_double_property(self, property_name: str) -> float:
         ...
 
     def get_double_property(self, *args):
-        return _wrap(self._dotnet_instance.GetDoubleProperty(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetDoubleProperty(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_u64_property(self, property_name: str) -> int:
         ...
 
     def get_u64_property(self, *args):
-        return _wrap(self._dotnet_instance.GetU64Property(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetU64Property(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_u32_property(self, property_name: str) -> int:
         ...
 
     def get_u32_property(self, *args):
-        return _wrap(self._dotnet_instance.GetU32Property(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetU32Property(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_u16_property(self, property_name: str) -> int:
         ...
 
     def get_u16_property(self, *args):
-        return _wrap(self._dotnet_instance.GetU16Property(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetU16Property(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_i64_property(self, property_name: str) -> int:
         ...
 
     def get_i64_property(self, *args):
-        return _wrap(self._dotnet_instance.GetI64Property(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetI64Property(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_i32_property(self, property_name: str) -> int:
         ...
 
     def get_i32_property(self, *args):
-        return _wrap(self._dotnet_instance.GetI32Property(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetI32Property(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_i16_property(self, property_name: str) -> int:
         ...
 
     def get_i16_property(self, *args):
-        return _wrap(self._dotnet_instance.GetI16Property(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetI16Property(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_boolean_property(self, property_name: str) -> bool:
         ...
 
     def get_boolean_property(self, *args):
-        return _wrap(self._dotnet_instance.GetBooleanProperty(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetBooleanProperty(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_string_property(self, property_name: str) -> str:
         ...
 
     def get_string_property(self, *args):
-        return _wrap(self._dotnet_instance.GetStringProperty(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetStringProperty(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_enum_property(self, property_name: str) -> Tuple[str, int]:
         ...
 
     def get_enum_property(self, *args):
-        return _wrap(self._dotnet_instance.GetEnumProperty(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetEnumProperty(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_properties(self) -> Tuple[Sequence[str], Sequence[ValueDataType]]:
         ...
 
     def get_properties(self, *args):
-        return _wrap(self._dotnet_instance.GetProperties(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetProperties(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def reset_property_values(self):
         ...
 
     def reset_property_values(self, *args):
-        return _wrap(self._dotnet_instance.ResetPropertyValues(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.ResetPropertyValues(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def set_double_property(self, property_name: str, value: float):
         ...
 
     def set_double_property(self, *args):
-        return _wrap(self._dotnet_instance.SetDoubleProperty(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.SetDoubleProperty(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def set_u64_property(self, property_name: str, value: int):
         ...
 
     def set_u64_property(self, *args):
-        return _wrap(self._dotnet_instance.SetU64Property(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.SetU64Property(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def set_u32_property(self, property_name: str, value: int):
         ...
 
     def set_u32_property(self, *args):
-        return _wrap(self._dotnet_instance.SetU32Property(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.SetU32Property(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def set_u16_property(self, property_name: str, value: int):
         ...
 
     def set_u16_property(self, *args):
-        return _wrap(self._dotnet_instance.SetU16Property(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.SetU16Property(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def set_i64_property(self, property_name: str, value: int):
         ...
 
     def set_i64_property(self, *args):
-        return _wrap(self._dotnet_instance.SetI64Property(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.SetI64Property(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def set_i32_property(self, property_name: str, value: int):
         ...
 
     def set_i32_property(self, *args):
-        return _wrap(self._dotnet_instance.SetI32Property(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.SetI32Property(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def set_i16_property(self, property_name: str, value: int):
         ...
 
     def set_i16_property(self, *args):
-        return _wrap(self._dotnet_instance.SetI16Property(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.SetI16Property(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def set_boolean_property(self, property_name: str, value: bool):
         ...
 
     def set_boolean_property(self, *args):
-        return _wrap(self._dotnet_instance.SetBooleanProperty(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.SetBooleanProperty(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def set_string_property(self, property_name: str, value: str):
         ...
 
     def set_string_property(self, *args):
-        return _wrap(self._dotnet_instance.SetStringProperty(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.SetStringProperty(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def set_enum_property(self, property_name: str, enum_string: str):
@@ -8940,14 +10574,18 @@ class DAQSectionType(Section):
         ...
 
     def set_enum_property(self, *args):
-        return _wrap(self._dotnet_instance.SetEnumProperty(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.SetEnumProperty(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_data_channel(self, type: DAQDataChannelType) -> Channel:
         ...
 
     def get_data_channel(self, *args):
-        return _wrap(self._dotnet_instance.GetDataChannel(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetDataChannel(*unwrapped)
+        return _wrap(dotnet_result)
 
 
 class DAQTask(Section):
@@ -8964,7 +10602,8 @@ class DAQTask(Section):
     @property
     def task_type(self) -> TaskType:
         """Gets the task type."""
-        return _wrap(self._dotnet_instance.TaskType)
+        dotnet_result = self._dotnet_instance.TaskType
+        return _wrap(dotnet_result)
 
 
 class DAQTaskAI(DAQTask):
@@ -8980,155 +10619,188 @@ class DAQTaskAI(DAQTask):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.DAQTaskAI:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.DAQTaskAI(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.DAQTaskAI(*unwrapped)
 
     @property
     def rate(self) -> float:
         """Gets or sets the sampling rate, in samples per channel per second, or Hz."""
-        return _wrap(self._dotnet_instance.Rate)
+        dotnet_result = self._dotnet_instance.Rate
+        return _wrap(dotnet_result)
 
     @rate.setter
     def rate(self, value: float):
         """Gets or sets the sampling rate, in samples per channel per second, or Hz."""
-        self._dotnet_instance.Rate = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.Rate = next(unwrapped)
 
     @property
     def acquisition_mode(self) -> AcquisitionMode:
         """Gets or sets the type of acquisition the task performs."""
-        return _wrap(self._dotnet_instance.AcquisitionMode)
+        dotnet_result = self._dotnet_instance.AcquisitionMode
+        return _wrap(dotnet_result)
 
     @acquisition_mode.setter
     def acquisition_mode(self, value: AcquisitionMode):
         """Gets or sets the type of acquisition the task performs."""
-        self._dotnet_instance.AcquisitionMode = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.AcquisitionMode = next(unwrapped)
 
     @property
     def automatic_read_size(self) -> bool:
         """Gets or sets a value indicating whether to automatically determine the size of read operations that make up an acquisition."""
-        return _wrap(self._dotnet_instance.AutomaticReadSize)
+        dotnet_result = self._dotnet_instance.AutomaticReadSize
+        return _wrap(dotnet_result)
 
     @automatic_read_size.setter
     def automatic_read_size(self, value: bool):
         """Gets or sets a value indicating whether to automatically determine the size of read operations that make up an acquisition."""
-        self._dotnet_instance.AutomaticReadSize = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.AutomaticReadSize = next(unwrapped)
 
     @property
     def read_samples(self) -> int:
         """Gets or sets the requested number of samples per channel to read at a time. This property is valid if <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.DAQTaskAI.AutomaticReadSize" /> is <see langword="false" />."""
-        return _wrap(self._dotnet_instance.ReadSamples)
+        dotnet_result = self._dotnet_instance.ReadSamples
+        return _wrap(dotnet_result)
 
     @read_samples.setter
     def read_samples(self, value: int):
         """Gets or sets the requested number of samples per channel to read at a time. This property is valid if <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.DAQTaskAI.AutomaticReadSize" /> is <see langword="false" />."""
-        self._dotnet_instance.ReadSamples = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.ReadSamples = next(unwrapped)
 
     @property
     def read_time(self) -> float:
         """Gets or sets the number of seconds to read at a time. This property is valid if <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.DAQTaskAI.AutomaticReadSize" /> is <see langword="false" />."""
-        return _wrap(self._dotnet_instance.ReadTime)
+        dotnet_result = self._dotnet_instance.ReadTime
+        return _wrap(dotnet_result)
 
     @read_time.setter
     def read_time(self, value: float):
         """Gets or sets the number of seconds to read at a time. This property is valid if <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.DAQTaskAI.AutomaticReadSize" /> is <see langword="false" />."""
-        self._dotnet_instance.ReadTime = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.ReadTime = next(unwrapped)
 
     @property
     def read_units(self) -> AcquisitionUnits:
         """Gets or sets whether the task uses <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.DAQTaskAI.ReadTime" /> or <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.DAQTaskAI.ReadSamples" /> as the read size. This property is valid for instances of <see cref="T:NationalInstruments.VeriStand.SystemDefinitionAPI.DAQTaskAI" /> that do not automatically determine the read size."""
-        return _wrap(self._dotnet_instance.ReadUnits)
+        dotnet_result = self._dotnet_instance.ReadUnits
+        return _wrap(dotnet_result)
 
     @read_units.setter
     def read_units(self, value: AcquisitionUnits):
         """Gets or sets whether the task uses <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.DAQTaskAI.ReadTime" /> or <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.DAQTaskAI.ReadSamples" /> as the read size. This property is valid for instances of <see cref="T:NationalInstruments.VeriStand.SystemDefinitionAPI.DAQTaskAI" /> that do not automatically determine the read size."""
-        self._dotnet_instance.ReadUnits = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.ReadUnits = next(unwrapped)
 
     @property
     def acquisition_samples(self) -> int:
         """Gets or sets the total number of samples per channel to acquire. This property is valid for instances of <see cref="T:NationalInstruments.VeriStand.SystemDefinitionAPI.DAQTaskAI" /> that perform finite acquisitions."""
-        return _wrap(self._dotnet_instance.AcquisitionSamples)
+        dotnet_result = self._dotnet_instance.AcquisitionSamples
+        return _wrap(dotnet_result)
 
     @acquisition_samples.setter
     def acquisition_samples(self, value: int):
         """Gets or sets the total number of samples per channel to acquire. This property is valid for instances of <see cref="T:NationalInstruments.VeriStand.SystemDefinitionAPI.DAQTaskAI" /> that perform finite acquisitions."""
-        self._dotnet_instance.AcquisitionSamples = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.AcquisitionSamples = next(unwrapped)
 
     @property
     def acquisition_time(self) -> float:
         """Gets or sets the total number of seconds to acquire data. This property is valid for instances of <see cref="T:NationalInstruments.VeriStand.SystemDefinitionAPI.DAQTaskAI" /> that perform finite acquisitions."""
-        return _wrap(self._dotnet_instance.AcquisitionTime)
+        dotnet_result = self._dotnet_instance.AcquisitionTime
+        return _wrap(dotnet_result)
 
     @acquisition_time.setter
     def acquisition_time(self, value: float):
         """Gets or sets the total number of seconds to acquire data. This property is valid for instances of <see cref="T:NationalInstruments.VeriStand.SystemDefinitionAPI.DAQTaskAI" /> that perform finite acquisitions."""
-        self._dotnet_instance.AcquisitionTime = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.AcquisitionTime = next(unwrapped)
 
     @property
     def acquisition_units(self) -> AcquisitionUnits:
         """Gets or sets whether the task uses time in seconds or number of samples as the size of the acquisitions it performs. This property is valid for instances of <see cref="T:NationalInstruments.VeriStand.SystemDefinitionAPI.DAQTaskAI" /> that perform finite acquisitions."""
-        return _wrap(self._dotnet_instance.AcquisitionUnits)
+        dotnet_result = self._dotnet_instance.AcquisitionUnits
+        return _wrap(dotnet_result)
 
     @acquisition_units.setter
     def acquisition_units(self, value: AcquisitionUnits):
         """Gets or sets whether the task uses time in seconds or number of samples as the size of the acquisitions it performs. This property is valid for instances of <see cref="T:NationalInstruments.VeriStand.SystemDefinitionAPI.DAQTaskAI" /> that perform finite acquisitions."""
-        self._dotnet_instance.AcquisitionUnits = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.AcquisitionUnits = next(unwrapped)
 
     @property
     def clock_source(self) -> str:
         """Gets or sets the source terminal of the sample clock that you want to control acquisition timing.  An empty string corresponds to the default onboard clock of the device."""
-        return _wrap(self._dotnet_instance.ClockSource)
+        dotnet_result = self._dotnet_instance.ClockSource
+        return _wrap(dotnet_result)
 
     @clock_source.setter
     def clock_source(self, value: str):
         """Gets or sets the source terminal of the sample clock that you want to control acquisition timing.  An empty string corresponds to the default onboard clock of the device."""
-        self._dotnet_instance.ClockSource = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.ClockSource = next(unwrapped)
 
     @property
     def active_edge(self) -> EdgeType:
         """Gets or sets the type of edge in the pulses of the sample clock that cause the task to acquire samples: rising or falling."""
-        return _wrap(self._dotnet_instance.ActiveEdge)
+        dotnet_result = self._dotnet_instance.ActiveEdge
+        return _wrap(dotnet_result)
 
     @active_edge.setter
     def active_edge(self, value: EdgeType):
         """Gets or sets the type of edge in the pulses of the sample clock that cause the task to acquire samples: rising or falling."""
-        self._dotnet_instance.ActiveEdge = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.ActiveEdge = next(unwrapped)
 
     @property
     def channel_names(self) -> ChannelNames:
         """Gets or sets a value that indicates how the names of AI channels appear in log files that this task creates."""
-        return _wrap(self._dotnet_instance.ChannelNames)
+        dotnet_result = self._dotnet_instance.ChannelNames
+        return _wrap(dotnet_result)
 
     @channel_names.setter
     def channel_names(self, value: ChannelNames):
         """Gets or sets a value that indicates how the names of AI channels appear in log files that this task creates."""
-        self._dotnet_instance.ChannelNames = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.ChannelNames = next(unwrapped)
 
     @overload
     def get_logging(self) -> DAQLogging:
         ...
 
     def get_logging(self, *args):
-        return _wrap(self._dotnet_instance.GetLogging(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetLogging(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_triggers(self) -> DAQTriggers:
         ...
 
     def get_triggers(self, *args):
-        return _wrap(self._dotnet_instance.GetTriggers(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetTriggers(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_task_enabled_channel(self) -> DAQTaskCommand:
         ...
 
     def get_task_enabled_channel(self, *args):
-        return _wrap(self._dotnet_instance.GetTaskEnabledChannel(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetTaskEnabledChannel(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_devices(self) -> Sequence[DAQDevice]:
         ...
 
     def get_devices(self, *args):
-        return _wrap(self._dotnet_instance.GetDevices(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetDevices(*unwrapped)
+        return _wrap(dotnet_result)
 
 
 class DAQTaskCommand(Channel, IChannel):
@@ -9145,12 +10817,14 @@ class DAQTaskCommand(Channel, IChannel):
     @property
     def initial_value(self) -> bool:
         """Gets or sets a value indicating whether the channel is initially enabled or disabled."""
-        return _wrap(self._dotnet_instance.InitialValue)
+        dotnet_result = self._dotnet_instance.InitialValue
+        return _wrap(dotnet_result)
 
     @initial_value.setter
     def initial_value(self, value: bool):
         """Gets or sets a value indicating whether the channel is initially enabled or disabled."""
-        self._dotnet_instance.InitialValue = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.InitialValue = next(unwrapped)
 
 
 class DAQTasks(Section):
@@ -9169,21 +10843,27 @@ class DAQTasks(Section):
         ...
 
     def get_task_list(self, *args):
-        return _wrap(self._dotnet_instance.GetTaskList(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetTaskList(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_task(self, task: DAQTask) -> bool:
         ...
 
     def add_task(self, *args):
-        return _wrap(self._dotnet_instance.AddTask(*_unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.AddTask(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def reorder_task_list(self, tasks: Sequence[DAQTask]) -> bool:
         ...
 
     def reorder_task_list(self, *args):
-        return _wrap(self._dotnet_instance.ReorderTaskList(*_unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.ReorderTaskList(*unwrapped)
+        return _wrap(dotnet_result)
 
 
 class DAQTriggers(Section):
@@ -9199,71 +10879,86 @@ class DAQTriggers(Section):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.DAQTriggers:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.DAQTriggers(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.DAQTriggers(*unwrapped)
 
     @property
     def start_trigger(self) -> DAQTrigger:
         """Gets or sets the <see cref="T:NationalInstruments.VeriStand.SystemDefinitionAPI.DAQTrigger" /> that serves as the start trigger for current instance of <see cref="T:NationalInstruments.VeriStand.SystemDefinitionAPI.DAQTaskAI" />."""
-        return _wrap(self._dotnet_instance.StartTrigger)
+        dotnet_result = self._dotnet_instance.StartTrigger
+        return _wrap(dotnet_result)
 
     @start_trigger.setter
     def start_trigger(self, value: DAQTrigger):
         """Gets or sets the <see cref="T:NationalInstruments.VeriStand.SystemDefinitionAPI.DAQTrigger" /> that serves as the start trigger for current instance of <see cref="T:NationalInstruments.VeriStand.SystemDefinitionAPI.DAQTaskAI" />."""
-        self._dotnet_instance.StartTrigger = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.StartTrigger = next(unwrapped)
 
     @property
     def reference_trigger(self) -> DAQTrigger:
         """Gets or sets the <see cref="T:NationalInstruments.VeriStand.SystemDefinitionAPI.DAQTrigger" /> that serves as the reference trigger for current instance of <see cref="T:NationalInstruments.VeriStand.SystemDefinitionAPI.DAQTaskAI" />."""
-        return _wrap(self._dotnet_instance.ReferenceTrigger)
+        dotnet_result = self._dotnet_instance.ReferenceTrigger
+        return _wrap(dotnet_result)
 
     @reference_trigger.setter
     def reference_trigger(self, value: DAQTrigger):
         """Gets or sets the <see cref="T:NationalInstruments.VeriStand.SystemDefinitionAPI.DAQTrigger" /> that serves as the reference trigger for current instance of <see cref="T:NationalInstruments.VeriStand.SystemDefinitionAPI.DAQTaskAI" />."""
-        self._dotnet_instance.ReferenceTrigger = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.ReferenceTrigger = next(unwrapped)
 
     @property
     def pretrigger_samples(self) -> int:
         """Gets or sets the number of samples per channel prior to the <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.DAQTriggers.ReferenceTrigger" /> to include in the acquisition that begins when the trigger occurs."""
-        return _wrap(self._dotnet_instance.PretriggerSamples)
+        dotnet_result = self._dotnet_instance.PretriggerSamples
+        return _wrap(dotnet_result)
 
     @pretrigger_samples.setter
     def pretrigger_samples(self, value: int):
         """Gets or sets the number of samples per channel prior to the <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.DAQTriggers.ReferenceTrigger" /> to include in the acquisition that begins when the trigger occurs."""
-        self._dotnet_instance.PretriggerSamples = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.PretriggerSamples = next(unwrapped)
 
     @property
     def pretrigger_time(self) -> float:
         """Gets or sets the length of time, in seconds, prior to the <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.DAQTriggers.ReferenceTrigger" /> to include in the acquisition that begins when the trigger occurs."""
-        return _wrap(self._dotnet_instance.PretriggerTime)
+        dotnet_result = self._dotnet_instance.PretriggerTime
+        return _wrap(dotnet_result)
 
     @pretrigger_time.setter
     def pretrigger_time(self, value: float):
         """Gets or sets the length of time, in seconds, prior to the <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.DAQTriggers.ReferenceTrigger" /> to include in the acquisition that begins when the trigger occurs."""
-        self._dotnet_instance.PretriggerTime = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.PretriggerTime = next(unwrapped)
 
     @property
     def pretrigger_units(self) -> AcquisitionUnits:
         """Gets or sets whether the task uses samples or seconds of time as the size of the pre-trigger acquisition it performs. This property is valid for instances of <see cref="T:NationalInstruments.VeriStand.SystemDefinitionAPI.DAQTrigger" /> that serve as the <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.DAQTriggers.ReferenceTrigger" /> for the task."""
-        return _wrap(self._dotnet_instance.PretriggerUnits)
+        dotnet_result = self._dotnet_instance.PretriggerUnits
+        return _wrap(dotnet_result)
 
     @pretrigger_units.setter
     def pretrigger_units(self, value: AcquisitionUnits):
         """Gets or sets whether the task uses samples or seconds of time as the size of the pre-trigger acquisition it performs. This property is valid for instances of <see cref="T:NationalInstruments.VeriStand.SystemDefinitionAPI.DAQTrigger" /> that serve as the <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.DAQTriggers.ReferenceTrigger" /> for the task."""
-        self._dotnet_instance.PretriggerUnits = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.PretriggerUnits = next(unwrapped)
 
     @overload
     def get_retriggerable_channel(self) -> DAQTaskCommand:
         ...
 
     def get_retriggerable_channel(self, *args):
-        return _wrap(self._dotnet_instance.GetRetriggerableChannel(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetRetriggerableChannel(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_start_trigger_channel(self) -> DAQTaskCommand:
         ...
 
     def get_start_trigger_channel(self, *args):
-        return _wrap(self._dotnet_instance.GetStartTriggerChannel(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetStartTriggerChannel(*unwrapped)
+        return _wrap(dotnet_result)
 
 
 class DAQWaveform(Waveform):
@@ -9280,159 +10975,203 @@ class DAQWaveform(Waveform):
     @property
     def plugin_guid(self) -> str:
         """Gets the GUID specifying DAQPlugin XML/Measurement Type."""
-        return _wrap(self._dotnet_instance.PluginGUID)
+        dotnet_result = self._dotnet_instance.PluginGUID
+        return _wrap(dotnet_result)
 
     @property
     def measurement_type(self) -> DAQMeasurementType:
         """Gets the enum specifying DAQ Measurement Type."""
-        return _wrap(self._dotnet_instance.MeasurementType)
+        dotnet_result = self._dotnet_instance.MeasurementType
+        return _wrap(dotnet_result)
 
     @overload
     def get_double_property(self, property_name: str) -> float:
         ...
 
     def get_double_property(self, *args):
-        return _wrap(self._dotnet_instance.GetDoubleProperty(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetDoubleProperty(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_u64_property(self, property_name: str) -> int:
         ...
 
     def get_u64_property(self, *args):
-        return _wrap(self._dotnet_instance.GetU64Property(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetU64Property(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_u32_property(self, property_name: str) -> int:
         ...
 
     def get_u32_property(self, *args):
-        return _wrap(self._dotnet_instance.GetU32Property(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetU32Property(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_u16_property(self, property_name: str) -> int:
         ...
 
     def get_u16_property(self, *args):
-        return _wrap(self._dotnet_instance.GetU16Property(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetU16Property(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_i64_property(self, property_name: str) -> int:
         ...
 
     def get_i64_property(self, *args):
-        return _wrap(self._dotnet_instance.GetI64Property(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetI64Property(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_i32_property(self, property_name: str) -> int:
         ...
 
     def get_i32_property(self, *args):
-        return _wrap(self._dotnet_instance.GetI32Property(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetI32Property(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_i16_property(self, property_name: str) -> int:
         ...
 
     def get_i16_property(self, *args):
-        return _wrap(self._dotnet_instance.GetI16Property(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetI16Property(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_boolean_property(self, property_name: str) -> bool:
         ...
 
     def get_boolean_property(self, *args):
-        return _wrap(self._dotnet_instance.GetBooleanProperty(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetBooleanProperty(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_string_property(self, property_name: str) -> str:
         ...
 
     def get_string_property(self, *args):
-        return _wrap(self._dotnet_instance.GetStringProperty(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetStringProperty(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_enum_property(self, property_name: str) -> Tuple[str, int]:
         ...
 
     def get_enum_property(self, *args):
-        return _wrap(self._dotnet_instance.GetEnumProperty(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetEnumProperty(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_properties(self) -> Tuple[Sequence[str], Sequence[ValueDataType]]:
         ...
 
     def get_properties(self, *args):
-        return _wrap(self._dotnet_instance.GetProperties(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetProperties(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def reset_property_values(self):
         ...
 
     def reset_property_values(self, *args):
-        return _wrap(self._dotnet_instance.ResetPropertyValues(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.ResetPropertyValues(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def set_double_property(self, property_name: str, value: float):
         ...
 
     def set_double_property(self, *args):
-        return _wrap(self._dotnet_instance.SetDoubleProperty(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.SetDoubleProperty(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def set_u64_property(self, property_name: str, value: int):
         ...
 
     def set_u64_property(self, *args):
-        return _wrap(self._dotnet_instance.SetU64Property(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.SetU64Property(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def set_u32_property(self, property_name: str, value: int):
         ...
 
     def set_u32_property(self, *args):
-        return _wrap(self._dotnet_instance.SetU32Property(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.SetU32Property(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def set_u16_property(self, property_name: str, value: int):
         ...
 
     def set_u16_property(self, *args):
-        return _wrap(self._dotnet_instance.SetU16Property(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.SetU16Property(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def set_i64_property(self, property_name: str, value: int):
         ...
 
     def set_i64_property(self, *args):
-        return _wrap(self._dotnet_instance.SetI64Property(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.SetI64Property(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def set_i32_property(self, property_name: str, value: int):
         ...
 
     def set_i32_property(self, *args):
-        return _wrap(self._dotnet_instance.SetI32Property(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.SetI32Property(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def set_i16_property(self, property_name: str, value: int):
         ...
 
     def set_i16_property(self, *args):
-        return _wrap(self._dotnet_instance.SetI16Property(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.SetI16Property(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def set_boolean_property(self, property_name: str, value: bool):
         ...
 
     def set_boolean_property(self, *args):
-        return _wrap(self._dotnet_instance.SetBooleanProperty(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.SetBooleanProperty(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def set_string_property(self, property_name: str, value: str):
         ...
 
     def set_string_property(self, *args):
-        return _wrap(self._dotnet_instance.SetStringProperty(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.SetStringProperty(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def set_enum_property(self, property_name: str, enum_string: str):
@@ -9443,7 +11182,9 @@ class DAQWaveform(Waveform):
         ...
 
     def set_enum_property(self, *args):
-        return _wrap(self._dotnet_instance.SetEnumProperty(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.SetEnumProperty(*unwrapped)
+        return _wrap(dotnet_result)
 
 
 class DAQWaveformAnalogInput(DAQWaveform):
@@ -9463,37 +11204,44 @@ class DAQWaveformAnalogInput(DAQWaveform):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.DAQWaveformAnalogInput:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.DAQWaveformAnalogInput(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.DAQWaveformAnalogInput(*unwrapped)
 
     @property
     def channel(self) -> int:
         """Gets or sets the channel number."""
-        return _wrap(self._dotnet_instance.Channel)
+        dotnet_result = self._dotnet_instance.Channel
+        return _wrap(dotnet_result)
 
     @channel.setter
     def channel(self, value: int):
         """Gets or sets the channel number."""
-        self._dotnet_instance.Channel = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.Channel = next(unwrapped)
 
     @property
     def low_level(self) -> float:
         """Gets or sets the minimum value of the channel."""
-        return _wrap(self._dotnet_instance.LowLevel)
+        dotnet_result = self._dotnet_instance.LowLevel
+        return _wrap(dotnet_result)
 
     @low_level.setter
     def low_level(self, value: float):
         """Gets or sets the minimum value of the channel."""
-        self._dotnet_instance.LowLevel = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.LowLevel = next(unwrapped)
 
     @property
     def high_level(self) -> float:
         """Gets or sets the maximum value of the channel."""
-        return _wrap(self._dotnet_instance.HighLevel)
+        dotnet_result = self._dotnet_instance.HighLevel
+        return _wrap(dotnet_result)
 
     @high_level.setter
     def high_level(self, value: float):
         """Gets or sets the maximum value of the channel."""
-        self._dotnet_instance.HighLevel = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.HighLevel = next(unwrapped)
 
 
 class DataFileError(Channel, IChannel):
@@ -9525,101 +11273,122 @@ class DataFileReplay(Section):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.DataFileReplay:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.DataFileReplay(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.DataFileReplay(*unwrapped)
 
     @property
     def behavior(self) -> ReplayBehavior:
         """Gets or sets whether and how frames in the data replay file are filtered."""
-        return _wrap(self._dotnet_instance.Behavior)
+        dotnet_result = self._dotnet_instance.Behavior
+        return _wrap(dotnet_result)
 
     @behavior.setter
     def behavior(self, value: ReplayBehavior):
         """Gets or sets whether and how frames in the data replay file are filtered."""
-        self._dotnet_instance.Behavior = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.Behavior = next(unwrapped)
 
     @property
     def tdms_group_name(self) -> str:
         """Gets or sets the name of the group in a TDMS file that contains the logged data for replay."""
-        return _wrap(self._dotnet_instance.TDMSGroupName)
+        dotnet_result = self._dotnet_instance.TDMSGroupName
+        return _wrap(dotnet_result)
 
     @tdms_group_name.setter
     def tdms_group_name(self, value: str):
         """Gets or sets the name of the group in a TDMS file that contains the logged data for replay."""
-        self._dotnet_instance.TDMSGroupName = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.TDMSGroupName = next(unwrapped)
 
     @property
     def tdms_channel_name(self) -> str:
         """Gets or sets the name of the channel in a TDMS file that contains the logged data for replay."""
-        return _wrap(self._dotnet_instance.TDMSChannelName)
+        dotnet_result = self._dotnet_instance.TDMSChannelName
+        return _wrap(dotnet_result)
 
     @tdms_channel_name.setter
     def tdms_channel_name(self, value: str):
         """Gets or sets the name of the channel in a TDMS file that contains the logged data for replay."""
-        self._dotnet_instance.TDMSChannelName = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.TDMSChannelName = next(unwrapped)
 
     @property
     def path(self) -> DependentFile:
         """Gets or sets the path to the replay file on disk."""
-        return _wrap(self._dotnet_instance.Path)
+        dotnet_result = self._dotnet_instance.Path
+        return _wrap(dotnet_result)
 
     @path.setter
     def path(self, value: DependentFile):
         """Gets or sets the path to the replay file on disk."""
-        self._dotnet_instance.Path = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.Path = next(unwrapped)
 
     @property
     def frame_cache_size(self) -> int:
         """Gets or sets the number of frames cached during replay."""
-        return _wrap(self._dotnet_instance.FrameCacheSize)
+        dotnet_result = self._dotnet_instance.FrameCacheSize
+        return _wrap(dotnet_result)
 
     @frame_cache_size.setter
     def frame_cache_size(self, value: int):
         """Gets or sets the number of frames cached during replay."""
-        self._dotnet_instance.FrameCacheSize = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.FrameCacheSize = next(unwrapped)
 
     @property
     def loop_rate(self) -> int:
         """Gets or sets the rate in hertz at which the frames to send in the outgoing queue are updated. This property does not affect the actual update rate of frames on the CAN bus."""
-        return _wrap(self._dotnet_instance.LoopRate)
+        dotnet_result = self._dotnet_instance.LoopRate
+        return _wrap(dotnet_result)
 
     @loop_rate.setter
     def loop_rate(self, value: int):
         """Gets or sets the rate in hertz at which the frames to send in the outgoing queue are updated. This property does not affect the actual update rate of frames on the CAN bus."""
-        self._dotnet_instance.LoopRate = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.LoopRate = next(unwrapped)
 
     @property
     def frame_i_ds(self) -> Sequence[str]:
         """Gets or sets the IDs of the frames in the log file that are included or excluded from the file replay when <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.DataFileReplay.Behavior" crefType="Unqualified" /> is <see cref="F:NationalInstruments.VeriStand.SystemDefinitionAPI.ReplayBehavior.ExcludeFrameIDs" crefType="Unqualified" /> or <see cref="F:NationalInstruments.VeriStand.SystemDefinitionAPI.ReplayBehavior.IncludeFrameIDs" crefType="Unqualified" />."""
-        return _wrap(self._dotnet_instance.FrameIDs)
+        dotnet_result = self._dotnet_instance.FrameIDs
+        return _wrap(dotnet_result)
 
     @frame_i_ds.setter
     def frame_i_ds(self, value: Sequence[str]):
         """Gets or sets the IDs of the frames in the log file that are included or excluded from the file replay when <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.DataFileReplay.Behavior" crefType="Unqualified" /> is <see cref="F:NationalInstruments.VeriStand.SystemDefinitionAPI.ReplayBehavior.ExcludeFrameIDs" crefType="Unqualified" /> or <see cref="F:NationalInstruments.VeriStand.SystemDefinitionAPI.ReplayBehavior.IncludeFrameIDs" crefType="Unqualified" />."""
-        self._dotnet_instance.FrameIDs = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.FrameIDs = next(unwrapped)
 
     @property
     def trigger_channel(self) -> BaseNode:
         """Gets or sets the channel used to trigger replay. Replay begins as soon as the value of this channel becomes non-zero. If desired, you can select or configure a channel that triggers multiple replays of the file."""
-        return _wrap(self._dotnet_instance.TriggerChannel)
+        dotnet_result = self._dotnet_instance.TriggerChannel
+        return _wrap(dotnet_result)
 
     @trigger_channel.setter
     def trigger_channel(self, value: BaseNode):
         """Gets or sets the channel used to trigger replay. Replay begins as soon as the value of this channel becomes non-zero. If desired, you can select or configure a channel that triggers multiple replays of the file."""
-        self._dotnet_instance.TriggerChannel = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.TriggerChannel = next(unwrapped)
 
     @overload
     def get_data_file_error(self) -> DataFileError:
         ...
 
     def get_data_file_error(self, *args):
-        return _wrap(self._dotnet_instance.GetDataFileError(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetDataFileError(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_data_file_status(self) -> DataFileStatus:
         ...
 
     def get_data_file_status(self, *args):
-        return _wrap(self._dotnet_instance.GetDataFileStatus(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetDataFileStatus(*unwrapped)
+        return _wrap(dotnet_result)
 
 
 class DataFileStatus(Channel, IChannel):
@@ -9647,171 +11416,206 @@ class DataLoggingFile(Section):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.DataLoggingFile:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.DataLoggingFile(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.DataLoggingFile(*unwrapped)
 
     @property
     def data_logging_file_type(self) -> FileType:
         """Gets or sets the file type of an NI-XNET <see cref="T:NationalInstruments.VeriStand.SystemDefinitionAPI.DataLoggingFile" crefType="Unqualified" />. Log files can be TDMS or NCL files."""
-        return _wrap(self._dotnet_instance.DataLoggingFileType)
+        dotnet_result = self._dotnet_instance.DataLoggingFileType
+        return _wrap(dotnet_result)
 
     @data_logging_file_type.setter
     def data_logging_file_type(self, value: FileType):
         """Gets or sets the file type of an NI-XNET <see cref="T:NationalInstruments.VeriStand.SystemDefinitionAPI.DataLoggingFile" crefType="Unqualified" />. Log files can be TDMS or NCL files."""
-        self._dotnet_instance.DataLoggingFileType = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.DataLoggingFileType = next(unwrapped)
 
     @property
     def tdms_group_name(self) -> str:
         """Gets or sets the name of the group in the TDMS file to log data to."""
-        return _wrap(self._dotnet_instance.TDMSGroupName)
+        dotnet_result = self._dotnet_instance.TDMSGroupName
+        return _wrap(dotnet_result)
 
     @tdms_group_name.setter
     def tdms_group_name(self, value: str):
         """Gets or sets the name of the group in the TDMS file to log data to."""
-        self._dotnet_instance.TDMSGroupName = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.TDMSGroupName = next(unwrapped)
 
     @property
     def tdms_channel_name(self) -> str:
         """Gets or sets the name of the channel in the TDMS file to log data to."""
-        return _wrap(self._dotnet_instance.TDMSChannelName)
+        dotnet_result = self._dotnet_instance.TDMSChannelName
+        return _wrap(dotnet_result)
 
     @tdms_channel_name.setter
     def tdms_channel_name(self, value: str):
         """Gets or sets the name of the channel in the TDMS file to log data to."""
-        self._dotnet_instance.TDMSChannelName = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.TDMSChannelName = next(unwrapped)
 
     @property
     def limit_type(self) -> FileLimitationType:
         """Gets or sets the criteria to use to stop logging data to the current file. When the limit you specify occurs, NI VeriStand either stops logging completely or continues logging in a new file, depending on the specified <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.DataLoggingFile.Operation" crefType="Unqualified" />."""
-        return _wrap(self._dotnet_instance.LimitType)
+        dotnet_result = self._dotnet_instance.LimitType
+        return _wrap(dotnet_result)
 
     @limit_type.setter
     def limit_type(self, value: FileLimitationType):
         """Gets or sets the criteria to use to stop logging data to the current file. When the limit you specify occurs, NI VeriStand either stops logging completely or continues logging in a new file, depending on the specified <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.DataLoggingFile.Operation" crefType="Unqualified" />."""
-        self._dotnet_instance.LimitType = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.LimitType = next(unwrapped)
 
     @property
     def trigger_type(self) -> DataLoggingTriggerType:
         """Gets or sets the type of trigger to use to start or stop data logging."""
-        return _wrap(self._dotnet_instance.TriggerType)
+        dotnet_result = self._dotnet_instance.TriggerType
+        return _wrap(dotnet_result)
 
     @trigger_type.setter
     def trigger_type(self, value: DataLoggingTriggerType):
         """Gets or sets the type of trigger to use to start or stop data logging."""
-        self._dotnet_instance.TriggerType = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.TriggerType = next(unwrapped)
 
     @property
     def filter(self) -> DataLoggingFilterType:
         """Gets or sets whether and how to filter the logged frames."""
-        return _wrap(self._dotnet_instance.Filter)
+        dotnet_result = self._dotnet_instance.Filter
+        return _wrap(dotnet_result)
 
     @filter.setter
     def filter(self, value: DataLoggingFilterType):
         """Gets or sets whether and how to filter the logged frames."""
-        self._dotnet_instance.Filter = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.Filter = next(unwrapped)
 
     @property
     def operation(self) -> DataLoggingOperationType:
         """Gets or sets the action to take when a trigger condition is met."""
-        return _wrap(self._dotnet_instance.Operation)
+        dotnet_result = self._dotnet_instance.Operation
+        return _wrap(dotnet_result)
 
     @operation.setter
     def operation(self, value: DataLoggingOperationType):
         """Gets or sets the action to take when a trigger condition is met."""
-        self._dotnet_instance.Operation = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.Operation = next(unwrapped)
 
     @property
     def buffer_time(self) -> float:
         """Gets or sets the buffer time of the log file in seconds. Frames read will be added to the buffer until the specified amount of time has elapsed, at which point all buffered data will be written to the file.  If the buffer is partially full when a file is finished, the remaining data in the buffer will be written to the file.  If the buffer time is set to 0, data will be immediately written to the file when read."""
-        return _wrap(self._dotnet_instance.BufferTime)
+        dotnet_result = self._dotnet_instance.BufferTime
+        return _wrap(dotnet_result)
 
     @buffer_time.setter
     def buffer_time(self, value: float):
         """Gets or sets the buffer time of the log file in seconds. Frames read will be added to the buffer until the specified amount of time has elapsed, at which point all buffered data will be written to the file.  If the buffer is partially full when a file is finished, the remaining data in the buffer will be written to the file.  If the buffer time is set to 0, data will be immediately written to the file when read."""
-        self._dotnet_instance.BufferTime = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.BufferTime = next(unwrapped)
 
     @property
     def destination(self) -> str:
         """Gets or sets the destination for a <see cref="T:NationalInstruments.VeriStand.SystemDefinitionAPI.DataLoggingFile" crefType="Unqualified" /> on disk."""
-        return _wrap(self._dotnet_instance.Destination)
+        dotnet_result = self._dotnet_instance.Destination
+        return _wrap(dotnet_result)
 
     @destination.setter
     def destination(self, value: str):
         """Gets or sets the destination for a <see cref="T:NationalInstruments.VeriStand.SystemDefinitionAPI.DataLoggingFile" crefType="Unqualified" /> on disk."""
-        self._dotnet_instance.Destination = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.Destination = next(unwrapped)
 
     @property
     def filename(self) -> str:
         """Gets or sets the filename of a <see cref="T:NationalInstruments.VeriStand.SystemDefinitionAPI.DataLoggingFile" crefType="Unqualified" />."""
-        return _wrap(self._dotnet_instance.Filename)
+        dotnet_result = self._dotnet_instance.Filename
+        return _wrap(dotnet_result)
 
     @filename.setter
     def filename(self, value: str):
         """Gets or sets the filename of a <see cref="T:NationalInstruments.VeriStand.SystemDefinitionAPI.DataLoggingFile" crefType="Unqualified" />."""
-        self._dotnet_instance.Filename = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.Filename = next(unwrapped)
 
     @property
     def retriggerable(self) -> bool:
         """Gets or sets whether logging can be retriggered after a stop. If <see langword="true" />, logging begins again when the value of <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.DataLoggingFile.TriggerChannel" crefType="Unqualified" /> reaches the specified <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.DataLoggingFile.TriggerType" crefType="Unqualified" />."""
-        return _wrap(self._dotnet_instance.Retriggerable)
+        dotnet_result = self._dotnet_instance.Retriggerable
+        return _wrap(dotnet_result)
 
     @retriggerable.setter
     def retriggerable(self, value: bool):
         """Gets or sets whether logging can be retriggered after a stop. If <see langword="true" />, logging begins again when the value of <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.DataLoggingFile.TriggerChannel" crefType="Unqualified" /> reaches the specified <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.DataLoggingFile.TriggerType" crefType="Unqualified" />."""
-        self._dotnet_instance.Retriggerable = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.Retriggerable = next(unwrapped)
 
     @property
     def limit_value(self) -> int:
         """Gets or sets the value used to determine when to stop logging data to the current log file. This property can represent a size in kilobytes or a time in seconds, depending on the file's <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.DataLoggingFile.LimitType" crefType="Unqualified" />."""
-        return _wrap(self._dotnet_instance.LimitValue)
+        dotnet_result = self._dotnet_instance.LimitValue
+        return _wrap(dotnet_result)
 
     @limit_value.setter
     def limit_value(self, value: int):
         """Gets or sets the value used to determine when to stop logging data to the current log file. This property can represent a size in kilobytes or a time in seconds, depending on the file's <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.DataLoggingFile.LimitType" crefType="Unqualified" />."""
-        self._dotnet_instance.LimitValue = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.LimitValue = next(unwrapped)
 
     @property
     def number_of_bytes_to_read(self) -> int:
         """Gets or sets the maximum number of raw bytes to read. This number does not represent the number of frames to read. CAN and LIN frames are always 24 bytes long. FlexRay frames vary in length."""
-        return _wrap(self._dotnet_instance.NumberOfBytesToRead)
+        dotnet_result = self._dotnet_instance.NumberOfBytesToRead
+        return _wrap(dotnet_result)
 
     @number_of_bytes_to_read.setter
     def number_of_bytes_to_read(self, value: int):
         """Gets or sets the maximum number of raw bytes to read. This number does not represent the number of frames to read. CAN and LIN frames are always 24 bytes long. FlexRay frames vary in length."""
-        self._dotnet_instance.NumberOfBytesToRead = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.NumberOfBytesToRead = next(unwrapped)
 
     @property
     def trigger_channel(self) -> BaseNode:
         """The channel to watch for the specified <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.DataLoggingFile.TriggerType" crefType="Unqualified" />."""
-        return _wrap(self._dotnet_instance.TriggerChannel)
+        dotnet_result = self._dotnet_instance.TriggerChannel
+        return _wrap(dotnet_result)
 
     @trigger_channel.setter
     def trigger_channel(self, value: BaseNode):
         """The channel to watch for the specified <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.DataLoggingFile.TriggerType" crefType="Unqualified" />."""
-        self._dotnet_instance.TriggerChannel = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.TriggerChannel = next(unwrapped)
 
     @property
     def frame_i_ds(self) -> Sequence[str]:
         """Gets or sets the frame IDs in the XNET database cluster to either include in or exclude from data logging. Use this property when you configure a <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.DataLoggingFile.Filter" crefType="Unqualified" /> for the data logging file."""
-        return _wrap(self._dotnet_instance.FrameIDs)
+        dotnet_result = self._dotnet_instance.FrameIDs
+        return _wrap(dotnet_result)
 
     @frame_i_ds.setter
     def frame_i_ds(self, value: Sequence[str]):
         """Gets or sets the frame IDs in the XNET database cluster to either include in or exclude from data logging. Use this property when you configure a <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.DataLoggingFile.Filter" crefType="Unqualified" /> for the data logging file."""
-        self._dotnet_instance.FrameIDs = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.FrameIDs = next(unwrapped)
 
     @overload
     def get_data_file_error(self) -> DataFileError:
         ...
 
     def get_data_file_error(self, *args):
-        return _wrap(self._dotnet_instance.GetDataFileError(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetDataFileError(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_data_file_status(self) -> DataFileStatus:
         ...
 
     def get_data_file_status(self, *args):
-        return _wrap(self._dotnet_instance.GetDataFileStatus(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetDataFileStatus(*unwrapped)
+        return _wrap(dotnet_result)
 
 
 class DataReplay(Section):
@@ -9830,14 +11634,18 @@ class DataReplay(Section):
         ...
 
     def get_data_file_replay_list(self, *args):
-        return _wrap(self._dotnet_instance.GetDataFileReplayList(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetDataFileReplayList(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_data_file_replay(self, data_file_replay: DataFileReplay) -> bool:
         ...
 
     def add_data_file_replay(self, *args):
-        return _wrap(self._dotnet_instance.AddDataFileReplay(*_unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.AddDataFileReplay(*unwrapped)
+        return _wrap(dotnet_result)
 
 
 class DataSharing(Section):
@@ -9856,14 +11664,18 @@ class DataSharing(Section):
         ...
 
     def get_reflective_memory(self, *args):
-        return _wrap(self._dotnet_instance.GetReflectiveMemory(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetReflectiveMemory(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_reflective_memory(self, name: str) -> bool:
         ...
 
     def add_reflective_memory(self, *args):
-        return _wrap(self._dotnet_instance.AddReflectiveMemory(*_unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.AddReflectiveMemory(*unwrapped)
+        return _wrap(dotnet_result)
 
 
 class DataSharingNetwork(Section):
@@ -9880,26 +11692,32 @@ class DataSharingNetwork(Section):
     @property
     def dynamic_data_size(self) -> int:
         """Gets or sets the number of channels in reflective memory to reserve for dynamically mapping channel data at run-time. For example, in a distributed system, if target A needs to access data provided by a channel on target B at run-time, the targets require a channel in reflective memory that target B can copy data to and target A can read data from."""
-        return _wrap(self._dotnet_instance.DynamicDataSize)
+        dotnet_result = self._dotnet_instance.DynamicDataSize
+        return _wrap(dotnet_result)
 
     @dynamic_data_size.setter
     def dynamic_data_size(self, value: int):
         """Gets or sets the number of channels in reflective memory to reserve for dynamically mapping channel data at run-time. For example, in a distributed system, if target A needs to access data provided by a channel on target B at run-time, the targets require a channel in reflective memory that target B can copy data to and target A can read data from."""
-        self._dotnet_instance.DynamicDataSize = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.DynamicDataSize = next(unwrapped)
 
     @overload
     def get_reflective_memory_network(self) -> ReflectiveMemoryNetwork:
         ...
 
     def get_reflective_memory_network(self, *args):
-        return _wrap(self._dotnet_instance.GetReflectiveMemoryNetwork(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetReflectiveMemoryNetwork(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_reflective_memory_network(self, name: str) -> bool:
         ...
 
     def add_reflective_memory_network(self, *args):
-        return _wrap(self._dotnet_instance.AddReflectiveMemoryNetwork(*_unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.AddReflectiveMemoryNetwork(*unwrapped)
+        return _wrap(dotnet_result)
 
 
 class Database(Section):
@@ -9919,12 +11737,14 @@ class Database(Section):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.Database:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.Database(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.Database(*unwrapped)
 
     @property
     def md5(self) -> Sequence[int]:
         """Gets the MD5 message-digest for the database as a byte array."""
-        return _wrap(self._dotnet_instance.MD5)
+        dotnet_result = self._dotnet_instance.MD5
+        return _wrap(dotnet_result)
 
 
 class Dwell(Command):
@@ -9944,22 +11764,26 @@ class Dwell(Command):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.Dwell:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.Dwell(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.Dwell(*unwrapped)
 
     @property
     def dwell_time_constant(self) -> float:
         """Gets the constant value that determines the amount of time to suspend the procedure."""
-        return _wrap(self._dotnet_instance.DwellTimeConstant)
+        dotnet_result = self._dotnet_instance.DwellTimeConstant
+        return _wrap(dotnet_result)
 
     @property
     def dwell_time_channel(self) -> BaseNode:
         """Gets the channel whose value determines the amount of time to suspend the procedure."""
-        return _wrap(self._dotnet_instance.DwellTimeChannel)
+        dotnet_result = self._dotnet_instance.DwellTimeChannel
+        return _wrap(dotnet_result)
 
     @property
     def dwell_time_is_constant(self) -> int:
         """Gets whether the amount of time to suspend the procedure is determined by a constant value or by a channel value."""
-        return _wrap(self._dotnet_instance.DwellTimeIsConstant)
+        dotnet_result = self._dotnet_instance.DwellTimeIsConstant
+        return _wrap(dotnet_result)
 
     @overload
     def set_dwell_time(self, dwell_time: float):
@@ -9970,7 +11794,9 @@ class Dwell(Command):
         ...
 
     def set_dwell_time(self, *args):
-        return _wrap(self._dotnet_instance.SetDwellTime(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.SetDwellTime(*unwrapped)
+        return _wrap(dotnet_result)
 
 
 class DynamicSignal(Channel, IChannel):
@@ -9987,7 +11813,8 @@ class DynamicSignal(Channel, IChannel):
     @property
     def md5(self) -> Sequence[int]:
         """Gets the MD5 message-digest for the signal."""
-        return _wrap(self._dotnet_instance.MD5)
+        dotnet_result = self._dotnet_instance.MD5
+        return _wrap(dotnet_result)
 
 
 class End(Command):
@@ -10003,7 +11830,8 @@ class End(Command):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.End:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.End(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.End(*unwrapped)
 
 
 class EventTriggered(Section):
@@ -10022,28 +11850,36 @@ class EventTriggered(Section):
         ...
 
     def get_signal_based_frame_list(self, *args):
-        return _wrap(self._dotnet_instance.GetSignalBasedFrameList(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetSignalBasedFrameList(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_raw_data_based_frame_list(self) -> Sequence[RawDataBasedFrame]:
         ...
 
     def get_raw_data_based_frame_list(self, *args):
-        return _wrap(self._dotnet_instance.GetRawDataBasedFrameList(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetRawDataBasedFrameList(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_signal_based_frame(self, signal_based_frame: SignalBasedFrame) -> bool:
         ...
 
     def add_signal_based_frame(self, *args):
-        return _wrap(self._dotnet_instance.AddSignalBasedFrame(*_unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.AddSignalBasedFrame(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_raw_data_based_frame(self, raw_data_based_frame: RawDataBasedFrame) -> bool:
         ...
 
     def add_raw_data_based_frame(self, *args):
-        return _wrap(self._dotnet_instance.AddRawDataBasedFrame(*_unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.AddRawDataBasedFrame(*unwrapped)
+        return _wrap(dotnet_result)
 
 
 class Execution(Section):
@@ -10062,21 +11898,27 @@ class Execution(Section):
         ...
 
     def get_model_command(self, *args):
-        return _wrap(self._dotnet_instance.GetModelCommand(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetModelCommand(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_model_status(self) -> ModelStatus:
         ...
 
     def get_model_status(self, *args):
-        return _wrap(self._dotnet_instance.GetModelStatus(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetModelStatus(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_model_time(self) -> ModelTime:
         ...
 
     def get_model_time(self, *args):
-        return _wrap(self._dotnet_instance.GetModelTime(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetModelTime(*unwrapped)
+        return _wrap(dotnet_result)
 
 
 class ExecutionOrder(Section):
@@ -10104,7 +11946,8 @@ class ExitSubroutine(Command):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.ExitSubroutine:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.ExitSubroutine(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.ExitSubroutine(*unwrapped)
 
 
 class FPGA(Section):
@@ -10127,14 +11970,18 @@ class FPGA(Section):
         ...
 
     def add_fpga_device(self, *args):
-        return _wrap(self._dotnet_instance.AddFPGADevice(*_unwrap({(str,): (1, NationalInstruments.VeriStand.Error.NoError), (): (0, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({(str,): (1, NationalInstruments.VeriStand.Error.NoError), (): (0, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.AddFPGADevice(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_fpga_device_list(self) -> Sequence[FPGADevice]:
         ...
 
     def get_fpga_device_list(self, *args):
-        return _wrap(self._dotnet_instance.GetFPGADeviceList(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetFPGADeviceList(*unwrapped)
+        return _wrap(dotnet_result)
 
 
 class FPGACategory(Section):
@@ -10153,14 +12000,18 @@ class FPGACategory(Section):
         ...
 
     def get_category_list(self, *args):
-        return _wrap(self._dotnet_instance.GetCategoryList(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetCategoryList(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_channel_list(self) -> Sequence[FPGAChannel]:
         ...
 
     def get_channel_list(self, *args):
-        return _wrap(self._dotnet_instance.GetChannelList(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetChannelList(*unwrapped)
+        return _wrap(dotnet_result)
 
 
 class FPGAChannel(Channel, IChannel):
@@ -10177,67 +12028,80 @@ class FPGAChannel(Channel, IChannel):
     @property
     def initial_value(self) -> float:
         """Gets or sets the initial value of the FPGA channel."""
-        return _wrap(self._dotnet_instance.InitialValue)
+        dotnet_result = self._dotnet_instance.InitialValue
+        return _wrap(dotnet_result)
 
     @initial_value.setter
     def initial_value(self, value: float):
         """Gets or sets the initial value of the FPGA channel."""
-        self._dotnet_instance.InitialValue = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.InitialValue = next(unwrapped)
 
     @property
     def channel_bit_offset(self) -> int:
         """Gets the bit offset of the FPGA channel in the DMA packet."""
-        return _wrap(self._dotnet_instance.ChannelBitOffset)
+        dotnet_result = self._dotnet_instance.ChannelBitOffset
+        return _wrap(dotnet_result)
 
     @property
     def fxpiwl(self) -> int:
         """Gets the integer word length of a fixed-point FPGA channel."""
-        return _wrap(self._dotnet_instance.FXPIWL)
+        dotnet_result = self._dotnet_instance.FXPIWL
+        return _wrap(dotnet_result)
 
     @property
     def fxpwl(self) -> int:
         """Gets the word length of a fixed-point FPGA channel."""
-        return _wrap(self._dotnet_instance.FXPWL)
+        dotnet_result = self._dotnet_instance.FXPWL
+        return _wrap(dotnet_result)
 
     @property
     def offset(self) -> float:
         """Gets or sets the offset of the FPGA channel."""
-        return _wrap(self._dotnet_instance.Offset)
+        dotnet_result = self._dotnet_instance.Offset
+        return _wrap(dotnet_result)
 
     @offset.setter
     def offset(self, value: float):
         """Gets or sets the offset of the FPGA channel."""
-        self._dotnet_instance.Offset = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.Offset = next(unwrapped)
 
     @property
     def packet_index(self) -> int:
         """Gets the index of the packet in the DMA FIFO that defines the channel."""
-        return _wrap(self._dotnet_instance.PacketIndex)
+        dotnet_result = self._dotnet_instance.PacketIndex
+        return _wrap(dotnet_result)
 
     @property
     def period_pwm(self) -> int:
         """Gets or sets the pulse width modulation (PWM) period for an output channel."""
-        return _wrap(self._dotnet_instance.PeriodPWM)
+        dotnet_result = self._dotnet_instance.PeriodPWM
+        return _wrap(dotnet_result)
 
     @period_pwm.setter
     def period_pwm(self, value: int):
         """Gets or sets the pulse width modulation (PWM) period for an output channel."""
-        self._dotnet_instance.PeriodPWM = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.PeriodPWM = next(unwrapped)
 
     @property
     def representation(self) -> int:
         """Gets the data type of the FPGA channel as it is represented in the DMA packet."""
-        return _wrap(self._dotnet_instance.Representation)
+        dotnet_result = self._dotnet_instance.Representation
+        return _wrap(dotnet_result)
 
     @property
     def scaling(self) -> float:
         """Gets or sets the scaling value applied to a channel."""
-        return _wrap(self._dotnet_instance.Scaling)
+        dotnet_result = self._dotnet_instance.Scaling
+        return _wrap(dotnet_result)
 
     @scaling.setter
     def scaling(self, value: float):
         """Gets or sets the scaling value applied to a channel."""
-        self._dotnet_instance.Scaling = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.Scaling = next(unwrapped)
 
 
 class FPGADICategory(FPGACategory):
@@ -10277,46 +12141,56 @@ class FPGADevice(Section):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.FPGADevice:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.FPGADevice(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.FPGADevice(*unwrapped)
 
     @property
     def read_packets(self) -> int:
         """Gets the number of DMA read packets."""
-        return _wrap(self._dotnet_instance.ReadPackets)
+        dotnet_result = self._dotnet_instance.ReadPackets
+        return _wrap(dotnet_result)
 
     @property
     def write_packets(self) -> int:
         """Gets the number of DMA write packets."""
-        return _wrap(self._dotnet_instance.WritePackets)
+        dotnet_result = self._dotnet_instance.WritePackets
+        return _wrap(dotnet_result)
 
     @property
     def fpga_config_file(self) -> DependentFile:
         """Gets the FPGA configuration file used to define the FPGA target."""
-        return _wrap(self._dotnet_instance.FPGAConfigFile)
+        dotnet_result = self._dotnet_instance.FPGAConfigFile
+        return _wrap(dotnet_result)
 
     @property
     def fpga_bitfile(self) -> DependentFile:
         """Gets the name of the FPGA bitfile used for the FPGA target."""
-        return _wrap(self._dotnet_instance.FPGABitfile)
+        dotnet_result = self._dotnet_instance.FPGABitfile
+        return _wrap(dotnet_result)
 
     @property
     def latest_refresh(self) -> str:
         """Gets a timestamp indicating the last date and time that the FPGA configuration file, which specifies the content of the DMA FIFOs and how the device appears in System Explorer, was refreshed. Refreshing the configuration file essentially re-creates the device."""
-        return _wrap(self._dotnet_instance.LatestRefresh)
+        dotnet_result = self._dotnet_instance.LatestRefresh
+        return _wrap(dotnet_result)
 
     @overload
     def change_rio_address(self, address_number: int) -> bool:
         ...
 
     def change_rio_address(self, *args):
-        return _wrap(self._dotnet_instance.ChangeRIOAddress(*_unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.ChangeRIOAddress(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_category_list(self) -> Sequence[FPGACategory]:
         ...
 
     def get_category_list(self, *args):
-        return _wrap(self._dotnet_instance.GetCategoryList(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetCategoryList(*unwrapped)
+        return _wrap(dotnet_result)
 
 
 class FPGADigitalInput(FPGAChannel, IChannel):
@@ -10419,14 +12293,18 @@ class FlexRay(Section):
         ...
 
     def get_flex_ray_port_list(self, *args):
-        return _wrap(self._dotnet_instance.GetFlexRayPortList(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetFlexRayPortList(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_flex_ray_port(self, flex_ray_port: FlexRayPort) -> bool:
         ...
 
     def add_flex_ray_port(self, *args):
-        return _wrap(self._dotnet_instance.AddFlexRayPort(*_unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.AddFlexRayPort(*unwrapped)
+        return _wrap(dotnet_result)
 
 
 class FlexRayInterfaceChannels(Section):
@@ -10445,98 +12323,126 @@ class FlexRayInterfaceChannels(Section):
         ...
 
     def get_poc_state_channel(self, *args):
-        return _wrap(self._dotnet_instance.GetPOCStateChannel(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetPOCStateChannel(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_clock_correction_failed_channel(self) -> Channel:
         ...
 
     def get_clock_correction_failed_channel(self, *args):
-        return _wrap(self._dotnet_instance.GetClockCorrectionFailedChannel(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetClockCorrectionFailedChannel(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_passive_to_active_count_channel(self) -> Channel:
         ...
 
     def get_passive_to_active_count_channel(self, *args):
-        return _wrap(self._dotnet_instance.GetPassiveToActiveCountChannel(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetPassiveToActiveCountChannel(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_channel_a_sleep_channel(self) -> Channel:
         ...
 
     def get_channel_a_sleep_channel(self, *args):
-        return _wrap(self._dotnet_instance.GetChannelASleepChannel(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetChannelASleepChannel(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_channel_b_sleep_channel(self) -> Channel:
         ...
 
     def get_channel_b_sleep_channel(self, *args):
-        return _wrap(self._dotnet_instance.GetChannelBSleepChannel(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetChannelBSleepChannel(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_fault_channel(self) -> Channel:
         ...
 
     def get_fault_channel(self, *args):
-        return _wrap(self._dotnet_instance.GetFaultChannel(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetFaultChannel(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_fault_code_channel(self) -> Channel:
         ...
 
     def get_fault_code_channel(self, *args):
-        return _wrap(self._dotnet_instance.GetFaultCodeChannel(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetFaultCodeChannel(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def create_poc_state_channel(self) -> Channel:
         ...
 
     def create_poc_state_channel(self, *args):
-        return _wrap(self._dotnet_instance.CreatePOCStateChannel(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.CreatePOCStateChannel(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def create_clock_correction_failed_channel(self) -> Channel:
         ...
 
     def create_clock_correction_failed_channel(self, *args):
-        return _wrap(self._dotnet_instance.CreateClockCorrectionFailedChannel(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.CreateClockCorrectionFailedChannel(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def create_passive_to_active_count_channel(self) -> Channel:
         ...
 
     def create_passive_to_active_count_channel(self, *args):
-        return _wrap(self._dotnet_instance.CreatePassiveToActiveCountChannel(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.CreatePassiveToActiveCountChannel(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def create_channel_a_sleep_channel(self) -> Channel:
         ...
 
     def create_channel_a_sleep_channel(self, *args):
-        return _wrap(self._dotnet_instance.CreateChannelASleepChannel(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.CreateChannelASleepChannel(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def create_channel_b_sleep_channel(self) -> Channel:
         ...
 
     def create_channel_b_sleep_channel(self, *args):
-        return _wrap(self._dotnet_instance.CreateChannelBSleepChannel(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.CreateChannelBSleepChannel(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def create_fault_channel(self) -> Channel:
         ...
 
     def create_fault_channel(self, *args):
-        return _wrap(self._dotnet_instance.CreateFaultChannel(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.CreateFaultChannel(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def create_fault_code_channel(self) -> Channel:
         ...
 
     def create_fault_code_channel(self, *args):
-        return _wrap(self._dotnet_instance.CreateFaultCodeChannel(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.CreateFaultCodeChannel(*unwrapped)
+        return _wrap(dotnet_result)
 
 
 class FlexRayPort(Section):
@@ -10552,195 +12458,236 @@ class FlexRayPort(Section):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.FlexRayPort:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.FlexRayPort(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.FlexRayPort(*unwrapped)
 
     @property
     def disabled(self) -> bool:
         """Gets or sets whether the port is disabled."""
-        return _wrap(self._dotnet_instance.Disabled)
+        dotnet_result = self._dotnet_instance.Disabled
+        return _wrap(dotnet_result)
 
     @disabled.setter
     def disabled(self, value: bool):
         """Gets or sets whether the port is disabled."""
-        self._dotnet_instance.Disabled = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.Disabled = next(unwrapped)
 
     @property
     def termination(self) -> XNETTermination:
         """Gets or sets the onboard <see cref="T:NationalInstruments.VeriStand.SystemDefinitionAPI.XNETTermination" crefType="Unqualified" />. This setting applies to both FlexRay communication channels (A and B) on each FlexRay interface."""
-        return _wrap(self._dotnet_instance.Termination)
+        dotnet_result = self._dotnet_instance.Termination
+        return _wrap(dotnet_result)
 
     @termination.setter
     def termination(self, value: XNETTermination):
         """Gets or sets the onboard <see cref="T:NationalInstruments.VeriStand.SystemDefinitionAPI.XNETTermination" crefType="Unqualified" />. This setting applies to both FlexRay communication channels (A and B) on each FlexRay interface."""
-        self._dotnet_instance.Termination = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.Termination = next(unwrapped)
 
     @property
     def input_stream_read_time(self) -> float:
         """Gets or sets the read time for the input stream. For signal I/O sessions, this is the timeout for the raw frame read.  After this amount of time has elapsed, any frames available from the hardware will be read."""
-        return _wrap(self._dotnet_instance.InputStreamReadTime)
+        dotnet_result = self._dotnet_instance.InputStreamReadTime
+        return _wrap(dotnet_result)
 
     @input_stream_read_time.setter
     def input_stream_read_time(self, value: float):
         """Gets or sets the read time for the input stream. For signal I/O sessions, this is the timeout for the raw frame read.  After this amount of time has elapsed, any frames available from the hardware will be read."""
-        self._dotnet_instance.InputStreamReadTime = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.InputStreamReadTime = next(unwrapped)
 
     @property
     def enable_passive_to_active(self) -> int:
         """Corresponds to the `Interface:FlexRay:Allow Passive to Active` property for the FlexRay port."""
-        return _wrap(self._dotnet_instance.EnablePassiveToActive)
+        dotnet_result = self._dotnet_instance.EnablePassiveToActive
+        return _wrap(dotnet_result)
 
     @enable_passive_to_active.setter
     def enable_passive_to_active(self, value: int):
         """Corresponds to the `Interface:FlexRay:Allow Passive to Active` property for the FlexRay port."""
-        self._dotnet_instance.EnablePassiveToActive = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.EnablePassiveToActive = next(unwrapped)
 
     @property
     def port_number(self) -> int:
         """Gets or sets the physical address of the FlexRay port."""
-        return _wrap(self._dotnet_instance.PortNumber)
+        dotnet_result = self._dotnet_instance.PortNumber
+        return _wrap(dotnet_result)
 
     @port_number.setter
     def port_number(self, value: int):
         """Gets or sets the physical address of the FlexRay port."""
-        self._dotnet_instance.PortNumber = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.PortNumber = next(unwrapped)
 
     @property
     def linked_database(self) -> BaseNode:
         """Gets or sets the XNET database associated with the <see cref="T:NationalInstruments.VeriStand.SystemDefinitionAPI.FlexRayPort" crefType="Unqualified" />."""
-        return _wrap(self._dotnet_instance.LinkedDatabase)
+        dotnet_result = self._dotnet_instance.LinkedDatabase
+        return _wrap(dotnet_result)
 
     @linked_database.setter
     def linked_database(self, value: BaseNode):
         """Gets or sets the XNET database associated with the <see cref="T:NationalInstruments.VeriStand.SystemDefinitionAPI.FlexRayPort" crefType="Unqualified" />."""
-        self._dotnet_instance.LinkedDatabase = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.LinkedDatabase = next(unwrapped)
 
     @property
     def baud_rate(self) -> int:
         """Gets or sets the baud rate that all cluster nodes use."""
-        return _wrap(self._dotnet_instance.BaudRate)
+        dotnet_result = self._dotnet_instance.BaudRate
+        return _wrap(dotnet_result)
 
     @baud_rate.setter
     def baud_rate(self, value: int):
         """Gets or sets the baud rate that all cluster nodes use."""
-        self._dotnet_instance.BaudRate = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.BaudRate = next(unwrapped)
 
     @property
     def cluster_name(self) -> str:
         """Gets or sets the name of the cluster in <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.FlexRayPort.LinkedDatabase" crefType="Unqualified" /> that is associated with the <see cref="T:NationalInstruments.VeriStand.SystemDefinitionAPI.FlexRayPort" crefType="Unqualified" />."""
-        return _wrap(self._dotnet_instance.ClusterName)
+        dotnet_result = self._dotnet_instance.ClusterName
+        return _wrap(dotnet_result)
 
     @cluster_name.setter
     def cluster_name(self, value: str):
         """Gets or sets the name of the cluster in <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.FlexRayPort.LinkedDatabase" crefType="Unqualified" /> that is associated with the <see cref="T:NationalInstruments.VeriStand.SystemDefinitionAPI.FlexRayPort" crefType="Unqualified" />."""
-        self._dotnet_instance.ClusterName = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.ClusterName = next(unwrapped)
 
     @property
     def enable_cold_start(self) -> bool:
         """Gets or sets whether the FlexRay interface operates as a cold-start node on the cluster."""
-        return _wrap(self._dotnet_instance.EnableColdStart)
+        dotnet_result = self._dotnet_instance.EnableColdStart
+        return _wrap(dotnet_result)
 
     @enable_cold_start.setter
     def enable_cold_start(self, value: bool):
         """Gets or sets whether the FlexRay interface operates as a cold-start node on the cluster."""
-        self._dotnet_instance.EnableColdStart = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.EnableColdStart = next(unwrapped)
 
     @property
     def key_slot(self) -> int:
         """Gets or sets the FlexRay slot number from which the XNET FlexRay interface transmits a startup frame during the process of integration with other cluster nodes."""
-        return _wrap(self._dotnet_instance.KeySlot)
+        dotnet_result = self._dotnet_instance.KeySlot
+        return _wrap(dotnet_result)
 
     @key_slot.setter
     def key_slot(self, value: int):
         """Gets or sets the FlexRay slot number from which the XNET FlexRay interface transmits a startup frame during the process of integration with other cluster nodes."""
-        self._dotnet_instance.KeySlot = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.KeySlot = next(unwrapped)
 
     @property
     def incoming_rate(self) -> int:
         """Gets or sets the processing rate for incoming frames in hertz."""
-        return _wrap(self._dotnet_instance.IncomingRate)
+        dotnet_result = self._dotnet_instance.IncomingRate
+        return _wrap(dotnet_result)
 
     @incoming_rate.setter
     def incoming_rate(self, value: int):
         """Gets or sets the processing rate for incoming frames in hertz."""
-        self._dotnet_instance.IncomingRate = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.IncomingRate = next(unwrapped)
 
     @property
     def outgoing_rate(self) -> int:
         """Gets or sets the processing rate for outgoing frames in hertz."""
-        return _wrap(self._dotnet_instance.OutgoingRate)
+        dotnet_result = self._dotnet_instance.OutgoingRate
+        return _wrap(dotnet_result)
 
     @outgoing_rate.setter
     def outgoing_rate(self, value: int):
         """Gets or sets the processing rate for outgoing frames in hertz."""
-        self._dotnet_instance.OutgoingRate = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.OutgoingRate = next(unwrapped)
 
     @property
     def echo(self) -> bool:
         """Gets or sets whether sessions contain frames that the interface transmits. If <see langword="true" />, when frame transmission is complete for an output (outgoing) session, the frame is echoed to the input (incoming) session."""
-        return _wrap(self._dotnet_instance.Echo)
+        dotnet_result = self._dotnet_instance.Echo
+        return _wrap(dotnet_result)
 
     @echo.setter
     def echo(self, value: bool):
         """Gets or sets whether sessions contain frames that the interface transmits. If <see langword="true" />, when frame transmission is complete for an output (outgoing) session, the frame is echoed to the input (incoming) session."""
-        self._dotnet_instance.Echo = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.Echo = next(unwrapped)
 
     @property
     def input_stream_queue_size(self) -> int:
         """Gets or sets the queue size for the input stream. For signal I/O sessions, this is the number of signal values stored. For frame I/O sessions, this is the number of bytes of frame data stored."""
-        return _wrap(self._dotnet_instance.InputStreamQueueSize)
+        dotnet_result = self._dotnet_instance.InputStreamQueueSize
+        return _wrap(dotnet_result)
 
     @input_stream_queue_size.setter
     def input_stream_queue_size(self, value: int):
         """Gets or sets the queue size for the input stream. For signal I/O sessions, this is the number of signal values stored. For frame I/O sessions, this is the number of bytes of frame data stored."""
-        self._dotnet_instance.InputStreamQueueSize = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.InputStreamQueueSize = next(unwrapped)
 
     @property
     def inline_incoming(self) -> bool:
         """Gets or sets whether to process incoming frames inline with the VeriStand Engine's Primary Control Loop (PCL). By default, NI VeriStand runs incoming and outgoing frame sessions asynchronously, or in a parallel loop to the PCL."""
-        return _wrap(self._dotnet_instance.InlineIncoming)
+        dotnet_result = self._dotnet_instance.InlineIncoming
+        return _wrap(dotnet_result)
 
     @inline_incoming.setter
     def inline_incoming(self, value: bool):
         """Gets or sets whether to process incoming frames inline with the VeriStand Engine's Primary Control Loop (PCL). By default, NI VeriStand runs incoming and outgoing frame sessions asynchronously, or in a parallel loop to the PCL."""
-        self._dotnet_instance.InlineIncoming = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.InlineIncoming = next(unwrapped)
 
     @property
     def inline_outgoing(self) -> bool:
         """Gets or sets whether to process outgoing frames inline with the VeriStand Engine's Primary Control Loop (PCL). By default, NI VeriStand runs incoming and outgoing frame sessions asynchronously, or in a parallel loop to the PCL."""
-        return _wrap(self._dotnet_instance.InlineOutgoing)
+        dotnet_result = self._dotnet_instance.InlineOutgoing
+        return _wrap(dotnet_result)
 
     @inline_outgoing.setter
     def inline_outgoing(self, value: bool):
         """Gets or sets whether to process outgoing frames inline with the VeriStand Engine's Primary Control Loop (PCL). By default, NI VeriStand runs incoming and outgoing frame sessions asynchronously, or in a parallel loop to the PCL."""
-        self._dotnet_instance.InlineOutgoing = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.InlineOutgoing = next(unwrapped)
 
     @overload
     def get_interface_section(self) -> FlexRayInterfaceChannels:
         ...
 
     def get_interface_section(self, *args):
-        return _wrap(self._dotnet_instance.GetInterfaceSection(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetInterfaceSection(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def create_interface_section(self) -> FlexRayInterfaceChannels:
         ...
 
     def create_interface_section(self, *args):
-        return _wrap(self._dotnet_instance.CreateInterfaceSection(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.CreateInterfaceSection(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_incoming(self) -> Incoming:
         ...
 
     def get_incoming(self, *args):
-        return _wrap(self._dotnet_instance.GetIncoming(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetIncoming(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_outgoing(self) -> Outgoing:
         ...
 
     def get_outgoing(self, *args):
-        return _wrap(self._dotnet_instance.GetOutgoing(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetOutgoing(*unwrapped)
+        return _wrap(dotnet_result)
 
 
 class FrameFaulting(Section):
@@ -10759,14 +12706,18 @@ class FrameFaulting(Section):
         ...
 
     def get_skip_cyclic_frames(self, *args):
-        return _wrap(self._dotnet_instance.GetSkipCyclicFrames(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetSkipCyclicFrames(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_transmit_time(self) -> TransmitTime:
         ...
 
     def get_transmit_time(self, *args):
-        return _wrap(self._dotnet_instance.GetTransmitTime(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetTransmitTime(*unwrapped)
+        return _wrap(dotnet_result)
 
 
 class FrameID(Channel, IChannel):
@@ -10783,7 +12734,8 @@ class FrameID(Channel, IChannel):
     @property
     def id(self) -> int:
         """Gets the ID number of the current incoming frame."""
-        return _wrap(self._dotnet_instance.ID)
+        dotnet_result = self._dotnet_instance.ID
+        return _wrap(dotnet_result)
 
 
 class FrameInformation(Section):
@@ -10802,21 +12754,27 @@ class FrameInformation(Section):
         ...
 
     def get_receive_time(self, *args):
-        return _wrap(self._dotnet_instance.GetReceiveTime(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetReceiveTime(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_time_difference(self) -> TimeDifference:
         ...
 
     def get_time_difference(self, *args):
-        return _wrap(self._dotnet_instance.GetTimeDifference(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetTimeDifference(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_frame_id(self) -> FrameID:
         ...
 
     def get_frame_id(self, *args):
-        return _wrap(self._dotnet_instance.GetFrameID(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetFrameID(*unwrapped)
+        return _wrap(dotnet_result)
 
 
 class Generator(Section):
@@ -10835,7 +12793,9 @@ class Generator(Section):
         ...
 
     def get_stimulus_channel_list(self, *args):
-        return _wrap(self._dotnet_instance.GetStimulusChannelList(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetStimulusChannelList(*unwrapped)
+        return _wrap(dotnet_result)
 
 
 class GotoLabel(Command):
@@ -10851,17 +12811,20 @@ class GotoLabel(Command):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.GotoLabel:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.GotoLabel(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.GotoLabel(*unwrapped)
 
     @property
     def label(self) -> BaseNode:
         """Gets or sets the procedure step to execute when the <see cref="T:NationalInstruments.VeriStand.SystemDefinitionAPI.GotoLabel" crefType="Unqualified" /> step is executed."""
-        return _wrap(self._dotnet_instance.Label)
+        dotnet_result = self._dotnet_instance.Label
+        return _wrap(dotnet_result)
 
     @label.setter
     def label(self, value: BaseNode):
         """Gets or sets the procedure step to execute when the <see cref="T:NationalInstruments.VeriStand.SystemDefinitionAPI.GotoLabel" crefType="Unqualified" /> step is executed."""
-        self._dotnet_instance.Label = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.Label = next(unwrapped)
 
 
 class Hardware(Section):
@@ -10880,28 +12843,36 @@ class Hardware(Section):
         ...
 
     def get_chassis_list(self, *args):
-        return _wrap(self._dotnet_instance.GetChassisList(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetChassisList(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_slsc(self) -> SLSC:
         ...
 
     def get_slsc(self, *args):
-        return _wrap(self._dotnet_instance.GetSLSC(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetSLSC(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_chassis(self, chassis: Chassis) -> bool:
         ...
 
     def add_chassis(self, *args):
-        return _wrap(self._dotnet_instance.AddChassis(*_unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.AddChassis(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_new_chassis(self, name: str) -> Chassis:
         ...
 
     def add_new_chassis(self, *args):
-        return _wrap(self._dotnet_instance.AddNewChassis(*_unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.AddNewChassis(*unwrapped)
+        return _wrap(dotnet_result)
 
 
 class Incoming(Section):
@@ -10920,14 +12891,18 @@ class Incoming(Section):
         ...
 
     def get_single_point(self, *args):
-        return _wrap(self._dotnet_instance.GetSinglePoint(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetSinglePoint(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_raw_frame_data_logging(self) -> RawFrameDataLogging:
         ...
 
     def get_raw_frame_data_logging(self, *args):
-        return _wrap(self._dotnet_instance.GetRawFrameDataLogging(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetRawFrameDataLogging(*unwrapped)
+        return _wrap(dotnet_result)
 
 
 class Inport(Channel, IChannel):
@@ -10944,17 +12919,20 @@ class Inport(Channel, IChannel):
     @property
     def initial_value(self) -> Union[System.Array[System.Double], Sequence[Sequence[float]]]:
         """Gets or sets the initial value of the model inport."""
-        return _wrap(self._dotnet_instance.InitialValue)
+        dotnet_result = self._dotnet_instance.InitialValue
+        return _wrap(dotnet_result)
 
     @initial_value.setter
     def initial_value(self, value: Union[System.Array[System.Double], Sequence[Sequence[float]]]):
         """Gets or sets the initial value of the model inport."""
-        self._dotnet_instance.InitialValue = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.InitialValue = next(unwrapped)
 
     @property
     def index(self) -> int:
         """Gets the index of the inport in the inport vector (array)."""
-        return _wrap(self._dotnet_instance.Index)
+        dotnet_result = self._dotnet_instance.Index
+        return _wrap(dotnet_result)
 
 
 class Inports(Section):
@@ -10977,14 +12955,18 @@ class Inports(Section):
         ...
 
     def get_inports(self, *args):
-        return _wrap(self._dotnet_instance.GetInports(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetInports(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_inport_groups(self) -> Sequence[InportGroup]:
         ...
 
     def get_inport_groups(self, *args):
-        return _wrap(self._dotnet_instance.GetInportGroups(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetInportGroups(*unwrapped)
+        return _wrap(dotnet_result)
 
 
 class InputOverflowChannel(CustomDeviceChannel, IChannel):
@@ -11000,7 +12982,8 @@ class InputOverflowChannel(CustomDeviceChannel, IChannel):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.InputOverflowChannel:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.InputOverflowChannel(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.InputOverflowChannel(*unwrapped)
 
 
 class LIN(Section):
@@ -11019,14 +13002,18 @@ class LIN(Section):
         ...
 
     def get_lin_port_list(self, *args):
-        return _wrap(self._dotnet_instance.GetLINPortList(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetLINPortList(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_lin_port(self, lin_port: LINPort) -> bool:
         ...
 
     def add_lin_port(self, *args):
-        return _wrap(self._dotnet_instance.AddLINPort(*_unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.AddLINPort(*unwrapped)
+        return _wrap(dotnet_result)
 
 
 class LINInterfaceChannels(Section):
@@ -11045,140 +13032,180 @@ class LINInterfaceChannels(Section):
         ...
 
     def get_communication_state_channel(self, *args):
-        return _wrap(self._dotnet_instance.GetCommunicationStateChannel(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetCommunicationStateChannel(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_fault_channel(self) -> Channel:
         ...
 
     def get_fault_channel(self, *args):
-        return _wrap(self._dotnet_instance.GetFaultChannel(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetFaultChannel(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_fault_code_channel(self) -> Channel:
         ...
 
     def get_fault_code_channel(self, *args):
-        return _wrap(self._dotnet_instance.GetFaultCodeChannel(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetFaultCodeChannel(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_last_error_channel(self) -> Channel:
         ...
 
     def get_last_error_channel(self, *args):
-        return _wrap(self._dotnet_instance.GetLastErrorChannel(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetLastErrorChannel(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_last_error_expected_channel(self) -> Channel:
         ...
 
     def get_last_error_expected_channel(self, *args):
-        return _wrap(self._dotnet_instance.GetLastErrorExpectedChannel(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetLastErrorExpectedChannel(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_last_error_identifier_channel(self) -> Channel:
         ...
 
     def get_last_error_identifier_channel(self, *args):
-        return _wrap(self._dotnet_instance.GetLastErrorIdentifierChannel(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetLastErrorIdentifierChannel(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_last_error_received_channel(self) -> Channel:
         ...
 
     def get_last_error_received_channel(self, *args):
-        return _wrap(self._dotnet_instance.GetLastErrorReceivedChannel(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetLastErrorReceivedChannel(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_last_error_timestamp_channel(self) -> Channel:
         ...
 
     def get_last_error_timestamp_channel(self, *args):
-        return _wrap(self._dotnet_instance.GetLastErrorTimestampChannel(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetLastErrorTimestampChannel(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_sleep_channel(self) -> Channel:
         ...
 
     def get_sleep_channel(self, *args):
-        return _wrap(self._dotnet_instance.GetSleepChannel(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetSleepChannel(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_transceiver_ready_channel(self) -> Channel:
         ...
 
     def get_transceiver_ready_channel(self, *args):
-        return _wrap(self._dotnet_instance.GetTransceiverReadyChannel(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetTransceiverReadyChannel(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def create_communication_state_channel(self) -> Channel:
         ...
 
     def create_communication_state_channel(self, *args):
-        return _wrap(self._dotnet_instance.CreateCommunicationStateChannel(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.CreateCommunicationStateChannel(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def create_fault_channel(self) -> Channel:
         ...
 
     def create_fault_channel(self, *args):
-        return _wrap(self._dotnet_instance.CreateFaultChannel(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.CreateFaultChannel(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def create_fault_code_channel(self) -> Channel:
         ...
 
     def create_fault_code_channel(self, *args):
-        return _wrap(self._dotnet_instance.CreateFaultCodeChannel(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.CreateFaultCodeChannel(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def create_last_error_channel(self) -> Channel:
         ...
 
     def create_last_error_channel(self, *args):
-        return _wrap(self._dotnet_instance.CreateLastErrorChannel(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.CreateLastErrorChannel(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def create_last_error_expected_channel(self) -> Channel:
         ...
 
     def create_last_error_expected_channel(self, *args):
-        return _wrap(self._dotnet_instance.CreateLastErrorExpectedChannel(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.CreateLastErrorExpectedChannel(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def create_last_error_identifier_channel(self) -> Channel:
         ...
 
     def create_last_error_identifier_channel(self, *args):
-        return _wrap(self._dotnet_instance.CreateLastErrorIdentifierChannel(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.CreateLastErrorIdentifierChannel(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def create_last_error_received_channel(self) -> Channel:
         ...
 
     def create_last_error_received_channel(self, *args):
-        return _wrap(self._dotnet_instance.CreateLastErrorReceivedChannel(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.CreateLastErrorReceivedChannel(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def create_last_error_timestamp_channel(self) -> Channel:
         ...
 
     def create_last_error_timestamp_channel(self, *args):
-        return _wrap(self._dotnet_instance.CreateLastErrorTimestampChannel(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.CreateLastErrorTimestampChannel(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def create_sleep_channel(self) -> Channel:
         ...
 
     def create_sleep_channel(self, *args):
-        return _wrap(self._dotnet_instance.CreateSleepChannel(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.CreateSleepChannel(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def create_transceiver_state_channel(self) -> Channel:
         ...
 
     def create_transceiver_state_channel(self, *args):
-        return _wrap(self._dotnet_instance.CreateTransceiverStateChannel(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.CreateTransceiverStateChannel(*unwrapped)
+        return _wrap(dotnet_result)
 
 
 class LINPort(Section):
@@ -11194,192 +13221,233 @@ class LINPort(Section):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.LINPort:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.LINPort(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.LINPort(*unwrapped)
 
     @property
     def disabled(self) -> bool:
         """Gets or sets whether the port is disabled."""
-        return _wrap(self._dotnet_instance.Disabled)
+        dotnet_result = self._dotnet_instance.Disabled
+        return _wrap(dotnet_result)
 
     @disabled.setter
     def disabled(self, value: bool):
         """Gets or sets whether the port is disabled."""
-        self._dotnet_instance.Disabled = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.Disabled = next(unwrapped)
 
     @property
     def termination(self) -> XNETTermination:
         """Gets or sets the onboard <see cref="T:NationalInstruments.VeriStand.SystemDefinitionAPI.XNETTermination" crefType="Unqualified" />. You can select <see cref="F:NationalInstruments.VeriStand.SystemDefinitionAPI.XNETTermination.Off" crefType="Unqualified" /> (disabled) and <see cref="F:NationalInstruments.VeriStand.SystemDefinitionAPI.XNETTermination.On" crefType="Unqualified" /> (enabled)."""
-        return _wrap(self._dotnet_instance.Termination)
+        dotnet_result = self._dotnet_instance.Termination
+        return _wrap(dotnet_result)
 
     @termination.setter
     def termination(self, value: XNETTermination):
         """Gets or sets the onboard <see cref="T:NationalInstruments.VeriStand.SystemDefinitionAPI.XNETTermination" crefType="Unqualified" />. You can select <see cref="F:NationalInstruments.VeriStand.SystemDefinitionAPI.XNETTermination.Off" crefType="Unqualified" /> (disabled) and <see cref="F:NationalInstruments.VeriStand.SystemDefinitionAPI.XNETTermination.On" crefType="Unqualified" /> (enabled)."""
-        self._dotnet_instance.Termination = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.Termination = next(unwrapped)
 
     @property
     def input_stream_read_time(self) -> float:
         """Gets or sets the read time for the input stream. For signal I/O sessions, this is the timeout for the raw frame read.  After this amount of time has elapsed, any frames available from the hardware will be read."""
-        return _wrap(self._dotnet_instance.InputStreamReadTime)
+        dotnet_result = self._dotnet_instance.InputStreamReadTime
+        return _wrap(dotnet_result)
 
     @input_stream_read_time.setter
     def input_stream_read_time(self, value: float):
         """Gets or sets the read time for the input stream. For signal I/O sessions, this is the timeout for the raw frame read.  After this amount of time has elapsed, any frames available from the hardware will be read."""
-        self._dotnet_instance.InputStreamReadTime = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.InputStreamReadTime = next(unwrapped)
 
     @property
     def port_number(self) -> int:
         """Gets or sets the physical address of the LIN port."""
-        return _wrap(self._dotnet_instance.PortNumber)
+        dotnet_result = self._dotnet_instance.PortNumber
+        return _wrap(dotnet_result)
 
     @port_number.setter
     def port_number(self, value: int):
         """Gets or sets the physical address of the LIN port."""
-        self._dotnet_instance.PortNumber = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.PortNumber = next(unwrapped)
 
     @property
     def linked_database(self) -> BaseNode:
         """Gets or sets the XNET database associated with the <see cref="T:NationalInstruments.VeriStand.SystemDefinitionAPI.LINPort" crefType="Unqualified" />."""
-        return _wrap(self._dotnet_instance.LinkedDatabase)
+        dotnet_result = self._dotnet_instance.LinkedDatabase
+        return _wrap(dotnet_result)
 
     @linked_database.setter
     def linked_database(self, value: BaseNode):
         """Gets or sets the XNET database associated with the <see cref="T:NationalInstruments.VeriStand.SystemDefinitionAPI.LINPort" crefType="Unqualified" />."""
-        self._dotnet_instance.LinkedDatabase = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.LinkedDatabase = next(unwrapped)
 
     @property
     def baud_rate(self) -> int:
         """Gets or sets the baud rate that all cluster nodes use."""
-        return _wrap(self._dotnet_instance.BaudRate)
+        dotnet_result = self._dotnet_instance.BaudRate
+        return _wrap(dotnet_result)
 
     @baud_rate.setter
     def baud_rate(self, value: int):
         """Gets or sets the baud rate that all cluster nodes use."""
-        self._dotnet_instance.BaudRate = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.BaudRate = next(unwrapped)
 
     @property
     def cluster_name(self) -> str:
         """Gets or sets the name of the cluster in <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.LINPort.LinkedDatabase" crefType="Unqualified" /> that is associated with the <see cref="T:NationalInstruments.VeriStand.SystemDefinitionAPI.LINPort" crefType="Unqualified" />."""
-        return _wrap(self._dotnet_instance.ClusterName)
+        dotnet_result = self._dotnet_instance.ClusterName
+        return _wrap(dotnet_result)
 
     @cluster_name.setter
     def cluster_name(self, value: str):
         """Gets or sets the name of the cluster in <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.LINPort.LinkedDatabase" crefType="Unqualified" /> that is associated with the <see cref="T:NationalInstruments.VeriStand.SystemDefinitionAPI.LINPort" crefType="Unqualified" />."""
-        self._dotnet_instance.ClusterName = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.ClusterName = next(unwrapped)
 
     @property
     def lin_schedules(self) -> str:
         """Gets or sets the names of all the available LIN schedules."""
-        return _wrap(self._dotnet_instance.LINSchedules)
+        dotnet_result = self._dotnet_instance.LINSchedules
+        return _wrap(dotnet_result)
 
     @lin_schedules.setter
     def lin_schedules(self, value: str):
         """Gets or sets the names of all the available LIN schedules."""
-        self._dotnet_instance.LINSchedules = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.LINSchedules = next(unwrapped)
 
     @property
     def incoming_rate(self) -> int:
         """Gets or sets the processing rate for outgoing frames in hertz."""
-        return _wrap(self._dotnet_instance.IncomingRate)
+        dotnet_result = self._dotnet_instance.IncomingRate
+        return _wrap(dotnet_result)
 
     @incoming_rate.setter
     def incoming_rate(self, value: int):
         """Gets or sets the processing rate for outgoing frames in hertz."""
-        self._dotnet_instance.IncomingRate = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.IncomingRate = next(unwrapped)
 
     @property
     def outgoing_rate(self) -> int:
         """Gets or sets the processing rate for outgoing frames in hertz."""
-        return _wrap(self._dotnet_instance.OutgoingRate)
+        dotnet_result = self._dotnet_instance.OutgoingRate
+        return _wrap(dotnet_result)
 
     @outgoing_rate.setter
     def outgoing_rate(self, value: int):
         """Gets or sets the processing rate for outgoing frames in hertz."""
-        self._dotnet_instance.OutgoingRate = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.OutgoingRate = next(unwrapped)
 
     @property
     def echo(self) -> bool:
         """Gets or sets whether sessions contain frames that the interface transmits. If <see langword="true" />, when frame transmission is complete for an output (outgoing) session, the frame is echoed to the input (incoming) session."""
-        return _wrap(self._dotnet_instance.Echo)
+        dotnet_result = self._dotnet_instance.Echo
+        return _wrap(dotnet_result)
 
     @echo.setter
     def echo(self, value: bool):
         """Gets or sets whether sessions contain frames that the interface transmits. If <see langword="true" />, when frame transmission is complete for an output (outgoing) session, the frame is echoed to the input (incoming) session."""
-        self._dotnet_instance.Echo = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.Echo = next(unwrapped)
 
     @property
     def input_stream_queue_size(self) -> int:
         """Gets or sets the queue size for the input stream. For signal I/O sessions, this is the number of signal values stored. For frame I/O sessions, this is the number of bytes of frame data stored."""
-        return _wrap(self._dotnet_instance.InputStreamQueueSize)
+        dotnet_result = self._dotnet_instance.InputStreamQueueSize
+        return _wrap(dotnet_result)
 
     @input_stream_queue_size.setter
     def input_stream_queue_size(self, value: int):
         """Gets or sets the queue size for the input stream. For signal I/O sessions, this is the number of signal values stored. For frame I/O sessions, this is the number of bytes of frame data stored."""
-        self._dotnet_instance.InputStreamQueueSize = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.InputStreamQueueSize = next(unwrapped)
 
     @property
     def is_master(self) -> bool:
         """Gets or sets whether the port is the master for the network. A LIN network always consists of one master and several slaves. The master transmits the schedule for frame headers, which are remote requests for specific frame IDs."""
-        return _wrap(self._dotnet_instance.IsMaster)
+        dotnet_result = self._dotnet_instance.IsMaster
+        return _wrap(dotnet_result)
 
     @is_master.setter
     def is_master(self, value: bool):
         """Gets or sets whether the port is the master for the network. A LIN network always consists of one master and several slaves. The master transmits the schedule for frame headers, which are remote requests for specific frame IDs."""
-        self._dotnet_instance.IsMaster = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.IsMaster = next(unwrapped)
 
     @property
     def inline_incoming(self) -> bool:
         """Gets or sets whether to process incoming frames inline with the VeriStand Engine's Primary Control Loop (PCL). By default, NI VeriStand runs incoming and outgoing frame sessions asynchronously, or in a parallel loop to the PCL."""
-        return _wrap(self._dotnet_instance.InlineIncoming)
+        dotnet_result = self._dotnet_instance.InlineIncoming
+        return _wrap(dotnet_result)
 
     @inline_incoming.setter
     def inline_incoming(self, value: bool):
         """Gets or sets whether to process incoming frames inline with the VeriStand Engine's Primary Control Loop (PCL). By default, NI VeriStand runs incoming and outgoing frame sessions asynchronously, or in a parallel loop to the PCL."""
-        self._dotnet_instance.InlineIncoming = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.InlineIncoming = next(unwrapped)
 
     @property
     def inline_outgoing(self) -> bool:
         """Gets or sets whether to process outgoing frames inline with the VeriStand Engine's Primary Control Loop (PCL). By default, NI VeriStand runs incoming and outgoing frame sessions asynchronously, or in a parallel loop to the PCL."""
-        return _wrap(self._dotnet_instance.InlineOutgoing)
+        dotnet_result = self._dotnet_instance.InlineOutgoing
+        return _wrap(dotnet_result)
 
     @inline_outgoing.setter
     def inline_outgoing(self, value: bool):
         """Gets or sets whether to process outgoing frames inline with the VeriStand Engine's Primary Control Loop (PCL). By default, NI VeriStand runs incoming and outgoing frame sessions asynchronously, or in a parallel loop to the PCL."""
-        self._dotnet_instance.InlineOutgoing = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.InlineOutgoing = next(unwrapped)
 
     @overload
     def get_interface_section(self) -> LINInterfaceChannels:
         ...
 
     def get_interface_section(self, *args):
-        return _wrap(self._dotnet_instance.GetInterfaceSection(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetInterfaceSection(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def create_interface_section(self) -> LINInterfaceChannels:
         ...
 
     def create_interface_section(self, *args):
-        return _wrap(self._dotnet_instance.CreateInterfaceSection(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.CreateInterfaceSection(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_incoming(self) -> Incoming:
         ...
 
     def get_incoming(self, *args):
-        return _wrap(self._dotnet_instance.GetIncoming(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetIncoming(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_outgoing(self) -> Outgoing:
         ...
 
     def get_outgoing(self, *args):
-        return _wrap(self._dotnet_instance.GetOutgoing(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetOutgoing(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_lin_scheduler(self) -> LINScheduler:
         ...
 
     def get_lin_scheduler(self, *args):
-        return _wrap(self._dotnet_instance.GetLINScheduler(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetLINScheduler(*unwrapped)
+        return _wrap(dotnet_result)
 
 
 class LINScheduler(Channel, IChannel):
@@ -11396,17 +13464,20 @@ class LINScheduler(Channel, IChannel):
     @property
     def units(self) -> str:
         """Gets the units associated with the LIN Scheduler channel."""
-        return _wrap(self._dotnet_instance.Units)
+        dotnet_result = self._dotnet_instance.Units
+        return _wrap(dotnet_result)
 
     @property
     def active_schedule(self) -> str:
         """Gets or sets the name of the active LIN schedule."""
-        return _wrap(self._dotnet_instance.ActiveSchedule)
+        dotnet_result = self._dotnet_instance.ActiveSchedule
+        return _wrap(dotnet_result)
 
     @active_schedule.setter
     def active_schedule(self, value: str):
         """Gets or sets the name of the active LIN schedule."""
-        self._dotnet_instance.ActiveSchedule = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.ActiveSchedule = next(unwrapped)
 
     @overload
     def set_active_schedule(self, lin_schedules: Sequence[str], active_schedule_index: int) -> bool:
@@ -11417,7 +13488,9 @@ class LINScheduler(Channel, IChannel):
         ...
 
     def set_active_schedule(self, *args):
-        return _wrap(self._dotnet_instance.SetActiveSchedule(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.SetActiveSchedule(*unwrapped)
+        return _wrap(dotnet_result)
 
 
 class Mode(Section):
@@ -11436,35 +13509,45 @@ class Mode(Section):
         ...
 
     def get_dynamic_signal(self, *args):
-        return _wrap(self._dotnet_instance.GetDynamicSignal(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetDynamicSignal(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_all_dynamic_signals(self) -> Sequence[DynamicSignal]:
         ...
 
     def get_all_dynamic_signals(self, *args):
-        return _wrap(self._dotnet_instance.GetAllDynamicSignals(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetAllDynamicSignals(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_mode_information(self) -> ModeInformation:
         ...
 
     def get_mode_information(self, *args):
-        return _wrap(self._dotnet_instance.GetModeInformation(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetModeInformation(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def create_mode_information(self) -> ModeInformation:
         ...
 
     def create_mode_information(self, *args):
-        return _wrap(self._dotnet_instance.CreateModeInformation(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.CreateModeInformation(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_dynamic_signal(self, signal_name: str, description: str, units: str, default_value: float) -> bool:
         ...
 
     def add_dynamic_signal(self, *args):
-        return _wrap(self._dotnet_instance.AddDynamicSignal(*_unwrap({None: (4, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (4, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.AddDynamicSignal(*unwrapped)
+        return _wrap(dotnet_result)
 
 
 class ModeInformation(Section):
@@ -11483,14 +13566,18 @@ class ModeInformation(Section):
         ...
 
     def get_receive_time(self, *args):
-        return _wrap(self._dotnet_instance.GetReceiveTime(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetReceiveTime(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_time_difference(self) -> ModeTimeDifference:
         ...
 
     def get_time_difference(self, *args):
-        return _wrap(self._dotnet_instance.GetTimeDifference(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetTimeDifference(*unwrapped)
+        return _wrap(dotnet_result)
 
 
 class ModeReceiveTime(Channel, IChannel):
@@ -11509,7 +13596,9 @@ class ModeReceiveTime(Channel, IChannel):
         ...
 
     def remove_node(self, *args):
-        return _wrap(self._dotnet_instance.RemoveNode(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.RemoveNode(*unwrapped)
+        return _wrap(dotnet_result)
 
 
 class ModeTimeDifference(Channel, IChannel):
@@ -11553,186 +13642,224 @@ class Model(Section):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.Model:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.Model(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.Model(*unwrapped)
 
     @_staticproperty
     def automatic_processor_value() -> int:
-        return _wrap(NationalInstruments.VeriStand.SystemDefinitionAPI.Model.AutomaticProcessorValue)
+        dotnet_result = NationalInstruments.VeriStand.SystemDefinitionAPI.Model.AutomaticProcessorValue
+        return _wrap(dotnet_result)
 
     @property
     def load_success(self) -> bool:
         """Gets whether NI VeriStand loaded the model successfully."""
-        return _wrap(self._dotnet_instance.LoadSuccess)
+        dotnet_result = self._dotnet_instance.LoadSuccess
+        return _wrap(dotnet_result)
 
     @property
     def global_parameter_scope(self) -> GlobalParameterScopes:
         """Gets or sets whether global parameters in the current model share their values with other models on the same target."""
-        return _wrap(self._dotnet_instance.GlobalParameterScope)
+        dotnet_result = self._dotnet_instance.GlobalParameterScope
+        return _wrap(dotnet_result)
 
     @global_parameter_scope.setter
     def global_parameter_scope(self, value: GlobalParameterScopes):
         """Gets or sets whether global parameters in the current model share their values with other models on the same target."""
-        self._dotnet_instance.GlobalParameterScope = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.GlobalParameterScope = next(unwrapped)
 
     @property
     def model_execution_group(self) -> int:
         """Gets or sets the model execution group"""
-        return _wrap(self._dotnet_instance.ModelExecutionGroup)
+        dotnet_result = self._dotnet_instance.ModelExecutionGroup
+        return _wrap(dotnet_result)
 
     @model_execution_group.setter
     def model_execution_group(self, value: int):
         """Gets or sets the model execution group"""
-        self._dotnet_instance.ModelExecutionGroup = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.ModelExecutionGroup = next(unwrapped)
 
     @property
     def model_descriptor(self) -> IModelDescriptor:
         """Gets the model descriptor"""
-        return _wrap(self._dotnet_instance.ModelDescriptor)
+        dotnet_result = self._dotnet_instance.ModelDescriptor
+        return _wrap(dotnet_result)
 
     @property
     def base_rate(self) -> float:
         """Gets the base rate of the model in microseconds."""
-        return _wrap(self._dotnet_instance.BaseRate)
+        dotnet_result = self._dotnet_instance.BaseRate
+        return _wrap(dotnet_result)
 
     @property
     def dll_size(self) -> int:
         """Gets the size, in bytes, of the compiled version of the model (<format type="monospace">.dll</format> file)."""
-        return _wrap(self._dotnet_instance.DLLSize)
+        dotnet_result = self._dotnet_instance.DLLSize
+        return _wrap(dotnet_result)
 
     @property
     def dll_timestamp(self) -> float:
         """Gets the time at which the model DLL was compiled."""
-        return _wrap(self._dotnet_instance.DLLTimestamp)
+        dotnet_result = self._dotnet_instance.DLLTimestamp
+        return _wrap(dotnet_result)
 
     @property
     def model_bitness(self) -> int:
         """Gets the bitness of the compiled model (32- or 64-bit)."""
-        return _wrap(self._dotnet_instance.ModelBitness)
+        dotnet_result = self._dotnet_instance.ModelBitness
+        return _wrap(dotnet_result)
 
     @property
     def decimation(self) -> int:
         """Gets or sets the decimation applied to the Primary Control Loop rate to determine the <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.Model.BaseRate" crefType="Unqualified" /> of the model."""
-        return _wrap(self._dotnet_instance.Decimation)
+        dotnet_result = self._dotnet_instance.Decimation
+        return _wrap(dotnet_result)
 
     @decimation.setter
     def decimation(self, value: int):
         """Gets or sets the decimation applied to the Primary Control Loop rate to determine the <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.Model.BaseRate" crefType="Unqualified" /> of the model."""
-        self._dotnet_instance.Decimation = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.Decimation = next(unwrapped)
 
     @property
     def model_timestamp(self) -> float:
         """Gets the time at which the model was last saved."""
-        return _wrap(self._dotnet_instance.ModelTimestamp)
+        dotnet_result = self._dotnet_instance.ModelTimestamp
+        return _wrap(dotnet_result)
 
     @property
     def processor(self) -> int:
         """Gets or sets the processor on which the Model Execution Loop executes. -2 (AutomaticProcessorValue) automatically assigns the processor to <entity value="quot" />any available<entity value="quot" />."""
-        return _wrap(self._dotnet_instance.Processor)
+        dotnet_result = self._dotnet_instance.Processor
+        return _wrap(dotnet_result)
 
     @processor.setter
     def processor(self, value: int):
         """Gets or sets the processor on which the Model Execution Loop executes. -2 (AutomaticProcessorValue) automatically assigns the processor to <entity value="quot" />any available<entity value="quot" />."""
-        self._dotnet_instance.Processor = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.Processor = next(unwrapped)
 
     @property
     def show_unnamed_signals(self) -> bool:
         """Gets whether signals without names are visible."""
-        return _wrap(self._dotnet_instance.ShowUnnamedSignals)
+        dotnet_result = self._dotnet_instance.ShowUnnamedSignals
+        return _wrap(dotnet_result)
 
     @property
     def user_rate(self) -> float:
         """<para>THIS PROPERTY IS OBSOLETE in NI VeriStand 2011 SP1 and later. Use <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.Model.BaseRate" crefType="Unqualified" /> instead.</para>
             Gets the user rate of the model."""
-        return _wrap(self._dotnet_instance.UserRate)
+        dotnet_result = self._dotnet_instance.UserRate
+        return _wrap(dotnet_result)
 
     @property
     def segment_vectors(self) -> bool:
         """Gets information about whether or not vector inputs, outputs, parameters, and signals were split up into scalar channels when the model was loaded."""
-        return _wrap(self._dotnet_instance.SegmentVectors)
+        dotnet_result = self._dotnet_instance.SegmentVectors
+        return _wrap(dotnet_result)
 
     @property
     def md5(self) -> str:
         """Gets the MD5 message-digest for the model."""
-        return _wrap(self._dotnet_instance.MD5)
+        dotnet_result = self._dotnet_instance.MD5
+        return _wrap(dotnet_result)
 
     @property
     def ni_veri_stand_server_port(self) -> int:
         """Gets or sets the network port that the model uses for communication via TCP. This property only applies to uncompiled models from The MathWorks, Inc. Simulink<entity value="reg" /> software. DLLs and <format type="monospace">.lvmodel</format> files do not require a network port."""
-        return _wrap(self._dotnet_instance.NIVeriStandServerPort)
+        dotnet_result = self._dotnet_instance.NIVeriStandServerPort
+        return _wrap(dotnet_result)
 
     @ni_veri_stand_server_port.setter
     def ni_veri_stand_server_port(self, value: int):
         """Gets or sets the network port that the model uses for communication via TCP. This property only applies to uncompiled models from The MathWorks, Inc. Simulink<entity value="reg" /> software. DLLs and <format type="monospace">.lvmodel</format> files do not require a network port."""
-        self._dotnet_instance.NIVeriStandServerPort = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.NIVeriStandServerPort = next(unwrapped)
 
     @property
     def dll_path(self) -> DependentFile:
         """Gets a reference to the compiled version of the model (<format type="monospace">.dll</format> file)."""
-        return _wrap(self._dotnet_instance.DLLPath)
+        dotnet_result = self._dotnet_instance.DLLPath
+        return _wrap(dotnet_result)
 
     @property
     def model_path(self) -> DependentFile:
         """Gets a reference to the uncompiled model file."""
-        return _wrap(self._dotnet_instance.ModelPath)
+        dotnet_result = self._dotnet_instance.ModelPath
+        return _wrap(dotnet_result)
 
     @property
     def file_version(self) -> str:
         """Gets the model version"""
-        return _wrap(self._dotnet_instance.FileVersion)
+        dotnet_result = self._dotnet_instance.FileVersion
+        return _wrap(dotnet_result)
 
     @property
     def model_generation_toolchain_version(self) -> str:
         """Version of the tool that was used to generate the model"""
-        return _wrap(self._dotnet_instance.ModelGenerationToolchainVersion)
+        dotnet_result = self._dotnet_instance.ModelGenerationToolchainVersion
+        return _wrap(dotnet_result)
 
     @property
     def model_author(self) -> str:
         """Author of the model"""
-        return _wrap(self._dotnet_instance.ModelAuthor)
+        dotnet_result = self._dotnet_instance.ModelAuthor
+        return _wrap(dotnet_result)
 
     @property
     def target_platforms(self) -> Sequence[str]:
         """Target platforms supported by the model"""
-        return _wrap(self._dotnet_instance.TargetPlatforms)
+        dotnet_result = self._dotnet_instance.TargetPlatforms
+        return _wrap(dotnet_result)
 
     @property
     def product_name(self) -> str:
         """Gets the product name"""
-        return _wrap(self._dotnet_instance.ProductName)
+        dotnet_result = self._dotnet_instance.ProductName
+        return _wrap(dotnet_result)
 
     @property
     def internal_name(self) -> str:
         """Gets the internal name"""
-        return _wrap(self._dotnet_instance.InternalName)
+        dotnet_result = self._dotnet_instance.InternalName
+        return _wrap(dotnet_result)
 
     @property
     def company_name(self) -> str:
         """Gets the company name"""
-        return _wrap(self._dotnet_instance.CompanyName)
+        dotnet_result = self._dotnet_instance.CompanyName
+        return _wrap(dotnet_result)
 
     @property
     def legal_copyright(self) -> str:
         """Gets the legal copyright"""
-        return _wrap(self._dotnet_instance.LegalCopyright)
+        dotnet_result = self._dotnet_instance.LegalCopyright
+        return _wrap(dotnet_result)
 
     @property
     def file_description(self) -> str:
         """Gets the file description"""
-        return _wrap(self._dotnet_instance.FileDescription)
+        dotnet_result = self._dotnet_instance.FileDescription
+        return _wrap(dotnet_result)
 
     @overload
     def get_section_with_all_parameters(self) -> ModelParameters:
         ...
 
     def get_section_with_all_parameters(self, *args):
-        return _wrap(self._dotnet_instance.GetSectionWithAllParameters(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetSectionWithAllParameters(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_section_with_all_signals(self) -> ModelSignals:
         ...
 
     def get_section_with_all_signals(self, *args):
-        return _wrap(self._dotnet_instance.GetSectionWithAllSignals(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetSectionWithAllSignals(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def reload_model_from_path(self, new_path: str, segment_vectors: bool) -> Sequence[str]:
@@ -11743,84 +13870,108 @@ class Model(Section):
         ...
 
     def reload_model_from_path(self, *args):
-        return _wrap(self._dotnet_instance.ReloadModelFromPath(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.ReloadModelFromPath(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def rename_node(self, new_name: str) -> bool:
         ...
 
     def rename_node(self, *args):
-        return _wrap(self._dotnet_instance.RenameNode(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.RenameNode(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_model_details(self) -> System.Collections.Generic.Dictionary[System.String,System.String]:
         ...
 
     def get_model_details(self, *args):
-        return _wrap(self._dotnet_instance.GetModelDetails(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetModelDetails(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def import_parameters(self, parameters: Iterable[ModelParameter]) -> bool:
         ...
 
     def import_parameters(self, *args):
-        return _wrap(self._dotnet_instance.ImportParameters(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.ImportParameters(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def import_signals(self, signals: Iterable[ModelSignal]) -> bool:
         ...
 
     def import_signals(self, *args):
-        return _wrap(self._dotnet_instance.ImportSignals(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.ImportSignals(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def remove_parameters(self, parameters: Iterable[ModelParameter]):
         ...
 
     def remove_parameters(self, *args):
-        return _wrap(self._dotnet_instance.RemoveParameters(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.RemoveParameters(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def remove_signals(self, signals: Iterable[ModelSignal]):
         ...
 
     def remove_signals(self, *args):
-        return _wrap(self._dotnet_instance.RemoveSignals(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.RemoveSignals(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_execution_section(self) -> Execution:
         ...
 
     def get_execution_section(self, *args):
-        return _wrap(self._dotnet_instance.GetExecutionSection(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetExecutionSection(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_inports_section(self) -> Inports:
         ...
 
     def get_inports_section(self, *args):
-        return _wrap(self._dotnet_instance.GetInportsSection(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetInportsSection(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_outports_section(self) -> Outports:
         ...
 
     def get_outports_section(self, *args):
-        return _wrap(self._dotnet_instance.GetOutportsSection(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetOutportsSection(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_parameters_section(self) -> ModelParameters:
         ...
 
     def get_parameters_section(self, *args):
-        return _wrap(self._dotnet_instance.GetParametersSection(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetParametersSection(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_signals_section(self) -> ModelSignals:
         ...
 
     def get_signals_section(self, *args):
-        return _wrap(self._dotnet_instance.GetSignalsSection(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetSignalsSection(*unwrapped)
+        return _wrap(dotnet_result)
 
 
 class ModelCommand(Channel, IChannel):
@@ -11837,12 +13988,14 @@ class ModelCommand(Channel, IChannel):
     @property
     def initial_state(self) -> ModelCommandState:
         """Gets or sets the initial execution state of the model."""
-        return _wrap(self._dotnet_instance.InitialState)
+        dotnet_result = self._dotnet_instance.InitialState
+        return _wrap(dotnet_result)
 
     @initial_state.setter
     def initial_state(self, value: ModelCommandState):
         """Gets or sets the initial execution state of the model."""
-        self._dotnet_instance.InitialState = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.InitialState = next(unwrapped)
 
 
 class ModelDefaultGroup(Section):
@@ -11870,22 +14023,26 @@ class ModelParameter(Channel, IChannel):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.ModelParameter:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.ModelParameter(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.ModelParameter(*unwrapped)
 
     @property
     def model_path(self) -> str:
         """Gets the symbolic path to the parameter within the model."""
-        return _wrap(self._dotnet_instance.ModelPath)
+        dotnet_result = self._dotnet_instance.ModelPath
+        return _wrap(dotnet_result)
 
     @property
     def expression(self) -> str:
         """Gets the expression of the model parameter."""
-        return _wrap(self._dotnet_instance.Expression)
+        dotnet_result = self._dotnet_instance.Expression
+        return _wrap(dotnet_result)
 
     @property
     def index(self) -> int:
         """Gets the index of the model parameter."""
-        return _wrap(self._dotnet_instance.Index)
+        dotnet_result = self._dotnet_instance.Index
+        return _wrap(dotnet_result)
 
 
 class ModelParameterGroup(ModelDefaultGroup):
@@ -11901,14 +14058,17 @@ class ModelParameterGroup(ModelDefaultGroup):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.ModelParameterGroup:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.ModelParameterGroup(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.ModelParameterGroup(*unwrapped)
 
     @overload
     def get_model_parameter_groups(self) -> Sequence[ModelParameterGroup]:
         ...
 
     def get_model_parameter_groups(self, *args):
-        return _wrap(self._dotnet_instance.GetModelParameterGroups(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetModelParameterGroups(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_parameters(self) -> Sequence[ModelParameter]:
@@ -11919,28 +14079,36 @@ class ModelParameterGroup(ModelDefaultGroup):
         ...
 
     def get_parameters(self, *args):
-        return _wrap(self._dotnet_instance.GetParameters(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetParameters(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_model_parameter_group(self, model_parameter_group: ModelParameterGroup) -> bool:
         ...
 
     def add_model_parameter_group(self, *args):
-        return _wrap(self._dotnet_instance.AddModelParameterGroup(*_unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.AddModelParameterGroup(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_model_parameter(self, model_parameter: ModelParameter) -> bool:
         ...
 
     def add_model_parameter(self, *args):
-        return _wrap(self._dotnet_instance.AddModelParameter(*_unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.AddModelParameter(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_model_parameters(self, model_parameters: Sequence[ModelParameter]) -> bool:
         ...
 
     def add_model_parameters(self, *args):
-        return _wrap(self._dotnet_instance.AddModelParameters(*_unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.AddModelParameters(*unwrapped)
+        return _wrap(dotnet_result)
 
 
 class ModelParameters(Section):
@@ -11963,35 +14131,45 @@ class ModelParameters(Section):
         ...
 
     def get_parameters(self, *args):
-        return _wrap(self._dotnet_instance.GetParameters(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetParameters(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_model_parameter_groups(self) -> Sequence[ModelParameterGroup]:
         ...
 
     def get_model_parameter_groups(self, *args):
-        return _wrap(self._dotnet_instance.GetModelParameterGroups(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetModelParameterGroups(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_parameter(self, parameter: ModelParameter) -> bool:
         ...
 
     def add_parameter(self, *args):
-        return _wrap(self._dotnet_instance.AddParameter(*_unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.AddParameter(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_parameters(self, model_parameters: Sequence[ModelParameter]) -> bool:
         ...
 
     def add_parameters(self, *args):
-        return _wrap(self._dotnet_instance.AddParameters(*_unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.AddParameters(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_model_parameter_group(self, model_parameter_group: ModelParameterGroup) -> bool:
         ...
 
     def add_model_parameter_group(self, *args):
-        return _wrap(self._dotnet_instance.AddModelParameterGroup(*_unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.AddModelParameterGroup(*unwrapped)
+        return _wrap(dotnet_result)
 
 
 class ModelSignal(Channel, IChannel):
@@ -12007,22 +14185,26 @@ class ModelSignal(Channel, IChannel):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.ModelSignal:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.ModelSignal(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.ModelSignal(*unwrapped)
 
     @property
     def index(self) -> int:
         """Gets the index of the model signal."""
-        return _wrap(self._dotnet_instance.Index)
+        dotnet_result = self._dotnet_instance.Index
+        return _wrap(dotnet_result)
 
     @property
     def model_path(self) -> str:
         """Gets the symbolic path to the parameter within the model."""
-        return _wrap(self._dotnet_instance.ModelPath)
+        dotnet_result = self._dotnet_instance.ModelPath
+        return _wrap(dotnet_result)
 
     @property
     def path(self) -> str:
         """Gets the path to the model that contains the signal."""
-        return _wrap(self._dotnet_instance.Path)
+        dotnet_result = self._dotnet_instance.Path
+        return _wrap(dotnet_result)
 
 
 class ModelSignalGroup(ModelDefaultGroup):
@@ -12038,14 +14220,17 @@ class ModelSignalGroup(ModelDefaultGroup):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.ModelSignalGroup:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.ModelSignalGroup(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.ModelSignalGroup(*unwrapped)
 
     @overload
     def get_model_signal_groups(self) -> Sequence[ModelSignalGroup]:
         ...
 
     def get_model_signal_groups(self, *args):
-        return _wrap(self._dotnet_instance.GetModelSignalGroups(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetModelSignalGroups(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_signals(self) -> Sequence[ModelSignal]:
@@ -12056,21 +14241,27 @@ class ModelSignalGroup(ModelDefaultGroup):
         ...
 
     def get_signals(self, *args):
-        return _wrap(self._dotnet_instance.GetSignals(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetSignals(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_model_signal_group(self, model_signal_group: ModelSignalGroup) -> bool:
         ...
 
     def add_model_signal_group(self, *args):
-        return _wrap(self._dotnet_instance.AddModelSignalGroup(*_unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.AddModelSignalGroup(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_model_signal(self, model_signal: ModelSignal) -> bool:
         ...
 
     def add_model_signal(self, *args):
-        return _wrap(self._dotnet_instance.AddModelSignal(*_unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.AddModelSignal(*unwrapped)
+        return _wrap(dotnet_result)
 
 
 class ModelSignals(Section):
@@ -12093,28 +14284,36 @@ class ModelSignals(Section):
         ...
 
     def get_signals(self, *args):
-        return _wrap(self._dotnet_instance.GetSignals(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetSignals(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_model_signal_groups(self) -> Sequence[ModelSignalGroup]:
         ...
 
     def get_model_signal_groups(self, *args):
-        return _wrap(self._dotnet_instance.GetModelSignalGroups(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetModelSignalGroups(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_signal(self, signal: ModelSignal) -> bool:
         ...
 
     def add_signal(self, *args):
-        return _wrap(self._dotnet_instance.AddSignal(*_unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.AddSignal(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_model_signal_group(self, model_signal_group: ModelSignalGroup) -> bool:
         ...
 
     def add_model_signal_group(self, *args):
-        return _wrap(self._dotnet_instance.AddModelSignalGroup(*_unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.AddModelSignalGroup(*unwrapped)
+        return _wrap(dotnet_result)
 
 
 class ModelStatus(Channel, IChannel):
@@ -12157,14 +14356,18 @@ class Models(Section):
         ...
 
     def get_models(self, *args):
-        return _wrap(self._dotnet_instance.GetModels(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetModels(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_model(self, model: Model) -> bool:
         ...
 
     def add_model(self, *args):
-        return _wrap(self._dotnet_instance.AddModel(*_unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.AddModel(*unwrapped)
+        return _wrap(dotnet_result)
 
 
 class Multiplexer(Channel, IChannel):
@@ -12181,12 +14384,14 @@ class Multiplexer(Channel, IChannel):
     @property
     def multiplexer_value(self) -> int:
         """Gets or sets the value of a multiplexer signal, which defines the dynamic signals to transmit in a given frame."""
-        return _wrap(self._dotnet_instance.MultiplexerValue)
+        dotnet_result = self._dotnet_instance.MultiplexerValue
+        return _wrap(dotnet_result)
 
     @multiplexer_value.setter
     def multiplexer_value(self, value: int):
         """Gets or sets the value of a multiplexer signal, which defines the dynamic signals to transmit in a given frame."""
-        self._dotnet_instance.MultiplexerValue = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.MultiplexerValue = next(unwrapped)
 
 
 class Outgoing(Section):
@@ -12205,42 +14410,54 @@ class Outgoing(Section):
         ...
 
     def get_event_triggered(self, *args):
-        return _wrap(self._dotnet_instance.GetEventTriggered(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetEventTriggered(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_cyclic(self) -> Cyclic:
         ...
 
     def get_cyclic(self, *args):
-        return _wrap(self._dotnet_instance.GetCyclic(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetCyclic(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_cyclic_event(self) -> CyclicEvent:
         ...
 
     def get_cyclic_event(self, *args):
-        return _wrap(self._dotnet_instance.GetCyclicEvent(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetCyclicEvent(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_data_replay(self) -> DataReplay:
         ...
 
     def get_data_replay(self, *args):
-        return _wrap(self._dotnet_instance.GetDataReplay(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetDataReplay(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_sporadic(self) -> Sporadic:
         ...
 
     def get_sporadic(self, *args):
-        return _wrap(self._dotnet_instance.GetSporadic(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetSporadic(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_unconditional(self) -> Unconditional:
         ...
 
     def get_unconditional(self, *args):
-        return _wrap(self._dotnet_instance.GetUnconditional(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetUnconditional(*unwrapped)
+        return _wrap(dotnet_result)
 
 
 class Outport(Channel, IChannel):
@@ -12257,17 +14474,20 @@ class Outport(Channel, IChannel):
     @property
     def initial_value(self) -> Union[System.Array[System.Double], Sequence[Sequence[float]]]:
         """Gets or sets the initial value of the model outport."""
-        return _wrap(self._dotnet_instance.InitialValue)
+        dotnet_result = self._dotnet_instance.InitialValue
+        return _wrap(dotnet_result)
 
     @initial_value.setter
     def initial_value(self, value: Union[System.Array[System.Double], Sequence[Sequence[float]]]):
         """Gets or sets the initial value of the model outport."""
-        self._dotnet_instance.InitialValue = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.InitialValue = next(unwrapped)
 
     @property
     def index(self) -> int:
         """Gets the index number of the outport in the outport vector (array)."""
-        return _wrap(self._dotnet_instance.Index)
+        dotnet_result = self._dotnet_instance.Index
+        return _wrap(dotnet_result)
 
 
 class OutportGroup(ModelDefaultGroup):
@@ -12286,7 +14506,9 @@ class OutportGroup(ModelDefaultGroup):
         ...
 
     def get_outport_groups(self, *args):
-        return _wrap(self._dotnet_instance.GetOutportGroups(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetOutportGroups(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_outports(self) -> Sequence[Outport]:
@@ -12297,7 +14519,9 @@ class OutportGroup(ModelDefaultGroup):
         ...
 
     def get_outports(self, *args):
-        return _wrap(self._dotnet_instance.GetOutports(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetOutports(*unwrapped)
+        return _wrap(dotnet_result)
 
 
 class Outports(Section):
@@ -12320,14 +14544,18 @@ class Outports(Section):
         ...
 
     def get_outports(self, *args):
-        return _wrap(self._dotnet_instance.GetOutports(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetOutports(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_outport_groups(self) -> Sequence[OutportGroup]:
         ...
 
     def get_outport_groups(self, *args):
-        return _wrap(self._dotnet_instance.GetOutportGroups(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetOutportGroups(*unwrapped)
+        return _wrap(dotnet_result)
 
 
 class OutputUnderflowChannel(CustomDeviceChannel, IChannel):
@@ -12343,7 +14571,8 @@ class OutputUnderflowChannel(CustomDeviceChannel, IChannel):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.OutputUnderflowChannel:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.OutputUnderflowChannel(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.OutputUnderflowChannel(*unwrapped)
 
 
 class PendingFrames(Channel, IChannel):
@@ -12371,28 +14600,35 @@ class Procedure(Section):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.Procedure:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.Procedure(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.Procedure(*unwrapped)
 
     @overload
     def reorder_command_list(self, commands: Sequence[Command]) -> bool:
         ...
 
     def reorder_command_list(self, *args):
-        return _wrap(self._dotnet_instance.ReorderCommandList(*_unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.ReorderCommandList(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_command_list(self) -> Sequence[Command]:
         ...
 
     def get_command_list(self, *args):
-        return _wrap(self._dotnet_instance.GetCommandList(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetCommandList(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_command(self, command: Command) -> bool:
         ...
 
     def add_command(self, *args):
-        return _wrap(self._dotnet_instance.AddCommand(*_unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.AddCommand(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_new_alarming(self, name: str, description: str, priority: AlarmPriority, default_state: AlarmState, alarm: BaseNode, delay: float, procedure: BaseNode, alarm_channel: BaseNode, upper_limit: float, lower_limit: float) -> bool:
@@ -12415,14 +14651,18 @@ class Procedure(Section):
         ...
 
     def add_new_alarming(self, *args):
-        return _wrap(self._dotnet_instance.AddNewAlarming(*_unwrap({(str, str, AlarmPriority, AlarmState, BaseNode, (float, int), BaseNode, BaseNode, (float, int), (float, int)): (10, NationalInstruments.VeriStand.Error.NoError), (str, str, AlarmPriority, AlarmState, BaseNode, (float, int), BaseNode, BaseNode, (float, int), BaseNode): (10, NationalInstruments.VeriStand.Error.NoError), (str, str, AlarmPriority, AlarmState, BaseNode, (float, int), BaseNode, BaseNode, BaseNode, (float, int)): (10, NationalInstruments.VeriStand.Error.NoError), (str, str, AlarmPriority, AlarmState, BaseNode, (float, int), BaseNode, BaseNode, BaseNode, BaseNode): (10, NationalInstruments.VeriStand.Error.NoError), (str, str, AlarmingStepFunction, BaseNode): (4, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({(str, str, AlarmPriority, AlarmState, BaseNode, (float, int), BaseNode, BaseNode, (float, int), (float, int)): (10, NationalInstruments.VeriStand.Error.NoError), (str, str, AlarmPriority, AlarmState, BaseNode, (float, int), BaseNode, BaseNode, (float, int), BaseNode): (10, NationalInstruments.VeriStand.Error.NoError), (str, str, AlarmPriority, AlarmState, BaseNode, (float, int), BaseNode, BaseNode, BaseNode, (float, int)): (10, NationalInstruments.VeriStand.Error.NoError), (str, str, AlarmPriority, AlarmState, BaseNode, (float, int), BaseNode, BaseNode, BaseNode, BaseNode): (10, NationalInstruments.VeriStand.Error.NoError), (str, str, AlarmingStepFunction, BaseNode): (4, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.AddNewAlarming(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_new_call_procedure(self, name: str, description: str, procedure: Procedure) -> bool:
         ...
 
     def add_new_call_procedure(self, *args):
-        return _wrap(self._dotnet_instance.AddNewCallProcedure(*_unwrap({None: (3, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (3, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.AddNewCallProcedure(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_new_condition(self, name: str, description: str, variable: BaseNode, comparison: ConditionStepComparison, value: float, goto_label: Command) -> bool:
@@ -12433,7 +14673,9 @@ class Procedure(Section):
         ...
 
     def add_new_condition(self, *args):
-        return _wrap(self._dotnet_instance.AddNewCondition(*_unwrap({(str, str, BaseNode, ConditionStepComparison, (float, int), Command): (6, NationalInstruments.VeriStand.Error.NoError), (str, str, BaseNode, ConditionStepComparison, BaseNode, Command): (6, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({(str, str, BaseNode, ConditionStepComparison, (float, int), Command): (6, NationalInstruments.VeriStand.Error.NoError), (str, str, BaseNode, ConditionStepComparison, BaseNode, Command): (6, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.AddNewCondition(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_new_dwell(self, name: str, description: str, dwell_time: float) -> bool:
@@ -12444,35 +14686,45 @@ class Procedure(Section):
         ...
 
     def add_new_dwell(self, *args):
-        return _wrap(self._dotnet_instance.AddNewDwell(*_unwrap({(str, str, (float, int)): (3, NationalInstruments.VeriStand.Error.NoError), (str, str, BaseNode): (3, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({(str, str, (float, int)): (3, NationalInstruments.VeriStand.Error.NoError), (str, str, BaseNode): (3, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.AddNewDwell(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_new_end(self, name: str, description: str) -> bool:
         ...
 
     def add_new_end(self, *args):
-        return _wrap(self._dotnet_instance.AddNewEnd(*_unwrap({None: (2, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (2, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.AddNewEnd(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_new_exit_subroutine(self, name: str, description: str) -> bool:
         ...
 
     def add_new_exit_subroutine(self, *args):
-        return _wrap(self._dotnet_instance.AddNewExitSubroutine(*_unwrap({None: (2, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (2, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.AddNewExitSubroutine(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_new_goto_label(self, name: str, description: str, label: Command) -> bool:
         ...
 
     def add_new_goto_label(self, *args):
-        return _wrap(self._dotnet_instance.AddNewGotoLabel(*_unwrap({None: (3, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (3, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.AddNewGotoLabel(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_new_set_multiple_variables(self, name: str, description: str, channels: Sequence[BaseNode], values: Sequence[float]) -> bool:
         ...
 
     def add_new_set_multiple_variables(self, *args):
-        return _wrap(self._dotnet_instance.AddNewSetMultipleVariables(*_unwrap({None: (4, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (4, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.AddNewSetMultipleVariables(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_new_set_variable(self, name: str, description: str, variable: BaseNode, value: float) -> bool:
@@ -12499,7 +14751,9 @@ class Procedure(Section):
         ...
 
     def add_new_set_variable(self, *args):
-        return _wrap(self._dotnet_instance.AddNewSetVariable(*_unwrap({(str, str, BaseNode, (float, int)): (4, NationalInstruments.VeriStand.Error.NoError), (str, str, BaseNode, BaseNode): (4, NationalInstruments.VeriStand.Error.NoError), (str, str, BaseNode, SetVariableStepFunction, (float, int), (float, int)): (6, NationalInstruments.VeriStand.Error.NoError), (str, str, BaseNode, SetVariableStepFunction, (float, int), BaseNode): (6, NationalInstruments.VeriStand.Error.NoError), (str, str, BaseNode, SetVariableStepFunction, BaseNode, (float, int)): (6, NationalInstruments.VeriStand.Error.NoError), (str, str, BaseNode, SetVariableStepFunction, BaseNode, BaseNode): (6, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({(str, str, BaseNode, (float, int)): (4, NationalInstruments.VeriStand.Error.NoError), (str, str, BaseNode, BaseNode): (4, NationalInstruments.VeriStand.Error.NoError), (str, str, BaseNode, SetVariableStepFunction, (float, int), (float, int)): (6, NationalInstruments.VeriStand.Error.NoError), (str, str, BaseNode, SetVariableStepFunction, (float, int), BaseNode): (6, NationalInstruments.VeriStand.Error.NoError), (str, str, BaseNode, SetVariableStepFunction, BaseNode, (float, int)): (6, NationalInstruments.VeriStand.Error.NoError), (str, str, BaseNode, SetVariableStepFunction, BaseNode, BaseNode): (6, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.AddNewSetVariable(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_new_real_time_sequence_command(self, name: str, description: str, sequence_command: GlobalSequenceCommand, wait_for_sequences_to_complete: bool, wait_timeout: float, abort_sequences_on_timeout: bool) -> RealTimeSequenceCommand:
@@ -12510,7 +14764,9 @@ class Procedure(Section):
         ...
 
     def add_new_real_time_sequence_command(self, *args):
-        return _wrap(self._dotnet_instance.AddNewRealTimeSequenceCommand(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.AddNewRealTimeSequenceCommand(*unwrapped)
+        return _wrap(dotnet_result)
 
 
 class Procedures(Section):
@@ -12527,33 +14783,41 @@ class Procedures(Section):
     @property
     def startup_procedure(self) -> Procedure:
         """Gets or sets a value indicating the procedure that runs on startup."""
-        return _wrap(self._dotnet_instance.StartupProcedure)
+        dotnet_result = self._dotnet_instance.StartupProcedure
+        return _wrap(dotnet_result)
 
     @startup_procedure.setter
     def startup_procedure(self, value: Procedure):
         """Gets or sets a value indicating the procedure that runs on startup."""
-        self._dotnet_instance.StartupProcedure = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.StartupProcedure = next(unwrapped)
 
     @overload
     def reorder_procedure_list(self, procedures: Sequence[Procedure]) -> bool:
         ...
 
     def reorder_procedure_list(self, *args):
-        return _wrap(self._dotnet_instance.ReorderProcedureList(*_unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.ReorderProcedureList(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_procedures_list(self) -> Sequence[Procedure]:
         ...
 
     def get_procedures_list(self, *args):
-        return _wrap(self._dotnet_instance.GetProceduresList(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetProceduresList(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_procedure(self, procedure: Procedure) -> bool:
         ...
 
     def add_procedure(self, *args):
-        return _wrap(self._dotnet_instance.AddProcedure(*_unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.AddProcedure(*unwrapped)
+        return _wrap(dotnet_result)
 
 
 class RawDataBasedChannel(Channel, IChannel):
@@ -12570,42 +14834,50 @@ class RawDataBasedChannel(Channel, IChannel):
     @property
     def default_value(self) -> float:
         """Gets or sets the default value of the channel."""
-        return _wrap(self._dotnet_instance.DefaultValue)
+        dotnet_result = self._dotnet_instance.DefaultValue
+        return _wrap(dotnet_result)
 
     @default_value.setter
     def default_value(self, value: float):
         """Gets or sets the default value of the channel."""
-        self._dotnet_instance.DefaultValue = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.DefaultValue = next(unwrapped)
 
     @property
     def start_bit(self) -> int:
         """Gets or sets the start bit, or the least significant signal bit position in the frame payload. This value determines the signal starting point in the frame."""
-        return _wrap(self._dotnet_instance.StartBit)
+        dotnet_result = self._dotnet_instance.StartBit
+        return _wrap(dotnet_result)
 
     @start_bit.setter
     def start_bit(self, value: int):
         """Gets or sets the start bit, or the least significant signal bit position in the frame payload. This value determines the signal starting point in the frame."""
-        self._dotnet_instance.StartBit = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.StartBit = next(unwrapped)
 
     @property
     def number_of_bits(self) -> int:
         """Gets or sets the number of bits the signal uses in the frame payload."""
-        return _wrap(self._dotnet_instance.NumberOfBits)
+        dotnet_result = self._dotnet_instance.NumberOfBits
+        return _wrap(dotnet_result)
 
     @number_of_bits.setter
     def number_of_bits(self, value: int):
         """Gets or sets the number of bits the signal uses in the frame payload."""
-        self._dotnet_instance.NumberOfBits = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.NumberOfBits = next(unwrapped)
 
     @property
     def enable64_bit(self) -> bool:
         """Gets or sets whether U64 bitfield representation is enabled for the frame."""
-        return _wrap(self._dotnet_instance.Enable64Bit)
+        dotnet_result = self._dotnet_instance.Enable64Bit
+        return _wrap(dotnet_result)
 
     @enable64_bit.setter
     def enable64_bit(self, value: bool):
         """Gets or sets whether U64 bitfield representation is enabled for the frame."""
-        self._dotnet_instance.Enable64Bit = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.Enable64Bit = next(unwrapped)
 
 
 class RawDataBasedFrame(Section):
@@ -12621,229 +14893,281 @@ class RawDataBasedFrame(Section):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.RawDataBasedFrame:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.RawDataBasedFrame(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.RawDataBasedFrame(*unwrapped)
 
     @property
     def transmit_trigger(self) -> FrameTriggerType:
         """Gets the trigger type (channel value change, trigger channel not zero, and so on) specified for an event-triggered frame."""
-        return _wrap(self._dotnet_instance.TransmitTrigger)
+        dotnet_result = self._dotnet_instance.TransmitTrigger
+        return _wrap(dotnet_result)
 
     @property
     def phase(self) -> FramePhaseType:
         """Gets or sets whether to reset the timer after the <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.RawDataBasedFrame.TransmitTime" crefType="Unqualified" /> elapses when <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.RawDataBasedFrame.EnableSoftwareCyclicTrigger" crefType="Unqualified" /> is <see langword="true" />."""
-        return _wrap(self._dotnet_instance.Phase)
+        dotnet_result = self._dotnet_instance.Phase
+        return _wrap(dotnet_result)
 
     @phase.setter
     def phase(self, value: FramePhaseType):
         """Gets or sets whether to reset the timer after the <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.RawDataBasedFrame.TransmitTime" crefType="Unqualified" /> elapses when <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.RawDataBasedFrame.EnableSoftwareCyclicTrigger" crefType="Unqualified" /> is <see langword="true" />."""
-        self._dotnet_instance.Phase = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.Phase = next(unwrapped)
 
     @property
     def frame_type(self) -> FrameType:
         """Gets or sets the frame type (CAN data, CAN remote, FlexRay data, or FlexRay null) of a frame under a CAN or FlexRay port."""
-        return _wrap(self._dotnet_instance.FrameType)
+        dotnet_result = self._dotnet_instance.FrameType
+        return _wrap(dotnet_result)
 
     @frame_type.setter
     def frame_type(self, value: FrameType):
         """Gets or sets the frame type (CAN data, CAN remote, FlexRay data, or FlexRay null) of a frame under a CAN or FlexRay port."""
-        self._dotnet_instance.FrameType = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.FrameType = next(unwrapped)
 
     @property
     def id(self) -> int:
         """Gets or sets the identifier number for the frame. For LIN frames, this is the frame ID. For CAN frames, this is the Arbitration ID. For FlexRay frames, this is the Slot ID in which the frame is sent."""
-        return _wrap(self._dotnet_instance.ID)
+        dotnet_result = self._dotnet_instance.ID
+        return _wrap(dotnet_result)
 
     @id.setter
     def id(self, value: int):
         """Gets or sets the identifier number for the frame. For LIN frames, this is the frame ID. For CAN frames, this is the Arbitration ID. For FlexRay frames, this is the Slot ID in which the frame is sent."""
-        self._dotnet_instance.ID = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.ID = next(unwrapped)
 
     @property
     def payload_length(self) -> int:
         """Gets or sets the number of bytes in the payload of the frame."""
-        return _wrap(self._dotnet_instance.PayloadLength)
+        dotnet_result = self._dotnet_instance.PayloadLength
+        return _wrap(dotnet_result)
 
     @payload_length.setter
     def payload_length(self, value: int):
         """Gets or sets the number of bytes in the payload of the frame."""
-        self._dotnet_instance.PayloadLength = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.PayloadLength = next(unwrapped)
 
     @property
     def md5(self) -> Sequence[int]:
         """Gets the MD5 message digest for the frame."""
-        return _wrap(self._dotnet_instance.MD5)
+        dotnet_result = self._dotnet_instance.MD5
+        return _wrap(dotnet_result)
 
     @property
     def start_time_offset(self) -> float:
         """Gets or sets the amount of time that elapses between the session start and the transmission of the first frame."""
-        return _wrap(self._dotnet_instance.StartTimeOffset)
+        dotnet_result = self._dotnet_instance.StartTimeOffset
+        return _wrap(dotnet_result)
 
     @start_time_offset.setter
     def start_time_offset(self, value: float):
         """Gets or sets the amount of time that elapses between the session start and the transmission of the first frame."""
-        self._dotnet_instance.StartTimeOffset = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.StartTimeOffset = next(unwrapped)
 
     @property
     def enable64_bit(self) -> bool:
         """Gets or sets whether U64 bitfield representation is enabled for the frame."""
-        return _wrap(self._dotnet_instance.Enable64Bit)
+        dotnet_result = self._dotnet_instance.Enable64Bit
+        return _wrap(dotnet_result)
 
     @enable64_bit.setter
     def enable64_bit(self, value: bool):
         """Gets or sets whether U64 bitfield representation is enabled for the frame."""
-        self._dotnet_instance.Enable64Bit = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.Enable64Bit = next(unwrapped)
 
     @property
     def owning_database(self) -> BaseNode:
         """Gets or sets a reference to the XNET database that contains the frame."""
-        return _wrap(self._dotnet_instance.OwningDatabase)
+        dotnet_result = self._dotnet_instance.OwningDatabase
+        return _wrap(dotnet_result)
 
     @owning_database.setter
     def owning_database(self, value: BaseNode):
         """Gets or sets a reference to the XNET database that contains the frame."""
-        self._dotnet_instance.OwningDatabase = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.OwningDatabase = next(unwrapped)
 
     @property
     def cluster_name(self) -> str:
         """Gets or sets the name of the cluster in the XNET database that contains the frame."""
-        return _wrap(self._dotnet_instance.ClusterName)
+        dotnet_result = self._dotnet_instance.ClusterName
+        return _wrap(dotnet_result)
 
     @cluster_name.setter
     def cluster_name(self, value: str):
         """Gets or sets the name of the cluster in the XNET database that contains the frame."""
-        self._dotnet_instance.ClusterName = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.ClusterName = next(unwrapped)
 
     @property
     def database_alias(self) -> str:
         """Gets or sets the alias for the XNET database that contains the frame."""
-        return _wrap(self._dotnet_instance.DatabaseAlias)
+        dotnet_result = self._dotnet_instance.DatabaseAlias
+        return _wrap(dotnet_result)
 
     @database_alias.setter
     def database_alias(self, value: str):
         """Gets or sets the alias for the XNET database that contains the frame."""
-        self._dotnet_instance.DatabaseAlias = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.DatabaseAlias = next(unwrapped)
 
     @property
     def disabled(self) -> bool:
         """Gets whether transmission of the outgoing frame is disabled."""
-        return _wrap(self._dotnet_instance.Disabled)
+        dotnet_result = self._dotnet_instance.Disabled
+        return _wrap(dotnet_result)
 
     @property
     def enable_software_cyclic_trigger(self) -> bool:
         """Gets or sets whether a software cyclic trigger, which transmits outgoing frames at regular intervals specified by <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.RawDataBasedFrame.TransmitTime" crefType="Unqualified" />, is enabled for the frame."""
-        return _wrap(self._dotnet_instance.EnableSoftwareCyclicTrigger)
+        dotnet_result = self._dotnet_instance.EnableSoftwareCyclicTrigger
+        return _wrap(dotnet_result)
 
     @enable_software_cyclic_trigger.setter
     def enable_software_cyclic_trigger(self, value: bool):
         """Gets or sets whether a software cyclic trigger, which transmits outgoing frames at regular intervals specified by <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.RawDataBasedFrame.TransmitTime" crefType="Unqualified" />, is enabled for the frame."""
-        self._dotnet_instance.EnableSoftwareCyclicTrigger = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.EnableSoftwareCyclicTrigger = next(unwrapped)
 
     @property
     def enable_frame_cyclic_trigger(self) -> bool:
         """Gets or sets whether a frame cyclic trigger, which transmits outgoing frames when <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.RawDataBasedFrame.TriggerChannel" crefType="Unqualified" /> has a non-zero value, is enabled for the frame."""
-        return _wrap(self._dotnet_instance.EnableFrameCyclicTrigger)
+        dotnet_result = self._dotnet_instance.EnableFrameCyclicTrigger
+        return _wrap(dotnet_result)
 
     @enable_frame_cyclic_trigger.setter
     def enable_frame_cyclic_trigger(self, value: bool):
         """Gets or sets whether a frame cyclic trigger, which transmits outgoing frames when <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.RawDataBasedFrame.TriggerChannel" crefType="Unqualified" /> has a non-zero value, is enabled for the frame."""
-        self._dotnet_instance.EnableFrameCyclicTrigger = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.EnableFrameCyclicTrigger = next(unwrapped)
 
     @property
     def disable_channel(self) -> BaseNode:
         """Gets a reference to the disable channel for the frame. A disable channel disables transmission of an outgoing frame when the value of the disable channel is non-zero."""
-        return _wrap(self._dotnet_instance.DisableChannel)
+        dotnet_result = self._dotnet_instance.DisableChannel
+        return _wrap(dotnet_result)
 
     @property
     def trigger_channel(self) -> BaseNode:
         """Gets a reference to the channel that is checked for a non-zero value when <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.RawDataBasedFrame.EnableFrameCyclicTrigger" crefType="Unqualified" /> is <see langword="true" />."""
-        return _wrap(self._dotnet_instance.TriggerChannel)
+        dotnet_result = self._dotnet_instance.TriggerChannel
+        return _wrap(dotnet_result)
 
     @property
     def transmit_time(self) -> float:
         """Gets or sets the interval, in seconds, at which a software cyclic trigger transmits outgoing frames when <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.RawDataBasedFrame.EnableSoftwareCyclicTrigger" crefType="Unqualified" /> is <see langword="true" />."""
-        return _wrap(self._dotnet_instance.TransmitTime)
+        dotnet_result = self._dotnet_instance.TransmitTime
+        return _wrap(dotnet_result)
 
     @transmit_time.setter
     def transmit_time(self, value: float):
         """Gets or sets the interval, in seconds, at which a software cyclic trigger transmits outgoing frames when <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.RawDataBasedFrame.EnableSoftwareCyclicTrigger" crefType="Unqualified" /> is <see langword="true" />."""
-        self._dotnet_instance.TransmitTime = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.TransmitTime = next(unwrapped)
 
     @overload
     def create_raw_data_based_channel(self, start_bit: int, number_of_bits: int) -> RawDataBasedChannel:
         ...
 
     def create_raw_data_based_channel(self, *args):
-        return _wrap(self._dotnet_instance.CreateRawDataBasedChannel(*_unwrap({None: (2, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (2, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.CreateRawDataBasedChannel(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def create_frame_information(self, create_time_information_channels: bool, create_frame_id: bool) -> FrameInformation:
         ...
 
     def create_frame_information(self, *args):
-        return _wrap(self._dotnet_instance.CreateFrameInformation(*_unwrap({None: (2, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (2, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.CreateFrameInformation(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def create_frame_faulting(self, create_skip_cyclic_frames: bool, create_transmit_time: bool) -> FrameFaulting:
         ...
 
     def create_frame_faulting(self, *args):
-        return _wrap(self._dotnet_instance.CreateFrameFaulting(*_unwrap({None: (2, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (2, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.CreateFrameFaulting(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def create_automatic_frame_processing(self) -> AutomaticFrameProcessing:
         ...
 
     def create_automatic_frame_processing(self, *args):
-        return _wrap(self._dotnet_instance.CreateAutomaticFrameProcessing(*_unwrap({None: (0, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (0, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.CreateAutomaticFrameProcessing(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def disable_transmission_trigger(self):
         ...
 
     def disable_transmission_trigger(self, *args):
-        return _wrap(self._dotnet_instance.DisableTransmissionTrigger(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.DisableTransmissionTrigger(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def enable_transmission_trigger(self, disable_channel: BaseNode):
         ...
 
     def enable_transmission_trigger(self, *args):
-        return _wrap(self._dotnet_instance.EnableTransmissionTrigger(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.EnableTransmissionTrigger(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def set_transmit_trigger(self, trigger_type: FrameTriggerType, trigger_channel: BaseNode):
         ...
 
     def set_transmit_trigger(self, *args):
-        return _wrap(self._dotnet_instance.SetTransmitTrigger(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.SetTransmitTrigger(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_raw_data_based_channel_list(self) -> Sequence[RawDataBasedChannel]:
         ...
 
     def get_raw_data_based_channel_list(self, *args):
-        return _wrap(self._dotnet_instance.GetRawDataBasedChannelList(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetRawDataBasedChannelList(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_frame_information(self) -> FrameInformation:
         ...
 
     def get_frame_information(self, *args):
-        return _wrap(self._dotnet_instance.GetFrameInformation(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetFrameInformation(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_frame_faulting(self) -> FrameFaulting:
         ...
 
     def get_frame_faulting(self, *args):
-        return _wrap(self._dotnet_instance.GetFrameFaulting(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetFrameFaulting(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_automatic_frame_processing(self) -> AutomaticFrameProcessing:
         ...
 
     def get_automatic_frame_processing(self, *args):
-        return _wrap(self._dotnet_instance.GetAutomaticFrameProcessing(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetAutomaticFrameProcessing(*unwrapped)
+        return _wrap(dotnet_result)
 
 
 class RawFrameDataLogging(Section):
@@ -12862,14 +15186,18 @@ class RawFrameDataLogging(Section):
         ...
 
     def get_data_logging_file_list(self, *args):
-        return _wrap(self._dotnet_instance.GetDataLoggingFileList(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetDataLoggingFileList(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_data_logging_file(self, data_logging_file: DataLoggingFile) -> bool:
         ...
 
     def add_data_logging_file(self, *args):
-        return _wrap(self._dotnet_instance.AddDataLoggingFile(*_unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.AddDataLoggingFile(*unwrapped)
+        return _wrap(dotnet_result)
 
 
 class RealTimeSequenceCommand(Command):
@@ -12893,57 +15221,68 @@ class RealTimeSequenceCommand(Command):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.RealTimeSequenceCommand:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.RealTimeSequenceCommand(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.RealTimeSequenceCommand(*unwrapped)
 
     @property
     def sequence_command(self) -> GlobalSequenceCommand:
         """Gets or sets a value indicating the global command to apply to all running real-time sequences."""
-        return _wrap(self._dotnet_instance.SequenceCommand)
+        dotnet_result = self._dotnet_instance.SequenceCommand
+        return _wrap(dotnet_result)
 
     @sequence_command.setter
     def sequence_command(self, value: GlobalSequenceCommand):
         """Gets or sets a value indicating the global command to apply to all running real-time sequences."""
-        self._dotnet_instance.SequenceCommand = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.SequenceCommand = next(unwrapped)
 
     @property
     def wait_for_sequences_to_complete(self) -> bool:
         """Gets or sets a value indicating whether to wait for all active sequences to complete execution."""
-        return _wrap(self._dotnet_instance.WaitForSequencesToComplete)
+        dotnet_result = self._dotnet_instance.WaitForSequencesToComplete
+        return _wrap(dotnet_result)
 
     @wait_for_sequences_to_complete.setter
     def wait_for_sequences_to_complete(self, value: bool):
         """Gets or sets a value indicating whether to wait for all active sequences to complete execution."""
-        self._dotnet_instance.WaitForSequencesToComplete = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.WaitForSequencesToComplete = next(unwrapped)
 
     @property
     def abort_sequences_on_timeout(self) -> bool:
         """Gets or sets a value indicating whether to abort all active sequences if the sequence command times out waiting for them to complete."""
-        return _wrap(self._dotnet_instance.AbortSequencesOnTimeout)
+        dotnet_result = self._dotnet_instance.AbortSequencesOnTimeout
+        return _wrap(dotnet_result)
 
     @abort_sequences_on_timeout.setter
     def abort_sequences_on_timeout(self, value: bool):
         """Gets or sets a value indicating whether to abort all active sequences if the sequence command times out waiting for them to complete."""
-        self._dotnet_instance.AbortSequencesOnTimeout = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.AbortSequencesOnTimeout = next(unwrapped)
 
     @property
     def wait_timeout(self) -> float:
         """Gets or sets a value indicating the maximum amount of time in seconds to wait for all active sequences to complete execution."""
-        return _wrap(self._dotnet_instance.WaitTimeout)
+        dotnet_result = self._dotnet_instance.WaitTimeout
+        return _wrap(dotnet_result)
 
     @wait_timeout.setter
     def wait_timeout(self, value: float):
         """Gets or sets a value indicating the maximum amount of time in seconds to wait for all active sequences to complete execution."""
-        self._dotnet_instance.WaitTimeout = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.WaitTimeout = next(unwrapped)
 
     @property
     def group_number(self) -> int:
         """Gets or sets a value indicating the group number for the sequence to stop."""
-        return _wrap(self._dotnet_instance.GroupNumber)
+        dotnet_result = self._dotnet_instance.GroupNumber
+        return _wrap(dotnet_result)
 
     @group_number.setter
     def group_number(self, value: int):
         """Gets or sets a value indicating the group number for the sequence to stop."""
-        self._dotnet_instance.GroupNumber = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.GroupNumber = next(unwrapped)
 
 
 class ReceiveTime(Channel, IChannel):
@@ -12960,19 +15299,23 @@ class ReceiveTime(Channel, IChannel):
     @property
     def initial_value(self) -> float:
         """Gets or sets the initial value of the <format type="bold">Receive Time</format> channel."""
-        return _wrap(self._dotnet_instance.InitialValue)
+        dotnet_result = self._dotnet_instance.InitialValue
+        return _wrap(dotnet_result)
 
     @initial_value.setter
     def initial_value(self, value: float):
         """Gets or sets the initial value of the <format type="bold">Receive Time</format> channel."""
-        self._dotnet_instance.InitialValue = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.InitialValue = next(unwrapped)
 
     @overload
     def remove_node(self) -> bool:
         ...
 
     def remove_node(self, *args):
-        return _wrap(self._dotnet_instance.RemoveNode(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.RemoveNode(*unwrapped)
+        return _wrap(dotnet_result)
 
 
 class ReflectiveMemory(Section):
@@ -12988,59 +15331,71 @@ class ReflectiveMemory(Section):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.ReflectiveMemory:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.ReflectiveMemory(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.ReflectiveMemory(*unwrapped)
 
     @property
     def visa_resource(self) -> str:
         """Gets or sets the VISA resource name for the device as it appears in Measurement <entity value="amp" /> Automation Explorer (MAX)."""
-        return _wrap(self._dotnet_instance.VISAResource)
+        dotnet_result = self._dotnet_instance.VISAResource
+        return _wrap(dotnet_result)
 
     @visa_resource.setter
     def visa_resource(self, value: str):
         """Gets or sets the VISA resource name for the device as it appears in Measurement <entity value="amp" /> Automation Explorer (MAX)."""
-        self._dotnet_instance.VISAResource = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.VISAResource = next(unwrapped)
 
     @property
     def generate_interrupt(self) -> bool:
         """Gets whether interrupts are enabled for the reflective memory device."""
-        return _wrap(self._dotnet_instance.GenerateInterrupt)
+        dotnet_result = self._dotnet_instance.GenerateInterrupt
+        return _wrap(dotnet_result)
 
     @property
     def interrupt_all_nodes(self) -> bool:
         """Gets whether the device sends interrupt signals to all nodes on the reflective memory network."""
-        return _wrap(self._dotnet_instance.InterruptAllNodes)
+        dotnet_result = self._dotnet_instance.InterruptAllNodes
+        return _wrap(dotnet_result)
 
     @property
     def interrupt_target_node(self) -> int:
         """Gets the decimal ID of the target node to which the reflective memory device sends interrupts."""
-        return _wrap(self._dotnet_instance.InterruptTargetNode)
+        dotnet_result = self._dotnet_instance.InterruptTargetNode
+        return _wrap(dotnet_result)
 
     @property
     def interrupt_type(self) -> int:
         """Gets the type of interrupt the reflective memory device generates."""
-        return _wrap(self._dotnet_instance.InterruptType)
+        dotnet_result = self._dotnet_instance.InterruptType
+        return _wrap(dotnet_result)
 
     @property
     def interrupt_data_constant(self) -> bool:
         """Gets whether the data included in the interrupt packet is a constant value."""
-        return _wrap(self._dotnet_instance.InterruptDataConstant)
+        dotnet_result = self._dotnet_instance.InterruptDataConstant
+        return _wrap(dotnet_result)
 
     @property
     def interrupt_constant_data(self) -> int:
         """Gets the constant value that is the data included in the interrupt packet."""
-        return _wrap(self._dotnet_instance.InterruptConstantData)
+        dotnet_result = self._dotnet_instance.InterruptConstantData
+        return _wrap(dotnet_result)
 
     @property
     def interrupt_channel_data(self) -> BaseNode:
         """Gets the channel that provides the data included in the interrupt packet."""
-        return _wrap(self._dotnet_instance.InterruptChannelData)
+        dotnet_result = self._dotnet_instance.InterruptChannelData
+        return _wrap(dotnet_result)
 
     @overload
     def disable_interrupt(self):
         ...
 
     def disable_interrupt(self, *args):
-        return _wrap(self._dotnet_instance.DisableInterrupt(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.DisableInterrupt(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def enable_interrupt(self, type: ReflectiveMemoryInterruptType, interrupt_constant_value: int):
@@ -13059,21 +15414,27 @@ class ReflectiveMemory(Section):
         ...
 
     def enable_interrupt(self, *args):
-        return _wrap(self._dotnet_instance.EnableInterrupt(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.EnableInterrupt(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_information_channels(self) -> ReflectiveMemoryInformationChannels:
         ...
 
     def get_information_channels(self, *args):
-        return _wrap(self._dotnet_instance.GetInformationChannels(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetInformationChannels(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_data_channels(self) -> ReflectiveMemoryDataChannels:
         ...
 
     def get_data_channels(self, *args):
-        return _wrap(self._dotnet_instance.GetDataChannels(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetDataChannels(*unwrapped)
+        return _wrap(dotnet_result)
 
 
 class ReflectiveMemoryDataChannel(Channel, IChannel):
@@ -13089,47 +15450,56 @@ class ReflectiveMemoryDataChannel(Channel, IChannel):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.ReflectiveMemoryDataChannel:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.ReflectiveMemoryDataChannel(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.ReflectiveMemoryDataChannel(*unwrapped)
 
     @property
     def initial_value(self) -> float:
         """Gets or sets the initial value of a reflective memory data channel."""
-        return _wrap(self._dotnet_instance.InitialValue)
+        dotnet_result = self._dotnet_instance.InitialValue
+        return _wrap(dotnet_result)
 
     @initial_value.setter
     def initial_value(self, value: float):
         """Gets or sets the initial value of a reflective memory data channel."""
-        self._dotnet_instance.InitialValue = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.InitialValue = next(unwrapped)
 
     @property
     def type(self) -> ReflectiveMemoryDataChannelAccessType:
         """Gets or sets the access type (<format type="monospace">Read</format> or <format type="monospace">Write</format>) of a reflective memory data channel."""
-        return _wrap(self._dotnet_instance.Type)
+        dotnet_result = self._dotnet_instance.Type
+        return _wrap(dotnet_result)
 
     @type.setter
     def type(self, value: ReflectiveMemoryDataChannelAccessType):
         """Gets or sets the access type (<format type="monospace">Read</format> or <format type="monospace">Write</format>) of a reflective memory data channel."""
-        self._dotnet_instance.Type = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.Type = next(unwrapped)
 
     @property
     def data_type(self) -> ReflectiveMemoryDataChannelDataType:
         """Gets or sets the data type of a reflective memory data channel."""
-        return _wrap(self._dotnet_instance.DataType)
+        dotnet_result = self._dotnet_instance.DataType
+        return _wrap(dotnet_result)
 
     @data_type.setter
     def data_type(self, value: ReflectiveMemoryDataChannelDataType):
         """Gets or sets the data type of a reflective memory data channel."""
-        self._dotnet_instance.DataType = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.DataType = next(unwrapped)
 
     @property
     def memory_address(self) -> int:
         """Gets or sets the address for the data channel in reflective memory."""
-        return _wrap(self._dotnet_instance.MemoryAddress)
+        dotnet_result = self._dotnet_instance.MemoryAddress
+        return _wrap(dotnet_result)
 
     @memory_address.setter
     def memory_address(self, value: int):
         """Gets or sets the address for the data channel in reflective memory."""
-        self._dotnet_instance.MemoryAddress = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.MemoryAddress = next(unwrapped)
 
 
 class ReflectiveMemoryDataChannels(Section):
@@ -13148,28 +15518,36 @@ class ReflectiveMemoryDataChannels(Section):
         ...
 
     def get_data_channels(self, *args):
-        return _wrap(self._dotnet_instance.GetDataChannels(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetDataChannels(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_folders(self) -> Sequence[ReflectiveMemoryFolder]:
         ...
 
     def get_folders(self, *args):
-        return _wrap(self._dotnet_instance.GetFolders(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetFolders(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_data_channel(self, reflective_memory_data_channel: ReflectiveMemoryDataChannel) -> bool:
         ...
 
     def add_data_channel(self, *args):
-        return _wrap(self._dotnet_instance.AddDataChannel(*_unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.AddDataChannel(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_folder(self, reflective_memory_folder: ReflectiveMemoryFolder) -> bool:
         ...
 
     def add_folder(self, *args):
-        return _wrap(self._dotnet_instance.AddFolder(*_unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.AddFolder(*unwrapped)
+        return _wrap(dotnet_result)
 
 
 class ReflectiveMemoryFolder(Section):
@@ -13185,35 +15563,44 @@ class ReflectiveMemoryFolder(Section):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.ReflectiveMemoryFolder:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.ReflectiveMemoryFolder(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.ReflectiveMemoryFolder(*unwrapped)
 
     @overload
     def get_data_channels(self) -> Sequence[ReflectiveMemoryDataChannel]:
         ...
 
     def get_data_channels(self, *args):
-        return _wrap(self._dotnet_instance.GetDataChannels(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetDataChannels(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_folders(self) -> Sequence[ReflectiveMemoryFolder]:
         ...
 
     def get_folders(self, *args):
-        return _wrap(self._dotnet_instance.GetFolders(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetFolders(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_data_channel(self, reflective_memory_data_channel: ReflectiveMemoryDataChannel) -> bool:
         ...
 
     def add_data_channel(self, *args):
-        return _wrap(self._dotnet_instance.AddDataChannel(*_unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.AddDataChannel(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_folder(self, reflective_memory_folder: ReflectiveMemoryFolder) -> bool:
         ...
 
     def add_folder(self, *args):
-        return _wrap(self._dotnet_instance.AddFolder(*_unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.AddFolder(*unwrapped)
+        return _wrap(dotnet_result)
 
 
 class ReflectiveMemoryInformationChannels(Section):
@@ -13232,14 +15619,18 @@ class ReflectiveMemoryInformationChannels(Section):
         ...
 
     def get_ring_read_late_count(self, *args):
-        return _wrap(self._dotnet_instance.GetRingReadLateCount(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetRingReadLateCount(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_write_late_count(self) -> ReflectiveMemoryWriteLateCount:
         ...
 
     def get_write_late_count(self, *args):
-        return _wrap(self._dotnet_instance.GetWriteLateCount(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetWriteLateCount(*unwrapped)
+        return _wrap(dotnet_result)
 
 
 class ReflectiveMemoryNetwork(Section):
@@ -13256,42 +15647,50 @@ class ReflectiveMemoryNetwork(Section):
     @property
     def start_memory_address(self) -> int:
         """Gets or sets the start address in reflective memory that NI VeriStand can use. Use this property together with <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.ReflectiveMemoryNetwork.MaximumEndMemoryAddress" crefType="Unqualified" /> to specify the maximum amount of reflected memory allocated to NI VeriStand."""
-        return _wrap(self._dotnet_instance.StartMemoryAddress)
+        dotnet_result = self._dotnet_instance.StartMemoryAddress
+        return _wrap(dotnet_result)
 
     @start_memory_address.setter
     def start_memory_address(self, value: int):
         """Gets or sets the start address in reflective memory that NI VeriStand can use. Use this property together with <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.ReflectiveMemoryNetwork.MaximumEndMemoryAddress" crefType="Unqualified" /> to specify the maximum amount of reflected memory allocated to NI VeriStand."""
-        self._dotnet_instance.StartMemoryAddress = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.StartMemoryAddress = next(unwrapped)
 
     @property
     def maximum_end_memory_address(self) -> int:
         """Gets or sets the maximum end address in reflective memory that NI VeriStand can use. Use this property together with <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.ReflectiveMemoryNetwork.StartMemoryAddress" crefType="Unqualified" /> to specify the maximum amount of reflected memory allocated to NI VeriStand."""
-        return _wrap(self._dotnet_instance.MaximumEndMemoryAddress)
+        dotnet_result = self._dotnet_instance.MaximumEndMemoryAddress
+        return _wrap(dotnet_result)
 
     @maximum_end_memory_address.setter
     def maximum_end_memory_address(self, value: int):
         """Gets or sets the maximum end address in reflective memory that NI VeriStand can use. Use this property together with <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.ReflectiveMemoryNetwork.StartMemoryAddress" crefType="Unqualified" /> to specify the maximum amount of reflected memory allocated to NI VeriStand."""
-        self._dotnet_instance.MaximumEndMemoryAddress = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.MaximumEndMemoryAddress = next(unwrapped)
 
     @property
     def export_memory_table(self) -> bool:
         """Gets or sets whether the memory table that NI VeriStand creates at compile time is exported to a text file."""
-        return _wrap(self._dotnet_instance.ExportMemoryTable)
+        dotnet_result = self._dotnet_instance.ExportMemoryTable
+        return _wrap(dotnet_result)
 
     @export_memory_table.setter
     def export_memory_table(self, value: bool):
         """Gets or sets whether the memory table that NI VeriStand creates at compile time is exported to a text file."""
-        self._dotnet_instance.ExportMemoryTable = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.ExportMemoryTable = next(unwrapped)
 
     @property
     def export_memory_table_file(self) -> Sequence[int]:
         """Gets or sets the file path for the text file to export the memory table to at compile time if <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.ReflectiveMemoryNetwork.ExportMemoryTable" crefType="Unqualified" /> is <see langword="true" />."""
-        return _wrap(self._dotnet_instance.ExportMemoryTableFile)
+        dotnet_result = self._dotnet_instance.ExportMemoryTableFile
+        return _wrap(dotnet_result)
 
     @export_memory_table_file.setter
     def export_memory_table_file(self, value: Sequence[int]):
         """Gets or sets the file path for the text file to export the memory table to at compile time if <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.ReflectiveMemoryNetwork.ExportMemoryTable" crefType="Unqualified" /> is <see langword="true" />."""
-        self._dotnet_instance.ExportMemoryTableFile = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.ExportMemoryTableFile = next(unwrapped)
 
 
 class ReflectiveMemoryRingReadLateCount(Channel, IChannel):
@@ -13334,14 +15733,18 @@ class SCXIChassis(Section):
         ...
 
     def get_scxi_modules(self, *args):
-        return _wrap(self._dotnet_instance.GetSCXIModules(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetSCXIModules(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_scxi_module(self, scxi_module: SCXIModule) -> bool:
         ...
 
     def add_scxi_module(self, *args):
-        return _wrap(self._dotnet_instance.AddSCXIModule(*_unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.AddSCXIModule(*unwrapped)
+        return _wrap(dotnet_result)
 
 
 class SCXIModule(Section):
@@ -13357,33 +15760,41 @@ class SCXIModule(Section):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.SCXIModule:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.SCXIModule(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.SCXIModule(*unwrapped)
 
     @property
     def scxi_module_type(self) -> str:
         """Gets the type of the SCXI module."""
-        return _wrap(self._dotnet_instance.SCXIModuleType)
+        dotnet_result = self._dotnet_instance.SCXIModuleType
+        return _wrap(dotnet_result)
 
     @overload
     def get_analog_inputs(self) -> Sequence[DAQAnalogInput]:
         ...
 
     def get_analog_inputs(self, *args):
-        return _wrap(self._dotnet_instance.GetAnalogInputs(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetAnalogInputs(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_analog_outputs(self) -> Sequence[DAQAnalogOutput]:
         ...
 
     def get_analog_outputs(self, *args):
-        return _wrap(self._dotnet_instance.GetAnalogOutputs(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetAnalogOutputs(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_dio_ports(self) -> Sequence[DAQDIOPort]:
         ...
 
     def get_dio_ports(self, *args):
-        return _wrap(self._dotnet_instance.GetDIOPorts(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetDIOPorts(*unwrapped)
+        return _wrap(dotnet_result)
 
 
 class SLSC(Section):
@@ -13402,28 +15813,36 @@ class SLSC(Section):
         ...
 
     def get_slsc_chassis_list(self, *args):
-        return _wrap(self._dotnet_instance.GetSLSCChassisList(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetSLSCChassisList(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def export_configuration(self, filepath: str):
         ...
 
     def export_configuration(self, *args):
-        return _wrap(self._dotnet_instance.ExportConfiguration(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.ExportConfiguration(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def import_configurations(self, filepath: str):
         ...
 
     def import_configurations(self, *args):
-        return _wrap(self._dotnet_instance.ImportConfigurations(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.ImportConfigurations(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_slsc_chassis(self, slsc_chassis: SLSCChassis):
         ...
 
     def add_slsc_chassis(self, *args):
-        return _wrap(self._dotnet_instance.AddSLSCChassis(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.AddSLSCChassis(*unwrapped)
+        return _wrap(dotnet_result)
 
 
 class SLSCChassis(Section):
@@ -13439,73 +15858,89 @@ class SLSCChassis(Section):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.SLSCChassis:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.SLSCChassis(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.SLSCChassis(*unwrapped)
 
     @property
     def chassis_id(self) -> str:
         """Gets or sets the name or the IP address of the SLSCChassis."""
-        return _wrap(self._dotnet_instance.ChassisID)
+        dotnet_result = self._dotnet_instance.ChassisID
+        return _wrap(dotnet_result)
 
     @chassis_id.setter
     def chassis_id(self, value: str):
         """Gets or sets the name or the IP address of the SLSCChassis."""
-        self._dotnet_instance.ChassisID = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.ChassisID = next(unwrapped)
 
     @property
     def username(self) -> str:
         """Gets or sets the username for the SLSCChassis."""
-        return _wrap(self._dotnet_instance.Username)
+        dotnet_result = self._dotnet_instance.Username
+        return _wrap(dotnet_result)
 
     @username.setter
     def username(self, value: str):
         """Gets or sets the username for the SLSCChassis."""
-        self._dotnet_instance.Username = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.Username = next(unwrapped)
 
     @property
     def password(self) -> str:
         """Gets or sets the password for the SLSCChassis."""
-        return _wrap(self._dotnet_instance.Password)
+        dotnet_result = self._dotnet_instance.Password
+        return _wrap(dotnet_result)
 
     @password.setter
     def password(self, value: str):
         """Gets or sets the password for the SLSCChassis."""
-        self._dotnet_instance.Password = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.Password = next(unwrapped)
 
     @property
     def chassis_type(self) -> str:
         """Gets the type of the SLSCChassis."""
-        return _wrap(self._dotnet_instance.ChassisType)
+        dotnet_result = self._dotnet_instance.ChassisType
+        return _wrap(dotnet_result)
 
     @property
     def chassis_id_type(self) -> SLSCChassis.SLSCChassisIDType:
         """Gets or sets the mode how the cahssis is defined"""
-        return _wrap(self._dotnet_instance.ChassisIDType)
+        dotnet_result = self._dotnet_instance.ChassisIDType
+        return _wrap(dotnet_result)
 
     @chassis_id_type.setter
     def chassis_id_type(self, value: SLSCChassis.SLSCChassisIDType):
         """Gets or sets the mode how the cahssis is defined"""
-        self._dotnet_instance.ChassisIDType = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.ChassisIDType = next(unwrapped)
 
     @overload
     def export_configuration(self, filepath: str):
         ...
 
     def export_configuration(self, *args):
-        return _wrap(self._dotnet_instance.ExportConfiguration(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.ExportConfiguration(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_chassis_channels_section(self) -> SLSCChassisChannels:
         ...
 
     def get_chassis_channels_section(self, *args):
-        return _wrap(self._dotnet_instance.GetChassisChannelsSection(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetChassisChannelsSection(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_modules_section(self) -> SLSCModules:
         ...
 
     def get_modules_section(self, *args):
-        return _wrap(self._dotnet_instance.GetModulesSection(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetModulesSection(*unwrapped)
+        return _wrap(dotnet_result)
 
 
     class SLSCChassisIDType(_DotNetEnum):
@@ -13522,11 +15957,13 @@ class SLSCChassis(Section):
 
         @_staticproperty
         def CHASSIS_NAME() -> SLSCChassis.SLSCChassisIDType:
-            return SLSCChassis.SLSCChassisIDType(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.SLSCChassis.SLSCChassisIDType, "ChassisName"), "CHASSIS_NAME")
+            dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.SLSCChassis.SLSCChassisIDType, "ChassisName")
+            return SLSCChassis.SLSCChassisIDType(dotnet_result, "CHASSIS_NAME")
 
         @_staticproperty
         def HOSTNAME_IP_ADDRESS() -> SLSCChassis.SLSCChassisIDType:
-            return SLSCChassis.SLSCChassisIDType(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.SLSCChassis.SLSCChassisIDType, "HostnameIPAddress"), "HOSTNAME_IP_ADDRESS")
+            dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.SLSCChassis.SLSCChassisIDType, "HostnameIPAddress")
+            return SLSCChassis.SLSCChassisIDType(dotnet_result, "HOSTNAME_IP_ADDRESS")
 
 
     class SLSCChassisType(_DotNetEnum):
@@ -13543,7 +15980,8 @@ class SLSCChassis(Section):
 
         @_staticproperty
         def E12001_CHASSIS_TYPE() -> SLSCChassis.SLSCChassisType:
-            return SLSCChassis.SLSCChassisType(getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.SLSCChassis.SLSCChassisType, "e12001_CHASSIS_TYPE"), "E12001_CHASSIS_TYPE")
+            dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.SLSCChassis.SLSCChassisType, "e12001_CHASSIS_TYPE")
+            return SLSCChassis.SLSCChassisType(dotnet_result, "E12001_CHASSIS_TYPE")
 
 
 class SLSCChassisChannel(Channel, IChannel):
@@ -13574,7 +16012,9 @@ class SLSCChassisChannelSection(Section):
         ...
 
     def get_slsc_chassis_channel_list(self, *args):
-        return _wrap(self._dotnet_instance.GetSLSCChassisChannelList(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetSLSCChassisChannelList(*unwrapped)
+        return _wrap(dotnet_result)
 
 
 class SLSCChassisChannels(Section):
@@ -13593,7 +16033,9 @@ class SLSCChassisChannels(Section):
         ...
 
     def get_chassis_channel_sections(self, *args):
-        return _wrap(self._dotnet_instance.GetChassisChannelSections(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetChassisChannelSections(*unwrapped)
+        return _wrap(dotnet_result)
 
 
 class SLSCModuleCustomDevice(CustomDevice):
@@ -13609,19 +16051,23 @@ class SLSCModuleCustomDevice(CustomDevice):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.SLSCModuleCustomDevice:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.SLSCModuleCustomDevice(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.SLSCModuleCustomDevice(*unwrapped)
 
     @property
     def slot_number(self) -> int:
         """The slot number of the SLSC chassis with which the custom device is associated."""
-        return _wrap(self._dotnet_instance.SlotNumber)
+        dotnet_result = self._dotnet_instance.SlotNumber
+        return _wrap(dotnet_result)
 
     @overload
     def remove_node(self) -> bool:
         ...
 
     def remove_node(self, *args):
-        return _wrap(self._dotnet_instance.RemoveNode(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.RemoveNode(*unwrapped)
+        return _wrap(dotnet_result)
 
 
 class SLSCModules(Section):
@@ -13640,14 +16086,18 @@ class SLSCModules(Section):
         ...
 
     def get_module(self, *args):
-        return _wrap(self._dotnet_instance.GetModule(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetModule(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def set_module(self, slot_number: int, custom_device: SLSCModuleCustomDevice) -> bool:
         ...
 
     def set_module(self, *args):
-        return _wrap(self._dotnet_instance.SetModule(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.SetModule(*unwrapped)
+        return _wrap(dotnet_result)
 
 
 class Scale(Section):
@@ -13664,17 +16114,20 @@ class Scale(Section):
     @property
     def scale_type(self) -> ScaleType:
         """Gets the scale type."""
-        return _wrap(self._dotnet_instance.ScaleType)
+        dotnet_result = self._dotnet_instance.ScaleType
+        return _wrap(dotnet_result)
 
     @property
     def scale_unit(self) -> str:
         """Gets or sets the scale unit. This can be any arbitrary string."""
-        return _wrap(self._dotnet_instance.ScaleUnit)
+        dotnet_result = self._dotnet_instance.ScaleUnit
+        return _wrap(dotnet_result)
 
     @scale_unit.setter
     def scale_unit(self, value: str):
         """Gets or sets the scale unit. This can be any arbitrary string."""
-        self._dotnet_instance.ScaleUnit = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.ScaleUnit = next(unwrapped)
 
 
 class ScaleFolder(Section):
@@ -13690,7 +16143,8 @@ class ScaleFolder(Section):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.ScaleFolder:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.ScaleFolder(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.ScaleFolder(*unwrapped)
 
     @overload
     def get_scale_list(self) -> Sequence[Scale]:
@@ -13701,7 +16155,9 @@ class ScaleFolder(Section):
         ...
 
     def get_scale_list(self, *args):
-        return _wrap(self._dotnet_instance.GetScaleList(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetScaleList(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_scale_folder_list(self) -> Sequence[ScaleFolder]:
@@ -13712,35 +16168,45 @@ class ScaleFolder(Section):
         ...
 
     def get_scale_folder_list(self, *args):
-        return _wrap(self._dotnet_instance.GetScaleFolderList(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetScaleFolderList(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def create_scale(self, name: str, type: ScaleType) -> Scale:
         ...
 
     def create_scale(self, *args):
-        return _wrap(self._dotnet_instance.CreateScale(*_unwrap({None: (2, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (2, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.CreateScale(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_scale(self, scale: Scale) -> bool:
         ...
 
     def add_scale(self, *args):
-        return _wrap(self._dotnet_instance.AddScale(*_unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.AddScale(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_scale_folder(self, folder: ScaleFolder) -> bool:
         ...
 
     def add_scale_folder(self, *args):
-        return _wrap(self._dotnet_instance.AddScaleFolder(*_unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.AddScaleFolder(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_new_scale_folder(self, name: str, description: str) -> bool:
         ...
 
     def add_new_scale_folder(self, *args):
-        return _wrap(self._dotnet_instance.AddNewScaleFolder(*_unwrap({None: (2, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (2, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.AddNewScaleFolder(*unwrapped)
+        return _wrap(dotnet_result)
 
 
 class Scales(Section):
@@ -13763,7 +16229,9 @@ class Scales(Section):
         ...
 
     def get_scale_list(self, *args):
-        return _wrap(self._dotnet_instance.GetScaleList(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetScaleList(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_scale_folder_list(self) -> Sequence[ScaleFolder]:
@@ -13774,35 +16242,45 @@ class Scales(Section):
         ...
 
     def get_scale_folder_list(self, *args):
-        return _wrap(self._dotnet_instance.GetScaleFolderList(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetScaleFolderList(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def create_scale(self, name: str, type: ScaleType) -> Scale:
         ...
 
     def create_scale(self, *args):
-        return _wrap(self._dotnet_instance.CreateScale(*_unwrap({None: (2, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (2, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.CreateScale(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_scale(self, scale: Scale) -> bool:
         ...
 
     def add_scale(self, *args):
-        return _wrap(self._dotnet_instance.AddScale(*_unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.AddScale(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_scale_folder(self, folder: ScaleFolder) -> bool:
         ...
 
     def add_scale_folder(self, *args):
-        return _wrap(self._dotnet_instance.AddScaleFolder(*_unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (1, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.AddScaleFolder(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def add_new_scale_folder(self, name: str, description: str) -> bool:
         ...
 
     def add_new_scale_folder(self, *args):
-        return _wrap(self._dotnet_instance.AddNewScaleFolder(*_unwrap({None: (2, NationalInstruments.VeriStand.Error.NoError)}, *args)))
+        unwrapped = _unwrap({None: (2, NationalInstruments.VeriStand.Error.NoError)}, *args)
+        dotnet_result = self._dotnet_instance.AddNewScaleFolder(*unwrapped)
+        return _wrap(dotnet_result)
 
 
 class SetMultipleVariables(Command):
@@ -13818,24 +16296,29 @@ class SetMultipleVariables(Command):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.SetMultipleVariables:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.SetMultipleVariables(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.SetMultipleVariables(*unwrapped)
 
     @property
     def channels(self) -> Sequence[BaseNode]:
         """Gets or sets the channels to set to the specified values."""
-        return _wrap(self._dotnet_instance.Channels)
+        dotnet_result = self._dotnet_instance.Channels
+        return _wrap(dotnet_result)
 
     @property
     def values(self) -> Sequence[float]:
         """Gets the values to which this step sets the specified <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.SetMultipleVariables.Channels" crefType="Unqualified" />."""
-        return _wrap(self._dotnet_instance.Values)
+        dotnet_result = self._dotnet_instance.Values
+        return _wrap(dotnet_result)
 
     @overload
     def set_channels_and_values(self, channels: Sequence[BaseNode], values: Sequence[float]):
         ...
 
     def set_channels_and_values(self, *args):
-        return _wrap(self._dotnet_instance.SetChannelsAndValues(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.SetChannelsAndValues(*unwrapped)
+        return _wrap(dotnet_result)
 
 
 class SetVariable(Command):
@@ -13871,57 +16354,68 @@ class SetVariable(Command):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.SetVariable:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.SetVariable(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.SetVariable(*unwrapped)
 
     @property
     def function(self) -> SetVariableStepFunction:
         """Gets or sets the function (add, subtract, multiply, or divide) to use on the two values that determine the value to set on the <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.SetVariable.Variable" crefType="Unqualified" /> channel."""
-        return _wrap(self._dotnet_instance.Function)
+        dotnet_result = self._dotnet_instance.Function
+        return _wrap(dotnet_result)
 
     @function.setter
     def function(self, value: SetVariableStepFunction):
         """Gets or sets the function (add, subtract, multiply, or divide) to use on the two values that determine the value to set on the <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.SetVariable.Variable" crefType="Unqualified" /> channel."""
-        self._dotnet_instance.Function = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.Function = next(unwrapped)
 
     @property
     def value1_constant(self) -> float:
         """Gets the constant value of <format type="italics">Value1</format> in the <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.SetVariable.Function" crefType="Unqualified" /> operation."""
-        return _wrap(self._dotnet_instance.Value1Constant)
+        dotnet_result = self._dotnet_instance.Value1Constant
+        return _wrap(dotnet_result)
 
     @property
     def value2_constant(self) -> float:
         """Gets the constant value of <format type="italics">Value2</format> in the <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.SetVariable.Function" crefType="Unqualified" /> operation."""
-        return _wrap(self._dotnet_instance.Value2Constant)
+        dotnet_result = self._dotnet_instance.Value2Constant
+        return _wrap(dotnet_result)
 
     @property
     def value1_is_constant(self) -> bool:
         """Gets whether the value of <format type="italics">Value1</format> in the <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.SetVariable.Function" crefType="Unqualified" /> operation is specified by a constant or a channel."""
-        return _wrap(self._dotnet_instance.Value1IsConstant)
+        dotnet_result = self._dotnet_instance.Value1IsConstant
+        return _wrap(dotnet_result)
 
     @property
     def value2_is_constant(self) -> bool:
         """Gets whether the value of <format type="italics">Value2</format> in the <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.SetVariable.Function" crefType="Unqualified" /> operation is specified by a constant or a channel."""
-        return _wrap(self._dotnet_instance.Value2IsConstant)
+        dotnet_result = self._dotnet_instance.Value2IsConstant
+        return _wrap(dotnet_result)
 
     @property
     def variable(self) -> BaseNode:
         """Gets or sets the channel in the system whose value the <format type="bold">Set Variable</format> step sets."""
-        return _wrap(self._dotnet_instance.Variable)
+        dotnet_result = self._dotnet_instance.Variable
+        return _wrap(dotnet_result)
 
     @variable.setter
     def variable(self, value: BaseNode):
         """Gets or sets the channel in the system whose value the <format type="bold">Set Variable</format> step sets."""
-        self._dotnet_instance.Variable = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.Variable = next(unwrapped)
 
     @property
     def value1_channel(self) -> BaseNode:
         """Gets the channel that determines the value of <format type="italics">Value1</format> in the <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.SetVariable.Function" crefType="Unqualified" /> operation."""
-        return _wrap(self._dotnet_instance.Value1Channel)
+        dotnet_result = self._dotnet_instance.Value1Channel
+        return _wrap(dotnet_result)
 
     @property
     def value2_channel(self) -> BaseNode:
         """Gets the channel that determines the value of <format type="italics">Value2</format> in the <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.SetVariable.Function" crefType="Unqualified" /> operation."""
-        return _wrap(self._dotnet_instance.Value2Channel)
+        dotnet_result = self._dotnet_instance.Value2Channel
+        return _wrap(dotnet_result)
 
     @overload
     def set_value1(self, value1: float) -> bool:
@@ -13932,7 +16426,9 @@ class SetVariable(Command):
         ...
 
     def set_value1(self, *args):
-        return _wrap(self._dotnet_instance.SetValue1(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.SetValue1(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def set_value2(self, value2: float) -> bool:
@@ -13943,7 +16439,9 @@ class SetVariable(Command):
         ...
 
     def set_value2(self, *args):
-        return _wrap(self._dotnet_instance.SetValue2(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.SetValue2(*unwrapped)
+        return _wrap(dotnet_result)
 
 
 class SignalBasedSignal(Channel, IChannel):
@@ -13960,7 +16458,8 @@ class SignalBasedSignal(Channel, IChannel):
     @property
     def md5(self) -> Sequence[int]:
         """Gets the MD5 message-digest for the signal."""
-        return _wrap(self._dotnet_instance.MD5)
+        dotnet_result = self._dotnet_instance.MD5
+        return _wrap(dotnet_result)
 
 
 class SkipCyclicFrames(Channel, IChannel):
@@ -13977,22 +16476,26 @@ class SkipCyclicFrames(Channel, IChannel):
     @property
     def skip_n_cycles(self) -> float:
         """Gets or sets the number cycles for which to skip transmission of the frame across the bus. For each skipped cycle, a frame value is dequeued and the skip count is decremented. When the skip count decrements to zero, subsequent cyclic transmissions resume."""
-        return _wrap(self._dotnet_instance.SkipNCycles)
+        dotnet_result = self._dotnet_instance.SkipNCycles
+        return _wrap(dotnet_result)
 
     @skip_n_cycles.setter
     def skip_n_cycles(self, value: float):
         """Gets or sets the number cycles for which to skip transmission of the frame across the bus. For each skipped cycle, a frame value is dequeued and the skip count is decremented. When the skip count decrements to zero, subsequent cyclic transmissions resume."""
-        self._dotnet_instance.SkipNCycles = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.SkipNCycles = next(unwrapped)
 
     @property
     def trigger_channel(self) -> BaseNode:
         """Gets or sets the trigger channel to watch for a non-zero value. Skipping frame transmission begins when this channel value becomes non-zero and stops when the skip count specified by <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.SkipCyclicFrames.SkipNCycles" crefType="Unqualified" /> decrements to zero."""
-        return _wrap(self._dotnet_instance.TriggerChannel)
+        dotnet_result = self._dotnet_instance.TriggerChannel
+        return _wrap(dotnet_result)
 
     @trigger_channel.setter
     def trigger_channel(self, value: BaseNode):
         """Gets or sets the trigger channel to watch for a non-zero value. Skipping frame transmission begins when this channel value becomes non-zero and stops when the skip count specified by <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.SkipCyclicFrames.SkipNCycles" crefType="Unqualified" /> decrements to zero."""
-        self._dotnet_instance.TriggerChannel = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.TriggerChannel = next(unwrapped)
 
 
 class SleepMode(Channel, IChannel):
@@ -14012,17 +16515,20 @@ class SleepMode(Channel, IChannel):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.SleepMode:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.SleepMode(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.SleepMode(*unwrapped)
 
     @property
     def trigger_channel(self) -> BaseNode:
         """Gets or sets the channel that triggers sleep mode on an NI-XNET CAN port. If the value of this channel is non-zero, sleep mode is enabled. If the value is zero, sleep mode is disabled."""
-        return _wrap(self._dotnet_instance.TriggerChannel)
+        dotnet_result = self._dotnet_instance.TriggerChannel
+        return _wrap(dotnet_result)
 
     @trigger_channel.setter
     def trigger_channel(self, value: BaseNode):
         """Gets or sets the channel that triggers sleep mode on an NI-XNET CAN port. If the value of this channel is non-zero, sleep mode is enabled. If the value is zero, sleep mode is disabled."""
-        self._dotnet_instance.TriggerChannel = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.TriggerChannel = next(unwrapped)
 
 
 class StimulusChannel(Channel, IChannel):
@@ -14039,7 +16545,8 @@ class StimulusChannel(Channel, IChannel):
     @property
     def units(self) -> str:
         """Gets the units associated with the stimulus channel."""
-        return _wrap(self._dotnet_instance.Units)
+        dotnet_result = self._dotnet_instance.Units
+        return _wrap(dotnet_result)
 
 
 class SystemChannel(Channel, IChannel):
@@ -14056,7 +16563,8 @@ class SystemChannel(Channel, IChannel):
     @property
     def units(self) -> str:
         """Gets the units associated with the channel."""
-        return _wrap(self._dotnet_instance.Units)
+        dotnet_result = self._dotnet_instance.Units
+        return _wrap(dotnet_result)
 
 
 class ThermocoupleScale(Scale):
@@ -14076,47 +16584,56 @@ class ThermocoupleScale(Scale):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.ThermocoupleScale:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.ThermocoupleScale(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.ThermocoupleScale(*unwrapped)
 
     @property
     def thermocouple_type(self) -> ThermocoupleType:
         """Gets or sets the type of thermocouple in use."""
-        return _wrap(self._dotnet_instance.ThermocoupleType)
+        dotnet_result = self._dotnet_instance.ThermocoupleType
+        return _wrap(dotnet_result)
 
     @thermocouple_type.setter
     def thermocouple_type(self, value: ThermocoupleType):
         """Gets or sets the type of thermocouple in use."""
-        self._dotnet_instance.ThermocoupleType = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.ThermocoupleType = next(unwrapped)
 
     @property
     def thermocouple_cjc_type(self) -> ThermocoupleCJCType:
         """Gets or sets the type of device the thermocouple uses to perform cold-junction compensation."""
-        return _wrap(self._dotnet_instance.ThermocoupleCJCType)
+        dotnet_result = self._dotnet_instance.ThermocoupleCJCType
+        return _wrap(dotnet_result)
 
     @thermocouple_cjc_type.setter
     def thermocouple_cjc_type(self, value: ThermocoupleCJCType):
         """Gets or sets the type of device the thermocouple uses to perform cold-junction compensation."""
-        self._dotnet_instance.ThermocoupleCJCType = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.ThermocoupleCJCType = next(unwrapped)
 
     @property
     def temperature_unit(self) -> TemperatureUnit:
         """Gets or sets the units of the scaled temperature values: Kelvins or degrees Celsius, Fahrenheit, or Rankine."""
-        return _wrap(self._dotnet_instance.TemperatureUnit)
+        dotnet_result = self._dotnet_instance.TemperatureUnit
+        return _wrap(dotnet_result)
 
     @temperature_unit.setter
     def temperature_unit(self, value: TemperatureUnit):
         """Gets or sets the units of the scaled temperature values: Kelvins or degrees Celsius, Fahrenheit, or Rankine."""
-        self._dotnet_instance.TemperatureUnit = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.TemperatureUnit = next(unwrapped)
 
     @property
     def thermocouple_cjc_source(self) -> BaseNode:
         """Gets or sets the channel that serves as the source of cold-junction compensation for the ThermocoupleScale."""
-        return _wrap(self._dotnet_instance.ThermocoupleCJCSource)
+        dotnet_result = self._dotnet_instance.ThermocoupleCJCSource
+        return _wrap(dotnet_result)
 
     @thermocouple_cjc_source.setter
     def thermocouple_cjc_source(self, value: BaseNode):
         """Gets or sets the channel that serves as the source of cold-junction compensation for the ThermocoupleScale."""
-        self._dotnet_instance.ThermocoupleCJCSource = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.ThermocoupleCJCSource = next(unwrapped)
 
 
 class TimeDifference(Channel, IChannel):
@@ -14133,12 +16650,14 @@ class TimeDifference(Channel, IChannel):
     @property
     def initial_value(self) -> float:
         """Gets or sets the initial value of the <format type="bold">Time Difference</format> channel. This property only represents an initial value for the channel, and does not actually enhance or delay frame transmission."""
-        return _wrap(self._dotnet_instance.InitialValue)
+        dotnet_result = self._dotnet_instance.InitialValue
+        return _wrap(dotnet_result)
 
     @initial_value.setter
     def initial_value(self, value: float):
         """Gets or sets the initial value of the <format type="bold">Time Difference</format> channel. This property only represents an initial value for the channel, and does not actually enhance or delay frame transmission."""
-        self._dotnet_instance.InitialValue = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.InitialValue = next(unwrapped)
 
 
 class TimeStepDuration(Channel, IChannel):
@@ -14166,17 +16685,20 @@ class TimingAndSyncDevice(CustomDevice):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.TimingAndSyncDevice:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.TimingAndSyncDevice(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.TimingAndSyncDevice(*unwrapped)
 
     @property
     def is_rtsi0_capable(self) -> bool:
         """Gets or sets whether the timing and sync device is capable of driving the RTSI 0 line, which is a digital line that sends a clock signal that synchronizes all hardware I/O devices in the system."""
-        return _wrap(self._dotnet_instance.IsRTSI0Capable)
+        dotnet_result = self._dotnet_instance.IsRTSI0Capable
+        return _wrap(dotnet_result)
 
     @is_rtsi0_capable.setter
     def is_rtsi0_capable(self, value: bool):
         """Gets or sets whether the timing and sync device is capable of driving the RTSI 0 line, which is a digital line that sends a clock signal that synchronizes all hardware I/O devices in the system."""
-        self._dotnet_instance.IsRTSI0Capable = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.IsRTSI0Capable = next(unwrapped)
 
 
 class TransmitTime(Channel, IChannel):
@@ -14193,36 +16715,44 @@ class TransmitTime(Channel, IChannel):
     @property
     def transmit_time_value(self) -> float:
         """Gets or sets the constant value to use as the transmit time, in seconds."""
-        return _wrap(self._dotnet_instance.TransmitTimeValue)
+        dotnet_result = self._dotnet_instance.TransmitTimeValue
+        return _wrap(dotnet_result)
 
     @transmit_time_value.setter
     def transmit_time_value(self, value: float):
         """Gets or sets the constant value to use as the transmit time, in seconds."""
-        self._dotnet_instance.TransmitTimeValue = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.TransmitTimeValue = next(unwrapped)
 
     @property
     def use_trigger_channel(self) -> bool:
         """Gets whether the <format type="bold">Transmit Time</format>  channel is using a trigger channel to get the transmit time value."""
-        return _wrap(self._dotnet_instance.UseTriggerChannel)
+        dotnet_result = self._dotnet_instance.UseTriggerChannel
+        return _wrap(dotnet_result)
 
     @property
     def trigger_channel(self) -> BaseNode:
         """Gets a reference to the trigger channel the <format type="bold">Transmit Time</format> channel is using to get its value."""
-        return _wrap(self._dotnet_instance.TriggerChannel)
+        dotnet_result = self._dotnet_instance.TriggerChannel
+        return _wrap(dotnet_result)
 
     @overload
     def remove_trigger_channel(self):
         ...
 
     def remove_trigger_channel(self, *args):
-        return _wrap(self._dotnet_instance.RemoveTriggerChannel(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.RemoveTriggerChannel(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def set_trigger_channel(self, trigger_channel: BaseNode):
         ...
 
     def set_trigger_channel(self, *args):
-        return _wrap(self._dotnet_instance.SetTriggerChannel(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.SetTriggerChannel(*unwrapped)
+        return _wrap(dotnet_result)
 
 
 class UserChannel(Channel, IChannel):
@@ -14238,17 +16768,20 @@ class UserChannel(Channel, IChannel):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.UserChannel:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.UserChannel(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.UserChannel(*unwrapped)
 
     @property
     def initial_value(self) -> float:
         """Gets or sets the initial value of the user channel."""
-        return _wrap(self._dotnet_instance.InitialValue)
+        dotnet_result = self._dotnet_instance.InitialValue
+        return _wrap(dotnet_result)
 
     @initial_value.setter
     def initial_value(self, value: float):
         """Gets or sets the initial value of the user channel."""
-        self._dotnet_instance.InitialValue = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.InitialValue = next(unwrapped)
 
 
 class AlarmStatus(Channel, IChannel):
@@ -14296,126 +16829,150 @@ class Alarming(Command):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.Alarming:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.Alarming(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.Alarming(*unwrapped)
 
     @property
     def function(self) -> AlarmingStepFunction:
         """Gets or sets the function that the <see cref="T:NationalInstruments.VeriStand.SystemDefinitionAPI.Alarming" crefType="Unqualified" /> step performs on the alarm."""
-        return _wrap(self._dotnet_instance.Function)
+        dotnet_result = self._dotnet_instance.Function
+        return _wrap(dotnet_result)
 
     @function.setter
     def function(self, value: AlarmingStepFunction):
         """Gets or sets the function that the <see cref="T:NationalInstruments.VeriStand.SystemDefinitionAPI.Alarming" crefType="Unqualified" /> step performs on the alarm."""
-        self._dotnet_instance.Function = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.Function = next(unwrapped)
 
     @property
     def priority_number(self) -> int:
         """Gets or sets the priority of an alarm running on the target. Lower numbers specify a higher alarm priority. For example, 4 is higher priority than 31."""
-        return _wrap(self._dotnet_instance.PriorityNumber)
+        dotnet_result = self._dotnet_instance.PriorityNumber
+        return _wrap(dotnet_result)
 
     @priority_number.setter
     def priority_number(self, value: int):
         """Gets or sets the priority of an alarm running on the target. Lower numbers specify a higher alarm priority. For example, 4 is higher priority than 31."""
-        self._dotnet_instance.PriorityNumber = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.PriorityNumber = next(unwrapped)
 
     @property
     def priority(self) -> AlarmPriority:
         """This property is deprecated in NI VeriStand 2011 and later. Use the <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.Alarm.PriorityNumber" crefType="Unqualified" /> property instead.
             <para>
             Setting this property to <format type="monospace">Low</format>, <format type="monospace">Medium</format>, or <format type="monospace">High</format> automatically sets the <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.Alarm.PriorityNumber" crefType="Unqualified" /> to 25, 15, or 5, respectively.</para>"""
-        return _wrap(self._dotnet_instance.Priority)
+        dotnet_result = self._dotnet_instance.Priority
+        return _wrap(dotnet_result)
 
     @priority.setter
     def priority(self, value: AlarmPriority):
         """This property is deprecated in NI VeriStand 2011 and later. Use the <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.Alarm.PriorityNumber" crefType="Unqualified" /> property instead.
             <para>
             Setting this property to <format type="monospace">Low</format>, <format type="monospace">Medium</format>, or <format type="monospace">High</format> automatically sets the <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.Alarm.PriorityNumber" crefType="Unqualified" /> to 25, 15, or 5, respectively.</para>"""
-        self._dotnet_instance.Priority = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.Priority = next(unwrapped)
 
     @property
     def default_state(self) -> AlarmState:
         """Gets or sets the default state (<format type="monospace">Disabled</format> or <format type="monospace">Enabled</format>) of the alarm."""
-        return _wrap(self._dotnet_instance.DefaultState)
+        dotnet_result = self._dotnet_instance.DefaultState
+        return _wrap(dotnet_result)
 
     @default_state.setter
     def default_state(self, value: AlarmState):
         """Gets or sets the default state (<format type="monospace">Disabled</format> or <format type="monospace">Enabled</format>) of the alarm."""
-        self._dotnet_instance.DefaultState = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.DefaultState = next(unwrapped)
 
     @property
     def delay(self) -> float:
         """Gets or sets the amount of time to wait before triggering the alarm."""
-        return _wrap(self._dotnet_instance.Delay)
+        dotnet_result = self._dotnet_instance.Delay
+        return _wrap(dotnet_result)
 
     @delay.setter
     def delay(self, value: float):
         """Gets or sets the amount of time to wait before triggering the alarm."""
-        self._dotnet_instance.Delay = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.Delay = next(unwrapped)
 
     @property
     def upper_limit_constant(self) -> float:
         """Gets the constant that determines the high limit value of the alarm. If the value of <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.Alarm.AlarmSource" crefType="Unqualified" /> exceeds this limit, the alarm is triggered."""
-        return _wrap(self._dotnet_instance.UpperLimitConstant)
+        dotnet_result = self._dotnet_instance.UpperLimitConstant
+        return _wrap(dotnet_result)
 
     @property
     def lower_limit_constant(self) -> float:
         """Gets the constant that determines the low limit value of the alarm. If the value of <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.Alarm.AlarmSource" crefType="Unqualified" /> falls below this limit, the alarm is triggered."""
-        return _wrap(self._dotnet_instance.LowerLimitConstant)
+        dotnet_result = self._dotnet_instance.LowerLimitConstant
+        return _wrap(dotnet_result)
 
     @property
     def upper_limit_is_constant(self) -> bool:
         """Gets information about whether the high limit value of the alarm is determined by a channel or by a constant."""
-        return _wrap(self._dotnet_instance.UpperLimitIsConstant)
+        dotnet_result = self._dotnet_instance.UpperLimitIsConstant
+        return _wrap(dotnet_result)
 
     @property
     def lower_limit_is_constant(self) -> bool:
         """Gets information about whether the low limit value of the alarm is determined by a channel or by a constant."""
-        return _wrap(self._dotnet_instance.LowerLimitIsConstant)
+        dotnet_result = self._dotnet_instance.LowerLimitIsConstant
+        return _wrap(dotnet_result)
 
     @property
     def using_tripped_alarm(self) -> bool:
         """Gets information about whether the step is using the tripped alarm."""
-        return _wrap(self._dotnet_instance.UsingTrippedAlarm)
+        dotnet_result = self._dotnet_instance.UsingTrippedAlarm
+        return _wrap(dotnet_result)
 
     @property
     def alarm(self) -> BaseNode:
         """Gets or sets the <see cref="T:NationalInstruments.VeriStand.SystemDefinitionAPI.Alarm" crefType="Unqualified" /> on which to perform the step <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.Alarming.Function" crefType="Unqualified" />."""
-        return _wrap(self._dotnet_instance.Alarm)
+        dotnet_result = self._dotnet_instance.Alarm
+        return _wrap(dotnet_result)
 
     @alarm.setter
     def alarm(self, value: BaseNode):
         """Gets or sets the <see cref="T:NationalInstruments.VeriStand.SystemDefinitionAPI.Alarm" crefType="Unqualified" /> on which to perform the step <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.Alarming.Function" crefType="Unqualified" />."""
-        self._dotnet_instance.Alarm = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.Alarm = next(unwrapped)
 
     @property
     def alarm_channel(self) -> BaseNode:
         """Gets or sets the channel to monitor for alarm conditions."""
-        return _wrap(self._dotnet_instance.AlarmChannel)
+        dotnet_result = self._dotnet_instance.AlarmChannel
+        return _wrap(dotnet_result)
 
     @alarm_channel.setter
     def alarm_channel(self, value: BaseNode):
         """Gets or sets the channel to monitor for alarm conditions."""
-        self._dotnet_instance.AlarmChannel = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.AlarmChannel = next(unwrapped)
 
     @property
     def procedure(self) -> BaseNode:
         """Gets or sets the procedure to initiate when the alarm conditions are met."""
-        return _wrap(self._dotnet_instance.Procedure)
+        dotnet_result = self._dotnet_instance.Procedure
+        return _wrap(dotnet_result)
 
     @procedure.setter
     def procedure(self, value: BaseNode):
         """Gets or sets the procedure to initiate when the alarm conditions are met."""
-        self._dotnet_instance.Procedure = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.Procedure = next(unwrapped)
 
     @property
     def upper_limit_channel(self) -> BaseNode:
         """Gets the channel that determines the upper limit value of the alarm. If the value of <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.Alarm.AlarmSource" crefType="Unqualified" /> exceeds this limit, the alarm is triggered."""
-        return _wrap(self._dotnet_instance.UpperLimitChannel)
+        dotnet_result = self._dotnet_instance.UpperLimitChannel
+        return _wrap(dotnet_result)
 
     @property
     def lower_limit_channel(self) -> BaseNode:
         """Gets the channel that determines the lower limit value of the alarm. If the value of <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.Alarm.AlarmSource" crefType="Unqualified" /> falls below this limit, the alarm is triggered."""
-        return _wrap(self._dotnet_instance.LowerLimitChannel)
+        dotnet_result = self._dotnet_instance.LowerLimitChannel
+        return _wrap(dotnet_result)
 
     @overload
     def set_upper_limit(self, upper_limit: float):
@@ -14430,7 +16987,9 @@ class Alarming(Command):
         ...
 
     def set_upper_limit(self, *args):
-        return _wrap(self._dotnet_instance.SetUpperLimit(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.SetUpperLimit(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def set_lower_limit(self, lower_limit: float):
@@ -14445,14 +17004,18 @@ class Alarming(Command):
         ...
 
     def set_lower_limit(self, *args):
-        return _wrap(self._dotnet_instance.SetLowerLimit(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.SetLowerLimit(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def use_tripped_alarm(self):
         ...
 
     def use_tripped_alarm(self, *args):
-        return _wrap(self._dotnet_instance.UseTrippedAlarm(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.UseTrippedAlarm(*unwrapped)
+        return _wrap(dotnet_result)
 
 
 class CalculatedChannel(Channel, IChannel):
@@ -14468,47 +17031,58 @@ class CalculatedChannel(Channel, IChannel):
 
     @_staticproperty
     def formula() -> int:
-        return _wrap(NationalInstruments.VeriStand.SystemDefinitionAPI.CalculatedChannel.Formula)
+        dotnet_result = NationalInstruments.VeriStand.SystemDefinitionAPI.CalculatedChannel.Formula
+        return _wrap(dotnet_result)
 
     @_staticproperty
     def maximum() -> int:
-        return _wrap(NationalInstruments.VeriStand.SystemDefinitionAPI.CalculatedChannel.Maximum)
+        dotnet_result = NationalInstruments.VeriStand.SystemDefinitionAPI.CalculatedChannel.Maximum
+        return _wrap(dotnet_result)
 
     @_staticproperty
     def minimum() -> int:
-        return _wrap(NationalInstruments.VeriStand.SystemDefinitionAPI.CalculatedChannel.Minimum)
+        dotnet_result = NationalInstruments.VeriStand.SystemDefinitionAPI.CalculatedChannel.Minimum
+        return _wrap(dotnet_result)
 
     @_staticproperty
     def lowpass_filter() -> int:
-        return _wrap(NationalInstruments.VeriStand.SystemDefinitionAPI.CalculatedChannel.LowpassFilter)
+        dotnet_result = NationalInstruments.VeriStand.SystemDefinitionAPI.CalculatedChannel.LowpassFilter
+        return _wrap(dotnet_result)
 
     @_staticproperty
     def peak_and_valley() -> int:
-        return _wrap(NationalInstruments.VeriStand.SystemDefinitionAPI.CalculatedChannel.PeakAndValley)
+        dotnet_result = NationalInstruments.VeriStand.SystemDefinitionAPI.CalculatedChannel.PeakAndValley
+        return _wrap(dotnet_result)
 
     @_staticproperty
     def acceleration() -> int:
-        return _wrap(NationalInstruments.VeriStand.SystemDefinitionAPI.CalculatedChannel.Acceleration)
+        dotnet_result = NationalInstruments.VeriStand.SystemDefinitionAPI.CalculatedChannel.Acceleration
+        return _wrap(dotnet_result)
 
     @_staticproperty
     def average() -> int:
-        return _wrap(NationalInstruments.VeriStand.SystemDefinitionAPI.CalculatedChannel.Average)
+        dotnet_result = NationalInstruments.VeriStand.SystemDefinitionAPI.CalculatedChannel.Average
+        return _wrap(dotnet_result)
 
     @_staticproperty
     def conditional() -> int:
-        return _wrap(NationalInstruments.VeriStand.SystemDefinitionAPI.CalculatedChannel.Conditional)
+        dotnet_result = NationalInstruments.VeriStand.SystemDefinitionAPI.CalculatedChannel.Conditional
+        return _wrap(dotnet_result)
 
     @property
     def calculated_channel_type(self) -> int:
         """Gets the type of the calculated channel."""
-        return _wrap(self._dotnet_instance.CalculatedChannelType)
+        dotnet_result = self._dotnet_instance.CalculatedChannelType
+        return _wrap(dotnet_result)
 
     @overload
     def downcast(self) -> CalculatedChannel:
         ...
 
     def downcast(self, *args):
-        return _wrap(self._dotnet_instance.Downcast(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.Downcast(*unwrapped)
+        return _wrap(dotnet_result)
 
 
 class CallProcedure(Command):
@@ -14524,17 +17098,20 @@ class CallProcedure(Command):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.CallProcedure:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.CallProcedure(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.CallProcedure(*unwrapped)
 
     @property
     def procedure(self) -> BaseNode:
         """Gets or sets the procedure to call when this step executes."""
-        return _wrap(self._dotnet_instance.Procedure)
+        dotnet_result = self._dotnet_instance.Procedure
+        return _wrap(dotnet_result)
 
     @procedure.setter
     def procedure(self, value: BaseNode):
         """Gets or sets the procedure to call when this step executes."""
-        self._dotnet_instance.Procedure = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.Procedure = next(unwrapped)
 
 
 class Conditional(CalculatedChannel, IChannel):
@@ -14578,89 +17155,108 @@ class Conditional(CalculatedChannel, IChannel):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.Conditional:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.Conditional(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.Conditional(*unwrapped)
 
     @_staticproperty
     def greater() -> int:
-        return _wrap(NationalInstruments.VeriStand.SystemDefinitionAPI.Conditional.Greater)
+        dotnet_result = NationalInstruments.VeriStand.SystemDefinitionAPI.Conditional.Greater
+        return _wrap(dotnet_result)
 
     @_staticproperty
     def less() -> int:
-        return _wrap(NationalInstruments.VeriStand.SystemDefinitionAPI.Conditional.Less)
+        dotnet_result = NationalInstruments.VeriStand.SystemDefinitionAPI.Conditional.Less
+        return _wrap(dotnet_result)
 
     @_staticproperty
     def equal() -> int:
-        return _wrap(NationalInstruments.VeriStand.SystemDefinitionAPI.Conditional.Equal)
+        dotnet_result = NationalInstruments.VeriStand.SystemDefinitionAPI.Conditional.Equal
+        return _wrap(dotnet_result)
 
     @_staticproperty
     def not_equal() -> int:
-        return _wrap(NationalInstruments.VeriStand.SystemDefinitionAPI.Conditional.NotEqual)
+        dotnet_result = NationalInstruments.VeriStand.SystemDefinitionAPI.Conditional.NotEqual
+        return _wrap(dotnet_result)
 
     @_staticproperty
     def greater_or_equal() -> int:
-        return _wrap(NationalInstruments.VeriStand.SystemDefinitionAPI.Conditional.GreaterOrEqual)
+        dotnet_result = NationalInstruments.VeriStand.SystemDefinitionAPI.Conditional.GreaterOrEqual
+        return _wrap(dotnet_result)
 
     @_staticproperty
     def less_or_equal() -> int:
-        return _wrap(NationalInstruments.VeriStand.SystemDefinitionAPI.Conditional.LessOrEqual)
+        dotnet_result = NationalInstruments.VeriStand.SystemDefinitionAPI.Conditional.LessOrEqual
+        return _wrap(dotnet_result)
 
     @_staticproperty
     def and_() -> int:
-        return _wrap(NationalInstruments.VeriStand.SystemDefinitionAPI.Conditional.AND)
+        dotnet_result = NationalInstruments.VeriStand.SystemDefinitionAPI.Conditional.AND
+        return _wrap(dotnet_result)
 
     @_staticproperty
     def or_() -> int:
-        return _wrap(NationalInstruments.VeriStand.SystemDefinitionAPI.Conditional.OR)
+        dotnet_result = NationalInstruments.VeriStand.SystemDefinitionAPI.Conditional.OR
+        return _wrap(dotnet_result)
 
     @property
     def y_constant_value(self) -> float:
         """Gets the constant value of <format type="italics">Y</format> in the formula: If (<format type="italics">X</format> compare <format type="italics">Y</format>), then <format type="italics">W</format>. Else, <format type="italics">Z</format>."""
-        return _wrap(self._dotnet_instance.YConstantValue)
+        dotnet_result = self._dotnet_instance.YConstantValue
+        return _wrap(dotnet_result)
 
     @property
     def w_constant_value(self) -> float:
         """Gets the constant value of <format type="italics">W</format> in the formula: If (<format type="italics">X</format> compare <format type="italics">Y</format>), then <format type="italics">W</format>. Else, <format type="italics">Z</format>."""
-        return _wrap(self._dotnet_instance.WConstantValue)
+        dotnet_result = self._dotnet_instance.WConstantValue
+        return _wrap(dotnet_result)
 
     @property
     def z_constant_value(self) -> float:
         """Gets the constant value of <format type="italics">Z</format> in the formula: If (<format type="italics">X</format> compare <format type="italics">Y</format>), then <format type="italics">W</format>. Else, <format type="italics">Z</format>."""
-        return _wrap(self._dotnet_instance.ZConstantValue)
+        dotnet_result = self._dotnet_instance.ZConstantValue
+        return _wrap(dotnet_result)
 
     @property
     def y_channel_value(self) -> BaseNode:
         """Gets the channel that specifies the value of <format type="italics">Y</format> in the formula: If (<format type="italics">X</format> compare <format type="italics">Y</format>), then <format type="italics">W</format>. Else, <format type="italics">Z</format>."""
-        return _wrap(self._dotnet_instance.YChannelValue)
+        dotnet_result = self._dotnet_instance.YChannelValue
+        return _wrap(dotnet_result)
 
     @property
     def w_channel_value(self) -> BaseNode:
         """Gets the channel that specifies the value of <format type="italics">W</format> in the formula: If (<format type="italics">X</format> compare <format type="italics">Y</format>), then <format type="italics">W</format>. Else, <format type="italics">Z</format>."""
-        return _wrap(self._dotnet_instance.WChannelValue)
+        dotnet_result = self._dotnet_instance.WChannelValue
+        return _wrap(dotnet_result)
 
     @property
     def z_channel_value(self) -> BaseNode:
         """Gets the channel that specifies the value of <format type="italics">Z</format> in the formula: If (<format type="italics">X</format> compare <format type="italics">Y</format>), then <format type="italics">W</format>. Else, <format type="italics">Z</format>."""
-        return _wrap(self._dotnet_instance.ZChannelValue)
+        dotnet_result = self._dotnet_instance.ZChannelValue
+        return _wrap(dotnet_result)
 
     @property
     def comparison_mode(self) -> int:
         """Gets or sets the type of comparison to use for the condition."""
-        return _wrap(self._dotnet_instance.ComparisonMode)
+        dotnet_result = self._dotnet_instance.ComparisonMode
+        return _wrap(dotnet_result)
 
     @comparison_mode.setter
     def comparison_mode(self, value: int):
         """Gets or sets the type of comparison to use for the condition."""
-        self._dotnet_instance.ComparisonMode = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.ComparisonMode = next(unwrapped)
 
     @property
     def x_channel(self) -> BaseNode:
         """Gets or sets the channel to check for the comparison condition. This channel is the value of <format type="italics">X</format> in the formula: If (<format type="italics">X</format> compare <format type="italics">Y</format>), then <format type="italics">W</format>. Else, <format type="italics">Z</format>."""
-        return _wrap(self._dotnet_instance.XChannel)
+        dotnet_result = self._dotnet_instance.XChannel
+        return _wrap(dotnet_result)
 
     @x_channel.setter
     def x_channel(self, value: BaseNode):
         """Gets or sets the channel to check for the comparison condition. This channel is the value of <format type="italics">X</format> in the formula: If (<format type="italics">X</format> compare <format type="italics">Y</format>), then <format type="italics">W</format>. Else, <format type="italics">Z</format>."""
-        self._dotnet_instance.XChannel = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.XChannel = next(unwrapped)
 
     @overload
     def set_y_value(self, y_value: float):
@@ -14671,7 +17267,9 @@ class Conditional(CalculatedChannel, IChannel):
         ...
 
     def set_y_value(self, *args):
-        return _wrap(self._dotnet_instance.SetYValue(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.SetYValue(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def set_w_value(self, w_value: float):
@@ -14682,7 +17280,9 @@ class Conditional(CalculatedChannel, IChannel):
         ...
 
     def set_w_value(self, *args):
-        return _wrap(self._dotnet_instance.SetWValue(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.SetWValue(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def set_z_value(self, z_value: float):
@@ -14693,7 +17293,9 @@ class Conditional(CalculatedChannel, IChannel):
         ...
 
     def set_z_value(self, *args):
-        return _wrap(self._dotnet_instance.SetZValue(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.SetZValue(*unwrapped)
+        return _wrap(dotnet_result)
 
 
 class DAQAnalogInput(DAQChannel, IChannel):
@@ -14725,67 +17327,80 @@ class DAQAnalogInput(DAQChannel, IChannel):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.DAQAnalogInput:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.DAQAnalogInput(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.DAQAnalogInput(*unwrapped)
 
     @property
     def initial_value(self) -> float:
         """Gets or sets the initial value of the analog input channel."""
-        return _wrap(self._dotnet_instance.InitialValue)
+        dotnet_result = self._dotnet_instance.InitialValue
+        return _wrap(dotnet_result)
 
     @initial_value.setter
     def initial_value(self, value: float):
         """Gets or sets the initial value of the analog input channel."""
-        self._dotnet_instance.InitialValue = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.InitialValue = next(unwrapped)
 
     @property
     def channel_type(self) -> DAQAnalogChannelType:
         """Gets or sets the measurement type of the channel (<format type="monospace">Current</format> or <format type="monospace">Voltage</format>)."""
-        return _wrap(self._dotnet_instance.ChannelType)
+        dotnet_result = self._dotnet_instance.ChannelType
+        return _wrap(dotnet_result)
 
     @channel_type.setter
     def channel_type(self, value: DAQAnalogChannelType):
         """Gets or sets the measurement type of the channel (<format type="monospace">Current</format> or <format type="monospace">Voltage</format>)."""
-        self._dotnet_instance.ChannelType = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.ChannelType = next(unwrapped)
 
     @property
     def channel(self) -> int:
         """Gets or sets the channel number."""
-        return _wrap(self._dotnet_instance.Channel)
+        dotnet_result = self._dotnet_instance.Channel
+        return _wrap(dotnet_result)
 
     @channel.setter
     def channel(self, value: int):
         """Gets or sets the channel number."""
-        self._dotnet_instance.Channel = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.Channel = next(unwrapped)
 
     @property
     def low_level(self) -> float:
         """Gets or sets the minimum value of the channel."""
-        return _wrap(self._dotnet_instance.LowLevel)
+        dotnet_result = self._dotnet_instance.LowLevel
+        return _wrap(dotnet_result)
 
     @low_level.setter
     def low_level(self, value: float):
         """Gets or sets the minimum value of the channel."""
-        self._dotnet_instance.LowLevel = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.LowLevel = next(unwrapped)
 
     @property
     def high_level(self) -> float:
         """Gets or sets the maximum value of the channel."""
-        return _wrap(self._dotnet_instance.HighLevel)
+        dotnet_result = self._dotnet_instance.HighLevel
+        return _wrap(dotnet_result)
 
     @high_level.setter
     def high_level(self, value: float):
         """Gets or sets the maximum value of the channel."""
-        self._dotnet_instance.HighLevel = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.HighLevel = next(unwrapped)
 
     @property
     def is_scxi(self) -> bool:
         """Gets whether the channel belongs to an SCXI module."""
-        return _wrap(self._dotnet_instance.IsSCXI)
+        dotnet_result = self._dotnet_instance.IsSCXI
+        return _wrap(dotnet_result)
 
     @property
     def scxi_module_type(self) -> str:
         """Gets the specific type of SCXI module to which the channel belongs."""
-        return _wrap(self._dotnet_instance.SCXIModuleType)
+        dotnet_result = self._dotnet_instance.SCXIModuleType
+        return _wrap(dotnet_result)
 
 
 class DAQAnalogOutput(DAQChannel, IChannel):
@@ -14817,67 +17432,80 @@ class DAQAnalogOutput(DAQChannel, IChannel):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.DAQAnalogOutput:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.DAQAnalogOutput(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.DAQAnalogOutput(*unwrapped)
 
     @property
     def initial_value(self) -> float:
         """Gets or sets the initial value of the analog output channel."""
-        return _wrap(self._dotnet_instance.InitialValue)
+        dotnet_result = self._dotnet_instance.InitialValue
+        return _wrap(dotnet_result)
 
     @initial_value.setter
     def initial_value(self, value: float):
         """Gets or sets the initial value of the analog output channel."""
-        self._dotnet_instance.InitialValue = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.InitialValue = next(unwrapped)
 
     @property
     def channel_type(self) -> DAQAnalogChannelType:
         """Gets or sets the measurement type of the channel (<format type="monospace">Current</format> or <format type="monospace">Voltage</format>)."""
-        return _wrap(self._dotnet_instance.ChannelType)
+        dotnet_result = self._dotnet_instance.ChannelType
+        return _wrap(dotnet_result)
 
     @channel_type.setter
     def channel_type(self, value: DAQAnalogChannelType):
         """Gets or sets the measurement type of the channel (<format type="monospace">Current</format> or <format type="monospace">Voltage</format>)."""
-        self._dotnet_instance.ChannelType = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.ChannelType = next(unwrapped)
 
     @property
     def channel(self) -> int:
         """Gets or sets the channel number."""
-        return _wrap(self._dotnet_instance.Channel)
+        dotnet_result = self._dotnet_instance.Channel
+        return _wrap(dotnet_result)
 
     @channel.setter
     def channel(self, value: int):
         """Gets or sets the channel number."""
-        self._dotnet_instance.Channel = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.Channel = next(unwrapped)
 
     @property
     def low_level(self) -> float:
         """Gets or sets the minimum value of the channel."""
-        return _wrap(self._dotnet_instance.LowLevel)
+        dotnet_result = self._dotnet_instance.LowLevel
+        return _wrap(dotnet_result)
 
     @low_level.setter
     def low_level(self, value: float):
         """Gets or sets the minimum value of the channel."""
-        self._dotnet_instance.LowLevel = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.LowLevel = next(unwrapped)
 
     @property
     def high_level(self) -> float:
         """Gets or sets the maximum value of the channel."""
-        return _wrap(self._dotnet_instance.HighLevel)
+        dotnet_result = self._dotnet_instance.HighLevel
+        return _wrap(dotnet_result)
 
     @high_level.setter
     def high_level(self, value: float):
         """Gets or sets the maximum value of the channel."""
-        self._dotnet_instance.HighLevel = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.HighLevel = next(unwrapped)
 
     @property
     def is_scxi(self) -> bool:
         """Gets whether the channel belongs to an SCXI module."""
-        return _wrap(self._dotnet_instance.IsSCXI)
+        dotnet_result = self._dotnet_instance.IsSCXI
+        return _wrap(dotnet_result)
 
     @property
     def scxi_module_type(self) -> str:
         """Gets the specific type of SCXI module to which the channel belongs."""
-        return _wrap(self._dotnet_instance.SCXIModuleType)
+        dotnet_result = self._dotnet_instance.SCXIModuleType
+        return _wrap(dotnet_result)
 
 
 class DAQCountUpDown(DAQCounter, IChannel):
@@ -14893,51 +17521,60 @@ class DAQCountUpDown(DAQCounter, IChannel):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCountUpDown:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCountUpDown(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCountUpDown(*unwrapped)
 
     @property
     def count_direction(self) -> DAQCounterCountMode:
         """Gets or sets the direction of the count (up, down, or externally controlled)."""
-        return _wrap(self._dotnet_instance.CountDirection)
+        dotnet_result = self._dotnet_instance.CountDirection
+        return _wrap(dotnet_result)
 
     @count_direction.setter
     def count_direction(self, value: DAQCounterCountMode):
         """Gets or sets the direction of the count (up, down, or externally controlled)."""
-        self._dotnet_instance.CountDirection = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.CountDirection = next(unwrapped)
 
     @property
     def edge(self) -> DAQCounterEdge:
         """Gets or sets the edge on which to count (rising or falling)."""
-        return _wrap(self._dotnet_instance.Edge)
+        dotnet_result = self._dotnet_instance.Edge
+        return _wrap(dotnet_result)
 
     @edge.setter
     def edge(self, value: DAQCounterEdge):
         """Gets or sets the edge on which to count (rising or falling)."""
-        self._dotnet_instance.Edge = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.Edge = next(unwrapped)
 
     @property
     def input_terminal(self) -> str:
         """Gets or sets the input terminal for the counter.
             A value of <see cref="F:NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCounter.DefaultTerminal" />
             indicates the default terminal will be used."""
-        return _wrap(self._dotnet_instance.InputTerminal)
+        dotnet_result = self._dotnet_instance.InputTerminal
+        return _wrap(dotnet_result)
 
     @input_terminal.setter
     def input_terminal(self, value: str):
         """Gets or sets the input terminal for the counter.
             A value of <see cref="F:NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCounter.DefaultTerminal" />
             indicates the default terminal will be used."""
-        self._dotnet_instance.InputTerminal = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.InputTerminal = next(unwrapped)
 
     @property
     def reset_variable(self) -> BaseNode:
         """Gets or sets the channel whose value the counter must reach before it resets."""
-        return _wrap(self._dotnet_instance.ResetVariable)
+        dotnet_result = self._dotnet_instance.ResetVariable
+        return _wrap(dotnet_result)
 
     @reset_variable.setter
     def reset_variable(self, value: BaseNode):
         """Gets or sets the channel whose value the counter must reach before it resets."""
-        self._dotnet_instance.ResetVariable = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.ResetVariable = next(unwrapped)
 
 
 class DAQCounterInput(DAQSectionType):
@@ -14977,40 +17614,48 @@ class DAQPulseGeneration(DAQCounterOutput):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.DAQPulseGeneration:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.DAQPulseGeneration(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.DAQPulseGeneration(*unwrapped)
 
     @property
     def counter(self) -> str:
         """Gets the counter channel number."""
-        return _wrap(self._dotnet_instance.Counter)
+        dotnet_result = self._dotnet_instance.Counter
+        return _wrap(dotnet_result)
 
     @property
     def output_terminal(self) -> str:
         """Gets or sets the output terminal for the counter.
             A value of <see cref="F:NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCounter.DefaultTerminal" />
             indicates the default terminal will be used."""
-        return _wrap(self._dotnet_instance.OutputTerminal)
+        dotnet_result = self._dotnet_instance.OutputTerminal
+        return _wrap(dotnet_result)
 
     @output_terminal.setter
     def output_terminal(self, value: str):
         """Gets or sets the output terminal for the counter.
             A value of <see cref="F:NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCounter.DefaultTerminal" />
             indicates the default terminal will be used."""
-        self._dotnet_instance.OutputTerminal = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.OutputTerminal = next(unwrapped)
 
     @overload
     def set_counter_index(self, index: int):
         ...
 
     def set_counter_index(self, *args):
-        return _wrap(self._dotnet_instance.SetCounterIndex(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.SetCounterIndex(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_data_channel(self, type: DAQDataChannelType) -> Channel:
         ...
 
     def get_data_channel(self, *args):
-        return _wrap(self._dotnet_instance.GetDataChannel(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetDataChannel(*unwrapped)
+        return _wrap(dotnet_result)
 
 
 class DAQPulseMeasurement(DAQCounterInput):
@@ -15026,40 +17671,48 @@ class DAQPulseMeasurement(DAQCounterInput):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.DAQPulseMeasurement:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.DAQPulseMeasurement(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.DAQPulseMeasurement(*unwrapped)
 
     @property
     def counter(self) -> str:
         """Gets the counter channel number."""
-        return _wrap(self._dotnet_instance.Counter)
+        dotnet_result = self._dotnet_instance.Counter
+        return _wrap(dotnet_result)
 
     @property
     def input_terminal(self) -> str:
         """Gets or sets the input terminal for the counter.
             A value of <see cref="F:NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCounter.DefaultTerminal" />
             indicates the default terminal will be used."""
-        return _wrap(self._dotnet_instance.InputTerminal)
+        dotnet_result = self._dotnet_instance.InputTerminal
+        return _wrap(dotnet_result)
 
     @input_terminal.setter
     def input_terminal(self, value: str):
         """Gets or sets the input terminal for the counter.
             A value of <see cref="F:NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCounter.DefaultTerminal" />
             indicates the default terminal will be used."""
-        self._dotnet_instance.InputTerminal = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.InputTerminal = next(unwrapped)
 
     @overload
     def set_counter_index(self, index: int):
         ...
 
     def set_counter_index(self, *args):
-        return _wrap(self._dotnet_instance.SetCounterIndex(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.SetCounterIndex(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_data_channel(self, type: DAQDataChannelType) -> Channel:
         ...
 
     def get_data_channel(self, *args):
-        return _wrap(self._dotnet_instance.GetDataChannel(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetDataChannel(*unwrapped)
+        return _wrap(dotnet_result)
 
 
 class FPGAAICategory(FPGACategory):
@@ -15127,26 +17780,32 @@ class Formula(CalculatedChannel, IChannel):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.Formula:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.Formula(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.Formula(*unwrapped)
 
     @property
     def formula_string(self) -> str:
         """Gets the formula for which the channel calculates the result."""
-        return _wrap(self._dotnet_instance.FormulaString)
+        dotnet_result = self._dotnet_instance.FormulaString
+        return _wrap(dotnet_result)
 
     @overload
     def set_formula(self, formula: str, variable_names: Sequence[str], variables: Sequence[BaseNode]):
         ...
 
     def set_formula(self, *args):
-        return _wrap(self._dotnet_instance.SetFormula(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.SetFormula(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def reset_formula(self):
         ...
 
     def reset_formula(self, *args):
-        return _wrap(self._dotnet_instance.ResetFormula(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.ResetFormula(*unwrapped)
+        return _wrap(dotnet_result)
 
 
 class InportGroup(ModelDefaultGroup):
@@ -15165,7 +17824,9 @@ class InportGroup(ModelDefaultGroup):
         ...
 
     def get_inport_groups(self, *args):
-        return _wrap(self._dotnet_instance.GetInportGroups(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetInportGroups(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def get_inports(self) -> Sequence[Inport]:
@@ -15176,7 +17837,9 @@ class InportGroup(ModelDefaultGroup):
         ...
 
     def get_inports(self, *args):
-        return _wrap(self._dotnet_instance.GetInports(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetInports(*unwrapped)
+        return _wrap(dotnet_result)
 
 
 class LookupTable(Scale):
@@ -15200,17 +17863,20 @@ class LookupTable(Scale):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.LookupTable:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.LookupTable(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.LookupTable(*unwrapped)
 
     @property
     def lookup_table_values(self) -> Sequence[LUTValue]:
         """Gets or sets the values of the LookupTable scale."""
-        return _wrap(self._dotnet_instance.LookupTableValues)
+        dotnet_result = self._dotnet_instance.LookupTableValues
+        return _wrap(dotnet_result)
 
     @lookup_table_values.setter
     def lookup_table_values(self, value: Sequence[LUTValue]):
         """Gets or sets the values of the LookupTable scale."""
-        self._dotnet_instance.LookupTableValues = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.LookupTableValues = next(unwrapped)
 
 
 class LowpassFilter(CalculatedChannel, IChannel):
@@ -15226,37 +17892,44 @@ class LowpassFilter(CalculatedChannel, IChannel):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.LowpassFilter:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.LowpassFilter(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.LowpassFilter(*unwrapped)
 
     @property
     def channel_to_filter(self) -> BaseNode:
         """Gets or sets the channel to which to apply the filter."""
-        return _wrap(self._dotnet_instance.ChannelToFilter)
+        dotnet_result = self._dotnet_instance.ChannelToFilter
+        return _wrap(dotnet_result)
 
     @channel_to_filter.setter
     def channel_to_filter(self, value: BaseNode):
         """Gets or sets the channel to which to apply the filter."""
-        self._dotnet_instance.ChannelToFilter = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.ChannelToFilter = next(unwrapped)
 
     @property
     def filter_order(self) -> int:
         """Gets or sets the order of the filter. Increasing the value of this property causes the transition between the passband and the stopband to become steeper. However, as the filter order increases, the filter becomes more unstable."""
-        return _wrap(self._dotnet_instance.FilterOrder)
+        dotnet_result = self._dotnet_instance.FilterOrder
+        return _wrap(dotnet_result)
 
     @filter_order.setter
     def filter_order(self, value: int):
         """Gets or sets the order of the filter. Increasing the value of this property causes the transition between the passband and the stopband to become steeper. However, as the filter order increases, the filter becomes more unstable."""
-        self._dotnet_instance.FilterOrder = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.FilterOrder = next(unwrapped)
 
     @property
     def low_cutoff_frequency(self) -> float:
         """Gets or sets the low cutoff frequency, in hertz."""
-        return _wrap(self._dotnet_instance.LowCutoffFrequency)
+        dotnet_result = self._dotnet_instance.LowCutoffFrequency
+        return _wrap(dotnet_result)
 
     @low_cutoff_frequency.setter
     def low_cutoff_frequency(self, value: float):
         """Gets or sets the low cutoff frequency, in hertz."""
-        self._dotnet_instance.LowCutoffFrequency = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.LowCutoffFrequency = next(unwrapped)
 
 
 class Maximum(CalculatedChannel, IChannel):
@@ -15284,37 +17957,44 @@ class Maximum(CalculatedChannel, IChannel):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.Maximum:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.Maximum(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.Maximum(*unwrapped)
 
     @property
     def x_is_constant(self) -> bool:
         """Gets whether the value of <format type="italics">x</format> in the comparison of <format type="italics">x</format> and <format type="italics">y</format> is specified by a constant or a channel."""
-        return _wrap(self._dotnet_instance.XIsConstant)
+        dotnet_result = self._dotnet_instance.XIsConstant
+        return _wrap(dotnet_result)
 
     @property
     def y_is_constant(self) -> bool:
         """Gets whether the value of <format type="italics">y</format> in the comparison of <format type="italics">x</format> and <format type="italics">y</format> is specified by a constant or a channel."""
-        return _wrap(self._dotnet_instance.YIsConstant)
+        dotnet_result = self._dotnet_instance.YIsConstant
+        return _wrap(dotnet_result)
 
     @property
     def y_constant_value(self) -> float:
         """Gets the constant value of <format type="italics">y</format> in the comparison of <format type="italics">x</format> and <format type="italics">y</format>. regardless of whether <format type="italics">x</format> is a constant or a channel."""
-        return _wrap(self._dotnet_instance.YConstantValue)
+        dotnet_result = self._dotnet_instance.YConstantValue
+        return _wrap(dotnet_result)
 
     @property
     def x_constant_value(self) -> float:
         """Gets the constant value of <format type="italics">x</format> in the comparison of <format type="italics">x</format> and <format type="italics">y</format>, regardless of whether <format type="italics">x</format> is a constant or a channel."""
-        return _wrap(self._dotnet_instance.XConstantValue)
+        dotnet_result = self._dotnet_instance.XConstantValue
+        return _wrap(dotnet_result)
 
     @property
     def x_channel_value(self) -> BaseNode:
         """Gets the channel that specifies the value of <format type="italics">x</format> in the comparison of <format type="italics">x</format> and <format type="italics">y</format>."""
-        return _wrap(self._dotnet_instance.XChannelValue)
+        dotnet_result = self._dotnet_instance.XChannelValue
+        return _wrap(dotnet_result)
 
     @property
     def y_channel_value(self) -> BaseNode:
         """Gets the channel that specifies the value of <format type="italics">y</format> in the comparison of <format type="italics">x</format> and <format type="italics">y</format>."""
-        return _wrap(self._dotnet_instance.YChannelValue)
+        dotnet_result = self._dotnet_instance.YChannelValue
+        return _wrap(dotnet_result)
 
     @overload
     def set_x_value(self, x_value: float):
@@ -15325,7 +18005,9 @@ class Maximum(CalculatedChannel, IChannel):
         ...
 
     def set_x_value(self, *args):
-        return _wrap(self._dotnet_instance.SetXValue(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.SetXValue(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def set_y_value(self, y_value: float):
@@ -15336,7 +18018,9 @@ class Maximum(CalculatedChannel, IChannel):
         ...
 
     def set_y_value(self, *args):
-        return _wrap(self._dotnet_instance.SetYValue(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.SetYValue(*unwrapped)
+        return _wrap(dotnet_result)
 
 
 class Minimum(CalculatedChannel, IChannel):
@@ -15364,37 +18048,44 @@ class Minimum(CalculatedChannel, IChannel):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.Minimum:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.Minimum(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.Minimum(*unwrapped)
 
     @property
     def x_is_constant(self) -> bool:
         """Gets whether the value of <format type="italics">x</format> in the comparison of <format type="italics">x</format> and <format type="italics">y</format> is specified by a constant or a channel."""
-        return _wrap(self._dotnet_instance.XIsConstant)
+        dotnet_result = self._dotnet_instance.XIsConstant
+        return _wrap(dotnet_result)
 
     @property
     def y_is_constant(self) -> bool:
         """Gets whether the value of <format type="italics">y</format> in the comparison of <format type="italics">x</format> and <format type="italics">y</format> is specified by a constant or a channel."""
-        return _wrap(self._dotnet_instance.YIsConstant)
+        dotnet_result = self._dotnet_instance.YIsConstant
+        return _wrap(dotnet_result)
 
     @property
     def y_constant_value(self) -> float:
         """Gets the constant value of <format type="italics">y</format> in the comparison of <format type="italics">x</format> and <format type="italics">y</format>. regardless of whether <format type="italics">x</format> is a constant or a channel."""
-        return _wrap(self._dotnet_instance.YConstantValue)
+        dotnet_result = self._dotnet_instance.YConstantValue
+        return _wrap(dotnet_result)
 
     @property
     def x_constant_value(self) -> float:
         """Gets the constant value of <format type="italics">x</format> in the comparison of <format type="italics">x</format> and <format type="italics">y</format>, regardless of whether <format type="italics">x</format> is a constant or a channel."""
-        return _wrap(self._dotnet_instance.XConstantValue)
+        dotnet_result = self._dotnet_instance.XConstantValue
+        return _wrap(dotnet_result)
 
     @property
     def x_channel_value(self) -> BaseNode:
         """Gets the channel that specifies the value of <format type="italics">x</format> in the comparison of <format type="italics">x</format> and <format type="italics">y</format>."""
-        return _wrap(self._dotnet_instance.XChannelValue)
+        dotnet_result = self._dotnet_instance.XChannelValue
+        return _wrap(dotnet_result)
 
     @property
     def y_channel_value(self) -> BaseNode:
         """Gets the channel that specifies the value of <format type="italics">y</format> in the comparison of <format type="italics">x</format> and <format type="italics">y</format>."""
-        return _wrap(self._dotnet_instance.YChannelValue)
+        dotnet_result = self._dotnet_instance.YChannelValue
+        return _wrap(dotnet_result)
 
     @overload
     def set_x_value(self, x_value: float):
@@ -15405,7 +18096,9 @@ class Minimum(CalculatedChannel, IChannel):
         ...
 
     def set_x_value(self, *args):
-        return _wrap(self._dotnet_instance.SetXValue(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.SetXValue(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def set_y_value(self, y_value: float):
@@ -15416,7 +18109,9 @@ class Minimum(CalculatedChannel, IChannel):
         ...
 
     def set_y_value(self, *args):
-        return _wrap(self._dotnet_instance.SetYValue(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.SetYValue(*unwrapped)
+        return _wrap(dotnet_result)
 
 
 class PeakAndValley(CalculatedChannel, IChannel):
@@ -15432,57 +18127,68 @@ class PeakAndValley(CalculatedChannel, IChannel):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.PeakAndValley:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.PeakAndValley(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.PeakAndValley(*unwrapped)
 
     @property
     def channel_to_analyze(self) -> BaseNode:
         """Gets or sets the channel for which to calculate the peak, valley, and offset."""
-        return _wrap(self._dotnet_instance.ChannelToAnalyze)
+        dotnet_result = self._dotnet_instance.ChannelToAnalyze
+        return _wrap(dotnet_result)
 
     @channel_to_analyze.setter
     def channel_to_analyze(self, value: BaseNode):
         """Gets or sets the channel for which to calculate the peak, valley, and offset."""
-        self._dotnet_instance.ChannelToAnalyze = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.ChannelToAnalyze = next(unwrapped)
 
     @property
     def channel_for_valley(self) -> BaseNode:
         """Gets or sets the channel on which to store the valley value."""
-        return _wrap(self._dotnet_instance.ChannelForValley)
+        dotnet_result = self._dotnet_instance.ChannelForValley
+        return _wrap(dotnet_result)
 
     @channel_for_valley.setter
     def channel_for_valley(self, value: BaseNode):
         """Gets or sets the channel on which to store the valley value."""
-        self._dotnet_instance.ChannelForValley = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.ChannelForValley = next(unwrapped)
 
     @property
     def channel_for_offset(self) -> BaseNode:
         """Gets or sets the channel on which to store the offset value."""
-        return _wrap(self._dotnet_instance.ChannelForOffset)
+        dotnet_result = self._dotnet_instance.ChannelForOffset
+        return _wrap(dotnet_result)
 
     @channel_for_offset.setter
     def channel_for_offset(self, value: BaseNode):
         """Gets or sets the channel on which to store the offset value."""
-        self._dotnet_instance.ChannelForOffset = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.ChannelForOffset = next(unwrapped)
 
     @property
     def hysteresis(self) -> float:
         """Gets or sets the amount by which the value of <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.PeakAndValley.ChannelToAnalyze" crefType="Unqualified" /> must exceed the <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.PeakAndValley.Reset" crefType="Unqualified" /> value for the calculation to reset."""
-        return _wrap(self._dotnet_instance.Hysteresis)
+        dotnet_result = self._dotnet_instance.Hysteresis
+        return _wrap(dotnet_result)
 
     @hysteresis.setter
     def hysteresis(self, value: float):
         """Gets or sets the amount by which the value of <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.PeakAndValley.ChannelToAnalyze" crefType="Unqualified" /> must exceed the <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.PeakAndValley.Reset" crefType="Unqualified" /> value for the calculation to reset."""
-        self._dotnet_instance.Hysteresis = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.Hysteresis = next(unwrapped)
 
     @property
     def reset(self) -> int:
         """Gets or sets the value at which to reset the calculation. If the <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.PeakAndValley.ChannelToAnalyze" crefType="Unqualified" /> surpasses this value by more than the specified <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.PeakAndValley.Hysteresis" crefType="Unqualified" />, the calculation resets."""
-        return _wrap(self._dotnet_instance.Reset)
+        dotnet_result = self._dotnet_instance.Reset
+        return _wrap(dotnet_result)
 
     @reset.setter
     def reset(self, value: int):
         """Gets or sets the value at which to reset the calculation. If the <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.PeakAndValley.ChannelToAnalyze" crefType="Unqualified" /> surpasses this value by more than the specified <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.PeakAndValley.Hysteresis" crefType="Unqualified" />, the calculation resets."""
-        self._dotnet_instance.Reset = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.Reset = next(unwrapped)
 
 
 class PolynomialScale(Scale):
@@ -15502,27 +18208,32 @@ class PolynomialScale(Scale):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.PolynomialScale:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.PolynomialScale(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.PolynomialScale(*unwrapped)
 
     @property
     def polynomial_coeff(self) -> Sequence[float]:
         """Gets or sets the forward coefficients of the <see cref="T:NationalInstruments.VeriStand.SystemDefinitionAPI.PolynomialScale" />."""
-        return _wrap(self._dotnet_instance.PolynomialCoeff)
+        dotnet_result = self._dotnet_instance.PolynomialCoeff
+        return _wrap(dotnet_result)
 
     @polynomial_coeff.setter
     def polynomial_coeff(self, value: Sequence[float]):
         """Gets or sets the forward coefficients of the <see cref="T:NationalInstruments.VeriStand.SystemDefinitionAPI.PolynomialScale" />."""
-        self._dotnet_instance.PolynomialCoeff = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.PolynomialCoeff = next(unwrapped)
 
     @property
     def reverse_polynomial_coeff(self) -> Sequence[float]:
         """Gets or sets the reverse coefficients of the <see cref="T:NationalInstruments.VeriStand.SystemDefinitionAPI.PolynomialScale" />."""
-        return _wrap(self._dotnet_instance.ReversePolynomialCoeff)
+        dotnet_result = self._dotnet_instance.ReversePolynomialCoeff
+        return _wrap(dotnet_result)
 
     @reverse_polynomial_coeff.setter
     def reverse_polynomial_coeff(self, value: Sequence[float]):
         """Gets or sets the reverse coefficients of the <see cref="T:NationalInstruments.VeriStand.SystemDefinitionAPI.PolynomialScale" />."""
-        self._dotnet_instance.ReversePolynomialCoeff = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.ReversePolynomialCoeff = next(unwrapped)
 
 
 class SCXI1100(SCXIModule):
@@ -15538,7 +18249,8 @@ class SCXI1100(SCXIModule):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1100:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1100(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1100(*unwrapped)
 
 
 class SCXI1102(SCXIModule):
@@ -15554,7 +18266,8 @@ class SCXI1102(SCXIModule):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1102:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1102(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1102(*unwrapped)
 
 
 class SCXI1102B(SCXIModule):
@@ -15570,7 +18283,8 @@ class SCXI1102B(SCXIModule):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1102B:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1102B(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1102B(*unwrapped)
 
 
 class SCXI1102C(SCXIModule):
@@ -15586,7 +18300,8 @@ class SCXI1102C(SCXIModule):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1102C:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1102C(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1102C(*unwrapped)
 
 
 class SCXI1104(SCXIModule):
@@ -15602,7 +18317,8 @@ class SCXI1104(SCXIModule):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1104:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1104(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1104(*unwrapped)
 
 
 class SCXI1104C(SCXIModule):
@@ -15618,7 +18334,8 @@ class SCXI1104C(SCXIModule):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1104C:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1104C(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1104C(*unwrapped)
 
 
 class SCXI1112(SCXIModule):
@@ -15634,7 +18351,8 @@ class SCXI1112(SCXIModule):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1112:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1112(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1112(*unwrapped)
 
 
 class SCXI1120(SCXIModule):
@@ -15650,7 +18368,8 @@ class SCXI1120(SCXIModule):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1120:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1120(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1120(*unwrapped)
 
 
 class SCXI1120D(SCXIModule):
@@ -15666,7 +18385,8 @@ class SCXI1120D(SCXIModule):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1120D:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1120D(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1120D(*unwrapped)
 
 
 class SCXI1121(SCXIModule):
@@ -15682,7 +18402,8 @@ class SCXI1121(SCXIModule):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1121:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1121(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1121(*unwrapped)
 
 
 class SCXI1122(SCXIModule):
@@ -15698,7 +18419,8 @@ class SCXI1122(SCXIModule):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1122:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1122(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1122(*unwrapped)
 
 
 class SCXI1124(SCXIModule):
@@ -15714,7 +18436,8 @@ class SCXI1124(SCXIModule):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1124:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1124(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1124(*unwrapped)
 
 
 class SCXI1125(SCXIModule):
@@ -15730,7 +18453,8 @@ class SCXI1125(SCXIModule):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1125:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1125(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1125(*unwrapped)
 
 
 class SCXI1126(SCXIModule):
@@ -15746,7 +18470,8 @@ class SCXI1126(SCXIModule):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1126:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1126(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1126(*unwrapped)
 
 
 class SCXI1127(SCXIModule):
@@ -15762,7 +18487,8 @@ class SCXI1127(SCXIModule):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1127:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1127(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1127(*unwrapped)
 
 
 class SCXI1128(SCXIModule):
@@ -15778,7 +18504,8 @@ class SCXI1128(SCXIModule):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1128:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1128(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1128(*unwrapped)
 
 
 class SCXI1140(SCXIModule):
@@ -15794,7 +18521,8 @@ class SCXI1140(SCXIModule):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1140:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1140(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1140(*unwrapped)
 
 
 class SCXI1141(SCXIModule):
@@ -15810,7 +18538,8 @@ class SCXI1141(SCXIModule):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1141:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1141(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1141(*unwrapped)
 
 
 class SCXI1142(SCXIModule):
@@ -15826,7 +18555,8 @@ class SCXI1142(SCXIModule):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1142:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1142(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1142(*unwrapped)
 
 
 class SCXI1143(SCXIModule):
@@ -15842,7 +18572,8 @@ class SCXI1143(SCXIModule):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1143:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1143(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1143(*unwrapped)
 
 
 class SCXI1160(SCXIModule):
@@ -15858,7 +18589,8 @@ class SCXI1160(SCXIModule):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1160:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1160(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1160(*unwrapped)
 
 
 class SCXI1161(SCXIModule):
@@ -15874,7 +18606,8 @@ class SCXI1161(SCXIModule):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1161:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1161(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1161(*unwrapped)
 
 
 class SCXI1162(SCXIModule):
@@ -15890,7 +18623,8 @@ class SCXI1162(SCXIModule):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1162:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1162(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1162(*unwrapped)
 
 
 class SCXI1162HV(SCXIModule):
@@ -15906,7 +18640,8 @@ class SCXI1162HV(SCXIModule):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1162HV:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1162HV(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1162HV(*unwrapped)
 
 
 class SCXI1163(SCXIModule):
@@ -15922,7 +18657,8 @@ class SCXI1163(SCXIModule):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1163:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1163(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1163(*unwrapped)
 
 
 class SCXI1163R(SCXIModule):
@@ -15938,7 +18674,8 @@ class SCXI1163R(SCXIModule):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1163R:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1163R(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1163R(*unwrapped)
 
 
 class SCXI1190(SCXIModule):
@@ -15954,7 +18691,8 @@ class SCXI1190(SCXIModule):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1190:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1190(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1190(*unwrapped)
 
 
 class SCXI1191(SCXIModule):
@@ -15970,7 +18708,8 @@ class SCXI1191(SCXIModule):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1191:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1191(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1191(*unwrapped)
 
 
 class SCXI1192(SCXIModule):
@@ -15986,7 +18725,8 @@ class SCXI1192(SCXIModule):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1192:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1192(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1192(*unwrapped)
 
 
 class SCXI1520(SCXIModule):
@@ -16002,7 +18742,8 @@ class SCXI1520(SCXIModule):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1520:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1520(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1520(*unwrapped)
 
 
 class SCXI1530(SCXIModule):
@@ -16018,7 +18759,8 @@ class SCXI1530(SCXIModule):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1530:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1530(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1530(*unwrapped)
 
 
 class SCXI1531(SCXIModule):
@@ -16034,7 +18776,8 @@ class SCXI1531(SCXIModule):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1531:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1531(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1531(*unwrapped)
 
 
 class SCXI1540(SCXIModule):
@@ -16050,7 +18793,8 @@ class SCXI1540(SCXIModule):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1540:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1540(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1540(*unwrapped)
 
 
 class SCXI1581(SCXIModule):
@@ -16066,7 +18810,8 @@ class SCXI1581(SCXIModule):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1581:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1581(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1581(*unwrapped)
 
 
 class Acceleration(CalculatedChannel, IChannel):
@@ -16082,27 +18827,32 @@ class Acceleration(CalculatedChannel, IChannel):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.Acceleration:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.Acceleration(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.Acceleration(*unwrapped)
 
     @property
     def velocity_channel(self) -> BaseNode:
         """Gets or sets the channel on which to store the velocity of <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.Acceleration.XChannel" crefType="Unqualified" />."""
-        return _wrap(self._dotnet_instance.VelocityChannel)
+        dotnet_result = self._dotnet_instance.VelocityChannel
+        return _wrap(dotnet_result)
 
     @velocity_channel.setter
     def velocity_channel(self, value: BaseNode):
         """Gets or sets the channel on which to store the velocity of <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.Acceleration.XChannel" crefType="Unqualified" />."""
-        self._dotnet_instance.VelocityChannel = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.VelocityChannel = next(unwrapped)
 
     @property
     def x_channel(self) -> BaseNode:
         """Gets or sets the channel for which to calculate the acceleration."""
-        return _wrap(self._dotnet_instance.XChannel)
+        dotnet_result = self._dotnet_instance.XChannel
+        return _wrap(dotnet_result)
 
     @x_channel.setter
     def x_channel(self, value: BaseNode):
         """Gets or sets the channel for which to calculate the acceleration."""
-        self._dotnet_instance.XChannel = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.XChannel = next(unwrapped)
 
 
 class Average(CalculatedChannel, IChannel):
@@ -16118,24 +18868,29 @@ class Average(CalculatedChannel, IChannel):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.Average:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.Average(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.Average(*unwrapped)
 
     @property
     def channel_to_average(self) -> BaseNode:
         """Gets or sets the channel for which to calculate the average value."""
-        return _wrap(self._dotnet_instance.ChannelToAverage)
+        dotnet_result = self._dotnet_instance.ChannelToAverage
+        return _wrap(dotnet_result)
 
     @channel_to_average.setter
     def channel_to_average(self, value: BaseNode):
         """Gets or sets the channel for which to calculate the average value."""
-        self._dotnet_instance.ChannelToAverage = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.ChannelToAverage = next(unwrapped)
 
     @property
     def number_of_points(self) -> int:
         """Gets or sets the number of points of data to include in the average."""
-        return _wrap(self._dotnet_instance.NumberOfPoints)
+        dotnet_result = self._dotnet_instance.NumberOfPoints
+        return _wrap(dotnet_result)
 
     @number_of_points.setter
     def number_of_points(self, value: int):
         """Gets or sets the number of points of data to include in the average."""
-        self._dotnet_instance.NumberOfPoints = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.NumberOfPoints = next(unwrapped)

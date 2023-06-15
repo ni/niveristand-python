@@ -133,16 +133,20 @@ class PathType(_DotNetEnum):
 
     @_staticproperty
     def ABSOLUTE() -> PathType:
-        return PathType(getattr(NationalInstruments.VeriStand.CustomDevice.PathType, "Absolute"), "ABSOLUTE")
+        dotnet_result = getattr(NationalInstruments.VeriStand.CustomDevice.PathType, "Absolute")
+        return PathType(dotnet_result, "ABSOLUTE")
 
     @_staticproperty
     def TO_BASE() -> PathType:
-        return PathType(getattr(NationalInstruments.VeriStand.CustomDevice.PathType, "ToBase"), "TO_BASE")
+        dotnet_result = getattr(NationalInstruments.VeriStand.CustomDevice.PathType, "ToBase")
+        return PathType(dotnet_result, "TO_BASE")
 
     @_staticproperty
     def TO_COMMON_DOC_DIR() -> PathType:
-        return PathType(getattr(NationalInstruments.VeriStand.CustomDevice.PathType, "ToCommonDocDir"), "TO_COMMON_DOC_DIR")
+        dotnet_result = getattr(NationalInstruments.VeriStand.CustomDevice.PathType, "ToCommonDocDir")
+        return PathType(dotnet_result, "TO_COMMON_DOC_DIR")
 
     @_staticproperty
     def TO_APPLICATION_DATA_DIR() -> PathType:
-        return PathType(getattr(NationalInstruments.VeriStand.CustomDevice.PathType, "ToApplicationDataDir"), "TO_APPLICATION_DATA_DIR")
+        dotnet_result = getattr(NationalInstruments.VeriStand.CustomDevice.PathType, "ToApplicationDataDir")
+        return PathType(dotnet_result, "TO_APPLICATION_DATA_DIR")

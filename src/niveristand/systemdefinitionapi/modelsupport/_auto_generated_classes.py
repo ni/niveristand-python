@@ -135,32 +135,38 @@ class IModelDescriptor(_DotNetBase):
     @property
     def model_name(self) -> str:
         """Name of the model"""
-        return _wrap(self._dotnet_instance.ModelName)
+        dotnet_result = self._dotnet_instance.ModelName
+        return _wrap(dotnet_result)
 
     @property
     def model_generation_toolchain_version(self) -> Tuple[int, int, int, int]:
         """Version of the tool that was used to generate the model"""
-        return _wrap(self._dotnet_instance.ModelGenerationToolchainVersion)
+        dotnet_result = self._dotnet_instance.ModelGenerationToolchainVersion
+        return _wrap(dotnet_result)
 
     @property
     def model_version(self) -> Tuple[int, int, int, int]:
         """Version of the model"""
-        return _wrap(self._dotnet_instance.ModelVersion)
+        dotnet_result = self._dotnet_instance.ModelVersion
+        return _wrap(dotnet_result)
 
     @property
     def author(self) -> str:
         """Model author"""
-        return _wrap(self._dotnet_instance.Author)
+        dotnet_result = self._dotnet_instance.Author
+        return _wrap(dotnet_result)
 
     @property
     def model_description(self) -> str:
         """Description of the model"""
-        return _wrap(self._dotnet_instance.ModelDescription)
+        dotnet_result = self._dotnet_instance.ModelDescription
+        return _wrap(dotnet_result)
 
     @property
     def target_platforms(self) -> Iterable[str]:
         """Target platforms supported by the model"""
-        return _wrap(self._dotnet_instance.TargetPlatforms)
+        dotnet_result = self._dotnet_instance.TargetPlatforms
+        return _wrap(dotnet_result)
 
 
 class ModelParamType(_DotNetBase):
@@ -176,33 +182,40 @@ class ModelParamType(_DotNetBase):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.ModelSupport.ModelParamType:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.ModelSupport.ModelParamType(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.ModelSupport.ModelParamType(*unwrapped)
 
     @property
     def idx(self) -> int:
-        return _wrap(self._dotnet_instance.Idx)
+        dotnet_result = self._dotnet_instance.Idx
+        return _wrap(dotnet_result)
 
     @property
     def id(self) -> str:
-        return _wrap(self._dotnet_instance.ID)
+        dotnet_result = self._dotnet_instance.ID
+        return _wrap(dotnet_result)
 
     @property
     def name(self) -> str:
-        return _wrap(self._dotnet_instance.Name)
+        dotnet_result = self._dotnet_instance.Name
+        return _wrap(dotnet_result)
 
     @property
     def data_type(self) -> int:
-        return _wrap(self._dotnet_instance.DataType)
+        dotnet_result = self._dotnet_instance.DataType
+        return _wrap(dotnet_result)
 
     @property
     def dims(self) -> Sequence[int]:
         """RESERVED FOR INTERNAL USE."""
-        return _wrap(self._dotnet_instance.Dims)
+        dotnet_result = self._dotnet_instance.Dims
+        return _wrap(dotnet_result)
 
     @property
     def value(self) -> Sequence[float]:
         """RESERVED FOR INTERNAL USE."""
-        return _wrap(self._dotnet_instance.Value)
+        dotnet_result = self._dotnet_instance.Value
+        return _wrap(dotnet_result)
 
     def _custom_repr(self) -> str:
         return f"(name={self.name})"
@@ -221,28 +234,34 @@ class ModelPortType(_DotNetBase):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.ModelSupport.ModelPortType:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.ModelSupport.ModelPortType(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.ModelSupport.ModelPortType(*unwrapped)
 
     @property
     def name(self) -> str:
-        return _wrap(self._dotnet_instance.Name)
+        dotnet_result = self._dotnet_instance.Name
+        return _wrap(dotnet_result)
 
     @property
     def index(self) -> int:
-        return _wrap(self._dotnet_instance.Index)
+        dotnet_result = self._dotnet_instance.Index
+        return _wrap(dotnet_result)
 
     @property
     def task_id(self) -> int:
-        return _wrap(self._dotnet_instance.TaskID)
+        dotnet_result = self._dotnet_instance.TaskID
+        return _wrap(dotnet_result)
 
     @property
     def is_input(self) -> bool:
-        return _wrap(self._dotnet_instance.IsInput)
+        dotnet_result = self._dotnet_instance.IsInput
+        return _wrap(dotnet_result)
 
     @property
     def dims(self) -> Sequence[int]:
         """RESERVED FOR INTERNAL USE."""
-        return _wrap(self._dotnet_instance.Dims)
+        dotnet_result = self._dotnet_instance.Dims
+        return _wrap(dotnet_result)
 
     def _custom_repr(self) -> str:
         return f"(name={self.name})"
@@ -261,36 +280,44 @@ class ModelSignalType(_DotNetBase):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.ModelSupport.ModelSignalType:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.ModelSupport.ModelSignalType(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.ModelSupport.ModelSignalType(*unwrapped)
 
     @property
     def idx(self) -> int:
-        return _wrap(self._dotnet_instance.Idx)
+        dotnet_result = self._dotnet_instance.Idx
+        return _wrap(dotnet_result)
 
     @property
     def id(self) -> str:
-        return _wrap(self._dotnet_instance.ID)
+        dotnet_result = self._dotnet_instance.ID
+        return _wrap(dotnet_result)
 
     @property
     def name(self) -> str:
-        return _wrap(self._dotnet_instance.Name)
+        dotnet_result = self._dotnet_instance.Name
+        return _wrap(dotnet_result)
 
     @property
     def block_name(self) -> str:
-        return _wrap(self._dotnet_instance.BlockName)
+        dotnet_result = self._dotnet_instance.BlockName
+        return _wrap(dotnet_result)
 
     @property
     def data_type(self) -> int:
-        return _wrap(self._dotnet_instance.DataType)
+        dotnet_result = self._dotnet_instance.DataType
+        return _wrap(dotnet_result)
 
     @property
     def port_number(self) -> int:
-        return _wrap(self._dotnet_instance.PortNumber)
+        dotnet_result = self._dotnet_instance.PortNumber
+        return _wrap(dotnet_result)
 
     @property
     def dims(self) -> Sequence[int]:
         """RESERVED FOR INTERNAL USE."""
-        return _wrap(self._dotnet_instance.Dims)
+        dotnet_result = self._dotnet_instance.Dims
+        return _wrap(dotnet_result)
 
     def _custom_repr(self) -> str:
         return f"(name={self.name})"
@@ -313,32 +340,38 @@ class VsModelFeatureSet(_DotNetBase):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.ModelSupport.VsModelFeatureSet:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.ModelSupport.VsModelFeatureSet(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.ModelSupport.VsModelFeatureSet(*unwrapped)
 
     @_staticproperty
     def first_released_vs_model_addon_version_string() -> str:
         """The first released VsModel addon version as string"""
-        return _wrap(NationalInstruments.VeriStand.SystemDefinitionAPI.ModelSupport.VsModelFeatureSet.FirstReleasedVsModelAddonVersionString)
+        dotnet_result = NationalInstruments.VeriStand.SystemDefinitionAPI.ModelSupport.VsModelFeatureSet.FirstReleasedVsModelAddonVersionString
+        return _wrap(dotnet_result)
 
     @_staticproperty
     def highest_supported_vs_model_addon_version_string() -> str:
         """Highest supported VsModel addon version as string"""
-        return _wrap(NationalInstruments.VeriStand.SystemDefinitionAPI.ModelSupport.VsModelFeatureSet.HighestSupportedVsModelAddonVersionString)
+        dotnet_result = NationalInstruments.VeriStand.SystemDefinitionAPI.ModelSupport.VsModelFeatureSet.HighestSupportedVsModelAddonVersionString
+        return _wrap(dotnet_result)
 
     @property
     def supports_non_virtual_bus(self) -> bool:
         """Indicates whether the vsmodel has support for non virtual buses"""
-        return _wrap(self._dotnet_instance.SupportsNonVirtualBus)
+        dotnet_result = self._dotnet_instance.SupportsNonVirtualBus
+        return _wrap(dotnet_result)
 
     @property
     def generated_using_latest_addon_version(self) -> bool:
         """Indicates whether the vsmodel was built with the latest VsModel addon"""
-        return _wrap(self._dotnet_instance.GeneratedUsingLatestAddonVersion)
+        dotnet_result = self._dotnet_instance.GeneratedUsingLatestAddonVersion
+        return _wrap(dotnet_result)
 
     @property
     def supports_signals(self) -> bool:
         """Indicates whether the vsmodel has support for signals"""
-        return _wrap(self._dotnet_instance.SupportsSignals)
+        dotnet_result = self._dotnet_instance.SupportsSignals
+        return _wrap(dotnet_result)
 
 
 class VsModelItemBaseType(_DotNetBase):
@@ -354,71 +387,86 @@ class VsModelItemBaseType(_DotNetBase):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.ModelSupport.VsModelItemBaseType:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.ModelSupport.VsModelItemBaseType(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.ModelSupport.VsModelItemBaseType(*unwrapped)
 
     @property
     def name(self) -> str:
         """Name of the element"""
-        return _wrap(self._dotnet_instance.Name)
+        dotnet_result = self._dotnet_instance.Name
+        return _wrap(dotnet_result)
 
     @name.setter
     def name(self, value: str):
         """Name of the element"""
-        self._dotnet_instance.Name = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.Name = next(unwrapped)
 
     @property
     def data_type(self) -> str:
         """Model item data type"""
-        return _wrap(self._dotnet_instance.DataType)
+        dotnet_result = self._dotnet_instance.DataType
+        return _wrap(dotnet_result)
 
     @data_type.setter
     def data_type(self, value: str):
         """Model item data type"""
-        self._dotnet_instance.DataType = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.DataType = next(unwrapped)
 
     @property
     def c_api_type(self) -> str:
         """Type used by Simulink in the generated C code"""
-        return _wrap(self._dotnet_instance.CApiType)
+        dotnet_result = self._dotnet_instance.CApiType
+        return _wrap(dotnet_result)
 
     @c_api_type.setter
     def c_api_type(self, value: str):
         """Type used by Simulink in the generated C code"""
-        self._dotnet_instance.CApiType = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.CApiType = next(unwrapped)
 
     @property
     def dimensions(self) -> Any:
         """Model item dimensions"""
-        return _wrap(self._dotnet_instance.Dimensions)
+        dotnet_result = self._dotnet_instance.Dimensions
+        return _wrap(dotnet_result)
 
     @dimensions.setter
     def dimensions(self, value: Any):
         """Model item dimensions"""
-        self._dotnet_instance.Dimensions = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.Dimensions = next(unwrapped)
 
     @property
     def elements(self) -> Sequence[VsModelElement]:
         """Model item elements - has content when the item is Bus"""
-        return _wrap(self._dotnet_instance.Elements)
+        dotnet_result = self._dotnet_instance.Elements
+        return _wrap(dotnet_result)
 
     @elements.setter
     def elements(self, value: Sequence[VsModelElement]):
         """Model item elements - has content when the item is Bus"""
-        self._dotnet_instance.Elements = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.Elements = next(unwrapped)
 
     @overload
     def is_valid(self) -> bool:
         ...
 
     def is_valid(self, *args):
-        return _wrap(self._dotnet_instance.IsValid(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.IsValid(*unwrapped)
+        return _wrap(dotnet_result)
 
     @overload
     def is_supported_fixed_point_type(self) -> bool:
         ...
 
     def is_supported_fixed_point_type(self, *args):
-        return _wrap(self._dotnet_instance.IsSupportedFixedPointType(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.IsSupportedFixedPointType(*unwrapped)
+        return _wrap(dotnet_result)
 
     def _custom_repr(self) -> str:
         return f"(name={self.name})"
@@ -437,17 +485,20 @@ class VsModelItemType(VsModelItemBaseType):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.ModelSupport.VsModelItemType:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.ModelSupport.VsModelItemType(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.ModelSupport.VsModelItemType(*unwrapped)
 
     @property
     def unit(self) -> str:
         """Model item unit"""
-        return _wrap(self._dotnet_instance.Unit)
+        dotnet_result = self._dotnet_instance.Unit
+        return _wrap(dotnet_result)
 
     @unit.setter
     def unit(self, value: str):
         """Model item unit"""
-        self._dotnet_instance.Unit = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.Unit = next(unwrapped)
 
 
 class VsModelJsonFileDescriptor(_DotNetBase):
@@ -463,77 +514,92 @@ class VsModelJsonFileDescriptor(_DotNetBase):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.ModelSupport.VsModelJsonFileDescriptor:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.ModelSupport.VsModelJsonFileDescriptor(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.ModelSupport.VsModelJsonFileDescriptor(*unwrapped)
 
     @property
     def version(self) -> str:
         """Model version"""
-        return _wrap(self._dotnet_instance.Version)
+        dotnet_result = self._dotnet_instance.Version
+        return _wrap(dotnet_result)
 
     @version.setter
     def version(self, value: str):
         """Model version"""
-        self._dotnet_instance.Version = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.Version = next(unwrapped)
 
     @property
     def model_name(self) -> str:
         """Model name"""
-        return _wrap(self._dotnet_instance.ModelName)
+        dotnet_result = self._dotnet_instance.ModelName
+        return _wrap(dotnet_result)
 
     @model_name.setter
     def model_name(self, value: str):
         """Model name"""
-        self._dotnet_instance.ModelName = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.ModelName = next(unwrapped)
 
     @property
     def metadata(self) -> VsModelMetadata:
         """Model metadata"""
-        return _wrap(self._dotnet_instance.Metadata)
+        dotnet_result = self._dotnet_instance.Metadata
+        return _wrap(dotnet_result)
 
     @metadata.setter
     def metadata(self, value: VsModelMetadata):
         """Model metadata"""
-        self._dotnet_instance.Metadata = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.Metadata = next(unwrapped)
 
     @property
     def inports(self) -> Sequence[VsModelInport]:
         """Inport list"""
-        return _wrap(self._dotnet_instance.Inports)
+        dotnet_result = self._dotnet_instance.Inports
+        return _wrap(dotnet_result)
 
     @inports.setter
     def inports(self, value: Sequence[VsModelInport]):
         """Inport list"""
-        self._dotnet_instance.Inports = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.Inports = next(unwrapped)
 
     @property
     def outports(self) -> Sequence[VsModelOutport]:
         """Outport list"""
-        return _wrap(self._dotnet_instance.Outports)
+        dotnet_result = self._dotnet_instance.Outports
+        return _wrap(dotnet_result)
 
     @outports.setter
     def outports(self, value: Sequence[VsModelOutport]):
         """Outport list"""
-        self._dotnet_instance.Outports = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.Outports = next(unwrapped)
 
     @property
     def parameters(self) -> Sequence[VsModelParameter]:
         """Parameter list"""
-        return _wrap(self._dotnet_instance.Parameters)
+        dotnet_result = self._dotnet_instance.Parameters
+        return _wrap(dotnet_result)
 
     @parameters.setter
     def parameters(self, value: Sequence[VsModelParameter]):
         """Parameter list"""
-        self._dotnet_instance.Parameters = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.Parameters = next(unwrapped)
 
     @property
     def signals(self) -> Sequence[VsModelSignal]:
         """Signals list"""
-        return _wrap(self._dotnet_instance.Signals)
+        dotnet_result = self._dotnet_instance.Signals
+        return _wrap(dotnet_result)
 
     @signals.setter
     def signals(self, value: Sequence[VsModelSignal]):
         """Signals list"""
-        self._dotnet_instance.Signals = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.Signals = next(unwrapped)
 
 
 class VsModelJsonFileDescriptorUtilities(_DotNetBase):
@@ -553,7 +619,9 @@ class VsModelJsonFileDescriptorUtilities(_DotNetBase):
         ...
 
     def get_dimensions(*args):
-        return _wrap(NationalInstruments.VeriStand.SystemDefinitionAPI.ModelSupport.VsModelJsonFileDescriptorUtilities.GetDimensions(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = NationalInstruments.VeriStand.SystemDefinitionAPI.ModelSupport.VsModelJsonFileDescriptorUtilities.GetDimensions(*unwrapped)
+        return _wrap(dotnet_result)
 
     @staticmethod
     @overload
@@ -561,7 +629,9 @@ class VsModelJsonFileDescriptorUtilities(_DotNetBase):
         ...
 
     def is_scalar(*args):
-        return _wrap(NationalInstruments.VeriStand.SystemDefinitionAPI.ModelSupport.VsModelJsonFileDescriptorUtilities.IsScalar(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = NationalInstruments.VeriStand.SystemDefinitionAPI.ModelSupport.VsModelJsonFileDescriptorUtilities.IsScalar(*unwrapped)
+        return _wrap(dotnet_result)
 
 
 class VsModelMetadata(_DotNetBase):
@@ -577,127 +647,152 @@ class VsModelMetadata(_DotNetBase):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.ModelSupport.VsModelMetadata:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.ModelSupport.VsModelMetadata(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.ModelSupport.VsModelMetadata(*unwrapped)
 
     @property
     def slx_file_path(self) -> str:
         """.slx file path"""
-        return _wrap(self._dotnet_instance.SLXFilePath)
+        dotnet_result = self._dotnet_instance.SLXFilePath
+        return _wrap(dotnet_result)
 
     @slx_file_path.setter
     def slx_file_path(self, value: str):
         """.slx file path"""
-        self._dotnet_instance.SLXFilePath = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.SLXFilePath = next(unwrapped)
 
     @property
     def simulink_release(self) -> str:
         """Simulink release"""
-        return _wrap(self._dotnet_instance.SimulinkRelease)
+        dotnet_result = self._dotnet_instance.SimulinkRelease
+        return _wrap(dotnet_result)
 
     @simulink_release.setter
     def simulink_release(self, value: str):
         """Simulink release"""
-        self._dotnet_instance.SimulinkRelease = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.SimulinkRelease = next(unwrapped)
 
     @property
     def simulink_version(self) -> str:
         """Simulink version"""
-        return _wrap(self._dotnet_instance.SimulinkVersion)
+        dotnet_result = self._dotnet_instance.SimulinkVersion
+        return _wrap(dotnet_result)
 
     @simulink_version.setter
     def simulink_version(self, value: str):
         """Simulink version"""
-        self._dotnet_instance.SimulinkVersion = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.SimulinkVersion = next(unwrapped)
 
     @property
     def release_description(self) -> str:
         """Simulink release descripton"""
-        return _wrap(self._dotnet_instance.ReleaseDescription)
+        dotnet_result = self._dotnet_instance.ReleaseDescription
+        return _wrap(dotnet_result)
 
     @release_description.setter
     def release_description(self, value: str):
         """Simulink release descripton"""
-        self._dotnet_instance.ReleaseDescription = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.ReleaseDescription = next(unwrapped)
 
     @property
     def author(self) -> str:
         """Model file author"""
-        return _wrap(self._dotnet_instance.Author)
+        dotnet_result = self._dotnet_instance.Author
+        return _wrap(dotnet_result)
 
     @author.setter
     def author(self, value: str):
         """Model file author"""
-        self._dotnet_instance.Author = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.Author = next(unwrapped)
 
     @property
     def description(self) -> str:
         """Model description"""
-        return _wrap(self._dotnet_instance.Description)
+        dotnet_result = self._dotnet_instance.Description
+        return _wrap(dotnet_result)
 
     @description.setter
     def description(self, value: str):
         """Model description"""
-        self._dotnet_instance.Description = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.Description = next(unwrapped)
 
     @property
     def model_version(self) -> str:
         """Model version"""
-        return _wrap(self._dotnet_instance.ModelVersion)
+        dotnet_result = self._dotnet_instance.ModelVersion
+        return _wrap(dotnet_result)
 
     @model_version.setter
     def model_version(self, value: str):
         """Model version"""
-        self._dotnet_instance.ModelVersion = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.ModelVersion = next(unwrapped)
 
     @property
     def time_step(self) -> str:
         """Model time step"""
-        return _wrap(self._dotnet_instance.TimeStep)
+        dotnet_result = self._dotnet_instance.TimeStep
+        return _wrap(dotnet_result)
 
     @time_step.setter
     def time_step(self, value: str):
         """Model time step"""
-        self._dotnet_instance.TimeStep = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.TimeStep = next(unwrapped)
 
     @property
     def target_platforms(self) -> Sequence[str]:
         """Target platform the model was compiled for"""
-        return _wrap(self._dotnet_instance.TargetPlatforms)
+        dotnet_result = self._dotnet_instance.TargetPlatforms
+        return _wrap(dotnet_result)
 
     @target_platforms.setter
     def target_platforms(self, value: Sequence[str]):
         """Target platform the model was compiled for"""
-        self._dotnet_instance.TargetPlatforms = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.TargetPlatforms = next(unwrapped)
 
     @property
     def bitness(self) -> int:
         """Model bitness"""
-        return _wrap(self._dotnet_instance.Bitness)
+        dotnet_result = self._dotnet_instance.Bitness
+        return _wrap(dotnet_result)
 
     @bitness.setter
     def bitness(self, value: int):
         """Model bitness"""
-        self._dotnet_instance.Bitness = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.Bitness = next(unwrapped)
 
     @property
     def number_of_sample_times(self) -> int:
         """Number of sample times"""
-        return _wrap(self._dotnet_instance.NumberOfSampleTimes)
+        dotnet_result = self._dotnet_instance.NumberOfSampleTimes
+        return _wrap(dotnet_result)
 
     @number_of_sample_times.setter
     def number_of_sample_times(self, value: int):
         """Number of sample times"""
-        self._dotnet_instance.NumberOfSampleTimes = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.NumberOfSampleTimes = next(unwrapped)
 
     @property
     def external_mode(self) -> str:
         """External mode setting: on or off"""
-        return _wrap(self._dotnet_instance.ExternalMode)
+        dotnet_result = self._dotnet_instance.ExternalMode
+        return _wrap(dotnet_result)
 
     @external_mode.setter
     def external_mode(self, value: str):
         """External mode setting: on or off"""
-        self._dotnet_instance.ExternalMode = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.ExternalMode = next(unwrapped)
 
 
 class VsModelParameter(VsModelItemType):
@@ -713,17 +808,20 @@ class VsModelParameter(VsModelItemType):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.ModelSupport.VsModelParameter:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.ModelSupport.VsModelParameter(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.ModelSupport.VsModelParameter(*unwrapped)
 
     @property
     def default_value(self) -> Any:
         """Default value"""
-        return _wrap(self._dotnet_instance.DefaultValue)
+        dotnet_result = self._dotnet_instance.DefaultValue
+        return _wrap(dotnet_result)
 
     @default_value.setter
     def default_value(self, value: Any):
         """Default value"""
-        self._dotnet_instance.DefaultValue = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.DefaultValue = next(unwrapped)
 
 
 class VsModelSignal(VsModelItemBaseType):
@@ -739,47 +837,56 @@ class VsModelSignal(VsModelItemBaseType):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.ModelSupport.VsModelSignal:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.ModelSupport.VsModelSignal(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.ModelSupport.VsModelSignal(*unwrapped)
 
     @property
     def block_path(self) -> str:
         """Name of the source block for the signal."""
-        return _wrap(self._dotnet_instance.BlockPath)
+        dotnet_result = self._dotnet_instance.BlockPath
+        return _wrap(dotnet_result)
 
     @block_path.setter
     def block_path(self, value: str):
         """Name of the source block for the signal."""
-        self._dotnet_instance.BlockPath = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.BlockPath = next(unwrapped)
 
     @property
     def port_number(self) -> int:
         """Port number of the block that is the source of the signal."""
-        return _wrap(self._dotnet_instance.PortNumber)
+        dotnet_result = self._dotnet_instance.PortNumber
+        return _wrap(dotnet_result)
 
     @port_number.setter
     def port_number(self, value: int):
         """Port number of the block that is the source of the signal."""
-        self._dotnet_instance.PortNumber = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.PortNumber = next(unwrapped)
 
     @property
     def signal_label(self) -> str:
         """Name of the signal"""
-        return _wrap(self._dotnet_instance.SignalLabel)
+        dotnet_result = self._dotnet_instance.SignalLabel
+        return _wrap(dotnet_result)
 
     @signal_label.setter
     def signal_label(self, value: str):
         """Name of the signal"""
-        self._dotnet_instance.SignalLabel = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.SignalLabel = next(unwrapped)
 
     @property
     def is_connected_to_virtual_bus(self) -> bool:
         """Whether the signal is connected to a virtual bus."""
-        return _wrap(self._dotnet_instance.IsConnectedToVirtualBus)
+        dotnet_result = self._dotnet_instance.IsConnectedToVirtualBus
+        return _wrap(dotnet_result)
 
     @is_connected_to_virtual_bus.setter
     def is_connected_to_virtual_bus(self, value: bool):
         """Whether the signal is connected to a virtual bus."""
-        self._dotnet_instance.IsConnectedToVirtualBus = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.IsConnectedToVirtualBus = next(unwrapped)
 
 
 class VsModelDescriptorExtended(VsModelJsonFileDescriptor, IModelDescriptor):
@@ -795,7 +902,8 @@ class VsModelDescriptorExtended(VsModelJsonFileDescriptor, IModelDescriptor):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.ModelSupport.VsModelDescriptorExtended:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.ModelSupport.VsModelDescriptorExtended(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.ModelSupport.VsModelDescriptorExtended(*unwrapped)
 
     @staticmethod
     @overload
@@ -803,7 +911,9 @@ class VsModelDescriptorExtended(VsModelJsonFileDescriptor, IModelDescriptor):
         ...
 
     def deserialize_from(*args):
-        return _wrap(NationalInstruments.VeriStand.SystemDefinitionAPI.ModelSupport.VsModelDescriptorExtended.DeserializeFrom(*_unwrap(None, *args)))
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = NationalInstruments.VeriStand.SystemDefinitionAPI.ModelSupport.VsModelDescriptorExtended.DeserializeFrom(*unwrapped)
+        return _wrap(dotnet_result)
 
 
 class VsModelElement(VsModelItemBaseType):
@@ -819,7 +929,8 @@ class VsModelElement(VsModelItemBaseType):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.ModelSupport.VsModelElement:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.ModelSupport.VsModelElement(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.ModelSupport.VsModelElement(*unwrapped)
 
 
 class VsModelInportOutportType(VsModelItemType):
@@ -835,7 +946,8 @@ class VsModelInportOutportType(VsModelItemType):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.ModelSupport.VsModelInportOutportType:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.ModelSupport.VsModelInportOutportType(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.ModelSupport.VsModelInportOutportType(*unwrapped)
 
 
 class VsModelOutport(VsModelInportOutportType):
@@ -851,17 +963,20 @@ class VsModelOutport(VsModelInportOutportType):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.ModelSupport.VsModelOutport:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.ModelSupport.VsModelOutport(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.ModelSupport.VsModelOutport(*unwrapped)
 
     @property
     def is_connected_to_virtual_bus(self) -> bool:
         """Whether the outport is connected to a virtual bus."""
-        return _wrap(self._dotnet_instance.IsConnectedToVirtualBus)
+        dotnet_result = self._dotnet_instance.IsConnectedToVirtualBus
+        return _wrap(dotnet_result)
 
     @is_connected_to_virtual_bus.setter
     def is_connected_to_virtual_bus(self, value: bool):
         """Whether the outport is connected to a virtual bus."""
-        self._dotnet_instance.IsConnectedToVirtualBus = next(_unwrap(None, value))
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.IsConnectedToVirtualBus = next(unwrapped)
 
 
 class VsModelInport(VsModelInportOutportType):
@@ -877,4 +992,5 @@ class VsModelInport(VsModelInportOutportType):
         if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.ModelSupport.VsModelInport:
             self._dotnet_instance = args[0]
         else:
-            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.ModelSupport.VsModelInport(*_unwrap(None, *args))
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.ModelSupport.VsModelInport(*unwrapped)
