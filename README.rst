@@ -10,11 +10,10 @@ The package is implemented in Python. NI created and supports this package.
 
 Requirements
 ============
-**niveristand** has the following requirements:
+**niveristand** requires the following to be installed:
 
-* VeriStand 2020+ running on the same system as the Python code.
-* 64-bit version of Windows 11/10
-* CPython 3.8+
+* VeriStand 2020 or later
+* CPython 3.8 or later (the standard Python, available on python.org and elsewhere)
 
 .. _installation_section:
 
