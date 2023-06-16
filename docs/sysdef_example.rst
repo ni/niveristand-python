@@ -6,16 +6,20 @@ System Definition Examples
 
 Creating a basic system definition file
 ---------------------------------
-You can create a system definition for either Windows or Linux.
+A system definition can be created with either an initial target of either Windows or Linux.
 
 .. literalinclude:: ../examples/sysdef_example.py
    :language: python
-   :linenos:
    :pyobject: create_system_definition
+   :linenos:
+   :start-after: basename(filepath)
+   :end-before: return
 
-And you can then save that system definition.
+Be sure to save the system definition when you have made all necessary modifications.
 
 .. literalinclude:: ../examples/sysdef_example.py
    :language: python
-   :linenos:
    :pyobject: save_system_definition
+   :linenos:
+   :start-after: system definition."""
+
