@@ -38,7 +38,7 @@ To install **niveristand**, use one of the following methods:
 
 Usage
 =====
-Refer to the `Basic Examples section <https://niveristand-python.readthedocs.io/en/latest/basic_examples.html>`_
+Refer to the `Basic Real-time Sequence Examples section <https://niveristand-python.readthedocs.io/en/latest/basic_rt_sequence_examples.html>`_
 for detailed information on how to write a Python real-time sequence.
 
 .. _support_section:
