@@ -4,6 +4,9 @@
 System Definition Examples
 ==========================
 
+.. contents::
+   :depth: 4
+
 Basic Examples
 ==============
 
