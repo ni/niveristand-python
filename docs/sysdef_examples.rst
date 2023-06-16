@@ -81,6 +81,18 @@ Alarms are also added to a target.
    :end-before: # Alias
 
 
+Adding Models
+-------------
+Models are added to a target.
+
+.. literalinclude:: ../examples/sysdef_example.py
+   :language: python
+   :pyobject: add_models
+   :linenos:
+   :start-after: definition."""
+   :end-before: sinewave_model
+
+
 More Detailed Examples
 ======================
 
