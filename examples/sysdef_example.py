@@ -14,7 +14,6 @@ from niveristand.systemdefinitionapi import (  # noqa: E402
     Alias,
     AliasFolder,
     CANPort,
-    Chassis,
     DAQAnalogInput,
     DAQAnalogOutput,
     DAQCounterEdge,
@@ -43,7 +42,6 @@ from niveristand.systemdefinitionapi import (  # noqa: E402
     SetVariableStepFunction,
     SignalBasedFrame,
     SystemDefinition,
-    Target,
     XNETTermination,
 )
 
@@ -52,7 +50,8 @@ def main(filepath=None):
     """The main portion of the script."""
     try:
         print("Creating System Definition...")
-
+        if not filepath:
+            filepath = os.path.join(__file__, "..", "combined.nivssdf")
         system_definition = create_system_definition(filepath)
 
         print("Adding and populating DAQ Devices... ")
@@ -86,20 +85,8 @@ def get_asset(filename: str) -> str:
     )
 
 
-def get_target(system_definition: SystemDefinition) -> Target:
-    """Gets the target from the system definition."""
-    return system_definition.root.get_targets().get_target_list()[0]
-
-
-def get_chassis(target: Target) -> Chassis:
-    """Gets the target from the system definition."""
-    return target.get_hardware().get_chassis_list()[0]
-
-
 def create_system_definition(filepath: str, ip_address: str = "localhost") -> SystemDefinition:
     """Creates the system definition."""
-    if not filepath:
-        filepath = os.path.join(__file__, "..", "combined.nivssdf")
     filename = os.path.basename(filepath)
     is_local = ip_address == "localhost" or ip_address == "127.0.0.1"
     target_type = "Windows" if is_local else "Linux_x64"
@@ -113,12 +100,9 @@ def create_system_definition(filepath: str, ip_address: str = "localhost") -> Sy
         filepath,
     )
 
-    target = get_target(system_definition)
+    target = system_definition.root.get_targets().get_target_list()[0]
     if not is_local:
         target.ip_address = ip_address
-
-    chassis = target.get_hardware().get_chassis_list()[0]
-    chassis.get_xnet().enable_xnet()
     return system_definition
 
 
@@ -129,8 +113,8 @@ def add_daq(system_definition: SystemDefinition):
         "This is a DAQ Device created using the System Definition Offline API.",
         DAQDeviceInputConfiguration.DEFAULT,
     )
-    target = get_target(system_definition)
-    chassis = get_chassis(target)
+    target = system_definition.root.get_targets().get_target_list()[0]
+    chassis = target.get_hardware().get_chassis_list()[0]
     chassis.get_daq().add_device(daq_device)
 
     # Analog Input Channels
@@ -191,8 +175,10 @@ def add_daq(system_definition: SystemDefinition):
 
 def add_can(system_definition: SystemDefinition):
     """Adds the CAN section to the system definition."""
-    target = get_target(system_definition)
-    chassis = get_chassis(target)
+    target = system_definition.root.get_targets().get_target_list()[0]
+    chassis = target.get_hardware().get_chassis_list()[0]
+    chassis.get_xnet().enable_xnet()  # enable XNET if we haven't already
+
     target.get_user_channels().add_new_user_channel("MyXnetUserChannel", "", "", 1.0)
     user_channel = target.get_user_channels().get_user_channel_list()[0]
 
@@ -271,8 +257,9 @@ def add_can(system_definition: SystemDefinition):
 
 def add_lin(system_definition: SystemDefinition):
     """Adds a LIN section to the system definition."""
-    target = get_target(system_definition)
-    chassis = get_chassis(target)
+    target = system_definition.root.get_targets().get_target_list()[0]
+    chassis = target.get_hardware().get_chassis_list()[0]
+    chassis.get_xnet().enable_xnet()  # enable XNET if we haven't already
 
     # LIN Database
     lin = chassis.get_xnet().get_lin()
@@ -305,7 +292,7 @@ def add_lin(system_definition: SystemDefinition):
 
 def add_models(system_definition: SystemDefinition):
     """Adds models to the system definition."""
-    target = get_target(system_definition)
+    target = system_definition.root.get_targets().get_target_list()[0]
     simulation_models = target.get_simulation_models()
 
     # SinewaveModel
@@ -321,8 +308,8 @@ def add_models(system_definition: SystemDefinition):
 
 def add_remaining(system_definition: SystemDefinition):
     """Add other items to the system definition."""
-    target = get_target(system_definition)
-    chassis = get_chassis(target)
+    target = system_definition.root.get_targets().get_target_list()[0]
+    chassis = target.get_hardware().get_chassis_list()[0]
 
     # User Channel
     target.get_user_channels().add_new_user_channel("MyUserChannel", "", "", 1.0)
