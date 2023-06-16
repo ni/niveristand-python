@@ -17,6 +17,10 @@ Requirements
 
 .. _installation_section:
 
+Recommended
+-----------
+It is recommended that you use an editor with code completion, such as `Visual Studio Code <https://code.visualstudio.com/docs/languages/python/>`_, to make it easier to browse and use this code.
+
 Installation
 ============
 
