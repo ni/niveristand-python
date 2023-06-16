@@ -42,6 +42,8 @@ To install **niveristand**, use one of the following methods:
 
 Usage
 =====
+Refer to the `System Definition Examples section <https://niveristand-python.readthedocs.io/en/latest/sysdef_example.html>`_ for detailed examples of how to script a system definition file.
+
 Refer to the `Basic Real-time Sequence Examples section <https://niveristand-python.readthedocs.io/en/latest/basic_rt_sequence_examples.html>`_
 for detailed information on how to write a Python real-time sequence.
 

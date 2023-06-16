@@ -34,4 +34,6 @@ You can create and run NI VeriStand real-time (RT) sequences from Python that wo
 
 Usage
 =====
-Refer to :doc:`basic_rt_sequence_examples` for detailed information on how to write a Python real-time sequence.
+Refer to :doc:`sysdef_example` for detailed examples of how to script a system definition file.
+
+Refer to :doc:`basic_rt_sequence_examples` for detailed examples of how to write a Python real-time sequence.
