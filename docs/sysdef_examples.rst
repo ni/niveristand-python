@@ -4,6 +4,9 @@
 System Definition Examples
 ==========================
 
+Basic Examples
+==============
+
 Creating a basic system definition file
 ---------------------------------------
 A system definition can be created with either an initial target of either Windows or Linux.
@@ -73,3 +76,17 @@ Alarms are also added to a target.
    :linenos:
    :start-after: # Alarm
    :end-before: # Alias
+
+
+More Detailed Examples
+======================
+
+DAQ
+---
+There are many options available when adding DAQ devices.
+
+.. literalinclude:: ../examples/sysdef_example.py
+   :language: python
+   :pyobject: add_daq
+   :linenos:
+   :start-after: definition."""
