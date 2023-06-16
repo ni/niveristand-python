@@ -93,3 +93,24 @@ There are many options available when adding DAQ devices.
    :pyobject: add_daq
    :linenos:
    :start-after: definition."""
+
+CAN
+---
+An NI-XNET CAN interface can be added.
+
+.. literalinclude:: ../examples/sysdef_example.py
+   :language: python
+   :pyobject: add_can
+   :linenos:
+   :start-after: definition."""
+
+LIN
+---
+An NI-XNET LIN interface can be added.
+
+.. literalinclude:: ../examples/sysdef_example.py
+   :language: python
+   :pyobject: add_lin
+   :linenos:
+   :start-after: definition."""
+
