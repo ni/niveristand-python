@@ -295,15 +295,13 @@ def add_models(system_definition: SystemDefinition):
     target = system_definition.root.get_targets().get_target_list()[0]
     simulation_models = target.get_simulation_models()
 
-    # SinewaveModel
+    random_model = Model("RandomFMU", "", get_asset("RandomFMU.fmu"), 0, 1, 0, True, True, True)
+    simulation_models.get_models().add_model(random_model)
+
     sinewave_model = Model(
         "SinewaveFMU", "", get_asset("SinewaveFMU.fmu"), 0, 1, 0, True, True, True
     )
     simulation_models.get_models().add_model(sinewave_model)
-
-    # RandomModel
-    random_model = Model("RandomFMU", "", get_asset("RandomFMU.fmu"), 0, 1, 0, True, True, True)
-    simulation_models.get_models().add_model(random_model)
 
 
 def add_remaining(system_definition: SystemDefinition):
