@@ -7,7 +7,7 @@ Getting Started
 Features
 ========
 
-**niveristand** has two major capabilities: system definition and real-time sequence scripting. It is recommended that you use an editor with code completion, such as `Visual Studio Code <https://code.visualstudio.com/docs/languages/python/>`_, to make it easier to browse and use this code.
+**niveristand** has two major capabilities: system definition and real-time sequence scripting. NI recommends you use an editor with code completion, such as `Visual Studio Code <https://code.visualstudio.com/docs/languages/python/>`_, to make it easier to browse and use this code.
 
 Scripting system definition files
 ---------------------------------
