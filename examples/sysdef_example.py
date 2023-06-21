@@ -38,7 +38,6 @@ from niveristand.systemdefinitionapi import (  # noqa: E402
     Model,
     PolynomialScale,
     Procedure,
-    SCXI1100,
     SetVariableStepFunction,
     SignalBasedFrame,
     SystemDefinition,
@@ -154,10 +153,6 @@ def add_daq(system_definition: SystemDefinition):
     # Internal Channels
     internal_channels = daq_device.create_internal_channels()
     internal_channels.add_internal_channel(DAQInternalChannel("Channel 0", 0.0))
-
-    # SCXI
-    scxi_chassis = daq_device.create_scxi_chassis()
-    scxi_chassis.add_scxi_module(SCXI1100("SC1Mod1"))
 
     # Waveform Tasks
     daq_tasks = chassis.get_daq().get_tasks()
