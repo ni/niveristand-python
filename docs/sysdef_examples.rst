@@ -12,7 +12,7 @@ Basic Examples
 
 Creating a basic system definition file
 ---------------------------------------
-A system definition can be created with either an initial target of either Windows or Linux.
+A system definition can be created with a target operating system of Windows or Linux_x64.
 
 .. literalinclude:: ../examples/sysdef_example.py
    :language: python

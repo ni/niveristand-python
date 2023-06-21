@@ -7,11 +7,11 @@ Getting Started
 Features
 ========
 
-**niveristand** has two major capabilities: system definition and real-time sequence scripting. NI recommends you use an editor with code completion, such as `Visual Studio Code <https://code.visualstudio.com/docs/languages/python/>`_, to make it easier to browse and use this code.
+**niveristand** has two major capabilities: system definition scripting, and real-time sequence scripting and deployment. NI recommends you use an editor with code completion, such as `Visual Studio Code <https://code.visualstudio.com/docs/languages/python/>`_, to make it easier to browse and use this code.
 
 Scripting system definition files
 ---------------------------------
-You can script system definitions (.nivssdf) files for use in the NI VeriStand editor and deployable to the NI VeriStand engine.
+You can script system definition (.nivssdf) files for use in the NI VeriStand editor and deploy them to the NI VeriStand engine.
 
 Real-time sequences
 -------------------
