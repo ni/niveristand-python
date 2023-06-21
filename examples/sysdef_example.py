@@ -28,6 +28,7 @@ from niveristand.systemdefinitionapi import (  # noqa: E402
     DAQPulseGeneration,
     DAQTaskAI,
     DAQTriggerDigitalEdge,
+    DAQWaveformAnalogInput,
     Database,
     DataFileReplay,
     DataLoggingFile,
@@ -38,6 +39,7 @@ from niveristand.systemdefinitionapi import (  # noqa: E402
     Model,
     PolynomialScale,
     Procedure,
+    SampleMode,
     SetVariableStepFunction,
     SignalBasedFrame,
     SystemDefinition,
@@ -155,10 +157,20 @@ def add_daq(system_definition: SystemDefinition):
     internal_channels.add_internal_channel(DAQInternalChannel("Channel 0", 0.0))
 
     # Waveform Tasks
+    daq_device_waveform = DAQDevice("Dev2", "", DAQDeviceInputConfiguration.DEFAULT)
     daq_tasks = chassis.get_daq().get_tasks()
-    daq_task = DAQTaskAI("Task1", 1000, AcquisitionMode.CONTINUOUS)
-    daq_task.get_triggers().start_trigger = DAQTriggerDigitalEdge("PFI0", DirectionType.FALLING)
-    daq_tasks.add_task(daq_task)
+    waveform_task = DAQTaskAI("Task1", 1000, AcquisitionMode.CONTINUOUS)
+    waveform_task.get_triggers().start_trigger = DAQTriggerDigitalEdge(
+        "PFI0", DirectionType.FALLING
+    )
+    daq_tasks.add_task(waveform_task)
+    analog_waveform_input = DAQWaveformAnalogInput(
+        "AI2", 0, DAQMeasurementType.ANALOG_INPUT_CURRENT
+    )
+    waveform_analog_inputs = daq_device_waveform.create_analog_inputs()
+    waveform_analog_inputs.sample_mode = SampleMode.WAVEFORM
+    waveform_analog_inputs.add_waveform_analog_input(analog_waveform_input)
+    waveform_analog_inputs.waveform_analog_input_task = waveform_task
 
     # Polynomial Scale
     coefficients = [1.0]
