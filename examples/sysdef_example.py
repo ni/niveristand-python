@@ -144,7 +144,8 @@ def add_daq(system_definition: SystemDefinition):
     digital_outputs = daq_device.create_digital_outputs()
     daq_output_port = DAQDIOPort(1, False)
     digital_outputs.add_dio_port(daq_output_port)
-    daq_input_port.add_digital_output(DAQDigitalOutput("DO4", False, 4, 1))
+    daq_output_port.add_digital_output(DAQDigitalOutput("DO4", False, 4, 1))
+
     # Counter Channels
     counters = daq_device.create_counters()
     counters.add_counter(
