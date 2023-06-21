@@ -25,9 +25,9 @@ copyright = "2018, National Instruments"
 author = "National Instruments"
 
 # The short X.Y version
-version = "0.9"
+version = "3.0"
 # The full version, including alpha/beta/rc tags
-release = "0.9.0"
+release = "3.0.0"
 
 # -- General configuration ---------------------------------------------------
 
