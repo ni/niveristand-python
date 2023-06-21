@@ -10,13 +10,16 @@ The package is implemented in Python. NI created and supports this package.
 
 Requirements
 ============
-**niveristand** 2.1.x has the following requirements:
+**niveristand** requires the following to be installed:
 
-* VeriStand 2019+ running on the same system as the Python code.
-* 64-bit version of Windows 10/8.1/7
-* CPython 3.7+
+* VeriStand 2020 or later
+* CPython 3.8 or later (the standard Python, available on python.org and elsewhere)
 
 .. _installation_section:
+
+Recommended
+-----------
+NI recommends you use an editor with code completion, such as `Visual Studio Code <https://code.visualstudio.com/docs/languages/python/>`_, to make it easier to browse and use this code.
 
 Installation
 ============
@@ -39,7 +42,9 @@ To install **niveristand**, use one of the following methods:
 
 Usage
 =====
-Refer to the `Basic Examples section <https://niveristand-python.readthedocs.io/en/latest/basic_examples.html>`_
+Refer to the `System Definition Examples section <https://niveristand-python.readthedocs.io/en/latest/sysdef_examples.html>`_ for detailed examples of how to script a system definition file.
+
+Refer to the `Basic Real-time Sequence Examples section <https://niveristand-python.readthedocs.io/en/latest/basic_rt_sequence_examples.html>`_
 for detailed information on how to write a Python real-time sequence.
 
 .. _support_section:

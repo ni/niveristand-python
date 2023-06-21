@@ -7,9 +7,16 @@ Getting Started
 Features
 ========
 
-**niveristand** allows you to:
+**niveristand** has two major capabilities: system definition scripting, and real-time sequence scripting and deployment. NI recommends you use an editor with code completion, such as `Visual Studio Code <https://code.visualstudio.com/docs/languages/python/>`_, to make it easier to browse and use this code.
 
-- Convert Python functions into NI VeriStand real-time (RT) sequences that are compatible with the NI VeriStand engine and Stimulus Profile Editor and save the converted Python functions to a file.
+Scripting system definition files
+---------------------------------
+You can script system definition (.nivssdf) files for use in the NI VeriStand editor and deploy them to the NI VeriStand engine.
+
+Real-time sequences
+-------------------
+You can create and run NI VeriStand real-time (RT) sequences from Python that work in both the NI VeriStand engine and Stimulus Profile Editor:
+- Convert Python functions into real-time sequences and save the converted Python functions to a file.
 - Run test sequences in two different modes:
 
    - Deterministic Mode
@@ -27,4 +34,6 @@ Features
 
 Usage
 =====
-Refer to :doc:`basic_examples` for detailed information on how to write a Python real-time sequence.
+Refer to :doc:`sysdef_examples` for detailed examples of how to script a system definition file.
+
+Refer to :doc:`basic_rt_sequence_examples` for detailed examples of how to write a Python real-time sequence.
