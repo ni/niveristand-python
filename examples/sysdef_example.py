@@ -158,6 +158,7 @@ def add_daq(system_definition: SystemDefinition):
 
     # Waveform Tasks
     daq_device_waveform = DAQDevice("Dev2", "", DAQDeviceInputConfiguration.DEFAULT)
+    chassis.get_daq().add_device(daq_device_waveform)
     daq_tasks = chassis.get_daq().get_tasks()
     waveform_task = DAQTaskAI("Task1", 1000, AcquisitionMode.CONTINUOUS)
     waveform_task.get_triggers().start_trigger = DAQTriggerDigitalEdge(
