@@ -1,4 +1,4 @@
-[ ] This contribution adheres to [CONTRIBUTING.md](https://github.com/ni/niveristand-python/blob/master/CONTRIBUTING.md).
+- [ ] This contribution adheres to [CONTRIBUTING.md](https://github.com/ni/niveristand-python/blob/master/CONTRIBUTING.md).
 
 TODO: Check the above box with an 'x' indicating you've read and followed [CONTRIBUTING.md](https://github.com/ni/niveristand-python/blob/master/CONTRIBUTING.md).
 
