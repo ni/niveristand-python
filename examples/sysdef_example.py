@@ -70,7 +70,7 @@ def main(filepath=None):
 
         save_system_definition(system_definition)
     except BaseException as e:
-        if type(e) == type(VeriStandSdfError):
+        if isinstance(e, VeriStandSdfError):
             print(f"\nVeriStandSdfError: {str(e)}", end="")
         elif str(type(e)) == "<class 'NationalInstruments.VeriStand.VeriStandException'>":
             # VeriStandSdfError gives better error messages
