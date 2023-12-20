@@ -4866,7 +4866,7 @@ class SystemDefinition(_DotNetBase):
         ...
 
     def save_system_definition_file(self, *args):
-        unwrapped = _unwrap(None, *args)
+        unwrapped = _unwrap({(str,): (1, ""), (): (0, "")}, *args)
         dotnet_result = self._dotnet_instance.SaveSystemDefinitionFile(*unwrapped)
         return _wrap(dotnet_result)
 

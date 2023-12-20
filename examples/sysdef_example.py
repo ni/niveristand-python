@@ -52,7 +52,7 @@ def main(filepath=None):
     try:
         print("Creating System Definition...")
         if not filepath:
-            filepath = os.path.join(__file__, "..", "combined.nivssdf")
+            filepath = os.path.join(os.path.dirname(__file__), "combined.nivssdf")
         system_definition = create_system_definition(filepath)
 
         print("Adding and populating DAQ Devices... ")

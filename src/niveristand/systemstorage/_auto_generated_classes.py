@@ -1483,7 +1483,7 @@ class DocumentType(_DotNetBase):
         ...
 
     def save_system_storage_file(self, *args):
-        unwrapped = _unwrap(None, *args)
+        unwrapped = _unwrap({(): (0, ""), (str,): (1, "")}, *args)
         dotnet_result = self._dotnet_instance.SaveSystemStorageFile(*unwrapped)
         return _wrap(dotnet_result)
 
