@@ -542,6 +542,11 @@ class ErrorCode(_DotNetEnum):
         return ErrorCode(dotnet_result, "UNSUPPORTED_FMI_VERSION")
 
     @_staticproperty
+    def UNSUPPORTED_VS_MODEL_VERSION() -> ErrorCode:
+        dotnet_result = getattr(NationalInstruments.VeriStand.ErrorCode, "UnsupportedVsModelVersion")
+        return ErrorCode(dotnet_result, "UNSUPPORTED_VS_MODEL_VERSION")
+
+    @_staticproperty
     def UNMAPPED_ALIAS() -> ErrorCode:
         dotnet_result = getattr(NationalInstruments.VeriStand.ErrorCode, "UnmappedAlias")
         return ErrorCode(dotnet_result, "UNMAPPED_ALIAS")
