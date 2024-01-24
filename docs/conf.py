@@ -14,7 +14,7 @@
 #
 import os
 import sys
-from unittest.mock import MagicMock
+from unittest.mock import Mock
 
 sys.path.insert(0, os.path.abspath("../src"))
 
@@ -167,23 +167,16 @@ texinfo_documents = [
 # If true, `todo` and `todoList` produce output, else they produce nothing.
 todo_include_todos = True
 
-
-class Mock(MagicMock):
-    @classmethod
-    def __getattr__(cls, name):
-        return MagicMock()
-
-
-# MOCK_MODULES = [
-#     "clr",
-#     "System",
-#     "System.IO",
-#     "NationalInstruments",
-#     "NationalInstruments.VeriStand",
-#     "NationalInstruments.VeriStand.ClientAPI",
-#     "NationalInstruments.VeriStand.Data",
-#     "NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi",
-#     "NationalInstruments.VeriStand.RealTimeSequenceDefinitionApiUtilities",
-#     "niveristand.clientapi._datatypes.rtprimitives",
-# ]
-# sys.modules.update((mod_name, Mock()) for mod_name in MOCK_MODULES)
+MOCK_MODULES = [
+    "clr",
+    "System",
+    "System.IO",
+    "NationalInstruments",
+    "NationalInstruments.VeriStand",
+    "NationalInstruments.VeriStand.ClientAPI",
+    "NationalInstruments.VeriStand.Data",
+    "NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi",
+    "NationalInstruments.VeriStand.RealTimeSequenceDefinitionApiUtilities",
+    "niveristand.clientapi._datatypes.rtprimitives",
+]
+sys.modules.update((mod_name, Mock()) for mod_name in MOCK_MODULES)
