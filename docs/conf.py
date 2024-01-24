@@ -63,7 +63,7 @@ master_doc = "index"
 #
 # This is also used if you do content translation via gettext catalogs.
 # Usually you set "language" from the command line for these cases.
-language = None
+language = 'en'
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
@@ -89,7 +89,7 @@ html_theme = "sphinx_rtd_theme"
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-html_static_path = ["_static"]
+# html_static_path = ["_static"]
 
 # Custom sidebar templates, must be a dictionary that maps document names
 # to template names.
@@ -174,16 +174,16 @@ class Mock(MagicMock):
         return MagicMock()
 
 
-MOCK_MODULES = [
-    "clr",
-    "System",
-    "System.IO",
-    "NationalInstruments",
-    "NationalInstruments.VeriStand",
-    "NationalInstruments.VeriStand.ClientAPI",
-    "NationalInstruments.VeriStand.Data",
-    "NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi",
-    "NationalInstruments.VeriStand.RealTimeSequenceDefinitionApiUtilities",
-    "niveristand.clientapi._datatypes.rtprimitives",
-]
-sys.modules.update((mod_name, Mock()) for mod_name in MOCK_MODULES)
+# MOCK_MODULES = [
+#     "clr",
+#     "System",
+#     "System.IO",
+#     "NationalInstruments",
+#     "NationalInstruments.VeriStand",
+#     "NationalInstruments.VeriStand.ClientAPI",
+#     "NationalInstruments.VeriStand.Data",
+#     "NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi",
+#     "NationalInstruments.VeriStand.RealTimeSequenceDefinitionApiUtilities",
+#     "niveristand.clientapi._datatypes.rtprimitives",
+# ]
+# sys.modules.update((mod_name, Mock()) for mod_name in MOCK_MODULES)
