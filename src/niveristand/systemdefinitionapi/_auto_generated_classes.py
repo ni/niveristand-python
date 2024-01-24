@@ -16784,6 +16784,32 @@ class UserChannel(Channel, IChannel):
         self._dotnet_instance.InitialValue = next(unwrapped)
 
 
+class VirtualECU(Model):
+    """Represents a virtual ECU as a specialized type of <see cref="T:NationalInstruments.VeriStand.SystemDefinitionAPI.Model" /> and inherits all the capabilities of <see cref="T:NationalInstruments.VeriStand.SystemDefinitionAPI.Model" />.
+            Virtual ECUs within the same network cluster are automatically connected to each other and to real ECUs via an XNET interface."""
+
+    @overload
+    def __init__(self, name: str, description: str, virtual_ecu_path: str, processor: int, decimation: int, initial_state: int, segment_vectors: bool, import_parameters: bool, import_signals: bool):
+        ...
+
+    @overload
+    def __init__(self, name: str, description: str, virtual_ecu_path: str, processor: int, decimation: int, initial_state: int, segment_vectors: bool, import_parameters: bool, parameter_regular_expression: str, import_signals: bool, signal_regular_expression: str, import_only_named_signals: bool):
+        ...
+
+    @overload
+    def __init__(self, name: str, description: str, virtual_ecu_path: str, processor: int, decimation: int, initial_state: int, segment_vectors: bool, import_parameters: bool, parameter_regular_expression: str, global_parameter_scope: GlobalParameterScopes, import_signals: bool, signal_regular_expression: str, import_only_named_signals: bool):
+        ...
+
+    def __init__(self, *args):
+        """Create a new instance."""
+        args_len = len(args)
+        if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.VirtualECU:
+            self._dotnet_instance = args[0]
+        else:
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.VirtualECU(*unwrapped)
+
+
 class AlarmStatus(Channel, IChannel):
     """A channel that indicates the current status of an alarm"""
 
@@ -17713,6 +17739,24 @@ class DAQPulseMeasurement(DAQCounterInput):
         unwrapped = _unwrap(None, *args)
         dotnet_result = self._dotnet_instance.GetDataChannel(*unwrapped)
         return _wrap(dotnet_result)
+
+
+class ECUNetworkCluster(Model):
+    """Represents an ECU network cluster as a specialized type of <see cref="T:NationalInstruments.VeriStand.SystemDefinitionAPI.Model" />. Use the ECU network cluster to configure the communication between
+            <see cref="T:NationalInstruments.VeriStand.SystemDefinitionAPI.VirtualECU" /> and an XNET device."""
+
+    @overload
+    def __init__(self, name: str, description: str, ecu_network_cluster_path: str, processor: int, decimation: int, initial_state: int):
+        ...
+
+    def __init__(self, *args):
+        """Create a new instance."""
+        args_len = len(args)
+        if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.ECUNetworkCluster:
+            self._dotnet_instance = args[0]
+        else:
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.ECUNetworkCluster(*unwrapped)
 
 
 class FPGAAICategory(FPGACategory):

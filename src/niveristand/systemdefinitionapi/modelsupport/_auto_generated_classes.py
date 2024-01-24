@@ -889,6 +889,61 @@ class VsModelSignal(VsModelItemBaseType):
         self._dotnet_instance.IsConnectedToVirtualBus = next(unwrapped)
 
 
+class FmuModelDescriptor(IModelDescriptor):
+    @overload
+    def __init__(self, model_path: str):
+        ...
+
+    def __init__(self, *args):
+        """Create a new instance."""
+        args_len = len(args)
+        if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.ModelSupport.FmuModelDescriptor:
+            self._dotnet_instance = args[0]
+        else:
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.ModelSupport.FmuModelDescriptor(*unwrapped)
+
+    @property
+    def target_platforms(self) -> Iterable[str]:
+        dotnet_result = self._dotnet_instance.TargetPlatforms
+        return _wrap(dotnet_result)
+
+    @target_platforms.setter
+    def target_platforms(self, value: Iterable[str]):
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.TargetPlatforms = next(unwrapped)
+
+    @property
+    def fmi_version(self) -> str:
+        """FMI version"""
+        dotnet_result = self._dotnet_instance.FmiVersion
+        return _wrap(dotnet_result)
+
+    @fmi_version.setter
+    def fmi_version(self, value: str):
+        """FMI version"""
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.FmiVersion = next(unwrapped)
+
+    @property
+    def generation_tool(self) -> str:
+        """Model generation tool"""
+        dotnet_result = self._dotnet_instance.GenerationTool
+        return _wrap(dotnet_result)
+
+    @generation_tool.setter
+    def generation_tool(self, value: str):
+        """Model generation tool"""
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.GenerationTool = next(unwrapped)
+
+    @property
+    def fmu_file_size(self) -> int:
+        """Model file size"""
+        dotnet_result = self._dotnet_instance.FmuFileSize
+        return _wrap(dotnet_result)
+
+
 class VsModelDescriptorExtended(VsModelJsonFileDescriptor, IModelDescriptor):
     """VsModel descriptor containing both information needed for deserialization and other vsmodel properties"""
 
