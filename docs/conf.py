@@ -174,16 +174,16 @@ class Mock(MagicMock):
         return MagicMock()
 
 
-# MOCK_MODULES = [
-#     "clr",
-#     "System",
-#     "System.IO",
-#     "NationalInstruments",
-#     "NationalInstruments.VeriStand",
-#     "NationalInstruments.VeriStand.ClientAPI",
-#     "NationalInstruments.VeriStand.Data",
-#     "NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi",
-#     "NationalInstruments.VeriStand.RealTimeSequenceDefinitionApiUtilities",
-#     "niveristand.clientapi._datatypes.rtprimitives",
-# ]
-# sys.modules.update((mod_name, Mock()) for mod_name in MOCK_MODULES)
+MOCK_MODULES = [
+    "clr",
+    "System",
+    "System.IO",
+    "NationalInstruments",
+    "NationalInstruments.VeriStand",
+    "NationalInstruments.VeriStand.ClientAPI",
+    "NationalInstruments.VeriStand.Data",
+    "NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi",
+    "NationalInstruments.VeriStand.RealTimeSequenceDefinitionApiUtilities",
+    "niveristand.clientapi._datatypes.rtprimitives",
+]
+sys.modules.update((mod_name, Mock()) for mod_name in MOCK_MODULES)
