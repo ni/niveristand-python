@@ -21,7 +21,7 @@ sys.path.insert(0, os.path.abspath("../src"))
 # -- Project information -----------------------------------------------------
 
 project = "niveristand-python"
-copyright = datetime.datetime.now().year + ", National Instruments"
+copyright = str(datetime.datetime.now().year) + ", National Instruments"
 author = "National Instruments"
 
 # The short X.Y version
