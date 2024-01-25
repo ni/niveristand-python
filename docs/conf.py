@@ -14,7 +14,6 @@
 #
 import os
 import sys
-from unittest.mock import Mock
 
 sys.path.insert(0, os.path.abspath("../src"))
 
@@ -167,7 +166,7 @@ texinfo_documents = [
 # If true, `todo` and `todoList` produce output, else they produce nothing.
 todo_include_todos = True
 
-MOCK_MODULES = [
+autodoc_mock_imports = [
     "clr",
     "System",
     "System.IO",
@@ -179,4 +178,3 @@ MOCK_MODULES = [
     "NationalInstruments.VeriStand.RealTimeSequenceDefinitionApiUtilities",
     "niveristand.clientapi._datatypes.rtprimitives",
 ]
-sys.modules.update((mod_name, Mock()) for mod_name in MOCK_MODULES)
