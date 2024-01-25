@@ -1,5 +1,3 @@
 pyyaml
 rinohtype
 sphinx_rtd_theme
-# rinohtype 0.5.3 does not work with importlib-metadata>=4.3.0 (https://www.higithub.com/brechtm/issue/rinohtype/285)
-importlib-metadata==4.2.0
