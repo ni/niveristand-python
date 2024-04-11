@@ -154,7 +154,7 @@ class Constants(_DotNetBase):
 
 
 class IECUNetworkClusterConfiguration(_DotNetBase):
-    """Interface class for serializing and de-serializing ECU network cluster configuration."""
+    """Interface for an ECU network cluster configuration."""
 
     def __init__(self, *args):
         """Create a new instance."""
@@ -166,157 +166,137 @@ class IECUNetworkClusterConfiguration(_DotNetBase):
 
     @property
     def version(self) -> str:
-        """Version of the json file."""
         dotnet_result = self._dotnet_instance.Version
         return _wrap(dotnet_result)
 
     @version.setter
     def version(self, value: str):
-        """Version of the json file."""
         unwrapped = _unwrap(None, value)
         self._dotnet_instance.Version = next(unwrapped)
 
     @property
     def database_path(self) -> str:
-        """Database path."""
         dotnet_result = self._dotnet_instance.DatabasePath
         return _wrap(dotnet_result)
 
     @database_path.setter
     def database_path(self, value: str):
-        """Database path."""
         unwrapped = _unwrap(None, value)
         self._dotnet_instance.DatabasePath = next(unwrapped)
 
     @property
     def cluster_name(self) -> str:
-        """Name of the cluster used in database."""
+        """Gets or sets the name of the ECU Network Cluster."""
         dotnet_result = self._dotnet_instance.ClusterName
         return _wrap(dotnet_result)
 
     @cluster_name.setter
     def cluster_name(self, value: str):
-        """Name of the cluster used in database."""
+        """Gets or sets the name of the ECU Network Cluster."""
         unwrapped = _unwrap(None, value)
         self._dotnet_instance.ClusterName = next(unwrapped)
 
     @property
     def time_step(self) -> float:
-        """Time step of cluster."""
+        """Gets or sets the time interval between two successive network steps where frames are exchanged between real and virtual ECUs."""
         dotnet_result = self._dotnet_instance.TimeStep
         return _wrap(dotnet_result)
 
     @time_step.setter
     def time_step(self, value: float):
-        """Time step of cluster."""
+        """Gets or sets the time interval between two successive network steps where frames are exchanged between real and virtual ECUs."""
         unwrapped = _unwrap(None, value)
         self._dotnet_instance.TimeStep = next(unwrapped)
 
     @property
     def protocol(self) -> str:
-        """The communication type of the cluster."""
+        """Gets or sets the <see cref="T:NationalInstruments.VeriStand.SystemDefinitionAPI.CommunicationProtocol" /> used by the ECU network cluster."""
         dotnet_result = self._dotnet_instance.Protocol
         return _wrap(dotnet_result)
 
     @protocol.setter
     def protocol(self, value: str):
-        """The communication type of the cluster."""
+        """Gets or sets the <see cref="T:NationalInstruments.VeriStand.SystemDefinitionAPI.CommunicationProtocol" /> used by the ECU network cluster."""
         unwrapped = _unwrap(None, value)
         self._dotnet_instance.Protocol = next(unwrapped)
 
     @property
     def toolchain(self) -> str:
-        """Toolchain name."""
         dotnet_result = self._dotnet_instance.Toolchain
         return _wrap(dotnet_result)
 
     @toolchain.setter
     def toolchain(self, value: str):
-        """Toolchain name."""
         unwrapped = _unwrap(None, value)
         self._dotnet_instance.Toolchain = next(unwrapped)
 
     @property
     def virtual_ecu_list(self) -> Iterable[str]:
-        """Virtual ECUs that have been added to the cluster."""
         dotnet_result = self._dotnet_instance.VirtualECUList
         return _wrap(dotnet_result)
 
     @virtual_ecu_list.setter
     def virtual_ecu_list(self, value: Iterable[str]):
-        """Virtual ECUs that have been added to the cluster."""
         unwrapped = _unwrap(None, value)
         self._dotnet_instance.VirtualECUList = next(unwrapped)
 
     @property
     def io_mode(self) -> str:
-        """I/O Mode if protocol is CAN."""
         dotnet_result = self._dotnet_instance.IOMode
         return _wrap(dotnet_result)
 
     @io_mode.setter
     def io_mode(self, value: str):
-        """I/O Mode if protocol is CAN."""
         unwrapped = _unwrap(None, value)
         self._dotnet_instance.IOMode = next(unwrapped)
 
     @property
     def lin_master_model_linux_path(self) -> str:
-        """LIN Master Model path."""
         dotnet_result = self._dotnet_instance.LinMasterModelLinuxPath
         return _wrap(dotnet_result)
 
     @lin_master_model_linux_path.setter
     def lin_master_model_linux_path(self, value: str):
-        """LIN Master Model path."""
         unwrapped = _unwrap(None, value)
         self._dotnet_instance.LinMasterModelLinuxPath = next(unwrapped)
 
     @property
     def xnet_can_configuration(self) -> IXnetCanConfiguration:
-        """Protocol specific configuration for CAN."""
         dotnet_result = self._dotnet_instance.XnetCanConfiguration
         return _wrap(dotnet_result)
 
     @xnet_can_configuration.setter
     def xnet_can_configuration(self, value: IXnetCanConfiguration):
-        """Protocol specific configuration for CAN."""
         unwrapped = _unwrap(None, value)
         self._dotnet_instance.XnetCanConfiguration = next(unwrapped)
 
     @property
     def xnet_lin_configuration(self) -> IXnetLinConfiguration:
-        """Protocol specific configuration for LIN."""
         dotnet_result = self._dotnet_instance.XnetLinConfiguration
         return _wrap(dotnet_result)
 
     @xnet_lin_configuration.setter
     def xnet_lin_configuration(self, value: IXnetLinConfiguration):
-        """Protocol specific configuration for LIN."""
         unwrapped = _unwrap(None, value)
         self._dotnet_instance.XnetLinConfiguration = next(unwrapped)
 
     @property
     def xnet_ethernet_configuration(self) -> IXnetEthernetConfiguration:
-        """Protocol specific configuration for Ethernet."""
         dotnet_result = self._dotnet_instance.XnetEthernetConfiguration
         return _wrap(dotnet_result)
 
     @xnet_ethernet_configuration.setter
     def xnet_ethernet_configuration(self, value: IXnetEthernetConfiguration):
-        """Protocol specific configuration for Ethernet."""
         unwrapped = _unwrap(None, value)
         self._dotnet_instance.XnetEthernetConfiguration = next(unwrapped)
 
     @property
     def svb_configuration(self) -> ISvbConfiguration:
-        """Configuration required to initialize Synopsys Virtual Bus (SVB)."""
         dotnet_result = self._dotnet_instance.SvbConfiguration
         return _wrap(dotnet_result)
 
     @svb_configuration.setter
     def svb_configuration(self, value: ISvbConfiguration):
-        """Configuration required to initialize Synopsys Virtual Bus (SVB)."""
         unwrapped = _unwrap(None, value)
         self._dotnet_instance.SvbConfiguration = next(unwrapped)
 
@@ -331,8 +311,6 @@ class IECUNetworkClusterConfiguration(_DotNetBase):
 
 
 class ISvbConfiguration(_DotNetBase):
-    """Represents the configuration for Synopsys Virtual Bus (SVB)."""
-
     def __init__(self, *args):
         """Create a new instance."""
         args_len = len(args)
@@ -343,20 +321,16 @@ class ISvbConfiguration(_DotNetBase):
 
     @property
     def rx_fifo_capacity(self) -> int:
-        """Number of frames that can be buffered by the controller's Rx FIFO."""
         dotnet_result = self._dotnet_instance.RxFifoCapacity
         return _wrap(dotnet_result)
 
     @rx_fifo_capacity.setter
     def rx_fifo_capacity(self, value: int):
-        """Number of frames that can be buffered by the controller's Rx FIFO."""
         unwrapped = _unwrap(None, value)
         self._dotnet_instance.RxFifoCapacity = next(unwrapped)
 
 
 class IXnetCanConfiguration(_DotNetBase):
-    """Represents the configuration for an XNET interface for CAN communication."""
-
     def __init__(self, *args):
         """Create a new instance."""
         args_len = len(args)
@@ -367,104 +341,86 @@ class IXnetCanConfiguration(_DotNetBase):
 
     @property
     def connect_to_real_network(self) -> bool:
-        """Value indicating whether to connect to the real network."""
         dotnet_result = self._dotnet_instance.ConnectToRealNetwork
         return _wrap(dotnet_result)
 
     @connect_to_real_network.setter
     def connect_to_real_network(self, value: bool):
-        """Value indicating whether to connect to the real network."""
         unwrapped = _unwrap(None, value)
         self._dotnet_instance.ConnectToRealNetwork = next(unwrapped)
 
     @property
     def use_database(self) -> bool:
-        """Value indicating whether to use a database."""
         dotnet_result = self._dotnet_instance.UseDatabase
         return _wrap(dotnet_result)
 
     @use_database.setter
     def use_database(self, value: bool):
-        """Value indicating whether to use a database."""
         unwrapped = _unwrap(None, value)
         self._dotnet_instance.UseDatabase = next(unwrapped)
 
     @property
     def database_alias(self) -> str:
-        """Database alias value."""
         dotnet_result = self._dotnet_instance.DatabaseAlias
         return _wrap(dotnet_result)
 
     @database_alias.setter
     def database_alias(self, value: str):
-        """Database alias value."""
         unwrapped = _unwrap(None, value)
         self._dotnet_instance.DatabaseAlias = next(unwrapped)
 
     @property
     def xnet_interface(self) -> str:
-        """Interface port of XNET device to be used."""
         dotnet_result = self._dotnet_instance.XnetInterface
         return _wrap(dotnet_result)
 
     @xnet_interface.setter
     def xnet_interface(self, value: str):
-        """Interface port of XNET device to be used."""
         unwrapped = _unwrap(None, value)
         self._dotnet_instance.XnetInterface = next(unwrapped)
 
     @property
     def baud_rate(self) -> int:
-        """Baudrate for CAN message transfer."""
         dotnet_result = self._dotnet_instance.BaudRate
         return _wrap(dotnet_result)
 
     @baud_rate.setter
     def baud_rate(self, value: int):
-        """Baudrate for CAN message transfer."""
         unwrapped = _unwrap(None, value)
         self._dotnet_instance.BaudRate = next(unwrapped)
 
     @property
     def brs_baud_rate(self) -> int:
-        """Baudrate for CAN-BRS message transfer."""
         dotnet_result = self._dotnet_instance.BrsBaudRate
         return _wrap(dotnet_result)
 
     @brs_baud_rate.setter
     def brs_baud_rate(self, value: int):
-        """Baudrate for CAN-BRS message transfer."""
         unwrapped = _unwrap(None, value)
         self._dotnet_instance.BrsBaudRate = next(unwrapped)
 
     @property
     def transceiver_type(self) -> int:
-        """The transceiver type value."""
         dotnet_result = self._dotnet_instance.TransceiverType
         return _wrap(dotnet_result)
 
     @transceiver_type.setter
     def transceiver_type(self, value: int):
-        """The transceiver type value."""
         unwrapped = _unwrap(None, value)
         self._dotnet_instance.TransceiverType = next(unwrapped)
 
     @property
     def can_fd_iso_mode(self) -> int:
-        """Can fd iso mode value."""
         dotnet_result = self._dotnet_instance.CanFdIsoMode
         return _wrap(dotnet_result)
 
     @can_fd_iso_mode.setter
     def can_fd_iso_mode(self, value: int):
-        """Can fd iso mode value."""
         unwrapped = _unwrap(None, value)
         self._dotnet_instance.CanFdIsoMode = next(unwrapped)
 
 
 class IXnetEthernetConfiguration(_DotNetBase):
-    """Represents the configuration for an XNET interface for Ethernet communication"""
-
     def __init__(self, *args):
         """Create a new instance."""
         args_len = len(args)
@@ -475,32 +431,26 @@ class IXnetEthernetConfiguration(_DotNetBase):
 
     @property
     def connect_to_real_network(self) -> bool:
-        """Value indicating whether to connect to the real network."""
         dotnet_result = self._dotnet_instance.ConnectToRealNetwork
         return _wrap(dotnet_result)
 
     @connect_to_real_network.setter
     def connect_to_real_network(self, value: bool):
-        """Value indicating whether to connect to the real network."""
         unwrapped = _unwrap(None, value)
         self._dotnet_instance.ConnectToRealNetwork = next(unwrapped)
 
     @property
     def xnet_interface(self) -> str:
-        """Interface port of XNET device to be used."""
         dotnet_result = self._dotnet_instance.XnetInterface
         return _wrap(dotnet_result)
 
     @xnet_interface.setter
     def xnet_interface(self, value: str):
-        """Interface port of XNET device to be used."""
         unwrapped = _unwrap(None, value)
         self._dotnet_instance.XnetInterface = next(unwrapped)
 
 
 class IXnetLinConfiguration(_DotNetBase):
-    """Represents the configuration for an XNET interface for LIN communication."""
-
     def __init__(self, *args):
         """Create a new instance."""
         args_len = len(args)
@@ -511,73 +461,61 @@ class IXnetLinConfiguration(_DotNetBase):
 
     @property
     def connect_to_real_network(self) -> bool:
-        """Value indicating whether to connect to the real network."""
         dotnet_result = self._dotnet_instance.ConnectToRealNetwork
         return _wrap(dotnet_result)
 
     @connect_to_real_network.setter
     def connect_to_real_network(self, value: bool):
-        """Value indicating whether to connect to the real network."""
         unwrapped = _unwrap(None, value)
         self._dotnet_instance.ConnectToRealNetwork = next(unwrapped)
 
     @property
     def use_database(self) -> bool:
-        """Value indicating whether to use a database."""
         dotnet_result = self._dotnet_instance.UseDatabase
         return _wrap(dotnet_result)
 
     @use_database.setter
     def use_database(self, value: bool):
-        """Value indicating whether to use a database."""
         unwrapped = _unwrap(None, value)
         self._dotnet_instance.UseDatabase = next(unwrapped)
 
     @property
     def database_alias(self) -> str:
-        """Database alias value."""
         dotnet_result = self._dotnet_instance.DatabaseAlias
         return _wrap(dotnet_result)
 
     @database_alias.setter
     def database_alias(self, value: str):
-        """Database alias value."""
         unwrapped = _unwrap(None, value)
         self._dotnet_instance.DatabaseAlias = next(unwrapped)
 
     @property
     def xnet_interface(self) -> str:
-        """Interface port of XNET device to be used."""
         dotnet_result = self._dotnet_instance.XnetInterface
         return _wrap(dotnet_result)
 
     @xnet_interface.setter
     def xnet_interface(self, value: str):
-        """Interface port of XNET device to be used."""
         unwrapped = _unwrap(None, value)
         self._dotnet_instance.XnetInterface = next(unwrapped)
 
     @property
     def virtual_tx_frame_i_ds(self) -> Iterable[int]:
-        """Virtual transmission frame IDs."""
         dotnet_result = self._dotnet_instance.VirtualTxFrameIDs
         return _wrap(dotnet_result)
 
     @virtual_tx_frame_i_ds.setter
     def virtual_tx_frame_i_ds(self, value: Iterable[int]):
-        """Virtual transmission frame IDs."""
         unwrapped = _unwrap(None, value)
         self._dotnet_instance.VirtualTxFrameIDs = next(unwrapped)
 
     @property
     def baud_rate(self) -> int:
-        """Baudrate for LIN communication."""
         dotnet_result = self._dotnet_instance.BaudRate
         return _wrap(dotnet_result)
 
     @baud_rate.setter
     def baud_rate(self, value: int):
-        """Baudrate for LIN communication."""
         unwrapped = _unwrap(None, value)
         self._dotnet_instance.BaudRate = next(unwrapped)
 
