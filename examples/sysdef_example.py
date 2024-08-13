@@ -4,7 +4,7 @@ from __future__ import annotations
 import os
 import sys
 
-sys.path.append(r"C:\Program Files\National Instruments\VeriStand 2023")
+sys.path.append(r"C:\Program Files\National Instruments\VeriStand 2024")
 from niveristand import VeriStandSdfError  # noqa: E402
 from niveristand.systemdefinitionapi import (  # noqa: E402
     AcquisitionMode,
