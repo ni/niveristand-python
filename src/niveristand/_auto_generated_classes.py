@@ -552,6 +552,16 @@ class ErrorCode(_DotNetEnum):
         return ErrorCode(dotnet_result, "UNMAPPED_ALIAS")
 
     @_staticproperty
+    def CANNOT_ADD_VS_MODEL_IN_SYSTEM_EXPLORER() -> ErrorCode:
+        dotnet_result = getattr(NationalInstruments.VeriStand.ErrorCode, "CannotAddVsModelInSystemExplorer")
+        return ErrorCode(dotnet_result, "CANNOT_ADD_VS_MODEL_IN_SYSTEM_EXPLORER")
+
+    @_staticproperty
+    def CANNOT_ADD_NI_VS_ECU_NW_IN_SYSTEM_EXPLORER() -> ErrorCode:
+        dotnet_result = getattr(NationalInstruments.VeriStand.ErrorCode, "CannotAddNiVsEcuNwInSystemExplorer")
+        return ErrorCode(dotnet_result, "CANNOT_ADD_NI_VS_ECU_NW_IN_SYSTEM_EXPLORER")
+
+    @_staticproperty
     def EMPTY_NODE_NAME() -> ErrorCode:
         dotnet_result = getattr(NationalInstruments.VeriStand.ErrorCode, "EmptyNodeName")
         return ErrorCode(dotnet_result, "EMPTY_NODE_NAME")

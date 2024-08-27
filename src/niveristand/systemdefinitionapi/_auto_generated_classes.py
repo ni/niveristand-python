@@ -492,6 +492,34 @@ class BaseNode(_DotNetBase):
         return f"(name={self.name}, node_path={self.node_path})"
 
 
+class CANIOMode(_DotNetEnum):
+    """I/O Mode used by the interface when transmitting a CAN frame."""
+
+    def __init__(self, *args):
+        """Create a new instance."""
+        args_len = len(args)
+        if args_len in [1,2] and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.CANIOMode:
+            self._dotnet_instance = args[0]
+            self._py_field_name = args[1] if args_len == 2 else ""
+        else:
+            raise ValueError("No instance constructor for CANIOMode")
+
+    @_staticproperty
+    def STANDARD() -> CANIOMode:
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.CANIOMode, "Standard")
+        return CANIOMode(dotnet_result, "STANDARD")
+
+    @_staticproperty
+    def FD() -> CANIOMode:
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.CANIOMode, "FD")
+        return CANIOMode(dotnet_result, "FD")
+
+    @_staticproperty
+    def FDBRS() -> CANIOMode:
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.CANIOMode, "FDBRS")
+        return CANIOMode(dotnet_result, "FDBRS")
+
+
 class CANTransceiverType(_DotNetEnum):
     """The transceiver type of an NI-XNET CAN port."""
 
@@ -676,6 +704,34 @@ class ChannelNames(_DotNetEnum):
     def SYSTEM_DEFINITION() -> ChannelNames:
         dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.ChannelNames, "SystemDefinition")
         return ChannelNames(dotnet_result, "SYSTEM_DEFINITION")
+
+
+class CommunicationProtocol(_DotNetEnum):
+    """Protocol used by the virtual ECU Network Cluster to communicate with the real ECU network."""
+
+    def __init__(self, *args):
+        """Create a new instance."""
+        args_len = len(args)
+        if args_len in [1,2] and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.CommunicationProtocol:
+            self._dotnet_instance = args[0]
+            self._py_field_name = args[1] if args_len == 2 else ""
+        else:
+            raise ValueError("No instance constructor for CommunicationProtocol")
+
+    @_staticproperty
+    def CAN() -> CommunicationProtocol:
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.CommunicationProtocol, "CAN")
+        return CommunicationProtocol(dotnet_result, "CAN")
+
+    @_staticproperty
+    def LIN() -> CommunicationProtocol:
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.CommunicationProtocol, "LIN")
+        return CommunicationProtocol(dotnet_result, "LIN")
+
+    @_staticproperty
+    def ETHERNET() -> CommunicationProtocol:
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.CommunicationProtocol, "Ethernet")
+        return CommunicationProtocol(dotnet_result, "ETHERNET")
 
 
 class ConditionStepComparison(_DotNetEnum):
@@ -3447,6 +3503,90 @@ class GlobalSequenceCommand(_DotNetEnum):
         return GlobalSequenceCommand(dotnet_result, "STOP_GROUP")
 
 
+class ICANConfiguration(_DotNetBase):
+    """Represents the configuration for CAN communication."""
+
+    def __init__(self, *args):
+        """Create a new instance."""
+        args_len = len(args)
+        if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.ICANConfiguration:
+            self._dotnet_instance = args[0]
+        else:
+            raise ValueError("No instance constructor for ICANConfiguration")
+
+    @property
+    def io_mode(self) -> CANIOMode:
+        """Gets or sets the <see cref="T:NationalInstruments.VeriStand.SystemDefinitionAPI.CANIOMode" />."""
+        dotnet_result = self._dotnet_instance.IOMode
+        return _wrap(dotnet_result)
+
+    @io_mode.setter
+    def io_mode(self, value: CANIOMode):
+        """Gets or sets the <see cref="T:NationalInstruments.VeriStand.SystemDefinitionAPI.CANIOMode" />."""
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.IOMode = next(unwrapped)
+
+    @property
+    def xnet_interface(self) -> str:
+        """Gets or sets the XNET Interface to be used to connect to the real network."""
+        dotnet_result = self._dotnet_instance.XNETInterface
+        return _wrap(dotnet_result)
+
+    @xnet_interface.setter
+    def xnet_interface(self, value: str):
+        """Gets or sets the XNET Interface to be used to connect to the real network."""
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.XNETInterface = next(unwrapped)
+
+    @property
+    def baud_rate(self) -> int:
+        """Gets or sets the CAN baud rate."""
+        dotnet_result = self._dotnet_instance.BaudRate
+        return _wrap(dotnet_result)
+
+    @baud_rate.setter
+    def baud_rate(self, value: int):
+        """Gets or sets the CAN baud rate."""
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.BaudRate = next(unwrapped)
+
+    @property
+    def brs_baud_rate(self) -> int:
+        """Gets or sets the CAN-BRS baud rate."""
+        dotnet_result = self._dotnet_instance.BRSBaudRate
+        return _wrap(dotnet_result)
+
+    @brs_baud_rate.setter
+    def brs_baud_rate(self, value: int):
+        """Gets or sets the CAN-BRS baud rate."""
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.BRSBaudRate = next(unwrapped)
+
+    @property
+    def transceiver_type(self) -> CANTransceiverType:
+        """Gets or sets the <see cref="T:NationalInstruments.VeriStand.SystemDefinitionAPI.CANTransceiverType" />."""
+        dotnet_result = self._dotnet_instance.TransceiverType
+        return _wrap(dotnet_result)
+
+    @transceiver_type.setter
+    def transceiver_type(self, value: CANTransceiverType):
+        """Gets or sets the <see cref="T:NationalInstruments.VeriStand.SystemDefinitionAPI.CANTransceiverType" />."""
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.TransceiverType = next(unwrapped)
+
+    @property
+    def fdiso_mode(self) -> FDISOMode:
+        """Gets or sets the CAN <see cref="T:NationalInstruments.VeriStand.SystemDefinitionAPI.FDISOMode" />."""
+        dotnet_result = self._dotnet_instance.FDISOMode
+        return _wrap(dotnet_result)
+
+    @fdiso_mode.setter
+    def fdiso_mode(self, value: FDISOMode):
+        """Gets or sets the CAN <see cref="T:NationalInstruments.VeriStand.SystemDefinitionAPI.FDISOMode" />."""
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.FDISOMode = next(unwrapped)
+
+
 class IChannel(_DotNetBase):
     """An interface defining system definition channel behavior"""
 
@@ -3528,6 +3668,225 @@ class IChannel(_DotNetBase):
     def get_value_table(self, *args):
         unwrapped = _unwrap(None, *args)
         dotnet_result = self._dotnet_instance.GetValueTable(*unwrapped)
+        return _wrap(dotnet_result)
+
+
+class IECUNetworkClusterConfiguration(_DotNetBase):
+    """Interface for an ECU network cluster configuration."""
+
+    def __init__(self, *args):
+        """Create a new instance."""
+        args_len = len(args)
+        if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.IECUNetworkClusterConfiguration:
+            self._dotnet_instance = args[0]
+        else:
+            raise ValueError("No instance constructor for IECUNetworkClusterConfiguration")
+
+    @property
+    def cluster_name(self) -> str:
+        """Gets or sets the name of the ECU Network Cluster."""
+        dotnet_result = self._dotnet_instance.ClusterName
+        return _wrap(dotnet_result)
+
+    @cluster_name.setter
+    def cluster_name(self, value: str):
+        """Gets or sets the name of the ECU Network Cluster."""
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.ClusterName = next(unwrapped)
+
+    @property
+    def time_step(self) -> float:
+        """Gets or sets the time interval between two successive network steps where frames are exchanged between real and virtual ECUs."""
+        dotnet_result = self._dotnet_instance.TimeStep
+        return _wrap(dotnet_result)
+
+    @time_step.setter
+    def time_step(self, value: float):
+        """Gets or sets the time interval between two successive network steps where frames are exchanged between real and virtual ECUs."""
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.TimeStep = next(unwrapped)
+
+    @property
+    def protocol(self) -> CommunicationProtocol:
+        """Gets or sets the <see cref="T:NationalInstruments.VeriStand.SystemDefinitionAPI.CommunicationProtocol" /> used by the ECU network cluster."""
+        dotnet_result = self._dotnet_instance.Protocol
+        return _wrap(dotnet_result)
+
+    @protocol.setter
+    def protocol(self, value: CommunicationProtocol):
+        """Gets or sets the <see cref="T:NationalInstruments.VeriStand.SystemDefinitionAPI.CommunicationProtocol" /> used by the ECU network cluster."""
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.Protocol = next(unwrapped)
+
+    @property
+    def virtual_ecu_toolchain(self) -> VirtualECUToolchain:
+        """Gets or sets the name of the <see cref="T:NationalInstruments.VeriStand.SystemDefinitionAPI.VirtualECUToolchain" /> that was used to build virtual ECUs."""
+        dotnet_result = self._dotnet_instance.VirtualECUToolchain
+        return _wrap(dotnet_result)
+
+    @virtual_ecu_toolchain.setter
+    def virtual_ecu_toolchain(self, value: VirtualECUToolchain):
+        """Gets or sets the name of the <see cref="T:NationalInstruments.VeriStand.SystemDefinitionAPI.VirtualECUToolchain" /> that was used to build virtual ECUs."""
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.VirtualECUToolchain = next(unwrapped)
+
+    @property
+    def can_configuration(self) -> ICANConfiguration:
+        """Represents the protocol specific configuration when <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.ECUNetworkCluster.Protocol" /> is set to CAN."""
+        dotnet_result = self._dotnet_instance.CANConfiguration
+        return _wrap(dotnet_result)
+
+    @property
+    def lin_configuration(self) -> ILINConfiguration:
+        """Represents the protocol specific configuration when <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.ECUNetworkCluster.Protocol" /> is set to LIN."""
+        dotnet_result = self._dotnet_instance.LINConfiguration
+        return _wrap(dotnet_result)
+
+    @property
+    def ethernet_configuration(self) -> IEthernetConfiguration:
+        """Represents the protocol specific configuration when <see cref="P:NationalInstruments.VeriStand.SystemDefinitionAPI.ECUNetworkCluster.Protocol" /> is set to Ethernet."""
+        dotnet_result = self._dotnet_instance.EthernetConfiguration
+        return _wrap(dotnet_result)
+
+    @overload
+    def add_virtual_ecu(self, virtual_ecu_name: str):
+        ...
+
+    def add_virtual_ecu(self, *args):
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.AddVirtualECU(*unwrapped)
+        return _wrap(dotnet_result)
+
+    @overload
+    def remove_virtual_ecu(self, virtual_ecu_name: str):
+        ...
+
+    def remove_virtual_ecu(self, *args):
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.RemoveVirtualECU(*unwrapped)
+        return _wrap(dotnet_result)
+
+    @overload
+    def get_virtual_ec_us(self) -> Sequence[str]:
+        ...
+
+    def get_virtual_ec_us(self, *args):
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetVirtualECUs(*unwrapped)
+        return _wrap(dotnet_result)
+
+
+class IEthernetConfiguration(_DotNetBase):
+    """Represents the configuration for Ethernet communication."""
+
+    def __init__(self, *args):
+        """Create a new instance."""
+        args_len = len(args)
+        if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.IEthernetConfiguration:
+            self._dotnet_instance = args[0]
+        else:
+            raise ValueError("No instance constructor for IEthernetConfiguration")
+
+    @property
+    def xnet_interface(self) -> str:
+        """Gets or sets the XNET Interface to be used to connect to the real network."""
+        dotnet_result = self._dotnet_instance.XNETInterface
+        return _wrap(dotnet_result)
+
+    @xnet_interface.setter
+    def xnet_interface(self, value: str):
+        """Gets or sets the XNET Interface to be used to connect to the real network."""
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.XNETInterface = next(unwrapped)
+
+    @overload
+    def add_virtual_ecumac_address(self, virtual_ecumac_address: str):
+        ...
+
+    def add_virtual_ecumac_address(self, *args):
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.AddVirtualECUMACAddress(*unwrapped)
+        return _wrap(dotnet_result)
+
+    @overload
+    def remove_virtual_ecumac_address(self, virtual_ecumac_address: str):
+        ...
+
+    def remove_virtual_ecumac_address(self, *args):
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.RemoveVirtualECUMACAddress(*unwrapped)
+        return _wrap(dotnet_result)
+
+    @overload
+    def get_virtual_ecumac_addresses(self) -> Sequence[str]:
+        ...
+
+    def get_virtual_ecumac_addresses(self, *args):
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetVirtualECUMACAddresses(*unwrapped)
+        return _wrap(dotnet_result)
+
+
+class ILINConfiguration(_DotNetBase):
+    """Represents the configuration for LIN communication."""
+
+    def __init__(self, *args):
+        """Create a new instance."""
+        args_len = len(args)
+        if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.ILINConfiguration:
+            self._dotnet_instance = args[0]
+        else:
+            raise ValueError("No instance constructor for ILINConfiguration")
+
+    @property
+    def xnet_interface(self) -> str:
+        """Gets or sets the XNET Interface to be used to connect to the real network."""
+        dotnet_result = self._dotnet_instance.XNETInterface
+        return _wrap(dotnet_result)
+
+    @xnet_interface.setter
+    def xnet_interface(self, value: str):
+        """Gets or sets the XNET Interface to be used to connect to the real network."""
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.XNETInterface = next(unwrapped)
+
+    @property
+    def baud_rate(self) -> int:
+        """Gets or sets the LIN baud rate."""
+        dotnet_result = self._dotnet_instance.BaudRate
+        return _wrap(dotnet_result)
+
+    @baud_rate.setter
+    def baud_rate(self, value: int):
+        """Gets or sets the LIN baud rate."""
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.BaudRate = next(unwrapped)
+
+    @overload
+    def add_virtual_tx_frame_id(self, virtual_tx_frame_id: int):
+        ...
+
+    def add_virtual_tx_frame_id(self, *args):
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.AddVirtualTxFrameID(*unwrapped)
+        return _wrap(dotnet_result)
+
+    @overload
+    def remove_virtual_tx_frame_id(self, virtual_tx_frame_id: int):
+        ...
+
+    def remove_virtual_tx_frame_id(self, *args):
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.RemoveVirtualTxFrameID(*unwrapped)
+        return _wrap(dotnet_result)
+
+    @overload
+    def get_virtual_tx_frame_i_ds(self) -> Sequence[int]:
+        ...
+
+    def get_virtual_tx_frame_i_ds(self, *args):
+        unwrapped = _unwrap(None, *args)
+        dotnet_result = self._dotnet_instance.GetVirtualTxFrameIDs(*unwrapped)
         return _wrap(dotnet_result)
 
 
@@ -6299,6 +6658,24 @@ class ValueSource(_DotNetBase):
     def constant(self) -> float:
         dotnet_result = self._dotnet_instance.Constant
         return _wrap(dotnet_result)
+
+
+class VirtualECUToolchain(_DotNetEnum):
+    """Toolchain that was used to build virtual ECUs."""
+
+    def __init__(self, *args):
+        """Create a new instance."""
+        args_len = len(args)
+        if args_len in [1,2] and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.VirtualECUToolchain:
+            self._dotnet_instance = args[0]
+            self._py_field_name = args[1] if args_len == 2 else ""
+        else:
+            raise ValueError("No instance constructor for VirtualECUToolchain")
+
+    @_staticproperty
+    def SILVER() -> VirtualECUToolchain:
+        dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.VirtualECUToolchain, "Silver")
+        return VirtualECUToolchain(dotnet_result, "SILVER")
 
 
 class Waveform(BaseNode):
@@ -17741,7 +18118,7 @@ class DAQPulseMeasurement(DAQCounterInput):
         return _wrap(dotnet_result)
 
 
-class ECUNetworkCluster(Model):
+class ECUNetworkCluster(Model, IECUNetworkClusterConfiguration):
     """Represents an ECU network cluster as a specialized type of <see cref="T:NationalInstruments.VeriStand.SystemDefinitionAPI.Model" />. Use the ECU network cluster to configure the communication between
             <see cref="T:NationalInstruments.VeriStand.SystemDefinitionAPI.VirtualECU" /> and an XNET device."""
 

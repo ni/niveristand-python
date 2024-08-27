@@ -176,6 +176,10 @@ class ModelParamType(_DotNetBase):
     def __init__(self, idx: int, id: str, name: str, type: int, dims: Sequence[int], value: Sequence[float]):
         ...
 
+    @overload
+    def __init__(self, idx: int, id: str, name: str, type: int, dims: Sequence[int], value: Sequence[float], enum_value_table: Sequence[Tuple[str,int]], enum_class_name: str):
+        ...
+
     def __init__(self, *args):
         """Create a new instance."""
         args_len = len(args)
@@ -206,6 +210,11 @@ class ModelParamType(_DotNetBase):
         return _wrap(dotnet_result)
 
     @property
+    def enum_class_name(self) -> str:
+        dotnet_result = self._dotnet_instance.EnumClassName
+        return _wrap(dotnet_result)
+
+    @property
     def dims(self) -> Sequence[int]:
         """RESERVED FOR INTERNAL USE."""
         dotnet_result = self._dotnet_instance.Dims
@@ -217,6 +226,18 @@ class ModelParamType(_DotNetBase):
         dotnet_result = self._dotnet_instance.Value
         return _wrap(dotnet_result)
 
+    @property
+    def enum_value_table(self) -> Sequence[Tuple[str,int]]:
+        """EnumValueTable for parameters"""
+        dotnet_result = self._dotnet_instance.EnumValueTable
+        return _wrap(dotnet_result)
+
+    @enum_value_table.setter
+    def enum_value_table(self, value: Sequence[Tuple[str,int]]):
+        """EnumValueTable for parameters"""
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.EnumValueTable = next(unwrapped)
+
     def _custom_repr(self) -> str:
         return f"(name={self.name})"
 
@@ -226,6 +247,10 @@ class ModelPortType(_DotNetBase):
 
     @overload
     def __init__(self, name: str, index: int, task_id: int, is_input: bool, dims: Sequence[int]):
+        ...
+
+    @overload
+    def __init__(self, name: str, index: int, task_id: int, is_input: bool, dims: Sequence[int], enum_value_table: Sequence[Tuple[str,int]], enum_class_name: str):
         ...
 
     def __init__(self, *args):
@@ -258,10 +283,27 @@ class ModelPortType(_DotNetBase):
         return _wrap(dotnet_result)
 
     @property
+    def enum_class_name(self) -> str:
+        dotnet_result = self._dotnet_instance.EnumClassName
+        return _wrap(dotnet_result)
+
+    @property
     def dims(self) -> Sequence[int]:
         """RESERVED FOR INTERNAL USE."""
         dotnet_result = self._dotnet_instance.Dims
         return _wrap(dotnet_result)
+
+    @property
+    def enum_value_table(self) -> Sequence[Tuple[str,int]]:
+        """EnumValueTable for inports and outports"""
+        dotnet_result = self._dotnet_instance.EnumValueTable
+        return _wrap(dotnet_result)
+
+    @enum_value_table.setter
+    def enum_value_table(self, value: Sequence[Tuple[str,int]]):
+        """EnumValueTable for inports and outports"""
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.EnumValueTable = next(unwrapped)
 
     def _custom_repr(self) -> str:
         return f"(name={self.name})"
@@ -272,6 +314,10 @@ class ModelSignalType(_DotNetBase):
 
     @overload
     def __init__(self, idx: int, id: str, name: str, block_name: str, port_number: int, datatype: int, dims: Sequence[int]):
+        ...
+
+    @overload
+    def __init__(self, idx: int, id: str, name: str, block_name: str, port_number: int, datatype: int, dims: Sequence[int], enum_value_table: Sequence[Tuple[str,int]], enum_class_name: str):
         ...
 
     def __init__(self, *args):
@@ -314,13 +360,71 @@ class ModelSignalType(_DotNetBase):
         return _wrap(dotnet_result)
 
     @property
+    def enum_class_name(self) -> str:
+        dotnet_result = self._dotnet_instance.EnumClassName
+        return _wrap(dotnet_result)
+
+    @property
     def dims(self) -> Sequence[int]:
         """RESERVED FOR INTERNAL USE."""
         dotnet_result = self._dotnet_instance.Dims
         return _wrap(dotnet_result)
 
+    @property
+    def enum_value_table(self) -> Sequence[Tuple[str,int]]:
+        """EnumValueTable for signals"""
+        dotnet_result = self._dotnet_instance.EnumValueTable
+        return _wrap(dotnet_result)
+
+    @enum_value_table.setter
+    def enum_value_table(self, value: Sequence[Tuple[str,int]]):
+        """EnumValueTable for signals"""
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.EnumValueTable = next(unwrapped)
+
     def _custom_repr(self) -> str:
         return f"(name={self.name})"
+
+
+class VsModelEnumTypeDefinitionItems(_DotNetBase):
+    """VsModelEnumTypeDefinitionItems type"""
+
+    @overload
+    def __init__(self):
+        ...
+
+    def __init__(self, *args):
+        """Create a new instance."""
+        args_len = len(args)
+        if args_len == 1 and type(args[0]) == NationalInstruments.VeriStand.SystemDefinitionAPI.ModelSupport.VsModelEnumTypeDefinitionItems:
+            self._dotnet_instance = args[0]
+        else:
+            unwrapped = _unwrap(None, *args)
+            self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.ModelSupport.VsModelEnumTypeDefinitionItems(*unwrapped)
+
+    @property
+    def enum_values(self) -> Sequence[int]:
+        """Enum Values for the enum"""
+        dotnet_result = self._dotnet_instance.EnumValues
+        return _wrap(dotnet_result)
+
+    @enum_values.setter
+    def enum_values(self, value: Sequence[int]):
+        """Enum Values for the enum"""
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.EnumValues = next(unwrapped)
+
+    @property
+    def enum_names(self) -> Sequence[str]:
+        """Enum name for the enum"""
+        dotnet_result = self._dotnet_instance.EnumNames
+        return _wrap(dotnet_result)
+
+    @enum_names.setter
+    def enum_names(self, value: Sequence[str]):
+        """Enum name for the enum"""
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.EnumNames = next(unwrapped)
 
 
 class VsModelFeatureSet(_DotNetBase):
@@ -449,6 +553,18 @@ class VsModelItemBaseType(_DotNetBase):
         """Model item elements - has content when the item is Bus"""
         unwrapped = _unwrap(None, value)
         self._dotnet_instance.Elements = next(unwrapped)
+
+    @property
+    def enum_class_name(self) -> str:
+        """Model item EnumClassName"""
+        dotnet_result = self._dotnet_instance.EnumClassName
+        return _wrap(dotnet_result)
+
+    @enum_class_name.setter
+    def enum_class_name(self, value: str):
+        """Model item EnumClassName"""
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.EnumClassName = next(unwrapped)
 
     @overload
     def is_valid(self) -> bool:
@@ -600,6 +716,18 @@ class VsModelJsonFileDescriptor(_DotNetBase):
         """Signals list"""
         unwrapped = _unwrap(None, value)
         self._dotnet_instance.Signals = next(unwrapped)
+
+    @property
+    def enum_type_definitions(self) -> System.Collections.Generic.IReadOnlyDictionary[System.String,NationalInstruments.VeriStand.SystemDefinitionAPI.ModelSupport.VsModelEnumTypeDefinitionItems]:
+        """EnumTypeDefinitions dictionary"""
+        dotnet_result = self._dotnet_instance.EnumTypeDefinitions
+        return _wrap(dotnet_result)
+
+    @enum_type_definitions.setter
+    def enum_type_definitions(self, value: System.Collections.Generic.IReadOnlyDictionary[System.String,NationalInstruments.VeriStand.SystemDefinitionAPI.ModelSupport.VsModelEnumTypeDefinitionItems]):
+        """EnumTypeDefinitions dictionary"""
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.EnumTypeDefinitions = next(unwrapped)
 
 
 class VsModelJsonFileDescriptorUtilities(_DotNetBase):
@@ -824,7 +952,7 @@ class VsModelParameter(VsModelItemType):
         self._dotnet_instance.DefaultValue = next(unwrapped)
 
 
-class VsModelSignal(VsModelItemBaseType):
+class VsModelSignal(VsModelItemType):
     """Signal type"""
 
     @overload
@@ -959,6 +1087,18 @@ class VsModelDescriptorExtended(VsModelJsonFileDescriptor, IModelDescriptor):
         else:
             unwrapped = _unwrap(None, *args)
             self._dotnet_instance = NationalInstruments.VeriStand.SystemDefinitionAPI.ModelSupport.VsModelDescriptorExtended(*unwrapped)
+
+    @property
+    def enum_value_table_by_enum_class_name(self) -> dict[str, Sequence[Tuple[str, int]]]:
+        """EnumValueTable by enum class name of the model"""
+        dotnet_result = self._dotnet_instance.EnumValueTableByEnumClassName
+        return _wrap(dotnet_result)
+
+    @enum_value_table_by_enum_class_name.setter
+    def enum_value_table_by_enum_class_name(self, value: dict[str, Sequence[Tuple[str, int]]]):
+        """EnumValueTable by enum class name of the model"""
+        unwrapped = _unwrap(None, value)
+        self._dotnet_instance.EnumValueTableByEnumClassName = next(unwrapped)
 
     @staticmethod
     @overload
