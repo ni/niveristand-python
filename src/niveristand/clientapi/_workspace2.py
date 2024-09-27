@@ -87,6 +87,26 @@ class _Workspace2(_DotNetClassWrapperBase):
             )
         return value
 
+    def get_multiple_channel_values(self, names):
+        """
+        Gets the values of multiple scalar channels running on the target. To get the values of vector channels, use
+        the GetChannelVectorValues method.
+
+        Args:
+            names (List[str]): The names of the channels. You must enter the full path to each channel as specified in
+            the system definition file.
+
+        Returns:
+            values (List[float]): The values of the specified channels.
+        """
+        err, values = self._dot_net_instance.GetMultipleChannelValues(names, [])
+        err = _Error(err)
+        if err.is_error:
+            raise errors.VeristandError(
+                _errormessages.csharp_call_failed % (err.error_code, err.resolved_error_message)
+            )
+        return list(values)
+
     def set_channel_vector_values(self, channel, new_values):
         """
         Sets the vector values of a channel on the target.
@@ -119,6 +139,25 @@ class _Workspace2(_DotNetClassWrapperBase):
 
         """
         err = self._dot_net_instance.SetSingleChannelValue(name, new_val)
+        err = _Error(err)
+        if err.is_error:
+            raise errors.VeristandError(
+                _errormessages.csharp_call_failed % (err.error_code, err.resolved_error_message)
+            )
+
+    def set_multiple_channel_values(self, names, values):
+        """
+        Sets the values of multiple channels on the target.
+
+        Args:
+            names (List[str]): The names of the channels. You must enter the full path to each channel as specified in
+             the system definition file.
+            values (List[float]): The values to set.
+
+        Returns:
+            None:
+        """
+        err = self._dot_net_instance.SetMultipleChannelValues(names, values)
         err = _Error(err)
         if err.is_error:
             raise errors.VeristandError(
