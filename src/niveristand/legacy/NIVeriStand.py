@@ -374,7 +374,7 @@ class Workspace2(Workspace):
     def ConnectToSystem(self, systemdefinition_file, deploy, timeout, calibration_file="", filtered_targets=None):
         """Connects the VeriStand Gateway to one or more targets running on the System Definition file you specify."""
         if filtered_targets is None:
-           filtered_targets = []
+            filtered_targets = []
         options = DeployOptions()
         options.DeploySystemDefinition = System.Boolean(deploy)
         options.Timeout = timeout
