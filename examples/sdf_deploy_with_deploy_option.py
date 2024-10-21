@@ -17,7 +17,7 @@ def sdf_deploy_with_deploy_option():
         os.path.expanduser("~public"),
         "Documents",
         "National Instruments",
-        "NI VeriStand 2021",
+        "NI VeriStand 2024",
         "Examples",
         "Stimulus Profile",
         "Engine Demo",
