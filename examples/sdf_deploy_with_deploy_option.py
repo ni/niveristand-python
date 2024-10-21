@@ -28,7 +28,7 @@ def sdf_deploy_with_deploy_option():
         # Example: Deploys the system definition with deploy option.
         # calibration_file: path of calibration file
         # filtered_targets: list of strings (target)
-        calibration_file = ""
+        calibration_file = os.path.join("C:\\Users\\Administrator\\Downloads", "Engine Demo.nivscf")
         filtered_targets = None
         workspace.ConnectToSystem(engine_demo_path, True, 120000, calibration_file, filtered_targets)
         print("Test Success")

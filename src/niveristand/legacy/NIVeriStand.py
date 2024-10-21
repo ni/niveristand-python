@@ -28,7 +28,7 @@ from NationalInstruments.VeriStand.ClientAPI import PlayStateEnum  # noqa
 _internal.dummy()
 warnings.warn(
     "NIVeriStand.py module is deprecated. "
-    "Ashu 123 Use only if required functionality is not yet present in niveristand.clientapi",
+    "Ashu Use only if required functionality is not yet present in niveristand.clientapi",
     DeprecationWarning,
     stacklevel=2,
 )
@@ -378,11 +378,7 @@ class Workspace2(Workspace):
         options = DeployOptions()
         options.DeploySystemDefinition = System.Boolean(deploy)
         options.Timeout = timeout
-        if hasattr(options, 'CalibrationFilePath'):
-            options.CalibrationFilePath = calibration_file
-        else:
-            raise AttributeError("DeployOptions object does not have a 'CalibrationFilePath' attribute")
-        # options.CalibrationFilePath = calibration_file
+        options.CalibrationFilePath = calibration_file
         options.FilteredTargets = filtered_targets
 
         _RaiseException_(self.iwks.ConnectToSystem(systemdefinition_file, options))
@@ -393,7 +389,7 @@ class Workspace2(Workspace):
         options = DeployOptions()
         options.DeploySystemDefinition = System.Boolean(deploy)
         options.Timeout = timeout
-        options.CalibratonFilePath = calibration_file
+        options.CalibrationFilePath = calibration_file
 
         _RaiseException_(self.iwks.ReconnectToSystem(System.String(target), options))
 
