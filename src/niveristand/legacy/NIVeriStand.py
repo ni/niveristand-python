@@ -371,13 +371,17 @@ class Workspace2(Workspace):
             "targets": tuple(targets),
         }
 
-    def ConnectToSystem(self, systemdefinition_file, deploy, timeout):
+    def ConnectToSystem(self, systemdefinition_file, deploy, timeout, calibration_file="", filtered_targets=None):
         """Connects the VeriStand Gateway to one or more targets running on the System Definition file you specify."""
-        _RaiseException_(
-            self.iwks.ConnectToSystem(
-                systemdefinition_file, System.Boolean(bool(deploy)), System.UInt32(timeout)
-            )
-        )
+        if filtered_targets is None:
+            filtered_targets = []
+        options = DeployOptions()
+        options.DeploySystemDefinition = System.Boolean(deploy)
+        options.Timeout = timeout
+        options.CalibratonFilePath = calibration_file
+        options.FilteredTargets = filtered_targets
+
+        _RaiseException_(self.iwks.ConnectToSystem(systemdefinition_file, options))
 
     def ReconnectToSystem(self, target, deploy, calibration_file, timeout):
         """Reconnects the VeriStand Gateway to a target within the system definition file used by the Gateway.\
