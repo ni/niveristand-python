@@ -378,7 +378,7 @@ class Workspace2(Workspace):
         options = DeployOptions()
         options.DeploySystemDefinition = System.Boolean(deploy)
         options.Timeout = timeout
-        options.CalibratonFilePath = calibration_file
+        options.CalibrationFilePath = calibration_file
         options.FilteredTargets = filtered_targets
 
         _RaiseException_(self.iwks.ConnectToSystem(systemdefinition_file, options))
@@ -389,7 +389,7 @@ class Workspace2(Workspace):
         options = DeployOptions()
         options.DeploySystemDefinition = System.Boolean(deploy)
         options.Timeout = timeout
-        options.CalibratonFilePath = calibration_file
+        options.CalibrationFilePath = calibration_file
 
         _RaiseException_(self.iwks.ReconnectToSystem(System.String(target), options))
 
