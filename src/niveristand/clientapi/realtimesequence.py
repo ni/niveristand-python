@@ -30,6 +30,8 @@ class RealTimeSequence:
         top_level_func: the function to transform.
         rtseq_pkg(:class:`RealTimeSequencePackage`): the containing package in case you want to add this sequence to a
                                                     library.
+        target: The name of the target on which to deploy or run the real-time sequence. 
+         If None, the default target is used.
 
     Raises:
         :class:`niveristand.errors.TranslateError`: if translation fails.

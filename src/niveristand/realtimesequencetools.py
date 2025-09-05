@@ -9,6 +9,8 @@ def run_py_as_rtseq(toplevelfunc, rtseq_params={}, target=None):
         toplevelfunc: the Python function to run.
         rtseq_params (Dict[str, niveristand.clientapi._datatypes.rtprimitives.DoubleValue]):  the parameters to be
          passed to the RT sequence.
+        target: The name of the target on which to deploy or run the real-time sequence. 
+         If None, the default target is used.
 
     Returns:
         Union[float, None]:
