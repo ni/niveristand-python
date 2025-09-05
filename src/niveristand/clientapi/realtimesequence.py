@@ -30,6 +30,8 @@ class RealTimeSequence:
         top_level_func: the function to transform.
         rtseq_pkg(:class:`RealTimeSequencePackage`): the containing package in case you want to add this sequence to a
                                                     library.
+        target: The name of the target on which to deploy or run the real-time sequence. 
+         If None, the default target is used.
 
     Raises:
         :class:`niveristand.errors.TranslateError`: if translation fails.
@@ -37,12 +39,13 @@ class RealTimeSequence:
 
     """
 
-    def __init__(self, top_level_func, rtseq_pkg=None):
+    def __init__(self, top_level_func, rtseq_pkg=None, target=None):
         self._top_level_func = top_level_func
         self._path = ""
         self._rtseq = None
         self._rtseqpkg = rtseq_pkg
         self._ref = list()
+        self.target = target
         # finally, initialize the transform
         self._transform()
 
@@ -69,7 +72,7 @@ class RealTimeSequence:
             raise VeristandError(_errormessages.invalid_path_for_sequence)
 
         name = self._build_file_name()
-        return rtseqapi.run_rt_sequence(name, rtseq_params)
+        return rtseqapi.run_rt_sequence(name, rtseq_params, target = self.target)
 
     def save(self, path=None):
         """

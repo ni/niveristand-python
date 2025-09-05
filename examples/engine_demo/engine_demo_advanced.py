@@ -77,7 +77,7 @@ def run_engine_demo_advanced():
 
 
 def run_deterministic():
-    return run_py_as_rtseq(run_engine_demo_advanced)
+    return run_py_as_rtseq(run_engine_demo_advanced, target=None)
 
 
 def run_non_deterministic():

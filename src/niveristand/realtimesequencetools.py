@@ -1,7 +1,7 @@
 from niveristand.errors import RunError, VeristandNotImplementedError
 
 
-def run_py_as_rtseq(toplevelfunc, rtseq_params={}):
+def run_py_as_rtseq(toplevelfunc, rtseq_params={}, target=None):
     """
     Runs a Python function as an RT sequence in the VeriStand Engine.
 
@@ -9,6 +9,8 @@ def run_py_as_rtseq(toplevelfunc, rtseq_params={}):
         toplevelfunc: the Python function to run.
         rtseq_params (Dict[str, niveristand.clientapi._datatypes.rtprimitives.DoubleValue]):  the parameters to be
          passed to the RT sequence.
+        target: The name of the target on which to deploy or run the real-time sequence. 
+         If None, the default target is used.
 
     Returns:
         Union[float, None]:
@@ -22,7 +24,7 @@ def run_py_as_rtseq(toplevelfunc, rtseq_params={}):
     """
     from niveristand.clientapi import RealTimeSequence
 
-    seq = RealTimeSequence(toplevelfunc)
+    seq = RealTimeSequence(toplevelfunc, target = target)
     result_state = seq.run(rtseq_params)
     result_state.wait_for_result()
     result_state.session.undeploy()

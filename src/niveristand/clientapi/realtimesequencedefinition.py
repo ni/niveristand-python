@@ -137,7 +137,7 @@ def _get_channel_node_info(name, node_info_list):
     raise errors.VeristandError(_errormessages.channel_not_found % name)
 
 
-def run_rt_sequence(rt_sequence_path, rtseq_params):
+def run_rt_sequence(rt_sequence_path, rtseq_params, target = None):
     rtseq_params = [
         _SequenceParameterAssignmentInfoFactory.create(
             _py_param_name_to_rtseq_param_name(key), rtseq_params[key]
@@ -145,7 +145,7 @@ def run_rt_sequence(rt_sequence_path, rtseq_params):
         for key in rtseq_params
     ]
     seq_call_info = _SequenceCallInfoFactory.create(
-        rt_sequence_path, None, rtseq_params, False, 100000
+        rt_sequence_path, target, rtseq_params, False, 100000
     )
     session = _DefaultGatewayFactory.get_new_stimulus_profile_session(
         rt_sequence_path, [seq_call_info], ""
