@@ -137,7 +137,7 @@ def _get_channel_node_info(name, node_info_list):
     raise errors.VeristandError(_errormessages.channel_not_found % name)
 
 
-def run_rt_sequence(rt_sequence_path, rtseq_params, target = None):
+def run_rt_sequence(rt_sequence_path, rtseq_params, target=None):
     rtseq_params = [
         _SequenceParameterAssignmentInfoFactory.create(
             _py_param_name_to_rtseq_param_name(key), rtseq_params[key]
