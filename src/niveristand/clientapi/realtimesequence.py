@@ -72,7 +72,7 @@ class RealTimeSequence:
             raise VeristandError(_errormessages.invalid_path_for_sequence)
 
         name = self._build_file_name()
-        return rtseqapi.run_rt_sequence(name, rtseq_params, target = self.target)
+        return rtseqapi.run_rt_sequence(name, rtseq_params, target=self.target)
 
     def save(self, path=None):
         """

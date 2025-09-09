@@ -24,7 +24,7 @@ def run_py_as_rtseq(toplevelfunc, rtseq_params={}, target=None):
     """
     from niveristand.clientapi import RealTimeSequence
 
-    seq = RealTimeSequence(toplevelfunc, target = target)
+    seq = RealTimeSequence(toplevelfunc, target=target)
     result_state = seq.run(rtseq_params)
     result_state.wait_for_result()
     result_state.session.undeploy()
