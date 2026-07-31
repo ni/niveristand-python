@@ -13,7 +13,7 @@ Requirements
 **niveristand** requires the following to be installed:
 
 * VeriStand 2021 or later
-* CPython 3.8 to 3.13 (the standard Python, available on python.org and elsewhere)
+* CPython >=3.8, <=3.13 (the standard Python, available on python.org and elsewhere)
 
 .. _installation_section:
 
