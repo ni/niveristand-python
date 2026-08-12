@@ -13,7 +13,7 @@ def custom_generate_error(node, resources):
         error_code = eval(utils.generic_ast_node_transform(node.args[0], resources))
     except NameError:
         raise TranslateError(_errormessages.invalid_error_code_for_generate_error)
-    message = node.args[1].s
+    message = node.args[1].value
     action = ErrorAction[node.args[2].attr]
     realtimesequencedefinition.add_generate_error(
         resources.get_current_block(), error_code, message, action.value
