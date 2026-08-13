@@ -59,7 +59,7 @@ def _decorator_to_arg(node, resources):
         by_value_str = utils.get_variable_name_from_node(node.args[2])
         by_value_str = getattr(_decorators.NivsParam, by_value_str.split(".")[-1], by_value_str)
         by_value = BooleanValue(by_value_str).value
-    elif "NameConstant" in dir(ast) and utils.is_node_ast_nameconstant(node.args[2]):
+    elif "Constant" in dir(ast) and utils.is_node_ast_nameconstant(node.args[2]):
         by_value = utils.get_value_from_nameconstant_node(node.args[2])
 
     if arg_name is None or def_value is None or by_value is None:
