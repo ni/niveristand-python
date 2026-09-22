@@ -1,4 +1,7 @@
 """Tests the generated python code."""
+
+import datetime
+
 import pytest
 from niveristand.systemdefinitionapi import (  # noqa: I100, E402
     AlarmingStepFunction,
@@ -65,7 +68,7 @@ def test_instance_property_setter_sets_the_value():
 def test_static_method_returns_expected_value():
     "Runs the test described in the title."
     # value is a bit weird because this method actually starts at 1/1/1904 UTC
-    assert 600527304999000000 == Utilities.double_to_date_time(99.9).Ticks
+    assert datetime.datetime(1903, 12, 31, 18, 1, 39, 900000) == Utilities.double_to_date_time(99.9)
 
 
 def test_instance_method_returns_expected_value():
