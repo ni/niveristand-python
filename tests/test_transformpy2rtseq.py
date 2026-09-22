@@ -1,5 +1,5 @@
-from niveristand import errors
-from niveristand.clientapi import RealTimeSequence
+from niveristand.realtimesequenceapi import errors
+from niveristand.realtimesequenceapi.clientapi import RealTimeSequence
 import pytest
 import testutilities.testfunctions as testfuncs
 

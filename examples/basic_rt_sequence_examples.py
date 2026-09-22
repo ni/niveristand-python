@@ -1,5 +1,5 @@
-from niveristand import nivs_rt_sequence, NivsParam, realtimesequencetools
-from niveristand.clientapi import (
+from niveristand import nivs_rt_sequence, NivsParam
+from niveristand.realtimesequenceapi.clientapi import (
     BooleanValue,
     ChannelReference,
     DoubleValue,
@@ -8,8 +8,8 @@ from niveristand.clientapi import (
     I32Value,
     I64Value,
 )
-from niveristand.errors import RunError
-from niveristand.library import (
+from niveristand.realtimesequenceapi.errors import RunError
+from niveristand.realtimesequenceapi.library import (
     arraysize,
     generate_error,
     iteration,
@@ -21,7 +21,7 @@ from niveristand.library import (
     tickcountus,
     wait,
 )
-from niveristand.library.waveforms import (
+from niveristand.realtimesequenceapi.library.waveforms import (
     ramp,
     sawtooth_wave,
     sine_wave,
@@ -29,6 +29,7 @@ from niveristand.library.waveforms import (
     triangle_wave,
     uniform_white_noise_wave,
 )
+from niveristand.realtimesequenceapi import realtimesequencetools
 
 
 @NivsParam("x", DoubleValue(0), NivsParam.BY_VALUE)

@@ -1,7 +1,7 @@
 import sys
 from niveristand import nivs_rt_sequence
-from niveristand.clientapi import RealTimeSequence
-from niveristand.library import multitask, task
+from niveristand.realtimesequenceapi.clientapi import RealTimeSequence
+from niveristand.realtimesequenceapi.library import multitask, task
 import pytest
 from testutilities import validation
 

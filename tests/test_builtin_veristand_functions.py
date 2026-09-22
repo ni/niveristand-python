@@ -1,18 +1,18 @@
 import inspect
 import sys
 from niveristand import nivs_rt_sequence
-from niveristand import realtimesequencetools
-from niveristand.clientapi import (
+from niveristand.realtimesequenceapi import realtimesequencetools
+from niveristand.realtimesequenceapi.clientapi import (
     BooleanValue,
     ChannelReference,
     DoubleValue,
     DoubleValueArray,
     I64Value,
 )
-from niveristand.clientapi import ErrorAction
-from niveristand.clientapi import RealTimeSequence
-from niveristand.errors import RunFailedError, VeristandError
-from niveristand.library.primitives import (
+from niveristand.realtimesequenceapi.clientapi import ErrorAction
+from niveristand.realtimesequenceapi.clientapi import RealTimeSequence
+from niveristand.realtimesequenceapi.errors import RunFailedError, VeristandError
+from niveristand.realtimesequenceapi.library.primitives import (
     abstime,
     arraysize,
     clearfault,

@@ -1,17 +1,17 @@
 import sys
 from niveristand import nivs_rt_sequence
-from niveristand import realtimesequencetools
-from niveristand.clientapi import DoubleValue, I32Value
-from niveristand.clientapi import ErrorAction, RealTimeSequence
-from niveristand.errors import (
+from niveristand.realtimesequenceapi import realtimesequencetools
+from niveristand.realtimesequenceapi.clientapi import DoubleValue, I32Value
+from niveristand.realtimesequenceapi.clientapi import ErrorAction, RealTimeSequence
+from niveristand.realtimesequenceapi.errors import (
     RunAbortedError,
     RunError,
     RunFailedError,
     SequenceError,
     TranslateError,
 )
-from niveristand.library import multitask, nivs_yield, task
-from niveristand.library.primitives import generate_error
+from niveristand.realtimesequenceapi.library import multitask, nivs_yield, task
+from niveristand.realtimesequenceapi.library.primitives import generate_error
 import pytest
 from testutilities import rtseqrunner, validation
 
