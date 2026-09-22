@@ -31,10 +31,10 @@ def test_binariesfound():
 
 
 def test_getinstalledbinariespath():
-    from niveristand._internal import _get_install_path
+    from niveristand._internal import _latest_windows_install
 
     try:
-        bindir = _get_install_path()
+        bindir = _latest_windows_install()
         assert bindir is not None
     except (IOError, WindowsError):
         pass
