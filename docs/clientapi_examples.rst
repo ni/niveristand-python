@@ -11,7 +11,7 @@ is running before using these examples.
 Deploying a System Definition
 =============================
 
-Create a :any:`niveristand.clientapi.Factory`, obtain a workspace interface, and
+Create a :class:`~niveristand.clientapi._auto_generated_classes.Factory`, obtain a workspace interface, and
 connect the workspace to a system definition. Disconnect the system in a
 ``finally`` block so it is undeployed if an operation fails.
 

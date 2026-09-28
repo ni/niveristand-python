@@ -42,10 +42,20 @@ To install **niveristand**, use one of the following methods:
 
 Usage
 =====
+
+By default, **niveristand** uses the newest installed VeriStand version. To use a
+specific installed version, set the ``NIVERISTAND_VERSION`` environment variable
+to its four-digit release year, for example, ``2027``. The selected version must
+be installed. Remove or unset the environment variable to return to automatic
+selection of the newest installed version.
+
 Refer to the `System Definition Examples section <https://niveristand-python.readthedocs.io/en/latest/sysdef_examples.html>`_ for detailed examples of how to script a system definition file.
 
 Refer to the `Basic Real-time Sequence Examples section <https://niveristand-python.readthedocs.io/en/latest/basic_rt_sequence_examples.html>`_
 for detailed information on how to write a Python real-time sequence.
+
+Refer to the `Client API Examples section <https://niveristand-python.readthedocs.io/en/latest/clientapi_examples.html>`_
+for detailed examples of how to deploy systems, access channels, monitor events, log data, and run stimulus profiles.
 
 .. _support_section:
 

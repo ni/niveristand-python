@@ -192,7 +192,8 @@ if _asm_search_path:
             return System.Reflection.Assembly.LoadFrom(dll_path)
         return None
 
-    System.AppDomain.CurrentDomain.AssemblyResolve += _resolve_assembly
+    _resolve_assembly_handler = System.ResolveEventHandler(_resolve_assembly)
+    System.AppDomain.CurrentDomain.add_AssemblyResolve(_resolve_assembly_handler)
 
 
 def _load_assemblies():
