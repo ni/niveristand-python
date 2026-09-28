@@ -617,7 +617,7 @@ class VsModelItemBaseType(_DotNetBase):
         """Verifies if the input/output/parameter is valid based on VeriStand's current support
 
         Returns:
-            bool: True if all conditions are met, false othervise
+            bool: True if all conditions are met, false otherwise
         """
         unwrapped = _unwrap(None)
         try:
@@ -936,7 +936,7 @@ class VsModelMetadata(_DotNetBase):
 
     @property
     def release_description(self) -> str:
-        """Simulink release descripton"""
+        """Simulink release description"""
         try:
             dotnet_result = self._dotnet_instance.ReleaseDescription
         except System.Exception as e:
@@ -945,7 +945,7 @@ class VsModelMetadata(_DotNetBase):
 
     @release_description.setter
     def release_description(self, value: str):
-        """Simulink release descripton"""
+        """Simulink release description"""
         unwrapped = _unwrap(None, value)
         try:
             self._dotnet_instance.ReleaseDescription = next(unwrapped)

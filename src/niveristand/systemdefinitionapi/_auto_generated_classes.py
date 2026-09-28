@@ -43,7 +43,7 @@ class AcquisitionMode(_DotNetEnum):
 
     @_staticproperty
     def CONTINUOUS() -> AcquisitionMode:
-        """Tha task acquires samples continuously until the task is stopped."""
+        """The task acquires samples continuously until the task is stopped."""
         dotnet_result = getattr(NationalInstruments.VeriStand.SystemDefinitionAPI.AcquisitionMode, "Continuous")
         return AcquisitionMode(dotnet_result, "CONTINUOUS")
 
@@ -6925,7 +6925,7 @@ class Stimulus(Section):
             _wrap_exception(e)
 
     @property
-    def auxilliary_buffer_size(self) -> int:
+    def auxiliary_buffer_size(self) -> int:
         """Gets or sets the size of the auxiliary buffer. The auxiliary buffer stores multi-point playback data in comma-separated value (CSV), files. Set this buffer size to a number that matches or exceeds the number of data points in the CSV file you want to play back. The auxiliary buffer size is shared by all active stimulus generators, so all generators can have up to Auxiliary Buffer Size total in data points for playback."""
         try:
             dotnet_result = self._dotnet_instance.AuxilliaryBufferSize
@@ -6933,14 +6933,24 @@ class Stimulus(Section):
             _wrap_exception(e)
         return _wrap(dotnet_result)
 
-    @auxilliary_buffer_size.setter
-    def auxilliary_buffer_size(self, value: int):
+    @auxiliary_buffer_size.setter
+    def auxiliary_buffer_size(self, value: int):
         """Gets or sets the size of the auxiliary buffer. The auxiliary buffer stores multi-point playback data in comma-separated value (CSV), files. Set this buffer size to a number that matches or exceeds the number of data points in the CSV file you want to play back. The auxiliary buffer size is shared by all active stimulus generators, so all generators can have up to Auxiliary Buffer Size total in data points for playback."""
         unwrapped = _unwrap(None, value)
         try:
             self._dotnet_instance.AuxilliaryBufferSize = next(unwrapped)
         except System.Exception as e:
             _wrap_exception(e)
+
+    @property
+    @deprecated('Use auxiliary_buffer_size.')
+    def auxilliary_buffer_size(self) -> int:
+        return self.auxiliary_buffer_size
+
+    @auxilliary_buffer_size.setter
+    @deprecated('Use auxiliary_buffer_size.')
+    def auxilliary_buffer_size(self, value: int) -> None:
+        self.auxiliary_buffer_size = value
 
     @property
     def analysis_buffer_size(self) -> int:
@@ -14659,7 +14669,7 @@ class DAQDigitalInput(DAQChannel, IChannel):
         _init_dotnet_wrapper(self, *args)
 
     @property
-    def inital_value(self) -> bool:
+    def initial_value(self) -> bool:
         """Gets or sets the initial value of the digital input channel."""
         try:
             dotnet_result = self._dotnet_instance.InitalValue
@@ -14667,14 +14677,24 @@ class DAQDigitalInput(DAQChannel, IChannel):
             _wrap_exception(e)
         return _wrap(dotnet_result)
 
-    @inital_value.setter
-    def inital_value(self, value: bool):
+    @initial_value.setter
+    def initial_value(self, value: bool):
         """Gets or sets the initial value of the digital input channel."""
         unwrapped = _unwrap(None, value)
         try:
             self._dotnet_instance.InitalValue = next(unwrapped)
         except System.Exception as e:
             _wrap_exception(e)
+
+    @property
+    @deprecated('Use initial_value.')
+    def inital_value(self) -> bool:
+        return self.initial_value
+
+    @inital_value.setter
+    @deprecated('Use initial_value.')
+    def inital_value(self, value: bool) -> None:
+        self.initial_value = value
 
     @property
     def digital_line(self) -> int:
@@ -14824,7 +14844,7 @@ class DAQDigitalOutput(DAQChannel, IChannel):
         _init_dotnet_wrapper(self, *args)
 
     @property
-    def inital_value(self) -> bool:
+    def initial_value(self) -> bool:
         """Gets or sets the initial value of the digital output channel."""
         try:
             dotnet_result = self._dotnet_instance.InitalValue
@@ -14832,14 +14852,24 @@ class DAQDigitalOutput(DAQChannel, IChannel):
             _wrap_exception(e)
         return _wrap(dotnet_result)
 
-    @inital_value.setter
-    def inital_value(self, value: bool):
+    @initial_value.setter
+    def initial_value(self, value: bool):
         """Gets or sets the initial value of the digital output channel."""
         unwrapped = _unwrap(None, value)
         try:
             self._dotnet_instance.InitalValue = next(unwrapped)
         except System.Exception as e:
             _wrap_exception(e)
+
+    @property
+    @deprecated('Use initial_value.')
+    def inital_value(self) -> bool:
+        return self.initial_value
+
+    @inital_value.setter
+    @deprecated('Use initial_value.')
+    def inital_value(self, value: bool) -> None:
+        self.initial_value = value
 
     @property
     def digital_line(self) -> int:
@@ -17077,6 +17107,7 @@ class DataFileReplay(Section):
         return self.frame_ids
 
     @frame_i_ds.setter
+    @deprecated('Use frame_ids.')
     def frame_i_ds(self, value: Sequence[str]) -> None:
         self.frame_ids = value
 
@@ -17426,6 +17457,7 @@ class DataLoggingFile(Section):
         return self.frame_ids
 
     @frame_i_ds.setter
+    @deprecated('Use frame_ids.')
     def frame_i_ds(self, value: Sequence[str]) -> None:
         self.frame_ids = value
 
@@ -20043,7 +20075,7 @@ class Model(Section):
 
     @_staticproperty
     def automatic_processor_value() -> int:
-        """Automatic Simulation Model Procesor value, which assigns the processor to any available"""
+        """Automatic Simulation Model Processor value, which assigns the processor to any available"""
         try:
             dotnet_result = NationalInstruments.VeriStand.SystemDefinitionAPI.Model.AutomaticProcessorValue
         except System.Exception as e:
@@ -23599,7 +23631,7 @@ class SLSCChassis(Section):
 
     @_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.SLSCChassis.SLSCChassisIDType, False)
     class SLSCChassisIDType(_DotNetEnum):
-        """Represents an enum which contains the possibilityes used for connecting the SLSC Chassis."""
+        """Represents an enum which contains the possibilities used for connecting the SLSC Chassis."""
 
         def __init__(self, *args):
             args_len = len(args)

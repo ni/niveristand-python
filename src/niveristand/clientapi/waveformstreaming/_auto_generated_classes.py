@@ -139,7 +139,7 @@ class WaveformDataEventArgs(_DotNetBase):
 
     @property
     def seconds_since_epoch(self) -> int:
-        """Gets a value indicating the number of seconds since the epoch 01/01/1904 00:00:00.00 UTC (using the Gregorian calendar and ignoring leap seconds), interpreted as a 64-bit signed twos compliment integer, at waveform start of the waveform stream."""
+        """Gets a value indicating the number of seconds since the epoch 01/01/1904 00:00:00.00 UTC (using the Gregorian calendar and ignoring leap seconds), interpreted as a 64-bit signed twos complement integer, at waveform start of the waveform stream."""
         try:
             dotnet_result = self._dotnet_instance.SecondsSinceEpoch
         except System.Exception as e:
@@ -243,7 +243,7 @@ class WaveformDataWatcherCDB(WaveformDataWatcher):
     def __init__(self, *args):
         _init_dotnet_wrapper(self, *args)
 
-    def subscribe_waveform_data_event_handler_event(self, handler: Callable[[Any, WaveformDataCDBEventArgs], None]) -> None:
+    def subscribe_waveform_data_event_handler(self, handler: Callable[[Any, WaveformDataCDBEventArgs], None]) -> None:
         """Event to register a callback to receive notifications when waveform data arrives
 
         ``handler(sender: Any, e: WaveformDataCDBEventArgs) -> None``
@@ -255,8 +255,8 @@ class WaveformDataWatcherCDB(WaveformDataWatcher):
         shim = _subscribe_event_handler(handler, self._dotnet_instance, "WaveformDataEventHandler", System.EventHandler[NationalInstruments.VeriStand.ClientAPI.WaveformStreaming.WaveformDataCDBEventArgs])
         self._dotnet_instance.WaveformDataEventHandler += shim
 
-    def unsubscribe_waveform_data_event_handler_event(self, handler: Callable[[Any, WaveformDataCDBEventArgs], None]) -> None:
-        """Pass the same callable that was given to ``subscribe_waveform_data_event_handler_event``."""
+    def unsubscribe_waveform_data_event_handler(self, handler: Callable[[Any, WaveformDataCDBEventArgs], None]) -> None:
+        """Pass the same callable that was given to ``subscribe_waveform_data_event_handler``."""
         shim = _pop_event_handler_from_cache(handler, self._dotnet_instance, "WaveformDataEventHandler")
         if shim is not None:
             self._dotnet_instance.WaveformDataEventHandler -= shim
@@ -286,7 +286,7 @@ class WaveformDataWatcherDBL(WaveformDataWatcher):
     def __init__(self, *args):
         _init_dotnet_wrapper(self, *args)
 
-    def subscribe_waveform_data_event_handler_event(self, handler: Callable[[Any, WaveformDataDBLEventArgs], None]) -> None:
+    def subscribe_waveform_data_event_handler(self, handler: Callable[[Any, WaveformDataDBLEventArgs], None]) -> None:
         """Event to register a callback to receive notifications when waveform data arrives
 
         ``handler(sender: Any, e: WaveformDataDBLEventArgs) -> None``
@@ -298,8 +298,8 @@ class WaveformDataWatcherDBL(WaveformDataWatcher):
         shim = _subscribe_event_handler(handler, self._dotnet_instance, "WaveformDataEventHandler", System.EventHandler[NationalInstruments.VeriStand.ClientAPI.WaveformStreaming.WaveformDataDBLEventArgs])
         self._dotnet_instance.WaveformDataEventHandler += shim
 
-    def unsubscribe_waveform_data_event_handler_event(self, handler: Callable[[Any, WaveformDataDBLEventArgs], None]) -> None:
-        """Pass the same callable that was given to ``subscribe_waveform_data_event_handler_event``."""
+    def unsubscribe_waveform_data_event_handler(self, handler: Callable[[Any, WaveformDataDBLEventArgs], None]) -> None:
+        """Pass the same callable that was given to ``subscribe_waveform_data_event_handler``."""
         shim = _pop_event_handler_from_cache(handler, self._dotnet_instance, "WaveformDataEventHandler")
         if shim is not None:
             self._dotnet_instance.WaveformDataEventHandler -= shim
@@ -422,7 +422,7 @@ class WaveformStreamSpecification(_DotNetBase):
             _wrap_exception(e)
 
     @property
-    def stream_data_at_acquision_rate(self) -> bool:
+    def stream_data_at_acquisition_rate(self) -> bool:
         """Gets or sets a value indicating whether the waveform stream data is transferred at the rate at which the target is acquiring the data."""
         try:
             dotnet_result = self._dotnet_instance.StreamDataAtAcquisionRate
@@ -430,8 +430,8 @@ class WaveformStreamSpecification(_DotNetBase):
             _wrap_exception(e)
         return _wrap(dotnet_result)
 
-    @stream_data_at_acquision_rate.setter
-    def stream_data_at_acquision_rate(self, value: bool):
+    @stream_data_at_acquisition_rate.setter
+    def stream_data_at_acquisition_rate(self, value: bool):
         """Gets or sets a value indicating whether the waveform stream data is transferred at the rate at which the target is acquiring the data."""
         unwrapped = _unwrap(None, value)
         try:
@@ -441,7 +441,7 @@ class WaveformStreamSpecification(_DotNetBase):
 
     @property
     def custom_rate(self) -> float:
-        """Gets or sets a value indicating the requested rate in Hertz at which data will be streamed. The actual rates at which data is streamed may be coerced to an even divisor of the rates at which the targets in the system definition produce data. This property is ignored unless niveristand.clientapi.waveformstreaming.WaveformStreamSpecification.stream_data_at_acquision_rate is false."""
+        """Gets or sets a value indicating the requested rate in Hertz at which data will be streamed. The actual rates at which data is streamed may be coerced to an even divisor of the rates at which the targets in the system definition produce data. This property is ignored unless niveristand.clientapi.waveformstreaming.WaveformStreamSpecification.stream_data_at_acquisition_rate is false."""
         try:
             dotnet_result = self._dotnet_instance.CustomRate
         except System.Exception as e:
@@ -450,7 +450,7 @@ class WaveformStreamSpecification(_DotNetBase):
 
     @custom_rate.setter
     def custom_rate(self, value: float):
-        """Gets or sets a value indicating the requested rate in Hertz at which data will be streamed. The actual rates at which data is streamed may be coerced to an even divisor of the rates at which the targets in the system definition produce data. This property is ignored unless niveristand.clientapi.waveformstreaming.WaveformStreamSpecification.stream_data_at_acquision_rate is false."""
+        """Gets or sets a value indicating the requested rate in Hertz at which data will be streamed. The actual rates at which data is streamed may be coerced to an even divisor of the rates at which the targets in the system definition produce data. This property is ignored unless niveristand.clientapi.waveformstreaming.WaveformStreamSpecification.stream_data_at_acquisition_rate is false."""
         unwrapped = _unwrap(None, value)
         try:
             self._dotnet_instance.CustomRate = next(unwrapped)

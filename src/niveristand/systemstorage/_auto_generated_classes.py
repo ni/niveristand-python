@@ -86,7 +86,7 @@ class BaseNodeType(_DotNetBase):
 
     @property
     def dfs_enumerator(self) -> Iterable[BaseNodeType]:
-        """Return a Depth First Search enumerator. This enumerator iterates into the hiearchy of the first children it found."""
+        """Return a Depth First Search enumerator. This enumerator iterates into the hierarchy of the first children it found."""
         try:
             dotnet_result = self._dotnet_instance.DFSEnumerator
         except System.Exception as e:
@@ -590,7 +590,7 @@ class BaseNodeType(_DotNetBase):
         return _wrap(dotnet_result)
 
     def find_nodesby_guid(self, guids: Sequence[str], recurse: bool, traversal_mode: TraversalMode) -> Tuple[bool, Sequence[BaseNodeType]]:
-        """Search System Storage tree for nodes with the secified GUIDs. The current node is included in the search for DFS and BFS traversal methods and not included in searching K_UP and K_CHILDONLY. NOTE: The FindGUIDUp method includes the current node.
+        """Search System Storage tree for nodes with the specified GUIDs. The current node is included in the search for DFS and BFS traversal methods and not included in searching K_UP and K_CHILDONLY. NOTE: The FindGUIDUp method includes the current node.
 
         Args:
             guids: Input array of GUIDs to search for.
@@ -1386,7 +1386,7 @@ class BaseNodeType(_DotNetBase):
             _wrap_exception(e)
         return _wrap(dotnet_result)
 
-    def subscribe_on_node_change_event_event(self, handler: Callable[[str, int, Sequence[int]], None]) -> None:
+    def subscribe_on_node_change_event(self, handler: Callable[[str, int, Sequence[int]], None]) -> None:
         """Hook for LabVIEW to attached observer.
 
         ``handler(action: str, event_source: int, data: Sequence[int]) -> None``
@@ -1400,8 +1400,8 @@ class BaseNodeType(_DotNetBase):
         shim = _subscribe_event_handler(handler, self._dotnet_instance, "onNodeChangeEvent", NationalInstruments.VeriStand.SystemStorage.onNodeChangeDelegate)
         self._dotnet_instance.onNodeChangeEvent += shim
 
-    def unsubscribe_on_node_change_event_event(self, handler: Callable[[str, int, Sequence[int]], None]) -> None:
-        """Pass the same callable that was given to ``subscribe_on_node_change_event_event``."""
+    def unsubscribe_on_node_change_event(self, handler: Callable[[str, int, Sequence[int]], None]) -> None:
+        """Pass the same callable that was given to ``subscribe_on_node_change_event``."""
         shim = _pop_event_handler_from_cache(handler, self._dotnet_instance, "onNodeChangeEvent")
         if shim is not None:
             self._dotnet_instance.onNodeChangeEvent -= shim
@@ -2278,7 +2278,7 @@ class PropertyType(_DotNetBase):
         return _wrap(dotnet_result)
 
     def dispose(self):
-        """Dispose this object will disconnect the underlaying item from any dependency connection."""
+        """Dispose this object will disconnect the underlying item from any dependency connection."""
         unwrapped = _unwrap(None)
         try:
             dotnet_result = self._dotnet_instance.Dispose(*unwrapped)
@@ -2674,7 +2674,7 @@ class RootType(BaseNodeType):
         return _wrap(dotnet_result)
 
     def deep_copy(self) -> BaseNodeType:
-        """Create a deep copy of the node including all its children. Note that the created node will not have its dependency hook up at all untill it is added to another node."""
+        """Create a deep copy of the node including all its children. Note that the created node will not have its dependency hook up at all until it is added to another node."""
         unwrapped = _unwrap(None)
         try:
             dotnet_result = self._dotnet_instance.DeepCopy(*unwrapped)
@@ -2786,7 +2786,7 @@ class BaseCustomNodeProperty(_DotNetBase):
 
 @_register_dotnet_type(NationalInstruments.VeriStand.SystemStorage.DictionaryProperty)
 class DictionaryProperty(BaseCustomNodeProperty):
-    """Dictionary property implementation implement cloneable so we can clone property savely."""
+    """Dictionary property implementation implement cloneable so we can clone property safely."""
 
     @overload
     def __init__(self):
@@ -3533,7 +3533,7 @@ class SystemStorageWatcher(_DotNetBase):
             _wrap_exception(e)
         return _wrap(dotnet_result)
 
-    def subscribe_on_system_error_change_event_event(self, handler: Callable[[OnErrorChangeEventArgs], None]) -> None:
+    def subscribe_on_system_error_change_event(self, handler: Callable[[OnErrorChangeEventArgs], None]) -> None:
         """
         ``handler(arg: OnErrorChangeEventArgs) -> None``
 
@@ -3542,23 +3542,23 @@ class SystemStorageWatcher(_DotNetBase):
         shim = _subscribe_event_handler(handler, self._dotnet_instance, "onSystemErrorChangeEvent", NationalInstruments.VeriStand.SystemStorage.onSystemError)
         self._dotnet_instance.onSystemErrorChangeEvent += shim
 
-    def unsubscribe_on_system_error_change_event_event(self, handler: Callable[[OnErrorChangeEventArgs], None]) -> None:
-        """Pass the same callable that was given to ``subscribe_on_system_error_change_event_event``."""
+    def unsubscribe_on_system_error_change_event(self, handler: Callable[[OnErrorChangeEventArgs], None]) -> None:
+        """Pass the same callable that was given to ``subscribe_on_system_error_change_event``."""
         shim = _pop_event_handler_from_cache(handler, self._dotnet_instance, "onSystemErrorChangeEvent")
         if shim is not None:
             self._dotnet_instance.onSystemErrorChangeEvent -= shim
 
-    def subscribe_on_system_modified_event_event(self, handler: Callable[[], None]) -> None:
+    def subscribe_on_system_modified_event(self, handler: Callable[[], None]) -> None:
         shim = _subscribe_event_handler(handler, self._dotnet_instance, "onSystemModifiedEvent", NationalInstruments.VeriStand.SystemStorage.onSystemModified)
         self._dotnet_instance.onSystemModifiedEvent += shim
 
-    def unsubscribe_on_system_modified_event_event(self, handler: Callable[[], None]) -> None:
-        """Pass the same callable that was given to ``subscribe_on_system_modified_event_event``."""
+    def unsubscribe_on_system_modified_event(self, handler: Callable[[], None]) -> None:
+        """Pass the same callable that was given to ``subscribe_on_system_modified_event``."""
         shim = _pop_event_handler_from_cache(handler, self._dotnet_instance, "onSystemModifiedEvent")
         if shim is not None:
             self._dotnet_instance.onSystemModifiedEvent -= shim
 
-    def subscribe_on_system_error_count_changed_event_event(self, handler: Callable[[ErrorCountEventArgs], None]) -> None:
+    def subscribe_on_system_error_count_changed_event(self, handler: Callable[[ErrorCountEventArgs], None]) -> None:
         """
         ``handler(e: ErrorCountEventArgs) -> None``
 
@@ -3567,19 +3567,19 @@ class SystemStorageWatcher(_DotNetBase):
         shim = _subscribe_event_handler(handler, self._dotnet_instance, "onSystemErrorCountChangedEvent", NationalInstruments.VeriStand.SystemStorage.onSystemErrorCountChanged)
         self._dotnet_instance.onSystemErrorCountChangedEvent += shim
 
-    def unsubscribe_on_system_error_count_changed_event_event(self, handler: Callable[[ErrorCountEventArgs], None]) -> None:
-        """Pass the same callable that was given to ``subscribe_on_system_error_count_changed_event_event``."""
+    def unsubscribe_on_system_error_count_changed_event(self, handler: Callable[[ErrorCountEventArgs], None]) -> None:
+        """Pass the same callable that was given to ``subscribe_on_system_error_count_changed_event``."""
         shim = _pop_event_handler_from_cache(handler, self._dotnet_instance, "onSystemErrorCountChangedEvent")
         if shim is not None:
             self._dotnet_instance.onSystemErrorCountChangedEvent -= shim
 
-    def subscribe_on_system_tree_changed_event_event(self, handler: Callable[[], None]) -> None:
+    def subscribe_on_system_tree_changed_event(self, handler: Callable[[], None]) -> None:
         """Event that is raised to signify that a system modification has occurred that may affect the presentation of the system storage tree."""
         shim = _subscribe_event_handler(handler, self._dotnet_instance, "OnSystemTreeChangedEvent", NationalInstruments.VeriStand.SystemStorage.OnSystemTreeChanged)
         self._dotnet_instance.OnSystemTreeChangedEvent += shim
 
-    def unsubscribe_on_system_tree_changed_event_event(self, handler: Callable[[], None]) -> None:
-        """Pass the same callable that was given to ``subscribe_on_system_tree_changed_event_event``."""
+    def unsubscribe_on_system_tree_changed_event(self, handler: Callable[[], None]) -> None:
+        """Pass the same callable that was given to ``subscribe_on_system_tree_changed_event``."""
         shim = _pop_event_handler_from_cache(handler, self._dotnet_instance, "OnSystemTreeChangedEvent")
         if shim is not None:
             self._dotnet_instance.OnSystemTreeChangedEvent -= shim
@@ -3773,7 +3773,7 @@ class SectionType(BaseNodeType):
         return _wrap(dotnet_result)
 
     def deep_copy(self) -> BaseNodeType:
-        """Create a deep copy of the node including all its children. Note that the created node will not have its dependency hook up at all untill it is added to another node."""
+        """Create a deep copy of the node including all its children. Note that the created node will not have its dependency hook up at all until it is added to another node."""
         unwrapped = _unwrap(None)
         try:
             dotnet_result = self._dotnet_instance.DeepCopy(*unwrapped)
@@ -3917,7 +3917,7 @@ class AliasType(BaseNodeType):
 
     @overload
     def __init__(self, node_name: str, type_guid: str):
-        """Create a new alias node with a specifed name and type guid
+        """Create a new alias node with a specified name and type guid
 
         Args:
             node_name:
@@ -3986,7 +3986,7 @@ class ParameterType(BaseNodeType):
 
     @overload
     def __init__(self, node_name: str, type_guid: str):
-        """Initializes a new instance of the niveristand.systemstorage.ParameterType class with a specifed name and type guid.
+        """Initializes a new instance of the niveristand.systemstorage.ParameterType class with a specified name and type guid.
 
         Args:
             node_name: Name of node
@@ -4115,7 +4115,7 @@ class TargetType(BaseNodeType):
 
     @property
     def dfs_object_enumerator(self) -> Iterable:
-        """Return a non generic Depth First Search enumerator. This enumerator iterates into the hiearchy of the first children it found."""
+        """Return a non generic Depth First Search enumerator. This enumerator iterates into the hierarchy of the first children it found."""
         try:
             dotnet_result = self._dotnet_instance.DFSObjectEnumerator
         except System.Exception as e:
@@ -4173,7 +4173,7 @@ class TargetType(BaseNodeType):
         return _wrap(dotnet_result)
 
     def deep_copy(self) -> BaseNodeType:
-        """Create a deep copy of the node including all its children. Note that the created node will not have its dependency hook up at all untill it is added to another node."""
+        """Create a deep copy of the node including all its children. Note that the created node will not have its dependency hook up at all until it is added to another node."""
         unwrapped = _unwrap(None)
         try:
             dotnet_result = self._dotnet_instance.DeepCopy(*unwrapped)
@@ -4296,7 +4296,7 @@ class TargetSectionsType(BaseNodeType):
         return _wrap(dotnet_result)
 
     def deep_copy(self) -> BaseNodeType:
-        """Create a deep copy of the node including all its children. Note that the created node will not have its dependency hook up at all untill it is added to another node."""
+        """Create a deep copy of the node including all its children. Note that the created node will not have its dependency hook up at all until it is added to another node."""
         unwrapped = _unwrap(None)
         try:
             dotnet_result = self._dotnet_instance.DeepCopy(*unwrapped)
@@ -4368,7 +4368,7 @@ class DuplicateOp(_DotNetEnum):
 
 @_register_dotnet_type(NationalInstruments.VeriStand.SystemStorage.DictionaryElement)
 class DictionaryElement(_DotNetBase):
-    """Dictionary Element implementation implement cloneable so we can clone Dictionary Element savely."""
+    """Dictionary Element implementation implement cloneable so we can clone Dictionary Element safely."""
 
     @overload
     def __init__(self, to_copy: DictionaryElement):
@@ -4437,6 +4437,85 @@ class DictionaryElement(_DotNetBase):
         shim = _pop_event_handler_from_cache(handler, self._dotnet_instance, "PropertyChanged")
         if shim is not None:
             self._dotnet_instance.PropertyChanged -= shim
+
+
+@_register_dotnet_type(NationalInstruments.VeriStand.SystemStorage.OnErrorChangeEventArgs)
+class OnErrorChangeEventArgs(_DotNetBase):
+    """Event data that get send related to error system ."""
+
+    @overload
+    def __init__(self, action: str, node: BaseNodeType):
+        ...
+
+    def __init__(self, *args):
+        _init_dotnet_wrapper(self, *args)
+
+    @_staticproperty
+    def k_new_node_in_err_system() -> str:
+        try:
+            dotnet_result = NationalInstruments.VeriStand.SystemStorage.OnErrorChangeEventArgs.K_NEW_NODE_IN_ERR_SYSTEM
+        except System.Exception as e:
+            _wrap_exception(e)
+        return _wrap(dotnet_result)
+
+    @_staticproperty
+    def k_remove_node_from_err_system() -> str:
+        try:
+            dotnet_result = NationalInstruments.VeriStand.SystemStorage.OnErrorChangeEventArgs.K_REMOVE_NODE_FROM_ERR_SYSTEM
+        except System.Exception as e:
+            _wrap_exception(e)
+        return _wrap(dotnet_result)
+
+    @_staticproperty
+    def k_refresh_node_err_list() -> str:
+        try:
+            dotnet_result = NationalInstruments.VeriStand.SystemStorage.OnErrorChangeEventArgs.K_REFRESH_NODE_ERR_LIST
+        except System.Exception as e:
+            _wrap_exception(e)
+        return _wrap(dotnet_result)
+
+    @property
+    def m_action(self) -> str:
+        """return the action encapsulated by the event;"""
+        try:
+            dotnet_result = self._dotnet_instance.m_action
+        except System.Exception as e:
+            _wrap_exception(e)
+        return _wrap(dotnet_result)
+
+    @property
+    def m_node(self) -> BaseNodeType:
+        """return the node encapsulated by the event."""
+        try:
+            dotnet_result = self._dotnet_instance.m_node
+        except System.Exception as e:
+            _wrap_exception(e)
+        return _wrap(dotnet_result)
+
+
+@_register_dotnet_type(NationalInstruments.VeriStand.SystemStorage.ErrorCountEventArgs)
+class ErrorCountEventArgs(_DotNetBase):
+    """Event data that get send related to error system ."""
+
+    @overload
+    def __init__(self, error_count: int):
+        """Initializes a new instance of the ErrorCountEventArgs class
+
+        Args:
+            error_count: Number of errors to report
+        """
+
+    def __init__(self, *args):
+        _init_dotnet_wrapper(self, *args)
+
+    @property
+    def error_count(self) -> int:
+        """Gets the current error count"""
+        try:
+            dotnet_result = self._dotnet_instance.ErrorCount
+        except System.Exception as e:
+            _wrap_exception(e)
+        return _wrap(dotnet_result)
 
 
 @_register_dotnet_type(NationalInstruments.VeriStand.SystemStorage.WaveformType)

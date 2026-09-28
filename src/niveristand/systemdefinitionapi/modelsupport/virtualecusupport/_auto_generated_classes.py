@@ -237,7 +237,7 @@ class ECUNetworkClusterConfiguration(IECUNetworkClusterConfiguration):
             model_path: The path to the JSON file from which the configuration will be loaded.
 
         Returns:
-            return_value (bool): true if the desrialization is successful.
+            return_value (bool): true if the deserialization is successful.
             ecu_network_cluster_configuration (IECUNetworkClusterConfiguration): The deserialized ECU network cluster configuration.
         """
         unwrapped = _unwrap(None, model_path)
@@ -417,6 +417,7 @@ class LINConfiguration(ILINConfiguration):
         return self.virtual_tx_frame_ids
 
     @virtual_tx_frame_i_ds.setter
+    @deprecated('Use virtual_tx_frame_ids.')
     def virtual_tx_frame_i_ds(self, value: Sequence[int]) -> None:
         self.virtual_tx_frame_ids = value
 

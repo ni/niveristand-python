@@ -699,7 +699,7 @@ class AlarmStateWatcher(_DotNetBase):
             _wrap_exception(e)
         return _wrap(dotnet_result)
 
-    def subscribe_alarm_state_change_event_handler_event(self, handler: Callable[[Any, AlarmChangeEventArgs], None]) -> None:
+    def subscribe_alarm_state_change_event_handler(self, handler: Callable[[Any, AlarmChangeEventArgs], None]) -> None:
         """Event to register a callback to receive notifications when alarm state changes
 
         ``handler(sender: Any, e: AlarmChangeEventArgs) -> None``
@@ -711,8 +711,8 @@ class AlarmStateWatcher(_DotNetBase):
         shim = _subscribe_event_handler(handler, self._dotnet_instance, "AlarmStateChangeEventHandler", System.EventHandler[NationalInstruments.VeriStand.ClientAPI.AlarmChangeEventArgs])
         self._dotnet_instance.AlarmStateChangeEventHandler += shim
 
-    def unsubscribe_alarm_state_change_event_handler_event(self, handler: Callable[[Any, AlarmChangeEventArgs], None]) -> None:
-        """Pass the same callable that was given to ``subscribe_alarm_state_change_event_handler_event``."""
+    def unsubscribe_alarm_state_change_event_handler(self, handler: Callable[[Any, AlarmChangeEventArgs], None]) -> None:
+        """Pass the same callable that was given to ``subscribe_alarm_state_change_event_handler``."""
         shim = _pop_event_handler_from_cache(handler, self._dotnet_instance, "AlarmStateChangeEventHandler")
         if shim is not None:
             self._dotnet_instance.AlarmStateChangeEventHandler -= shim
@@ -965,7 +965,7 @@ class ChannelValueWatcher(_DotNetBase):
             _wrap_exception(e)
         return _wrap(dotnet_result)
 
-    def subscribe_channel_value_change_event_handler_event(self, handler: Callable[[Any, ChannelValueChangeEventArgs], None]) -> None:
+    def subscribe_channel_value_change_event_handler(self, handler: Callable[[Any, ChannelValueChangeEventArgs], None]) -> None:
         """Event to register a callback to receive notifications when channel values are changed
 
         ``handler(sender: Any, e: ChannelValueChangeEventArgs) -> None``
@@ -977,8 +977,8 @@ class ChannelValueWatcher(_DotNetBase):
         shim = _subscribe_event_handler(handler, self._dotnet_instance, "ChannelValueChangeEventHandler", System.EventHandler[NationalInstruments.VeriStand.ClientAPI.ChannelValueChangeEventArgs])
         self._dotnet_instance.ChannelValueChangeEventHandler += shim
 
-    def unsubscribe_channel_value_change_event_handler_event(self, handler: Callable[[Any, ChannelValueChangeEventArgs], None]) -> None:
-        """Pass the same callable that was given to ``subscribe_channel_value_change_event_handler_event``."""
+    def unsubscribe_channel_value_change_event_handler(self, handler: Callable[[Any, ChannelValueChangeEventArgs], None]) -> None:
+        """Pass the same callable that was given to ``subscribe_channel_value_change_event_handler``."""
         shim = _pop_event_handler_from_cache(handler, self._dotnet_instance, "ChannelValueChangeEventHandler")
         if shim is not None:
             self._dotnet_instance.ChannelValueChangeEventHandler -= shim
@@ -1808,7 +1808,7 @@ class IAlarmManager2(IAlarmManager):
         if shim is not None:
             self._dotnet_instance.OnAlarmTrigger2 -= shim
 
-    def subscribe_alarm_reset_event_event(self, handler: Callable[[Any, AlarmChangeEventArgs], None]) -> None:
+    def subscribe_alarm_reset_event(self, handler: Callable[[Any, AlarmChangeEventArgs], None]) -> None:
         """Callback invoked when an alarm is reset.
 
         ``handler(sender: Any, e: AlarmChangeEventArgs) -> None``
@@ -1820,8 +1820,8 @@ class IAlarmManager2(IAlarmManager):
         shim = _subscribe_event_handler(handler, self._dotnet_instance, "AlarmResetEvent", System.EventHandler[NationalInstruments.VeriStand.ClientAPI.AlarmChangeEventArgs])
         self._dotnet_instance.AlarmResetEvent += shim
 
-    def unsubscribe_alarm_reset_event_event(self, handler: Callable[[Any, AlarmChangeEventArgs], None]) -> None:
-        """Pass the same callable that was given to ``subscribe_alarm_reset_event_event``."""
+    def unsubscribe_alarm_reset_event(self, handler: Callable[[Any, AlarmChangeEventArgs], None]) -> None:
+        """Pass the same callable that was given to ``subscribe_alarm_reset_event``."""
         shim = _pop_event_handler_from_cache(handler, self._dotnet_instance, "AlarmResetEvent")
         if shim is not None:
             self._dotnet_instance.AlarmResetEvent -= shim
@@ -4145,7 +4145,7 @@ class IWorkspace2(IWorkspace):
         if shim is not None:
             self._dotnet_instance.OnGatewayErrorNotification -= shim
 
-    def subscribe_target_state_change_event_event(self, handler: Callable[[Any, TargetStateChangeEventArgs], None]) -> None:
+    def subscribe_target_state_change_event(self, handler: Callable[[Any, TargetStateChangeEventArgs], None]) -> None:
         """Event for target state change from the VeriStand Gateway.
 
         ``handler(sender: Any, e: TargetStateChangeEventArgs) -> None``
@@ -4157,8 +4157,8 @@ class IWorkspace2(IWorkspace):
         shim = _subscribe_event_handler(handler, self._dotnet_instance, "TargetStateChangeEvent", System.EventHandler[NationalInstruments.VeriStand.ClientAPI.TargetStateChangeEventArgs])
         self._dotnet_instance.TargetStateChangeEvent += shim
 
-    def unsubscribe_target_state_change_event_event(self, handler: Callable[[Any, TargetStateChangeEventArgs], None]) -> None:
-        """Pass the same callable that was given to ``subscribe_target_state_change_event_event``."""
+    def unsubscribe_target_state_change_event(self, handler: Callable[[Any, TargetStateChangeEventArgs], None]) -> None:
+        """Pass the same callable that was given to ``subscribe_target_state_change_event``."""
         shim = _pop_event_handler_from_cache(handler, self._dotnet_instance, "TargetStateChangeEvent")
         if shim is not None:
             self._dotnet_instance.TargetStateChangeEvent -= shim
@@ -4911,7 +4911,7 @@ class ParameterValueWatcher(_DotNetBase):
             _wrap_exception(e)
         return _wrap(dotnet_result)
 
-    def subscribe_parameter_value_change_event_handler_event(self, handler: Callable[[Any, ParameterValueChangeEventArgs], None]) -> None:
+    def subscribe_parameter_value_change_event_handler(self, handler: Callable[[Any, ParameterValueChangeEventArgs], None]) -> None:
         """Event to register a callback to receive notifications when model parameter values are changed
 
         ``handler(sender: Any, e: ParameterValueChangeEventArgs) -> None``
@@ -4923,8 +4923,8 @@ class ParameterValueWatcher(_DotNetBase):
         shim = _subscribe_event_handler(handler, self._dotnet_instance, "ParameterValueChangeEventHandler", System.EventHandler[NationalInstruments.VeriStand.ClientAPI.ParameterValueChangeEventArgs])
         self._dotnet_instance.ParameterValueChangeEventHandler += shim
 
-    def unsubscribe_parameter_value_change_event_handler_event(self, handler: Callable[[Any, ParameterValueChangeEventArgs], None]) -> None:
-        """Pass the same callable that was given to ``subscribe_parameter_value_change_event_handler_event``."""
+    def unsubscribe_parameter_value_change_event_handler(self, handler: Callable[[Any, ParameterValueChangeEventArgs], None]) -> None:
+        """Pass the same callable that was given to ``subscribe_parameter_value_change_event_handler``."""
         shim = _pop_event_handler_from_cache(handler, self._dotnet_instance, "ParameterValueChangeEventHandler")
         if shim is not None:
             self._dotnet_instance.ParameterValueChangeEventHandler -= shim
@@ -5085,7 +5085,7 @@ class RuntimeConfigurationState(_DotNetEnum):
 
     @_staticproperty
     def REMOVING() -> RuntimeConfigurationState:
-        """The rumtime configuration is being removed."""
+        """The runtime configuration is being removed."""
         dotnet_result = getattr(NationalInstruments.VeriStand.ClientAPI.RuntimeConfigurationState, "Removing")
         return RuntimeConfigurationState(dotnet_result, "REMOVING")
 
