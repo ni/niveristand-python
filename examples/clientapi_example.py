@@ -1,6 +1,8 @@
 """Demonstrate common NI VeriStand Client API workflows.
 
 Ensure the VeriStand Gateway is running before running this example.
+On Linux, change the relative model path in "clientapi_example.nivssdf" from
+"Model\EngineDemo_windows.vsmodel" to "Model\EngineDemo_linux.vsmodel".
 """
 
 from __future__ import annotations
@@ -19,7 +21,6 @@ from niveristand.clientapi.logging import (
     TdmsLogFile,
 )
 from niveristand.realtimesequenceapi.library import wait
-
 
 GATEWAY = "localhost"
 TARGET = "Controller"
@@ -63,6 +64,7 @@ def get_asset(filename: str) -> str:
     """Return the path to an asset for this example."""
     return os.path.join(
         os.path.realpath(os.path.dirname(__file__)),
+        "clientapi_example_assets",
         filename,
     )
 
