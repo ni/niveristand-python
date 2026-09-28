@@ -88,7 +88,7 @@ def monitor_channel(factory, workspace):
     def on_value_changed(sender, event_args):
         print(f"Channel value changed to {event_args.new_value.value[0]}")
 
-    channel_monitor.register_channel_value_montior(USER_CHANNEL, on_value_changed)
+    channel_monitor.register_channel_value_monitor(USER_CHANNEL, on_value_changed)
     try:
         value = workspace.get_single_channel_value(USER_CHANNEL)
         workspace.set_single_channel_value(USER_CHANNEL, value + 1)
@@ -96,7 +96,7 @@ def monitor_channel(factory, workspace):
         workspace.set_single_channel_value(USER_CHANNEL, value)
         time.sleep(2)
     finally:
-        channel_monitor.unregister_channel_value_montior(USER_CHANNEL, on_value_changed)
+        channel_monitor.unregister_channel_value_monitor(USER_CHANNEL, on_value_changed)
 
 
 def monitor_alarms(factory, workspace):
