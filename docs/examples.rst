@@ -9,5 +9,6 @@ Examples
    :caption: Table of Contents
 
    sysdef_examples
+   clientapi_examples
    basic_rt_sequence_examples
    engine_demo

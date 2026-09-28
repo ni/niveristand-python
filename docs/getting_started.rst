@@ -37,3 +37,5 @@ Usage
 Refer to :doc:`sysdef_examples` for detailed examples of how to script a system definition file.
 
 Refer to :doc:`basic_rt_sequence_examples` for detailed examples of how to write a Python real-time sequence.
+
+Refer to :doc:`clientapi_examples` for detailed examples of common Client API workflows.

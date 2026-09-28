@@ -177,5 +177,5 @@ autodoc_mock_imports = [
     "NationalInstruments.VeriStand.Data",
     "NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi",
     "NationalInstruments.VeriStand.RealTimeSequenceDefinitionApiUtilities",
-    "niveristand.clientapi._datatypes.rtprimitives",
+    "niveristand.realtimesequenceapi.clientapi._datatypes.rtprimitives",
 ]

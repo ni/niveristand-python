@@ -4,9 +4,9 @@
 Real-Time Sequence APIs
 =======================
 
-.. autoclass:: niveristand.clientapi.RealTimeSequence
+.. autoclass:: niveristand.realtimesequenceapi.clientapi.RealTimeSequence
    :members:
 
-.. autoclass:: niveristand.clientapi.ErrorAction
+.. autoclass:: niveristand.realtimesequenceapi.clientapi.ErrorAction
    :members:
 
