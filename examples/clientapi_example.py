@@ -29,7 +29,7 @@ EVENT_TIMEOUT_SECONDS = 10
 
 
 def main():
-    """Run the Client API examples."""
+    """The main portion of the script."""
     factory = Factory()
     workspace = factory.get_iworkspace2(GATEWAY)
 
