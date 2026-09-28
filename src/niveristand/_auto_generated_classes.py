@@ -1452,7 +1452,7 @@ class ChannelMissingFromLogFileException(VeriStandException):
         """Initializes a new instance of the niveristand.ChannelMissingFromLogFileException class.
 
         Args:
-            file_name: The name of teh log file.
+            file_name: The name of the log file.
             channel_group: The name of the channel group.
             channel: The name of the channel.
         """
