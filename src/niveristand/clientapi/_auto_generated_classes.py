@@ -1007,7 +1007,7 @@ class DeployOptions(_DotNetBase):
 
     @property
     def deploy_system_definition(self) -> bool:
-        """Gets or sets a value indicating whether or not to deploy the system definition file. If you set this property to false, the Real-Time(RT) target(s) must already be running the system definition file before calling connection-related APIs, such as ConnectToSystem"""
+        """Gets or sets a value indicating whether or not to deploy the system definition file."""
         try:
             dotnet_result = self._dotnet_instance.DeploySystemDefinition
         except System.Exception as e:
@@ -1016,7 +1016,7 @@ class DeployOptions(_DotNetBase):
 
     @deploy_system_definition.setter
     def deploy_system_definition(self, value: bool):
-        """Gets or sets a value indicating whether or not to deploy the system definition file. If you set this property to false, the Real-Time(RT) target(s) must already be running the system definition file before calling connection-related APIs, such as ConnectToSystem"""
+        """Gets or sets a value indicating whether or not to deploy the system definition file."""
         unwrapped = _unwrap(None, value)
         try:
             self._dotnet_instance.DeploySystemDefinition = next(unwrapped)
@@ -3861,7 +3861,7 @@ class IWorkspace2(IWorkspace):
 
         Args:
             systemdefintion_file_path: The path to the system definition file that is running on the target(s).
-            deploy_system_definition: Specifies whether to deploy the system definition file. If you set this parameter to false, the Real-Time(RT) target(s) must already be running the system definition file before you call this method.
+            deploy_system_definition: Specifies whether to deploy the system definition file. If you set this parameter to false, the target(s) must already be running the system definition file before you call this method.
             timeout: The maximum amount of time, in milliseconds, to wait for the connection process to complete before returning an error.
         """
 
@@ -3912,11 +3912,11 @@ class IWorkspace2(IWorkspace):
         return _wrap(dotnet_result)
 
     def async_disconnect_from_system(self, password: str, undeploy_system_definition: bool):
-        """Asynchronously disconnects the VeriStand Gateway from all connected Real-Time(RT) targets.
+        """Asynchronously disconnects the VeriStand Gateway from all connected targets.
 
         Args:
             password: The password for the current connection, if the connection is locked.
-            undeploy_system_definition: Specifies whether to undeploy the system definition file before disconnecting. If you set this parameter to false, the Real-Time(RT) target(s) continue to run the system definition after the VeriStand Gateway disconnects.
+            undeploy_system_definition: Specifies whether to undeploy the system definition file before disconnecting. If you set this parameter to false, the target(s) continue to to run the system definition after the VeriStand Gateway disconnects.
         """
         unwrapped = _unwrap(None, password, undeploy_system_definition)
         try:
@@ -4071,11 +4071,11 @@ class IWorkspace2(IWorkspace):
         return _wrap(dotnet_result)
 
     def disconnect_target(self, target: str, undeploy_system_definition: bool):
-        """Disconnects the VeriStand Gateway from a specified Real-Time(RT) target in the system.
+        """Disconnects the VeriStand Gateway from a specified target in the system.
 
         Args:
             target: Specifies the target to disconnect.
-            undeploy_system_definition: Specifies whether to undeploy the system definition file before disconnecting. If you set this parameter to false, the Real-Time(RT) target continues to run the system definition after the VeriStand Gateway disconnects.
+            undeploy_system_definition: Specifies whether to undeploy the system definition file before disconnecting. If you set this parameter to false, the target(s) continue to to run the system definition after the VeriStand Gateway disconnects.
         """
         unwrapped = _unwrap(None, target, undeploy_system_definition)
         try:
