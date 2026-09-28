@@ -5276,6 +5276,7 @@ class NodeIDUtil(_DotNetBase):
     def __init__(self, *args):
         _init_dotnet_wrapper(self, *args)
 
+    @staticmethod
     def id_to_base_node(node_id: int) -> BaseNode:
         """Converts the specified node_id to a niveristand.systemdefinitionapi.BaseNode object. This method attempts to type cast based on the GUID of the node.
 
@@ -5292,6 +5293,7 @@ class NodeIDUtil(_DotNetBase):
             _wrap_exception(e)
         return _wrap(dotnet_result)
 
+    @staticmethod
     def id_to_custom_device_base(node_id: int) -> CustomDeviceBase:
         """Converts the specified node_id to a niveristand.systemdefinitionapi.CustomDeviceBase object.
 
@@ -5308,6 +5310,7 @@ class NodeIDUtil(_DotNetBase):
             _wrap_exception(e)
         return _wrap(dotnet_result)
 
+    @staticmethod
     def id_to_custom_device_channel(node_id: int) -> CustomDeviceChannel:
         """Converts the specified node_id to a niveristand.systemdefinitionapi.CustomDeviceChannel object.
 
@@ -5324,6 +5327,7 @@ class NodeIDUtil(_DotNetBase):
             _wrap_exception(e)
         return _wrap(dotnet_result)
 
+    @staticmethod
     def id_to_custom_device_waveform(node_id: int) -> CustomDeviceWaveform:
         """Converts the specified node_id to a niveristand.systemdefinitionapi.CustomDeviceWaveform object.
 
@@ -5340,6 +5344,7 @@ class NodeIDUtil(_DotNetBase):
             _wrap_exception(e)
         return _wrap(dotnet_result)
 
+    @staticmethod
     def id_to_custom_device_section(node_id: int) -> CustomDeviceSection:
         """Converts the specified node_id to a niveristand.systemdefinitionapi.CustomDeviceSection object.
 
@@ -5356,6 +5361,7 @@ class NodeIDUtil(_DotNetBase):
             _wrap_exception(e)
         return _wrap(dotnet_result)
 
+    @staticmethod
     def id_to_custom_device(node_id: int) -> CustomDevice:
         """Converts the specified node_id to a niveristand.systemdefinitionapi.CustomDevice object.
 
@@ -5372,6 +5378,7 @@ class NodeIDUtil(_DotNetBase):
             _wrap_exception(e)
         return _wrap(dotnet_result)
 
+    @staticmethod
     def id_to_timing_sync_device(node_id: int) -> TimingAndSyncDevice:
         """Converts the specified node_id to a niveristand.systemdefinitionapi.TimingAndSyncDevice object.
 
@@ -8788,6 +8795,7 @@ class Utilities(_DotNetBase):
             _wrap_exception(e)
         return _wrap(dotnet_result)
 
+    @staticmethod
     def serialize_slsc(filepath: str, node: BaseNodeType):
         """Serializes one or multiple SLSC Chassis into a given file.
 
@@ -8802,6 +8810,7 @@ class Utilities(_DotNetBase):
             _wrap_exception(e)
         return _wrap(dotnet_result)
 
+    @staticmethod
     def deserialize_slsc(filepath: str, base_node: BaseNodeType):
         """Deserialize SLSC node from file.
 
@@ -8816,6 +8825,7 @@ class Utilities(_DotNetBase):
             _wrap_exception(e)
         return _wrap(dotnet_result)
 
+    @staticmethod
     def reset_all_identifiers(base_node_type: BaseNodeType):
         """Resets the identifiers for the specified BaseNodeType and all its descendants.
 
@@ -8829,6 +8839,7 @@ class Utilities(_DotNetBase):
             _wrap_exception(e)
         return _wrap(dotnet_result)
 
+    @staticmethod
     def date_time_to_double(date_time: datetime.datetime) -> float:
         """Converts the time stamp specified by date_time to a double-precision, floating-point number.
 
@@ -8845,6 +8856,7 @@ class Utilities(_DotNetBase):
             _wrap_exception(e)
         return _wrap(dotnet_result)
 
+    @staticmethod
     def double_to_date_time(total_seconds: float) -> datetime.datetime:
         """Converts the double-precision, floating-point number specified by total_seconds to a time stamp.
 
@@ -8861,6 +8873,7 @@ class Utilities(_DotNetBase):
             _wrap_exception(e)
         return _wrap(dotnet_result)
 
+    @staticmethod
     def version_type_to_version(versiontype: VersionType) -> Tuple[int, int, int, int]:
         """Converts versiontype to a System.Version object.
 
@@ -8877,6 +8890,7 @@ class Utilities(_DotNetBase):
             _wrap_exception(e)
         return _wrap(dotnet_result)
 
+    @staticmethod
     def get_localized_name_by_guid(guid: str) -> str:
         """Gets the localized name of the node associated with the specified guid.
 
@@ -8893,6 +8907,7 @@ class Utilities(_DotNetBase):
             _wrap_exception(e)
         return _wrap(dotnet_result)
 
+    @staticmethod
     def resolve_path_type(root_path: str, file_path: str) -> Tuple[DependentFileType, str]:
         """Compares the root_path and relative file_path to determine the niveristand.systemdefinitionapi.DependentFileType of the file_path.
 
@@ -8911,6 +8926,7 @@ class Utilities(_DotNetBase):
             _wrap_exception(e)
         return _wrap(dotnet_result)
 
+    @staticmethod
     def strip_path(path: str) -> Tuple[str, str]:
         """Strips the last component from the specified path and returns both the component and the stripped path, without the component.
 
@@ -8928,6 +8944,7 @@ class Utilities(_DotNetBase):
             _wrap_exception(e)
         return _wrap(dotnet_result)
 
+    @staticmethod
     def get_filename(path: str) -> str:
         """Gets the name of the file at the specified path.
 
@@ -8944,6 +8961,7 @@ class Utilities(_DotNetBase):
             _wrap_exception(e)
         return _wrap(dotnet_result)
 
+    @staticmethod
     def build_path(path: str, relative: str) -> str:
         """Creates a new path by appending a name (or relative path) to an existing path.
 
@@ -8961,6 +8979,7 @@ class Utilities(_DotNetBase):
             _wrap_exception(e)
         return _wrap(dotnet_result)
 
+    @staticmethod
     def rt_main_path() -> str:
         """Gets the main destination path for the system definition on the RT target.
 
@@ -8974,6 +8993,7 @@ class Utilities(_DotNetBase):
             _wrap_exception(e)
         return _wrap(dotnet_result)
 
+    @staticmethod
     def data_replay_rt_path() -> str:
         """Gets the path on the RT target to the folder where NI-XNET niveristand.systemdefinitionapi.DataFileReplay files are stored.
 
@@ -8987,6 +9007,7 @@ class Utilities(_DotNetBase):
             _wrap_exception(e)
         return _wrap(dotnet_result)
 
+    @staticmethod
     def relative_afp_ini_path() -> str:
         """Gets the relative path to the binary automatic frame processing (.ini) file on a CAN port.
 
@@ -9000,6 +9021,7 @@ class Utilities(_DotNetBase):
             _wrap_exception(e)
         return _wrap(dotnet_result)
 
+    @staticmethod
     def afp_rt_path() -> str:
         """Gets the path to the binary automatic frame processing (.ini) file on an RT target for which automatic frame processing is enabled.
 
@@ -9049,6 +9071,7 @@ class Utilities(_DotNetBase):
             _wrap_exception(e)
         return _wrap(dotnet_result)
 
+    @staticmethod
     def strip_path_if_in_llb(file_path: str) -> str:
         """Strips the last component from the specified file_path if the path is to an LLB.
 
@@ -9065,6 +9088,7 @@ class Utilities(_DotNetBase):
             _wrap_exception(e)
         return _wrap(dotnet_result)
 
+    @staticmethod
     def add_mapping(source: Channel, destination: Channel):
         """Adds a channel mapping to the system. The source channel maps to the destination channel, but the destination channel stores the mapping information. This method overwrites any pre-existing mapping information on the destination channel.
 
@@ -9079,6 +9103,7 @@ class Utilities(_DotNetBase):
             _wrap_exception(e)
         return _wrap(dotnet_result)
 
+    @staticmethod
     def clear_mapping(destination: Channel):
         """Clears the channel mapping for the specified destination channel.
 
@@ -9165,6 +9190,7 @@ class Utilities(_DotNetBase):
             _wrap_exception(e)
         return _wrap(dotnet_result)
 
+    @staticmethod
     def default_auto_map_recursion_filter(node: BaseNode) -> bool:
         """Default recursion filter for automap
 
@@ -9181,6 +9207,7 @@ class Utilities(_DotNetBase):
             _wrap_exception(e)
         return _wrap(dotnet_result)
 
+    @staticmethod
     def find_name_matches(source_channels: Iterable[IChannel], destination_channels: Iterable[IChannel], comparer: System.IEqualityComparer) -> Iterable[Tuple[IChannel,IChannel]]:
         """Find name matches between the source and destination channels. If there are multiple names that match in either collection, we will only return the first as a match. This is done to improve performance for large channel count.
 
@@ -9196,6 +9223,7 @@ class Utilities(_DotNetBase):
             _wrap_exception(e)
         return _wrap(dotnet_result)
 
+    @staticmethod
     def create_base_node_from_system_storage_node(storage_node: BaseNodeType) -> BaseNode:
         """Creates a SystemDefinitionAPI niveristand.systemdefinitionapi.BaseNode from a SystemStorage BaseNodeType.
 
@@ -12923,6 +12951,7 @@ class CustomDevice(CustomDeviceSection):
             _wrap_exception(e)
         return _wrap(dotnet_result)
 
+    @staticmethod
     def initialize_base_node_type_to_custom_device(node: BaseNodeType):
         """Initializes the BaseNodeType object to the specified custom device.
 

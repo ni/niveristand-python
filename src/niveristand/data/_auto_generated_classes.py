@@ -171,6 +171,7 @@ class DataValue(DataResource):
             _wrap_exception(e)
         return _wrap(dotnet_result)
 
+    @staticmethod
     def get_data_value_of_type(type: DataType) -> DataValue:
         """Returns a niveristand.data.DataValue object with the specified data type.
 
@@ -187,6 +188,7 @@ class DataValue(DataResource):
             _wrap_exception(e)
         return _wrap(dotnet_result)
 
+    @staticmethod
     def to_best_int(value: str) -> DataValue:
         """Returns a niveristand.data.DataValue object representing an niveristand.data.I32Value, niveristand.data.U32Value, niveristand.data.I64Value, or niveristand.data.U64Value.
 

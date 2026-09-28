@@ -1551,6 +1551,7 @@ class Factory(_DotNetBase):
             _wrap_exception(e)
         return _wrap(dotnet_result)
 
+    @staticmethod
     def can_connect_to_veristand_gateway(ip_address: str) -> bool:
         """Check to see if we can connect to the VeriStand Gateway at the given ip address.
 

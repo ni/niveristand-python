@@ -1849,6 +1849,7 @@ class DocumentType(_DotNetBase):
             _wrap_exception(e)
         return _wrap(dotnet_result)
 
+    @staticmethod
     def get_system_definition_file_path(project_file_path: str) -> str:
         """Read system definition file path from a veristand project file.
 
@@ -1886,6 +1887,7 @@ class DocumentType(_DotNetBase):
             _wrap_exception(e)
         return _wrap(dotnet_result)
 
+    @staticmethod
     def read_version_info(version_tag: str, file_path: str) -> XMLVersionInfo:
         """From the xml file read the version information in it.
 
@@ -3403,6 +3405,7 @@ class ChannelType(BaseNodeType):
             _wrap_exception(e)
         return _wrap(dotnet_result)
 
+    @staticmethod
     def get_value_table(channel: ChannelType) -> Tuple[bool, Sequence[str], Sequence[float]]:
         """Gets the value table for the channel.
 
@@ -3418,6 +3421,7 @@ class ChannelType(BaseNodeType):
             _wrap_exception(e)
         return _wrap(dotnet_result)
 
+    @staticmethod
     def set_value_table(channel: ChannelType, names: Sequence[str], values: Sequence[float]):
         """Sets the value table for the channel, which indicates names for values of the channel.
 

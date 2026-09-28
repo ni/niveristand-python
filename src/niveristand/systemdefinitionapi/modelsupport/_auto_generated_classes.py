@@ -836,6 +836,7 @@ class VsModelJsonFileDescriptorUtilities(_DotNetBase):
     def __init__(self, *args):
         _init_dotnet_wrapper(self, *args)
 
+    @staticmethod
     def get_dimensions(dimensions: Any) -> Sequence[int]:
         """Returns int dimensions for the current item. Scalar and multidimensional array have dimensions contained into an array, but the unidimensional array only has a scalar value (length of the array). We consider unidimensional array to have dimensions: [N, 1].
 
@@ -852,6 +853,7 @@ class VsModelJsonFileDescriptorUtilities(_DotNetBase):
             _wrap_exception(e)
         return _wrap(dotnet_result)
 
+    @staticmethod
     def is_scalar(dimensions: Any) -> bool:
         """Returns whether the specified dimensions belong to a scalar element
 
@@ -1319,6 +1321,7 @@ class VsModelDescriptorExtended(VsModelJsonFileDescriptor, IModelDescriptor):
         except System.Exception as e:
             _wrap_exception(e)
 
+    @staticmethod
     def deserialize_from(stream_reader: System.IO.StreamReader) -> VsModelDescriptorExtended:
         """Creates extended vsmodel descriptor from the file stream of the json descriptor
 

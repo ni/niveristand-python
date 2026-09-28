@@ -230,6 +230,7 @@ class ECUNetworkClusterConfiguration(IECUNetworkClusterConfiguration):
             _wrap_exception(e)
         return _wrap(dotnet_result)
 
+    @staticmethod
     def try_deserialize_from(model_path: str) -> Tuple[bool, IECUNetworkClusterConfiguration]:
         """Try deserializing the niveristand.systemdefinitionapi.modelsupport.virtualecusupport.ECUNetworkClusterConfiguration from a JSON file (.nivsecunw file).
 
@@ -247,6 +248,7 @@ class ECUNetworkClusterConfiguration(IECUNetworkClusterConfiguration):
             _wrap_exception(e)
         return _wrap(dotnet_result)
 
+    @staticmethod
     def deserialize_from(file_path: str) -> IECUNetworkClusterConfiguration:
         """Deserializes the niveristand.systemdefinitionapi.modelsupport.virtualecusupport.ECUNetworkClusterConfiguration from a JSON file (.nivsecunw file).
 
