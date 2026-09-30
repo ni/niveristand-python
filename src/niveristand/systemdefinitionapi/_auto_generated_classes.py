@@ -20301,6 +20301,16 @@ class Model(Section):
             _wrap_exception(e)
 
     @property
+    @deprecated('Use ni_veristand_server_port.')
+    def ni_veri_stand_server_port(self) -> int:
+        return self.ni_veristand_server_port
+
+    @ni_veri_stand_server_port.setter
+    @deprecated('Use ni_veristand_server_port.')
+    def ni_veri_stand_server_port(self, value: int) -> None:
+        self.ni_veristand_server_port = value
+
+    @property
     def dll_path(self) -> DependentFile:
         """Gets a reference to the compiled version of the model (.dll file)."""
         try:
