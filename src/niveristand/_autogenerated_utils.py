@@ -282,9 +282,39 @@ def _select_matching_overload(
 
 def _to_dotnet_datetime(arg: datetime.datetime) -> Any:
     """Convert a Python datetime.datetime to System.DateTime."""
-    return System.DateTime(
-        arg.year, arg.month, arg.day, arg.hour, arg.minute, arg.second, arg.microsecond // 1000
+    kind = (
+        System.DateTimeKind.Utc
+        if arg.utcoffset() == datetime.timedelta(0)
+        else System.DateTimeKind.Local
     )
+
+    return System.DateTime(
+        arg.year,
+        arg.month,
+        arg.day,
+        arg.hour,
+        arg.minute,
+        arg.second,
+        kind,
+    ).AddTicks(arg.microsecond * 10)
+
+
+def _from_dotnet_datetime(arg: Any) -> datetime.datetime:
+    """Convert a System.DateTime to Python datetime.datetime."""
+    result = datetime.datetime(
+        arg.Year,
+        arg.Month,
+        arg.Day,
+        arg.Hour,
+        arg.Minute,
+        arg.Second,
+        (arg.Ticks % System.TimeSpan.TicksPerSecond) // 10,
+    )
+
+    if arg.Kind == System.DateTimeKind.Utc:
+        return result.replace(tzinfo=datetime.timezone.utc)
+
+    return result
 
 
 def _to_dotnet_guid(arg: uuid.UUID) -> Any:
@@ -775,15 +805,7 @@ def _wrap(
             # System.Version uses `Build` as the third element, not the fourth
             return (arg.Major, arg.Minor, arg.Build, arg.Revision)
         elif str(type(arg)) == "<class 'System.DateTime'>":
-            return datetime.datetime(
-                arg.Year,
-                arg.Month,
-                arg.Day,
-                arg.Hour,
-                arg.Minute,
-                arg.Second,
-                arg.Millisecond * 1000,
-            )
+            return _from_dotnet_datetime(arg)
         elif str(type(arg)) == "<class 'System.Guid'>":
             return uuid.UUID(str(arg))
         return arg
