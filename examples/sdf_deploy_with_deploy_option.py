@@ -1,5 +1,5 @@
 import os
-from niveristand.realtimesequenceapi.errors import RunError
+from niveristand.errors import RunError
 from niveristand.legacy import NIVeriStand
 
 

@@ -25,9 +25,9 @@ copyright = str(datetime.datetime.now().year) + ", National Instruments"
 author = "National Instruments"
 
 # The short X.Y version
-version = "3.3"
+version = "3.2"
 # The full version, including alpha/beta/rc tags
-release = "3.3.0"
+release = "3.2.4"
 
 # -- General configuration ---------------------------------------------------
 
@@ -177,19 +177,5 @@ autodoc_mock_imports = [
     "NationalInstruments.VeriStand.Data",
     "NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi",
     "NationalInstruments.VeriStand.RealTimeSequenceDefinitionApiUtilities",
-    "Newtonsoft",
-    "Newtonsoft.Json",
-    "niveristand.realtimesequenceapi.clientapi._datatypes.rtprimitives",
+    "niveristand.clientapi._datatypes.rtprimitives",
 ]
-
-
-# Napoleon's autodoc-skip-member listener calls hasattr() while inspecting class
-# members. For generated _staticproperty enum values, such as
-# AcquisitionMode.CONTINUOUS, hasattr() evaluates the descriptor. The mocked .NET
-# value cannot construct the enum wrapper, so the docs build fails with
-# "No instance constructor for AcquisitionMode". Keep Napoleon's docstring
-# conversion enabled, but disconnect only this member-discovery listener.
-def setup(app):
-    for listener in app.events.listeners.get("autodoc-skip-member", ()):
-        if listener.handler.__module__ == "sphinx.ext.napoleon":
-            app.disconnect(listener.id)

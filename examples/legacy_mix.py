@@ -1,7 +1,7 @@
 import os
 from examples.engine_demo.engine_demo_basic import run_engine_demo
 from niveristand import run_py_as_rtseq
-from niveristand.realtimesequenceapi.errors import RunError
+from niveristand.errors import RunError
 from niveristand.legacy import NIVeriStand
 
 

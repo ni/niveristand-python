@@ -1,7 +1,6 @@
-from niveristand import nivs_rt_sequence, NivsParam
-from niveristand.realtimesequenceapi.clientapi import BooleanValue, ChannelReference, DoubleValue
-from niveristand.realtimesequenceapi.library import wait
-from niveristand.realtimesequenceapi import realtimesequencetools
+from niveristand import nivs_rt_sequence, NivsParam, realtimesequencetools
+from niveristand.clientapi import BooleanValue, ChannelReference, DoubleValue
+from niveristand.library import wait
 
 """ This module contains a basic example of how to create an RT sequence in Python.
 

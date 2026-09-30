@@ -4,21 +4,21 @@
 Errors
 ======
 
-.. autoclass:: niveristand.realtimesequenceapi.errors.VeristandError
+.. autoclass:: niveristand.errors.VeristandError
 
-.. autoclass:: niveristand.realtimesequenceapi.errors.TranslateError
+.. autoclass:: niveristand.errors.TranslateError
    :show-inheritance:
 
-.. autoclass:: niveristand.realtimesequenceapi.errors.SequenceError
+.. autoclass:: niveristand.errors.SequenceError
    :members:
 
-.. autoclass:: niveristand.realtimesequenceapi.errors.RunError
+.. autoclass:: niveristand.errors.RunError
    :show-inheritance:
    :members: get_all_errors
 
-.. autoclass:: niveristand.realtimesequenceapi.errors.RunFailedError
+.. autoclass:: niveristand.errors.RunFailedError
    :show-inheritance:
 
-.. autoclass:: niveristand.realtimesequenceapi.errors.RunAbortedError
+.. autoclass:: niveristand.errors.RunAbortedError
    :show-inheritance:
 
