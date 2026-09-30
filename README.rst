@@ -54,9 +54,6 @@ Refer to the `System Definition Examples section <https://niveristand-python.rea
 Refer to the `Basic Real-time Sequence Examples section <https://niveristand-python.readthedocs.io/en/latest/basic_rt_sequence_examples.html>`_
 for detailed information on how to write a Python real-time sequence.
 
-Refer to the `Client API Examples section <https://niveristand-python.readthedocs.io/en/latest/clientapi_examples.html>`_
-for detailed examples of how to deploy systems, access channels, monitor events, log data, and run stimulus profiles.
-
 .. _support_section:
 
 Support / Feedback
