@@ -1,7 +1,7 @@
 import os
 import shutil
 import tempfile
-from niveristand import realtimesequencetools as rtseq
+from niveristand.realtimesequenceapi import realtimesequencetools as rtseq
 import pytest
 import testutilities.testfunctions as testfuncs
 

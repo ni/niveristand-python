@@ -25,9 +25,9 @@ copyright = str(datetime.datetime.now().year) + ", National Instruments"
 author = "National Instruments"
 
 # The short X.Y version
-version = "3.2"
+version = "3.3"
 # The full version, including alpha/beta/rc tags
-release = "3.2.4"
+release = "3.3.0"
 
 # -- General configuration ---------------------------------------------------
 

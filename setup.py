@@ -16,7 +16,7 @@ def get_version(name):
     script_dir = os.path.dirname(os.path.realpath(__file__))
     script_dir = os.path.join(script_dir, name)
     if not os.path.exists(os.path.join(script_dir, 'VERSION')):
-        version = '3.2.4'
+        version = '3.3.0'
     else:
         with open(os.path.join(script_dir, "VERSION"), "r") as version_file:
             version = version_file.read().rstrip()
@@ -46,7 +46,8 @@ setup(
     install_requires=[
         "pythonnet~=3.0.1; python_version < '3.10'",
         "pythonnet~=3.1.0; python_version >= '3.10'",
-        "PyYAML"
+        "PyYAML",
+        "typing_extensions",
     ],
     tests_require=["pytest", "numpy"],
     classifiers=[

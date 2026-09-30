@@ -1,8 +1,8 @@
 import os
 import tempfile
 import clr
-from niveristand import realtimesequencetools
-from niveristand.clientapi._datatypes import DataType
+from niveristand.realtimesequenceapi import realtimesequencetools
+from niveristand.realtimesequenceapi.clientapi._datatypes import DataType
 import pytest
 import testutilities.configutilities as configutilities
 
