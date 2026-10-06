@@ -1,0 +1,175 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RealTimeSequence xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Description>This example demonstrates how to use multi-tasking in a real-time sequence.
+
+The real-time sequence simulates two engine warmup phases. The first warmup phase sets the desired RPM to 2500 and waits for 25 seconds. 
+The second warmup phase sets the desired RPM to 8000 and it also waits for 25 seconds before the engine turns off.
+
+During both warmup phases, a parallel task monitors the engine temperature so that the engine does not overheat. As soon as the engine temperature rises above a certain value, the currently-active warmup phase stops and the engine shuts down.
+
+In addition to the Engine Demo Advanced example, this real-time sequence updates the return value depending on the outcome of the warmup phases. If the engine shuts down due to an over-temperature problem, the return value is false.
+
+Practice using the 'Stop Execution on Fail' option. If this parameter is not checked, the execution of the project will not stop even if a return value does not meet the configured conditions. If this parameter is checked, the execution of the project stops immediately.</Description>
+	<FileFormatVersion Major="2012" Minor="0" Fix="0" Build="0" />
+	<Version Major="1" Minor="0" Fix="0" Build="31" />
+	<References>
+		<Reference>
+			<Path>&lt;VeriStand&gt;:\nivs.lib\Sequence Library\Standard\Timing\Wait.nivsseq</Path>
+			<Alias>Wait</Alias>
+		</Reference>
+		<Reference>
+			<Path>&lt;VeriStand&gt;:\nivs.lib\Sequence Library\Standard\Timing\WaitUntilSettled.nivsseq</Path>
+			<Alias>WaitUntilSettled</Alias>
+		</Reference>
+	</References>
+	<Variables>
+		<ReturnType>
+			<Identifier>WarmUpSucceeded</Identifier>
+			<DefaultValue xsi:type="BooleanValue">
+				<Value>false</Value>
+			</DefaultValue>
+		</ReturnType>
+		<Parameters>
+			<ParameterDeclaration>
+				<Identifier>EnginePower</Identifier>
+				<DefaultValue xsi:type="BooleanValue" Units="On/Off">
+					<Value>false</Value>
+				</DefaultValue>
+				<EvaluationMethod>ByReference</EvaluationMethod>
+				<DefaultAssignment Path="Aliases/EnginePower" />
+			</ParameterDeclaration>
+			<ParameterDeclaration>
+				<Identifier>DesiredRPM</Identifier>
+				<DefaultValue xsi:type="DoubleValue" Units="rpm">
+					<Value>0</Value>
+				</DefaultValue>
+				<EvaluationMethod>ByReference</EvaluationMethod>
+				<DefaultAssignment Path="Aliases/DesiredRPM" />
+			</ParameterDeclaration>
+			<ParameterDeclaration>
+				<Identifier>ActualRPM</Identifier>
+				<DefaultValue xsi:type="DoubleValue">
+					<Value>0</Value>
+				</DefaultValue>
+				<EvaluationMethod>ByReference</EvaluationMethod>
+				<DefaultAssignment Path="Aliases/ActualRPM" />
+			</ParameterDeclaration>
+			<ParameterDeclaration>
+				<Identifier>EngineTemperature</Identifier>
+				<DefaultValue xsi:type="DoubleValue">
+					<Value>0</Value>
+				</DefaultValue>
+				<EvaluationMethod>ByReference</EvaluationMethod>
+				<DefaultAssignment Path="Aliases/EngineTemp" />
+			</ParameterDeclaration>
+		</Parameters>
+		<LocalVariables>
+			<LocalDeclaration>
+				<Identifier>WarmUpComplete</Identifier>
+				<DefaultValue xsi:type="BooleanValue">
+					<Value>false</Value>
+				</DefaultValue>
+			</LocalDeclaration>
+		</LocalVariables>
+		<ChannelReferences />
+	</Variables>
+	<Code>
+		<Setup>
+			<Body>
+				<Statement xsi:type="Block" Name="Turn on engine">
+					<Statement xsi:type="Expression">
+						<ExpressionString>EnginePower = true</ExpressionString>
+					</Statement>
+				</Statement>
+				<Statement xsi:type="Expression">
+					<ExpressionString>WarmUpComplete = false</ExpressionString>
+				</Statement>
+			</Body>
+		</Setup>
+		<Main>
+			<Body>
+				<Statement xsi:type="Multitask">
+					<Task>
+						<Body>
+							<Statement xsi:type="Block" Name="Set engine speed to 2500 and wait">
+								<Statement xsi:type="Block" Name="Set engine speed to 2500">
+									<Statement xsi:type="Expression">
+										<ExpressionString>DesiredRPM = 2500</ExpressionString>
+									</Statement>
+								</Statement>
+								<Statement xsi:type="Block" Name="Wait until ActualRPM settles">
+									<Statement xsi:type="Expression">
+										<Description>The upper value doesn't really matter in this case, therefore it is set to an instance value.</Description>
+										<ExpressionString>WaitUntilSettled(ActualRPM, 9999999, 2450, 25, 120)</ExpressionString>
+									</Statement>
+								</Statement>
+							</Statement>
+							<Statement xsi:type="Block" Name="Set engine speed to 8000 and wait">
+								<Statement xsi:type="Block" Name="Set engine speed to 8000">
+									<Statement xsi:type="Expression">
+										<ExpressionString>DesiredRPM = 8000</ExpressionString>
+									</Statement>
+								</Statement>
+								<Statement xsi:type="Block" Name="Wait until ActualRPM settles">
+									<Statement xsi:type="Expression">
+										<ExpressionString>WaitUntilSettled(ActualRPM, 9999999, 7800, 25, 120)</ExpressionString>
+									</Statement>
+								</Statement>
+							</Statement>
+							<Statement xsi:type="Expression">
+								<ExpressionString>WarmUpComplete = true</ExpressionString>
+							</Statement>
+						</Body>
+						<TaskName>EngineWarmUp</TaskName>
+					</Task>
+					<Task>
+						<Body>
+							<Statement xsi:type="DoWhileLoop">
+								<AutoYield>true</AutoYield>
+								<Body>
+									<Statement xsi:type="IfElse">
+										<TestExpression>
+											<ExpressionString>EngineTemperature &gt; 110</ExpressionString>
+										</TestExpression>
+										<IfTrue>
+											<Statement xsi:type="StopTask">
+												<TaskName>EngineWarmUp</TaskName>
+											</Statement>
+											<Statement xsi:type="Expression">
+												<ExpressionString>WarmUpComplete = true</ExpressionString>
+											</Statement>
+											<Statement xsi:type="Expression">
+												<ExpressionString>WarmUpSucceeded = false</ExpressionString>
+											</Statement>
+										</IfTrue>
+										<IfFalse>
+											<Statement xsi:type="Expression">
+												<ExpressionString>WarmUpSucceeded = true</ExpressionString>
+											</Statement>
+										</IfFalse>
+									</Statement>
+								</Body>
+								<LoopTest>
+									<ExpressionString>WarmUpComplete == false</ExpressionString>
+								</LoopTest>
+							</Statement>
+						</Body>
+						<TaskName>MonitorEngineTemperature</TaskName>
+					</Task>
+				</Statement>
+			</Body>
+		</Main>
+		<CleanUp>
+			<Body>
+				<Statement xsi:type="Block" Name="Turn off engine">
+					<Statement xsi:type="Expression">
+						<ExpressionString>EnginePower = false</ExpressionString>
+					</Statement>
+					<Statement xsi:type="Expression">
+						<ExpressionString>DesiredRPM = 0</ExpressionString>
+					</Statement>
+				</Statement>
+			</Body>
+		</CleanUp>
+	</Code>
+</RealTimeSequence>
