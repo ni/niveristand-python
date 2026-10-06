@@ -21,7 +21,7 @@ def main() -> None:
     # NI VeriStand must be open so that the Gateway is available.
     engine_demo_sdf = os.path.join(
         os.path.realpath(os.path.join(os.path.dirname(__file__), "..")),
-        "clientapi_example_assets",
+        "execution_api_assets",
         "Engine Demo.nivssdf",
     )
     # Deploy Engine Demo through the running VeriStand Gateway.

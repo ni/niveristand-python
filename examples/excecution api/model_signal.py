@@ -19,7 +19,7 @@ def main() -> None:
     # NI VeriStand must be open so that the Gateway is available.
     sinewave_delay_sdf = os.path.join(
         os.path.realpath(os.path.join(os.path.dirname(__file__), "..")),
-        "clientapi_example_assets",
+        "execution_api_assets",
         "Sinewave Delay.nivssdf",
     )
     # Deploy Sinewave Delay through the running VeriStand Gateway.

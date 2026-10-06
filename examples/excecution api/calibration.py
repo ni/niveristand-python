@@ -18,7 +18,7 @@ def main() -> None:
     calibration = factory.get_icalibration2(GATEWAY_IP)
 
     calibration_assets = (
-        Path(__file__).resolve().parents[1] / "clientapi_example_assets"
+        Path(__file__).resolve().parents[1] / "execution_api_assets"
     )
     test_scale_sdf = calibration_assets / "TestScale.nivssdf"
     calibration_file = calibration_assets / "TestScale.nivscf"
