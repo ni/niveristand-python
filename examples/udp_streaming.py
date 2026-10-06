@@ -2,8 +2,10 @@
 
 import os
 import socket
+import struct
 
-from niveristand.clientapi import ByteOrder, Factory, UDPDataPacket
+from niveristand import VeriStandException
+from niveristand.clientapi import ByteOrder, Factory
 
 GATEWAY_IP = "localhost"
 DEPLOY_TIMEOUT_MS = 120_000
@@ -17,14 +19,49 @@ CHANNELS = [
 ]
 
 
+def deserialize(packet: bytes, byte_order: ByteOrder) -> tuple:
+    """Return (packet_id, t0, dt, channel_ids, data, sample_offset) for one UDP datagram."""
+    if byte_order == ByteOrder.LITTLE_ENDIAN:
+        prefix = "<"
+    elif byte_order == ByteOrder.BIG_ENDIAN:
+        prefix = ">"
+    elif byte_order == ByteOrder.NATIVE_HOST_ORDER:
+        prefix = "="
+    else:
+        raise ValueError(f"Unsupported byte order {byte_order}.")
+    offset = 0
+
+    def read(fmt: str) -> tuple:
+        nonlocal offset
+        values = struct.unpack_from(prefix + fmt, packet, offset)
+        offset += struct.calcsize(prefix + fmt)
+        return values
+
+    try:
+        packet_id, t0, dt, channel_count = read("iddi")
+        channel_ids = list(read(f"{channel_count}i"))
+        rows, columns = read("ii")
+        values = read(f"{rows * columns}d")
+        (sample_offset,) = read("Q")
+    except struct.error as error:
+        raise ValueError(f"Invalid UDP data packet: {error}") from None
+    data = [list(values[row * columns : (row + 1) * columns]) for row in range(rows)]
+    return packet_id, t0, dt, channel_ids, data, sample_offset
+
+
 def main() -> None:
     factory = Factory()
     workspace = factory.get_iworkspace2(GATEWAY_IP)
 
     # NI VeriStand must be open so that the Gateway is available.
     engine_demo_sdf = os.path.join(
-        os.path.realpath(os.path.join(os.path.dirname(__file__), "..")),
-        "execution_api_assets",
+        os.path.expanduser("~public"),
+        "Documents",
+        "National Instruments",
+        "NI VeriStand 2026",
+        "Examples",
+        "Stimulus Profile",
+        "Engine Demo",
         "Engine Demo.nivssdf",
     )
     # Deploy Engine Demo through the running VeriStand Gateway.
@@ -61,18 +98,16 @@ def main() -> None:
 
             for packet_number in range(1, PACKET_COUNT + 1):
                 packet, sender = receiver.recvfrom(max_packet_size)
-                data_packet = UDPDataPacket.deserialize(
-                    packet, ByteOrder.LITTLE_ENDIAN
+                packet_id, t0, dt, packet_channel_ids, data, sample_offset = (
+                    deserialize(packet, ByteOrder.NATIVE_HOST_ORDER)
                 )
                 print(
-                    f"\nPacket {packet_number} | ID={data_packet.packet_id} | "
-                    f"t0={data_packet.t0:g} | dt={data_packet.dt:g} | "
-                    f"offset={data_packet.sample_offset} | {len(packet)} bytes | "
+                    f"\nPacket {packet_number} | ID={packet_id} | "
+                    f"t0={t0:g} | dt={dt:g} | "
+                    f"offset={sample_offset} | {len(packet)} bytes | "
                     f"from {sender[0]}:{sender[1]}"
                 )
-                for channel_id, samples in zip(
-                    data_packet.channel_ids, data_packet.data
-                ):
+                for channel_id, samples in zip(packet_channel_ids, data):
                     label = (
                         "Timestamps"
                         if channel_id == 0
@@ -88,6 +123,9 @@ def main() -> None:
             if stream_deployed:
                 stream_session.undeploy_udp_channel_stream_session()
             receiver.close()
+    except VeriStandException as error:
+        print(error)
+        print(error.resolved_error_message)
     finally:
         # Undeploy Engine Demo after the UDP stream session is stopped.
         workspace.disconnect_from_system("", True)

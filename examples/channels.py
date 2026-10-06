@@ -4,6 +4,7 @@ import os
 import threading
 import time
 
+from niveristand import VeriStandException
 from niveristand.clientapi import Factory
 
 GATEWAY_IP = "localhost"
@@ -20,8 +21,13 @@ def main() -> None:
 
     # NI VeriStand must be open so that the Gateway is available.
     engine_demo_sdf = os.path.join(
-        os.path.realpath(os.path.join(os.path.dirname(__file__), "..")),
-        "execution_api_assets",
+        os.path.expanduser("~public"),
+        "Documents",
+        "National Instruments",
+        "NI VeriStand 2026",
+        "Examples",
+        "Stimulus Profile",
+        "Engine Demo",
         "Engine Demo.nivssdf",
     )
     # Deploy Engine Demo through the running VeriStand Gateway.
@@ -63,6 +69,9 @@ def main() -> None:
         workspace.set_single_channel_value(DESIRED_RPM, original_desired_rpm + 1)
         if not value_changed.wait(EVENT_TIMEOUT_SECONDS):
             raise TimeoutError("Timed out waiting for the channel value change event.")
+    except VeriStandException as error:
+        print(error)
+        print(error.resolved_error_message)
     finally:
         channel_monitor.unregister_channel_value_monitor(DESIRED_RPM, on_value_changed)
 

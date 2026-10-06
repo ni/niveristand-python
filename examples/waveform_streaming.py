@@ -10,6 +10,7 @@ NOTE: This example expects the NI VeriStand gateway to be localhost.
 import os
 import time
 
+from niveristand import VeriStandException
 from niveristand.clientapi import DeployOptions, Factory
 from niveristand.clientapi.waveformstreaming import (
     StreamAllData,
@@ -78,6 +79,9 @@ def main() -> None:
                 waveform_streaming.unregister_for_dbl_waveform_data(
                     specifications, on_waveform_data
                 )
+    except VeriStandException as error:
+        print(error)
+        print(error.resolved_error_message)
     finally:
         workspace.disconnect_from_system("", True)
 

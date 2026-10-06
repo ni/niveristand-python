@@ -1,8 +1,9 @@
 """Deploy TestScale and demonstrate polynomial channel calibration."""
 
+import os
 import time
-from pathlib import Path
 
+from niveristand import VeriStandException
 from niveristand.clientapi import DeployOptions, Factory
 
 GATEWAY_IP = "localhost"
@@ -17,21 +18,18 @@ def main() -> None:
     workspace = factory.get_iworkspace2(GATEWAY_IP)
     calibration = factory.get_icalibration2(GATEWAY_IP)
 
-    calibration_assets = (
-        Path(__file__).resolve().parents[1] / "execution_api_assets"
+    calibration_demo_sdf =  os.path.join(
+        os.path.realpath(os.path.dirname(__file__)), "calibration assets", "Calibration Demo.nivssdf"
     )
-    test_scale_sdf = calibration_assets / "TestScale.nivssdf"
-    calibration_file = calibration_assets / "TestScale.nivscf"
-    if not test_scale_sdf.is_file() or not calibration_file.is_file():
-        raise FileNotFoundError(
-            f"TestScale calibration assets not found in {calibration_assets}"
-        )
+    calibration_file =  os.path.join(
+        os.path.realpath(os.path.dirname(__file__)), "calibration assets", "Calibration Demo.nivscf"
+    )
 
     deploy_options = DeployOptions()
     deploy_options.deploy_system_definition = True
     deploy_options.calibration_file_path = str(calibration_file)
     deploy_options.timeout = DEPLOY_TIMEOUT_MS
-    workspace.connect_to_system(str(test_scale_sdf), deploy_options)
+    workspace.connect_to_system(str(calibration_demo_sdf), deploy_options)
 
     calibration_applied = False
     try:
@@ -48,6 +46,9 @@ def main() -> None:
 
         calibrated_value = workspace.get_single_channel_value(THERMOCOUPLE_CHANNEL)
         print(f"Value after doubling calibration: {calibrated_value}")
+    except VeriStandException as error:
+        print(error)
+        print(error.resolved_error_message)
     finally:
         try:
             if calibration_applied:

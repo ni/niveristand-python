@@ -2,6 +2,7 @@
 
 import os
 
+from niveristand import VeriStandException
 from niveristand.clientapi import Factory
 
 GATEWAY_IP = "localhost"
@@ -18,8 +19,12 @@ def main() -> None:
 
     # NI VeriStand must be open so that the Gateway is available.
     sinewave_delay_sdf = os.path.join(
-        os.path.realpath(os.path.join(os.path.dirname(__file__), "..")),
-        "execution_api_assets",
+        os.path.expanduser("~public"),
+        "Documents",
+        "National Instruments",
+        "NI VeriStand 2026",
+        "Examples",
+        "Sinewave Delay",
         "Sinewave Delay.nivssdf",
     )
     # Deploy Sinewave Delay through the running VeriStand Gateway.
@@ -29,6 +34,9 @@ def main() -> None:
         values = model_manager.get_signal_values(TARGET, MODEL_NAME, SIGNAL_INDEXES)
         for index, value in zip(SIGNAL_INDEXES, values):
             print(f"Signal {index}: {value}")
+    except VeriStandException as error:
+        print(error)
+        print(error.resolved_error_message)
     finally:
         # Undeploy Sinewave Delay.
         workspace.disconnect_from_system("", True)

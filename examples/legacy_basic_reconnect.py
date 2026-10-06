@@ -1,6 +1,6 @@
 import sys
 import time
-from niveristand.errors import RunError
+from niveristand.realtimesequenceapi.errors import RunError
 from niveristand.legacy import NIVeriStand
 
 # This is an example script to demonstrate the usage of ReconnectToSystem function.

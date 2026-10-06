@@ -18,12 +18,11 @@ from .. import *
 from ..contracts import *
 from ..data import *
 from ..systemstorage import *
-from ..workspacemacro import *
 from .logging import *
 from .waveformstreaming import *
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.ClientAPI.AcknowledgementStatus, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.ClientAPI.AcknowledgementStatus', False)
 class AcknowledgementStatus(_DotNetEnum):
     """Specifies the acknowledgement status of an alarm"""
 
@@ -48,7 +47,7 @@ class AcknowledgementStatus(_DotNetEnum):
         return AcknowledgementStatus(dotnet_result, "ACKNOWLEDGED")
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.ClientAPI.AlarmChangeEventArgs, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.ClientAPI.AlarmChangeEventArgs', False)
 class AlarmChangeEventArgs(_DotNetBase):
     """Provides data about an alarm event."""
 
@@ -137,7 +136,7 @@ class AlarmChangeEventArgs(_DotNetBase):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.ClientAPI.AlarmFlagData)
+@_register_dotnet_type('NationalInstruments.VeriStand.ClientAPI.AlarmFlagData')
 class AlarmFlagData(_DotNetBase):
     """Provides data about the alarm flag."""
 
@@ -217,7 +216,7 @@ class AlarmFlagData(_DotNetBase):
             _wrap_exception(e)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.ClientAPI.AlarmInfo)
+@_register_dotnet_type('NationalInstruments.VeriStand.ClientAPI.AlarmInfo')
 class AlarmInfo(_DotNetBase):
     """Provides information about and configures an individual alarm."""
 
@@ -574,7 +573,7 @@ class AlarmInfo(_DotNetBase):
         return f"(name={self.name})"
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.ClientAPI.AlarmMode, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.ClientAPI.AlarmMode', False)
 class AlarmMode(_DotNetEnum):
     """The operating mode of an alarm running on the target. The operating mode of an alarm specifies the action that occurs when the alarm is triggered."""
 
@@ -599,7 +598,7 @@ class AlarmMode(_DotNetEnum):
         return AlarmMode(dotnet_result, "INDICATE_ONLY")
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.ClientAPI.AlarmPriority, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.ClientAPI.AlarmPriority', False)
 class AlarmPriority(_DotNetEnum):
     """The priority of an alarm running on the target."""
 
@@ -630,7 +629,7 @@ class AlarmPriority(_DotNetEnum):
         return AlarmPriority(dotnet_result, "HIGH")
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.ClientAPI.AlarmState, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.ClientAPI.AlarmState', False)
 class AlarmState(_DotNetEnum):
     """The state of an alarm running on the target."""
 
@@ -673,7 +672,7 @@ class AlarmState(_DotNetEnum):
         return AlarmState(dotnet_result, "INDICATE")
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.ClientAPI.AlarmStateWatcher)
+@_register_dotnet_type('NationalInstruments.VeriStand.ClientAPI.AlarmStateWatcher')
 class AlarmStateWatcher(_DotNetBase):
     """This class essentially serves as a wrapper around the alarm state change event (specific to one alarm) for the purpose of allowing access to this event easier to obtain from within LabVIEW. Constructing and destructing the object registers and unregisters, respectively, from the event. Then, LabVIEW users can register to the event within this class for use in the event structure in LabVIEW."""
 
@@ -728,7 +727,7 @@ class AlarmStateWatcher(_DotNetBase):
         return False
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.ClientAPI.AlarmTriggerEventArgs, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.ClientAPI.AlarmTriggerEventArgs', False)
 class AlarmTriggerEventArgs(_DotNetBase):
     """Provides data about a triggered alarm for the niveristand.clientapi.IAlarmManager2.on_alarm_trigger2 event."""
 
@@ -790,7 +789,7 @@ class AlarmTriggerEventArgs(_DotNetBase):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.ClientAPI.ByteOrder, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.ClientAPI.ByteOrder', False)
 class ByteOrder(_DotNetEnum):
     """Specifies the byte order of data"""
 
@@ -821,7 +820,7 @@ class ByteOrder(_DotNetEnum):
         return ByteOrder(dotnet_result, "LITTLE_ENDIAN")
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.ClientAPI.CJCType, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.ClientAPI.CJCType', False)
 class CJCType(_DotNetEnum):
     """The type of CJC sensor to use for thermocouple calibration."""
 
@@ -870,7 +869,7 @@ class CJCType(_DotNetEnum):
         return CJCType(dotnet_result, "NI9219")
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.ClientAPI.CalibrationUpdateEventArgs)
+@_register_dotnet_type('NationalInstruments.VeriStand.ClientAPI.CalibrationUpdateEventArgs')
 class CalibrationUpdateEventArgs(_DotNetBase):
     """Provides data about channel calibration for the niveristand.clientapi.ICalibration2.on_calibration_update event."""
 
@@ -915,7 +914,7 @@ class CalibrationUpdateEventArgs(_DotNetBase):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.ClientAPI.ChannelValueChangeEventArgs)
+@_register_dotnet_type('NationalInstruments.VeriStand.ClientAPI.ChannelValueChangeEventArgs')
 class ChannelValueChangeEventArgs(_DotNetBase):
     """Provides data about channel value changes for the niveristand.clientapi.ChannelValueWatcher.channel_value_change_event_handler event."""
 
@@ -940,7 +939,7 @@ class ChannelValueChangeEventArgs(_DotNetBase):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.ClientAPI.ChannelValueWatcher)
+@_register_dotnet_type('NationalInstruments.VeriStand.ClientAPI.ChannelValueWatcher')
 class ChannelValueWatcher(_DotNetBase):
     """This class essentially serves as a wrapper around the channel value change event (specific to one parameter) for the purpose of allowing access to this event easier to obtain from within LabVIEW. Constructing and destructing the object registers and unregisters, respectively, from the event. Then, LabVIEW users can register to the event within this class for use in the event structure in LabVIEW."""
 
@@ -994,7 +993,7 @@ class ChannelValueWatcher(_DotNetBase):
         return False
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.ClientAPI.DeployOptions)
+@_register_dotnet_type('NationalInstruments.VeriStand.ClientAPI.DeployOptions')
 class DeployOptions(_DotNetBase):
     """Defines the options for deploying the system definition file."""
 
@@ -1096,7 +1095,7 @@ class DeployOptions(_DotNetBase):
             _wrap_exception(e)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.ClientAPI.Factory)
+@_register_dotnet_type('NationalInstruments.VeriStand.ClientAPI.Factory')
 class Factory(_DotNetBase):
     """Provides access to the NI VeriStand system and the various interfaces available in the Execution API. Any code you write using this API must include a Factory constructor to access NI VeriStand."""
 
@@ -1597,7 +1596,7 @@ class Factory(_DotNetBase):
             _wrap_exception(e)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.ClientAPI.IAlarm, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.ClientAPI.IAlarm', False)
 class IAlarm(_DotNetBase):
     """Interface to control and observe a specific alarm running on the target. Use the niveristand.clientapi.Factory.get_ialarm method of the niveristand.clientapi.Factory class to access this interface."""
 
@@ -1673,7 +1672,7 @@ class IAlarm(_DotNetBase):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.ClientAPI.IAlarmManager, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.ClientAPI.IAlarmManager', False)
 class IAlarmManager(_DotNetBase):
     """Interface to control and observe alarms running on a target. The niveristand.clientapi.IAlarmManager2 interface inherits the members of this interface and provides extended functionality."""
 
@@ -1681,7 +1680,7 @@ class IAlarmManager(_DotNetBase):
         _init_dotnet_wrapper(self, *args)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.ClientAPI.IAlarmManager2, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.ClientAPI.IAlarmManager2', False)
 class IAlarmManager2(IAlarmManager):
     """Interface to control and observe alarms running on a target. Use the niveristand.clientapi.Factory.get_ialarm_manager2 method of the niveristand.clientapi.Factory class to access this interface. This interface also inherits the methods of the niveristand.clientapi.IAlarmManager interface."""
 
@@ -1828,7 +1827,7 @@ class IAlarmManager2(IAlarmManager):
             self._dotnet_instance.AlarmResetEvent -= shim
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.ClientAPI.ICalibration2, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.ClientAPI.ICalibration2', False)
 class ICalibration2(_DotNetBase):
     """Interface to get and set calibration settings for channels on the test system. Use the niveristand.clientapi.Factory.get_icalibration2 method of the niveristand.clientapi.Factory class to access this interface."""
 
@@ -1942,7 +1941,7 @@ class ICalibration2(_DotNetBase):
             self._dotnet_instance.OnCalibrationUpdate -= shim
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.ClientAPI.IChannelFault, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.ClientAPI.IChannelFault', False)
 class IChannelFault(_DotNetBase):
     """Interface to view, set, and clear channel software faults. Use the niveristand.clientapi.Factory.get_ichannel_fault method of the niveristand.clientapi.Factory class to access this interface."""
 
@@ -2044,7 +2043,7 @@ class IChannelFault(_DotNetBase):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.ClientAPI.IChannelMonitor, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.ClientAPI.IChannelMonitor', False)
 class IChannelMonitor(_DotNetBase):
     """Client Interface for Monitoring a Channel"""
 
@@ -2080,7 +2079,7 @@ class IChannelMonitor(_DotNetBase):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.ClientAPI.ICustomDevice, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.ClientAPI.ICustomDevice', False)
 class ICustomDevice(_DotNetBase):
     """Interface to interact with custom devices in NI VeriStand. Use the niveristand.clientapi.Factory.get_icustom_device method of the niveristand.clientapi.Factory class to access this interface."""
 
@@ -2123,7 +2122,7 @@ class ICustomDevice(_DotNetBase):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.ClientAPI.IDiagnostics, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.ClientAPI.IDiagnostics', False)
 class IDiagnostics(_DotNetBase):
     """Interface for Veristand Engine Diagnostics"""
 
@@ -2224,7 +2223,7 @@ class IDiagnostics(_DotNetBase):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.ClientAPI.IErrorProviding, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.ClientAPI.IErrorProviding', False)
 class IErrorProviding(_DotNetBase):
     """Interface for the error providing tool. Use this interface to translate electrical errors into channel value pairs."""
 
@@ -2297,7 +2296,7 @@ class IErrorProviding(_DotNetBase):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.ClientAPI.IMacroPlayer, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.ClientAPI.IMacroPlayer', False)
 class IMacroPlayer(_DotNetBase):
     """Interface to the Macro Player tool. Use this interface to load and play back a macro (.nivsmacro) file you created using the niveristand.clientapi.IMacroRecorder interface. Use the niveristand.clientapi.Factory.get_imacro_player method of the niveristand.clientapi.Factory class to access this interface."""
 
@@ -2379,19 +2378,6 @@ class IMacroPlayer(_DotNetBase):
             _wrap_exception(e)
         return _wrap(dotnet_result)
 
-    def get_command_lines(self) -> Sequence[CommandLineInfo]:
-        """Gets the currently loaded command lines. You can use the members of the CommandLineInfo class of the NationalInstruments.VeriStand.WorkspaceMacro assembly to get information about the command lines this method returns.
-
-        Returns:
-            Sequence[CommandLineInfo]: The command lines.
-        """
-        unwrapped = _unwrap(None)
-        try:
-            dotnet_result = self._dotnet_instance.GetCommandLines(*unwrapped)
-        except System.Exception as e:
-            _wrap_exception(e)
-        return _wrap(dotnet_result)
-
     def subscribe_on_macro_percent_complete_event(self, handler: Callable[[float], None]) -> None:
         """Callback invoked after executing a Macro Player command. The percent is calculated using the length of time a command takes to execute relative to the total time required for all commands to execute.
 
@@ -2456,7 +2442,7 @@ class IMacroPlayer(_DotNetBase):
             self._dotnet_instance.OnMacroErrorMessage -= shim
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.ClientAPI.IMacroRecorder, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.ClientAPI.IMacroRecorder', False)
 class IMacroRecorder(_DotNetBase):
     """Interface to the Macro Recorder tool. You can use the members of this interface to record commands the VeriStand Gateway sends to a target. You can save the recorded commands to a macro (.nivsmacro) file to later play back using the niveristand.clientapi.IMacroPlayer interface. Use the niveristand.clientapi.Factory.get_imacro_recorder method of the niveristand.clientapi.Factory class to access this interface."""
 
@@ -2503,19 +2489,6 @@ class IMacroRecorder(_DotNetBase):
             _wrap_exception(e)
         return _wrap(dotnet_result)
 
-    def get_command_lines(self) -> Sequence[CommandLineInfo]:
-        """Gets the currently loaded command lines. You can use the members of the CommandLineInfo class of the NationalInstruments.VeriStand.WorkspaceMacro assembly to get information about the command lines this method returns.
-
-        Returns:
-            Sequence[CommandLineInfo]: The command lines.
-        """
-        unwrapped = _unwrap(None)
-        try:
-            dotnet_result = self._dotnet_instance.GetCommandLines(*unwrapped)
-        except System.Exception as e:
-            _wrap_exception(e)
-        return _wrap(dotnet_result)
-
     def subscribe_on_macro_command_line_event(self, handler: Callable[[float, str], None]) -> None:
         """Callback invoked just before a command to the Macro Recorder is logged.
 
@@ -2535,7 +2508,7 @@ class IMacroRecorder(_DotNetBase):
             self._dotnet_instance.OnMacroCommandLine -= shim
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.ClientAPI.IModel, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.ClientAPI.IModel', False)
 class IModel(_DotNetBase):
     """Interface to control and observe a specific model running on the execution host. Use the niveristand.clientapi.Factory.get_imodel method of the niveristand.clientapi.Factory class to access this interface."""
 
@@ -2596,7 +2569,7 @@ class IModel(_DotNetBase):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.ClientAPI.IModelManager, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.ClientAPI.IModelManager', False)
 class IModelManager(_DotNetBase):
     """Interface to control and observe models running on the first target. You must use the members of the niveristand.clientapi.IModelManager2 interface if you want to specify one of multiple targets."""
 
@@ -2604,7 +2577,7 @@ class IModelManager(_DotNetBase):
         _init_dotnet_wrapper(self, *args)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.ClientAPI.IModelManager2, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.ClientAPI.IModelManager2', False)
 class IModelManager2(IModelManager):
     """Interface to control and observe models running on an execution host. Use the niveristand.clientapi.Factory.get_imodel_manager2 method of the niveristand.clientapi.Factory class to access this interface. This interface also inherits the methods of the niveristand.clientapi.IModelManager interface."""
 
@@ -2874,7 +2847,7 @@ class IModelManager2(IModelManager):
             self._dotnet_instance.ParameterValueChanged -= shim
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.ClientAPI.IProject, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.ClientAPI.IProject', False)
 class IProject(_DotNetBase):
     """Interface to automate an NI VeriStand project. Use the niveristand.clientapi.Factory.get_iproject method of the niveristand.clientapi.Factory class to access this interface and specify the project you want to automate."""
 
@@ -3067,7 +3040,7 @@ class IProject(_DotNetBase):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.ClientAPI.IRuntimeConfigurationManager, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.ClientAPI.IRuntimeConfigurationManager', False)
 class IRuntimeConfigurationManager(_DotNetBase):
     """Interface to manage configurations that can be modified at runtime without the need to undeploy."""
 
@@ -3189,7 +3162,7 @@ class IRuntimeConfigurationManager(_DotNetBase):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.ClientAPI.ISequenceControl, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.ClientAPI.ISequenceControl', False)
 class ISequenceControl(_DotNetBase):
     """Automates and monitors the execution of a sequence in a stimulus profile session."""
 
@@ -3352,7 +3325,7 @@ class ISequenceControl(_DotNetBase):
         return f"(name={self.name})"
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.ClientAPI.IStimulusProfileSession, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.ClientAPI.IStimulusProfileSession', False)
 class IStimulusProfileSession(_DotNetBase):
     """Interface to control and monitor Stimulus Profile Session execution. Use the niveristand.clientapi.Factory.get_istimulus_profile_session method of the niveristand.clientapi.Factory class to access this interface."""
 
@@ -3550,7 +3523,7 @@ class IStimulusProfileSession(_DotNetBase):
         return f"(name={self.name})"
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.ClientAPI.IUDPChannelStreamSession, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.ClientAPI.IUDPChannelStreamSession', False)
 class IUDPChannelStreamSession(_DotNetBase):
     """Interface for deploying and undeploying UDP Channel Stream sessions. Use the niveristand.clientapi.IWorkspace2.get_iudp_channel_stream_session method of the niveristand.clientapi.IWorkspace2 interface to access this interface."""
 
@@ -3656,7 +3629,7 @@ class IUDPChannelStreamSession(_DotNetBase):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.ClientAPI.IWorkspace, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.ClientAPI.IWorkspace', False)
 class IWorkspace(_DotNetBase):
     """Interface to perform basic workspace operations, such as getting and setting channel data. The niveristand.clientapi.IWorkspace2 interface inherits the members of this interface and provides extended functionality."""
 
@@ -3834,7 +3807,7 @@ class IWorkspace(_DotNetBase):
             self._dotnet_instance.OnSystemStateChange -= shim
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.ClientAPI.IWorkspace2, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.ClientAPI.IWorkspace2', False)
 class IWorkspace2(IWorkspace):
     """Interface to perform basic workspace operations, such as getting, setting, and logging channel data. This interface also inherits the methods of the niveristand.clientapi.IWorkspace interface."""
 
@@ -4165,7 +4138,7 @@ class IWorkspace2(IWorkspace):
             self._dotnet_instance.TargetStateChangeEvent -= shim
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.ClientAPI.LogChannel)
+@_register_dotnet_type('NationalInstruments.VeriStand.ClientAPI.LogChannel')
 class LogChannel(_DotNetBase):
     """Represents the logging properties for individual channels."""
 
@@ -4247,7 +4220,7 @@ class LogChannel(_DotNetBase):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.ClientAPI.LogInfo)
+@_register_dotnet_type('NationalInstruments.VeriStand.ClientAPI.LogInfo')
 class LogInfo(_DotNetBase):
     """Defines data log file configuration settings."""
 
@@ -4439,7 +4412,7 @@ class LogInfo(_DotNetBase):
             _wrap_exception(e)
 
 
-    @_register_dotnet_type(NationalInstruments.VeriStand.ClientAPI.LogInfo.trigger, False)
+    @_register_dotnet_type('NationalInstruments.VeriStand.ClientAPI.LogInfo.trigger', False)
     class trigger(_DotNetEnum):
         """Sets the type of trigger to use for the log file."""
 
@@ -4470,7 +4443,7 @@ class LogInfo(_DotNetBase):
             return LogInfo.trigger(dotnet_result, "OUT_OF_LIMITS")
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.ClientAPI.ModelCommand, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.ClientAPI.ModelCommand', False)
 class ModelCommand(_DotNetEnum):
     """Command to change the execution state of a model running on the target."""
 
@@ -4501,7 +4474,7 @@ class ModelCommand(_DotNetEnum):
         return ModelCommand(dotnet_result, "RESET")
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.ClientAPI.ModelState, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.ClientAPI.ModelState', False)
 class ModelState(_DotNetEnum):
     """The execution state of a model running on the target."""
 
@@ -4556,7 +4529,7 @@ class ModelState(_DotNetEnum):
         return ModelState(dotnet_result, "SAVING")
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.ClientAPI.NodeInfo)
+@_register_dotnet_type('NationalInstruments.VeriStand.ClientAPI.NodeInfo')
 class NodeInfo(_DotNetBase):
     """Provides information about and configures a node in the system definition file."""
 
@@ -4841,7 +4814,7 @@ class NodeInfo(_DotNetBase):
         return f"(name={self.name})"
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.ClientAPI.ParameterValueChangeEventArgs)
+@_register_dotnet_type('NationalInstruments.VeriStand.ClientAPI.ParameterValueChangeEventArgs')
 class ParameterValueChangeEventArgs(_DotNetBase):
     """Provides data about model parameter value changes for the niveristand.clientapi.IModelManager2.parameter_value_changed and niveristand.clientapi.ParameterValueWatcher.parameter_value_change_event_handler events."""
 
@@ -4886,7 +4859,7 @@ class ParameterValueChangeEventArgs(_DotNetBase):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.ClientAPI.ParameterValueWatcher)
+@_register_dotnet_type('NationalInstruments.VeriStand.ClientAPI.ParameterValueWatcher')
 class ParameterValueWatcher(_DotNetBase):
     """This class essentially serves as a wrapper around the parameter value change event (specific to one parameter) for the purpose of allowing access to this event easier to obtain from within LabVIEW. Constructing and destructing the object registers and unregisters, respectively, from the event. Then, LabVIEW users can register to the event within this class for use in the event structure in LabVIEW."""
 
@@ -4941,7 +4914,7 @@ class ParameterValueWatcher(_DotNetBase):
         return False
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.ClientAPI.PlayModeEnum, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.ClientAPI.PlayModeEnum', False)
 class PlayModeEnum(_DotNetEnum):
     """The play mode of the Macro Player tool, which specifies the speed at which the tool plays back macro files."""
 
@@ -4966,7 +4939,7 @@ class PlayModeEnum(_DotNetEnum):
         return PlayModeEnum(dotnet_result, "USE_TIMING")
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.ClientAPI.PlayStateEnum, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.ClientAPI.PlayStateEnum', False)
 class PlayStateEnum(_DotNetEnum):
     """The current state of the Macro Player tool."""
 
@@ -4997,7 +4970,7 @@ class PlayStateEnum(_DotNetEnum):
         return PlayStateEnum(dotnet_result, "PAUSED")
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.ClientAPI.RuntimeConfigurationChangeEventArgs)
+@_register_dotnet_type('NationalInstruments.VeriStand.ClientAPI.RuntimeConfigurationChangeEventArgs')
 class RuntimeConfigurationChangeEventArgs(_DotNetBase):
     """Provides data about runtime configuration change event."""
 
@@ -5042,7 +5015,7 @@ class RuntimeConfigurationChangeEventArgs(_DotNetBase):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.ClientAPI.RuntimeConfigurationState, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.ClientAPI.RuntimeConfigurationState', False)
 class RuntimeConfigurationState(_DotNetEnum):
     """The current state of the runtime configuration on the runtime configurable node."""
 
@@ -5097,7 +5070,7 @@ class RuntimeConfigurationState(_DotNetEnum):
         return RuntimeConfigurationState(dotnet_result, "ERROR")
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.ClientAPI.ScaleType, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.ClientAPI.ScaleType', False)
 class ScaleType(_DotNetEnum):
     """The type of calibration scale."""
 
@@ -5128,7 +5101,7 @@ class ScaleType(_DotNetEnum):
         return ScaleType(dotnet_result, "NONE")
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.ClientAPI.SequenceCallInfo)
+@_register_dotnet_type('NationalInstruments.VeriStand.ClientAPI.SequenceCallInfo')
 class SequenceCallInfo(_DotNetBase):
     """Provides information about a stimulus profile sequence."""
 
@@ -5269,7 +5242,7 @@ class SequenceCallInfo(_DotNetBase):
             _wrap_exception(e)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.ClientAPI.SequenceCompleteEventArgs)
+@_register_dotnet_type('NationalInstruments.VeriStand.ClientAPI.SequenceCompleteEventArgs')
 class SequenceCompleteEventArgs(_DotNetBase):
     """Event data returned when a sequence completes execution."""
 
@@ -5314,7 +5287,7 @@ class SequenceCompleteEventArgs(_DotNetBase):
         return VeriStandError(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.ClientAPI.SequenceParameterAssignmentInfo)
+@_register_dotnet_type('NationalInstruments.VeriStand.ClientAPI.SequenceParameterAssignmentInfo')
 class SequenceParameterAssignmentInfo(_DotNetBase):
     """Provides information about an input parameter of a real-time sequence."""
 
@@ -5349,7 +5322,7 @@ class SequenceParameterAssignmentInfo(_DotNetBase):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.ClientAPI.SequenceState, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.ClientAPI.SequenceState', False)
 class SequenceState(_DotNetEnum):
     """The execution state of a sequence."""
 
@@ -5392,7 +5365,7 @@ class SequenceState(_DotNetEnum):
         return SequenceState(dotnet_result, "STOPPED")
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.ClientAPI.SequenceStateChangeEventArgs)
+@_register_dotnet_type('NationalInstruments.VeriStand.ClientAPI.SequenceStateChangeEventArgs')
 class SequenceStateChangeEventArgs(_DotNetBase):
     """Event data returned when the execution state of a real-time sequence changes."""
 
@@ -5427,7 +5400,7 @@ class SequenceStateChangeEventArgs(_DotNetBase):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.ClientAPI.ServerCreateOptions)
+@_register_dotnet_type('NationalInstruments.VeriStand.ClientAPI.ServerCreateOptions')
 class ServerCreateOptions(_DotNetBase):
     """Options for starting the VeriStand server."""
 
@@ -5475,7 +5448,7 @@ class ServerCreateOptions(_DotNetBase):
             _wrap_exception(e)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.ClientAPI.StimulusResult, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.ClientAPI.StimulusResult', False)
 class StimulusResult(_DotNetEnum):
     """The result of stimulus generation."""
 
@@ -5512,7 +5485,7 @@ class StimulusResult(_DotNetEnum):
         return StimulusResult(dotnet_result, "ERROR")
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.ClientAPI.StimulusState, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.ClientAPI.StimulusState', False)
 class StimulusState(_DotNetEnum):
     """The state of the stimulus profile manager."""
 
@@ -5549,7 +5522,7 @@ class StimulusState(_DotNetEnum):
         return StimulusState(dotnet_result, "STOPPING")
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.ClientAPI.SystemState, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.ClientAPI.SystemState', False)
 class SystemState(_DotNetEnum):
     """The current state of the system to which the VeriStand Gateway is connected."""
 
@@ -5574,7 +5547,7 @@ class SystemState(_DotNetEnum):
         return SystemState(dotnet_result, "ACTIVE")
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.ClientAPI.TargetState, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.ClientAPI.TargetState', False)
 class TargetState(_DotNetEnum):
     """The current state of the target."""
 
@@ -5617,7 +5590,7 @@ class TargetState(_DotNetEnum):
         return TargetState(dotnet_result, "CONNECTING")
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.ClientAPI.TargetStateChangeEventArgs)
+@_register_dotnet_type('NationalInstruments.VeriStand.ClientAPI.TargetStateChangeEventArgs')
 class TargetStateChangeEventArgs(_DotNetBase):
     """Provides data about target state change event."""
 
@@ -5652,7 +5625,7 @@ class TargetStateChangeEventArgs(_DotNetBase):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.ClientAPI.TemperatureUnits, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.ClientAPI.TemperatureUnits', False)
 class TemperatureUnits(_DotNetEnum):
     """The temperature units to use for thermocouple calibration."""
 
@@ -5689,7 +5662,7 @@ class TemperatureUnits(_DotNetEnum):
         return TemperatureUnits(dotnet_result, "R")
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.ClientAPI.ThermocoupleType, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.ClientAPI.ThermocoupleType', False)
 class ThermocoupleType(_DotNetEnum):
     """The type of thermocouple to use for thermocouple calibration."""
 
@@ -5750,7 +5723,7 @@ class ThermocoupleType(_DotNetEnum):
         return ThermocoupleType(dotnet_result, "N")
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.ClientAPI.RemoteSequenceCallInfo)
+@_register_dotnet_type('NationalInstruments.VeriStand.ClientAPI.RemoteSequenceCallInfo')
 class RemoteSequenceCallInfo(SequenceCallInfo):
     """Provides information about a remote stimulus profile sequence."""
 

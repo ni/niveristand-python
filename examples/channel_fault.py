@@ -3,6 +3,7 @@
 import os
 import time
 
+from niveristand import VeriStandException
 from niveristand.clientapi import Factory
 
 GATEWAY_IP = "localhost"
@@ -24,8 +25,13 @@ def main() -> None:
     workspace = factory.get_iworkspace2(GATEWAY_IP)
 
     engine_demo_sdf = os.path.join(
-        os.path.realpath(os.path.join(os.path.dirname(__file__), "..")),
-        "execution_api_assets",
+        os.path.expanduser("~public"),
+        "Documents",
+        "National Instruments",
+        "NI VeriStand 2026",
+        "Examples",
+        "Stimulus Profile",
+        "Engine Demo",
         "Engine Demo.nivssdf",
     )
     # NI VeriStand must be open so that the Gateway is available.
@@ -57,6 +63,9 @@ def main() -> None:
         channel_fault.clear_multiple_faults(MULTIPLE_FAULT_CHANNELS)
         time.sleep(FAULT_SETTLE_TIME_SECONDS)
         print(f"Fault list after clearing: {channel_fault.get_fault_list()}")
+    except VeriStandException as error:
+        print(error)
+        print(error.resolved_error_message)
     finally:
         workspace.disconnect_from_system("", True)
 

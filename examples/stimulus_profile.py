@@ -3,6 +3,7 @@
 import os
 import time
 
+from niveristand import VeriStandException
 from niveristand.clientapi import Factory, SequenceCallInfo, SequenceState
 from niveristand.data import BooleanValue
 
@@ -20,16 +21,28 @@ def main() -> None:
     workspace = factory.get_iworkspace2(GATEWAY_IP)
 
     engine_demo_sdf = os.path.join(
-        os.path.realpath(os.path.join(os.path.dirname(__file__), "..")),
-        "execution_api_assets",
+        os.path.expanduser("~public"),
+        "Documents",
+        "National Instruments",
+        "NI VeriStand 2026",
+        "Examples",
+        "Stimulus Profile",
+        "Engine Demo",
         "Engine Demo.nivssdf",
     )
 
     workspace.connect_to_system(engine_demo_sdf, True, DEPLOY_TIMEOUT_MS)
 
     sequence_path = os.path.join(
-    os.path.realpath(os.path.join(os.path.dirname(__file__), "..")),
-        "execution_api_assets",
+        os.path.expanduser("~public"),
+        "Documents",
+        "National Instruments",
+        "NI VeriStand 2026",
+        "Examples",
+        "Stimulus Profile",
+        "Engine Demo",
+        "Stimulus Profiles",
+        "Engine Demo Return Value",
         "Engine Demo Return Value.nivsseq",
     )
     try:
@@ -54,6 +67,9 @@ def main() -> None:
             print(f"Engine Temperature < 110: {return_value.value}")
         finally:
             session.undeploy()
+    except VeriStandException as error:
+        print(error)
+        print(error.resolved_error_message)
     finally:
         workspace.disconnect_from_system("", True)
 

@@ -7,7 +7,6 @@ from typing import Any, Callable, Dict, Iterable, overload, Sequence, Tuple, Typ
 import datetime
 import warnings
 
-from typing_extensions import deprecated
 import clr
 
 clr.AddReference("NationalInstruments.VeriStand.SystemDefinitionAPI")
@@ -23,7 +22,7 @@ from ..systemstorage import *
 from .modelsupport import *
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.AcquisitionMode, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.AcquisitionMode', False)
 class AcquisitionMode(_DotNetEnum):
     """Defines the acquisition mode of a niveristand.systemdefinitionapi.DAQTask."""
 
@@ -48,7 +47,7 @@ class AcquisitionMode(_DotNetEnum):
         return AcquisitionMode(dotnet_result, "CONTINUOUS")
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.AcquisitionUnits, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.AcquisitionUnits', False)
 class AcquisitionUnits(_DotNetEnum):
     """Defines whether the size of acquisitions is represented as samples per channel or time, in seconds."""
 
@@ -73,7 +72,7 @@ class AcquisitionUnits(_DotNetEnum):
         return AcquisitionUnits(dotnet_result, "SECONDS")
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.ActionOnNew, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.ActionOnNew', False)
 class ActionOnNew(_DotNetEnum):
     """Defines the location to which to log data when a niveristand.systemdefinitionapi.DAQTaskAI begins a new acquisition."""
 
@@ -98,7 +97,7 @@ class ActionOnNew(_DotNetEnum):
         return ActionOnNew(dotnet_result, "NEW_FILE")
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.AlarmMode, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.AlarmMode', False)
 class AlarmMode(_DotNetEnum):
     """The action that occurs when the alarm is triggered on the target."""
 
@@ -123,7 +122,7 @@ class AlarmMode(_DotNetEnum):
         return AlarmMode(dotnet_result, "INDICATE_ONLY")
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.AlarmPriority, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.AlarmPriority', False)
 class AlarmPriority(_DotNetEnum):
     """This enumeration is deprecated in NI VeriStand 2011 and later. Use the niveristand.systemdefinitionapi.Alarm.priority_number property instead. Setting this enumeration to Low, Medium, or High automatically sets the niveristand.systemdefinitionapi.Alarm.priority_number to 25, 15, or 5, respectively."""
 
@@ -154,7 +153,7 @@ class AlarmPriority(_DotNetEnum):
         return AlarmPriority(dotnet_result, "HIGH")
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.AlarmState, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.AlarmState', False)
 class AlarmState(_DotNetEnum):
     """The state of an alarm on the target."""
 
@@ -179,7 +178,7 @@ class AlarmState(_DotNetEnum):
         return AlarmState(dotnet_result, "ENABLED")
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.AlarmingStepFunction, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.AlarmingStepFunction', False)
 class AlarmingStepFunction(_DotNetEnum):
     """The function of an alarm running on the target."""
 
@@ -228,7 +227,7 @@ class AlarmingStepFunction(_DotNetEnum):
         return AlarmingStepFunction(dotnet_result, "RESET_ALARM")
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.BaseNode, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.BaseNode', False)
 class BaseNode(_DotNetBase):
     """Represents generic nodes in the system definition and provides access to options and configuration settings that all nodes support."""
 
@@ -492,7 +491,7 @@ class BaseNode(_DotNetBase):
         return f"(name={self.name}, node_path={self.node_path})"
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.CANIOMode, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.CANIOMode', False)
 class CANIOMode(_DotNetEnum):
     """I/O Mode used by the interface when transmitting a CAN frame."""
 
@@ -523,7 +522,7 @@ class CANIOMode(_DotNetEnum):
         return CANIOMode(dotnet_result, "FDBRS")
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.CANTransceiverType, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.CANTransceiverType', False)
 class CANTransceiverType(_DotNetEnum):
     """The transceiver type of an NI-XNET CAN port."""
 
@@ -554,7 +553,7 @@ class CANTransceiverType(_DotNetEnum):
         return CANTransceiverType(dotnet_result, "SW")
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.CANTransmitOrderType, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.CANTransmitOrderType', False)
 class CANTransmitOrderType(_DotNetEnum):
     """The order in which the CAN interface transmits frames from the internal queue."""
 
@@ -579,7 +578,7 @@ class CANTransmitOrderType(_DotNetEnum):
         return CANTransmitOrderType(dotnet_result, "BY_IDENTIFIER")
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.CDChannel_Type, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.CDChannel_Type', False)
 class CDChannel_Type(_DotNetEnum):
     """Specifies the type (Input or Output) of a custom device channel."""
 
@@ -604,7 +603,7 @@ class CDChannel_Type(_DotNetEnum):
         return CDChannel_Type(dotnet_result, "OUTPUT")
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.CDDriverExecMode, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.CDDriverExecMode', False)
 class CDDriverExecMode(_DotNetEnum):
     """Specifies the execution mode, or device type, of a custom device. The execution mode defines how the device interacts with the VeriStand Engine."""
 
@@ -647,7 +646,7 @@ class CDDriverExecMode(_DotNetEnum):
         return CDDriverExecMode(dotnet_result, "ASYNCHRONOUS_TIMING_AND_SYNC")
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.CDLoopType, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.CDLoopType', False)
 class CDLoopType(_DotNetEnum):
     """Specifies the type of loop in which an asynchronous custom device executes."""
 
@@ -672,7 +671,7 @@ class CDLoopType(_DotNetEnum):
         return CDLoopType(dotnet_result, "TIMED_LOOP")
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.CDTimeLoopPriority, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.CDTimeLoopPriority', False)
 class CDTimeLoopPriority(_DotNetEnum):
     """Specifies the priority of the Timed Loop that an asynchronous custom device with a niveristand.systemdefinitionapi.CDLoopType of niveristand.systemdefinitionapi.CDLoopType.timed_loop executes in. If you want to wire this value to the input terminal of a Timed Loop in LabVIEW, you must first convert it to a positive integer between 1 and 65,535."""
 
@@ -703,7 +702,7 @@ class CDTimeLoopPriority(_DotNetEnum):
         return CDTimeLoopPriority(dotnet_result, "HIGH")
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.ChannelNames, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.ChannelNames', False)
 class ChannelNames(_DotNetEnum):
     """Specifies how the names of DAQ channels appear in log files this task creates and in the list of available triggers."""
 
@@ -728,7 +727,7 @@ class ChannelNames(_DotNetEnum):
         return ChannelNames(dotnet_result, "SYSTEM_DEFINITION")
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.CommunicationProtocol, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.CommunicationProtocol', False)
 class CommunicationProtocol(_DotNetEnum):
     """Protocol used by the virtual ECU Network Cluster to communicate with the real ECU network."""
 
@@ -759,7 +758,7 @@ class CommunicationProtocol(_DotNetEnum):
         return CommunicationProtocol(dotnet_result, "ETHERNET")
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.ConditionStepComparison, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.ConditionStepComparison', False)
 class ConditionStepComparison(_DotNetEnum):
     """The condition to use when comparing Variable and Value in a niveristand.systemdefinitionapi.Condition step."""
 
@@ -808,7 +807,7 @@ class ConditionStepComparison(_DotNetEnum):
         return ConditionStepComparison(dotnet_result, "LESS_OR_EQUAL")
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.CustomDeviceBase, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.CustomDeviceBase', False)
 class CustomDeviceBase(BaseNode):
     """Defines a base class for NI VeriStand custom devices."""
 
@@ -1552,7 +1551,7 @@ class CustomDeviceBase(BaseNode):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.CustomDeviceSection)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.CustomDeviceSection')
 class CustomDeviceSection(CustomDeviceBase):
     """Represents a section under a custom device. Sections are not required in custom devices, but provide a way to organize custom device channels into a logical hierarchy."""
 
@@ -1672,7 +1671,7 @@ class CustomDeviceSection(CustomDeviceBase):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.CustomDeviceWaveform)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.CustomDeviceWaveform')
 class CustomDeviceWaveform(CustomDeviceBase):
     """Represents a waveform in a custom device."""
 
@@ -1726,7 +1725,7 @@ class CustomDeviceWaveform(CustomDeviceBase):
             _wrap_exception(e)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQAnalogChannelType, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.DAQAnalogChannelType', False)
 class DAQAnalogChannelType(_DotNetEnum):
     """Specifies the measurement type of an analog DAQ channel."""
 
@@ -1757,7 +1756,7 @@ class DAQAnalogChannelType(_DotNetEnum):
         return DAQAnalogChannelType(dotnet_result, "OTHER")
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Active_Edge, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Active_Edge', False)
 class DAQCM_Active_Edge(_DotNetEnum):
     """Specifies the edge on which the sample clock pulses to acquire or generate samples."""
 
@@ -1782,7 +1781,7 @@ class DAQCM_Active_Edge(_DotNetEnum):
         return DAQCM_Active_Edge(dotnet_result, "FALLING")
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Clock_Source, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Clock_Source', False)
 class DAQCM_Clock_Source(_DotNetEnum):
     """Specifies the source of the sample clock."""
 
@@ -1950,7 +1949,7 @@ class DAQCM_Clock_Source(_DotNetEnum):
         return DAQCM_Clock_Source(dotnet_result, "RTSI_PXI_TRIG_7")
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Export_Clk_On_Line, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Export_Clk_On_Line', False)
 class DAQCM_Export_Clk_On_Line(_DotNetEnum):
     """Specifies the line that receives the pulse from the sample clock."""
 
@@ -2113,7 +2112,7 @@ class DAQCM_Export_Clk_On_Line(_DotNetEnum):
         return DAQCM_Export_Clk_On_Line(dotnet_result, "RTSI_PXI_TRIG_7")
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Export_Sample_Clock, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Export_Sample_Clock', False)
 class DAQCM_Export_Sample_Clock(_DotNetEnum):
     """Specifies the sample clock to export."""
 
@@ -2138,7 +2137,7 @@ class DAQCM_Export_Sample_Clock(_DotNetEnum):
         return DAQCM_Export_Sample_Clock(dotnet_result, "AO_SAMPLE_CLOCK")
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Export_StartTrigger_On_Line, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Export_StartTrigger_On_Line', False)
 class DAQCM_Export_StartTrigger_On_Line(_DotNetEnum):
     """Specifies the line that exports the Start Trigger."""
 
@@ -2301,7 +2300,7 @@ class DAQCM_Export_StartTrigger_On_Line(_DotNetEnum):
         return DAQCM_Export_StartTrigger_On_Line(dotnet_result, "RTSI_PXI_TRIG_7")
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Export_Start_Trigger, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Export_Start_Trigger', False)
 class DAQCM_Export_Start_Trigger(_DotNetEnum):
     """Specifies the start trigger to export."""
 
@@ -2326,7 +2325,7 @@ class DAQCM_Export_Start_Trigger(_DotNetEnum):
         return DAQCM_Export_Start_Trigger(dotnet_result, "AO_START_TRIGGER")
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Slope, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Slope', False)
 class DAQCM_Slope(_DotNetEnum):
     """Specifies the edge on which to trigger the device."""
 
@@ -2351,7 +2350,7 @@ class DAQCM_Slope(_DotNetEnum):
         return DAQCM_Slope(dotnet_result, "FALLING")
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Trigger_Line, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCM_Trigger_Line', False)
 class DAQCM_Trigger_Line(_DotNetEnum):
     """Specifies the line that triggers the acquisition or generation of samples."""
 
@@ -2514,7 +2513,7 @@ class DAQCM_Trigger_Line(_DotNetEnum):
         return DAQCM_Trigger_Line(dotnet_result, "RTSI_PXI_TRIG_7")
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQConversionRate, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.DAQConversionRate', False)
 class DAQConversionRate(_DotNetEnum):
     """Specifies the rate used to run the analog-digital converters (ADCs) on a DAQ device."""
 
@@ -2539,7 +2538,7 @@ class DAQConversionRate(_DotNetEnum):
         return DAQConversionRate(dotnet_result, "MAXIMUM")
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCounterCountMode, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCounterCountMode', False)
 class DAQCounterCountMode(_DotNetEnum):
     """Specifies the mode of the count direction."""
 
@@ -2570,7 +2569,7 @@ class DAQCounterCountMode(_DotNetEnum):
         return DAQCounterCountMode(dotnet_result, "EXTERNALLY_CONTROLLED")
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCounterDecoding, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCounterDecoding', False)
 class DAQCounterDecoding(_DotNetEnum):
     """Specifies the method used to count and interpret the pulses the encoder generates on signal A and signal B. Decoding1X, Decoding2X, and Decoding4X are valid for quadrature encoders only."""
 
@@ -2607,7 +2606,7 @@ class DAQCounterDecoding(_DotNetEnum):
         return DAQCounterDecoding(dotnet_result, "DECODING_PULSE_COUNTING")
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCounterEdge, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCounterEdge', False)
 class DAQCounterEdge(_DotNetEnum):
     """Specifies the mode the counter uses to count the edge."""
 
@@ -2632,7 +2631,7 @@ class DAQCounterEdge(_DotNetEnum):
         return DAQCounterEdge(dotnet_result, "RISING")
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCounterType, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCounterType', False)
 class DAQCounterType(_DotNetEnum):
     """Specifies the type of task the DAQ counter performs."""
 
@@ -2675,7 +2674,7 @@ class DAQCounterType(_DotNetEnum):
         return DAQCounterType(dotnet_result, "OTHER")
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCounterZIndexMode, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCounterZIndexMode', False)
 class DAQCounterZIndexMode(_DotNetEnum):
     """Specifies the states at which signal A and signal B must be while signal Z is high for the device to reset the measurement. If signal Z is never high while signal A and signal B are high, for example, you must choose a phase other than AHighBHigh. When signal Z transitions to high and how long it stays high varies from encoder to encoder. Refer to the documentation for the encoder to determine the timing of signal Z with respect to signal A and signal B."""
 
@@ -2712,7 +2711,7 @@ class DAQCounterZIndexMode(_DotNetEnum):
         return DAQCounterZIndexMode(dotnet_result, "A_LOW_B_LOW")
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQDataChannelType, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.DAQDataChannelType', False)
 class DAQDataChannelType(_DotNetEnum):
     """Specifies the type of data channel in a DAQ measurement niveristand.systemdefinitionapi.DAQSectionType section."""
 
@@ -2737,7 +2736,7 @@ class DAQDataChannelType(_DotNetEnum):
         return DAQDataChannelType(dotnet_result, "DUTY_CYCLE")
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQDeviceInputConfiguration, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.DAQDeviceInputConfiguration', False)
 class DAQDeviceInputConfiguration(_DotNetEnum):
     """Specifies the input terminal configuration to apply to the device channels."""
 
@@ -2780,7 +2779,7 @@ class DAQDeviceInputConfiguration(_DotNetEnum):
         return DAQDeviceInputConfiguration(dotnet_result, "PSEUDODIFFERENTIAL")
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQMeasurementType, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.DAQMeasurementType', False)
 class DAQMeasurementType(_DotNetEnum):
     """Specifies the measurement type of a DAQ channel."""
 
@@ -2943,7 +2942,7 @@ class DAQMeasurementType(_DotNetEnum):
         return DAQMeasurementType(dotnet_result, "USER_DEFINED")
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQTrigger, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.DAQTrigger', False)
 class DAQTrigger(_DotNetBase):
     """Provides an abstract base class for different types of triggers you can use to configure a niveristand.systemdefinitionapi.DAQTaskAI to start acquiring under certain conditions."""
 
@@ -2960,7 +2959,7 @@ class DAQTrigger(_DotNetBase):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQTriggerAnalogEdge)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.DAQTriggerAnalogEdge')
 class DAQTriggerAnalogEdge(DAQTrigger):
     """Represents an analog edge trigger that can configure a niveristand.systemdefinitionapi.DAQTaskAI to start acquiring under certain conditions."""
 
@@ -3032,7 +3031,7 @@ class DAQTriggerAnalogEdge(DAQTrigger):
             _wrap_exception(e)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQTriggerAnalogWindow)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.DAQTriggerAnalogWindow')
 class DAQTriggerAnalogWindow(DAQTrigger):
     """Represents an analog window trigger that can configure a niveristand.systemdefinitionapi.DAQTaskAI to start acquiring under certain conditions."""
 
@@ -3123,7 +3122,7 @@ class DAQTriggerAnalogWindow(DAQTrigger):
             _wrap_exception(e)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQTriggerDigitalEdge)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.DAQTriggerDigitalEdge')
 class DAQTriggerDigitalEdge(DAQTrigger):
     """Represents a digital edge trigger that can configure a niveristand.systemdefinitionapi.DAQTaskAI to start acquiring under certain conditions."""
 
@@ -3176,7 +3175,7 @@ class DAQTriggerDigitalEdge(DAQTrigger):
             _wrap_exception(e)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQTriggerNone)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.DAQTriggerNone')
 class DAQTriggerNone(DAQTrigger):
     """Represents a disabled niveristand.systemdefinitionapi.DAQTrigger."""
 
@@ -3188,7 +3187,7 @@ class DAQTriggerNone(DAQTrigger):
         _init_dotnet_wrapper(self, *args)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQTriggerSoftware)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.DAQTriggerSoftware')
 class DAQTriggerSoftware(DAQTrigger):
     """Represents a software trigger that can configure a niveristand.systemdefinitionapi.DAQTaskAI to start acquiring under certain conditions."""
 
@@ -3200,7 +3199,7 @@ class DAQTriggerSoftware(DAQTrigger):
         _init_dotnet_wrapper(self, *args)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.DataLoggingFilterType, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.DataLoggingFilterType', False)
 class DataLoggingFilterType(_DotNetEnum):
     """Specifies the type of filtering applied to a niveristand.systemdefinitionapi.DataLoggingFile under an NI-XNET port."""
 
@@ -3241,7 +3240,7 @@ class DataLoggingFilterType(_DotNetEnum):
         return DataLoggingFilterType.INCLUDE_FRAME_IDS
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.DataLoggingOperationType, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.DataLoggingOperationType', False)
 class DataLoggingOperationType(_DotNetEnum):
     """Specifies the action taken when a trigger condition is met."""
 
@@ -3266,7 +3265,7 @@ class DataLoggingOperationType(_DotNetEnum):
         return DataLoggingOperationType(dotnet_result, "STOP_LOGGING")
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.DataLoggingTriggerType, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.DataLoggingTriggerType', False)
 class DataLoggingTriggerType(_DotNetEnum):
     """Specifies the type of trigger used to start or stop logging data to a niveristand.systemdefinitionapi.DataLoggingFile."""
 
@@ -3303,7 +3302,7 @@ class DataLoggingTriggerType(_DotNetEnum):
         return DataLoggingTriggerType(dotnet_result, "ENABLE_LOGGING_WHEN_TRIGGER_IS_NON_ZERO")
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.Delimiter, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.Delimiter', False)
 class Delimiter(_DotNetEnum):
     """Defines the delimiter of the niveristand.systemdefinitionapi.SimulationModels.parameter_file."""
 
@@ -3334,7 +3333,7 @@ class Delimiter(_DotNetEnum):
         return Delimiter(dotnet_result, "COMMA")
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.DependentFile)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.DependentFile')
 class DependentFile(_DotNetBase):
     """Represents a dependent file, which can be any file that another node requires. For example, model files, bitfiles, and VIs that make up custom devices can all be dependent files."""
 
@@ -3507,7 +3506,7 @@ class DependentFile(_DotNetBase):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.DependentFileType, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.DependentFileType', False)
 class DependentFileType(_DotNetEnum):
     """Specifies the type of path used for the location of a niveristand.systemdefinitionapi.DependentFile."""
 
@@ -3544,7 +3543,7 @@ class DependentFileType(_DotNetEnum):
         return DependentFileType(dotnet_result, "TO_APP_DATA_DIR")
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.DependentNode)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.DependentNode')
 class DependentNode(_DotNetBase):
     """Represents a dependent node that encapsulates the path to another node in the system definition."""
 
@@ -3578,7 +3577,7 @@ class DependentNode(_DotNetBase):
             _wrap_exception(e)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.Dictionary)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.Dictionary')
 class Dictionary(_DotNetBase):
     """Represents a dictionary, which is an associative array. You can set dictionaries as values for niveristand.systemdefinitionapi.CustomDevice and niveristand.systemdefinitionapi.TimingAndSyncDevice items."""
 
@@ -4253,7 +4252,7 @@ class Dictionary(_DotNetBase):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.DictionaryElement)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.DictionaryElement')
 class DictionaryElement(_DotNetBase):
     """Represents an element, or a key/value pair, in a niveristand.systemdefinitionapi.Dictionary."""
 
@@ -4305,7 +4304,7 @@ class DictionaryElement(_DotNetBase):
             _wrap_exception(e)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.DirectionType, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.DirectionType', False)
 class DirectionType(_DotNetEnum):
     """Defines the direction of a signal slope or edge that causes a trigger."""
 
@@ -4330,7 +4329,7 @@ class DirectionType(_DotNetEnum):
         return DirectionType(dotnet_result, "FALLING")
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.EdgeType, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.EdgeType', False)
 class EdgeType(_DotNetEnum):
     """Defines the edge type of the sample clock."""
 
@@ -4355,7 +4354,7 @@ class EdgeType(_DotNetEnum):
         return EdgeType(dotnet_result, "FALLING")
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.FDISOMode, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.FDISOMode', False)
 class FDISOMode(_DotNetEnum):
     """Specifies whether the interface is working in the ISO CAN FD standard (ISO standard 11898-1:2015) or non-ISO CAN FD standard (Bosch CAN FD 1.0 specification). Two ports using different standards (ISO CAN FD vs. non-ISO CAN FD) cannot communicate with each other."""
 
@@ -4386,7 +4385,7 @@ class FDISOMode(_DotNetEnum):
         return FDISOMode(dotnet_result, "ISO_LEGACY")
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.FileLimitationType, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.FileLimitationType', False)
 class FileLimitationType(_DotNetEnum):
     """Specifies the type of limit used to stop logging incoming frame data to an NI-XNET niveristand.systemdefinitionapi.DataLoggingFile."""
 
@@ -4411,7 +4410,7 @@ class FileLimitationType(_DotNetEnum):
         return FileLimitationType(dotnet_result, "TIME")
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.FileType, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.FileType', False)
 class FileType(_DotNetEnum):
     """Specifies the file type of an NI-XNET niveristand.systemdefinitionapi.DataLoggingFile."""
 
@@ -4436,7 +4435,7 @@ class FileType(_DotNetEnum):
         return FileType(dotnet_result, "NCL")
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.FramePhaseType, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.FramePhaseType', False)
 class FramePhaseType(_DotNetEnum):
     """Specifies whether to reset the timer of a software cyclic trigger after each transmission of an outgoing frame."""
 
@@ -4461,7 +4460,7 @@ class FramePhaseType(_DotNetEnum):
         return FramePhaseType(dotnet_result, "RESET")
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.FrameTriggerType, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.FrameTriggerType', False)
 class FrameTriggerType(_DotNetEnum):
     """Specifies a condition that a trigger channel must meet to trigger transmission of an outgoing frame."""
 
@@ -4504,7 +4503,7 @@ class FrameTriggerType(_DotNetEnum):
         return FrameTriggerType(dotnet_result, "CHANNEL_VALUE_CHANGE_OR_TRIGGER_CHANNEL_ANY_VALUE_CHANGE")
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.FrameType, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.FrameType', False)
 class FrameType(_DotNetEnum):
     """Specifies the type of a CAN or FlexRay frame."""
 
@@ -4541,7 +4540,7 @@ class FrameType(_DotNetEnum):
         return FrameType(dotnet_result, "FLEX_RAY_NULL_FRAME")
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.GlobalParameterScopes, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.GlobalParameterScopes', False)
 class GlobalParameterScopes(_DotNetEnum):
     """Specifies whether global parameters in a niveristand.systemdefinitionapi.Model share their values with other models."""
 
@@ -4566,7 +4565,7 @@ class GlobalParameterScopes(_DotNetEnum):
         return GlobalParameterScopes(dotnet_result, "MODEL")
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.GlobalSequenceCommand, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.GlobalSequenceCommand', False)
 class GlobalSequenceCommand(_DotNetEnum):
     """Specifies the command for all running sequences."""
 
@@ -4597,7 +4596,7 @@ class GlobalSequenceCommand(_DotNetEnum):
         return GlobalSequenceCommand(dotnet_result, "STOP_GROUP")
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.ICANConfiguration, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.ICANConfiguration', False)
 class ICANConfiguration(_DotNetBase):
     """Represents the configuration for CAN communication."""
 
@@ -4713,7 +4712,7 @@ class ICANConfiguration(_DotNetBase):
             _wrap_exception(e)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.IChannel, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.IChannel', False)
 class IChannel(_DotNetBase):
     """An interface defining system definition channel behavior"""
 
@@ -4826,7 +4825,7 @@ class IChannel(_DotNetBase):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.IECUNetworkClusterConfiguration, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.IECUNetworkClusterConfiguration', False)
 class IECUNetworkClusterConfiguration(_DotNetBase):
     """Interface for an ECU network cluster configuration."""
 
@@ -4972,7 +4971,7 @@ class IECUNetworkClusterConfiguration(_DotNetBase):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.IEthernetConfiguration, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.IEthernetConfiguration', False)
 class IEthernetConfiguration(_DotNetBase):
     """Represents the configuration for Ethernet communication."""
 
@@ -5037,7 +5036,7 @@ class IEthernetConfiguration(_DotNetBase):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.ILINConfiguration, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.ILINConfiguration', False)
 class ILINConfiguration(_DotNetBase):
     """Represents the configuration for LIN communication."""
 
@@ -5119,12 +5118,12 @@ class ILINConfiguration(_DotNetBase):
             _wrap_exception(e)
         return _wrap(dotnet_result)
 
-    @deprecated('Use get_virtual_tx_frame_ids.')
     def get_virtual_tx_frame_i_ds(self, *args):
+        warnings.warn("get_virtual_tx_frame_i_ds is deprecated. Use get_virtual_tx_frame_ids.", DeprecationWarning, stacklevel=2)
         return self.get_virtual_tx_frame_ids(*args)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.IPluginNodeFactory, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.IPluginNodeFactory', False)
 class IPluginNodeFactory(_DotNetBase):
     """Defines a factory interface for creating plugin nodes from system storage data."""
 
@@ -5149,7 +5148,7 @@ class IPluginNodeFactory(_DotNetBase):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.LUTValue)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.LUTValue')
 class LUTValue(_DotNetBase):
     """Represents a pair of values in a niveristand.systemdefinitionapi.LookupTable scale: a pre-scaled value and the corresponding scaled value."""
 
@@ -5197,7 +5196,7 @@ class LUTValue(_DotNetBase):
             _wrap_exception(e)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.LogMode, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.LogMode', False)
 class LogMode(_DotNetEnum):
     """The logging mode that determines whether components in the NI VeriStand system can read data as you log it."""
 
@@ -5222,7 +5221,7 @@ class LogMode(_DotNetEnum):
         return LogMode(dotnet_result, "LOG_AND_READ")
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.ModelCommandState, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.ModelCommandState', False)
 class ModelCommandState(_DotNetEnum):
     """Specifies the current state of the model."""
 
@@ -5265,7 +5264,7 @@ class ModelCommandState(_DotNetEnum):
         return ModelCommandState(dotnet_result, "RESTORE")
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.NodeIDUtil)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.NodeIDUtil')
 class NodeIDUtil(_DotNetBase):
     """Provides methods for converting node IDs, or pointers, to nodes in a system definition file into item references to the same node."""
 
@@ -5396,7 +5395,7 @@ class NodeIDUtil(_DotNetBase):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.PXIBackplaneReferenceClock, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.PXIBackplaneReferenceClock', False)
 class PXIBackplaneReferenceClock(_DotNetEnum):
     """Specifies the PXI chassis backplane reference clock."""
 
@@ -5433,7 +5432,7 @@ class PXIBackplaneReferenceClock(_DotNetEnum):
         return PXIBackplaneReferenceClock(dotnet_result, "CLK100")
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.ParameterAccess, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.ParameterAccess', False)
 class ParameterAccess(_DotNetEnum):
     """Defines the parameter access mode on the engine. The user can select to access only the imported parameters or all the parameters from the models."""
 
@@ -5458,7 +5457,7 @@ class ParameterAccess(_DotNetEnum):
         return ParameterAccess(dotnet_result, "ANY_PARAMETER")
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.ReflectiveMemoryDataChannelAccessType, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.ReflectiveMemoryDataChannelAccessType', False)
 class ReflectiveMemoryDataChannelAccessType(_DotNetEnum):
     """Specifies the access type (read or write) of a data channel on a reflective memory device."""
 
@@ -5483,7 +5482,7 @@ class ReflectiveMemoryDataChannelAccessType(_DotNetEnum):
         return ReflectiveMemoryDataChannelAccessType(dotnet_result, "WRITE")
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.ReflectiveMemoryDataChannelDataType, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.ReflectiveMemoryDataChannelDataType', False)
 class ReflectiveMemoryDataChannelDataType(_DotNetEnum):
     """Specifies the data type of a data channel on a reflective memory device."""
 
@@ -5570,7 +5569,7 @@ class ReflectiveMemoryDataChannelDataType(_DotNetEnum):
         return ReflectiveMemoryDataChannelDataType(dotnet_result, "DOUBLE")
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.ReflectiveMemoryInterruptType, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.ReflectiveMemoryInterruptType', False)
 class ReflectiveMemoryInterruptType(_DotNetEnum):
     """Specifies the type of interrupt a niveristand.systemdefinitionapi.ReflectiveMemory device sends or receives."""
 
@@ -5613,7 +5612,7 @@ class ReflectiveMemoryInterruptType(_DotNetEnum):
         return ReflectiveMemoryInterruptType(dotnet_result, "NETWORK_INIT_INTERRUPT")
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.ReplayBehavior, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.ReplayBehavior', False)
 class ReplayBehavior(_DotNetEnum):
     """Specifies whether and how frames in a data replay file on an NI-XNET CAN port are filtered."""
 
@@ -5654,7 +5653,7 @@ class ReplayBehavior(_DotNetEnum):
         return ReplayBehavior.INCLUDE_FRAME_IDS
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.Root, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.Root', False)
 class Root(BaseNode):
     """Represents the root node of the system definition."""
 
@@ -5856,7 +5855,7 @@ class Root(BaseNode):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.RuntimeConfiguration)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.RuntimeConfiguration')
 class RuntimeConfiguration(_DotNetBase):
     """Represents a runtime configuration file, which contains section property and channels that can be applied under RuntimeConfigurableSection without having to undeploy the system using APIs from niveristand.ClientAPI.i_runtime_configuration."""
 
@@ -5986,7 +5985,7 @@ class RuntimeConfiguration(_DotNetBase):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.SampleMode, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.SampleMode', False)
 class SampleMode(_DotNetEnum):
     """Whether the AI acquisition is single-point or buffered."""
 
@@ -6011,7 +6010,7 @@ class SampleMode(_DotNetEnum):
         return SampleMode(dotnet_result, "WAVEFORM")
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.ScaleType, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.ScaleType', False)
 class ScaleType(_DotNetEnum):
     """This enumeration is used to select the Scale Type."""
 
@@ -6042,7 +6041,7 @@ class ScaleType(_DotNetEnum):
         return ScaleType(dotnet_result, "LOOKUP_TABLE")
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.Section, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.Section', False)
 class Section(BaseNode):
     """Represents a section or node in the system definition. A section represents any node that contains additional nodes."""
 
@@ -6050,7 +6049,7 @@ class Section(BaseNode):
         _init_dotnet_wrapper(self, *args)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.SetVariableStepFunction, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.SetVariableStepFunction', False)
 class SetVariableStepFunction(_DotNetEnum):
     """Specifies the function to use on Value1 and Value2 of a niveristand.systemdefinitionapi.SetVariable procedure step."""
 
@@ -6093,7 +6092,7 @@ class SetVariableStepFunction(_DotNetEnum):
         return SetVariableStepFunction(dotnet_result, "DIVIDE")
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.SignalBasedFrame)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.SignalBasedFrame')
 class SignalBasedFrame(Section):
     """Represents a signal format frame under an NI-XNET LIN, FlexRay, or CAN port."""
 
@@ -6605,7 +6604,7 @@ class SignalBasedFrame(Section):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.SimulationModels, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.SimulationModels', False)
 class SimulationModels(Section):
     """Represents the Simulation Models section of a niveristand.systemdefinitionapi.Target, which contains any models you import and information about the order in which they execute."""
 
@@ -6756,7 +6755,7 @@ class SimulationModels(Section):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.SinglePoint, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.SinglePoint', False)
 class SinglePoint(Section):
     """Represents the Single-Point section under an niveristand.systemdefinitionapi.Incoming section of an NI-XNET CAN, LIN, or FlexRay port. When you import single-point frames, NI VeriStand reads the most recent value received for the frame."""
 
@@ -6822,7 +6821,7 @@ class SinglePoint(Section):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.Sporadic, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.Sporadic', False)
 class Sporadic(Section):
     """Represents the Sporadic section that contains outgoing, sporadic frames under an NI-XNET LIN port."""
 
@@ -6888,7 +6887,7 @@ class Sporadic(Section):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.Stimulus, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.Stimulus', False)
 class Stimulus(Section):
     """Represents the Stimulus section of a niveristand.systemdefinitionapi.Target, which contains the stimulus generators available in the Legacy Stimulus Profile Editor."""
 
@@ -6950,13 +6949,13 @@ class Stimulus(Section):
             _wrap_exception(e)
 
     @property
-    @deprecated('Use auxiliary_buffer_size.')
     def auxilliary_buffer_size(self) -> int:
+        warnings.warn("auxilliary_buffer_size is deprecated. Use auxiliary_buffer_size.", DeprecationWarning, stacklevel=2)
         return self.auxiliary_buffer_size
 
     @auxilliary_buffer_size.setter
-    @deprecated('Use auxiliary_buffer_size.')
     def auxilliary_buffer_size(self, value: int) -> None:
+        warnings.warn("auxilliary_buffer_size is deprecated. Use auxiliary_buffer_size.", DeprecationWarning, stacklevel=2)
         self.auxiliary_buffer_size = value
 
     @property
@@ -7025,7 +7024,7 @@ class Stimulus(Section):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.SystemChannels, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.SystemChannels', False)
 class SystemChannels(Section):
     """Represents the System Channels section of a niveristand.systemdefinitionapi.Target, which contains a variety of channels that monitor the state and condition of various aspects of the system."""
 
@@ -7046,7 +7045,7 @@ class SystemChannels(Section):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.SystemDefinition)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.SystemDefinition')
 class SystemDefinition(_DotNetBase):
     """Represents a system definition file, which contains configuration settings for the VeriStand Engine. This class is the base class for configuring system definitions through this API."""
 
@@ -7133,7 +7132,7 @@ class SystemDefinition(_DotNetBase):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.SystemDefinitionExtensions, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.SystemDefinitionExtensions', False)
 class SystemDefinitionExtensions(_DotNetBase):
     """Extension methods to assist with manipulating the SystemDefinition"""
 
@@ -7348,7 +7347,7 @@ class SystemDefinitionExtensions(_DotNetBase):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.SystemInitialization, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.SystemInitialization', False)
 class SystemInitialization(Section):
     """Represents the System Initialization section of the system definition, which contains information about the order that multiple targets deploy relative to each other."""
 
@@ -7374,7 +7373,7 @@ class SystemInitialization(Section):
             _wrap_exception(e)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.SystemMappings, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.SystemMappings', False)
 class SystemMappings(Section):
     """Represents the System Mappings section of the system definition, which stores information about how source channels within the system definition map to destination channels. Destination channels store the mapping information."""
 
@@ -7382,7 +7381,7 @@ class SystemMappings(Section):
         _init_dotnet_wrapper(self, *args)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.Target)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.Target')
 class Target(BaseNode):
     """Represents a target in the system definition."""
 
@@ -8035,7 +8034,7 @@ class Target(BaseNode):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.TargetControlLoopTimingSource, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.TargetControlLoopTimingSource', False)
 class TargetControlLoopTimingSource(_DotNetEnum):
     """Specifies the timing source for the system. The timing source times the system by sending ticks to the Primary Control Loop."""
 
@@ -8066,7 +8065,7 @@ class TargetControlLoopTimingSource(_DotNetEnum):
         return TargetControlLoopTimingSource(dotnet_result, "CUSTOM_DEVICE_TIMING")
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.TargetExecutionMode, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.TargetExecutionMode', False)
 class TargetExecutionMode(_DotNetEnum):
     """Specifies the execution mode for the loops of the VeriStand Engine."""
 
@@ -8091,7 +8090,7 @@ class TargetExecutionMode(_DotNetEnum):
         return TargetExecutionMode(dotnet_result, "LOW_LATENCY")
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.TargetTimingMode, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.TargetTimingMode', False)
 class TargetTimingMode(_DotNetEnum):
     """The timing mode of the target."""
 
@@ -8122,7 +8121,7 @@ class TargetTimingMode(_DotNetEnum):
         return TargetTimingMode(dotnet_result, "WAIT_ON_DMA_READ")
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.Targets, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.Targets', False)
 class Targets(BaseNode):
     """Represents the Targets section of the system definition, which contains all the targets you configure."""
 
@@ -8159,7 +8158,7 @@ class Targets(BaseNode):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.TaskType, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.TaskType', False)
 class TaskType(_DotNetEnum):
     """This enumeration is used to select the Task Type."""
 
@@ -8178,7 +8177,7 @@ class TaskType(_DotNetEnum):
         return TaskType(dotnet_result, "ANALOG_INPUT")
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.TemperatureUnit, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.TemperatureUnit', False)
 class TemperatureUnit(_DotNetEnum):
     """Defines the Temperature Unit of the thermocouple."""
 
@@ -8215,7 +8214,7 @@ class TemperatureUnit(_DotNetEnum):
         return TemperatureUnit(dotnet_result, "RANKINE")
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.ThermocoupleCJCType, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.ThermocoupleCJCType', False)
 class ThermocoupleCJCType(_DotNetEnum):
     """Defines the CJC type."""
 
@@ -8270,7 +8269,7 @@ class ThermocoupleCJCType(_DotNetEnum):
         return ThermocoupleCJCType(dotnet_result, "NI9214")
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.ThermocoupleType, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.ThermocoupleType', False)
 class ThermocoupleType(_DotNetEnum):
     """Defines the thermocouple type."""
 
@@ -8331,7 +8330,7 @@ class ThermocoupleType(_DotNetEnum):
         return ThermocoupleType(dotnet_result, "N")
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.TimingAndSync, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.TimingAndSync', False)
 class TimingAndSync(Section):
     """Represents the Timing and Sync section of the system definition, which contains all configured timing and sync devices."""
 
@@ -8368,7 +8367,7 @@ class TimingAndSync(Section):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.TimingSourceSettingsOptions, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.TimingSourceSettingsOptions', False)
 class TimingSourceSettingsOptions(_DotNetEnum):
     """Specifies the DAQ timing source setting for the Primary Control Loop when the PCL timing source is set to DAQ."""
 
@@ -8393,7 +8392,7 @@ class TimingSourceSettingsOptions(_DotNetEnum):
         return TimingSourceSettingsOptions(dotnet_result, "SIGNAL_FROM_TASK__SAMPLE_COMPLETE")
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.TriggerType, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.TriggerType', False)
 class TriggerType(_DotNetEnum):
     """Defines the type of a niveristand.systemdefinitionapi.DAQTrigger."""
 
@@ -8436,7 +8435,7 @@ class TriggerType(_DotNetEnum):
         return TriggerType(dotnet_result, "SOFTWARE")
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.Unconditional, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.Unconditional', False)
 class Unconditional(Section):
     """Represents the Unconditional section that contains outgoing, unconditional frames under an NI-XNET LIN port."""
 
@@ -8502,7 +8501,7 @@ class Unconditional(Section):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.UserChannels, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.UserChannels', False)
 class UserChannels(Section):
     """Represents the User Channels section of a niveristand.systemdefinitionapi.Target, which contains any user channels you configure. User channels store a single value, and can be variables in procedures, stimulus profiles, and so on."""
 
@@ -8634,7 +8633,7 @@ class UserChannels(Section):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.UserChannelsFolder)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.UserChannelsFolder')
 class UserChannelsFolder(Section):
     """Represents a folder under the niveristand.systemdefinitionapi.UserChannels section of a target. Folders simply organize user channels into logical groups."""
 
@@ -8775,7 +8774,7 @@ class UserChannelsFolder(Section):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.Utilities)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.Utilities')
 class Utilities(_DotNetBase):
     """Class that provides a way to perform various common operations within the system definition, such as stripping paths, converting data types, and creating channel mappings."""
 
@@ -9241,7 +9240,7 @@ class Utilities(_DotNetBase):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.ValueSource)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.ValueSource')
 class ValueSource(_DotNetBase):
     """Represents the source of a channel value as a constant or a channel."""
 
@@ -9292,7 +9291,7 @@ class ValueSource(_DotNetBase):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.Variant)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.Variant')
 class Variant(_DotNetBase):
     """Represents a variant value that encapsulates the type descriptor and data bytes."""
 
@@ -9345,7 +9344,7 @@ class Variant(_DotNetBase):
             _wrap_exception(e)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.VirtualECUToolchain, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.VirtualECUToolchain', False)
 class VirtualECUToolchain(_DotNetEnum):
     """Toolchain that was used to build virtual ECUs."""
 
@@ -9364,7 +9363,7 @@ class VirtualECUToolchain(_DotNetEnum):
         return VirtualECUToolchain(dotnet_result, "SILVER")
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.Waveform, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.Waveform', False)
 class Waveform(BaseNode):
     """Represents a waveform in the system definition. This is a base class for more specific waveform classes, including hardware waveforms, custom device waveforms, and so on."""
 
@@ -9408,7 +9407,7 @@ class Waveform(BaseNode):
             _wrap_exception(e)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.WindowConditionType, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.WindowConditionType', False)
 class WindowConditionType(_DotNetEnum):
     """Defines the signal condition that causes a window trigger."""
 
@@ -9433,7 +9432,7 @@ class WindowConditionType(_DotNetEnum):
         return WindowConditionType(dotnet_result, "LEAVING_WINDOW")
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.XNET, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.XNET', False)
 class XNET(Section):
     """Represents the NI-XNET section of a niveristand.systemdefinitionapi.Chassis, which contains any niveristand.systemdefinitionapi.CAN, niveristand.systemdefinitionapi.LIN, or niveristand.systemdefinitionapi.FlexRay devices you configure."""
 
@@ -9516,7 +9515,7 @@ class XNET(Section):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.XNETDatabases, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.XNETDatabases', False)
 class XNETDatabases(Section):
     """Represents the XNET Databases section of a niveristand.systemdefinitionapi.Target, which contains any XNET Databases you add to the system definition to run niveristand.systemdefinitionapi.XNET devices."""
 
@@ -9553,7 +9552,7 @@ class XNETDatabases(Section):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.XNETTermination, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.XNETTermination', False)
 class XNETTermination(_DotNetEnum):
     """Configures onboard termination for the XNET port. Termination behavior differs depending on the type of device you are using (CAN, FlexRay, or LIN)."""
 
@@ -9578,7 +9577,7 @@ class XNETTermination(_DotNetEnum):
         return XNETTermination(dotnet_result, "ON")
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.Alarm)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.Alarm')
 class Alarm(Section):
     """Represents an alarm, which notifies the user that the value of a particular channel has gone outside a specified range of values. Alarms also can trigger the execution of a specified procedure."""
 
@@ -10038,7 +10037,7 @@ class Alarm(Section):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.AlarmFolder)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.AlarmFolder')
 class AlarmFolder(Section):
     """Represents an alarm folder, which organizes alarms under the niveristand.systemdefinitionapi.Alarms section."""
 
@@ -10187,7 +10186,7 @@ class AlarmFolder(Section):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.Alarms, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.Alarms', False)
 class Alarms(Section):
     """Represents the Alarms section of a niveristand.systemdefinitionapi.Target, which contains any configured niveristand.systemdefinitionapi.Alarm and niveristand.systemdefinitionapi.AlarmFolder objects."""
 
@@ -10422,7 +10421,7 @@ class Alarms(Section):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.Alias)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.Alias')
 class Alias(BaseNode, IChannel):
     """Represents an alias, which defines an alternate name for a channel in a system definition file. You can use the alias name, rather than the full channel path, in the Workspace window and Stimulus Profile Editor."""
 
@@ -10492,7 +10491,7 @@ class Alias(BaseNode, IChannel):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.AliasFolder)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.AliasFolder')
 class AliasFolder(Section):
     """Represents a folder under the niveristand.systemdefinitionapi.Aliases section of the system definition. Folders simply organize aliases into logical groups."""
 
@@ -10650,7 +10649,7 @@ class AliasFolder(Section):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.Aliases, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.Aliases', False)
 class Aliases(Section):
     """Represents the Aliases section of the system definition, which contains niveristand.systemdefinitionapi.Alias objects that define names you can use in place of full channel paths."""
 
@@ -10837,7 +10836,7 @@ class Aliases(Section):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.AutomaticFrameProcessing, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.AutomaticFrameProcessing', False)
 class AutomaticFrameProcessing(Section):
     """Represents an Automatic Frame Processing section under an outgoing frame of an NI-XNET CAN port. The Automatic Frame Processing section contains niveristand.systemdefinitionapi.CRC and niveristand.systemdefinitionapi.Counter channels."""
 
@@ -10871,7 +10870,7 @@ class AutomaticFrameProcessing(Section):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.CAN, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.CAN', False)
 class CAN(Section):
     """Represents the CAN section under niveristand.systemdefinitionapi.XNET in the system definition."""
 
@@ -10908,7 +10907,7 @@ class CAN(Section):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.CANInterfaceChannels, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.CANInterfaceChannels', False)
 class CANInterfaceChannels(Section):
     """Represents the Interface section under an NI-XNET CAN port. This section contains the port-specific channel that controls the port's sleep mode and channels which provide status information."""
 
@@ -11064,7 +11063,7 @@ class CANInterfaceChannels(Section):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.CANPort)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.CANPort')
 class CANPort(Section):
     """Represents a port under the NI-XNET niveristand.systemdefinitionapi.CAN section."""
 
@@ -11593,7 +11592,7 @@ class CANPort(Section):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.CRC, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.CRC', False)
 class CRC(Section):
     """Represents the CRC section under the niveristand.systemdefinitionapi.AutomaticFrameProcessing section of an outgoing frame of an NI-XNET CAN port. This feature performs a cyclic redundancy check."""
 
@@ -11695,7 +11694,7 @@ class CRC(Section):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.CalculatedChannelFolder)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.CalculatedChannelFolder')
 class CalculatedChannelFolder(Section):
     """Represents a folder under the niveristand.systemdefinitionapi.CalculatedChannels section of the system definition. Folders simply organize CalculatedChannels into logical groups."""
 
@@ -11800,7 +11799,7 @@ class CalculatedChannelFolder(Section):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.CalculatedChannels, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.CalculatedChannels', False)
 class CalculatedChannels(Section):
     """Represents the Calculated Channels section of a niveristand.systemdefinitionapi.Target. This section contains niveristand.systemdefinitionapi.CalculatedChannel objects that perform calculations on other channels in the system."""
 
@@ -12038,7 +12037,7 @@ class CalculatedChannels(Section):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.Channel)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.Channel')
 class Channel(BaseNode, IChannel):
     """Represents a channel in the system definition. This is a base class for more specific channel classes, including hardware channels, system channels, user channels, calculated channels, and so on."""
 
@@ -12158,7 +12157,7 @@ class Channel(BaseNode, IChannel):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.Chassis)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.Chassis')
 class Chassis(Section):
     """Represents a chassis, which contains any NI-DAQ devices, reflective memory devices, NI FPGA targets, NI-XNET devices, and timing and sync devices you add."""
 
@@ -12304,7 +12303,7 @@ class Chassis(Section):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.Command, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.Command', False)
 class Command(Section):
     """Represents a parent class for the different niveristand.systemdefinitionapi.Procedure command types."""
 
@@ -12312,7 +12311,7 @@ class Command(Section):
         _init_dotnet_wrapper(self, *args)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.Condition)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.Condition')
 class Condition(Command):
     """Represents a Condition step that you can add to a procedure. The Condition step executes a niveristand.systemdefinitionapi.GotoLabel step based on the comparison of a constant value or channel value."""
 
@@ -12452,7 +12451,7 @@ class Condition(Command):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.Counter, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.Counter', False)
 class Counter(Section):
     """Represents the Counter section under the niveristand.systemdefinitionapi.AutomaticFrameProcessing section of an outgoing frame of an NI-XNET niveristand.systemdefinitionapi.CANPort. This feature increments specific bits every time the frame is transmitted across the bus."""
 
@@ -12554,7 +12553,7 @@ class Counter(Section):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.CustomDevice)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.CustomDevice')
 class CustomDevice(CustomDeviceSection):
     """Represents a custom device in NI VeriStand."""
 
@@ -12810,8 +12809,8 @@ class CustomDevice(CustomDeviceSection):
             _wrap_exception(e)
         return _wrap(dotnet_result)
 
-    @deprecated('Use get_driver_vis.')
     def get_driver_v_is(self, *args):
+        warnings.warn("get_driver_v_is is deprecated. Use get_driver_vis.", DeprecationWarning, stacklevel=2)
         return self.get_driver_vis(*args)
 
     def get_timing_source_init_vis(self) -> Sequence[DependentFile]:
@@ -12827,8 +12826,8 @@ class CustomDevice(CustomDeviceSection):
             _wrap_exception(e)
         return _wrap(dotnet_result)
 
-    @deprecated('Use get_timing_source_init_vis.')
     def get_timing_source_init_v_is(self, *args):
+        warnings.warn("get_timing_source_init_v_is is deprecated. Use get_timing_source_init_vis.", DeprecationWarning, stacklevel=2)
         return self.get_timing_source_init_vis(*args)
 
     def add_dependencies(self, dependencies: Sequence[DependentFile]):
@@ -12857,8 +12856,8 @@ class CustomDevice(CustomDeviceSection):
             _wrap_exception(e)
         return _wrap(dotnet_result)
 
-    @deprecated('Use set_driver_vis.')
     def set_driver_v_is(self, *args):
+        warnings.warn("set_driver_v_is is deprecated. Use set_driver_vis.", DeprecationWarning, stacklevel=2)
         return self.set_driver_vis(*args)
 
     def set_timing_source_init_vis(self, timing_source_init_vis: Sequence[DependentFile]):
@@ -12874,8 +12873,8 @@ class CustomDevice(CustomDeviceSection):
             _wrap_exception(e)
         return _wrap(dotnet_result)
 
-    @deprecated('Use set_timing_source_init_vis.')
     def set_timing_source_init_v_is(self, *args):
+        warnings.warn("set_timing_source_init_v_is is deprecated. Use set_timing_source_init_vis.", DeprecationWarning, stacklevel=2)
         return self.set_timing_source_init_vis(*args)
 
     def reset_dependencies(self):
@@ -12966,7 +12965,7 @@ class CustomDevice(CustomDeviceSection):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.CustomDeviceChannel)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.CustomDeviceChannel')
 class CustomDeviceChannel(CustomDeviceBase, IChannel):
     """Represents a channel in a custom device."""
 
@@ -13120,7 +13119,7 @@ class CustomDeviceChannel(CustomDeviceBase, IChannel):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.CustomDevices, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.CustomDevices', False)
 class CustomDevices(Section):
     """Represents the top-level Custom Devices section of a niveristand.systemdefinitionapi.Target. This section contains all the custom devices (except timing and sync devices) that you add to the system definition."""
 
@@ -13157,7 +13156,7 @@ class CustomDevices(Section):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.Cyclic, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.Cyclic', False)
 class Cyclic(Section):
     """Represents the Cyclic section that contains outgoing cyclic frames under an NI-XNET CAN or FlexRay port. Use cyclic frames when you want data changes to arrive at other ECUs within a well-defined deadline."""
 
@@ -13223,7 +13222,7 @@ class Cyclic(Section):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.CyclicEvent, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.CyclicEvent', False)
 class CyclicEvent(Section):
     """Represents the CyclicEvent section that contains outgoing cyclic/event frames under an NI-XNET CAN port. Use cyclic/event frames when you want data changes to arrive at other ECUs within a well-defined deadline with the additional ability to send frames on demand."""
 
@@ -13289,7 +13288,7 @@ class CyclicEvent(Section):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQ, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.DAQ', False)
 class DAQ(Section):
     """Represents the DAQ section of a niveristand.systemdefinitionapi.Chassis in the system definition. This section contains all the DAQ devices you add under the chassis."""
 
@@ -13339,7 +13338,7 @@ class DAQ(Section):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQAnalogInputs, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.DAQAnalogInputs', False)
 class DAQAnalogInputs(Section):
     """Represents an Analog Input section under a niveristand.systemdefinitionapi.DAQDevice, which contains all niveristand.systemdefinitionapi.DAQAnalogInput channels you add for the device."""
 
@@ -13473,7 +13472,7 @@ class DAQAnalogInputs(Section):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQAnalogOutputs, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.DAQAnalogOutputs', False)
 class DAQAnalogOutputs(Section):
     """Represents an Analog Output section under a niveristand.systemdefinitionapi.DAQDevice, which contains all niveristand.systemdefinitionapi.DAQAnalogOutput channels you add for the device."""
 
@@ -13510,7 +13509,7 @@ class DAQAnalogOutputs(Section):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQChannel, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.DAQChannel', False)
 class DAQChannel(Channel, IChannel):
     """Provides an abstract base class for implementing DAQ device channels and their measurement types based on DAQ plug-in XML files."""
 
@@ -13873,7 +13872,7 @@ class DAQChannel(Channel, IChannel):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCounter)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCounter')
 class DAQCounter(DAQChannel, IChannel):
     """Represents a DAQ counter channel."""
 
@@ -13997,7 +13996,7 @@ class DAQCounter(DAQChannel, IChannel):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCounters, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCounters', False)
 class DAQCounters(Section):
     """Represents a Counter section under a niveristand.systemdefinitionapi.DAQDevice, which contains all niveristand.systemdefinitionapi.DAQCounter channels you add for the device."""
 
@@ -14092,7 +14091,7 @@ class DAQCounters(Section):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQDIOPort)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.DAQDIOPort')
 class DAQDIOPort(Section):
     """Represents a DAQ DIO port, which contains niveristand.systemdefinitionapi.DAQDigitalInput and/or niveristand.systemdefinitionapi.DAQDigitalOutput channels."""
 
@@ -14185,7 +14184,7 @@ class DAQDIOPort(Section):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQDevice)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.DAQDevice')
 class DAQDevice(Section):
     """Represents a DAQ device."""
 
@@ -14633,7 +14632,7 @@ class DAQDevice(Section):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQDigitalInput)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.DAQDigitalInput')
 class DAQDigitalInput(DAQChannel, IChannel):
     """Represents a DAQ digital input channel."""
 
@@ -14716,13 +14715,13 @@ class DAQDigitalInput(DAQChannel, IChannel):
             _wrap_exception(e)
 
     @property
-    @deprecated('Use initial_value.')
     def inital_value(self) -> bool:
+        warnings.warn("inital_value is deprecated. Use initial_value.", DeprecationWarning, stacklevel=2)
         return self.initial_value
 
     @inital_value.setter
-    @deprecated('Use initial_value.')
     def inital_value(self, value: bool) -> None:
+        warnings.warn("inital_value is deprecated. Use initial_value.", DeprecationWarning, stacklevel=2)
         self.initial_value = value
 
     @property
@@ -14771,7 +14770,7 @@ class DAQDigitalInput(DAQChannel, IChannel):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQDigitalInputs, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.DAQDigitalInputs', False)
 class DAQDigitalInputs(Section):
     """Represents a Digital Input section under a niveristand.systemdefinitionapi.DAQDevice, which contains the niveristand.systemdefinitionapi.DAQDIOPort ports for niveristand.systemdefinitionapi.DAQDigitalInput channels."""
 
@@ -14808,7 +14807,7 @@ class DAQDigitalInputs(Section):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQDigitalOutput)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.DAQDigitalOutput')
 class DAQDigitalOutput(DAQChannel, IChannel):
     """Represents a DAQ digital output channel."""
 
@@ -14891,13 +14890,13 @@ class DAQDigitalOutput(DAQChannel, IChannel):
             _wrap_exception(e)
 
     @property
-    @deprecated('Use initial_value.')
     def inital_value(self) -> bool:
+        warnings.warn("inital_value is deprecated. Use initial_value.", DeprecationWarning, stacklevel=2)
         return self.initial_value
 
     @inital_value.setter
-    @deprecated('Use initial_value.')
     def inital_value(self, value: bool) -> None:
+        warnings.warn("inital_value is deprecated. Use initial_value.", DeprecationWarning, stacklevel=2)
         self.initial_value = value
 
     @property
@@ -14946,7 +14945,7 @@ class DAQDigitalOutput(DAQChannel, IChannel):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQDigitalOutputs, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.DAQDigitalOutputs', False)
 class DAQDigitalOutputs(Section):
     """Represents a Digital Output section under a niveristand.systemdefinitionapi.DAQDevice, which contains the niveristand.systemdefinitionapi.DAQDIOPort ports for niveristand.systemdefinitionapi.DAQDigitalOutput channels."""
 
@@ -14983,7 +14982,7 @@ class DAQDigitalOutputs(Section):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQFrequencyMeasurement)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.DAQFrequencyMeasurement')
 class DAQFrequencyMeasurement(DAQCounter, IChannel):
     """Represents a niveristand.systemdefinitionapi.DAQCounter channel with the frequency measurement task type."""
 
@@ -15077,7 +15076,7 @@ class DAQFrequencyMeasurement(DAQCounter, IChannel):
             _wrap_exception(e)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQInternalChannel)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.DAQInternalChannel')
 class DAQInternalChannel(Channel, IChannel):
     """Represents a DAQ internal channel."""
 
@@ -15148,7 +15147,7 @@ class DAQInternalChannel(Channel, IChannel):
             _wrap_exception(e)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQInternalChannels, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.DAQInternalChannels', False)
 class DAQInternalChannels(Section):
     """Represents an Internal Channels section under a niveristand.systemdefinitionapi.DAQDevice, which contains any niveristand.systemdefinitionapi.DAQInternalChannel objects to add to the device."""
 
@@ -15185,7 +15184,7 @@ class DAQInternalChannels(Section):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQLogging, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.DAQLogging', False)
 class DAQLogging(Section):
     """Represents the Logging section of a niveristand.systemdefinitionapi.DAQTaskAI."""
 
@@ -15417,7 +15416,7 @@ class DAQLogging(Section):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQPeriodMeasurement)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.DAQPeriodMeasurement')
 class DAQPeriodMeasurement(DAQCounter, IChannel):
     """Represents a niveristand.systemdefinitionapi.DAQCounter channel with the period measurement task type."""
 
@@ -15511,7 +15510,7 @@ class DAQPeriodMeasurement(DAQCounter, IChannel):
             _wrap_exception(e)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQPositionMeasurement)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.DAQPositionMeasurement')
 class DAQPositionMeasurement(DAQCounter, IChannel):
     """Represents a niveristand.systemdefinitionapi.DAQCounter channel with the position measurement task type."""
 
@@ -15622,7 +15621,7 @@ class DAQPositionMeasurement(DAQCounter, IChannel):
             _wrap_exception(e)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQSectionType, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.DAQSectionType', False)
 class DAQSectionType(Section):
     """Represents a generic DAQ data section."""
 
@@ -16010,7 +16009,7 @@ class DAQSectionType(Section):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQTask, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.DAQTask', False)
 class DAQTask(Section):
     """Provides an abstract base class for different types of tasks you can assign to DAQ channels."""
 
@@ -16027,7 +16026,7 @@ class DAQTask(Section):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQTaskAI)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.DAQTaskAI')
 class DAQTaskAI(DAQTask):
     """Represents a DAQmx task you can assign to one or more DAQ analog input channels to configure timing properties, triggers, and logging."""
 
@@ -16313,7 +16312,7 @@ class DAQTaskAI(DAQTask):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQTaskCommand, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.DAQTaskCommand', False)
 class DAQTaskCommand(Channel, IChannel):
     """Represents one of the channels under the niveristand.systemdefinitionapi.DAQTaskAI, niveristand.systemdefinitionapi.DAQTriggers, or niveristand.systemdefinitionapi.DAQLogging sections. Task command channels control the execution of the niveristand.systemdefinitionapi.DAQTaskAI."""
 
@@ -16339,7 +16338,7 @@ class DAQTaskCommand(Channel, IChannel):
             _wrap_exception(e)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQTasks, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.DAQTasks', False)
 class DAQTasks(Section):
     """Represents the Waveform Tasks section in a system definition. This section contains niveristand.systemdefinitionapi.DAQTask objects."""
 
@@ -16392,7 +16391,7 @@ class DAQTasks(Section):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQTriggers)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.DAQTriggers')
 class DAQTriggers(Section):
     """Represents the Triggers section of a niveristand.systemdefinitionapi.DAQTaskAI."""
 
@@ -16524,7 +16523,7 @@ class DAQTriggers(Section):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQWaveform, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.DAQWaveform', False)
 class DAQWaveform(Waveform):
     """Represents a generic DAQ waveform."""
 
@@ -16887,7 +16886,7 @@ class DAQWaveform(Waveform):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQWaveformAnalogInput)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.DAQWaveformAnalogInput')
 class DAQWaveformAnalogInput(DAQWaveform):
     """Represents a DAQ analog input waveform used in a buffered acquisition."""
 
@@ -16969,7 +16968,7 @@ class DAQWaveformAnalogInput(DAQWaveform):
             _wrap_exception(e)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.DataFileError, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.DataFileError', False)
 class DataFileError(Channel, IChannel):
     """Represents the Error channel associated with a raw frame data logging file or data replay file under an NI-XNET port."""
 
@@ -16977,7 +16976,7 @@ class DataFileError(Channel, IChannel):
         _init_dotnet_wrapper(self, *args)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.DataFileReplay)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.DataFileReplay')
 class DataFileReplay(Section):
     """Represents a data replay file, which is a raw frame data logging (TDMS or NCL) file that you replay onto a CAN bus."""
 
@@ -17131,13 +17130,13 @@ class DataFileReplay(Section):
             _wrap_exception(e)
 
     @property
-    @deprecated('Use frame_ids.')
     def frame_i_ds(self) -> Sequence[str]:
+        warnings.warn("frame_i_ds is deprecated. Use frame_ids.", DeprecationWarning, stacklevel=2)
         return self.frame_ids
 
     @frame_i_ds.setter
-    @deprecated('Use frame_ids.')
     def frame_i_ds(self, value: Sequence[str]) -> None:
+        warnings.warn("frame_i_ds is deprecated. Use frame_ids.", DeprecationWarning, stacklevel=2)
         self.frame_ids = value
 
     @property
@@ -17185,7 +17184,7 @@ class DataFileReplay(Section):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.DataFileStatus, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.DataFileStatus', False)
 class DataFileStatus(Channel, IChannel):
     """Represents the Status channel associated with a raw frame data logging file or data replay file under an NI-XNET port."""
 
@@ -17193,7 +17192,7 @@ class DataFileStatus(Channel, IChannel):
         _init_dotnet_wrapper(self, *args)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.DataLoggingFile)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.DataLoggingFile')
 class DataLoggingFile(Section):
     """Represents a raw frame data logging (TDMS or NCL) file under an NI-XNET port. You can use raw frame data logging files to record incoming frame data during an NI-XNET session."""
 
@@ -17481,13 +17480,13 @@ class DataLoggingFile(Section):
             _wrap_exception(e)
 
     @property
-    @deprecated('Use frame_ids.')
     def frame_i_ds(self) -> Sequence[str]:
+        warnings.warn("frame_i_ds is deprecated. Use frame_ids.", DeprecationWarning, stacklevel=2)
         return self.frame_ids
 
     @frame_i_ds.setter
-    @deprecated('Use frame_ids.')
     def frame_i_ds(self, value: Sequence[str]) -> None:
+        warnings.warn("frame_i_ds is deprecated. Use frame_ids.", DeprecationWarning, stacklevel=2)
         self.frame_ids = value
 
     def get_data_file_error(self) -> DataFileError:
@@ -17517,7 +17516,7 @@ class DataLoggingFile(Section):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.DataReplay, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.DataReplay', False)
 class DataReplay(Section):
     """Represents the Data Replay section under an NI-XNET CAN port, which contains any niveristand.systemdefinitionapi.DataFileReplay files you want to replay onto the CAN bus."""
 
@@ -17554,7 +17553,7 @@ class DataReplay(Section):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.DataSharing, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.DataSharing', False)
 class DataSharing(Section):
     """Represents the Data Sharing section under a niveristand.systemdefinitionapi.Chassis. This section contains any reflective memory devices you add to the system definition."""
 
@@ -17591,7 +17590,7 @@ class DataSharing(Section):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.DataSharingNetwork, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.DataSharingNetwork', False)
 class DataSharingNetwork(Section):
     """Represents the Data Sharing Network section of the system definition, under which you can add and configure a reflective memory network. You can only configure one reflective memory network per system definition."""
 
@@ -17646,7 +17645,7 @@ class DataSharingNetwork(Section):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.Database)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.Database')
 class Database(Section):
     """Represents an XNET database. XNET databases can be CANdb (.dbc), NI-CAN (.ncd), LDF (.ldf), or FIBEX (.xml) files."""
 
@@ -17680,7 +17679,7 @@ class Database(Section):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.Dwell)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.Dwell')
 class Dwell(Command):
     """Represents a Dwell step that you add to a procedure. The Dwell step suspends the procedure by the amount of time you specify."""
 
@@ -17760,7 +17759,7 @@ class Dwell(Command):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.DynamicSignal, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.DynamicSignal', False)
 class DynamicSignal(Channel, IChannel):
     """Represents a dynamic signal contained in a multiplexed frame. NI VeriStand organizes dynamic signals under niveristand.systemdefinitionapi.Mode nodes."""
 
@@ -17777,7 +17776,7 @@ class DynamicSignal(Channel, IChannel):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.End)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.End')
 class End(Command):
     """Represents an End step that you can add to a procedure. The End step stops the procedure."""
 
@@ -17794,7 +17793,7 @@ class End(Command):
         _init_dotnet_wrapper(self, *args)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.EventTriggered, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.EventTriggered', False)
 class EventTriggered(Section):
     """Represents the Event Triggered section under an niveristand.systemdefinitionapi.Outgoing section of an NI-XNET CAN or FlexRay port."""
 
@@ -17860,7 +17859,7 @@ class EventTriggered(Section):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.Execution, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.Execution', False)
 class Execution(Section):
     """Represents the Execution section under a niveristand.systemdefinitionapi.Model. This section contains channels that get and set execution details of the model, such as its current status and the amount of time that has elapsed since it began executing."""
 
@@ -17907,7 +17906,7 @@ class Execution(Section):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.ExecutionOrder, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.ExecutionOrder', False)
 class ExecutionOrder(Section):
     """Represents the Execution Order section under niveristand.systemdefinitionapi.SimulationModels, which contains information about the order that your models execute relative to each other in the VeriStand Engine."""
 
@@ -17915,7 +17914,7 @@ class ExecutionOrder(Section):
         _init_dotnet_wrapper(self, *args)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.ExitSubroutine)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.ExitSubroutine')
 class ExitSubroutine(Command):
     """Represents an Exit Subroutine step that you can add to a procedure. The Exit Subroutine step is typically used in procedures that are called from other procedures by a niveristand.systemdefinitionapi.CallProcedure step. The Exit Subroutine step stops the current procedure and returns to the calling procedure."""
 
@@ -17932,7 +17931,7 @@ class ExitSubroutine(Command):
         _init_dotnet_wrapper(self, *args)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.FPGA, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.FPGA', False)
 class FPGA(Section):
     """Represents the FPGA section of a niveristand.systemdefinitionapi.Chassis in the system definition. This section contains all the FPGA devices you add under the chassis."""
 
@@ -17981,7 +17980,7 @@ class FPGA(Section):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.FPGACategory, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.FPGACategory', False)
 class FPGACategory(Section):
     """Represents a section under an FPGA device. Sections organize channels according to type. For example, Input\\xmlonly»\\endxmlonly Analog, Output\\xmlonly»\\endxmlonly Digital, and so on."""
 
@@ -18015,7 +18014,7 @@ class FPGACategory(Section):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.FPGAChannel, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.FPGAChannel', False)
 class FPGAChannel(Channel, IChannel):
     """Represents a channel of an FPGA device."""
 
@@ -18140,7 +18139,7 @@ class FPGAChannel(Channel, IChannel):
             _wrap_exception(e)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.FPGADICategory, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.FPGADICategory', False)
 class FPGADICategory(FPGACategory):
     """Represents the Input\\xmlonly»\\endxmlonly Digital section under an niveristand.systemdefinitionapi.FPGADevice."""
 
@@ -18148,7 +18147,7 @@ class FPGADICategory(FPGACategory):
         _init_dotnet_wrapper(self, *args)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.FPGADOCategory, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.FPGADOCategory', False)
 class FPGADOCategory(FPGACategory):
     """Represents the Output\\xmlonly»\\endxmlonly Digital section under an niveristand.systemdefinitionapi.FPGADevice."""
 
@@ -18156,7 +18155,7 @@ class FPGADOCategory(FPGACategory):
         _init_dotnet_wrapper(self, *args)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.FPGADevice)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.FPGADevice')
 class FPGADevice(Section):
     """Represents an FPGA target under the niveristand.systemdefinitionapi.FPGA section."""
 
@@ -18246,7 +18245,7 @@ class FPGADevice(Section):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.FPGADigitalInput, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.FPGADigitalInput', False)
 class FPGADigitalInput(FPGAChannel, IChannel):
     """Represents an FPGA digital input channel."""
 
@@ -18254,7 +18253,7 @@ class FPGADigitalInput(FPGAChannel, IChannel):
         _init_dotnet_wrapper(self, *args)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.FPGADigitalOutput, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.FPGADigitalOutput', False)
 class FPGADigitalOutput(FPGAChannel, IChannel):
     """Represents an FPGA digital output channel."""
 
@@ -18262,7 +18261,7 @@ class FPGADigitalOutput(FPGAChannel, IChannel):
         _init_dotnet_wrapper(self, *args)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.FPGAPWMInCategory, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.FPGAPWMInCategory', False)
 class FPGAPWMInCategory(FPGACategory):
     """Represents the Input\\xmlonly»\\endxmlonly PWM section under an niveristand.systemdefinitionapi.FPGADevice."""
 
@@ -18270,7 +18269,7 @@ class FPGAPWMInCategory(FPGACategory):
         _init_dotnet_wrapper(self, *args)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.FPGAPWMInput, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.FPGAPWMInput', False)
 class FPGAPWMInput(FPGAChannel, IChannel):
     """Represents an FPGA PWM input channel."""
 
@@ -18278,7 +18277,7 @@ class FPGAPWMInput(FPGAChannel, IChannel):
         _init_dotnet_wrapper(self, *args)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.FPGAPWMOutCategory, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.FPGAPWMOutCategory', False)
 class FPGAPWMOutCategory(FPGACategory):
     """Represents the Output\\xmlonly»\\endxmlonly PWM section under an niveristand.systemdefinitionapi.FPGADevice."""
 
@@ -18286,7 +18285,7 @@ class FPGAPWMOutCategory(FPGACategory):
         _init_dotnet_wrapper(self, *args)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.FPGAPWMOutput, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.FPGAPWMOutput', False)
 class FPGAPWMOutput(FPGAChannel, IChannel):
     """Represents an FPGA PWM output channel."""
 
@@ -18294,7 +18293,7 @@ class FPGAPWMOutput(FPGAChannel, IChannel):
         _init_dotnet_wrapper(self, *args)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.FinishedFiles, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.FinishedFiles', False)
 class FinishedFiles(Channel, IChannel):
     """Represents a Finished Files channel associated with an NI-XNET niveristand.systemdefinitionapi.RawFrameDataLogging file. This channel stores the number of completed log files for the current session of the VeriStand Engine. You can use this channel to determine when a file is ready for use by other processes."""
 
@@ -18302,7 +18301,7 @@ class FinishedFiles(Channel, IChannel):
         _init_dotnet_wrapper(self, *args)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.FlexRay, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.FlexRay', False)
 class FlexRay(Section):
     """Represents the FlexRay section under niveristand.systemdefinitionapi.XNET in the system definition."""
 
@@ -18339,7 +18338,7 @@ class FlexRay(Section):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.FlexRayInterfaceChannels, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.FlexRayInterfaceChannels', False)
 class FlexRayInterfaceChannels(Section):
     """Represents the Interface section under an NI-XNET FlexRay port. This section contains the port-specific channels which provide status information."""
 
@@ -18473,7 +18472,7 @@ class FlexRayInterfaceChannels(Section):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.FlexRayPort)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.FlexRayPort')
 class FlexRayPort(Section):
     """Represents a port under an NI-XNET niveristand.systemdefinitionapi.FlexRay device."""
 
@@ -18825,7 +18824,7 @@ class FlexRayPort(Section):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.FrameFaulting, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.FrameFaulting', False)
 class FrameFaulting(Section):
     """Represents a Frame Faulting section under an outgoing cyclic frame of an NI-XNET CAN port. This section contains channels you can use to configure the transmission of cyclic frames."""
 
@@ -18859,7 +18858,7 @@ class FrameFaulting(Section):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.FrameID, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.FrameID', False)
 class FrameID(Channel, IChannel):
     """Represents a Frame ID channel under the niveristand.systemdefinitionapi.FrameInformation section of an incoming, raw data format NI-XNET frame. This channel contains the ID number that identifies the frame."""
 
@@ -18876,7 +18875,7 @@ class FrameID(Channel, IChannel):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.FrameInformation, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.FrameInformation', False)
 class FrameInformation(Section):
     """Represents a Frame Information section under an incoming NI-XNET frame. This section contains channels that store information about the frame, such as the timestamp at which it was received and the ID number of the current frame."""
 
@@ -18923,7 +18922,7 @@ class FrameInformation(Section):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.Generator, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.Generator', False)
 class Generator(Section):
     """Represents a stimulus generator in the Legacy Stimulus Profile Editor, which produces simulated real-world signals that stimulus profiles use to perform tests on a system."""
 
@@ -18944,7 +18943,7 @@ class Generator(Section):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.GotoLabel)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.GotoLabel')
 class GotoLabel(Command):
     """Represents a Goto Label step that you can add to a procedure. When this step executes, the procedure jumps to the step specified by niveristand.systemdefinitionapi.GotoLabel.label."""
 
@@ -18980,7 +18979,7 @@ class GotoLabel(Command):
             _wrap_exception(e)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.Hardware, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.Hardware', False)
 class Hardware(Section):
     """Represents the Hardware section of a niveristand.systemdefinitionapi.Target, which contains any chassis you add."""
 
@@ -19046,7 +19045,7 @@ class Hardware(Section):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.ICustomDevicePluginNodeFactory, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.ICustomDevicePluginNodeFactory', False)
 class ICustomDevicePluginNodeFactory(IPluginNodeFactory):
     """Defines a factory interface for creating and initializing custom device plugin nodes."""
 
@@ -19070,7 +19069,7 @@ class ICustomDevicePluginNodeFactory(IPluginNodeFactory):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.Incoming, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.Incoming', False)
 class Incoming(Section):
     """Represent the Incoming section under an NI-XNET CAN, LIN, or FlexRay ports, which contains any incoming frames and data logging files ."""
 
@@ -19104,7 +19103,7 @@ class Incoming(Section):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.Inport, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.Inport', False)
 class Inport(Channel, IChannel):
     """Represents a model inport, or input."""
 
@@ -19139,7 +19138,7 @@ class Inport(Channel, IChannel):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.Inports, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.Inports', False)
 class Inports(Section):
     """Represents the top-level Inports section under a niveristand.systemdefinitionapi.Model. This section contains all the niveristand.systemdefinitionapi.Inport and niveristand.systemdefinitionapi.InportGroup objects for the model."""
 
@@ -19188,7 +19187,7 @@ class Inports(Section):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.InputOverflowChannel)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.InputOverflowChannel')
 class InputOverflowChannel(CustomDeviceChannel, IChannel):
     """Represents an input overflow count channel, which tracks the number of times the system fails to write data to an asynchronous custom device because the FIFO is full. A single custom device can have only one input overflow count channel."""
 
@@ -19204,7 +19203,7 @@ class InputOverflowChannel(CustomDeviceChannel, IChannel):
         _init_dotnet_wrapper(self, *args)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.LIN, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.LIN', False)
 class LIN(Section):
     """Represents the LIN section under niveristand.systemdefinitionapi.XNET in the system definition."""
 
@@ -19241,7 +19240,7 @@ class LIN(Section):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.LINInterfaceChannels, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.LINInterfaceChannels', False)
 class LINInterfaceChannels(Section):
     """Represents the Interface section under an NI-XNET LIN port. This section contains the port-specific channels which provide status information."""
 
@@ -19429,7 +19428,7 @@ class LINInterfaceChannels(Section):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.LINPort)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.LINPort')
 class LINPort(Section):
     """Represents a port under an NI-XNET niveristand.systemdefinitionapi.LIN device."""
 
@@ -19828,7 +19827,7 @@ class LINPort(Section):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.LINScheduler, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.LINScheduler', False)
 class LINScheduler(Channel, IChannel):
     """Represents the LIN Scheduler channel under an NI-XNET niveristand.systemdefinitionapi.LINPort. The LIN Scheduler specifies which schedule to use to determine when to transmit frames. This channel is only valid if the niveristand.systemdefinitionapi.LINPort to which is belongs is configured as the master port (niveristand.systemdefinitionapi.LINPort.is_master is true)."""
 
@@ -19880,7 +19879,7 @@ class LINScheduler(Channel, IChannel):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.Mode, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.Mode', False)
 class Mode(Section):
     """Represents a Mode section under a signal format NI-XNET CAN frame. The Mode section organizes dynamic (multiplexed) signals according to their mode values."""
 
@@ -19951,7 +19950,7 @@ class Mode(Section):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.ModeInformation, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.ModeInformation', False)
 class ModeInformation(Section):
     """Represents a Mode Information section under an NI-XNET CAN multiplexer mode. This section contains channels that store information about the mode, such as the timestamp at which it was received."""
 
@@ -19977,7 +19976,7 @@ class ModeInformation(Section):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.ModeReceiveTime, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.ModeReceiveTime', False)
 class ModeReceiveTime(Channel, IChannel):
     """Represents the Mode Receive Time channel for an incoming NI-XNET CAN multiplexer mode. This channel contains the most recent timestamp at which the mode was received."""
 
@@ -19994,7 +19993,7 @@ class ModeReceiveTime(Channel, IChannel):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.ModeTimeDifference, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.ModeTimeDifference', False)
 class ModeTimeDifference(Channel, IChannel):
     """Represents the Mode Time Difference channel for an incoming NI-XNET CAN multiplexer mode. This channel stores the difference between the two most recent niveristand.systemdefinitionapi.ModeReceiveTime timestamps."""
 
@@ -20002,7 +20001,7 @@ class ModeTimeDifference(Channel, IChannel):
         _init_dotnet_wrapper(self, *args)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.Model)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.Model')
 class Model(Section):
     """Represents a model, which is a mathematical representation of a real-world system. A model responds to stimuli by producing outputs in a way that emulates the behavior of the modeled item. Models contain inputs and outputs that send and receive data. Models contain parameters you can manipulate and signals whose values you can view. For example, a model that generates a sine wave contains parameters that adjust the amplitude and frequency of the sine wave. You can view the value of the sine wave using the model signal."""
 
@@ -20301,13 +20300,13 @@ class Model(Section):
             _wrap_exception(e)
 
     @property
-    @deprecated('Use ni_veristand_server_port.')
     def ni_veri_stand_server_port(self) -> int:
+        warnings.warn("ni_veri_stand_server_port is deprecated. Use ni_veristand_server_port.", DeprecationWarning, stacklevel=2)
         return self.ni_veristand_server_port
 
     @ni_veri_stand_server_port.setter
-    @deprecated('Use ni_veristand_server_port.')
     def ni_veri_stand_server_port(self, value: int) -> None:
+        warnings.warn("ni_veri_stand_server_port is deprecated. Use ni_veristand_server_port.", DeprecationWarning, stacklevel=2)
         self.ni_veristand_server_port = value
 
     @property
@@ -20620,7 +20619,7 @@ class Model(Section):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.ModelCommand, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.ModelCommand', False)
 class ModelCommand(Channel, IChannel):
     """Represents a Model Command channel, which you can use to send commands to the model running on the target."""
 
@@ -20646,7 +20645,7 @@ class ModelCommand(Channel, IChannel):
             _wrap_exception(e)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.ModelDefaultGroup, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.ModelDefaultGroup', False)
 class ModelDefaultGroup(Section):
     """Represents a parent class for the different types of sub-folders and sections a model can have."""
 
@@ -20654,7 +20653,7 @@ class ModelDefaultGroup(Section):
         _init_dotnet_wrapper(self, *args)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.ModelParameter)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.ModelParameter')
 class ModelParameter(Channel, IChannel):
     """Represents a model parameter."""
 
@@ -20698,7 +20697,7 @@ class ModelParameter(Channel, IChannel):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.ModelParameterGroup)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.ModelParameterGroup')
 class ModelParameterGroup(ModelDefaultGroup):
     """Represents a sub-section of the niveristand.systemdefinitionapi.ModelParameters section of a model. Parameter groups provide organization within the model."""
 
@@ -20803,7 +20802,7 @@ class ModelParameterGroup(ModelDefaultGroup):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.ModelParameters, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.ModelParameters', False)
 class ModelParameters(Section):
     """Represents the top-level Parameters section under a niveristand.systemdefinitionapi.Model. This section contains all the niveristand.systemdefinitionapi.ModelParameter and niveristand.systemdefinitionapi.ModelParameterGroup objects under the model."""
 
@@ -20900,7 +20899,7 @@ class ModelParameters(Section):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.ModelSignal)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.ModelSignal')
 class ModelSignal(Channel, IChannel):
     """Represents a model signal."""
 
@@ -20943,7 +20942,7 @@ class ModelSignal(Channel, IChannel):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.ModelSignalGroup)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.ModelSignalGroup')
 class ModelSignalGroup(ModelDefaultGroup):
     """Represents a sub-section of the niveristand.systemdefinitionapi.ModelSignals section of a model. Signal groups provide organization within the model."""
 
@@ -21032,7 +21031,7 @@ class ModelSignalGroup(ModelDefaultGroup):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.ModelSignals, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.ModelSignals', False)
 class ModelSignals(Section):
     """Represents the top-level Signal section under a niveristand.systemdefinitionapi.Model. This section contains all the niveristand.systemdefinitionapi.ModelSignal and niveristand.systemdefinitionapi.ModelSignalGroup objects under the model."""
 
@@ -21113,7 +21112,7 @@ class ModelSignals(Section):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.ModelStatus, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.ModelStatus', False)
 class ModelStatus(Channel, IChannel):
     """Represents a Model Status channel, which you can use to get information about the current status of the model running on the target."""
 
@@ -21121,7 +21120,7 @@ class ModelStatus(Channel, IChannel):
         _init_dotnet_wrapper(self, *args)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.ModelTime, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.ModelTime', False)
 class ModelTime(Channel, IChannel):
     """Represents a Model Time channel, which you can use to get information about the current running time, in seconds, of the model running on the target."""
 
@@ -21129,7 +21128,7 @@ class ModelTime(Channel, IChannel):
         _init_dotnet_wrapper(self, *args)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.Models, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.Models', False)
 class Models(Section):
     """Represents the Models section under niveristand.systemdefinitionapi.SimulationModels. This section contains any compiled or uncompiled models you add to the system definition. NI VeriStand supports importing .dll, .mdl, and .lvmodel file types."""
 
@@ -21166,7 +21165,7 @@ class Models(Section):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.Multiplexer, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.Multiplexer', False)
 class Multiplexer(Channel, IChannel):
     """Represents a multiplexer signal under an NI-XNET signal format CAN frame. The multiplexer signal defines an area within the frame to contain different niveristand.systemdefinitionapi.DynamicSignal signals."""
 
@@ -21192,7 +21191,7 @@ class Multiplexer(Channel, IChannel):
             _wrap_exception(e)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.Outgoing, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.Outgoing', False)
 class Outgoing(Section):
     """Represents the Outgoing section under an NI-XNET CAN, LIN, or FlexRay port, which contains any outgoing frames and data replay files."""
 
@@ -21278,7 +21277,7 @@ class Outgoing(Section):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.Outport, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.Outport', False)
 class Outport(Channel, IChannel):
     """Represents a model outport, or output."""
 
@@ -21313,7 +21312,7 @@ class Outport(Channel, IChannel):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.OutportGroup, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.OutportGroup', False)
 class OutportGroup(ModelDefaultGroup):
     """Represents a sub-section of the niveristand.systemdefinitionapi.Outports section of a model. Outport groups provide organization within the model."""
 
@@ -21362,7 +21361,7 @@ class OutportGroup(ModelDefaultGroup):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.Outports, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.Outports', False)
 class Outports(Section):
     """Represents the top-level Outports section under a niveristand.systemdefinitionapi.Model. This section contains all the niveristand.systemdefinitionapi.Outport and niveristand.systemdefinitionapi.OutportGroup objects for the model."""
 
@@ -21411,7 +21410,7 @@ class Outports(Section):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.OutputUnderflowChannel)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.OutputUnderflowChannel')
 class OutputUnderflowChannel(CustomDeviceChannel, IChannel):
     """Represents an output underflow count channel, which tracks the number of times the system fails to read data from an asynchronous custom device because there is no data to read. A single custom device can have only one output underflow count channel."""
 
@@ -21427,7 +21426,7 @@ class OutputUnderflowChannel(CustomDeviceChannel, IChannel):
         _init_dotnet_wrapper(self, *args)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.PendingFrames, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.PendingFrames', False)
 class PendingFrames(Channel, IChannel):
     """Represents a Pending Frames channel associate with an NI-XNET niveristand.systemdefinitionapi.DataFileReplay file. This channel stores the number of frames in the outgoing transmission queue of the current NI-XNET streaming session. You can use this channel to determine whether data is replaying as expected."""
 
@@ -21435,7 +21434,7 @@ class PendingFrames(Channel, IChannel):
         _init_dotnet_wrapper(self, *args)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.Procedure)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.Procedure')
 class Procedure(Section):
     """Represents a procedure, which determines a set of actions that the VeriStand Engine executes. You can configure procedures to run in response to an alarm, when called from another procedure, or on startup."""
 
@@ -21923,7 +21922,7 @@ class Procedure(Section):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.Procedures, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.Procedures', False)
 class Procedures(Section):
     """Represents the Procedures section of a niveristand.systemdefinitionapi.Target, which contains all the niveristand.systemdefinitionapi.Procedure objects you configure."""
 
@@ -21994,7 +21993,7 @@ class Procedures(Section):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.RawDataBasedChannel, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.RawDataBasedChannel', False)
 class RawDataBasedChannel(Channel, IChannel):
     """Represents a raw data format channel under an NI-XNET niveristand.systemdefinitionapi.RawDataBasedFrame."""
 
@@ -22074,7 +22073,7 @@ class RawDataBasedChannel(Channel, IChannel):
             _wrap_exception(e)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.RawDataBasedFrame)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.RawDataBasedFrame')
 class RawDataBasedFrame(Section):
     """Represents a raw data format frame of an NI-XNET CAN, LIN, or FlexRay device."""
 
@@ -22510,7 +22509,7 @@ class RawDataBasedFrame(Section):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.RawFrameDataLogging, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.RawFrameDataLogging', False)
 class RawFrameDataLogging(Section):
     """Represents the Raw Frame Data Logging section under an NI-XNET CAN, LIN, or FlexRay port."""
 
@@ -22547,7 +22546,7 @@ class RawFrameDataLogging(Section):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.RealTimeSequenceCommand)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.RealTimeSequenceCommand')
 class RealTimeSequenceCommand(Command):
     """A procedure command for commanding real-time sequences."""
 
@@ -22674,7 +22673,7 @@ class RealTimeSequenceCommand(Command):
             _wrap_exception(e)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.ReceiveTime, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.ReceiveTime', False)
 class ReceiveTime(Channel, IChannel):
     """Represents the Receive Time channel for an incoming NI-XNET CAN, LIN, or FlexRay frame. This channel contains the most recent timestamp at which the frame was received."""
 
@@ -22709,7 +22708,7 @@ class ReceiveTime(Channel, IChannel):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.ReflectiveMemory)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.ReflectiveMemory')
 class ReflectiveMemory(Section):
     """Represents a reflective memory device under the niveristand.systemdefinitionapi.DataSharing section of the system definition. A reflective memory device is a target on a niveristand.systemdefinitionapi.ReflectiveMemoryNetwork."""
 
@@ -22888,7 +22887,7 @@ class ReflectiveMemory(Section):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.ReflectiveMemoryDataChannel)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.ReflectiveMemoryDataChannel')
 class ReflectiveMemoryDataChannel(Channel, IChannel):
     """Represents a data channel under a niveristand.systemdefinitionapi.ReflectiveMemory device."""
 
@@ -22981,7 +22980,7 @@ class ReflectiveMemoryDataChannel(Channel, IChannel):
             _wrap_exception(e)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.ReflectiveMemoryDataChannels, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.ReflectiveMemoryDataChannels', False)
 class ReflectiveMemoryDataChannels(Section):
     """Represents the top-level Data Channels section of a niveristand.systemdefinitionapi.ReflectiveMemory device. This section contains all the data channels for the device, as well as sub-folders that you can use to organize the channels."""
 
@@ -23047,7 +23046,7 @@ class ReflectiveMemoryDataChannels(Section):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.ReflectiveMemoryFolder)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.ReflectiveMemoryFolder')
 class ReflectiveMemoryFolder(Section):
     """Represents a folder under a reflective memory device. Folders can contain data channels or additional sub-folders."""
 
@@ -23122,7 +23121,7 @@ class ReflectiveMemoryFolder(Section):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.ReflectiveMemoryInformationChannels, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.ReflectiveMemoryInformationChannels', False)
 class ReflectiveMemoryInformationChannels(Section):
     """Represents the Information Channels section under a reflective memory device."""
 
@@ -23156,7 +23155,7 @@ class ReflectiveMemoryInformationChannels(Section):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.ReflectiveMemoryNetwork, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.ReflectiveMemoryNetwork', False)
 class ReflectiveMemoryNetwork(Section):
     """Represents the reflective memory network that niveristand.systemdefinitionapi.ReflectiveMemory devices use to share data. A single system definition can have only one reflective memory network."""
 
@@ -23236,7 +23235,7 @@ class ReflectiveMemoryNetwork(Section):
             _wrap_exception(e)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.ReflectiveMemoryRingReadLateCount, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.ReflectiveMemoryRingReadLateCount', False)
 class ReflectiveMemoryRingReadLateCount(Channel, IChannel):
     """Represents a Ring Read Late Count channel of a reflective memory device. This channel increments any time the device is not able to read a section of data from reflective memory because the section was still getting written to by another device. If this channel increments, the section of invalid data was not copied to the local channels."""
 
@@ -23244,7 +23243,7 @@ class ReflectiveMemoryRingReadLateCount(Channel, IChannel):
         _init_dotnet_wrapper(self, *args)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.ReflectiveMemoryWriteLateCount, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.ReflectiveMemoryWriteLateCount', False)
 class ReflectiveMemoryWriteLateCount(Channel, IChannel):
     """Represents a Node Write Late Count channel of a reflective memory device. This channel increments any time the device is not able to write data to the reflective memory network because a new iteration of the Primary Control Loop started before the write operation was complete. In this situation, the PCL does not write or read any data for the iteration where the write operation failed to complete."""
 
@@ -23252,7 +23251,7 @@ class ReflectiveMemoryWriteLateCount(Channel, IChannel):
         _init_dotnet_wrapper(self, *args)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.RuntimeConfigurableSection)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.RuntimeConfigurableSection')
 class RuntimeConfigurableSection(Section):
     """Represents a section where child nodes (sections and channels) can be dynamically added while the system is deployed using niveristand.clientapi.IRuntimeConfigurationManager."""
 
@@ -23368,7 +23367,7 @@ class RuntimeConfigurableSection(Section):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.SCXIChassis, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.SCXIChassis', False)
 class SCXIChassis(Section):
     """Represents an SCXI chassis under a niveristand.systemdefinitionapi.DAQDevice."""
 
@@ -23405,7 +23404,7 @@ class SCXIChassis(Section):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.SCXIModule)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.SCXIModule')
 class SCXIModule(Section):
     """Represents an SCXI module under an niveristand.systemdefinitionapi.SCXIChassis."""
 
@@ -23471,7 +23470,7 @@ class SCXIModule(Section):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.SLSC, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.SLSC', False)
 class SLSC(Section):
     """Represents the SLSC section of a niveristand.systemdefinitionapi.Hardware."""
 
@@ -23531,7 +23530,7 @@ class SLSC(Section):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.SLSCChassis)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.SLSCChassis')
 class SLSCChassis(Section):
     """Represents the SLSCChassis section of the niveristand.systemdefinitionapi.SLSC."""
 
@@ -23668,7 +23667,7 @@ class SLSCChassis(Section):
         return _wrap(dotnet_result)
 
 
-    @_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.SLSCChassis.SLSCChassisIDType, False)
+    @_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.SLSCChassis.SLSCChassisIDType', False)
     class SLSCChassisIDType(_DotNetEnum):
         """Represents an enum which contains the possibilities used for connecting the SLSC Chassis."""
 
@@ -23693,7 +23692,7 @@ class SLSCChassis(Section):
             return SLSCChassis.SLSCChassisIDType(dotnet_result, "HOSTNAME_IP_ADDRESS")
 
 
-    @_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.SLSCChassis.SLSCChassisType, False)
+    @_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.SLSCChassis.SLSCChassisType', False)
     class SLSCChassisType(_DotNetEnum):
         """Represents an enum which contains the predefined niveristand.systemdefinitionapi.SLSCChassis types (no need to read the chassis data from XML)."""
 
@@ -23712,7 +23711,7 @@ class SLSCChassis(Section):
             return SLSCChassis.SLSCChassisType(dotnet_result, "E12001_CHASSIS_TYPE")
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.SLSCChassisChannel, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.SLSCChassisChannel', False)
 class SLSCChassisChannel(Channel, IChannel):
     """Represents the SLSC chassis channel node of a niveristand.systemdefinitionapi.SLSCChassisChannelSection."""
 
@@ -23720,7 +23719,7 @@ class SLSCChassisChannel(Channel, IChannel):
         _init_dotnet_wrapper(self, *args)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.SLSCChassisChannelSection, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.SLSCChassisChannelSection', False)
 class SLSCChassisChannelSection(Section):
     """Represents the SLSC chassis channel category section of an niveristand.systemdefinitionapi.SLSCChassis."""
 
@@ -23741,7 +23740,7 @@ class SLSCChassisChannelSection(Section):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.SLSCChassisChannels, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.SLSCChassisChannels', False)
 class SLSCChassisChannels(Section):
     """Represents the SLSCChassisChannels section of the niveristand.systemdefinitionapi.SLSCChassis."""
 
@@ -23762,7 +23761,7 @@ class SLSCChassisChannels(Section):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.SLSCModuleCustomDevice)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.SLSCModuleCustomDevice')
 class SLSCModuleCustomDevice(CustomDevice):
     """Represents an SLSC module custom device."""
 
@@ -23802,7 +23801,7 @@ class SLSCModuleCustomDevice(CustomDevice):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.SLSCModules, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.SLSCModules', False)
 class SLSCModules(Section):
     """Represents the SLSCModules section of the niveristand.systemdefinitionapi.SLSCChassis."""
 
@@ -23840,7 +23839,7 @@ class SLSCModules(Section):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.Scale, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.Scale', False)
 class Scale(Section):
     """Defines a base class for different types of scales allowed in system definition files. You can create scales to convert from the pre-scaled units measured by a hardware channel to the scaled units associated with a transducer or actuator."""
 
@@ -23875,7 +23874,7 @@ class Scale(Section):
             _wrap_exception(e)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.ScaleFolder)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.ScaleFolder')
 class ScaleFolder(Section):
     """Represents a folder under the niveristand.systemdefinitionapi.Scales section of the system definition. Folders simply organize scales into logical groups."""
 
@@ -24014,7 +24013,7 @@ class ScaleFolder(Section):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.Scales, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.Scales', False)
 class Scales(Section):
     """Represents the Scales section of the system definition, which contains niveristand.systemdefinitionapi.Scale objects. Use scales to convert from the pre-scaled units measured by a hardware channel to the scaled units associated with a transducer or actuator."""
 
@@ -24144,7 +24143,7 @@ class Scales(Section):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.SetMultipleVariables)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.SetMultipleVariables')
 class SetMultipleVariables(Command):
     """Represents a Set Multiple Variables step that you can add to a procedure. This step sets the values of multiple channels to constant values."""
 
@@ -24195,7 +24194,7 @@ class SetMultipleVariables(Command):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.SetVariable)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.SetVariable')
 class SetVariable(Command):
     """Represents a Set Variable step that you can add to a procedure. This step sets a channel, niveristand.systemdefinitionapi.SetVariable.variable, to a certain value. The value can be a constant or the result of a calculation using a niveristand.systemdefinitionapi.SetVariable.function you specify."""
 
@@ -24429,7 +24428,7 @@ class SetVariable(Command):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.SignalBasedSignal, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.SignalBasedSignal', False)
 class SignalBasedSignal(Channel, IChannel):
     """Represents a signal format signal under an NI-XNET niveristand.systemdefinitionapi.SignalBasedFrame."""
 
@@ -24446,7 +24445,7 @@ class SignalBasedSignal(Channel, IChannel):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.SkipCyclicFrames, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.SkipCyclicFrames', False)
 class SkipCyclicFrames(Channel, IChannel):
     """Represents the Skip Cyclic Frames channel under the niveristand.systemdefinitionapi.FrameFaulting section of an outgoing cyclic frame of an NI-XNET CAN port. This channel specifies to skip transmission of a specified number of cyclic frames across the CAN bus when a specified trigger channel has a non-zero value."""
 
@@ -24490,7 +24489,7 @@ class SkipCyclicFrames(Channel, IChannel):
             _wrap_exception(e)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.SleepMode)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.SleepMode')
 class SleepMode(Channel, IChannel):
     """Represents a Transceiver State, or Sleep Mode, channel under the niveristand.systemdefinitionapi.CANInterfaceChannels section of an NI-XNET CAN port. This channel controls the sleep mode option on the CAN port. A port in sleep mode does not transmit data until you release sleep mode or until the port receives an incoming frame."""
 
@@ -24533,7 +24532,7 @@ class SleepMode(Channel, IChannel):
             _wrap_exception(e)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.StimulusChannel, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.StimulusChannel', False)
 class StimulusChannel(Channel, IChannel):
     """Represents a stimulus channel of a niveristand.systemdefinitionapi.Generator."""
 
@@ -24550,7 +24549,7 @@ class StimulusChannel(Channel, IChannel):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.SystemChannel, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.SystemChannel', False)
 class SystemChannel(Channel, IChannel):
     """Represents a system channel under the niveristand.systemdefinitionapi.SystemChannels section. System channels monitor the state and condition of various aspects of the system."""
 
@@ -24567,7 +24566,7 @@ class SystemChannel(Channel, IChannel):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.ThermocoupleScale)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.ThermocoupleScale')
 class ThermocoupleScale(Scale):
     """Represents a thermocouple niveristand.systemdefinitionapi.Scale, which converts raw values from a thermocouple to Kelvins or degrees Celsius, Fahrenheit, or Rankine."""
 
@@ -24667,7 +24666,7 @@ class ThermocoupleScale(Scale):
             _wrap_exception(e)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.TimeDifference, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.TimeDifference', False)
 class TimeDifference(Channel, IChannel):
     """Represents the Time Difference channel for an incoming NI-XNET CAN, LIN, or FlexRay frame. This channel stores the difference between the two most recent niveristand.systemdefinitionapi.ReceiveTime timestamps."""
 
@@ -24693,7 +24692,7 @@ class TimeDifference(Channel, IChannel):
             _wrap_exception(e)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.TimeStepDuration, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.TimeStepDuration', False)
 class TimeStepDuration(Channel, IChannel):
     """Represents a Time Step Duration channel, which you can use to get information about the duration, in microseconds, of the last time step of the model running on the target."""
 
@@ -24701,7 +24700,7 @@ class TimeStepDuration(Channel, IChannel):
         _init_dotnet_wrapper(self, *args)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.TimingAndSyncDevice)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.TimingAndSyncDevice')
 class TimingAndSyncDevice(CustomDevice):
     """Represents a timing and sync device, which is a custom device that can drive the RTSI 0 line and synchronize all the hardware I/O devices in the system."""
 
@@ -24736,7 +24735,7 @@ class TimingAndSyncDevice(CustomDevice):
             _wrap_exception(e)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.TransmitTime, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.TransmitTime', False)
 class TransmitTime(Channel, IChannel):
     """Represents a Transmit Time under the niveristand.systemdefinitionapi.FrameFaulting section of an outgoing cyclic frame of an NI-XNET CAN port. This channel specifies the amount of time that must elapse between subsequent transmissions of the cyclic frame."""
 
@@ -24802,7 +24801,7 @@ class TransmitTime(Channel, IChannel):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.UserChannel)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.UserChannel')
 class UserChannel(Channel, IChannel):
     """Represents a user channel, which stores a single value. You can use user channels as variables in procedures, stimulus profiles, and so on."""
 
@@ -24839,7 +24838,7 @@ class UserChannel(Channel, IChannel):
             _wrap_exception(e)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.VirtualECU)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.VirtualECU')
 class VirtualECU(Model):
     """Represents a virtual ECU as a specialized type of niveristand.systemdefinitionapi.Model and inherits all the capabilities of niveristand.systemdefinitionapi.Model. Virtual ECUs within the same network cluster are automatically connected to each other and to real ECUs via an XNET interface."""
 
@@ -24902,7 +24901,7 @@ class VirtualECU(Model):
         _init_dotnet_wrapper(self, *args)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.AlarmStatus, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.AlarmStatus', False)
 class AlarmStatus(Channel, IChannel):
     """A channel that indicates the current status of an alarm"""
 
@@ -24910,7 +24909,7 @@ class AlarmStatus(Channel, IChannel):
         _init_dotnet_wrapper(self, *args)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.Alarming)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.Alarming')
 class Alarming(Command):
     """Represents an Alarm Command, or Alarming, step that you can add to a niveristand.systemdefinitionapi.Procedure. This step performs the specified niveristand.systemdefinitionapi.Alarming.function on the specified niveristand.systemdefinitionapi.Alarming.alarm when the step executes."""
 
@@ -25296,7 +25295,7 @@ class Alarming(Command):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.CalculatedChannel, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.CalculatedChannel', False)
 class CalculatedChannel(Channel, IChannel):
     """Represents a calculated channel, which produces new values based on calculations performed on other channels in the system definition."""
 
@@ -25398,7 +25397,7 @@ class CalculatedChannel(Channel, IChannel):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.CallProcedure)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.CallProcedure')
 class CallProcedure(Command):
     """Represents a Call Procedure step that you can add to a niveristand.systemdefinitionapi.Procedure. The Call Procedure step calls a procedure when the step executes."""
 
@@ -25434,7 +25433,7 @@ class CallProcedure(Command):
             _wrap_exception(e)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.Conditional)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.Conditional')
 class Conditional(CalculatedChannel, IChannel):
     """Represents a niveristand.systemdefinitionapi.CalculatedChannel with the conditional function. The conditional function uses an if/else statement to check the channel you specify for the condition you specify and return the appropriate value."""
 
@@ -25791,7 +25790,7 @@ class Conditional(CalculatedChannel, IChannel):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQAnalogInput)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.DAQAnalogInput')
 class DAQAnalogInput(DAQChannel, IChannel):
     """Represents a DAQ analog input channel."""
 
@@ -25963,7 +25962,7 @@ class DAQAnalogInput(DAQChannel, IChannel):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQAnalogOutput)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.DAQAnalogOutput')
 class DAQAnalogOutput(DAQChannel, IChannel):
     """Represents a DAQ analog output channel."""
 
@@ -26135,7 +26134,7 @@ class DAQAnalogOutput(DAQChannel, IChannel):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCountUpDown)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCountUpDown')
 class DAQCountUpDown(DAQCounter, IChannel):
     """Represents a niveristand.systemdefinitionapi.DAQCounter channel with the count up/down task type."""
 
@@ -26229,7 +26228,7 @@ class DAQCountUpDown(DAQCounter, IChannel):
             _wrap_exception(e)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCounterInput, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCounterInput', False)
 class DAQCounterInput(DAQSectionType):
     """Initializes a new instance of the niveristand.systemdefinitionapi.DAQCounterInput class."""
 
@@ -26237,7 +26236,7 @@ class DAQCounterInput(DAQSectionType):
         _init_dotnet_wrapper(self, *args)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCounterOutput, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.DAQCounterOutput', False)
 class DAQCounterOutput(DAQSectionType):
     """Initializes a new instance of the niveristand.systemdefinitionapi.DAQCounterOutput class."""
 
@@ -26245,7 +26244,7 @@ class DAQCounterOutput(DAQSectionType):
         _init_dotnet_wrapper(self, *args)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQPulseGeneration)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.DAQPulseGeneration')
 class DAQPulseGeneration(DAQCounterOutput):
     """Represents a DAQ Counter measurement section of input channels."""
 
@@ -26319,7 +26318,7 @@ class DAQPulseGeneration(DAQCounterOutput):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.DAQPulseMeasurement)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.DAQPulseMeasurement')
 class DAQPulseMeasurement(DAQCounterInput):
     """Represents a DAQ Counter measurement section of input channels."""
 
@@ -26393,7 +26392,7 @@ class DAQPulseMeasurement(DAQCounterInput):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.ECUNetworkCluster)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.ECUNetworkCluster')
 class ECUNetworkCluster(Model, IECUNetworkClusterConfiguration):
     """Represents an ECU network cluster as a specialized type of niveristand.systemdefinitionapi.Model. Use the ECU network cluster to configure the communication between niveristand.systemdefinitionapi.VirtualECU and an XNET device."""
 
@@ -26469,7 +26468,7 @@ class ECUNetworkCluster(Model, IECUNetworkClusterConfiguration):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.FPGAAICategory, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.FPGAAICategory', False)
 class FPGAAICategory(FPGACategory):
     """Represents the Input\\xmlonly»\\endxmlonly Analog section under an niveristand.systemdefinitionapi.FPGADevice."""
 
@@ -26477,7 +26476,7 @@ class FPGAAICategory(FPGACategory):
         _init_dotnet_wrapper(self, *args)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.FPGAAOCategory, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.FPGAAOCategory', False)
 class FPGAAOCategory(FPGACategory):
     """Represents the Output\\xmlonly»\\endxmlonly Analog section under an niveristand.systemdefinitionapi.FPGADevice."""
 
@@ -26485,7 +26484,7 @@ class FPGAAOCategory(FPGACategory):
         _init_dotnet_wrapper(self, *args)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.FPGAAnalogInput, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.FPGAAnalogInput', False)
 class FPGAAnalogInput(FPGAChannel, IChannel):
     """Represents an FPGA analog input channel."""
 
@@ -26493,7 +26492,7 @@ class FPGAAnalogInput(FPGAChannel, IChannel):
         _init_dotnet_wrapper(self, *args)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.FPGAAnalogOutput, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.FPGAAnalogOutput', False)
 class FPGAAnalogOutput(FPGAChannel, IChannel):
     """Represents an FPGA analog output channel."""
 
@@ -26501,7 +26500,7 @@ class FPGAAnalogOutput(FPGAChannel, IChannel):
         _init_dotnet_wrapper(self, *args)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.Formula)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.Formula')
 class Formula(CalculatedChannel, IChannel):
     """Represents a calculated channel with the formula function. This function calculates the result of a formula you specify."""
 
@@ -26563,7 +26562,7 @@ class Formula(CalculatedChannel, IChannel):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.InportGroup, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.InportGroup', False)
 class InportGroup(ModelDefaultGroup):
     """Represents a sub-section of the niveristand.systemdefinitionapi.Inports section of a model. Inport groups provide organization within the model."""
 
@@ -26612,7 +26611,7 @@ class InportGroup(ModelDefaultGroup):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.LookupTable)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.LookupTable')
 class LookupTable(Scale):
     """Represents a lookup table niveristand.systemdefinitionapi.Scale, which maps an array of pre-scaled values to an array of corresponding scaled values."""
 
@@ -26664,7 +26663,7 @@ class LookupTable(Scale):
             _wrap_exception(e)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.LowpassFilter)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.LowpassFilter')
 class LowpassFilter(CalculatedChannel, IChannel):
     """Represents a calculated channel with the Lowpass Filter function. This function applies a lowpass Butterworth filter to the value of the specified niveristand.systemdefinitionapi.LowpassFilter.channel_to_filter."""
 
@@ -26738,7 +26737,7 @@ class LowpassFilter(CalculatedChannel, IChannel):
             _wrap_exception(e)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.Maximum)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.Maximum')
 class Maximum(CalculatedChannel, IChannel):
     """Represents a calculated channel with the Maximum function. This function compares two values (x and y) and returns the larger value."""
 
@@ -26894,7 +26893,7 @@ class Maximum(CalculatedChannel, IChannel):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.Minimum)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.Minimum')
 class Minimum(CalculatedChannel, IChannel):
     """Represents a calculated channel with the Minimum function. This function compares two values (x and y) and returns the smaller value."""
 
@@ -27050,7 +27049,7 @@ class Minimum(CalculatedChannel, IChannel):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.PeakAndValley)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.PeakAndValley')
 class PeakAndValley(CalculatedChannel, IChannel):
     """Represents a calculated channel with the Peak\\xmlonly&amp;\\endxmlonly Valley function. This function calculates the peak, valley, and offset of a cyclical waveform on the channel you specify. The calculated channel stores the peak value, and the channels you specify when you configure the calculated channel store the valley and offset values."""
 
@@ -27162,7 +27161,7 @@ class PeakAndValley(CalculatedChannel, IChannel):
             _wrap_exception(e)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.PolynomialScale)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.PolynomialScale')
 class PolynomialScale(Scale):
     """Represents a polynomial niveristand.systemdefinitionapi.Scale, which converts values using a polynomial equation with up to ten coefficients."""
 
@@ -27225,7 +27224,7 @@ class PolynomialScale(Scale):
             _wrap_exception(e)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1100)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1100')
 class SCXI1100(SCXIModule):
     """Represents an SCXI-1100 module that you can add to an niveristand.systemdefinitionapi.SCXIChassis."""
 
@@ -27241,7 +27240,7 @@ class SCXI1100(SCXIModule):
         _init_dotnet_wrapper(self, *args)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1102)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1102')
 class SCXI1102(SCXIModule):
     """Represents an SCXI-1102 module that you can add to an niveristand.systemdefinitionapi.SCXIChassis."""
 
@@ -27257,7 +27256,7 @@ class SCXI1102(SCXIModule):
         _init_dotnet_wrapper(self, *args)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1102B)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1102B')
 class SCXI1102B(SCXIModule):
     """Represents an SCXI-1102B module that you can add to an niveristand.systemdefinitionapi.SCXIChassis."""
 
@@ -27273,7 +27272,7 @@ class SCXI1102B(SCXIModule):
         _init_dotnet_wrapper(self, *args)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1102C)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1102C')
 class SCXI1102C(SCXIModule):
     """Represents an SCXI-1102C module that you can add to an niveristand.systemdefinitionapi.SCXIChassis."""
 
@@ -27289,7 +27288,7 @@ class SCXI1102C(SCXIModule):
         _init_dotnet_wrapper(self, *args)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1104)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1104')
 class SCXI1104(SCXIModule):
     """Represents an SCXI-1104 module that you can add to an niveristand.systemdefinitionapi.SCXIChassis."""
 
@@ -27305,7 +27304,7 @@ class SCXI1104(SCXIModule):
         _init_dotnet_wrapper(self, *args)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1104C)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1104C')
 class SCXI1104C(SCXIModule):
     """Represents an SCXI-1104C module that you can add to an niveristand.systemdefinitionapi.SCXIChassis."""
 
@@ -27321,7 +27320,7 @@ class SCXI1104C(SCXIModule):
         _init_dotnet_wrapper(self, *args)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1112)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1112')
 class SCXI1112(SCXIModule):
     """Represents an SCXI-1112 module that you can add to an niveristand.systemdefinitionapi.SCXIChassis."""
 
@@ -27337,7 +27336,7 @@ class SCXI1112(SCXIModule):
         _init_dotnet_wrapper(self, *args)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1120)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1120')
 class SCXI1120(SCXIModule):
     """Represents an SCXI-1120 module that you can add to an niveristand.systemdefinitionapi.SCXIChassis."""
 
@@ -27353,7 +27352,7 @@ class SCXI1120(SCXIModule):
         _init_dotnet_wrapper(self, *args)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1120D)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1120D')
 class SCXI1120D(SCXIModule):
     """Represents an SCXI-1120D module that you can add to an niveristand.systemdefinitionapi.SCXIChassis."""
 
@@ -27369,7 +27368,7 @@ class SCXI1120D(SCXIModule):
         _init_dotnet_wrapper(self, *args)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1121)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1121')
 class SCXI1121(SCXIModule):
     """Represents an SCXI-1121 module that you can add to an niveristand.systemdefinitionapi.SCXIChassis."""
 
@@ -27385,7 +27384,7 @@ class SCXI1121(SCXIModule):
         _init_dotnet_wrapper(self, *args)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1122)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1122')
 class SCXI1122(SCXIModule):
     """Represents an SCXI-1122 module that you can add to an niveristand.systemdefinitionapi.SCXIChassis."""
 
@@ -27401,7 +27400,7 @@ class SCXI1122(SCXIModule):
         _init_dotnet_wrapper(self, *args)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1124)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1124')
 class SCXI1124(SCXIModule):
     """Represents an SCXI-1124 module that you can add to an niveristand.systemdefinitionapi.SCXIChassis."""
 
@@ -27417,7 +27416,7 @@ class SCXI1124(SCXIModule):
         _init_dotnet_wrapper(self, *args)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1125)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1125')
 class SCXI1125(SCXIModule):
     """Represents an SCXI-1125 module that you can add to an niveristand.systemdefinitionapi.SCXIChassis."""
 
@@ -27433,7 +27432,7 @@ class SCXI1125(SCXIModule):
         _init_dotnet_wrapper(self, *args)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1126)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1126')
 class SCXI1126(SCXIModule):
     """Represents an SCXI-1126 module that you can add to an niveristand.systemdefinitionapi.SCXIChassis."""
 
@@ -27449,7 +27448,7 @@ class SCXI1126(SCXIModule):
         _init_dotnet_wrapper(self, *args)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1127)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1127')
 class SCXI1127(SCXIModule):
     """Represents an SCXI-1127 module that you can add to an niveristand.systemdefinitionapi.SCXIChassis."""
 
@@ -27465,7 +27464,7 @@ class SCXI1127(SCXIModule):
         _init_dotnet_wrapper(self, *args)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1128)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1128')
 class SCXI1128(SCXIModule):
     """Represents an SCXI-1128 module that you can add to an niveristand.systemdefinitionapi.SCXIChassis."""
 
@@ -27481,7 +27480,7 @@ class SCXI1128(SCXIModule):
         _init_dotnet_wrapper(self, *args)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1140)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1140')
 class SCXI1140(SCXIModule):
     """Represents an SCXI-1140 module that you can add to an niveristand.systemdefinitionapi.SCXIChassis."""
 
@@ -27497,7 +27496,7 @@ class SCXI1140(SCXIModule):
         _init_dotnet_wrapper(self, *args)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1141)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1141')
 class SCXI1141(SCXIModule):
     """Represents an SCXI-1141 module that you can add to an niveristand.systemdefinitionapi.SCXIChassis."""
 
@@ -27513,7 +27512,7 @@ class SCXI1141(SCXIModule):
         _init_dotnet_wrapper(self, *args)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1142)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1142')
 class SCXI1142(SCXIModule):
     """Represents an SCXI-1142 module that you can add to an niveristand.systemdefinitionapi.SCXIChassis."""
 
@@ -27529,7 +27528,7 @@ class SCXI1142(SCXIModule):
         _init_dotnet_wrapper(self, *args)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1143)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1143')
 class SCXI1143(SCXIModule):
     """Represents an SCXI-1143 module that you can add to an niveristand.systemdefinitionapi.SCXIChassis."""
 
@@ -27545,7 +27544,7 @@ class SCXI1143(SCXIModule):
         _init_dotnet_wrapper(self, *args)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1160)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1160')
 class SCXI1160(SCXIModule):
     """Represents an SCXI-1160 module that you can add to an niveristand.systemdefinitionapi.SCXIChassis."""
 
@@ -27561,7 +27560,7 @@ class SCXI1160(SCXIModule):
         _init_dotnet_wrapper(self, *args)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1161)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1161')
 class SCXI1161(SCXIModule):
     """Represents an SCXI-1161 module that you can add to an niveristand.systemdefinitionapi.SCXIChassis."""
 
@@ -27577,7 +27576,7 @@ class SCXI1161(SCXIModule):
         _init_dotnet_wrapper(self, *args)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1162)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1162')
 class SCXI1162(SCXIModule):
     """Represents an SCXI-1162 module that you can add to an niveristand.systemdefinitionapi.SCXIChassis."""
 
@@ -27593,7 +27592,7 @@ class SCXI1162(SCXIModule):
         _init_dotnet_wrapper(self, *args)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1162HV)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1162HV')
 class SCXI1162HV(SCXIModule):
     """Represents an SCXI-1162HV module that you can add to an niveristand.systemdefinitionapi.SCXIChassis."""
 
@@ -27609,7 +27608,7 @@ class SCXI1162HV(SCXIModule):
         _init_dotnet_wrapper(self, *args)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1163)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1163')
 class SCXI1163(SCXIModule):
     """Represents an SCXI-1163 module that you can add to an niveristand.systemdefinitionapi.SCXIChassis."""
 
@@ -27625,7 +27624,7 @@ class SCXI1163(SCXIModule):
         _init_dotnet_wrapper(self, *args)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1163R)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1163R')
 class SCXI1163R(SCXIModule):
     """Represents an SCXI-1163R module that you can add to an niveristand.systemdefinitionapi.SCXIChassis."""
 
@@ -27641,7 +27640,7 @@ class SCXI1163R(SCXIModule):
         _init_dotnet_wrapper(self, *args)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1190)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1190')
 class SCXI1190(SCXIModule):
     """Represents an SCXI-1190 module that you can add to an niveristand.systemdefinitionapi.SCXIChassis."""
 
@@ -27657,7 +27656,7 @@ class SCXI1190(SCXIModule):
         _init_dotnet_wrapper(self, *args)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1191)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1191')
 class SCXI1191(SCXIModule):
     """Represents an SCXI-1191 module that you can add to an niveristand.systemdefinitionapi.SCXIChassis."""
 
@@ -27673,7 +27672,7 @@ class SCXI1191(SCXIModule):
         _init_dotnet_wrapper(self, *args)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1192)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1192')
 class SCXI1192(SCXIModule):
     """Represents an SCXI-1192 module that you can add to an niveristand.systemdefinitionapi.SCXIChassis."""
 
@@ -27689,7 +27688,7 @@ class SCXI1192(SCXIModule):
         _init_dotnet_wrapper(self, *args)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1520)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1520')
 class SCXI1520(SCXIModule):
     """Represents an SCXI-1520 module that you can add to an niveristand.systemdefinitionapi.SCXIChassis."""
 
@@ -27705,7 +27704,7 @@ class SCXI1520(SCXIModule):
         _init_dotnet_wrapper(self, *args)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1530)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1530')
 class SCXI1530(SCXIModule):
     """Represents an SCXI-1530 module that you can add to an niveristand.systemdefinitionapi.SCXIChassis."""
 
@@ -27721,7 +27720,7 @@ class SCXI1530(SCXIModule):
         _init_dotnet_wrapper(self, *args)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1531)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1531')
 class SCXI1531(SCXIModule):
     """Represents an SCXI-1531 module that you can add to an niveristand.systemdefinitionapi.SCXIChassis."""
 
@@ -27737,7 +27736,7 @@ class SCXI1531(SCXIModule):
         _init_dotnet_wrapper(self, *args)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1540)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1540')
 class SCXI1540(SCXIModule):
     """Represents an SCXI-1540 module that you can add to an niveristand.systemdefinitionapi.SCXIChassis."""
 
@@ -27753,7 +27752,7 @@ class SCXI1540(SCXIModule):
         _init_dotnet_wrapper(self, *args)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1581)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.SCXI1581')
 class SCXI1581(SCXIModule):
     """Represents an SCXI-1581 module that you can add to an niveristand.systemdefinitionapi.SCXIChassis."""
 
@@ -27769,7 +27768,7 @@ class SCXI1581(SCXIModule):
         _init_dotnet_wrapper(self, *args)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.Acceleration)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.Acceleration')
 class Acceleration(CalculatedChannel, IChannel):
     """Represents a calculated channel with the acceleration function."""
 
@@ -27825,7 +27824,7 @@ class Acceleration(CalculatedChannel, IChannel):
             _wrap_exception(e)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.Average)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.Average')
 class Average(CalculatedChannel, IChannel):
     """Represents a calculated channel with the average function. The average function calculates the average value of the channel you specify every n points."""
 

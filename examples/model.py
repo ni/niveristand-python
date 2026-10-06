@@ -4,6 +4,7 @@ import os
 import threading
 from typing import Any
 
+from niveristand import VeriStandException
 from niveristand.clientapi import Factory, ParameterValueChangeEventArgs
 
 GATEWAY_IP = "localhost"
@@ -19,8 +20,13 @@ def main() -> None:
 
     # NI VeriStand must be open so that the Gateway is available.
     engine_demo_sdf = os.path.join(
-        os.path.realpath(os.path.join(os.path.dirname(__file__), "..")),
-        "execution_api_assets",
+        os.path.expanduser("~public"),
+        "Documents",
+        "National Instruments",
+        "NI VeriStand 2026",
+        "Examples",
+        "Stimulus Profile",
+        "Engine Demo",
         "Engine Demo.nivssdf",
     )
     # Deploy Engine Demo through the running VeriStand Gateway.
@@ -57,6 +63,9 @@ def main() -> None:
             raise TimeoutError(
                 "Timed out waiting for the parameter value change event."
             )
+    except VeriStandException as error:
+        print(error)
+        print(error.resolved_error_message)
     finally:
         model_manager.unregister_for_parameter_value_change(
             TARGET, MODEL_PARAMETER, on_parameter_value_changed

@@ -4,8 +4,8 @@ import os
 import threading
 import time
 
+from niveristand import VeriStandException
 from niveristand.clientapi import Factory
-
 
 GATEWAY_IP = "localhost"
 TARGET = "Controller"
@@ -27,8 +27,13 @@ def main() -> None:
     alarm_triggered = threading.Event()
 
     engine_demo_sdf = os.path.join(
-        os.path.realpath(os.path.join(os.path.dirname(__file__), "..")),
-        "execution_api_assets",
+        os.path.expanduser("~public"),
+        "Documents",
+        "National Instruments",
+        "NI VeriStand 2026",
+        "Examples",
+        "Stimulus Profile",
+        "Engine Demo",
         "Engine Demo.nivssdf",
     )
 
@@ -61,6 +66,9 @@ def main() -> None:
         # Allow the configured Safe Engine Shut Down procedure to ramp down the RPM
         # and reset engine power before restoring the original values.
         time.sleep(PROCEDURE_SETTLE_TIME_SECONDS)
+    except VeriStandException as error:
+        print(error)
+        print(error.resolved_error_message)
     finally:
         alarm_manager.unsubscribe_on_alarm_trigger2_event(on_alarm_triggered)
         workspace.disconnect_from_system("", True)

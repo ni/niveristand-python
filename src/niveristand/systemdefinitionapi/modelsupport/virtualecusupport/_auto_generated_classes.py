@@ -4,7 +4,8 @@ from __future__ import annotations
 
 from typing import overload, Sequence, Tuple
 
-from typing_extensions import deprecated
+import warnings
+
 import clr
 
 clr.AddReference("NationalInstruments.VeriStand.SystemDefinitionAPI")
@@ -17,7 +18,7 @@ from ... import *
 from .... import *
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.ModelSupport.VirtualECUSupport.CANConfiguration)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.ModelSupport.VirtualECUSupport.CANConfiguration')
 class CANConfiguration(ICANConfiguration):
     """Represents the configuration for CAN communication."""
 
@@ -91,7 +92,7 @@ class CANConfiguration(ICANConfiguration):
             _wrap_exception(e)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.ModelSupport.VirtualECUSupport.Constants, False)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.ModelSupport.VirtualECUSupport.Constants', False)
 class Constants(_DotNetBase):
     """Contains constants for VirtualECU"""
 
@@ -108,7 +109,7 @@ class Constants(_DotNetBase):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.ModelSupport.VirtualECUSupport.ECUNetworkClusterConfiguration)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.ModelSupport.VirtualECUSupport.ECUNetworkClusterConfiguration')
 class ECUNetworkClusterConfiguration(IECUNetworkClusterConfiguration):
     """Class for serializing and de-serializing ECU network cluster configuration."""
 
@@ -266,7 +267,7 @@ class ECUNetworkClusterConfiguration(IECUNetworkClusterConfiguration):
         return _wrap(dotnet_result)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.ModelSupport.VirtualECUSupport.EthernetConfiguration)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.ModelSupport.VirtualECUSupport.EthernetConfiguration')
 class EthernetConfiguration(IEthernetConfiguration):
     """Represents the configuration for Ethernet communication."""
 
@@ -322,7 +323,7 @@ class EthernetConfiguration(IEthernetConfiguration):
             _wrap_exception(e)
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.ModelSupport.VirtualECUSupport.LINConfiguration)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.ModelSupport.VirtualECUSupport.LINConfiguration')
 class LINConfiguration(ILINConfiguration):
     """Represents the configuration for LIN communication."""
 
@@ -414,17 +415,17 @@ class LINConfiguration(ILINConfiguration):
             _wrap_exception(e)
 
     @property
-    @deprecated('Use virtual_tx_frame_ids.')
     def virtual_tx_frame_i_ds(self) -> Sequence[int]:
+        warnings.warn("virtual_tx_frame_i_ds is deprecated. Use virtual_tx_frame_ids.", DeprecationWarning, stacklevel=2)
         return self.virtual_tx_frame_ids
 
     @virtual_tx_frame_i_ds.setter
-    @deprecated('Use virtual_tx_frame_ids.')
     def virtual_tx_frame_i_ds(self, value: Sequence[int]) -> None:
+        warnings.warn("virtual_tx_frame_i_ds is deprecated. Use virtual_tx_frame_ids.", DeprecationWarning, stacklevel=2)
         self.virtual_tx_frame_ids = value
 
 
-@_register_dotnet_type(NationalInstruments.VeriStand.SystemDefinitionAPI.ModelSupport.VirtualECUSupport.SVBConfiguration)
+@_register_dotnet_type('NationalInstruments.VeriStand.SystemDefinitionAPI.ModelSupport.VirtualECUSupport.SVBConfiguration')
 class SVBConfiguration(_DotNetBase):
     """Represents the configuration for Synopsys Virtual Bus (SVB)."""
 

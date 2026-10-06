@@ -1,6 +1,6 @@
 from niveristand import nivs_rt_sequence, NivsParam, run_py_as_rtseq
-from niveristand.clientapi import BooleanValue, ChannelReference, DoubleValue, DoubleValueArray
-from niveristand.library import localhost_wait, seqtime, wait_until_settled
+from niveristand.realtimesequenceapi.clientapi import BooleanValue, ChannelReference, DoubleValue, DoubleValueArray
+from niveristand.realtimesequenceapi.library import localhost_wait, seqtime, wait_until_settled
 
 
 """ This module contains a complex example for running multiple tests in sequence.

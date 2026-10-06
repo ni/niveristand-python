@@ -3,6 +3,7 @@
 import os
 import time
 
+from niveristand import VeriStandException
 from niveristand.clientapi import Factory
 from niveristand.clientapi.logging import (
     DataLoggingSpecification,
@@ -32,8 +33,13 @@ def main() -> None:
 
     # NI VeriStand must be open so that the Gateway is available.
     engine_demo_sdf = os.path.join(
-        os.path.realpath(os.path.join(os.path.dirname(__file__), "..")),
-        "execution_api_assets",
+        os.path.expanduser("~public"),
+        "Documents",
+        "National Instruments",
+        "NI VeriStand 2026",
+        "Examples",
+        "Stimulus Profile",
+        "Engine Demo",
         "Engine Demo.nivssdf",
     )
     # Deploy Engine Demo through the running VeriStand Gateway.
@@ -72,6 +78,9 @@ def main() -> None:
         started_sessions.append(TEXT_SESSION_NAME)
         # Capture the selected Engine Demo channels for the requested duration.
         time.sleep(LOG_DURATION_SECONDS)
+    except VeriStandException as error:
+        print(error)
+        print(error.resolved_error_message)
     finally:
         for session_name in reversed(started_sessions):
             data_logging.stop_data_logging_session(session_name, True)

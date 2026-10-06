@@ -61,16 +61,25 @@ def _dotnet_type_for(wrapper_cls: Any) -> Any:
 
 
 def _register_dotnet_type(
-    dotnet_ctor_type: Optional[type] = None,
+    dotnet_ctor_type: Optional[str] = None,
     constructable: bool = True,
     error_code: Optional[str] = None,
 ):
     """Register generated wrapper metadata used by _wrap and _init_dotnet_wrapper."""
 
     def _decorate(wrapper_cls):
+        resolved_type = None
         if dotnet_ctor_type is not None:
-            _DOTNET_CTOR_TYPE_REGISTRY[wrapper_cls] = dotnet_ctor_type
-            full_name = f"{dotnet_ctor_type.__module__}.{wrapper_cls.__name__}"
+            resolved_type = sys.modules.get(dotnet_ctor_type.split(".", 1)[0])
+            try:
+                for part in dotnet_ctor_type.split(".")[1:]:
+                    resolved_type = getattr(resolved_type, part)
+            except AttributeError:
+                resolved_type = None
+
+        if resolved_type is not None:
+            full_name = f"{resolved_type.__module__}.{wrapper_cls.__name__}"
+            _DOTNET_CTOR_TYPE_REGISTRY[wrapper_cls] = resolved_type
             _DOTNET_FULLNAME_REGISTRY[full_name] = wrapper_cls
             if error_code is not None:
                 _VERISTAND_EXCEPTION_ERROR_CODES[error_code] = full_name
