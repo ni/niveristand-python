@@ -47,7 +47,6 @@ setup(
         "pythonnet~=3.0.1; python_version < '3.10'",
         "pythonnet~=3.1.0; python_version >= '3.10'",
         "PyYAML",
-        "typing_extensions",
     ],
     tests_require=["pytest", "numpy"],
     classifiers=[
