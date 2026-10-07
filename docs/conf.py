@@ -173,6 +173,7 @@ add_module_names = False
 autodoc_default_options = {"undoc-members": True}
 
 autodoc_mock_imports = [
+    "niveristand._internal",
     "clr",
     "System",
     "System.IO",
