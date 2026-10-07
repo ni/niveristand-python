@@ -46,7 +46,7 @@ setup(
     install_requires=[
         "pythonnet~=3.0.1; python_version < '3.10'",
         "pythonnet~=3.1.0; python_version >= '3.10'",
-        "PyYAML",
+        "PyYAML"
     ],
     tests_require=["pytest", "numpy"],
     classifiers=[
