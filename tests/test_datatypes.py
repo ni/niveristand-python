@@ -1,21 +1,21 @@
 import sys
 
 from niveristand import nivs_rt_sequence
-from niveristand import realtimesequencetools
-from niveristand.clientapi import BooleanValue
-from niveristand.clientapi import BooleanValueArray
-from niveristand.clientapi import DoubleValue
-from niveristand.clientapi import DoubleValueArray
-from niveristand.clientapi import I32Value
-from niveristand.clientapi import I32ValueArray
-from niveristand.clientapi import I64Value
-from niveristand.clientapi import I64ValueArray
-from niveristand.clientapi import RealTimeSequence
-from niveristand.clientapi import U32Value
-from niveristand.clientapi import U32ValueArray
-from niveristand.clientapi import U64Value
-from niveristand.clientapi import U64ValueArray
-from niveristand.errors import TranslateError
+from niveristand.realtimesequenceapi import realtimesequencetools
+from niveristand.realtimesequenceapi.clientapi import BooleanValue
+from niveristand.realtimesequenceapi.clientapi import BooleanValueArray
+from niveristand.realtimesequenceapi.clientapi import DoubleValue
+from niveristand.realtimesequenceapi.clientapi import DoubleValueArray
+from niveristand.realtimesequenceapi.clientapi import I32Value
+from niveristand.realtimesequenceapi.clientapi import I32ValueArray
+from niveristand.realtimesequenceapi.clientapi import I64Value
+from niveristand.realtimesequenceapi.clientapi import I64ValueArray
+from niveristand.realtimesequenceapi.clientapi import RealTimeSequence
+from niveristand.realtimesequenceapi.clientapi import U32Value
+from niveristand.realtimesequenceapi.clientapi import U32ValueArray
+from niveristand.realtimesequenceapi.clientapi import U64Value
+from niveristand.realtimesequenceapi.clientapi import U64ValueArray
+from niveristand.realtimesequenceapi.errors import TranslateError
 import pytest
 from testutilities import rtseqrunner, validation
 

@@ -1,6 +1,6 @@
 import tempfile
-from niveristand import _decorators
-from niveristand import realtimesequencetools
+from niveristand.realtimesequenceapi import _decorators
+from niveristand.realtimesequenceapi import realtimesequencetools
 from testutilities import rtseqrunner
 
 

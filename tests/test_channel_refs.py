@@ -1,6 +1,7 @@
-from niveristand import errors, realtimesequencetools
-from niveristand.clientapi import RealTimeSequence
+from niveristand.realtimesequenceapi import realtimesequencetools
+from niveristand.realtimesequenceapi.clientapi import RealTimeSequence
 import pytest
+from niveristand.realtimesequenceapi import errors
 from testutilities import rtseqrunner, testfunctions
 from NationalInstruments.VeriStand.RealTimeSequenceDefinitionApi import (  # noqa: I100 .NET imports out of order
     Expression,

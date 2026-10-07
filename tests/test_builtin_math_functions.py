@@ -28,8 +28,8 @@ from math import (
 )
 import sys
 from niveristand import nivs_rt_sequence
-from niveristand import realtimesequencetools
-from niveristand.clientapi import (
+from niveristand.realtimesequenceapi import realtimesequencetools
+from niveristand.realtimesequenceapi.clientapi import (
     BooleanValue,
     ChannelReference,
     DoubleValue,
@@ -38,8 +38,8 @@ from niveristand.clientapi import (
     U32Value,
     U64Value,
 )
-from niveristand.clientapi import RealTimeSequence
-from niveristand.library.primitives import localhost_wait
+from niveristand.realtimesequenceapi.clientapi import RealTimeSequence
+from niveristand.realtimesequenceapi.library.primitives import localhost_wait
 import numpy
 import pytest
 from testutilities import rtseqrunner, validation

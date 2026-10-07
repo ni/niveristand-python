@@ -1,6 +1,6 @@
 import sys
 import time
-from niveristand.errors import RunError
+from niveristand.realtimesequenceapi.errors import RunError
 from niveristand.legacy import NIVeriStand
 
 # This is an example script to demonstrate the usage of ReconnectToSystem function.
@@ -17,7 +17,7 @@ TARGET = "Controller"
 
 SINE_WAVE = "Aliases/SineWave"
 LOOP_RATE = "Targets/Controller/System Channels/Actual Loop Rate"
-# channel adresses can be entered as full paths or aliases
+# channel addresses can be entered as full paths or aliases
 
 
 def sleep():

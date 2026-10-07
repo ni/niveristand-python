@@ -1,8 +1,10 @@
 import os
-from examples.engine_demo.engine_demo_basic import run_engine_demo
+from examples.real_time_sequence.engine_demo_basic import run_engine_demo
 from niveristand import run_py_as_rtseq
-from niveristand.errors import RunError
+from niveristand.realtimesequenceapi.errors import RunError
 from niveristand.legacy import NIVeriStand
+
+VERISTAND_YEAR = 2026
 
 
 def mix_legacy_and_rtseq_run():
@@ -16,7 +18,7 @@ def mix_legacy_and_rtseq_run():
         os.path.expanduser("~public"),
         "Documents",
         "National Instruments",
-        "NI VeriStand 2019",
+        f"NI VeriStand {VERISTAND_YEAR}",
         "Examples",
         "Stimulus Profile",
         "Engine Demo",

@@ -1,8 +1,8 @@
 from niveristand import nivs_rt_sequence
 from niveristand import NivsParam
-from niveristand import realtimesequencetools
-from niveristand.clientapi import ChannelReference, DoubleValue, DoubleValueArray, RealTimeSequence
-from niveristand.errors import VeristandError
+from niveristand.realtimesequenceapi import realtimesequencetools
+from niveristand.realtimesequenceapi.clientapi import ChannelReference, DoubleValue, DoubleValueArray, RealTimeSequence
+from niveristand.realtimesequenceapi.errors import VeristandError
 import pytest
 
 

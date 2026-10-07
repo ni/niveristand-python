@@ -42,10 +42,23 @@ To install **niveristand**, use one of the following methods:
 
 Usage
 =====
+
 Refer to the `System Definition Examples section <https://niveristand-python.readthedocs.io/en/latest/sysdef_examples.html>`_ for detailed examples of how to script a system definition file.
 
-Refer to the `Basic Real-time Sequence Examples section <https://niveristand-python.readthedocs.io/en/latest/basic_rt_sequence_examples.html>`_
+Refer to the `Real-time Sequence Examples section <https://niveristand-python.readthedocs.io/en/latest/rt_sequence_examples.html>`_
 for detailed information on how to write a Python real-time sequence.
+
+Refer to the `Execution api Examples section <https://niveristand-python.readthedocs.io/en/latest/execution_api_examples.html>`_ for detailed examples of how to use veristand execution apis.
+
+Updating Imports for 4.0.0
+--------------------------
+
+Starting with `niveristand 4.0.0 <https://pypi.org/project/niveristand/4.0.0/>`_, ``niveristand.clientapi`` now refers to the Execution API and ``niveristand.realtimesequenceapi`` refers to Real-time sequence APIs. Refer to `niveristand_4_0_0_import_updater <https://github.com/ni/niveristand-python/blob/master/niveristand_4_0_0_import_updater.py>`_ to assist with updating imports.
+
+Selecting a VeriStand Version
+-----------------------------
+
+**niveristand** uses the latest installed VeriStand. Set the ``NIVERISTAND_VERSION`` environment variable to use **niveristand** with a specific VeriStand version (e.g. ``2027``).
 
 .. _support_section:
 

@@ -1,7 +1,7 @@
 import math
 from math import pi
-from niveristand import _decorators
-from niveristand.clientapi._datatypes import (
+from niveristand.realtimesequenceapi import _decorators
+from niveristand.realtimesequenceapi.clientapi._datatypes import (
     BooleanValue,
     BooleanValueArray,
     ChannelReference,
@@ -10,7 +10,7 @@ from niveristand.clientapi._datatypes import (
     I32Value,
     VectorChannelReference,
 )
-from niveristand.library.primitives import localhost_wait
+from niveristand.realtimesequenceapi.library.primitives import localhost_wait
 
 
 def func_without_decorator():
