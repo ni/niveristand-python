@@ -7,6 +7,7 @@ import time
 from niveristand import VeriStandException
 from niveristand.clientapi import Factory
 
+VERISTAND_YEAR = 2026
 GATEWAY_IP = "localhost"
 TARGET = "Controller"
 DEPLOY_TIMEOUT_MS = 120_000
@@ -20,38 +21,39 @@ ENVIRONMENT_TEMPERATURE_PARAMETER = "Environment_Temperature"
 
 def main() -> None:
     """Deploy Engine Demo, trigger its temperature alert, and clean up."""
-    factory = Factory()
-    workspace = factory.get_iworkspace2(GATEWAY_IP)
-    alarm_manager = factory.get_ialarm_manager2(GATEWAY_IP)
-    model_manager = factory.get_imodel_manager2(GATEWAY_IP)
-    alarm_triggered = threading.Event()
-
-    engine_demo_sdf = os.path.join(
-        os.path.expanduser("~public"),
-        "Documents",
-        "National Instruments",
-        "NI VeriStand 2026",
-        "Examples",
-        "Stimulus Profile",
-        "Engine Demo",
-        "Engine Demo.nivssdf",
-    )
-
-    # NI VeriStand must be open so that the Gateway is available.
-    workspace.connect_to_system(engine_demo_sdf, True, DEPLOY_TIMEOUT_MS)
-
-    def on_alarm_triggered(target, event_args):
-        """Signal when the Engine Temperature Alert alarm is triggered."""
-        if event_args.alarm_name == ALARM_NAME:
-            print(
-                f'Alarm "{event_args.alarm_name}" triggered on "{target}" '
-                f"at value {event_args.value}: {event_args.message}"
-            )
-            alarm_triggered.set()
-
-    # Register before changing values so the alarm event cannot be missed.
-    alarm_manager.subscribe_on_alarm_trigger2_event(on_alarm_triggered)
     try:
+        factory = Factory()
+        workspace = factory.get_iworkspace2(GATEWAY_IP)
+        alarm_manager = factory.get_ialarm_manager2(GATEWAY_IP)
+        model_manager = factory.get_imodel_manager2(GATEWAY_IP)
+        alarm_triggered = threading.Event()
+
+        engine_demo_sdf = os.path.join(
+            os.path.expanduser("~public"),
+            "Documents",
+            "National Instruments",
+            f"NI VeriStand {VERISTAND_YEAR}",
+            "Examples",
+            "Stimulus Profile",
+            "Engine Demo",
+            "Engine Demo.nivssdf",
+        )
+
+        # NI VeriStand must be open so that the Gateway is available.
+        workspace.connect_to_system(engine_demo_sdf, True, DEPLOY_TIMEOUT_MS)
+
+        def on_alarm_triggered(target, event_args):
+            """Signal when the Engine Temperature Alert alarm is triggered."""
+            if event_args.alarm_name == ALARM_NAME:
+                print(
+                    f'Alarm "{event_args.alarm_name}" triggered on "{target}" '
+                    f"at value {event_args.value}: {event_args.message}"
+                )
+                alarm_triggered.set()
+
+        # Register before changing values so the alarm event cannot be missed.
+        alarm_manager.subscribe_on_alarm_trigger2_event(on_alarm_triggered)
+
         # Run the engine at high RPM in a warm environment to exceed the critical
         # temperature limit continuously for the alarm's configured 30-second delay.
         workspace.set_single_channel_value(ENGINE_POWER, 1)
@@ -67,8 +69,9 @@ def main() -> None:
         # and reset engine power before restoring the original values.
         time.sleep(PROCEDURE_SETTLE_TIME_SECONDS)
     except VeriStandException as error:
-        print(error)
         print(error.resolved_error_message)
+    except Exception as exc:
+        print(exc)
     finally:
         alarm_manager.unsubscribe_on_alarm_trigger2_event(on_alarm_triggered)
         workspace.disconnect_from_system("", True)

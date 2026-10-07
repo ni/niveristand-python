@@ -17,7 +17,7 @@ TARGET = "Controller"
 
 SINE_WAVE = "Aliases/SineWave"
 LOOP_RATE = "Targets/Controller/System Channels/Actual Loop Rate"
-# channel adresses can be entered as full paths or aliases
+# channel addresses can be entered as full paths or aliases
 
 
 def sleep():

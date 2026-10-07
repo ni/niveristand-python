@@ -6,6 +6,7 @@ import time
 from niveristand import VeriStandException
 from niveristand.clientapi import Factory
 
+VERISTAND_YEAR = 2026
 GATEWAY_IP = "localhost"
 DEPLOY_TIMEOUT_MS = 120_000
 FAULT_SETTLE_TIME_SECONDS = 1
@@ -21,24 +22,25 @@ MULTIPLE_FAULT_VALUES = [3_000.0, 1.0]
 
 
 def main() -> None:
-    factory = Factory()
-    workspace = factory.get_iworkspace2(GATEWAY_IP)
-
-    engine_demo_sdf = os.path.join(
-        os.path.expanduser("~public"),
-        "Documents",
-        "National Instruments",
-        "NI VeriStand 2026",
-        "Examples",
-        "Stimulus Profile",
-        "Engine Demo",
-        "Engine Demo.nivssdf",
-    )
-    # NI VeriStand must be open so that the Gateway is available.
-    workspace.connect_to_system(engine_demo_sdf, True, DEPLOY_TIMEOUT_MS)
-
-    channel_fault = factory.get_ichannel_fault(GATEWAY_IP)
     try:
+        factory = Factory()
+        workspace = factory.get_iworkspace2(GATEWAY_IP)
+
+        engine_demo_sdf = os.path.join(
+            os.path.expanduser("~public"),
+            "Documents",
+            "National Instruments",
+            f"NI VeriStand {VERISTAND_YEAR}",
+            "Examples",
+            "Stimulus Profile",
+            "Engine Demo",
+            "Engine Demo.nivssdf",
+        )
+        # NI VeriStand must be open so that the Gateway is available.
+        workspace.connect_to_system(engine_demo_sdf, True, DEPLOY_TIMEOUT_MS)
+
+        channel_fault = factory.get_ichannel_fault(GATEWAY_IP)
+
         # Set one fault and verify both its status and the resulting channel value.
         channel_fault.set_fault_value(ENGINE_RPM_INPUT, ENGINE_RPM_FAULT)
         time.sleep(FAULT_SETTLE_TIME_SECONDS)
@@ -64,8 +66,9 @@ def main() -> None:
         time.sleep(FAULT_SETTLE_TIME_SECONDS)
         print(f"Fault list after clearing: {channel_fault.get_fault_list()}")
     except VeriStandException as error:
-        print(error)
         print(error.resolved_error_message)
+    except Exception as exc:
+        print(exc)
     finally:
         workspace.disconnect_from_system("", True)
 

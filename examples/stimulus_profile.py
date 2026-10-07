@@ -1,4 +1,4 @@
-"""Deploy and run an existing RT sequence"""
+"""Deploy and run an existing RT sequence."""
 
 import os
 import time
@@ -7,6 +7,7 @@ from niveristand import VeriStandException
 from niveristand.clientapi import Factory, SequenceCallInfo, SequenceState
 from niveristand.data import BooleanValue
 
+VERISTAND_YEAR = 2026
 GATEWAY_IP = "localhost"
 TARGET = "Controller"
 DEPLOY_TIMEOUT_MS = 120_000
@@ -17,35 +18,36 @@ SESSION_NAME = "Demo Session"
 
 def main() -> None:
     """Deploy Engine Demo, run the sequence, and clean up."""
-    factory = Factory()
-    workspace = factory.get_iworkspace2(GATEWAY_IP)
-
-    engine_demo_sdf = os.path.join(
-        os.path.expanduser("~public"),
-        "Documents",
-        "National Instruments",
-        "NI VeriStand 2026",
-        "Examples",
-        "Stimulus Profile",
-        "Engine Demo",
-        "Engine Demo.nivssdf",
-    )
-
-    workspace.connect_to_system(engine_demo_sdf, True, DEPLOY_TIMEOUT_MS)
-
-    sequence_path = os.path.join(
-        os.path.expanduser("~public"),
-        "Documents",
-        "National Instruments",
-        "NI VeriStand 2026",
-        "Examples",
-        "Stimulus Profile",
-        "Engine Demo",
-        "Stimulus Profiles",
-        "Engine Demo Return Value",
-        "Engine Demo Return Value.nivsseq",
-    )
     try:
+        factory = Factory()
+        workspace = factory.get_iworkspace2(GATEWAY_IP)
+
+        engine_demo_sdf = os.path.join(
+            os.path.expanduser("~public"),
+            "Documents",
+            "National Instruments",
+            f"NI VeriStand {VERISTAND_YEAR}",
+            "Examples",
+            "Stimulus Profile",
+            "Engine Demo",
+            "Engine Demo.nivssdf",
+        )
+
+        workspace.connect_to_system(engine_demo_sdf, True, DEPLOY_TIMEOUT_MS)
+
+        sequence_path = os.path.join(
+            os.path.expanduser("~public"),
+            "Documents",
+            "National Instruments",
+            f"NI VeriStand {VERISTAND_YEAR}",
+            "Examples",
+            "Stimulus Profile",
+            "Engine Demo",
+            "Stimulus Profiles",
+            "Engine Demo Return Value",
+            "Engine Demo Return Value.nivsseq",
+        )
+
         sequence = SequenceCallInfo(sequence_path, TARGET, [], False, 1_000.0)
         session = factory.get_istimulus_profile_session(
             GATEWAY_IP,
@@ -68,8 +70,9 @@ def main() -> None:
         finally:
             session.undeploy()
     except VeriStandException as error:
-        print(error)
         print(error.resolved_error_message)
+    except Exception as exc:
+        print(exc)
     finally:
         workspace.disconnect_from_system("", True)
 

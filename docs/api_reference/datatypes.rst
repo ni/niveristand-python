@@ -35,7 +35,7 @@ NI VeriStand Data types
         a = BooleanValueArray([True, False])
         a = BooleanValueArray([1.0, 0.0])
 
-.. autoclass:: niveristand.clientapi.ChannelReference
+.. autoclass:: niveristand.realtimesequenceapi.clientapi.ChannelReference
    :show-inheritance:
 
     Valid initialization values:
@@ -201,7 +201,7 @@ NI VeriStand Data types
     .. code-block:: python
 
         a = U64ValueArray([3, 3.1415, 0xFFFFFFFFFFFFFFFF, 18.4e18, True])
-.. autoclass:: niveristand.clientapi.VectorChannelReference
+.. autoclass:: niveristand.realtimesequenceapi.clientapi.VectorChannelReference
 
     Valid initialization values:
 
@@ -213,4 +213,4 @@ NI VeriStand Data types
 
         a = VectorChannelReference('engine/a')
 
-.. autoclass:: niveristand.clientapi._datatypes.rtprimitives.DataType
+.. autoclass:: niveristand.realtimesequenceapi.clientapi._datatypes.rtprimitives.DataType

@@ -2,6 +2,8 @@ import os
 from niveristand.realtimesequenceapi.errors import RunError
 from niveristand.legacy import NIVeriStand
 
+VERISTAND_YEAR = 2021
+
 
 def sdf_deploy_with_deploy_option():
     """Use legacy API to deploy a system definition along with deploy option."""
@@ -17,7 +19,7 @@ def sdf_deploy_with_deploy_option():
         os.path.expanduser("~public"),
         "Documents",
         "National Instruments",
-        "NI VeriStand 2021",
+        f"NI VeriStand {VERISTAND_YEAR}",
         "Examples",
         "Stimulus Profile",
         "Engine Demo",
@@ -32,14 +34,16 @@ def sdf_deploy_with_deploy_option():
             os.path.expanduser("~public"),
             "Documents",
             "National Instruments",
-            "NI VeriStand 2021",
+            f"NI VeriStand {VERISTAND_YEAR}",
             "Examples",
             "Stimulus Profile",
             "Engine Demo",
             "Engine Demo.nivscf",
         )
         filtered_targets = None
-        workspace.ConnectToSystem(engine_demo_path, True, 120000, calibration_file, filtered_targets)
+        workspace.ConnectToSystem(
+            engine_demo_path, True, 120000, calibration_file, filtered_targets
+        )
         print("Test Success")
     except RunError as e:
         print("Test Failed: %d - %s" % (int(e.error.error_code), e.error.message))

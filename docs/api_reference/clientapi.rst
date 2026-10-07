@@ -1,13 +1,25 @@
 .. _api_clientapi_page:
 
-==========
+=============
+Execution API
+=============
+
+Reference for the APIs in :mod:`niveristand.clientapi`.
+
 Client API
-==========
+----------
 
-.. toctree::
-   :maxdepth: 3
-   :caption: Client API
+.. automodule:: niveristand.clientapi._auto_generated_classes
+   :members:
 
-   datatypes
-   realtimesequence
-   stimulusprofileapi
+Logging
+-------
+
+.. automodule:: niveristand.clientapi.logging._auto_generated_classes
+   :members:
+
+Waveform Streaming
+------------------
+
+.. automodule:: niveristand.clientapi.waveformstreaming._auto_generated_classes
+   :members:

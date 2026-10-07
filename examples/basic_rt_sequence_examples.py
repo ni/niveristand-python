@@ -137,7 +137,8 @@ def state_machine_example():
     output = ChannelReference("Aliases/DesiredRPM")
 
     while (
-        stop.value != True  # noqa: E712 NI recommends you use comparison instead of identity.
+        stop.value
+        != True  # noqa: E712 NI recommends you use comparison instead of identity.
         and iters.value < 10
     ):
         state.value = rand(7)
@@ -172,7 +173,7 @@ def run_non_deterministic(func):
     so setting breakpoints, stepping into and over statements, etc., will work as expected.
     """
     result = func()
-    print("Function " + func.__name__ + "(None-Deterministic):" + str(result))
+    print("Function " + func.__name__ + "(Non-Deterministic):" + str(result))
 
 
 def run_deterministic(func):

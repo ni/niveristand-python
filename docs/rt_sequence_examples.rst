@@ -1,7 +1,7 @@
-.. _basic_rt_sequence_examples:
+.. _rt_sequence_examples:
 
 =================================
-Basic Real-time Sequence Examples
+Real-time Sequence Examples
 =================================
 
 Writing a real-time sequence
@@ -70,3 +70,27 @@ State machine
    :language: python
    :linenos:
    :pyobject: state_machine_example
+
+Engine Demo
+-----------
+
+Engine Demo Basic
+^^^^^^^^^^^^^^^^^
+
+.. literalinclude:: ../examples/real_time_sequence/engine_demo_basic.py
+   :language: python
+   :linenos:
+
+Engine Demo Advanced
+^^^^^^^^^^^^^^^^^^^^
+
+.. literalinclude:: ../examples/real_time_sequence/engine_demo_advanced.py
+   :language: python
+   :linenos:
+
+Test Engine Set Points
+^^^^^^^^^^^^^^^^^^^^^^
+
+.. literalinclude:: ../examples/real_time_sequence/test_engine_set_points.py
+   :language: python
+   :linenos:

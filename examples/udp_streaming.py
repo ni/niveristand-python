@@ -7,6 +7,7 @@ import struct
 from niveristand import VeriStandException
 from niveristand.clientapi import ByteOrder, Factory
 
+VERISTAND_YEAR = 2026
 GATEWAY_IP = "localhost"
 DEPLOY_TIMEOUT_MS = 120_000
 CLIENT_PORT = 51_000
@@ -50,24 +51,24 @@ def deserialize(packet: bytes, byte_order: ByteOrder) -> tuple:
 
 
 def main() -> None:
-    factory = Factory()
-    workspace = factory.get_iworkspace2(GATEWAY_IP)
-
-    # NI VeriStand must be open so that the Gateway is available.
-    engine_demo_sdf = os.path.join(
-        os.path.expanduser("~public"),
-        "Documents",
-        "National Instruments",
-        "NI VeriStand 2026",
-        "Examples",
-        "Stimulus Profile",
-        "Engine Demo",
-        "Engine Demo.nivssdf",
-    )
-    # Deploy Engine Demo through the running VeriStand Gateway.
-    workspace.connect_to_system(engine_demo_sdf, True, DEPLOY_TIMEOUT_MS)
-
     try:
+        factory = Factory()
+        workspace = factory.get_iworkspace2(GATEWAY_IP)
+
+        # NI VeriStand must be open so that the Gateway is available.
+        engine_demo_sdf = os.path.join(
+            os.path.expanduser("~public"),
+            "Documents",
+            "National Instruments",
+            f"NI VeriStand {VERISTAND_YEAR}",
+            "Examples",
+            "Stimulus Profile",
+            "Engine Demo",
+            "Engine Demo.nivssdf",
+        )
+        # Deploy Engine Demo through the running VeriStand Gateway.
+        workspace.connect_to_system(engine_demo_sdf, True, DEPLOY_TIMEOUT_MS)
+
         # Configure a unicast UDP stream for the selected Engine Demo channels.
         stream_session = workspace.get_iudp_channel_stream_session(CHANNELS)
         stream_session.multicast = False
@@ -124,8 +125,9 @@ def main() -> None:
                 stream_session.undeploy_udp_channel_stream_session()
             receiver.close()
     except VeriStandException as error:
-        print(error)
         print(error.resolved_error_message)
+    except Exception as exc:
+        print(exc)
     finally:
         # Undeploy Engine Demo after the UDP stream session is stopped.
         workspace.disconnect_from_system("", True)

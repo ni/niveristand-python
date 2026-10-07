@@ -7,7 +7,7 @@ Getting Started
 Features
 ========
 
-**niveristand** has two major capabilities: system definition scripting, and real-time sequence scripting and deployment. NI recommends you use an editor with code completion, such as `Visual Studio Code <https://code.visualstudio.com/docs/languages/python/>`_, to make it easier to browse and use this code.
+**niveristand** has three major capabilities: system definition scripting, real-time sequence scripting and deployment, and execution API. NI recommends you use an editor with code completion, such as `Visual Studio Code <https://code.visualstudio.com/docs/languages/python/>`_, to make it easier to browse and use this code.
 
 Scripting system definition files
 ---------------------------------
@@ -28,6 +28,10 @@ You can create and run NI VeriStand real-time (RT) sequences from Python that wo
       - You need to debug your real-time sequence.
       - You want to take full advantage of the Python ecosystem.
 
+Execution API
+-------------
+The Execution API provides access to the NI VeriStand system through the Gateway, allowing python scripts to support operations including channel read/write/monitoring, alarm management, calibration updates, channel faulting, data logging, UDP and waveform data streaming, model and stimulus profile management.
+
 .. include:: ../README.rst
    :start-after: _installation_section:
    :end-before: _usage_section:
@@ -36,4 +40,6 @@ Usage
 =====
 Refer to :doc:`sysdef_examples` for detailed examples of how to script a system definition file.
 
-Refer to :doc:`basic_rt_sequence_examples` for detailed examples of how to write a Python real-time sequence.
+Refer to :doc:`rt_sequence_examples` for detailed examples of how to write a Python real-time sequence.
+
+Refer to :doc:`execution_api_examples` for detailed examples of how to use the Execution API.

@@ -4,5 +4,5 @@
 Stimulus Profile APIs
 =======================
 
-.. autoclass:: niveristand.clientapi.StimulusProfileState
+.. autoclass:: niveristand.realtimesequenceapi.clientapi.StimulusProfileState
    :members:

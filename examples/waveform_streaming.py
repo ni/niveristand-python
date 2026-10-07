@@ -24,27 +24,27 @@ STREAM_DURATION_SECONDS = 30
 
 
 def main() -> None:
-    sdf_path = os.path.abspath(
-        os.path.expandvars(
-            os.path.expanduser(input("System definition path: ").strip())
-        )
-    )
-    if not os.path.isfile(sdf_path):
-        raise FileNotFoundError(f'System definition file not found: "{sdf_path}"')
-
-    waveform_path = input("Waveform path: ").strip()
-    if not waveform_path:
-        raise ValueError("A waveform path is required.")
-
-    factory = Factory()
-    workspace = factory.get_iworkspace2(GATEWAY_IP)
-    # Deploy the selected system definition through the VeriStand Gateway.
-    deploy_options = DeployOptions()
-    deploy_options.deploy_system_definition = True
-    deploy_options.timeout = DEPLOY_TIMEOUT_MS
-    workspace.connect_to_system(sdf_path, deploy_options)
-
     try:
+        sdf_path = os.path.abspath(
+            os.path.expandvars(
+                os.path.expanduser(input("System definition path: ").strip())
+            )
+        )
+        if not os.path.isfile(sdf_path):
+            raise FileNotFoundError(f'System definition file not found: "{sdf_path}"')
+
+        waveform_path = input("Waveform path: ").strip()
+        if not waveform_path:
+            raise ValueError("A waveform path is required.")
+
+        factory = Factory()
+        workspace = factory.get_iworkspace2(GATEWAY_IP)
+        # Deploy the selected system definition through the VeriStand Gateway.
+        deploy_options = DeployOptions()
+        deploy_options.deploy_system_definition = True
+        deploy_options.timeout = DEPLOY_TIMEOUT_MS
+        workspace.connect_to_system(sdf_path, deploy_options)
+
         # Register for DBL waveform data and stream at the acquisition rate.
         waveform_streaming = factory.get_iwaveform_streaming(GATEWAY_IP)
         specification = WaveformStreamSpecification(waveform_path)
@@ -80,8 +80,9 @@ def main() -> None:
                     specifications, on_waveform_data
                 )
     except VeriStandException as error:
-        print(error)
         print(error.resolved_error_message)
+    except Exception as exc:
+        print(exc)
     finally:
         workspace.disconnect_from_system("", True)
 

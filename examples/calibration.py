@@ -1,4 +1,4 @@
-"""Deploy TestScale and demonstrate polynomial channel calibration."""
+"""Deploy Calibration Demo and demonstrate polynomial channel calibration."""
 
 import os
 import time
@@ -14,25 +14,25 @@ DOUBLE_VALUE_COEFFICIENTS = [0.0, 2.0]
 
 
 def main() -> None:
-    factory = Factory()
-    workspace = factory.get_iworkspace2(GATEWAY_IP)
-    calibration = factory.get_icalibration2(GATEWAY_IP)
-
-    calibration_demo_sdf =  os.path.join(
-        os.path.realpath(os.path.dirname(__file__)), "calibration assets", "Calibration Demo.nivssdf"
-    )
-    calibration_file =  os.path.join(
-        os.path.realpath(os.path.dirname(__file__)), "calibration assets", "Calibration Demo.nivscf"
-    )
-
-    deploy_options = DeployOptions()
-    deploy_options.deploy_system_definition = True
-    deploy_options.calibration_file_path = str(calibration_file)
-    deploy_options.timeout = DEPLOY_TIMEOUT_MS
-    workspace.connect_to_system(str(calibration_demo_sdf), deploy_options)
-
-    calibration_applied = False
     try:
+        factory = Factory()
+        workspace = factory.get_iworkspace2(GATEWAY_IP)
+        calibration = factory.get_icalibration2(GATEWAY_IP)
+
+        calibration_demo_sdf =  os.path.join(
+            os.path.realpath(os.path.dirname(__file__)), "calibration assets", "Calibration Demo.nivssdf"
+        )
+        calibration_file =  os.path.join(
+            os.path.realpath(os.path.dirname(__file__)), "calibration assets", "Calibration Demo.nivscf"
+        )
+
+        deploy_options = DeployOptions()
+        deploy_options.deploy_system_definition = True
+        deploy_options.calibration_file_path = str(calibration_file)
+        deploy_options.timeout = DEPLOY_TIMEOUT_MS
+        workspace.connect_to_system(str(calibration_demo_sdf), deploy_options)
+
+        calibration_applied = False
         original_calibration = calibration.get_calibration(THERMOCOUPLE_CHANNEL)
         original_value = workspace.get_single_channel_value(THERMOCOUPLE_CHANNEL)
         print(
@@ -47,8 +47,9 @@ def main() -> None:
         calibrated_value = workspace.get_single_channel_value(THERMOCOUPLE_CHANNEL)
         print(f"Value after doubling calibration: {calibrated_value}")
     except VeriStandException as error:
-        print(error)
         print(error.resolved_error_message)
+    except Exception as exc:
+        print(exc)
     finally:
         try:
             if calibration_applied:
