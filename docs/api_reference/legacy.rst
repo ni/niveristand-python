@@ -1,3 +1,5 @@
+:tocdepth: 1
+
 .. _legacy_clientapi_page:
 
 ==========
