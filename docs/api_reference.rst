@@ -5,7 +5,7 @@ API Reference
 ==============
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 4
    :caption: Table of Contents:
 
    api_reference/clientapi
