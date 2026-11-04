@@ -82,7 +82,7 @@ def _windows_install_path(year):
     try:
         with winreg.OpenKey(
             winreg.HKEY_LOCAL_MACHINE,
-            "SOFTWARE\\Wow6432Node\\National Instruments\\VeriStand\\%d" % year,
+            "SOFTWARE\\National Instruments\\VeriStand\\%d" % year,
         ) as key:
             return winreg.QueryValueEx(key, "InstallDir")[0]
     except OSError:
@@ -97,7 +97,7 @@ def _latest_windows_install():
     latest_year = 0
     try:
         with winreg.OpenKey(
-            winreg.HKEY_LOCAL_MACHINE, "SOFTWARE\\Wow6432Node\\National Instruments\\VeriStand\\"
+            winreg.HKEY_LOCAL_MACHINE, "SOFTWARE\\National Instruments\\VeriStand\\"
         ) as vskey:
             count = winreg.QueryInfoKey(vskey)[0]
             for k in range(count):
