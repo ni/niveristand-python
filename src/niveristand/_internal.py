@@ -149,7 +149,13 @@ _asm_search_path, _run_coreclr = _resolve_binaries()
 if _run_coreclr:
     from pythonnet import load
 
-    load("coreclr")
+    # Use VeriStand's runtime config so the shared frameworks it depends on
+    # (e.g. Microsoft.AspNetCore.App, Microsoft.WindowsDesktop.App) are loaded.
+    _runtime_config = os.path.join(_asm_search_path, "VeriStand.runtimeconfig.json")
+    if os.path.isfile(_runtime_config):
+        load("coreclr", runtime_config=_runtime_config)
+    else:
+        load("coreclr")
 
 import clr  # noqa: E402
 
