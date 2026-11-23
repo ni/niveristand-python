@@ -133,9 +133,7 @@ def _new_text_for_node(node, orig, indent):
             new_name = _rewrite_module(a.name)
             if new_name is not None:
                 changed = True
-                new_text = re.sub(
-                    re.escape(a.name) + r"(?![\w.])", new_name, new_text, count=1
-                )
+                new_text = re.sub(re.escape(a.name) + r"(?![\w.])", new_name, new_text, count=1)
         return new_text if changed else None
 
     return None
