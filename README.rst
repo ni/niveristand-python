@@ -53,7 +53,7 @@ Refer to the `Execution api Examples section <https://niveristand-python.readthe
 Updating Imports for 4.0.0 and later
 ------------------------------------
 
-Starting with `niveristand 4.0.0 <https://pypi.org/project/niveristand/4.0.0/>`_ and later, ``niveristand.clientapi`` now refers to the Execution API and ``niveristand.realtimesequenceapi`` refers to Real-time sequence APIs. Refer to `niveristand_4_0_0_and_later_import_updater <https://github.com/ni/niveristand-python/blob/master/niveristand_4_0_0_and_later_import_updater.py>`_ to assist with updating imports.
+Starting with `niveristand 4.0.0 <https://pypi.org/project/niveristand/4.0.0/>`_ and later, ``niveristand.clientapi`` now refers to the Execution API and ``niveristand.realtimesequenceapi`` refers to Real-time sequence APIs. Refer to `niveristand_v4_plus_import_updater <https://github.com/ni/niveristand-python/blob/master/niveristand_v4_plus_import_updater.py>`_ to assist with updating imports.
 
 Selecting a VeriStand Version
 -----------------------------

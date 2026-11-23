@@ -57,7 +57,7 @@ The script does not modify strings, comments or cases like:
     value = niveristand.clientapi.DoubleValue()
 
 Usage:
-    python niveristand_4_0_0_and_later_import_updater.py <one or more file or directory paths, separated by spaces>
+    python niveristand_v4_plus_import_updater.py <one or more file or directory paths, separated by spaces>
 """
 
 import ast
@@ -133,7 +133,9 @@ def _new_text_for_node(node, orig, indent):
             new_name = _rewrite_module(a.name)
             if new_name is not None:
                 changed = True
-                new_text = re.sub(re.escape(a.name) + r"(?![\w.])", new_name, new_text, count=1)
+                new_text = re.sub(
+                    re.escape(a.name) + r"(?![\w.])", new_name, new_text, count=1
+                )
         return new_text if changed else None
 
     return None
@@ -223,7 +225,7 @@ def main():
     """Main entry of the script."""
     if len(sys.argv) < 2:
         print(
-            r"python migrate_niveristand_imports.py <one or more file or directory paths, separated by spaces>"
+            r"python niveristand_v4_plus_import_updater.py <one or more file or directory paths, separated by spaces>"
         )
         return 1
 
