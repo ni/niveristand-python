@@ -57,7 +57,7 @@ The script does not modify strings, comments or cases like:
     value = niveristand.clientapi.DoubleValue()
 
 Usage:
-    python migrate_niveristand_imports.py <one or more file or directory paths, separated by spaces>
+    python niveristand_v4_plus_import_updater.py <one or more file or directory paths, separated by spaces>
 """
 
 import ast
@@ -223,7 +223,7 @@ def main():
     """Main entry of the script."""
     if len(sys.argv) < 2:
         print(
-            r"python migrate_niveristand_imports.py <one or more file or directory paths, separated by spaces>"
+            r"python niveristand_v4_plus_import_updater.py <one or more file or directory paths, separated by spaces>"
         )
         return 1
 
